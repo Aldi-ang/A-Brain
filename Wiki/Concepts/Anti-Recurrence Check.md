@@ -1,0 +1,43 @@
+---
+type: concept
+created: 2026-07-27
+updated: 2026-07-27
+tags: [pattern, discipline, git]
+---
+
+# Anti-Recurrence Check
+
+The standing discipline this project adopted after the same failure happened **three
+separate times**: a commit's message claimed to include a fix, but the commit's *actual*
+diff didn't contain it — usually because the real work was still sitting uncommitted in a
+[[Git Worktrees|git worktree]] that never got merged.
+
+## The rule
+
+Never report a file as "committed" or work as "saved" unless, in that same turn:
+1. `git add`/`git commit` was actually run, and
+2. `git show --stat HEAD` was checked to confirm the expected file is really in the diff.
+
+This applies every time a task creates or edits a file meant to persist — proactively, not
+just when someone is specifically asked to investigate whether something landed.
+
+## Why it's called "anti-recurrence"
+
+Each of the [[Git Worktrees|three incidents]] this rule comes from was independently
+discovered — meaning the pattern wasn't caught by the rule the first two times, only by the
+project owner manually checking GitHub later. The rule exists specifically to stop a
+fourth occurrence, not just to explain the first three after the fact.
+
+## Related concept: verify before claiming, generally
+
+This project treats "I did X" and "X actually happened, verified" as two different claims
+that must not be conflated — the same spirit shows up in
+[[Draft-Then-Deploy Discipline|never assuming a rules draft is deployed]] and in this wiki's
+own rule (see `CLAUDE.md`) to never answer "is this live right now" from Wiki content alone.
+
+## Related
+
+- [[Git Worktrees]] — the three incidents this rule was built from
+- [[Draft-Then-Deploy Discipline]] — the same "verify, don't assume" spirit applied to rules
+  deployment
+- Summary: [[Lost Work in Worktrees — Three Incidents]]
