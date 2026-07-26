@@ -105,3 +105,43 @@ page/summary it came from, clearly separated from anything added from general kn
   structure from the natural20.com guide, defined ingest/query operations adapted for KPM's
   actual incident history, positioned Ponytail as a documented Concept rather than a
   wiki-maintenance tool.
+
+- **2026-07-27 — notes from actually building the first ingest pass.** Structure built,
+  13 real sources ingested (well past the "~10 sources" threshold), 6 Entities + 4 Concepts
+  + 9 Summaries produced, every page cross-linked with no orphans. A few things worth
+  recording rather than silently deciding on the fly:
+
+  1. **"An incident" often spans several memory records, not one.** The plan's Ingest
+     algorithm reads as one-source-in, one-summary-out. In practice, e.g. the Fleet Captain
+     Batch 1+2 story is really three separate memory records written on different days
+     (fixed → discovered unmerged → merged via PR), and grouping them into one Summary page
+     made the wiki more navigable than three near-duplicate pages would have. Recommend: a
+     Summary page represents one coherent *story*, cited from potentially multiple Raw
+     sources, rather than a strict 1:1 mapping.
+
+  2. **Not every real incident fits neatly into Entities vs. Concepts.** The offline-login
+     lockout fix is a real, worth-knowing bug, but it isn't a "specific thing" (Entity) or a
+     "recurring pattern" (Concept) in the same way the permissions material is — it's closer
+     to an environment/runtime quirk. Rather than force it into a category, its Summary page
+     names the gap honestly (see Wiki/Index.md's "Known gaps" section) instead of pretending
+     it fits. Recommend: don't be afraid of a Summary page with a thin or no Entity/Concept
+     ripple if a forced link would be less honest than an admitted gap — and let a third
+     category (e.g. "Environment/Runtime") emerge once 2-3 more things want to join it,
+     rather than inventing one for a single page.
+
+  3. **A requested ingest topic can be a paraphrase, not a literal source.** The build
+     prompt asked to ingest "the Firestore Security Rules escalation vulnerability" — no
+     memory record uses that exact phrase. The closest genuinely real match was the Rank
+     Config / Achievement Badges cross-tenant shared-document gap, which really is a
+     tenant-isolation failure, just not previously described with the word "escalation."
+     Named it accurately as that specific gap rather than either inventing a separate
+     "escalation" incident (forbidden — never invent facts) or silently skipping the
+     request. Recommend future ingest requests either cite the exact source, or explicitly
+     invite this kind of best-real-match judgment call up front.
+
+  4. **Line-wrapped `[[wikilinks]]` silently break.** Writing prose at ~100 characters wide
+     around a long page title (e.g. `[[Fleet Captain Rule Gaps — Batch 1 and 2]]`) can wrap
+     the link across two lines, which Obsidian will NOT render as a link. Caught this with a
+     small script checking every `[[...]]` pair stays on one line, run once at the end of
+     the ingest pass — worth keeping as a standing step in the Ingest algorithm's "update
+     Index/Log" phase, not just a one-off fix.
