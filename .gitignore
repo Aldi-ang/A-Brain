@@ -1,0 +1,7 @@
+# Obsidian local-machine UI state (causes noisy diffs, not real content)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+
+# Claudian local session history (local chat state, not vault content)
+.claudian/sessions/
