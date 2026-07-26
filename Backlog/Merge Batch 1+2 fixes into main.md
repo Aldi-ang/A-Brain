@@ -1,5 +1,5 @@
 ---
-status: Ready to Deploy
+status: Done
 area: Permissions & Bugfixes
 priority: Critical
 updated: 2026-07-26
@@ -7,9 +7,9 @@ updated: 2026-07-26
 
 # Merge Batch 1+2 fixes into main
 
-Two full rounds of bug fixes from the July 26 review are sitting **done, tested, and committed** — but never merged into `main`. They live only on branch `claude/critical-bugs-permissions-batch-c3371f` (commits `74a02d2` and `d3ec78f`).
+**Done 2026-07-26** — merged via [PR #3](https://github.com/Aldi-ang/kpm-inventory/pull/3), merge commit `a8fc57c`. Re-verified live before merging (not just trusted from the old commit messages): 26/26 and 8/8 emulator tests re-run and passing, clean build, CI Build Check green on both the PR and the push to `main`.
 
-Confirmed 2026-07-26: `main` is a strict ancestor of this branch, so it's a **clean fast-forward merge** — no conflicts.
+Two full rounds of bug fixes from the July 26 review — previously sitting done, tested, and committed on branch `claude/critical-bugs-permissions-batch-c3371f` (commits `74a02d2` and `d3ec78f`) but never merged.
 
 ## What's in Batch 1 (`74a02d2`)
 - Rank Config / Achievement Badges Firestore rule gap (was completely unprotected)
