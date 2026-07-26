@@ -5,3 +5,8 @@
 
 # Claudian local session history (local chat state, not vault content)
 .claudian/sessions/
+
+# Installed community plugin binaries (reinstalled via Obsidian, not vault content)
+.obsidian/plugins/*/main.js
+.obsidian/plugins/*/styles.css
+.obsidian/plugins/*/data.json
