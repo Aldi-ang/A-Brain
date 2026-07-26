@@ -1,0 +1,21 @@
+views:
+  - type: table
+    name: To Do
+    filters:
+      and:
+        - status == "To Do"
+  - type: table
+    name: Ready to Deploy
+    filters:
+      and:
+        - status == "Ready to Deploy"
+  - type: table
+    name: Parked
+    filters:
+      and:
+        - status == "Parked"
+  - type: table
+    name: Done
+    filters:
+      and:
+        - status == "Done"
