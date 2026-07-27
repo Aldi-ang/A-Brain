@@ -27,11 +27,16 @@ Claude Code doesn't burn tokens re-deriving context, especially building apps.
 
 ---
 
-## 1. Live now — Cowork session auto-ingest (unchanged, still good)
+## 1. Live now — scheduled session auto-ingest (upgraded 2026-07-27)
 
 A daily scheduled task, `a-brain-session-ingest`, runs at 9:02 PM local time, mining recent
-Cowork sessions and `Inbox/` and running the same `ingest` procedure [[CLAUDE.md]] defines.
-Scope: Cowork sessions only — this is the one surface this sandbox can actually reach.
+sessions and `Inbox/` and running the same `ingest` procedure [[CLAUDE.md]] defines.
+
+**Was Cowork-only, now broader.** The original version of this task ran inside a Cowork
+sandbox and could only see ~4 Cowork sessions. It was deleted and replaced with a task of
+the same name created from a Claude Code session — its first real run mined 14 actual
+sessions via `list_sessions`/`list_events`, correctly told apart what was genuinely new
+from what was already covered. See `runs/2026-07-27_a-brain-session-ingest_first-run.md`.
 
 ---
 
@@ -193,18 +198,14 @@ it without anything extra. Flag if this guess is wrong.
 
 | Piece | Status |
 |---|---|
-| Cowork daily ingest task | **Live** |
+| Scheduled daily ingest task | **Live**, upgraded 2026-07-27 — real session mining (`list_sessions`/`list_events`), not Cowork-only anymore. Ran once, worked correctly. |
 | `graphify/` folder scaffold in vault | **Done** |
-| `/save`, `/resume` slash commands | **Installed** 2026-07-27, from a Claude Code session with real machine access — `C:\Users\ASUS\.claude\commands\save.md` and `resume.md` |
-| `SessionEnd` safety-net hook | Still not installed — nobody has drafted the actual hook script/settings.json entry in a session with repo access yet. Genuinely still needs doing, not just needs Aldi. |
-| `graphify claude install` | **Done** 2026-07-27, run inside `kpm-inventory` — wrote `CLAUDE.md` + `.claude/settings.json` PreToolUse hooks, committed `c06ef7b`, pushed to `main`, CI build-check green |
-| Initial graph build | **Done** 2026-07-27 — `graphify update .`: 294 nodes, 509 edges, 21 communities. Sanity-queried against the known Fleet Captain permission pattern, returned correct results |
-| 3-layer CLAUDE.md rule for KPM repo | **Done** 2026-07-27, same commit as above |
+| `/save`, `/resume` slash commands | **Installed** 2026-07-27 — `C:\Users\ASUS\.claude\commands\save.md` and `resume.md` |
+| `SessionEnd` safety-net hook | **Not built — now an open question, not just a to-do.** The new ingest task already mines real session history directly, which may make this redundant. Watching a few more days of real runs before deciding either way. |
+| `graphify claude install` (kpm-inventory) | **Done** 2026-07-27 — wrote `CLAUDE.md` + `.claude/settings.json` PreToolUse hooks, committed `c06ef7b`, pushed to `main`, CI build-check green |
+| Initial graph build (kpm-inventory) | **Done** — `graphify update .`: 294 nodes, 509 edges, 21 communities. Sanity-queried against the known Fleet Captain permission pattern, returned correct results |
+| Graphify wired into A-Brain itself | **Done** 2026-07-27 — 1356 nodes, 1715 edges, 168 communities across the whole vault |
+| 3-layer CLAUDE.md rule for KPM repo | **Done** 2026-07-27, same commit as the graph build |
 | Web chat export extension | Needs Aldi to install the browser extension and do exports himself |
-| Obsidian → code-graph export (`/graphify . --obsidian`) | Not yet run — see this session's notes for status |
-
-## Rename (2.1) — done, superseding the original sequencing
-
-Aldi asked to do the rename now rather than wait for full automation completion — done
-2026-07-27 by a Claude Code session with real machine access. See
-[[PLAN-A-Brain-agentic-OS]] task 2.1 for the full result.
+| Obsidian → code-graph export (`/graphify . --obsidian`) | **Done** 2026-07-27 — 315 notes + a graph.canvas, committed |
+| Vault + repo rename (2.1) | **Done** — folder, GitHub repo, and Obsidian's vault pointer all confirmed switched to A-Brain. Full detail: [[PLAN-A-Brain-agentic-OS]] task 2.1. |

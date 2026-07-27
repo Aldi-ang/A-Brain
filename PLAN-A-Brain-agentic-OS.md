@@ -30,9 +30,9 @@ premature building both sources warn against.
 
 | Level | Status |
 |---|---|
-| L1 Skills | ~30% — three real skills now exist (`delegate-coding-task`, `firebase-live-qa`, `skill-safety-check`), plus installed third-party ones (ponytail, caveman, graphify). Interview audit (1.2) done; session-mining audit (1.1) done as a partial pass (Cowork sessions only). |
-| L2 Memory | ~80% — vault exists with Karpathy Raw/Wiki/Index structure, CLAUDE.md rulebook, real ingested content, git-backed on GitHub, broader-than-KPM domains started, index.md at every folder, runs/ scaffolded, Personal-Context.md in place. Missing: 2.1 (vault/repo rename), 2.5 (session ingestion habit not yet running). |
-| L3 Interface | 0% — deliberately not started. |
+| L1 Skills | ~30% — three real skills now exist (`delegate-coding-task`, `firebase-live-qa`, `skill-safety-check`), plus installed third-party ones (ponytail, caveman, graphify). Interview audit (1.2) done; session-mining audit (1.1) still only a partial pass — see note below, the tooling to do it properly now exists but the full pass hasn't been re-run. |
+| L2 Memory | ~90% — vault renamed to A-Brain (folder + GitHub repo + Obsidian pointer, all confirmed), index.md everywhere, runs/ has real data, Graphify wired into both `kpm-inventory` (294 nodes) and A-Brain itself (1356 nodes), `/save`/`/resume` installed, session-ingestion automation genuinely live with broader reach than originally scoped (real session mining, not just 4 Cowork sessions — see 2.5). Missing: 2.2's KPM-content-into-its-own-domain-folder move. |
+| L3 Interface | 0% — deliberately not started. Gate (5 working skills, vault beyond KPM, runs/ with real data) still not fully met — only 2 skills, only 1 real ingest run logged. |
 | L4 Distribution | 0% — not currently relevant (solo dev, no team yet). |
 
 ---
@@ -98,9 +98,11 @@ openly here rather than silently deviating, per this plan's own convention.
 **Result:** local folder copied+verified+renamed (`kpm-notes-vault` → `A-Brain`, same
 parent directory), all in-vault path references updated except `Raw/` sources (left
 untouched — immutable by this vault's own rule) and this task's own historical heading
-text above (kept as an accurate record of the rename, not rewritten). GitHub repo rename,
-Obsidian's vault pointer, and `delegate-coding-task`'s facts file are the remaining pieces
-— see the Revision Log for exact status of each.
+text above (kept as an accurate record of the rename, not rewritten). GitHub repo also
+renamed (`kpm-notes` → `A-Brain`). Obsidian's vault pointer confirmed switched (checked
+`obsidian.json` directly — the A-Brain path shows `"open": true`). `delegate-coding-task`'s
+facts file checked — never referenced the old path, nothing to update. **Task 2.1 is now
+fully complete**, every sub-item verified, not just claimed.
 
 ### 2.2 — Restructure for everything, not just KPM — partially started 2026-07-27
 Move KPM content into its own domain folder; add sibling domains (learning, business,
@@ -138,12 +140,23 @@ automated at first — prove the habit works manually before automating it.
 prove the habit manually first — he wants work in chat/Claude Code/Cowork to land in the vault
 without manually prompting for it each time, plus a way to cut token burn when Claude Code
 re-derives context that's already in the vault. See [[Automation-Setup]] for the full design
-and honest scope limits. Summary: a daily scheduled Cowork task (`a-brain-session-ingest`) is
-live and does real ingest work; a Claude Code hook for CLI sessions is drafted but untested
-(needs Aldi to install and verify); claude.ai web chat is out of reach entirely. The mitigation
-against the "write-only vault" risk this reintroduces: the task skips trivial sessions, marks
-uncertain claims instead of inventing them, and reports a skimmable daily summary so drift
-stays visible.
+and honest scope limits.
+
+**Update 2026-07-27 — superseded the Cowork-only version.** The original Cowork-based daily
+task was deleted and replaced with a scheduled task (`a-brain-session-ingest`, still 21:00
+daily) created from a Claude Code session — same taskId, genuinely broader reach: its first
+real run mined 14 actual sessions via `list_sessions`/`list_events` (not the ~4 Cowork-only
+sessions the old version was limited to), correctly ingested one genuinely new thing and
+correctly skipped 13 already-covered ones with real reasoning, not guesswork. See
+`runs/2026-07-27_a-brain-session-ingest_first-run.md` for the actual run log.
+
+**Open question this raises, not yet resolved:** the `SessionEnd` hook was planned as a
+safety net "for sessions where Aldi forgets `/save`." Given the new routine already mines
+real session history directly (regardless of whether `/save` was run), the hook's marginal
+value looks lower than originally assumed. Not building it yet — worth watching a few more
+days of real ingest runs before deciding it's actually redundant rather than assuming so from
+one data point. claude.ai web chat still needs the manual browser-extension export path (see
+[[Automation-Setup]] section 4).
 
 ---
 
@@ -305,3 +318,17 @@ valuable than any single snapshot. Applies to this PLAN document too.
   earlier overclaim — claude.ai web chat isn't fully out of reach, a browser-extension export
   path exists. Nearly everything here still needs Aldi to run commands on his own machine
   (this sandbox can't reach the KPM repo or his Claude Code install directly).
+- **2026-07-27 — v9.** A Claude Code session with real machine + `kpm-inventory` access
+  executed everything v8 flagged as needing Aldi's hands: `graphify claude install` in
+  `kpm-inventory` (294 nodes, committed + pushed, CI green), the 3-layer CLAUDE.md rule,
+  `/save`/`/resume` installed globally, the Obsidian code-graph export (315 notes). Aldi then
+  asked for the 2.1 rename now rather than waiting — done: folder + GitHub repo renamed,
+  Obsidian pointer confirmed. Graphify was also wired into A-Brain itself (1356 nodes across
+  the whole vault). A separate reconciliation pass caught and committed uncommitted work from
+  two parallel sessions (this one and a Cowork session) that had touched the vault
+  independently without conflicting — same failure shape as the 3 worktree incidents, caught
+  before it became a 4th. The old Cowork-only daily ingest task was deleted and replaced with
+  a scheduled task from a Claude Code session, ran once successfully with genuinely broader
+  session reach than before (see 2.5's update). This entry itself written after re-verifying
+  every claim above against real `git log`/file contents, not trusted from prior sessions'
+  summaries — the status table and 2.1/2.5 sections above were corrected to match.
