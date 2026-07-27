@@ -47,6 +47,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   stale-memory lesson
 - [[Rules Draft Process]] — the source behind Draft-Then-Deploy Discipline
 - [[Ponytail Philosophy Ingest]] — the source behind Ponytail Philosophy
+- [[Claude Code CLI Install — McAfee Download Freeze]] — CLI install blocked by McAfee
+  intercepting the download, plus the non-interactive ponytail marketplace install
 
 ## Known gaps (honest, not filled in yet)
 

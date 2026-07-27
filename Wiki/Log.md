@@ -64,3 +64,22 @@ browse:
   can't be edited.
 - `CLAUDE.md` updated: documents `Wiki/MOC.md` in the vault map, and adds a step to the
   Ingest operation so future passes keep the MOC and frontmatter current, not just the Index.
+
+## 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run)
+
+Reviewed CCD session history (14 sessions, 2026-07-22 through 2026-07-27) against existing
+vault content. Most were already fully reflected — either by the first ingest pass's Summary
+pages, or (for the two most-recent 2026-07-27 sessions covering the vault rename and Graphify
+wiring) by `PLAN-A-Brain-agentic-OS.md`'s own revision log and `Automation-Setup.md`, which
+were written live during those sessions. `Inbox/` was empty.
+
+One genuinely new item ingested: the "Plugin marketplace DietrichGebert/ponytail" session
+(2026-07-26), covering a McAfee-caused silent freeze during the Claude Code CLI install and
+its curl-based workaround, plus the non-interactive `claude plugin marketplace add`/
+`claude plugin install` commands used to install ponytail. Saved to `Raw/`, new Summary page
+[[Claude Code CLI Install — McAfee Download Freeze]], rippled into [[Ponytail Philosophy]],
+added to `Wiki/Index.md` and `Wiki/MOC.md`.
+
+Explicitly skipped as already-covered, not overlooked: "Abandoned worktrees audit" and "MCP
+server installation" sessions — both are the same underlying incidents already documented in
+[[Lost Work in Worktrees — Three Incidents]].

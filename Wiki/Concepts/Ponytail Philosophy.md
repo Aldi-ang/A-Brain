@@ -49,6 +49,13 @@ prevents data loss, security measures, or anything a human explicitly asked for.
 never shortens the *reading* — tracing the actual flow through the codebase always happens
 before picking a rung on the ladder.
 
+## How the plugin actually got installed
+
+Installed 2026-07-26 via `claude plugin marketplace add DietrichGebert/ponytail` +
+`claude plugin install ponytail`, non-interactively — see
+[[Claude Code CLI Install — McAfee Download Freeze]] for the full story, including the McAfee
+download-freeze issue that blocked the CLI install itself first.
+
 ## Related
 
 - Every real bug-fix summary in this wiki (e.g. [[Fleet Captain Rule Gaps — Batch 1 and 2]],

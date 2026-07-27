@@ -41,6 +41,7 @@ The house rules this project follows so mistakes don't repeat.
 - [[Rules Draft Process]] — the summary this discipline was built from: document a blocked fix, don't silently skip it.
 - [[Ponytail Philosophy]] — the lazy-but-correct coding style that governs how Claude Code writes real code here.
 - [[Ponytail Philosophy Ingest]] — where that page's content actually came from.
+- [[Claude Code CLI Install — McAfee Download Freeze]] — the CLI install got silently blocked by McAfee scanning the download; how it was diagnosed and worked around, plus the non-interactive ponytail marketplace install.
 
 ## 🏗️ Architecture
 
