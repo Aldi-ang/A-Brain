@@ -19,6 +19,7 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | Item | Status |
 |---|---|
 | Add production_targets Firestore rule | (see file) |
+| Business and UX improvement testing session | To Do — scheduled 2026-07-28 |
 | Chunk handleAdminApproveTransfer | To Do |
 | Crown Transfer (Option A) | Parked — waiting on a conversation with the company boss |
 | Deploy firestore.rules to production | Ready to Deploy |
