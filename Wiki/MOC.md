@@ -31,7 +31,7 @@ How KPM decides who can read or write what, and where that's gone wrong.
 - [[Fleet Captain Rule Gaps — Batch 1 and 2]] — the two batches of fixes for the recurring gap above, and how they nearly got lost on an unmerged branch.
 - [[Option B Region Lock]] — locking roster create/delete to an admin's own region, plus a real "don't trust old memory, re-check the code" lesson.
 - [[Customer Directory Permission Tier]] — a 3-level edit permission for the Customer Directory. *(Also an [[#🚨 Incidents|incident]] — its first version was nearly lost.)*
-- [[Dead Weight Cleanup and Rules-Deploy Gap]] — 2026-07-27 re-check: rules deploy still the top open gap; also removed two console.logs that leaked a privilege-bypass path to devtools.
+- [[Dead Weight Cleanup and Rules-Deploy Gap]] — 2026-07-27 re-check: rules deploy still the top open gap; also removed two console.logs that leaked a privilege-bypass path to devtools. Update: the cleanup's dependency removal broke the production build (`react-is`), fixed 2026-07-28.
 
 ## 🧭 Process & Discipline
 

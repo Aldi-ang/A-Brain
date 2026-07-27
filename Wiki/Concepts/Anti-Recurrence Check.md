@@ -37,9 +37,22 @@ that must not be conflated — the same spirit shows up in
 [[Draft-Then-Deploy Discipline|never assuming a rules draft is deployed]] and in this wiki's
 own rule (see `CLAUDE.md`) to never answer "is this live right now" from Wiki content alone.
 
+## A second shape of the same mistake: local checks that don't match real conditions
+
+Not just "did the commit happen" — the same failure shape shows up whenever a check is
+narrower than what actually gets exercised for real. 2026-07-28: `react-is` got removed as
+"unused" because nothing in `src/` imports it directly — but `recharts` (a dependency being
+kept) imports it internally, and the removal broke the real Vercel production build. The
+local check (`grep src/`) looked sufficient; it wasn't. See
+[[Dead Weight Cleanup and Rules-Deploy Gap]]'s 2026-07-28 update for the full incident —
+fixed by actually running a production build before trusting the cleanup, not just the
+narrower check.
+
 ## Related
 
 - [[Git Worktrees]] — the three incidents this rule was built from
 - [[Draft-Then-Deploy Discipline]] — the same "verify, don't assume" spirit applied to rules
   deployment
 - Summary: [[Lost Work in Worktrees — Three Incidents]]
+- Summary: [[Dead Weight Cleanup and Rules-Deploy Gap]] — the dependency-removal instance of
+  this same pattern

@@ -28,7 +28,7 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | NOO registration crash fixes | Done |
 | Offline auth lockout fix | Done |
 | Rank Config and Achievement Badges redesign | Parked |
-| Remove unused code and dependencies | To Do |
+| Remove unused code and dependencies | Ready to Deploy — PR open, react-is regression fixed |
 
 This table is a snapshot, not live — open `Backlog.base` in Obsidian for current status, since
 items here move between columns over time and this index won't auto-update.

@@ -62,8 +62,26 @@ no PR opened yet.
 - [[../Concepts/Anti-Recurrence Check]]
 - [[Fleet Captain Rule Gaps — Batch 1 and 2]]
 
+## Update 2026-07-28 — the cleanup broke the production build
+
+Pushed and PR'd (`cleanup-dead-weight-hygiene`) — Vercel's PR build failed:
+`Rollup failed to resolve import "react-is" from recharts/es6/util/ReactUtils.js`.
+`react-is` was removed as "unused" based on nothing in `src/` importing it directly, but
+`recharts` (a real, kept dependency) imports it internally — a transitive need the original
+check didn't cover. Fixed by restoring it (commit `9cddd45`), verified with a real
+`npm run build` before pushing, not just trusted.
+
+**Why it's worth remembering, on top of the original lesson above:** grepping `src/` for
+direct imports isn't sufficient proof a dependency is unused — check whether anything else
+you're keeping needs it internally (`grep -rl "\"<pkg>\"" node_modules/*/package.json`, or
+just run a real production build). Same shape as [[../Concepts/Anti-Recurrence Check]]'s
+core lesson — a check that looks sufficient but doesn't match what actually gets exercised
+for real. Also now captured in the `delegate-coding-task` skill's
+`kpm-inventory-facts.md` reference, so future sessions doing dependency cleanup start with
+this already known.
+
 ## Verify before trusting
 
-Whether `ce3b001` has since been pushed, PR'd, or merged to `main` is exactly the kind of
-live-status question this wiki doesn't answer — check the real `kpm-inventory` repo (`git
-log`, `git branch -r`) directly.
+Whether `9cddd45` has since been merged to `main`, or whether the PR is still open, is
+exactly the kind of live-status question this wiki doesn't answer — check the real
+`kpm-inventory` repo (`git log`, `git branch -r`) directly.

@@ -97,3 +97,15 @@ dead-code/dependency/asset cleanup and hygiene pass landed as commit `ce3b001` o
 Other sessions on the list were either the ingest task's own prior run ("A brain session
 ingest") or already logged in `runs/session-ingest-state.md` from the first pass. `Inbox/`
 was empty.
+
+## 2026-07-28 — dependency-removal regression, fixed and rippled
+
+The `cleanup-dead-weight-hygiene` PR broke Vercel's production build: `react-is` was
+removed as unused (nothing in `src/` imports it) but `recharts` needs it internally. Fixed
+(commit `9cddd45`), verified with a real `npm run build` before pushing again. Updated:
+[[Summaries/Dead Weight Cleanup and Rules-Deploy Gap]] (the incident, in full),
+[[Concepts/Anti-Recurrence Check]] (added as a second real example of "local check doesn't
+match real conditions"), `Wiki/MOC.md`, `Backlog/Remove unused code and dependencies.md`
+(corrected its own wrong "no functional risk" claim), and the `delegate-coding-task`
+skill's `kpm-inventory-facts.md` reference (so future sessions doing dependency cleanup
+start with this already known — not just documented here passively).
