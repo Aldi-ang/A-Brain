@@ -49,6 +49,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Ponytail Philosophy Ingest]] — the source behind Ponytail Philosophy
 - [[Claude Code CLI Install — McAfee Download Freeze]] — CLI install blocked by McAfee
   intercepting the download, plus the non-interactive ponytail marketplace install
+- [[Dead Weight Cleanup and Rules-Deploy Gap]] — ponytail-ultra review re-confirmed rules
+  still undeployed; dead code/deps/assets and a leaking "GOD MODE" console.log cleaned up
 
 ## Known gaps (honest, not filled in yet)
 

@@ -40,13 +40,22 @@ a known limitation (a rules-only fix can't move data to a new path — that need
 change), per this project's [[Draft-Then-Deploy Discipline|document-don't-silently-half-fix]]
 convention.
 
+## Re-confirmed still-undeployed, 2026-07-27
+
+A `/ponytail:ponytail ultra` review re-checked the repo against the last two fix batches and
+confirmed this is still the single highest-leverage open item: every fix in both batches
+exists only as a draft. See [[Dead Weight Cleanup and Rules-Deploy Gap]] — that session did
+an unrelated dead-code/hygiene cleanup instead, deliberately leaving the actual
+`firebase deploy --only firestore:rules` step for the project owner to run by hand.
+
 ## Related
 
 - [[Draft-Then-Deploy Discipline]]
 - [[Fleet Captain Permission Gap]]
 - [[Rank Config and Achievement Badges]]
 - [[UI-Says-Yes-Server-Says-No Pattern]]
-- Summaries: [[Rank Config Cross-Tenant Gap]], [[Fleet Captain Rule Gaps — Batch 1 and 2]]
+- Summaries: [[Rank Config Cross-Tenant Gap]], [[Fleet Captain Rule Gaps — Batch 1 and 2]],
+  [[Dead Weight Cleanup and Rules-Deploy Gap]]
 
 ## Verify before trusting
 

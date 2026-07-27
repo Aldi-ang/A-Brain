@@ -83,3 +83,17 @@ added to `Wiki/Index.md` and `Wiki/MOC.md`.
 Explicitly skipped as already-covered, not overlooked: "Abandoned worktrees audit" and "MCP
 server installation" sessions — both are the same underlying incidents already documented in
 [[Lost Work in Worktrees — Three Incidents]].
+
+## 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run)
+
+Reviewed CCD session list again; one genuinely new session found: "Full app review and git
+integrity audit" (2026-07-27, after the first run). A `/ponytail:ponytail ultra` review
+re-confirmed [[Firestore Rules|Firestore rules deploy]] as still the top open gap, then a
+dead-code/dependency/asset cleanup and hygiene pass landed as commit `ce3b001` on branch
+`cleanup-dead-weight-hygiene` (not yet pushed/merged as of this ingest). New Summary page
+[[Dead Weight Cleanup and Rules-Deploy Gap]], rippled into [[../Entities/Firestore Rules]] and
+[[../Concepts/Ponytail Philosophy]], added to `Wiki/Index.md` and `Wiki/MOC.md`.
+
+Other sessions on the list were either the ingest task's own prior run ("A brain session
+ingest") or already logged in `runs/session-ingest-state.md` from the first pass. `Inbox/`
+was empty.

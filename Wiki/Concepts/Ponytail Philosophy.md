@@ -56,8 +56,20 @@ Installed 2026-07-26 via `claude plugin marketplace add DietrichGebert/ponytail`
 [[Claude Code CLI Install — McAfee Download Freeze]] for the full story, including the McAfee
 download-freeze issue that blocked the CLI install itself first.
 
+## Ultra mode in practice: review without re-deriving
+
+`/ponytail:ponytail ultra` used as a *review* tool (2026-07-27,
+[[Dead Weight Cleanup and Rules-Deploy Gap]]): instead of re-running a full audit sweep, it
+diffed current repo state against the last review's claims — confirming what was already
+fixed and merged, then producing a small ranked list of what was genuinely still open (an
+undeployed rules draft, dead files/deps, and small hygiene items). "Deletion over addition"
+in practice: the dead-weight pass removed 694 lines and added 20, including two
+`console.log`s that were leaking a privilege-bypass path ("GOD MODE DETECTED") to anyone with
+devtools open.
+
 ## Related
 
 - Every real bug-fix summary in this wiki (e.g. [[Fleet Captain Rule Gaps — Batch 1 and 2]],
   [[Lost Work in Worktrees — Three Incidents]]) reflects this discipline in practice —
   targeted fixes at the shared root cause, not scattered patches.
+- [[Dead Weight Cleanup and Rules-Deploy Gap]] — ultra mode used for review, not just writing.
