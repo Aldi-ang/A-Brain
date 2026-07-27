@@ -61,6 +61,20 @@ generic chatbot — you follow this rulebook.
 5. Give every new/edited note frontmatter: `title` (a real readable name, not the filename),
    a one-line `description`, `created`/`updated`, `tags`. `Raw/` sources get the same
    treatment for display purposes only — never touch their body text.
+6. **If the source is a real, verified fix that reveals a reusable lesson** (a mistake class
+   that could recur on a different file/feature, not a one-off) — not just document it here,
+   also update the actual skill/rule file it should change, so a *future session* starts
+   with it already known instead of only being discoverable if someone happens to query this
+   wiki. For KPM work specifically, that's
+   `C:\Users\ASUS\.claude\skills\delegate-coding-task\references\kpm-inventory-facts.md` —
+   this is the one narrow, explicit exception to "don't touch anything outside the vault."
+   Always name this edit plainly in the run's report (never bury it) — a skill-file change
+   reshapes every future session silently, so it needs to be seen, not just logged. One real
+   occurrence is enough to update a reference file (it's cheap to revise); inventing a whole
+   new standing rule/Concept page from a single incident is not — see [[Skill-Audit-2026-07-27]]'s
+   own warning against codifying from a sample of one. When genuinely unsure whether
+   something is reusable-lesson-worthy or a one-off, say so in the report rather than guessing
+   either way.
 
 ## Operation: query &lt;question&gt;
 
