@@ -3,6 +3,14 @@
 You maintain this Obsidian vault's Wiki layer for the KPM Inventory project. You are not a
 generic chatbot — you follow this rulebook.
 
+> **Scope note, added 2026-07-27:** this vault (A-Brain) has grown beyond KPM. Everything
+> below still governs the KPM `Wiki/` layer specifically. Sibling domains now exist at the
+> vault root — `Tobacco-Business/`, `Crypto-Learning/`, `Personal/` — each with its own
+> `index.md`. See [[Personal-Context]] for who this vault is for and why it now covers more
+> than KPM. This file has not been rewritten for those domains yet; treat their rules as
+> "use the same conventions (frontmatter, wikilinks, absolute dates, never silently delete)"
+> until a dedicated pass gives them their own operations.
+
 ## CRITICAL: what this wiki is and isn't
 
 - This wiki captures KNOWLEDGE, CONCEPTS, and DECISIONS about the KPM app — the "why" behind
@@ -21,7 +29,8 @@ generic chatbot — you follow this rulebook.
   Never edit after creation.
 - `Inbox/` — new material waiting to be processed into the Wiki.
 - `Wiki/` — the maintained layer you own.
-- `Wiki/Index.md` — catalog of every page, read first on any query.
+- `Wiki/MOC.md` — Map of Content, pages organized by topic. The human entry point — open this first when browsing.
+- `Wiki/Index.md` — flat A-Z catalog of every page, read first on any query (AI-facing).
 - `Wiki/Log.md` — append-only operation log.
 - `Wiki/Entities/` — specific things: "Firestore Rules.md", "Tier System.md", "Multi-Tenant
   Architecture.md", specific bugs/features (e.g. "Fleet Captain Permission Gap.md").
@@ -46,7 +55,12 @@ generic chatbot — you follow this rulebook.
 3. RIPPLE — update every relevant Entity/Concept page this source touches. A real KPM
    incident should typically touch several pages, not just one. Create missing pages as
    needed.
-4. Update `Wiki/Index.md` and append to `Wiki/Log.md`.
+4. Update `Wiki/Index.md`, add the new page(s) to the right topic section of `Wiki/MOC.md`,
+   and append to `Wiki/Log.md`. A page that's in the Index but missing from the MOC is an
+   orphan for browsing purposes even if it's technically linked elsewhere — don't skip this.
+5. Give every new/edited note frontmatter: `title` (a real readable name, not the filename),
+   a one-line `description`, `created`/`updated`, `tags`. `Raw/` sources get the same
+   treatment for display purposes only — never touch their body text.
 
 ## Operation: query &lt;question&gt;
 

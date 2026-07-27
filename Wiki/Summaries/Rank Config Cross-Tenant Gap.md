@@ -1,4 +1,6 @@
 ---
+title: Rank Config Cross-Tenant Gap
+description: The closest thing in KPM to a real "security escalation" bug — one company's settings shared by every company.
 type: summary
 created: 2026-07-27
 updated: 2026-07-27

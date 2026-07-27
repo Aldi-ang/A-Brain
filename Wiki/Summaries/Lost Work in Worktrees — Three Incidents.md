@@ -1,4 +1,6 @@
 ---
+title: Lost Work in Worktrees — Three Incidents
+description: Three separate times finished work almost vanished because of how git worktrees behave.
 type: summary
 created: 2026-07-27
 updated: 2026-07-27

@@ -1,4 +1,9 @@
 ---
+title: "Worktree Recovery — Git Log (raw source)"
+description: Verbatim git log for the three commits that recovered work lost in abandoned worktrees.
+created: 2026-07-27
+updated: 2026-07-27
+tags: [raw, source, git, incident]
 source-type: git-log-verbatim
 retrieved: 2026-07-27
 repo: kpm-inventory

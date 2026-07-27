@@ -1,4 +1,8 @@
 ---
+title: "Option B Region Lock (raw source)"
+created: 2026-07-24
+updated: 2026-07-26
+tags: [raw, source, permissions, firestore]
 name: project-kpm-option-b-region-lock
 description: Option B (Area Admin region-lock on motorists create/delete) investigated and applied 2026-07-24
 metadata: 

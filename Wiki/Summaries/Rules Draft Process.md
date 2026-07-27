@@ -1,4 +1,6 @@
 ---
+title: Rules Draft Process
+description: The house rule — document a blocked security fix in a comment, never silently skip it or fake-fix it.
 type: summary
 created: 2026-07-27
 updated: 2026-07-27

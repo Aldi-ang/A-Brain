@@ -1,4 +1,6 @@
 ---
+title: Option B Region Lock
+description: Locking Area Admin/Fleet Captain roster changes to their own region, plus a real stale-memory lesson.
 type: summary
 created: 2026-07-27
 updated: 2026-07-27

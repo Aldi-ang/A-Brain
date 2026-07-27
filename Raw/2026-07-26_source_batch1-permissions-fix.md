@@ -1,4 +1,8 @@
 ---
+title: "Batch 1 Permissions Fix (raw source)"
+created: 2026-07-26
+updated: 2026-07-26
+tags: [raw, source, permissions, firestore]
 name: project-kpm-batch1-permissions-fix-2026-07-26
 description: "Batch 1 of the 2026-07-26 fresh review fixed: Rank Config rule gap, 11 missing listener error handlers, motorists/products Fleet Captain gaps — all committed 74a02d2"
 metadata:

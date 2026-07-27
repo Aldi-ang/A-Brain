@@ -1,4 +1,8 @@
 ---
+title: "Batch 1+2 Merged via PR #3 (raw source)"
+created: 2026-07-26
+updated: 2026-07-26
+tags: [raw, source, git, incident]
 name: project-kpm-batch12-pr3
 description: "Batch 1+2 branch merged into main via PR #3 (merge commit a8fc57c) — all claims live-reverified, CI build-check passed both on the PR and on the push to main"
 metadata: 

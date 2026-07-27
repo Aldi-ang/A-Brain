@@ -1,3 +1,12 @@
+---
+title: Operation Log
+description: Append-only history of every ingest/tidy pass done on this vault — a long gap here is an honest staleness signal.
+type: log
+created: 2026-07-27
+updated: 2026-07-27
+tags: [log, meta]
+---
+
 # Operation Log
 
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
@@ -31,3 +40,27 @@ Next ingest candidates: the recovered NOO/`handlePhotoCapture` incident in more 
 now it's only touched via the worktree-incident summary), the Customer/Notification scoping
 investigation (`project_kpm_customer_notification_scoping` memory, not yet ingested), and
 whatever real material accumulates from future sessions.
+
+## 2026-07-27 — Tidy pass (frontmatter, titles, MOC)
+
+No new content ingested — this pass made the existing vault easier for a human to actually
+browse:
+
+- Added `title`/`description` frontmatter to all 19 Wiki pages (Entities/Concepts/Summaries),
+  all 12 `Raw/` sources (display fields only — no source text touched), all 9 `Backlog/`
+  cards, and both `Brainstorm/` pages. `Raw/` filenames were deliberately left as-is (their
+  `date_source_slug` naming is the documented convention for immutable sources, not a
+  mistake) — they now carry a readable `title:` for display instead.
+- Built `Wiki/MOC.md` — a Map of Content organized by topic (Security & Permissions,
+  Process & Discipline, Architecture, Incidents), meant as the actual human starting point.
+  `Wiki/Index.md` stays as the flat A-Z catalog for AI queries; both now point at each other.
+- Removed `Welcome.md` and `create a link.md` — Obsidian's stock onboarding notes, empty of
+  real content and not linked from anything real. Recoverable via git if that was wrong.
+- Verified every `[[wikilink]]` in `Wiki/`, `Backlog/`, `Brainstorm/`, and the new MOC
+  resolves to a real file — zero dangling links introduced. The only unresolved `[[...]]`
+  references left in the vault are pre-existing ones inside `Raw/` files, pointing at the
+  original Claude memory system's slugs (e.g. `project_kpm_rules_draft_process`) rather than
+  vault pages — these predate this pass and are out of scope to fix since `Raw/` content
+  can't be edited.
+- `CLAUDE.md` updated: documents `Wiki/MOC.md` in the vault map, and adds a step to the
+  Ingest operation so future passes keep the MOC and frontmatter current, not just the Index.

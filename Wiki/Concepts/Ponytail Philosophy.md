@@ -1,4 +1,6 @@
 ---
+title: Ponytail Philosophy
+description: The lazy-but-correct coding discipline that governs how Claude Code edits the real KPM app.
 type: concept
 created: 2026-07-27
 updated: 2026-07-27

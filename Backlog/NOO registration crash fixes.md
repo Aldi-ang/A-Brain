@@ -1,7 +1,10 @@
 ---
+title: NOO registration crash fixes
+description: Fixed the Register New Outlet flow's photo-step crash, plus three related bugs found alongside it.
 status: Done
 area: Permissions & Bugfixes
 priority: Critical
+created: 2026-07-25
 updated: 2026-07-25
 ---
 

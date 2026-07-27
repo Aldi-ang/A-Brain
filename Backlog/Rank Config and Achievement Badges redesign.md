@@ -1,7 +1,10 @@
 ---
+title: Rank Config and Achievement Badges redesign
+description: The real fix for the cross-company data-sharing gap — needs an app-code change to move the data per-company.
 status: Parked
 area: Feature Redesign
 priority: Medium
+created: 2026-07-26
 updated: 2026-07-26
 ---
 

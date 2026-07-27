@@ -1,4 +1,6 @@
 ---
+title: Customer Directory Permission Tier
+description: A 3-level edit permission (view only / own region / global) added for the Customer Directory.
 type: summary
 created: 2026-07-27
 updated: 2026-07-27

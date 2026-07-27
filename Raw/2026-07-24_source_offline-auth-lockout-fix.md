@@ -1,4 +1,8 @@
 ---
+title: "Offline Auth Lockout Fix (raw source)"
+created: 2026-07-24
+updated: 2026-07-24
+tags: [raw, source, auth, offline]
 name: project-kpm-offline-auth-fix
 description: "Root cause and fix for the offline-refresh false \"Access Denied\" lockout in App.jsx's Traffic Cop auth handler"
 metadata: 

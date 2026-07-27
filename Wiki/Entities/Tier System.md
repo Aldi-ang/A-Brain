@@ -1,4 +1,6 @@
 ---
+title: Tier System
+description: The six role levels in KPM, from Developer down to Rookie, and how delegated permissions work.
 type: entity
 created: 2026-07-27
 updated: 2026-07-27

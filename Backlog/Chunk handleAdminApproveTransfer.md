@@ -1,7 +1,10 @@
 ---
+title: Chunk handleAdminApproveTransfer
+description: The transaction-reassignment loop writes one doc at a time instead of using commitInChunks like the rest of the app.
 status: To Do
 area: Permissions & Bugfixes
 priority: Low
+created: 2026-07-26
 updated: 2026-07-26
 ---
 

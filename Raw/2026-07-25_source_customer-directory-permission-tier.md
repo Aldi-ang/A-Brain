@@ -1,4 +1,8 @@
 ---
+title: "Customer Directory Permission Tier (raw source)"
+created: 2026-07-25
+updated: 2026-07-25
+tags: [raw, source, permissions, feature]
 name: project-kpm-customer-directory-permission-tier
 description: "Customer Directory edit permission tier (view_only/own_region/global) added 2026-07-25 — UI + rules, draft not deployed"
 metadata:

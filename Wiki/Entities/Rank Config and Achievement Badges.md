@@ -1,4 +1,6 @@
 ---
+title: Rank Config and Achievement Badges
+description: A profile feature with two bugs — one fixed rule gap, and one still-open cross-company data leak.
 type: entity
 created: 2026-07-27
 updated: 2026-07-27

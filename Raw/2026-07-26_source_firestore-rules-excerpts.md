@@ -1,4 +1,9 @@
 ---
+title: "Firestore Rules Excerpts (raw source)"
+description: Verbatim excerpts pulled directly from firestore.rules, including the Rank Config cross-tenant gap comment.
+created: 2026-07-27
+updated: 2026-07-27
+tags: [raw, source, firestore, security]
 source-type: firestore-rules-verbatim-excerpt
 retrieved: 2026-07-27
 repo: kpm-inventory

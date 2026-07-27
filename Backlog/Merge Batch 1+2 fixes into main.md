@@ -1,7 +1,10 @@
 ---
+title: Merge Batch 1+2 fixes into main
+description: Two rounds of tested permission/bugfix commits, merged into main via PR #3 after re-verifying everything live.
 status: Done
 area: Permissions & Bugfixes
 priority: Critical
+created: 2026-07-26
 updated: 2026-07-26
 ---
 

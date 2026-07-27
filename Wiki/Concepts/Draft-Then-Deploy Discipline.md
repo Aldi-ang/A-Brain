@@ -1,4 +1,6 @@
 ---
+title: Draft-Then-Deploy Discipline
+description: Firestore rule changes are always a draft in the repo until a human manually deploys them — never automatic.
 type: concept
 created: 2026-07-27
 updated: 2026-07-27

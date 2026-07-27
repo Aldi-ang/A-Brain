@@ -1,7 +1,10 @@
 ---
+title: Deploy firestore.rules to production
+description: A growing list of tested, correct rule fixes is sitting in the draft file, not yet live — needs a manual deploy.
 status: Ready to Deploy
 area: Permissions & Bugfixes
 priority: Critical
+created: 2026-07-26
 updated: 2026-07-26
 ---
 

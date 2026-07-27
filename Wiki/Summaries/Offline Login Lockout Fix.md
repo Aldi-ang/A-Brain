@@ -1,4 +1,6 @@
 ---
+title: Offline Login Lockout Fix
+description: Why refreshing the page offline could show a real employee a false "Access Denied" screen — and the fix.
 type: summary
 created: 2026-07-27
 updated: 2026-07-27

@@ -1,4 +1,8 @@
 ---
+title: "Batch 2 Unmerged Discovery (raw source)"
+created: 2026-07-26
+updated: 2026-07-26
+tags: [raw, source, git, incident]
 name: project-kpm-batch2-unmerged-discovery
 description: "Batch 1 AND Batch 2 permission/bugfix commits (74a02d2, d3ec78f) both exist, fully tested, but were never merged into main — clean fast-forward available"
 metadata: 

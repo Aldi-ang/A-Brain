@@ -1,4 +1,6 @@
 ---
+title: Fleet Captain Rule Gaps — Batch 1 and 2
+description: Two batches of permission fixes, their scary unmerged-branch moment, and their eventual real PR merge.
 type: summary
 created: 2026-07-27
 updated: 2026-07-27

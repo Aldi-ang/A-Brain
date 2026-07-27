@@ -1,4 +1,6 @@
 ---
+title: Multi-Tenant Architecture
+description: How one shared database keeps every company's data separate from every other company's, via the bossUid pattern.
 type: entity
 created: 2026-07-27
 updated: 2026-07-27

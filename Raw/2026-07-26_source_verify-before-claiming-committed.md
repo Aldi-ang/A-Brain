@@ -1,4 +1,8 @@
 ---
+title: "Verify Before Claiming Committed (raw source)"
+created: 2026-07-26
+updated: 2026-07-26
+tags: [raw, source, feedback, git]
 name: verify-before-claiming-committed
 description: "Never say a file is \"committed\" without having actually run git add + git commit and checked git show --stat — this project has hit this exact failure 3 times"
 metadata: 

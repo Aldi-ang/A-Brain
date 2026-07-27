@@ -1,4 +1,6 @@
 ---
+title: Git Worktrees
+description: The git feature behind three real incidents of finished work almost getting lost for good.
 type: entity
 created: 2026-07-27
 updated: 2026-07-27

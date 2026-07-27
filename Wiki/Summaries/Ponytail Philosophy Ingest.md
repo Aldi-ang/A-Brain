@@ -1,4 +1,6 @@
 ---
+title: Ponytail Philosophy Ingest
+description: The source text behind the Ponytail Philosophy page, and why it was worth writing up.
 type: summary
 created: 2026-07-27
 updated: 2026-07-27

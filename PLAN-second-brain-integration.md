@@ -1,9 +1,21 @@
+---
+title: "PLAN — KPM Second Brain Integration"
+description: The living design doc for this vault itself — why it exists, how ingest/query work, and a revision log of lessons learned.
+created: 2026-07-26
+updated: 2026-07-27
+tags: [meta, plan]
+---
+
 # PLAN — KPM Second Brain: Obsidian + Claude Code + Ponytail Integration System
+
+> **Superseded by [[PLAN-A-Brain-agentic-OS]] (2026-07-27).** This plan covered only the KPM
+> wiki layer. The A-Brain plan expands the scope to all projects and adds the 4-level agentic
+> OS framework. Kept for history — do not follow this plan for new work.
 
 *This is a living document. Update it (add a new dated entry under "Revision Log") whenever
 a better idea emerges — do not just silently change the system without recording why.*
 
-**Status: v1 — initial design, Jul 26 2026**
+**Status: v1 — initial design, Jul 26 2026 — SUPERSEDED**
 
 ---
 

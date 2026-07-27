@@ -1,4 +1,6 @@
 ---
+title: Wiki Index
+description: Flat A-Z catalog of every Wiki page — the reference list. For browsing by topic, start at Wiki/MOC.md instead.
 type: index
 created: 2026-07-27
 updated: 2026-07-27
@@ -6,9 +8,11 @@ updated: 2026-07-27
 
 # Wiki Index
 
-Read this first on any query — see `CLAUDE.md` for the full rulebook. Reminder: this catalog
-describes *understanding*, not current live status. For "is X actually deployed/fixed right
-now," check the real `kpm-inventory` git repo, not this page.
+A flat catalog of every page, grouped by type — good for "does a page on X exist?" lookups
+and for AI queries (see `CLAUDE.md`). **New here? Start at [[MOC|the Map of Content]]
+instead** — it's the same pages, organized by topic instead of by list. Reminder: this
+catalog describes *understanding*, not current live status. For "is X actually
+deployed/fixed right now," check the real `kpm-inventory` git repo, not this page.
 
 ## Entities (specific things)
 

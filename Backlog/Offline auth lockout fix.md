@@ -1,7 +1,10 @@
 ---
+title: Offline auth lockout fix
+description: Refreshing offline no longer falsely locks out real employees with an "Access Denied" screen.
 status: Done
 area: Permissions & Bugfixes
 priority: High
+created: 2026-07-24
 updated: 2026-07-24
 ---
 

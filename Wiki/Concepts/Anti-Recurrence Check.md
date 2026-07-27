@@ -1,4 +1,6 @@
 ---
+title: Anti-Recurrence Check
+description: The rule born from 3 "it's committed" lies — never claim a save happened without checking git yourself.
 type: concept
 created: 2026-07-27
 updated: 2026-07-27

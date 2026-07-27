@@ -1,4 +1,8 @@
 ---
+title: Rank Config redesign — early thoughts
+description: Early open questions for the Rank Config redesign — not a spec yet.
+created: 2026-07-26
+updated: 2026-07-26
 tags: [brainstorm]
 relates-to: "[[Rank Config and Achievement Badges redesign]]"
 ---

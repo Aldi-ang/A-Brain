@@ -1,4 +1,8 @@
 ---
+title: Crown Transfer — options
+description: Brainstorming space for Crown Transfer, waiting on a conversation with the company boss.
+created: 2026-07-26
+updated: 2026-07-26
 tags: [brainstorm]
 relates-to: "[[Crown Transfer (Option A)]]"
 ---

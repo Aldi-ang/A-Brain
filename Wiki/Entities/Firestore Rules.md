@@ -1,4 +1,6 @@
 ---
+title: Firestore Rules
+description: The server-side rule file that actually decides who can read or write what — separate from whatever the UI shows.
 type: entity
 created: 2026-07-27
 updated: 2026-07-27

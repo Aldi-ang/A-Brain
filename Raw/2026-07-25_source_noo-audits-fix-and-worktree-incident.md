@@ -1,4 +1,8 @@
 ---
+title: "NOO/Audits Fix and Worktree Incident (raw source)"
+created: 2026-07-25
+updated: 2026-07-25
+tags: [raw, source, incident, git]
 name: project-kpm-noo-audits-fix-2026-07-25
 description: "6 fixes applied 2026-07-25 on branch critical-noo-pending-audits-dc259b: broken NOO registration, missing pending_audits rule, unchunked writes (x2), missing listener error handlers, dead delete-history button"
 metadata: 

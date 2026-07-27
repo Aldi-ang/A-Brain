@@ -1,3 +1,11 @@
+---
+title: "KPM Inventory Facts Reference (raw source)"
+description: The delegate-coding-task skill's project-facts reference file — stack, tiers, tenant pattern, reusable helpers.
+created: 2026-07-27
+updated: 2026-07-27
+tags: [raw, source, facts, architecture]
+---
+
 # KPM Inventory (Cello/KPM) — Project Facts Reference
 
 Load this instead of re-deriving these facts from scratch. Stack: React 19 + Vite + Firebase

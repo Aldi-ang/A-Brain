@@ -1,4 +1,6 @@
 ---
+title: UI-Says-Yes-Server-Says-No Pattern
+description: The bug shape where a button works fine in the UI but silently fails at the database layer.
 type: concept
 created: 2026-07-27
 updated: 2026-07-27

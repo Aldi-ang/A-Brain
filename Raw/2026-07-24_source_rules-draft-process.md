@@ -1,4 +1,8 @@
 ---
+title: "Rules Draft Process (raw source)"
+created: 2026-07-24
+updated: 2026-07-24
+tags: [raw, source, process, firestore]
 name: project-kpm-rules-draft-process
 description: "How Firestore rules changes are handled in the kpm-inventory-main project — draft-and-report, never auto-deployed"
 metadata: 

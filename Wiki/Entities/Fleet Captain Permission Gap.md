@@ -1,4 +1,6 @@
 ---
+title: Fleet Captain Permission Gap
+description: The #1 most recurring bug in KPM — a permission check that covers Area Admin but keeps forgetting Fleet Captain.
 type: entity
 created: 2026-07-27
 updated: 2026-07-27

@@ -1,7 +1,10 @@
 ---
+title: Remove unused code and dependencies
+description: Dead files and unused npm packages confirmed still sitting in the repo — pure housekeeping, no functional risk.
 status: To Do
 area: Cleanup
 priority: Low
+created: 2026-07-26
 updated: 2026-07-26
 ---
 

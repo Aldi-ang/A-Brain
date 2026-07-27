@@ -1,4 +1,6 @@
 ---
+title: KPM Project Facts Reference
+description: The core facts every session should already know — stack, tiers, tenant pattern, reusable helpers.
 type: summary
 created: 2026-07-27
 updated: 2026-07-27

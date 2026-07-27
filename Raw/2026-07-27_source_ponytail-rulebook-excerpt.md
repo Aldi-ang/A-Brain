@@ -1,4 +1,9 @@
 ---
+title: "Ponytail Rulebook Excerpt (raw source)"
+description: Verbatim excerpt of the Ponytail skill's own rulebook text, as it appears in session context.
+created: 2026-07-27
+updated: 2026-07-27
+tags: [raw, source, tooling]
 source-type: tool-system-prompt-verbatim-excerpt
 retrieved: 2026-07-27
 origin: Ponytail skill (installed Claude Code plugin), session system-reminder text
