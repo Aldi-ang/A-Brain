@@ -55,7 +55,7 @@ description: Save this session's progress to the A-Brain vault
 ---
 
 Write a session log to the A-Brain vault at
-`D:\APP DEVELOPMENT\kpm inventory main FILES\kpm-notes-vault\runs\` (or the project's own
+`D:\APP DEVELOPMENT\kpm inventory main FILES\A-Brain\runs\` (or the project's own
 `logs/` subfolder if this is KPM work specifically — check [[../../index|the vault's root
 index]] for the right domain).
 
@@ -82,7 +82,7 @@ description: Load recent A-Brain vault context before starting work
 Before doing anything else this session:
 
 1. Read the 3 most recent files in
-   `D:\APP DEVELOPMENT\kpm inventory main FILES\kpm-notes-vault\runs\` (or the relevant
+   `D:\APP DEVELOPMENT\kpm inventory main FILES\A-Brain\runs\` (or the relevant
    project's `logs/`, if one exists).
 2. If this is KPM work, also skim `Wiki/Index.md` in that same vault for anything relevant to
    what's about to be worked on.
@@ -128,7 +128,7 @@ This is the part the Graphify+Obsidian videos specifically show. From inside the
 a Claude Code session:
 
 ```
-/graphify . --obsidian --obsidian-dir "D:\APP DEVELOPMENT\kpm inventory main FILES\kpm-notes-vault\graphify\kpm-inventory"
+/graphify . --obsidian --obsidian-dir "D:\APP DEVELOPMENT\kpm inventory main FILES\A-Brain\graphify\kpm-inventory"
 ```
 
 This generates one note per function/module and drops them into a `graphify/kpm-inventory/`
@@ -149,7 +149,7 @@ connected here):
 1. **First:** query `graphify-out/graph.json` or `GRAPH_REPORT.md` for code structure and
    connections — Graphify's PreToolUse hook already nudges toward this.
 2. **Second:** check the A-Brain vault for decisions, past incidents, and lessons learned —
-   `D:\APP DEVELOPMENT\kpm inventory main FILES\kpm-notes-vault\Wiki\Index.md`. Especially
+   `D:\APP DEVELOPMENT\kpm inventory main FILES\A-Brain\Wiki\Index.md`. Especially
    worth checking for recurring-looking bugs: [[UI-Says-Yes-Server-Says-No Pattern]] and
    [[Anti-Recurrence Check]].
 3. **Third:** only read raw code files when editing, or when layers 1-2 don't have the

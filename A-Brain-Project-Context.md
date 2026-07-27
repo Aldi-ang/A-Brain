@@ -50,9 +50,9 @@ silently revise it.**
 | **delegate-coding-task** | Custom skill encoding this project's hard-won prompt discipline | Claude Code skill |
 | **caveman** | Ultra-compressed output mode when token efficiency matters | Claude Code skill |
 
-**Vault location:** `D:\APP DEVELOPMENT\kpm inventory main FILES\kpm-notes-vault`
-(to be renamed `A-Brain` — this is task 2.1 in the plan)
-**Vault repo:** `github.com/Aldi-ang/kpm-notes` (also to be renamed)
+**Vault location:** `D:\APP DEVELOPMENT\kpm inventory main FILES\A-Brain` (renamed 2026-07-27,
+was `kpm-notes-vault` — task 2.1)
+**Vault repo:** `github.com/Aldi-ang/A-Brain` (renamed from `kpm-notes` 2026-07-27)
 **KPM code repo:** `github.com/Aldi-ang/kpm-inventory` (completely separate — keep it that way)
 
 ---

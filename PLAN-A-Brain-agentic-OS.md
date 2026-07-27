@@ -86,13 +86,21 @@ logging to exist first.
 
 ## LEVEL 2 — Memory & State (mostly built, needs broadening)
 
-### 2.1 — Rename vault `kpm-notes-vault` → `A-Brain`
+### 2.1 — Rename vault `kpm-notes-vault` → `A-Brain` — done 2026-07-27, ahead of stated sequencing
 Also rename the GitHub repo. Update Obsidian's vault pointer, any CLAUDE.md references, and
 the `delegate-coding-task` skill's facts file if it references the old path.
 
-**Sequencing, per Aldi (2026-07-27): do this after 2.5's automation is actually in place, not
-before.** Still blocked — the Cowork half of 2.5 is live, but the Claude Code hook half needs
-Aldi to install and confirm it works first. See [[Automation-Setup]].
+**Original sequencing note (superseded): do this after 2.5's automation is actually in
+place, not before.** Aldi explicitly asked to do the rename now, from the Claude Code
+session with direct access to the local machine and the `kpm-inventory` repo — stated
+openly here rather than silently deviating, per this plan's own convention.
+
+**Result:** local folder copied+verified+renamed (`kpm-notes-vault` → `A-Brain`, same
+parent directory), all in-vault path references updated except `Raw/` sources (left
+untouched — immutable by this vault's own rule) and this task's own historical heading
+text above (kept as an accurate record of the rename, not rewritten). GitHub repo rename,
+Obsidian's vault pointer, and `delegate-coding-task`'s facts file are the remaining pieces
+— see the Revision Log for exact status of each.
 
 ### 2.2 — Restructure for everything, not just KPM — partially started 2026-07-27
 Move KPM content into its own domain folder; add sibling domains (learning, business,

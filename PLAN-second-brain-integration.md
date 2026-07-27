@@ -40,7 +40,7 @@ a better idea emerges — do not just silently change the system without recordi
 |---|---|---|
 | The app itself | `kpm-inventory` git repo | Actual code, actual deployed rules |
 | AI operational memory | Claude Code's own memory + `delegate-coding-task` skill | Facts needed to resume work efficiently across sessions |
-| **Human knowledge/understanding** | **`kpm-notes-vault` Wiki** | **Concepts, patterns, decisions, the "why" — for the project owner to learn from and browse** |
+| **Human knowledge/understanding** | **`A-Brain` Wiki** | **Concepts, patterns, decisions, the "why" — for the project owner to learn from and browse** |
 
 These three never need to be kept in perfect lockstep. The Wiki is allowed to be a
 *periodic distillation*, not a live mirror — it's explicitly not trying to be the fastest,
@@ -50,7 +50,7 @@ It's trying to answer "what do I actually understand about how this app works, a
 ### Vault structure (adopting the guide's pattern, adapted for KPM)
 
 ```
-kpm-notes-vault/
+A-Brain/
   CLAUDE.md              ← rulebook (see below)
   Raw/                   ← immutable: full text of real sessions/reports/decisions
   Inbox/                 ← new material waiting to be processed
