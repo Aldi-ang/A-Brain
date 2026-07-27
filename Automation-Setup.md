@@ -194,14 +194,17 @@ it without anything extra. Flag if this guess is wrong.
 | Piece | Status |
 |---|---|
 | Cowork daily ingest task | **Live** |
-| `graphify/` folder scaffold in vault | **Done** (this pass) |
-| `/save`, `/resume` slash commands | Drafted above — needs Aldi to save the files to `%USERPROFILE%\.claude\commands\` |
-| `SessionEnd` safety-net hook | Drafted in git history of this doc — needs install + verification |
-| `graphify claude install` | One command — needs Aldi to run it inside `kpm-inventory` |
-| 3-layer CLAUDE.md rule for KPM repo | Text ready above — needs Aldi to paste it (or connect that repo folder here) |
+| `graphify/` folder scaffold in vault | **Done** |
+| `/save`, `/resume` slash commands | **Installed** 2026-07-27, from a Claude Code session with real machine access — `C:\Users\ASUS\.claude\commands\save.md` and `resume.md` |
+| `SessionEnd` safety-net hook | Still not installed — nobody has drafted the actual hook script/settings.json entry in a session with repo access yet. Genuinely still needs doing, not just needs Aldi. |
+| `graphify claude install` | **Done** 2026-07-27, run inside `kpm-inventory` — wrote `CLAUDE.md` + `.claude/settings.json` PreToolUse hooks, committed `c06ef7b`, pushed to `main`, CI build-check green |
+| Initial graph build | **Done** 2026-07-27 — `graphify update .`: 294 nodes, 509 edges, 21 communities. Sanity-queried against the known Fleet Captain permission pattern, returned correct results |
+| 3-layer CLAUDE.md rule for KPM repo | **Done** 2026-07-27, same commit as above |
 | Web chat export extension | Needs Aldi to install the browser extension and do exports himself |
+| Obsidian → code-graph export (`/graphify . --obsidian`) | Not yet run — see this session's notes for status |
 
-## Rename (2.1) sequencing — unchanged
+## Rename (2.1) — done, superseding the original sequencing
 
-Per Aldi's instruction: rename the vault/repo only after this automation is actually in place,
-not before. Still blocked on the items in the table above that need Aldi's own machine.
+Aldi asked to do the rename now rather than wait for full automation completion — done
+2026-07-27 by a Claude Code session with real machine access. See
+[[PLAN-A-Brain-agentic-OS]] task 2.1 for the full result.
