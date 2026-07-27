@@ -10,3 +10,6 @@
 .obsidian/plugins/*/main.js
 .obsidian/plugins/*/styles.css
 .obsidian/plugins/*/data.json
+
+# graphify: regenerable per-file extraction cache, not meaningful to version control
+graphify-out/cache/

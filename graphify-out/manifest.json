@@ -1,0 +1,1977 @@
+{
+  ".claude/settings.json": {
+    "mtime": 1785148117.5460196,
+    "ast_hash": "84ad2eba286d541c2f078bf076c587d8",
+    "semantic_hash": ""
+  },
+  ".claudian/claudian-settings.json": {
+    "mtime": 1785070922.4126854,
+    "ast_hash": "3566f3e7ea95179727d3f645b7c7367a",
+    "semantic_hash": ""
+  },
+  ".obsidian/app.json": {
+    "mtime": 1785114367.8146915,
+    "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
+    "semantic_hash": ""
+  },
+  ".obsidian/appearance.json": {
+    "mtime": 1785114367.8156915,
+    "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
+    "semantic_hash": ""
+  },
+  ".obsidian/community-plugins.json": {
+    "mtime": 1785114368.0393796,
+    "ast_hash": "d8a9b71407eb4fb79473ab4c04569231",
+    "semantic_hash": ""
+  },
+  ".obsidian/core-plugins.json": {
+    "mtime": 1785114367.345109,
+    "ast_hash": "7c877bea49eaeabb100563bd157b9051",
+    "semantic_hash": ""
+  },
+  ".obsidian/graph.json": {
+    "mtime": 1785121865.026,
+    "ast_hash": "ffb346bc037b1050ead2c3981163dbba",
+    "semantic_hash": ""
+  },
+  ".obsidian/plugins/realclaudian/manifest.json": {
+    "mtime": 1785066977.9938579,
+    "ast_hash": "a9333ade43d47282af296e56037134bc",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/.graphify_obsidian_manifest.json": {
+    "mtime": 1785138362.2168324,
+    "ast_hash": "a48ed8bf51e583f71b541f99b99eda89",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/.obsidian/graph.json": {
+    "mtime": 1785138362.2168324,
+    "ast_hash": "45d3633e490af3300a4bd4aa9bdd315c",
+    "semantic_hash": ""
+  },
+  "A-Brain plan/A-Brain-Project-Context.md": {
+    "mtime": 1785122496.9165936,
+    "ast_hash": "044dc4da48d880b799bd6dac442053d5",
+    "semantic_hash": ""
+  },
+  "A-Brain plan/PLAN-A-Brain-agentic-OS.md": {
+    "mtime": 1785122496.924599,
+    "ast_hash": "f24dd6dfc33a89e6e49cac48deb913cf",
+    "semantic_hash": ""
+  },
+  "A-Brain-Project-Context.md": {
+    "mtime": 1785137729.3709238,
+    "ast_hash": "cffd1869282eda425c6263045286d538",
+    "semantic_hash": ""
+  },
+  "Automation-Setup.md": {
+    "mtime": 1785138260.533561,
+    "ast_hash": "e2b8763862e63b58435c0dc1a1122029",
+    "semantic_hash": ""
+  },
+  "Backlog/Add production_targets Firestore rule.md": {
+    "mtime": 1785115988.0761476,
+    "ast_hash": "3b3e768d4c79d671897745816cb432c9",
+    "semantic_hash": ""
+  },
+  "Backlog/Chunk handleAdminApproveTransfer.md": {
+    "mtime": 1785115990.1445897,
+    "ast_hash": "ac37f11b53f34c300484c9cd6e3b2c82",
+    "semantic_hash": ""
+  },
+  "Backlog/Crown Transfer (Option A).md": {
+    "mtime": 1785115992.0909977,
+    "ast_hash": "5f369bd464ac33eb0e1b70153efddf75",
+    "semantic_hash": ""
+  },
+  "Backlog/Deploy firestore.rules to production.md": {
+    "mtime": 1785115993.9501817,
+    "ast_hash": "c97bfecd547c3c7f7c5ce95e49dc29b9",
+    "semantic_hash": ""
+  },
+  "Backlog/Merge Batch 1+2 fixes into main.md": {
+    "mtime": 1785115995.740127,
+    "ast_hash": "4122f6bd2403d216e487e1e634d5fe02",
+    "semantic_hash": ""
+  },
+  "Backlog/NOO approval notification fix.md": {
+    "mtime": 1785115998.9483693,
+    "ast_hash": "2acafe41617c910f62111c525ee4fae0",
+    "semantic_hash": ""
+  },
+  "Backlog/NOO registration crash fixes.md": {
+    "mtime": 1785116001.2326198,
+    "ast_hash": "e3b941e987341881c3f588d31628bf6c",
+    "semantic_hash": ""
+  },
+  "Backlog/Offline auth lockout fix.md": {
+    "mtime": 1785116003.1396306,
+    "ast_hash": "e0f527a9889870f2516f1e831bea9277",
+    "semantic_hash": ""
+  },
+  "Backlog/Rank Config and Achievement Badges redesign.md": {
+    "mtime": 1785116005.8837929,
+    "ast_hash": "da25ab79faea45f12df4dabc8f764d3b",
+    "semantic_hash": ""
+  },
+  "Backlog/Remove unused code and dependencies.md": {
+    "mtime": 1785116008.324761,
+    "ast_hash": "1059133b58b118479ca07b3914e3b4e2",
+    "semantic_hash": ""
+  },
+  "Backlog/index.md": {
+    "mtime": 1785134424.0520198,
+    "ast_hash": "14cd3a7e51020be98523398fb05e8b32",
+    "semantic_hash": ""
+  },
+  "Brainstorm/Crown Transfer \u2014 options.md": {
+    "mtime": 1785116010.3942976,
+    "ast_hash": "58cffaa08cc092e65bce7fd98abbaa83",
+    "semantic_hash": ""
+  },
+  "Brainstorm/Rank Config redesign \u2014 early thoughts.md": {
+    "mtime": 1785116012.1507683,
+    "ast_hash": "7d04a8bf7d90585f79c057547a28bf3d",
+    "semantic_hash": ""
+  },
+  "Brainstorm/index.md": {
+    "mtime": 1785134428.913771,
+    "ast_hash": "b52d6c71eb896794e78c0c6996e92baf",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1785148117.5339963,
+    "ast_hash": "f2cc97980283ff48e90ff60de7af1d70",
+    "semantic_hash": ""
+  },
+  "Crypto-Learning/index.md": {
+    "mtime": 1785124904.4614556,
+    "ast_hash": "4a30ce766a7f1c34cd2e33e6cb0a5196",
+    "semantic_hash": ""
+  },
+  "Inbox/index.md": {
+    "mtime": 1785134400.1208909,
+    "ast_hash": "deb276534bdbbca66714e0803824b10e",
+    "semantic_hash": ""
+  },
+  "PLAN-A-Brain-agentic-OS.md": {
+    "mtime": 1785137686.0351548,
+    "ast_hash": "50319852fdedbd15b211c7ffaa96f0d2",
+    "semantic_hash": ""
+  },
+  "PLAN-second-brain-integration.md": {
+    "mtime": 1785137662.289571,
+    "ast_hash": "056840a6497ac430920a6e131856ab85",
+    "semantic_hash": ""
+  },
+  "Personal-Context.md": {
+    "mtime": 1785124740.0691738,
+    "ast_hash": "cedd50b2257af4e0f748345b2f3b5576",
+    "semantic_hash": ""
+  },
+  "Personal/index.md": {
+    "mtime": 1785124909.8606873,
+    "ast_hash": "ebd147220ddf467dfbd7ad68c4b3d712",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-24_source_offline-auth-lockout-fix.md": {
+    "mtime": 1785115953.1823385,
+    "ast_hash": "4a8bc1566fdd5e1179e2eafe7c9fc951",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-24_source_option-b-region-lock.md": {
+    "mtime": 1785115955.4827318,
+    "ast_hash": "b7a02c0be844a4f24d575ea99249cfa7",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-24_source_rules-draft-process.md": {
+    "mtime": 1785115958.7673287,
+    "ast_hash": "97d139e02d0642558c77f9dc10b05989",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-25_source_customer-directory-permission-tier.md": {
+    "mtime": 1785115960.6504416,
+    "ast_hash": "e3a058816ba5ea50b5320a0ea3ce947c",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-25_source_noo-audits-fix-and-worktree-incident.md": {
+    "mtime": 1785115963.7538173,
+    "ast_hash": "bc3590fb3cd9f177af079a460c2021fc",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-26_source_batch1-permissions-fix.md": {
+    "mtime": 1785115966.3457685,
+    "ast_hash": "534d6f5cae3a9781583ccd97491ff09c",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-26_source_batch12-pr3-merged.md": {
+    "mtime": 1785115968.2662303,
+    "ast_hash": "00d262aba9d050ebfed3fffdcf3d8d9f",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-26_source_batch2-unmerged-discovery.md": {
+    "mtime": 1785115970.3931303,
+    "ast_hash": "31dbb168211c70326dae53c0ea43b52f",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-26_source_firestore-rules-excerpts.md": {
+    "mtime": 1785115972.2376637,
+    "ast_hash": "df3bc28469e923748db82c6b861f530f",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-26_source_verify-before-claiming-committed.md": {
+    "mtime": 1785115975.3850057,
+    "ast_hash": "3ee71441efb41495f4c028a7ba893233",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-26_source_worktree-recovery-git-log.md": {
+    "mtime": 1785115977.5632904,
+    "ast_hash": "917eefcc51c19361d966e8e456a8bca2",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-27_source_ponytail-rulebook-excerpt.md": {
+    "mtime": 1785115979.5293193,
+    "ast_hash": "272776e54fe2f9683046f43d58c373e4",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-source_kpm-inventory-facts-reference.md": {
+    "mtime": 1785115981.1700714,
+    "ast_hash": "df64cdb97986bbed6b710568e26fe43d",
+    "semantic_hash": ""
+  },
+  "Raw/index.md": {
+    "mtime": 1785134396.4828217,
+    "ast_hash": "209e74d84676b7a2d3ab9b4da8c3f374",
+    "semantic_hash": ""
+  },
+  "Skill-Audit-2026-07-27.md": {
+    "mtime": 1785133825.8144605,
+    "ast_hash": "9d8ba90bf411905496d47397d10ef38d",
+    "semantic_hash": ""
+  },
+  "Tobacco-Business/index.md": {
+    "mtime": 1785124899.038129,
+    "ast_hash": "3ebb1342bf30087910d339550d28b96b",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/Anti-Recurrence Check.md": {
+    "mtime": 1785115897.6671038,
+    "ast_hash": "0195719168fe475a34c9783a8e4f1374",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/Draft-Then-Deploy Discipline.md": {
+    "mtime": 1785115899.607815,
+    "ast_hash": "0a73f938085ec3436b1a67bd112a24be",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/Ponytail Philosophy.md": {
+    "mtime": 1785115901.5548608,
+    "ast_hash": "40b5b45861af3e3eb7a30eb3b055ebcc",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md": {
+    "mtime": 1785115903.386015,
+    "ast_hash": "d69b5bccb7f6533e2f7fb665766f039e",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/index.md": {
+    "mtime": 1785134386.2694097,
+    "ast_hash": "1bdd44610c4cdfcac3b79b3d4e86dbc1",
+    "semantic_hash": ""
+  },
+  "Wiki/Entities/Firestore Rules.md": {
+    "mtime": 1785115880.8744955,
+    "ast_hash": "5c2cbd18516412d69992f382065ce2f0",
+    "semantic_hash": ""
+  },
+  "Wiki/Entities/Fleet Captain Permission Gap.md": {
+    "mtime": 1785115882.839888,
+    "ast_hash": "2967f60d69e835cd2890021baf7131e9",
+    "semantic_hash": ""
+  },
+  "Wiki/Entities/Git Worktrees.md": {
+    "mtime": 1785115885.3021543,
+    "ast_hash": "14aff6f4078efd7cb02b9d4c6e7c7340",
+    "semantic_hash": ""
+  },
+  "Wiki/Entities/Multi-Tenant Architecture.md": {
+    "mtime": 1785115887.858534,
+    "ast_hash": "fa9060671f09809643dd9d9db53a5079",
+    "semantic_hash": ""
+  },
+  "Wiki/Entities/Rank Config and Achievement Badges.md": {
+    "mtime": 1785115891.68311,
+    "ast_hash": "f9a414e1ff2c2857b719e8de25dc002c",
+    "semantic_hash": ""
+  },
+  "Wiki/Entities/Tier System.md": {
+    "mtime": 1785115889.9094129,
+    "ast_hash": "7563b366787ea4d2e7c02b5f04fee067",
+    "semantic_hash": ""
+  },
+  "Wiki/Entities/index.md": {
+    "mtime": 1785134381.5465338,
+    "ast_hash": "4f9da41bc6df376ba21be5a2e22483d7",
+    "semantic_hash": ""
+  },
+  "Wiki/Index.md": {
+    "mtime": 1785115941.383648,
+    "ast_hash": "656cf435ca952cbab4bbdb98a411ef73",
+    "semantic_hash": ""
+  },
+  "Wiki/Log.md": {
+    "mtime": 1785116141.3433523,
+    "ast_hash": "f2799d58da0090c5226a2f5432116fcf",
+    "semantic_hash": ""
+  },
+  "Wiki/MOC.md": {
+    "mtime": 1785116083.0107963,
+    "ast_hash": "fee7f76d432d4c6305e4594ef2314791",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Customer Directory Permission Tier.md": {
+    "mtime": 1785115911.1515415,
+    "ast_hash": "3b2f93a82e18e7fbba7a03bedc678610",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Fleet Captain Rule Gaps \u2014 Batch 1 and 2.md": {
+    "mtime": 1785115914.0285046,
+    "ast_hash": "eb1c16b3edba897995ffbe93a27cbc5a",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/KPM Project Facts Reference.md": {
+    "mtime": 1785115916.4708118,
+    "ast_hash": "8af7baaea4afb7719294294a523be9e5",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Lost Work in Worktrees \u2014 Three Incidents.md": {
+    "mtime": 1785115918.6820278,
+    "ast_hash": "85e1dc7476ac842c65dc9a4914aaa1fe",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Offline Login Lockout Fix.md": {
+    "mtime": 1785115920.6076286,
+    "ast_hash": "10073cc43b2346a0c5dcc4f295fee5f8",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Option B Region Lock.md": {
+    "mtime": 1785115922.5546474,
+    "ast_hash": "573ca105a9341219a774d59d59e7aaec",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Ponytail Philosophy Ingest.md": {
+    "mtime": 1785115927.6546936,
+    "ast_hash": "5b45bef87de2f9c79ec39b8f221021b9",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Rank Config Cross-Tenant Gap.md": {
+    "mtime": 1785115929.718055,
+    "ast_hash": "d52b811edf66efafe63f98924d285f72",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Rules Draft Process.md": {
+    "mtime": 1785115932.3195412,
+    "ast_hash": "681b48304b46e62cdb1032eb580f7e26",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/index.md": {
+    "mtime": 1785134390.6683972,
+    "ast_hash": "bab893e545a6aea75fb80a6944131a68",
+    "semantic_hash": ""
+  },
+  "graphify/index.md": {
+    "mtime": 1785135954.752694,
+    "ast_hash": "bcddd3778c59f1dc4c071a6ee9dc4d0d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@emailjsbrowser.md": {
+    "mtime": 1785138361.7965662,
+    "ast_hash": "5b1b84267dbeb223bb2c112cec81fd48",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@emailjsbrowser_1.md": {
+    "mtime": 1785138361.797565,
+    "ast_hash": "de3c0b1075058a11d5adadd49c7e3a97",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@eslintjs.md": {
+    "mtime": 1785138361.8330865,
+    "ast_hash": "156911ed24d71fd19c38e105632a19aa",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@eslintjs_1.md": {
+    "mtime": 1785138361.8340874,
+    "ast_hash": "d3389318a4821d4f141c10c0b9030abf",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@react-threedrei.md": {
+    "mtime": 1785138361.798565,
+    "ast_hash": "f5d612314c6bdec0c94b88723288d38e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@react-threedrei_1.md": {
+    "mtime": 1785138361.7995648,
+    "ast_hash": "30f51aec6add20ef1147d4a243216fdf",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@react-threefiber.md": {
+    "mtime": 1785138361.800568,
+    "ast_hash": "ccf784114366f6aea0940be5130d76ce",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@react-threefiber_1.md": {
+    "mtime": 1785138361.8015673,
+    "ast_hash": "17a79955562306094fe75bfc98e1e3c0",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@typesreact-dom.md": {
+    "mtime": 1785138361.8370922,
+    "ast_hash": "d46b95c2cf7cb2c65d4c82b0a86adcf4",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@typesreact-dom_1.md": {
+    "mtime": 1785138361.838089,
+    "ast_hash": "6641c6bcccc4b17c564f9318ee8b3461",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@typesreact.md": {
+    "mtime": 1785138361.8350887,
+    "ast_hash": "132eb64b1cd5afdd2f3cc7947581a1e2",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@typesreact_1.md": {
+    "mtime": 1785138361.8360898,
+    "ast_hash": "e1be67661e3aa3adb92b69b21bb8550b",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@vitejsplugin-react.md": {
+    "mtime": 1785138361.839088,
+    "ast_hash": "4acf3b0794fab43d370eb224eb876b47",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/@vitejsplugin-react_1.md": {
+    "mtime": 1785138361.8400872,
+    "ast_hash": "50afde32f5f94a4e3bfe3c99eb909e83",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AGENT_COLORS.md": {
+    "mtime": 1785138361.9817722,
+    "ast_hash": "4897c060817d9efd5db20c4f2b4cc4b5",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AchievementCard().md": {
+    "mtime": 1785138361.9092453,
+    "ast_hash": "339f88b05f0c6b1d373a89b6fedbe2c5",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AdminControls().md": {
+    "mtime": 1785138362.004772,
+    "ast_hash": "0118c6ec820194d22cd814207b1561e3",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/After a successful deploy.md": {
+    "mtime": 1785138362.1898243,
+    "ast_hash": "634ac26ff0a7621cf29bbf50dbdf64a9",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/After deploying a Firestore Security Rules change specifically.md": {
+    "mtime": 1785138362.1808245,
+    "ast_hash": "5e78604f20c55ab076ad77a7644885fd",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AgentInventoryView().md": {
+    "mtime": 1785138361.8972442,
+    "ast_hash": "da8d3c66409d38d3fece6a7f01e69284",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AgentInventoryView.jsx.md": {
+    "mtime": 1785138361.894245,
+    "ast_hash": "83aacf0e857b3b1080e9be9d4eef3c36",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AgentInventoryView.md": {
+    "mtime": 1785138361.9302554,
+    "ast_hash": "099d0124e4c05710205929aa266ac7c4",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AgentProfileView().md": {
+    "mtime": 1785138361.9072456,
+    "ast_hash": "54025e265bad5e69a8a0aaec0aa3e960",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AgentProfileView.jsx.md": {
+    "mtime": 1785138361.899245,
+    "ast_hash": "bf2eae2ac91482120c479a34acbfce5c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AgentProfileView.md": {
+    "mtime": 1785138361.9367688,
+    "ast_hash": "019ab0aaf3892f6955f0df6d8ce8f3f3",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/App.jsx.md": {
+    "mtime": 1785138361.9102452,
+    "ast_hash": "78150df99cfe981b98352f79efcbbb1c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AuditVaultView().md": {
+    "mtime": 1785138362.045308,
+    "ast_hash": "422ead5ac9ff6fab49d76c9145c7f97a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/AuditVaultView.jsx.md": {
+    "mtime": 1785138362.0443044,
+    "ast_hash": "afa8654b557fb3a6fee0ca4009bc6695",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/BADGE_REGISTRY.md": {
+    "mtime": 1785138362.1133056,
+    "ast_hash": "a7e9a02f5713b34b4373dc95538c9022",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/BadgeIconMap.md": {
+    "mtime": 1785138361.9032445,
+    "ast_hash": "1ea9c2900961d4cb55372d09a9be6308",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/Before deploying.md": {
+    "mtime": 1785138362.1868248,
+    "ast_hash": "58949d01da5331c6eca551694bbe86c2",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/BiohazardTheme().md": {
+    "mtime": 1785138362.0513055,
+    "ast_hash": "fdad1e836991237e24452f58b46cb0f5",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/BiohazardTheme.jsx.md": {
+    "mtime": 1785138362.0493083,
+    "ast_hash": "97430bbd34e27f1c2ae36fa4571ff3ec",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/BorderImporter().md": {
+    "mtime": 1785138362.0147822,
+    "ast_hash": "dea9172c923a5fe6294b34b1078a87c9",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/BranchWarehouseManager().md": {
+    "mtime": 1785138362.054303,
+    "ast_hash": "a9092e56d8248ae978f376e7bbc7ecfa",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/BranchWarehouseManager.jsx.md": {
+    "mtime": 1785138362.053305,
+    "ast_hash": "3e34ded1a8bcd7975b5344731dbf75ab",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/BranchWarehouseManager.md": {
+    "mtime": 1785138361.9427755,
+    "ast_hash": "1b821096d5be49c658ff2246aaef553c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CLAUDE.md": {
+    "mtime": 1785138362.1708255,
+    "ast_hash": "15eac14c1cef5261f44fb41028d6d2b8",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CORPORATE_TIERS.md": {
+    "mtime": 1785138362.127312,
+    "ast_hash": "00f70f559e1664c143c7852bb2f08c35",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CUSTOMER_EDIT_PERMS.md": {
+    "mtime": 1785138362.1368244,
+    "ast_hash": "2c81b62834ee8ead86f50f1bce45858d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CapybaraMascot().md": {
+    "mtime": 1785138362.056303,
+    "ast_hash": "14e2c3ab70cd0b7e1cc06e1d2209e82e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CapybaraMascot.jsx.md": {
+    "mtime": 1785138362.0553024,
+    "ast_hash": "473f3bd1c27bd52556866fa5631cb855",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ConsignmentFinanceView().md": {
+    "mtime": 1785138361.9497702,
+    "ast_hash": "5858e85042269f25e236ecfd94683a4d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ConsignmentFinanceView.jsx.md": {
+    "mtime": 1785138361.947771,
+    "ast_hash": "53cc4820f694024266a455538a3baeac",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ConsignmentFinanceView.md": {
+    "mtime": 1785138361.933771,
+    "ast_hash": "c1bc8ac2f4e4dde32c8f5b06ae5fb5f4",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CrazyRankBorder().md": {
+    "mtime": 1785138361.9062448,
+    "ast_hash": "bc42cab2051718e656c666322812ae78",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CrownTransferProtocol().md": {
+    "mtime": 1785138362.058302,
+    "ast_hash": "e105c47c2651fcf30d8c5055b9672881",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CrownTransferProtocol.jsx.md": {
+    "mtime": 1785138362.0573022,
+    "ast_hash": "56de26872918b6bef614f1765baf247d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CustomTooltip().md": {
+    "mtime": 1785138362.0743055,
+    "ast_hash": "c07ec93abd7dc32a5634dbe6bfdfeb54",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CustomerDetailView().md": {
+    "mtime": 1785138362.0643022,
+    "ast_hash": "30750957f550a3f2197db54aff3fed6f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CustomerManagement().md": {
+    "mtime": 1785138362.0653036,
+    "ast_hash": "d3d892362f2c94c41b8e12a126a2cb50",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/CustomerManager.jsx.md": {
+    "mtime": 1785138362.060304,
+    "ast_hash": "e42bce6e423a4095fd19dc3fc7550e86",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DEFAULT_BADGES.md": {
+    "mtime": 1785138361.9012458,
+    "ast_hash": "b6ff8d59135b7a8ce28a38b5dbb82711",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DETECTED_TRACKS.md": {
+    "mtime": 1785138362.0313058,
+    "ast_hash": "e3acb4f86b0b9b801b2fe8b07a60bd21",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DYNAMIC_TIERS.md": {
+    "mtime": 1785138362.1293118,
+    "ast_hash": "233a188ce5b64438b98dfbf89bfce0b0",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DashboardBenchmarks().md": {
+    "mtime": 1785138362.0703044,
+    "ast_hash": "be8446788eab778f6bbda051590547b4",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DashboardBenchmarks.jsx.md": {
+    "mtime": 1785138362.068304,
+    "ast_hash": "2cd85d3363112dd83d3fad6096176a18",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DashboardView().md": {
+    "mtime": 1785138362.0753036,
+    "ast_hash": "ff228d0ce869cceb4bf3a3ed1c70252f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DashboardView.jsx.md": {
+    "mtime": 1785138362.0713036,
+    "ast_hash": "2605e93c2b8ea35498cd1da899ac6678",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DashboardView.md": {
+    "mtime": 1785138361.93977,
+    "ast_hash": "b11a9336d7b08f50d35282d80be31d66",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DimensionControl().md": {
+    "mtime": 1785138362.0933063,
+    "ast_hash": "0f12f29bf67e8a4313d422a59d325498",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DraggableAddMarker().md": {
+    "mtime": 1785138362.00877,
+    "ast_hash": "d1b58d21d118573fe661d91c258f3aef",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/Duke3D().md": {
+    "mtime": 1785138361.951771,
+    "ast_hash": "b688041b1f5d1458ddbc02851919acad",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/Duke3D.jsx.md": {
+    "mtime": 1785138361.9507716,
+    "ast_hash": "7cc18b1e170594013e84ddf5889d6cc5",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/DynamicIconMap.md": {
+    "mtime": 1785138361.9002454,
+    "ast_hash": "2b04570f0b7d652699367b17ad5fd93e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/EODReconciliationView().md": {
+    "mtime": 1785138361.9567702,
+    "ast_hash": "6add33b3e87c904237e8f8610375cef0",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/EODReconciliationView.jsx.md": {
+    "mtime": 1785138361.9547684,
+    "ast_hash": "740accac043106f61de49b452f147f3c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/EODReconciliationView.md": {
+    "mtime": 1785138361.9357698,
+    "ast_hash": "d4d6f7ad77d6b69eda382112bd8a8be7",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ExamineModal().md": {
+    "mtime": 1785138362.0773025,
+    "ast_hash": "421fe613f0f255d20a546a7ca6486547",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ExamineModal.jsx.md": {
+    "mtime": 1785138362.0763037,
+    "ast_hash": "732a716835ca57247888452dafd395c0",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/Expanding the ESLint configuration.md": {
+    "mtime": 1785138362.1838233,
+    "ast_hash": "2f6cb19248cd8ff18596848425bb1323",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/Firestore Security Rules \u2014 Deployment Checklist.md": {
+    "mtime": 1785138362.185824,
+    "ast_hash": "139e401fb57341fa717c5da592ab3c57",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/FleetCanvasManager().md": {
+    "mtime": 1785138361.9607718,
+    "ast_hash": "682a1fa5389dc9e99b62fc22ed9de59c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/FleetCanvasManager.jsx.md": {
+    "mtime": 1785138361.959771,
+    "ast_hash": "a8dc31d3783ef60a88d404215aa3dc46",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/FleetCanvasManager.md": {
+    "mtime": 1785138361.9307632,
+    "ast_hash": "40c951f716ec24d93d6b02f4c84ba0c4",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/GameHUD().md": {
+    "mtime": 1785138362.0187922,
+    "ast_hash": "90acdd0dad78308db40b901cc4f82252",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/HallOfFameView().md": {
+    "mtime": 1785138361.9667714,
+    "ast_hash": "751632a4dbe10a30dd213773dcd40b10",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/HallOfFameView.jsx.md": {
+    "mtime": 1785138361.9637723,
+    "ast_hash": "0a4d50e8a4878712f8ae452db341de8e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/HistoryReportView().md": {
+    "mtime": 1785138362.0813162,
+    "ast_hash": "2cdaac73fa4d8b4dabc4d4b4bfa4b084",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/HistoryReportView.jsx.md": {
+    "mtime": 1785138362.0793035,
+    "ast_hash": "3b8cd8e0d5352fe6f44cb62f1cde8740",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/HistoryReportView.md": {
+    "mtime": 1785138361.9387693,
+    "ast_hash": "a6a88d7c2a1e0b0ef928c9de0873ebef",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/IconMap.md": {
+    "mtime": 1785138361.9647727,
+    "ast_hash": "7dd27b12a7efd4d2c1fba5d08eea9503",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/If something breaks.md": {
+    "mtime": 1785138362.1898243,
+    "ast_hash": "932e53011009bd7178f80600b65029dc",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ImageCropper().md": {
+    "mtime": 1785138362.0843043,
+    "ast_hash": "af9b75fbe2d1b8caa4bf6cdd33e9e937",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ImageCropper.jsx.md": {
+    "mtime": 1785138362.083305,
+    "ast_hash": "3df16be61956090221ead939e2bf0b64",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/Immediately after deploying \u2014 test this for real, not just trust the emulator.md": {
+    "mtime": 1785138362.187825,
+    "ast_hash": "f86c5cab704aeb7f92fe78dc43aca018",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ItemInspector().md": {
+    "mtime": 1785138362.0973055,
+    "ast_hash": "fcc55d22539a8783d0d64d12a523bdc3",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/JourneyView().md": {
+    "mtime": 1785138361.9837708,
+    "ast_hash": "c3df591f179f4fc9117284766fdae4f1",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/JourneyView.jsx.md": {
+    "mtime": 1785138361.96777,
+    "ast_hash": "deaaca4686ad62d7eacd6e167bccd996",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/JourneyView.md": {
+    "mtime": 1785138361.9242551,
+    "ast_hash": "84b5b86141f2a3d56532430bdc160c84",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/KPM Inventory \u2014 Manual Test Checklist.md": {
+    "mtime": 1785138362.1738226,
+    "ast_hash": "833b31df53fdefd700c34b851360bc17",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/KPMInventoryApp().md": {
+    "mtime": 1785138361.9467728,
+    "ast_hash": "23f80dcf177f9f957929503f839a82cb",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/LandlordDashboard().md": {
+    "mtime": 1785138362.0883021,
+    "ast_hash": "83e767d4c17c4078acac148d4809a730",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/LandlordDashboard.jsx.md": {
+    "mtime": 1785138362.0853038,
+    "ast_hash": "f88d28870949bd13654f9331a864c2ab",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/LocationController().md": {
+    "mtime": 1785138361.9737911,
+    "ast_hash": "01abca3d26bef5319b522a6ea3839fe3",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/LocationController()_1.md": {
+    "mtime": 1785138362.0037682,
+    "ast_hash": "d905de102f8a662322f20d3403da518a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MANUAL_TEST_CHECKLIST.md": {
+    "mtime": 1785138362.1718237,
+    "ast_hash": "d381c1c5b4c51d716cb074941935bc81",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MapClicker().md": {
+    "mtime": 1785138362.0067706,
+    "ast_hash": "73a4a6457398832dac2801388abb4136",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MapEditController().md": {
+    "mtime": 1785138361.9757705,
+    "ast_hash": "6f12554ba81082aa9da879cc0d2b4b88",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MapEffectController().md": {
+    "mtime": 1785138361.9957697,
+    "ast_hash": "d126713310e8e178dfa80340e0b2b8b5",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MapMissionControl().md": {
+    "mtime": 1785138362.0227926,
+    "ast_hash": "a357d02ea4cc8970b61a3ae679637fc4",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MapMissionControl.jsx.md": {
+    "mtime": 1785138361.9857705,
+    "ast_hash": "ca257f677e82e8533d6db270b6694dec",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MapMissionControl.md": {
+    "mtime": 1785138361.9112463,
+    "ast_hash": "3cb7a158a01f432f5212b72b28a9565c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MapRecenter().md": {
+    "mtime": 1785138361.97177,
+    "ast_hash": "d62bc20c404483ed5822057c34166ca2",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MarkerWithZoom().md": {
+    "mtime": 1785138362.0097718,
+    "ast_hash": "0eafedbfabab5b751eb92b73d57d611f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MerchantSalesView().md": {
+    "mtime": 1785138362.0257943,
+    "ast_hash": "25d33fa39e92708f6da0f67bd17fe041",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MerchantSalesView.jsx.md": {
+    "mtime": 1785138362.023792,
+    "ast_hash": "ac51cc3b6cc94f6786d5a213c0fae8ec",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MerchantSalesView.md": {
+    "mtime": 1785138361.9272542,
+    "ast_hash": "a5e5a0d61c5b8167c27f3497e969123f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MusicPlayer().md": {
+    "mtime": 1785138362.0323026,
+    "ast_hash": "ccbd71223cec78decc3426480e21613d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/MusicPlayer.jsx.md": {
+    "mtime": 1785138362.026791,
+    "ast_hash": "9397fe5f9300929ed7c79bc0c780e144",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/NOTE You must place your 'duke.glb' file in the 'public' folder!.md": {
+    "mtime": 1785138361.953769,
+    "ast_hash": "14a70324f3ba8ea9cb3b6ac2137064e5",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/NotificationBell().md": {
+    "mtime": 1785138362.089303,
+    "ast_hash": "ce756a110709e52322582dc69b6dea43",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/NotificationBell.jsx.md": {
+    "mtime": 1785138362.089303,
+    "ast_hash": "11113e03775672af3e0d2806c869e565",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/PermissionMatrixEditor().md": {
+    "mtime": 1785138362.1093037,
+    "ast_hash": "812ecf595fd103b95029fd6dad5a883a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/QuarantineLedgerBoard().md": {
+    "mtime": 1785138361.898245,
+    "ast_hash": "85eedfa149417c30a86d1203874b1ac6",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/README.md": {
+    "mtime": 1785138362.181823,
+    "ast_hash": "b808e44714293a486e202923c0732a39",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ROLE_PERMISSIONS.md": {
+    "mtime": 1785138362.1328259,
+    "ast_hash": "9db288ac84cd0652f49ca56f0a9cc519",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/RULES.md": {
+    "mtime": 1785138361.88261,
+    "ast_hash": "0b12b612f242abffce971b0690524f1e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/RULES_1.md": {
+    "mtime": 1785138361.8886094,
+    "ast_hash": "fbab9a7c46e60fad95153efa204d6a9b",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/React + Vite.md": {
+    "mtime": 1785138362.1828299,
+    "ast_hash": "2d4dd7e2c4420937707bd5b4169a1957",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/React Compiler.md": {
+    "mtime": 1785138362.1838233,
+    "ast_hash": "64907b1ed7ad8e02c65691c30d2a928e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ResidentEvilInventory().md": {
+    "mtime": 1785138362.0993035,
+    "ast_hash": "a77d2f4d4f75546224fd9541bfe7f2ca",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ResidentEvilInventory.jsx.md": {
+    "mtime": 1785138362.0913017,
+    "ast_hash": "c719f42a0626cd9209c977f019fef524",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ResidentEvilInventory.md": {
+    "mtime": 1785138361.9377685,
+    "ast_hash": "1992846ee4586a0eb5d9b4e6432e6446",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/RestockVaultView().md": {
+    "mtime": 1785138362.0393043,
+    "ast_hash": "75345c0158fc08d0207acb81e6b35736",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/RestockVaultView.jsx.md": {
+    "mtime": 1785138362.0333018,
+    "ast_hash": "cd25c715ae0c7b74ea0630686659274a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/RestockVaultView.md": {
+    "mtime": 1785138361.929256,
+    "ast_hash": "385fbc1fa21382cad1507f465900671f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/SECURITY_RULES_DEPLOY_CHECKLIST.md": {
+    "mtime": 1785138362.1848242,
+    "ast_hash": "848e67fe3addf1edfa9372d8c2860f83",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/SafetyStatus().md": {
+    "mtime": 1785138362.1003032,
+    "ast_hash": "b3f965813ed21aabf0fd4ad5b18d26d5",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/SafetyStatus.jsx.md": {
+    "mtime": 1785138362.1003032,
+    "ast_hash": "5d5937f7a2d6c7f7995f30997d4f3e59",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/SampleEntryModal().md": {
+    "mtime": 1785138362.1073031,
+    "ast_hash": "5f9d79b2fd16a6f348a170313da1a7ce",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/SamplingAnalyticsView().md": {
+    "mtime": 1785138362.1043055,
+    "ast_hash": "1867c553c4f3ac47d798089731579b3f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/SamplingCartView().md": {
+    "mtime": 1785138362.1053023,
+    "ast_hash": "5c97f823caabab6f8e56c887431fddf2",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/SamplingFolderView().md": {
+    "mtime": 1785138362.1063037,
+    "ast_hash": "a5df929569dbf58eee1b51e2c6fb23de",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/SamplingManager.jsx.md": {
+    "mtime": 1785138362.1013033,
+    "ast_hash": "2c31dd20d80d4b48a7df540a0d087907",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/SettingsView().md": {
+    "mtime": 1785138362.1093037,
+    "ast_hash": "c4a712ca8158b6e880a19a4b6615e592",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/SettingsView.jsx.md": {
+    "mtime": 1785138362.1083028,
+    "ast_hash": "0ce46abadf28965364cf6f925d13faa7",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/StockOpnameView().md": {
+    "mtime": 1785138362.043305,
+    "ast_hash": "703e8c057ff8a3cfb9b42d3655f883c8",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/StockOpnameView.jsx.md": {
+    "mtime": 1785138362.0413027,
+    "ast_hash": "61ec265df02764074b3d1ad5cdb72b75",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/StockOpnameView.md": {
+    "mtime": 1785138361.926257,
+    "ast_hash": "dfc81e1d8a2e5d89cacbaf5353a1f5e9",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/StoreBottomSheet().md": {
+    "mtime": 1785138362.020793,
+    "ast_hash": "e8dc89de787f75876e683f96fe643720",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/TacticalDashboard().md": {
+    "mtime": 1785138362.0107715,
+    "ast_hash": "511d5899ed4234fe7ce3d7f900d51e9c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/The deploy itself.md": {
+    "mtime": 1785138362.187825,
+    "ast_hash": "c12ddc3305e0fe6283c532518dbb9613",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/TierAutomationEngine().md": {
+    "mtime": 1785138362.0217912,
+    "ast_hash": "9d7611523cffdb23220ef5d284ae1b4f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ZoneHUD().md": {
+    "mtime": 1785138362.017823,
+    "ast_hash": "9cbd5aacb6c0d27402bdf07d32294000",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_App.jsx.md": {
+    "mtime": 1785138362.2018232,
+    "ast_hash": "28837f27e5b08fca8c67f0bf0ced6521",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_CLAUDE.md": {
+    "mtime": 1785138362.209826,
+    "ast_hash": "74145755faea32c6d76b005de039edfb",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_Duke3D.jsx.md": {
+    "mtime": 1785138362.2028227,
+    "ast_hash": "fbfcafc7dabdf68cb50289b108020e88",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_Firestore Security Rules \u2014 Deployment Checklist.md": {
+    "mtime": 1785138362.213827,
+    "ast_hash": "c83f948954d3a2347e8f4f18b567efea",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_HallOfFameView.jsx.md": {
+    "mtime": 1785138362.203822,
+    "ast_hash": "ded6b35bb9409f422d039ebabd1f744d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_KPM Inventory \u2014 Manual Test Checklist.md": {
+    "mtime": 1785138362.2108288,
+    "ast_hash": "d39147f2fed90eb8e38878b7b2985b95",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_MapMissionControl.jsx.md": {
+    "mtime": 1785138362.2058244,
+    "ast_hash": "aa9ab15c0572ca4e2df05f5b53a62654",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_React + Vite.md": {
+    "mtime": 1785138362.212826,
+    "ast_hash": "b3151e46867da2604de7cb4822105002",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_dependencies.md": {
+    "mtime": 1785138362.1938255,
+    "ast_hash": "d2a715777214b8763e3aecb6000c0f4c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_devDependencies.md": {
+    "mtime": 1785138362.1958292,
+    "ast_hash": "a96aad9133ae80b5adf4caa8084a013e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_eslint.config.js.md": {
+    "mtime": 1785138362.1918244,
+    "ast_hash": "d8f3d93f2634737f8d36496d432a3dc0",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_formatRupiah.md": {
+    "mtime": 1785138362.1998234,
+    "ast_hash": "b0cdeb8b2656fe929b3fda2bedb67d3a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_helpers.js.md": {
+    "mtime": 1785138362.207823,
+    "ast_hash": "281b2dfe53d95a020e158632dd6a9368",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_manifest.json.md": {
+    "mtime": 1785138362.1968293,
+    "ast_hash": "88aeb2d877b36028f8021b9393560be4",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_package.json.md": {
+    "mtime": 1785138362.1918244,
+    "ast_hash": "973acb5b3823034a4c9bd59339696e69",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_permissions.js.md": {
+    "mtime": 1785138362.1948287,
+    "ast_hash": "279f857830db2f03f3caee19f44d7e6a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_postcss.config.js.md": {
+    "mtime": 1785138362.1958292,
+    "ast_hash": "1393cec3dd0eb8f16329436b693cfbf1",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_tailwind.config.js.md": {
+    "mtime": 1785138362.207823,
+    "ast_hash": "83339fda2e50872be6bae01ab78897c1",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_test-batch1.mjs.md": {
+    "mtime": 1785138362.1978252,
+    "ast_hash": "c36510e09d9028f931da8cbec9d1e895",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_test-batch2.mjs.md": {
+    "mtime": 1785138362.1988237,
+    "ast_hash": "79a1089a9f59d496b755c87774ecc345",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/_COMMUNITY_vite.config.js.md": {
+    "mtime": 1785138362.2088242,
+    "ast_hash": "a1f3e31a04220da003629d845517fa5d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/achievements.js.md": {
+    "mtime": 1785138362.111303,
+    "ast_hash": "2d8f055c32d78781b8980de1faba079b",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/app.md": {
+    "mtime": 1785138362.118314,
+    "ast_hash": "795f615ad4e8ab3a68368559e6b4fc51",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/auth.md": {
+    "mtime": 1785138362.119313,
+    "ast_hash": "f55d642c01274570e8acd53ecc157724",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/autoprefixer.md": {
+    "mtime": 1785138361.8410878,
+    "ast_hash": "56d5c5ecf3ca0252c1b7e5fee2c185c9",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/autoprefixer_1.md": {
+    "mtime": 1785138361.8420875,
+    "ast_hash": "8ba57f4d5eb889ce553abe9fc91c7d99",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/background_color.md": {
+    "mtime": 1785138361.8770924,
+    "ast_hash": "54514dbe2e16e6455ddb44320f63334c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/borderCache.js.md": {
+    "mtime": 1785138362.1458242,
+    "ast_hash": "8c6a7205f207bc0c623719e79cbbee1d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/build.md": {
+    "mtime": 1785138361.7915668,
+    "ast_hash": "0fa45fc364c8d846a4f1b11e236bb7b6",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/calculateAgentLevel().md": {
+    "mtime": 1785138362.1123035,
+    "ast_hash": "52d41a917e968409a6f30bb06e4d95f6",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/checkPointInGeoJSON().md": {
+    "mtime": 1785138361.97877,
+    "ast_hash": "c4dcbcd39772204568f0436f8d107bbe",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/checkPointInGeoJSON()_1.md": {
+    "mtime": 1785138361.9927692,
+    "ast_hash": "c2452e713c23eb1dd9943ced7d435998",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/checkPointInGeoJSON()_2.md": {
+    "mtime": 1785138362.0633042,
+    "ast_hash": "88f97520107aa3f80e29157b06965f9e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/checkUnlockedBadges().md": {
+    "mtime": 1785138362.1143057,
+    "ast_hash": "0d445d7980ffcdb6cbc900b425afa2af",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/clearBorderCache().md": {
+    "mtime": 1785138362.1528234,
+    "ast_hash": "2496830464e42f4666b019b4e383c967",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/clsx.md": {
+    "mtime": 1785138361.8025656,
+    "ast_hash": "6d10bf7dfa49dcf07372d64d97bc6f5b",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/clsx_1.md": {
+    "mtime": 1785138361.8035648,
+    "ast_hash": "a3cdbada2305a13459dae9ac7f088e70",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/commitInChunks().md": {
+    "mtime": 1785138362.1628234,
+    "ast_hash": "a8b4ae68e700cb11b3efa0ff274616c9",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/compressCoords().md": {
+    "mtime": 1785138361.9907734,
+    "ast_hash": "898b467276de1bb7c4774272d9ddab5a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/compressImageToBase64().md": {
+    "mtime": 1785138362.167825,
+    "ast_hash": "808b89451fedcc486d9a2f3ced107b8b",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/convertToBks().md": {
+    "mtime": 1785138362.1608238,
+    "ast_hash": "ee1e3c4fb72aef1900b4996bceca146f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/createCustomClusterIcon().md": {
+    "mtime": 1785138361.9937713,
+    "ast_hash": "f14113fe7c89d3901cbbc29ed25ffd16",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/createImage().md": {
+    "mtime": 1785138361.9042451,
+    "ast_hash": "af2aa70199261da001bdb9b92707afad",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/cross-env.md": {
+    "mtime": 1785138361.8430889,
+    "ast_hash": "6e390ee4218dee418db829515be9c1dd",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/cross-env_1.md": {
+    "mtime": 1785138361.8450875,
+    "ast_hash": "cd5912e3a3cacc8e6788bafd3ea2957d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ctxFor().md": {
+    "mtime": 1785138361.8866086,
+    "ast_hash": "78d5868c0a8dc623808ff7738e55d9d8",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/ctxFor()_1.md": {
+    "mtime": 1785138361.8916125,
+    "ast_hash": "55a555f3f8036f413daf0efe47094a04",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/db.md": {
+    "mtime": 1785138362.1233115,
+    "ast_hash": "f1ee7a7d85e296f313f7f496b2b89188",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/deletePhotoFromStorage().md": {
+    "mtime": 1785138362.1668253,
+    "ast_hash": "3abc46ad75a3e8f07130ea78bf5e6d24",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/dependencies.md": {
+    "mtime": 1785138361.7955658,
+    "ast_hash": "090c19d1111a258f59458ce41a8f3df5",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/deploy.md": {
+    "mtime": 1785138361.7945645,
+    "ast_hash": "d0246b8c2a5b39740b2225e1f1e1952a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/dev.md": {
+    "mtime": 1785138361.789566,
+    "ast_hash": "d895ed11e7a58b1346e780305fec267e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/devDependencies.md": {
+    "mtime": 1785138361.8320885,
+    "ast_hash": "a9088f106fbb125526c767dff92c46ec",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/display.md": {
+    "mtime": 1785138361.8750927,
+    "ast_hash": "728e7609addf5e71a94aad5925db4dae",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/eslint-plugin-react-hooks.md": {
+    "mtime": 1785138361.8500926,
+    "ast_hash": "327188ea03ac5c509455cd690a6eff71",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/eslint-plugin-react-hooks_1.md": {
+    "mtime": 1785138361.8510916,
+    "ast_hash": "fc60768b740422fb7bcfd13f709dafb9",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/eslint-plugin-react-refresh.md": {
+    "mtime": 1785138361.852092,
+    "ast_hash": "2df060d3f5a27843dd2b3adb41ee8fa0",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/eslint-plugin-react-refresh_1.md": {
+    "mtime": 1785138361.8530917,
+    "ast_hash": "a0381f6b599395d251cf6b35adacf110",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/eslint.config.js.md": {
+    "mtime": 1785138361.780566,
+    "ast_hash": "51f81c5c09d94aec6c7d834fd3f36ffc",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/eslint.md": {
+    "mtime": 1785138361.8480923,
+    "ast_hash": "8c6a69ac7706a2dd2149dc73efe21870",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/eslint_1.md": {
+    "mtime": 1785138361.84909,
+    "ast_hash": "21643e6fcb749089e626479f7bd9288c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/expect().md": {
+    "mtime": 1785138361.8846104,
+    "ast_hash": "0848fcea68e5e84edd335c3ec3489ea3",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/expect()_1.md": {
+    "mtime": 1785138361.8896096,
+    "ast_hash": "bb9a0e6a72581d96041275ce7fc5863c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/firebase.js.md": {
+    "mtime": 1785138362.1163187,
+    "ast_hash": "2cc455a386d77370fe89a2eaadb8ef50",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/firebase.md": {
+    "mtime": 1785138361.8045664,
+    "ast_hash": "15376d5a22b188fcc5f23ba1b70585cd",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/firebaseConfig.md": {
+    "mtime": 1785138362.1173172,
+    "ast_hash": "ad58b1e2bebde4b953432b4b5c1c50bb",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/firebase_1.md": {
+    "mtime": 1785138361.8045664,
+    "ast_hash": "90ab952e395c0bd7e785702dfb24381e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/formatAdvancedStock().md": {
+    "mtime": 1785138362.0923088,
+    "ast_hash": "9343bbfb985cba26df47150fa0aef034",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/formatRupiah().md": {
+    "mtime": 1785138362.155824,
+    "ast_hash": "c2b38f86065fe97789f62bb785a0c5ad",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/formatSampleQty().md": {
+    "mtime": 1785138362.1023035,
+    "ast_hash": "8a09442fd9ff3134e1691ecd4ecec1b6",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/getCroppedImg().md": {
+    "mtime": 1785138361.9052453,
+    "ast_hash": "44065e22bee46b496692a96dacd5ec54",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/getCurrentDate().md": {
+    "mtime": 1785138361.8952446,
+    "ast_hash": "6cb6eb67939b67161879efefcaf3dec9",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/getCurrentDate()_1.md": {
+    "mtime": 1785138362.156824,
+    "ast_hash": "7c0252c40c0d27e30afafb1d9da26c62",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/getCustomerAccessLevel().md": {
+    "mtime": 1785138362.1378238,
+    "ast_hash": "51bff78a634924f7420ad287aa1d1b59",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/getDocOfflineSafe().md": {
+    "mtime": 1785138361.9447696,
+    "ast_hash": "894b848b90d658e37c902998b2844922",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/getHashColor().md": {
+    "mtime": 1785138361.982771,
+    "ast_hash": "37464522ae1b9aff5cb718eec22d8dec",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/getIcon().md": {
+    "mtime": 1785138361.986771,
+    "ast_hash": "2ebc34287d6e203a255da0f0a0091916",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/getRandomColor().md": {
+    "mtime": 1785138362.1588259,
+    "ast_hash": "3cfb7a0a377c10022c2b707a7ce8d898",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/getStoreHierarchy().md": {
+    "mtime": 1785138361.97977,
+    "ast_hash": "9af44243ab40d08821cf3406244f9581",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/globals.md": {
+    "mtime": 1785138361.8540914,
+    "ast_hash": "28b7cdbe26f0b9a6c4855e74d31d5bc2",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/globals_1.md": {
+    "mtime": 1785138361.8570886,
+    "ast_hash": "bb502bc7712a9d3ff325c5ae982d12e9",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/googleProvider.md": {
+    "mtime": 1785138362.125312,
+    "ast_hash": "852f4829aa3015295e3517302de37fe5",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/graphify.md": {
+    "mtime": 1785138362.1718237,
+    "ast_hash": "335f8baf5234e9d0b7b1eaca41dbbdc8",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/hasClearance().md": {
+    "mtime": 1785138362.1358294,
+    "ast_hash": "065e93cb1b6f7efd9b73581ee72d2759",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/helpers.js.md": {
+    "mtime": 1785138362.1548226,
+    "ast_hash": "0d5850efed675d9573305304741c8e30",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/icons.md": {
+    "mtime": 1785138361.8720944,
+    "ast_hash": "fbd50cabd0c38dd80b7074a6f49ca786",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/idb.md": {
+    "mtime": 1785138361.8065662,
+    "ast_hash": "871a798b9d6fdf60eb1e4ac3b999b45e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/idb_1.md": {
+    "mtime": 1785138361.807567,
+    "ast_hash": "4504c2e42c31f059726a6e1a54e47664",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/injectDynamicPermissions().md": {
+    "mtime": 1785138362.134827,
+    "ast_hash": "0b079f0f5f78e18078ee46c4fb0a1877",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/isFieldLevelTier().md": {
+    "mtime": 1785138362.1308167,
+    "ast_hash": "c97e205c40d2be497c31cb951e517c22",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/isFleetManagementTier().md": {
+    "mtime": 1785138362.1318235,
+    "ast_hash": "e211962a4d5e18276740682c453fb602",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/isPointInPolygon().md": {
+    "mtime": 1785138361.9777699,
+    "ast_hash": "348595f96bbea764979774aa873d587b",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/isPointInPolygon()_1.md": {
+    "mtime": 1785138361.9917698,
+    "ast_hash": "5e86421cd158d66b7aaa18be7a3878ed",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/isPointInPolygon()_2.md": {
+    "mtime": 1785138362.062305,
+    "ast_hash": "403d6aae6fa39b0185f6e981ac68e4bd",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/isSafeDocIdEmail().md": {
+    "mtime": 1785138362.1598256,
+    "ast_hash": "8605f3545eedc108c96738b091b1467a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/leaflet.md": {
+    "mtime": 1785138361.8085759,
+    "ast_hash": "08eb8510616a1d3b8dfe9b5495f7ba8b",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/leaflet_1.md": {
+    "mtime": 1785138361.809568,
+    "ast_hash": "db9855e5f7601987b8b095e9a4a8bb42",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/lint.md": {
+    "mtime": 1785138361.7925653,
+    "ast_hash": "45e1784422ca26370124a5b25a3052b3",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/loadBorderCache().md": {
+    "mtime": 1785138362.1508234,
+    "ast_hash": "814e46855c2ed063414d0c7bdf812112",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/lucide-react.md": {
+    "mtime": 1785138361.8105705,
+    "ast_hash": "1c3f3712b062cf1abde0a49b83528946",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/lucide-react_1.md": {
+    "mtime": 1785138361.8115673,
+    "ast_hash": "1248859aca72d1eb81fbcd8b042e0e16",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/main.jsx.md": {
+    "mtime": 1785138362.1448245,
+    "ast_hash": "9e2b93a132c5e776b7e9cb871ee0ee60",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/manifest.json.md": {
+    "mtime": 1785138361.8690925,
+    "ast_hash": "6acd8c3902aa3a5a745b2b9069ad4eca",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/musicModules.md": {
+    "mtime": 1785138362.0287898,
+    "ast_hash": "279a18eee6bacee6678d33b8f3c1ec02",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/name.md": {
+    "mtime": 1785138361.7835655,
+    "ast_hash": "5caea73a402147c4bbca297f4b6b948f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/name_1.md": {
+    "mtime": 1785138361.8710938,
+    "ast_hash": "a6a01b230deea9a453bcdefe9dd62078",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/openCacheDB().md": {
+    "mtime": 1785138362.1478252,
+    "ast_hash": "2a86852e92fcac02e044df0cd0cbf2e1",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/orientation.md": {
+    "mtime": 1785138361.8786018,
+    "ast_hash": "498252e2c1b2e41ece3d67c905d738a1",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/package.json.md": {
+    "mtime": 1785138361.7825668,
+    "ast_hash": "0125c6b2de46d7c84aecd0e0d4cd9cda",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/permissions.js.md": {
+    "mtime": 1785138362.1263108,
+    "ast_hash": "35f0173c0a51a3aad2ee85bd566b0159",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/postcss.config.js.md": {
+    "mtime": 1785138361.868091,
+    "ast_hash": "09c0c3e09b964c1dc3039a6b7c05206a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/postcss.md": {
+    "mtime": 1785138361.8580892,
+    "ast_hash": "38e1dc2f75096b0b155500e4dfcc81e3",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/postcss_1.md": {
+    "mtime": 1785138361.8590887,
+    "ast_hash": "00c2c93ac2a923e7ad6830ba428d42fc",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/preview.md": {
+    "mtime": 1785138361.7935658,
+    "ast_hash": "e0867ac673e791dc6ee252b08819abda",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/private.md": {
+    "mtime": 1785138361.7845669,
+    "ast_hash": "0c3ca30d9f0b4af026122ccb497c258b",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react-dom.md": {
+    "mtime": 1785138361.8145676,
+    "ast_hash": "0688b5244cd36d77d2a5039a22a88c5d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react-dom_1.md": {
+    "mtime": 1785138361.815575,
+    "ast_hash": "d7204f169feaff219735017debab8b27",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react-easy-crop.md": {
+    "mtime": 1785138361.8165743,
+    "ast_hash": "0a662465e692ed98c8ac50e1b537a271",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react-easy-crop_1.md": {
+    "mtime": 1785138361.8175745,
+    "ast_hash": "d22cd25e0614b08c2ff51f41a729d27a",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react-is.md": {
+    "mtime": 1785138361.8185747,
+    "ast_hash": "49bc31c189eae14ac2c99c9c51765603",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react-is_1.md": {
+    "mtime": 1785138361.8205724,
+    "ast_hash": "3df517eedca494b000e5c3d4c763176f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react-leaflet-cluster.md": {
+    "mtime": 1785138361.8245757,
+    "ast_hash": "27d7af490364fe641394aaf18c2d40b0",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react-leaflet-cluster_1.md": {
+    "mtime": 1785138361.8255727,
+    "ast_hash": "dc8c2fa05e290ac6709b463a6387db51",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react-leaflet.md": {
+    "mtime": 1785138361.8205724,
+    "ast_hash": "7420ec4cfaa9bb8215ddd257f0f6bd47",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react-leaflet_1.md": {
+    "mtime": 1785138361.822574,
+    "ast_hash": "5db2c578b3f1ce41c95dd29cb5466307",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react.md": {
+    "mtime": 1785138361.8125665,
+    "ast_hash": "54f8786f6acfc2688dc3401911a73778",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/react_1.md": {
+    "mtime": 1785138361.8135667,
+    "ast_hash": "30f2059ee9f754968df60ce109d750b3",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/recharts.md": {
+    "mtime": 1785138361.826573,
+    "ast_hash": "af64c29a42830f52ee998756db1391b2",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/recharts_1.md": {
+    "mtime": 1785138361.8275733,
+    "ast_hash": "3fb80c1ad13ab229485bb6539744c7c4",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/run().md": {
+    "mtime": 1785138361.8876095,
+    "ast_hash": "2fe1afeee2590eea73567f5d8971532e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/run()_1.md": {
+    "mtime": 1785138361.893239,
+    "ast_hash": "09f2e7a41d63b8f12f197518d0db5cc6",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/saveBorderCache().md": {
+    "mtime": 1785138362.1498227,
+    "ast_hash": "b6f741e72f23f51594572f5622e18d9d",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/savePhotoAndGetReference().md": {
+    "mtime": 1785138362.164824,
+    "ast_hash": "37def2b474d2b82a78a4eeeeff608221",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/scripts.md": {
+    "mtime": 1785138361.788566,
+    "ast_hash": "663318515a9fac6cd93b5e6e627f9d3b",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/seed().md": {
+    "mtime": 1785138361.8856103,
+    "ast_hash": "fd3e2a469fec4bfce4cb5b27562430d9",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/seed()_1.md": {
+    "mtime": 1785138361.8906121,
+    "ast_hash": "e185b1cd935b53d5901f0d4a14a6f891",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/short_name.md": {
+    "mtime": 1785138361.8700912,
+    "ast_hash": "6cd6434e5e5b51d0a196f9cc04b42e25",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/start_url.md": {
+    "mtime": 1785138361.874093,
+    "ast_hash": "e2f8da4c3dfb431a156c03bf41df11d1",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/storage.md": {
+    "mtime": 1785138362.1243107,
+    "ast_hash": "d6ada8e62b113f6f18d9483ffcf30aa7",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/tailwind-merge.md": {
+    "mtime": 1785138361.8275733,
+    "ast_hash": "ae73b752db4c3696df002869a4b6436e",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/tailwind-merge_1.md": {
+    "mtime": 1785138361.8285735,
+    "ast_hash": "e98bd7712d37bf1227ff64ea6bf4671c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/tailwind.config.js.md": {
+    "mtime": 1785138362.168825,
+    "ast_hash": "cd88f7a9aecb11a23d66795a9cb8b909",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/tailwindcss.md": {
+    "mtime": 1785138361.861088,
+    "ast_hash": "300c6b3cd4e76bec7c725e3d664891ea",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/tailwindcss_1.md": {
+    "mtime": 1785138361.861088,
+    "ast_hash": "aec88fca08d32a78ebb41438010ef0fd",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/test-batch1.mjs.md": {
+    "mtime": 1785138361.8816106,
+    "ast_hash": "aa9539e7faaf103e1480c9c5b1d043f4",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/test-batch2.mjs.md": {
+    "mtime": 1785138361.8876095,
+    "ast_hash": "aaddf8a6558c91ae81a0b1269424efce",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/theme_color.md": {
+    "mtime": 1785138361.8750927,
+    "ast_hash": "392f72cf2c6b7afb580c7b8bec046d80",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/three.md": {
+    "mtime": 1785138361.8300807,
+    "ast_hash": "dc4dc6cc631bfa6b5e8c19636e86beeb",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/three_1.md": {
+    "mtime": 1785138361.8310912,
+    "ast_hash": "e4e91268e0fd0b433e769c0e903e9be7",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/translateLegacyRole().md": {
+    "mtime": 1785138362.1303113,
+    "ast_hash": "03f88fefeb3d1008b4322974b29c7367",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/type.md": {
+    "mtime": 1785138361.786566,
+    "ast_hash": "7b2dd86a83d2a7078c8a756b49c205ac",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/useDatabaseSync().md": {
+    "mtime": 1785138362.1388237,
+    "ast_hash": "b6f86dca72a15ccdd20a7833aa821215",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/useDatabaseSync.js.md": {
+    "mtime": 1785138362.1378238,
+    "ast_hash": "2499243f3a9e9f5a1984cb95a3753d09",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/useOfflineEngine().md": {
+    "mtime": 1785138362.1418264,
+    "ast_hash": "341b3f04b526f770b8ebc5058fc364d0",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/useOfflineEngine.js.md": {
+    "mtime": 1785138362.1408277,
+    "ast_hash": "3bdfc7c8262d0b097b02535588298104",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/useTransactionEngine().md": {
+    "mtime": 1785138362.143824,
+    "ast_hash": "02a09ff52298ad011e4a3d8f8c51e27f",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/useTransactionEngine.js.md": {
+    "mtime": 1785138362.1428266,
+    "ast_hash": "6604c7acfdd565cc4069c5fb994b1544",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/userLocationIcon.md": {
+    "mtime": 1785138361.969772,
+    "ast_hash": "e8cf11ebbd3d2d6d0a49fba560e3dea0",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/userLocationIcon_1.md": {
+    "mtime": 1785138361.988772,
+    "ast_hash": "2d714ee7be9904fd70a02f8ebf028ee2",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/version.md": {
+    "mtime": 1785138361.7855675,
+    "ast_hash": "d0b43d6acd72a8503d3a13b4f409814c",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/vite-plugin-pwa.md": {
+    "mtime": 1785138361.865093,
+    "ast_hash": "c62bea26533d04b1b8f05325cb295539",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/vite-plugin-pwa_1.md": {
+    "mtime": 1785138361.8670924,
+    "ast_hash": "9837c8a8f393cc410c7abcd94601edfc",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/vite.config.js.md": {
+    "mtime": 1785138362.1698267,
+    "ast_hash": "cf0911f46f12917919234a357e22272b",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/vite.md": {
+    "mtime": 1785138361.8630867,
+    "ast_hash": "b16e9ce8d969d1b249ffa1afffb18189",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/vite_1.md": {
+    "mtime": 1785138361.8640914,
+    "ast_hash": "aad7154608b3dc3140ca56fcfa1e0abc",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/\u26aa Skip entirely.md": {
+    "mtime": 1785138362.179824,
+    "ast_hash": "6caa8525380f5f102f6bba617b82b9f3",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/\ud83d\udd34 Business-critical \u2014 test every single release.md": {
+    "mtime": 1785138362.1758292,
+    "ast_hash": "a81b4877e50567d1206ef73e99ee6067",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/\ud83d\udea8 Before you say done or commit anything \u2014 do this EVERY time.md": {
+    "mtime": 1785138362.1748235,
+    "ast_hash": "8ba437e50c91df1d17964636fbbe3439",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/\ud83d\udfe0 Data integrity \u2014 test after any related change.md": {
+    "mtime": 1785138362.1778314,
+    "ast_hash": "e0e27dbdee71c7ab7d98420f0c8250e7",
+    "semantic_hash": ""
+  },
+  "graphify/kpm-inventory/\ud83d\udfe1 Edge cases \u2014 test when touching that specific code.md": {
+    "mtime": 1785138362.1788254,
+    "ast_hash": "df3003cec8a045d0d271da54452bab6e",
+    "semantic_hash": ""
+  },
+  "index.md": {
+    "mtime": 1785135957.083928,
+    "ast_hash": "2b8755147f61d206c20bc0cba6476102",
+    "semantic_hash": ""
+  },
+  "runs/index.md": {
+    "mtime": 1785134453.9877868,
+    "ast_hash": "d39b51620b6826300f028ae4d328c4fd",
+    "semantic_hash": ""
+  },
+  "runs/session-ingest-state.md": {
+    "mtime": 1785135528.0084105,
+    "ast_hash": "6944278e431db6700ad34e931135c434",
+    "semantic_hash": ""
+  }
+}
