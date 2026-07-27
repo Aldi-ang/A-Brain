@@ -1,0 +1,85 @@
+---
+source_file: "src/App.jsx"
+type: "code"
+community: "App.jsx"
+location: "L1"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/Appjsx
+---
+
+# App.jsx
+
+## Connections
+- [[AgentInventoryView]] - `contains` [EXTRACTED]
+- [[AgentProfileView]] - `contains` [EXTRACTED]
+- [[AuditVaultView()]] - `imports` [EXTRACTED]
+- [[AuditVaultView.jsx]] - `imports_from` [EXTRACTED]
+- [[BiohazardTheme()]] - `imports` [EXTRACTED]
+- [[BiohazardTheme.jsx]] - `imports_from` [EXTRACTED]
+- [[BranchWarehouseManager]] - `contains` [EXTRACTED]
+- [[CapybaraMascot()]] - `imports` [EXTRACTED]
+- [[CapybaraMascot.jsx]] - `imports_from` [EXTRACTED]
+- [[ConsignmentFinanceView]] - `contains` [EXTRACTED]
+- [[CrownTransferProtocol()]] - `imports` [EXTRACTED]
+- [[CrownTransferProtocol.jsx]] - `imports_from` [EXTRACTED]
+- [[CustomerDetailView()]] - `imports` [EXTRACTED]
+- [[CustomerManagement()]] - `imports` [EXTRACTED]
+- [[CustomerManager.jsx]] - `imports_from` [EXTRACTED]
+- [[DashboardView]] - `contains` [EXTRACTED]
+- [[EODReconciliationView]] - `contains` [EXTRACTED]
+- [[ExamineModal()]] - `imports` [EXTRACTED]
+- [[ExamineModal.jsx]] - `imports_from` [EXTRACTED]
+- [[FleetCanvasManager]] - `contains` [EXTRACTED]
+- [[HistoryReportView]] - `contains` [EXTRACTED]
+- [[ImageCropper()]] - `imports` [EXTRACTED]
+- [[ImageCropper.jsx]] - `imports_from` [EXTRACTED]
+- [[JourneyView]] - `contains` [EXTRACTED]
+- [[KPMInventoryApp()]] - `contains` [EXTRACTED]
+- [[LandlordDashboard()]] - `imports` [EXTRACTED]
+- [[LandlordDashboard.jsx]] - `imports_from` [EXTRACTED]
+- [[MapMissionControl]] - `contains` [EXTRACTED]
+- [[MerchantSalesView]] - `contains` [EXTRACTED]
+- [[MusicPlayer()]] - `imports` [EXTRACTED]
+- [[MusicPlayer.jsx]] - `imports_from` [EXTRACTED]
+- [[NotificationBell()]] - `imports` [EXTRACTED]
+- [[NotificationBell.jsx]] - `imports_from` [EXTRACTED]
+- [[ResidentEvilInventory]] - `contains` [EXTRACTED]
+- [[RestockVaultView]] - `contains` [EXTRACTED]
+- [[SafetyStatus()]] - `imports` [EXTRACTED]
+- [[SafetyStatus.jsx]] - `imports_from` [EXTRACTED]
+- [[SampleEntryModal()]] - `imports` [EXTRACTED]
+- [[SamplingAnalyticsView()]] - `imports` [EXTRACTED]
+- [[SamplingCartView()]] - `imports` [EXTRACTED]
+- [[SamplingFolderView()]] - `imports` [EXTRACTED]
+- [[SamplingManager.jsx]] - `imports_from` [EXTRACTED]
+- [[SettingsView()]] - `imports` [EXTRACTED]
+- [[SettingsView.jsx]] - `imports_from` [EXTRACTED]
+- [[StockOpnameView]] - `contains` [EXTRACTED]
+- [[auth]] - `imports` [EXTRACTED]
+- [[commitInChunks()]] - `imports` [EXTRACTED]
+- [[convertToBks()]] - `imports` [EXTRACTED]
+- [[db]] - `imports` [EXTRACTED]
+- [[firebase.js]] - `imports_from` [EXTRACTED]
+- [[formatRupiah()]] - `imports` [EXTRACTED]
+- [[getCurrentDate()_1]] - `imports` [EXTRACTED]
+- [[getDocOfflineSafe()]] - `contains` [EXTRACTED]
+- [[getRandomColor()]] - `imports` [EXTRACTED]
+- [[googleProvider]] - `imports` [EXTRACTED]
+- [[helpers.js]] - `imports_from` [EXTRACTED]
+- [[injectDynamicPermissions()]] - `imports` [EXTRACTED]
+- [[isFieldLevelTier()]] - `imports` [EXTRACTED]
+- [[main.jsx]] - `imports_from` [EXTRACTED]
+- [[package.json]] - `imports_from` [EXTRACTED]
+- [[permissions.js]] - `imports_from` [EXTRACTED]
+- [[savePhotoAndGetReference()]] - `imports` [EXTRACTED]
+- [[storage]] - `imports` [EXTRACTED]
+- [[useDatabaseSync()]] - `imports` [EXTRACTED]
+- [[useDatabaseSync.js]] - `imports_from` [EXTRACTED]
+- [[useOfflineEngine()]] - `imports` [EXTRACTED]
+- [[useOfflineEngine.js]] - `imports_from` [EXTRACTED]
+- [[useTransactionEngine()]] - `imports` [EXTRACTED]
+- [[useTransactionEngine.js]] - `imports_from` [EXTRACTED]
+
+#graphify/code #graphify/EXTRACTED #community/Appjsx

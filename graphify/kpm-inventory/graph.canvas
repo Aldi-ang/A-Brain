@@ -1,0 +1,4062 @@
+{
+  "nodes": [
+    {
+      "id": "g0",
+      "type": "group",
+      "label": "App.jsx",
+      "x": 0,
+      "y": 0,
+      "width": 1760,
+      "height": 820,
+      "color": "1"
+    },
+    {
+      "id": "n_src_app_agentinventoryview",
+      "type": "file",
+      "file": "AgentInventoryView.md",
+      "x": 20,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_agentprofileview",
+      "type": "file",
+      "file": "AgentProfileView.md",
+      "x": 220,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app",
+      "type": "file",
+      "file": "App.jsx.md",
+      "x": 420,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_biohazardtheme_biohazardtheme",
+      "type": "file",
+      "file": "BiohazardTheme().md",
+      "x": 620,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_biohazardtheme",
+      "type": "file",
+      "file": "BiohazardTheme.jsx.md",
+      "x": 820,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_branchwarehousemanager",
+      "type": "file",
+      "file": "BranchWarehouseManager.md",
+      "x": 1020,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_capybaramascot_capybaramascot",
+      "type": "file",
+      "file": "CapybaraMascot().md",
+      "x": 1220,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_capybaramascot",
+      "type": "file",
+      "file": "CapybaraMascot.jsx.md",
+      "x": 1420,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_consignmentfinanceview",
+      "type": "file",
+      "file": "ConsignmentFinanceView.md",
+      "x": 20,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_customermanager_customerdetailview",
+      "type": "file",
+      "file": "CustomerDetailView().md",
+      "x": 220,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_musicplayer_detected_tracks",
+      "type": "file",
+      "file": "DETECTED_TRACKS.md",
+      "x": 420,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_dashboardview",
+      "type": "file",
+      "file": "DashboardView.md",
+      "x": 620,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_eodreconciliationview",
+      "type": "file",
+      "file": "EODReconciliationView.md",
+      "x": 820,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_examinemodal_examinemodal",
+      "type": "file",
+      "file": "ExamineModal().md",
+      "x": 1020,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_examinemodal",
+      "type": "file",
+      "file": "ExamineModal.jsx.md",
+      "x": 1220,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_fleetcanvasmanager",
+      "type": "file",
+      "file": "FleetCanvasManager.md",
+      "x": 1420,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_historyreportview",
+      "type": "file",
+      "file": "HistoryReportView.md",
+      "x": 20,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_imagecropper_imagecropper",
+      "type": "file",
+      "file": "ImageCropper().md",
+      "x": 220,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_imagecropper",
+      "type": "file",
+      "file": "ImageCropper.jsx.md",
+      "x": 420,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_journeyview",
+      "type": "file",
+      "file": "JourneyView.md",
+      "x": 620,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_kpminventoryapp",
+      "type": "file",
+      "file": "KPMInventoryApp().md",
+      "x": 820,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_mapmissioncontrol",
+      "type": "file",
+      "file": "MapMissionControl.md",
+      "x": 1020,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_merchantsalesview",
+      "type": "file",
+      "file": "MerchantSalesView.md",
+      "x": 1220,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_musicplayer_musicplayer",
+      "type": "file",
+      "file": "MusicPlayer().md",
+      "x": 1420,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_musicplayer",
+      "type": "file",
+      "file": "MusicPlayer.jsx.md",
+      "x": 20,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_notificationbell_notificationbell",
+      "type": "file",
+      "file": "NotificationBell().md",
+      "x": 220,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_notificationbell",
+      "type": "file",
+      "file": "NotificationBell.jsx.md",
+      "x": 420,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_residentevilinventory",
+      "type": "file",
+      "file": "ResidentEvilInventory.md",
+      "x": 620,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_restockvaultview",
+      "type": "file",
+      "file": "RestockVaultView.md",
+      "x": 820,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_samplingmanager_sampleentrymodal",
+      "type": "file",
+      "file": "SampleEntryModal().md",
+      "x": 1020,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_samplingmanager_samplinganalyticsview",
+      "type": "file",
+      "file": "SamplingAnalyticsView().md",
+      "x": 1220,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_samplingmanager_samplingcartview",
+      "type": "file",
+      "file": "SamplingCartView().md",
+      "x": 1420,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_samplingmanager_samplingfolderview",
+      "type": "file",
+      "file": "SamplingFolderView().md",
+      "x": 20,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_samplingmanager",
+      "type": "file",
+      "file": "SamplingManager.jsx.md",
+      "x": 220,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_stockopnameview",
+      "type": "file",
+      "file": "StockOpnameView.md",
+      "x": 420,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_firebase_app",
+      "type": "file",
+      "file": "app.md",
+      "x": 620,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_firebase_auth",
+      "type": "file",
+      "file": "auth.md",
+      "x": 820,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_firebase_db",
+      "type": "file",
+      "file": "db.md",
+      "x": 1020,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_firebase",
+      "type": "file",
+      "file": "firebase.js.md",
+      "x": 1220,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_firebase_firebaseconfig",
+      "type": "file",
+      "file": "firebaseConfig.md",
+      "x": 1420,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_samplingmanager_formatsampleqty",
+      "type": "file",
+      "file": "formatSampleQty().md",
+      "x": 20,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_helpers_getcurrentdate",
+      "type": "file",
+      "file": "getCurrentDate()_1.md",
+      "x": 220,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_app_getdocofflinesafe",
+      "type": "file",
+      "file": "getDocOfflineSafe().md",
+      "x": 420,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_firebase_googleprovider",
+      "type": "file",
+      "file": "googleProvider.md",
+      "x": 620,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_main",
+      "type": "file",
+      "file": "main.jsx.md",
+      "x": 820,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_musicplayer_musicmodules",
+      "type": "file",
+      "file": "musicModules.md",
+      "x": 1020,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_firebase_storage",
+      "type": "file",
+      "file": "storage.md",
+      "x": 1220,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_hooks_usedatabasesync_usedatabasesync",
+      "type": "file",
+      "file": "useDatabaseSync().md",
+      "x": 1420,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_hooks_usedatabasesync",
+      "type": "file",
+      "file": "useDatabaseSync.js.md",
+      "x": 20,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_hooks_useofflineengine_useofflineengine",
+      "type": "file",
+      "file": "useOfflineEngine().md",
+      "x": 220,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_hooks_useofflineengine",
+      "type": "file",
+      "file": "useOfflineEngine.js.md",
+      "x": 420,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_hooks_usetransactionengine_usetransactionengine",
+      "type": "file",
+      "file": "useTransactionEngine().md",
+      "x": 620,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_hooks_usetransactionengine",
+      "type": "file",
+      "file": "useTransactionEngine.js.md",
+      "x": 820,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g1",
+      "type": "group",
+      "label": "MapMissionControl.jsx",
+      "x": 1840,
+      "y": 0,
+      "width": 1540,
+      "height": 720,
+      "color": "2"
+    },
+    {
+      "id": "n_src_journeyview_agent_colors",
+      "type": "file",
+      "file": "AGENT_COLORS.md",
+      "x": 1860,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_admincontrols",
+      "type": "file",
+      "file": "AdminControls().md",
+      "x": 2060,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_borderimporter",
+      "type": "file",
+      "file": "BorderImporter().md",
+      "x": 2260,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_customermanager_customermanagement",
+      "type": "file",
+      "file": "CustomerManagement().md",
+      "x": 2460,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_customermanager",
+      "type": "file",
+      "file": "CustomerManager.jsx.md",
+      "x": 2660,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_draggableaddmarker",
+      "type": "file",
+      "file": "DraggableAddMarker().md",
+      "x": 2860,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_gamehud",
+      "type": "file",
+      "file": "GameHUD().md",
+      "x": 3060,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_journeyview_journeyview",
+      "type": "file",
+      "file": "JourneyView().md",
+      "x": 1860,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_journeyview",
+      "type": "file",
+      "file": "JourneyView.jsx.md",
+      "x": 2060,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_journeyview_locationcontroller",
+      "type": "file",
+      "file": "LocationController().md",
+      "x": 2260,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_locationcontroller",
+      "type": "file",
+      "file": "LocationController()_1.md",
+      "x": 2460,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_mapclicker",
+      "type": "file",
+      "file": "MapClicker().md",
+      "x": 2660,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_journeyview_mapeditcontroller",
+      "type": "file",
+      "file": "MapEditController().md",
+      "x": 2860,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_mapeffectcontroller",
+      "type": "file",
+      "file": "MapEffectController().md",
+      "x": 3060,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_mapmissioncontrol",
+      "type": "file",
+      "file": "MapMissionControl().md",
+      "x": 1860,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol",
+      "type": "file",
+      "file": "MapMissionControl.jsx.md",
+      "x": 2060,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_markerwithzoom",
+      "type": "file",
+      "file": "MarkerWithZoom().md",
+      "x": 2260,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_tacticaldashboard",
+      "type": "file",
+      "file": "TacticalDashboard().md",
+      "x": 2460,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_zonehud",
+      "type": "file",
+      "file": "ZoneHUD().md",
+      "x": 2660,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_bordercache",
+      "type": "file",
+      "file": "borderCache.js.md",
+      "x": 2860,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_journeyview_checkpointingeojson",
+      "type": "file",
+      "file": "checkPointInGeoJSON().md",
+      "x": 3060,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_checkpointingeojson",
+      "type": "file",
+      "file": "checkPointInGeoJSON()_1.md",
+      "x": 1860,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_customermanager_checkpointingeojson",
+      "type": "file",
+      "file": "checkPointInGeoJSON()_2.md",
+      "x": 2060,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_bordercache_clearbordercache",
+      "type": "file",
+      "file": "clearBorderCache().md",
+      "x": 2260,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_compresscoords",
+      "type": "file",
+      "file": "compressCoords().md",
+      "x": 2460,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_createcustomclustericon",
+      "type": "file",
+      "file": "createCustomClusterIcon().md",
+      "x": 2660,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions_getcustomeraccesslevel",
+      "type": "file",
+      "file": "getCustomerAccessLevel().md",
+      "x": 2860,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_journeyview_gethashcolor",
+      "type": "file",
+      "file": "getHashColor().md",
+      "x": 3060,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_geticon",
+      "type": "file",
+      "file": "getIcon().md",
+      "x": 1860,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_journeyview_getstorehierarchy",
+      "type": "file",
+      "file": "getStoreHierarchy().md",
+      "x": 2060,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions_isfleetmanagementtier",
+      "type": "file",
+      "file": "isFleetManagementTier().md",
+      "x": 2260,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_journeyview_ispointinpolygon",
+      "type": "file",
+      "file": "isPointInPolygon().md",
+      "x": 2460,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_ispointinpolygon",
+      "type": "file",
+      "file": "isPointInPolygon()_1.md",
+      "x": 2660,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_customermanager_ispointinpolygon",
+      "type": "file",
+      "file": "isPointInPolygon()_2.md",
+      "x": 2860,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_bordercache_loadbordercache",
+      "type": "file",
+      "file": "loadBorderCache().md",
+      "x": 3060,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_bordercache_opencachedb",
+      "type": "file",
+      "file": "openCacheDB().md",
+      "x": 1860,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_bordercache_savebordercache",
+      "type": "file",
+      "file": "saveBorderCache().md",
+      "x": 2060,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_journeyview_userlocationicon",
+      "type": "file",
+      "file": "userLocationIcon.md",
+      "x": 2260,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_userlocationicon",
+      "type": "file",
+      "file": "userLocationIcon_1.md",
+      "x": 2460,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g2",
+      "type": "group",
+      "label": "dependencies",
+      "x": 3460,
+      "y": 0,
+      "width": 1320,
+      "height": 720,
+      "color": "3"
+    },
+    {
+      "id": "n_package_dependencies_emailjs_browser",
+      "type": "file",
+      "file": "@emailjsbrowser.md",
+      "x": 3480,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_emailjs_browser",
+      "type": "file",
+      "file": "@emailjsbrowser_1.md",
+      "x": 3680,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_react_three_drei",
+      "type": "file",
+      "file": "@react-threedrei.md",
+      "x": 3880,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_react_three_drei",
+      "type": "file",
+      "file": "@react-threedrei_1.md",
+      "x": 4080,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_react_three_fiber",
+      "type": "file",
+      "file": "@react-threefiber.md",
+      "x": 4280,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_react_three_fiber",
+      "type": "file",
+      "file": "@react-threefiber_1.md",
+      "x": 4480,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_clsx",
+      "type": "file",
+      "file": "clsx.md",
+      "x": 3480,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_clsx",
+      "type": "file",
+      "file": "clsx_1.md",
+      "x": 3680,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies",
+      "type": "file",
+      "file": "dependencies.md",
+      "x": 3880,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_firebase",
+      "type": "file",
+      "file": "firebase.md",
+      "x": 4080,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_firebase",
+      "type": "file",
+      "file": "firebase_1.md",
+      "x": 4280,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_idb",
+      "type": "file",
+      "file": "idb.md",
+      "x": 4480,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_idb",
+      "type": "file",
+      "file": "idb_1.md",
+      "x": 3480,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_leaflet",
+      "type": "file",
+      "file": "leaflet.md",
+      "x": 3680,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_leaflet",
+      "type": "file",
+      "file": "leaflet_1.md",
+      "x": 3880,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_lucide_react",
+      "type": "file",
+      "file": "lucide-react.md",
+      "x": 4080,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_lucide_react",
+      "type": "file",
+      "file": "lucide-react_1.md",
+      "x": 4280,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_react_dom",
+      "type": "file",
+      "file": "react-dom.md",
+      "x": 4480,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_react_dom",
+      "type": "file",
+      "file": "react-dom_1.md",
+      "x": 3480,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_react_easy_crop",
+      "type": "file",
+      "file": "react-easy-crop.md",
+      "x": 3680,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_react_easy_crop",
+      "type": "file",
+      "file": "react-easy-crop_1.md",
+      "x": 3880,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_react_is",
+      "type": "file",
+      "file": "react-is.md",
+      "x": 4080,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_react_is",
+      "type": "file",
+      "file": "react-is_1.md",
+      "x": 4280,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_react_leaflet",
+      "type": "file",
+      "file": "react-leaflet.md",
+      "x": 4480,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_react_leaflet",
+      "type": "file",
+      "file": "react-leaflet_1.md",
+      "x": 3480,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_react_leaflet_cluster",
+      "type": "file",
+      "file": "react-leaflet-cluster.md",
+      "x": 3680,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_react_leaflet_cluster",
+      "type": "file",
+      "file": "react-leaflet-cluster_1.md",
+      "x": 3880,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_recharts",
+      "type": "file",
+      "file": "recharts.md",
+      "x": 4080,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_recharts",
+      "type": "file",
+      "file": "recharts_1.md",
+      "x": 4280,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_tailwind_merge",
+      "type": "file",
+      "file": "tailwind-merge.md",
+      "x": 4480,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailwind_merge",
+      "type": "file",
+      "file": "tailwind-merge_1.md",
+      "x": 3480,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_three",
+      "type": "file",
+      "file": "three.md",
+      "x": 3680,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_three",
+      "type": "file",
+      "file": "three_1.md",
+      "x": 3880,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g3",
+      "type": "group",
+      "label": "permissions.js",
+      "x": 4860,
+      "y": 0,
+      "width": 1320,
+      "height": 620,
+      "color": "4"
+    },
+    {
+      "id": "n_src_agentprofileview_achievementcard",
+      "type": "file",
+      "file": "AchievementCard().md",
+      "x": 4880,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentprofileview_agentprofileview",
+      "type": "file",
+      "file": "AgentProfileView().md",
+      "x": 5080,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentprofileview",
+      "type": "file",
+      "file": "AgentProfileView.jsx.md",
+      "x": 5280,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentprofileview_badgeiconmap",
+      "type": "file",
+      "file": "BadgeIconMap.md",
+      "x": 5480,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions_corporate_tiers",
+      "type": "file",
+      "file": "CORPORATE_TIERS.md",
+      "x": 5680,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions_customer_edit_perms",
+      "type": "file",
+      "file": "CUSTOMER_EDIT_PERMS.md",
+      "x": 5880,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentprofileview_crazyrankborder",
+      "type": "file",
+      "file": "CrazyRankBorder().md",
+      "x": 4880,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_crowntransferprotocol_crowntransferprotocol",
+      "type": "file",
+      "file": "CrownTransferProtocol().md",
+      "x": 5080,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_crowntransferprotocol",
+      "type": "file",
+      "file": "CrownTransferProtocol.jsx.md",
+      "x": 5280,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentprofileview_default_badges",
+      "type": "file",
+      "file": "DEFAULT_BADGES.md",
+      "x": 5480,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions_dynamic_tiers",
+      "type": "file",
+      "file": "DYNAMIC_TIERS.md",
+      "x": 5680,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentprofileview_dynamiciconmap",
+      "type": "file",
+      "file": "DynamicIconMap.md",
+      "x": 5880,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_fleetcanvasmanager_fleetcanvasmanager",
+      "type": "file",
+      "file": "FleetCanvasManager().md",
+      "x": 4880,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_fleetcanvasmanager",
+      "type": "file",
+      "file": "FleetCanvasManager.jsx.md",
+      "x": 5080,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_journeyview_maprecenter",
+      "type": "file",
+      "file": "MapRecenter().md",
+      "x": 5280,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_merchantsalesview_merchantsalesview",
+      "type": "file",
+      "file": "MerchantSalesView().md",
+      "x": 5480,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_merchantsalesview",
+      "type": "file",
+      "file": "MerchantSalesView.jsx.md",
+      "x": 5680,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_settingsview_permissionmatrixeditor",
+      "type": "file",
+      "file": "PermissionMatrixEditor().md",
+      "x": 5880,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions_role_permissions",
+      "type": "file",
+      "file": "ROLE_PERMISSIONS.md",
+      "x": 4880,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_settingsview_settingsview",
+      "type": "file",
+      "file": "SettingsView().md",
+      "x": 5080,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_settingsview",
+      "type": "file",
+      "file": "SettingsView.jsx.md",
+      "x": 5280,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentprofileview_createimage",
+      "type": "file",
+      "file": "createImage().md",
+      "x": 5480,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentprofileview_getcroppedimg",
+      "type": "file",
+      "file": "getCroppedImg().md",
+      "x": 5680,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions_hasclearance",
+      "type": "file",
+      "file": "hasClearance().md",
+      "x": 5880,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions_injectdynamicpermissions",
+      "type": "file",
+      "file": "injectDynamicPermissions().md",
+      "x": 4880,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions_isfieldleveltier",
+      "type": "file",
+      "file": "isFieldLevelTier().md",
+      "x": 5080,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions",
+      "type": "file",
+      "file": "permissions.js.md",
+      "x": 5280,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_dependencies_react",
+      "type": "file",
+      "file": "react.md",
+      "x": 5480,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_react",
+      "type": "file",
+      "file": "react_1.md",
+      "x": 5680,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_permissions_translatelegacyrole",
+      "type": "file",
+      "file": "translateLegacyRole().md",
+      "x": 5880,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g4",
+      "type": "group",
+      "label": "devDependencies",
+      "x": 6260,
+      "y": 0,
+      "width": 1320,
+      "height": 620,
+      "color": "5"
+    },
+    {
+      "id": "n_package_devdependencies_eslint_js",
+      "type": "file",
+      "file": "@eslintjs.md",
+      "x": 6280,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_eslint_js",
+      "type": "file",
+      "file": "@eslintjs_1.md",
+      "x": 6480,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_types_react",
+      "type": "file",
+      "file": "@typesreact.md",
+      "x": 6680,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_types_react",
+      "type": "file",
+      "file": "@typesreact_1.md",
+      "x": 6880,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_types_react_dom",
+      "type": "file",
+      "file": "@typesreact-dom.md",
+      "x": 7080,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_types_react_dom",
+      "type": "file",
+      "file": "@typesreact-dom_1.md",
+      "x": 7280,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_vitejs_plugin_react",
+      "type": "file",
+      "file": "@vitejsplugin-react.md",
+      "x": 6280,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_vitejs_plugin_react",
+      "type": "file",
+      "file": "@vitejsplugin-react_1.md",
+      "x": 6480,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_autoprefixer",
+      "type": "file",
+      "file": "autoprefixer.md",
+      "x": 6680,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_autoprefixer",
+      "type": "file",
+      "file": "autoprefixer_1.md",
+      "x": 6880,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_cross_env",
+      "type": "file",
+      "file": "cross-env.md",
+      "x": 7080,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_cross_env",
+      "type": "file",
+      "file": "cross-env_1.md",
+      "x": 7280,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies",
+      "type": "file",
+      "file": "devDependencies.md",
+      "x": 6280,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_eslint",
+      "type": "file",
+      "file": "eslint.md",
+      "x": 6480,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_eslint",
+      "type": "file",
+      "file": "eslint_1.md",
+      "x": 6680,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_eslint_plugin_react_hooks",
+      "type": "file",
+      "file": "eslint-plugin-react-hooks.md",
+      "x": 6880,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_eslint_plugin_react_hooks",
+      "type": "file",
+      "file": "eslint-plugin-react-hooks_1.md",
+      "x": 7080,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_eslint_plugin_react_refresh",
+      "type": "file",
+      "file": "eslint-plugin-react-refresh.md",
+      "x": 7280,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_eslint_plugin_react_refresh",
+      "type": "file",
+      "file": "eslint-plugin-react-refresh_1.md",
+      "x": 6280,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_globals",
+      "type": "file",
+      "file": "globals.md",
+      "x": 6480,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_globals",
+      "type": "file",
+      "file": "globals_1.md",
+      "x": 6680,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_postcss",
+      "type": "file",
+      "file": "postcss.md",
+      "x": 6880,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_postcss",
+      "type": "file",
+      "file": "postcss_1.md",
+      "x": 7080,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_tailwindcss",
+      "type": "file",
+      "file": "tailwindcss.md",
+      "x": 7280,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailwindcss",
+      "type": "file",
+      "file": "tailwindcss_1.md",
+      "x": 6280,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_vite",
+      "type": "file",
+      "file": "vite.md",
+      "x": 6480,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_vite",
+      "type": "file",
+      "file": "vite_1.md",
+      "x": 6680,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_devdependencies_vite_plugin_pwa",
+      "type": "file",
+      "file": "vite-plugin-pwa.md",
+      "x": 6880,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_vite_plugin_pwa",
+      "type": "file",
+      "file": "vite-plugin-pwa_1.md",
+      "x": 7080,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g5",
+      "type": "group",
+      "label": "formatRupiah",
+      "x": 0,
+      "y": 900,
+      "width": 1320,
+      "height": 620,
+      "color": "6"
+    },
+    {
+      "id": "n_src_agentinventoryview_agentinventoryview",
+      "type": "file",
+      "file": "AgentInventoryView().md",
+      "x": 20,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentinventoryview",
+      "type": "file",
+      "file": "AgentInventoryView.jsx.md",
+      "x": 220,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_consignmentfinanceview_consignmentfinanceview",
+      "type": "file",
+      "file": "ConsignmentFinanceView().md",
+      "x": 420,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_consignmentfinanceview",
+      "type": "file",
+      "file": "ConsignmentFinanceView.jsx.md",
+      "x": 620,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_dashboardview_customtooltip",
+      "type": "file",
+      "file": "CustomTooltip().md",
+      "x": 820,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_dashboardbenchmarks_dashboardbenchmarks",
+      "type": "file",
+      "file": "DashboardBenchmarks().md",
+      "x": 1020,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_dashboardbenchmarks",
+      "type": "file",
+      "file": "DashboardBenchmarks.jsx.md",
+      "x": 20,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_dashboardview_dashboardview",
+      "type": "file",
+      "file": "DashboardView().md",
+      "x": 220,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_dashboardview",
+      "type": "file",
+      "file": "DashboardView.jsx.md",
+      "x": 420,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_residentevilinventory_dimensioncontrol",
+      "type": "file",
+      "file": "DimensionControl().md",
+      "x": 620,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_eodreconciliationview_eodreconciliationview",
+      "type": "file",
+      "file": "EODReconciliationView().md",
+      "x": 820,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_eodreconciliationview",
+      "type": "file",
+      "file": "EODReconciliationView.jsx.md",
+      "x": 1020,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_historyreportview_historyreportview",
+      "type": "file",
+      "file": "HistoryReportView().md",
+      "x": 20,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_historyreportview",
+      "type": "file",
+      "file": "HistoryReportView.jsx.md",
+      "x": 220,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_residentevilinventory_iteminspector",
+      "type": "file",
+      "file": "ItemInspector().md",
+      "x": 420,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentinventoryview_quarantineledgerboard",
+      "type": "file",
+      "file": "QuarantineLedgerBoard().md",
+      "x": 620,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_residentevilinventory_residentevilinventory",
+      "type": "file",
+      "file": "ResidentEvilInventory().md",
+      "x": 820,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_residentevilinventory",
+      "type": "file",
+      "file": "ResidentEvilInventory.jsx.md",
+      "x": 1020,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_safetystatus_safetystatus",
+      "type": "file",
+      "file": "SafetyStatus().md",
+      "x": 20,
+      "y": 1220,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_safetystatus",
+      "type": "file",
+      "file": "SafetyStatus.jsx.md",
+      "x": 220,
+      "y": 1220,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_storebottomsheet",
+      "type": "file",
+      "file": "StoreBottomSheet().md",
+      "x": 420,
+      "y": 1220,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_helpers_converttobks",
+      "type": "file",
+      "file": "convertToBks().md",
+      "x": 620,
+      "y": 1220,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_residentevilinventory_formatadvancedstock",
+      "type": "file",
+      "file": "formatAdvancedStock().md",
+      "x": 820,
+      "y": 1220,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_helpers_formatrupiah",
+      "type": "file",
+      "file": "formatRupiah().md",
+      "x": 1020,
+      "y": 1220,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_agentinventoryview_getcurrentdate",
+      "type": "file",
+      "file": "getCurrentDate().md",
+      "x": 20,
+      "y": 1300,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_helpers_getrandomcolor",
+      "type": "file",
+      "file": "getRandomColor().md",
+      "x": 220,
+      "y": 1300,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g6",
+      "type": "group",
+      "label": "helpers.js",
+      "x": 1840,
+      "y": 900,
+      "width": 1100,
+      "height": 520,
+      "color": "1"
+    },
+    {
+      "id": "n_src_components_auditvaultview_auditvaultview",
+      "type": "file",
+      "file": "AuditVaultView().md",
+      "x": 1860,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_auditvaultview",
+      "type": "file",
+      "file": "AuditVaultView.jsx.md",
+      "x": 2060,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_branchwarehousemanager_branchwarehousemanager",
+      "type": "file",
+      "file": "BranchWarehouseManager().md",
+      "x": 2260,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_branchwarehousemanager",
+      "type": "file",
+      "file": "BranchWarehouseManager.jsx.md",
+      "x": 2460,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_landlorddashboard_landlorddashboard",
+      "type": "file",
+      "file": "LandlordDashboard().md",
+      "x": 2660,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_components_landlorddashboard",
+      "type": "file",
+      "file": "LandlordDashboard.jsx.md",
+      "x": 1860,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_restockvaultview_restockvaultview",
+      "type": "file",
+      "file": "RestockVaultView().md",
+      "x": 2060,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_restockvaultview",
+      "type": "file",
+      "file": "RestockVaultView.jsx.md",
+      "x": 2260,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_stockopnameview_stockopnameview",
+      "type": "file",
+      "file": "StockOpnameView().md",
+      "x": 2460,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_stockopnameview",
+      "type": "file",
+      "file": "StockOpnameView.jsx.md",
+      "x": 2660,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_mapmissioncontrol_tierautomationengine",
+      "type": "file",
+      "file": "TierAutomationEngine().md",
+      "x": 1860,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_helpers_commitinchunks",
+      "type": "file",
+      "file": "commitInChunks().md",
+      "x": 2060,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_helpers_compressimagetobase64",
+      "type": "file",
+      "file": "compressImageToBase64().md",
+      "x": 2260,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_helpers_deletephotofromstorage",
+      "type": "file",
+      "file": "deletePhotoFromStorage().md",
+      "x": 2460,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_helpers",
+      "type": "file",
+      "file": "helpers.js.md",
+      "x": 2660,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_helpers_issafedocidemail",
+      "type": "file",
+      "file": "isSafeDocIdEmail().md",
+      "x": 1860,
+      "y": 1220,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_utils_helpers_savephotoandgetreference",
+      "type": "file",
+      "file": "savePhotoAndGetReference().md",
+      "x": 2060,
+      "y": 1220,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g7",
+      "type": "group",
+      "label": "package.json",
+      "x": 3460,
+      "y": 900,
+      "width": 880,
+      "height": 420,
+      "color": "2"
+    },
+    {
+      "id": "n_package_scripts_build",
+      "type": "file",
+      "file": "build.md",
+      "x": 3480,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_scripts_deploy",
+      "type": "file",
+      "file": "deploy.md",
+      "x": 3680,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_scripts_dev",
+      "type": "file",
+      "file": "dev.md",
+      "x": 3880,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_scripts_lint",
+      "type": "file",
+      "file": "lint.md",
+      "x": 4080,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_name",
+      "type": "file",
+      "file": "name.md",
+      "x": 3480,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package",
+      "type": "file",
+      "file": "package.json.md",
+      "x": 3680,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_scripts_preview",
+      "type": "file",
+      "file": "preview.md",
+      "x": 3880,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_private",
+      "type": "file",
+      "file": "private.md",
+      "x": 4080,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_scripts",
+      "type": "file",
+      "file": "scripts.md",
+      "x": 3480,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_type",
+      "type": "file",
+      "file": "type.md",
+      "x": 3680,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_package_version",
+      "type": "file",
+      "file": "version.md",
+      "x": 3880,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g8",
+      "type": "group",
+      "label": "manifest.json",
+      "x": 4860,
+      "y": 900,
+      "width": 660,
+      "height": 420,
+      "color": "3"
+    },
+    {
+      "id": "n_public_manifest_background_color",
+      "type": "file",
+      "file": "background_color.md",
+      "x": 4880,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_public_manifest_display",
+      "type": "file",
+      "file": "display.md",
+      "x": 5080,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_public_manifest_icons",
+      "type": "file",
+      "file": "icons.md",
+      "x": 5280,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_public_manifest",
+      "type": "file",
+      "file": "manifest.json.md",
+      "x": 4880,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_public_manifest_name",
+      "type": "file",
+      "file": "name_1.md",
+      "x": 5080,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_public_manifest_orientation",
+      "type": "file",
+      "file": "orientation.md",
+      "x": 5280,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_public_manifest_short_name",
+      "type": "file",
+      "file": "short_name.md",
+      "x": 4880,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_public_manifest_start_url",
+      "type": "file",
+      "file": "start_url.md",
+      "x": 5080,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_public_manifest_theme_color",
+      "type": "file",
+      "file": "theme_color.md",
+      "x": 5280,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g9",
+      "type": "group",
+      "label": "KPM Inventory \u2014 Manual Test Checklist",
+      "x": 6260,
+      "y": 900,
+      "width": 660,
+      "height": 420,
+      "color": "4"
+    },
+    {
+      "id": "n_manual_test_checklist_after_deploying_a_firestore_security_rules_change_specifically",
+      "type": "file",
+      "file": "After deploying a Firestore Security Rules change specifically.md",
+      "x": 6280,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_manual_test_checklist_kpm_inventory_manual_test_checklist",
+      "type": "file",
+      "file": "KPM Inventory \u2014 Manual Test Checklist.md",
+      "x": 6480,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_manual_test_checklist",
+      "type": "file",
+      "file": "MANUAL_TEST_CHECKLIST.md",
+      "x": 6680,
+      "y": 980,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_manual_test_checklist_skip_entirely",
+      "type": "file",
+      "file": "\u26aa Skip entirely.md",
+      "x": 6280,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_manual_test_checklist_business_critical_test_every_single_release",
+      "type": "file",
+      "file": "\ud83d\udd34 Business-critical \u2014 test every single release.md",
+      "x": 6480,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_manual_test_checklist_before_you_say_done_or_commit_anything_do_this_every_time",
+      "type": "file",
+      "file": "\ud83d\udea8 Before you say done or commit anything \u2014 do this EVERY time.md",
+      "x": 6680,
+      "y": 1060,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_manual_test_checklist_data_integrity_test_after_any_related_change",
+      "type": "file",
+      "file": "\ud83d\udfe0 Data integrity \u2014 test after any related change.md",
+      "x": 6280,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_manual_test_checklist_edge_cases_test_when_touching_that_specific_code",
+      "type": "file",
+      "file": "\ud83d\udfe1 Edge cases \u2014 test when touching that specific code.md",
+      "x": 6480,
+      "y": 1140,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g10",
+      "type": "group",
+      "label": "Firestore Security Rules \u2014 Deployment Checklist",
+      "x": 0,
+      "y": 1600,
+      "width": 660,
+      "height": 420,
+      "color": "5"
+    },
+    {
+      "id": "n_security_rules_deploy_checklist_after_a_successful_deploy",
+      "type": "file",
+      "file": "After a successful deploy.md",
+      "x": 20,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_security_rules_deploy_checklist_before_deploying",
+      "type": "file",
+      "file": "Before deploying.md",
+      "x": 220,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_security_rules_deploy_checklist_firestore_security_rules_deployment_checklist",
+      "type": "file",
+      "file": "Firestore Security Rules \u2014 Deployment Checklist.md",
+      "x": 420,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_security_rules_deploy_checklist_if_something_breaks",
+      "type": "file",
+      "file": "If something breaks.md",
+      "x": 20,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_security_rules_deploy_checklist_immediately_after_deploying_test_this_for_real_not_just_trust_the_emulator",
+      "type": "file",
+      "file": "Immediately after deploying \u2014 test this for real, not just trust the emulator.md",
+      "x": 220,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_security_rules_deploy_checklist",
+      "type": "file",
+      "file": "SECURITY_RULES_DEPLOY_CHECKLIST.md",
+      "x": 420,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_security_rules_deploy_checklist_the_deploy_itself",
+      "type": "file",
+      "file": "The deploy itself.md",
+      "x": 20,
+      "y": 1840,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g11",
+      "type": "group",
+      "label": "HallOfFameView.jsx",
+      "x": 1840,
+      "y": 1600,
+      "width": 660,
+      "height": 420,
+      "color": "6"
+    },
+    {
+      "id": "n_src_config_achievements_badge_registry",
+      "type": "file",
+      "file": "BADGE_REGISTRY.md",
+      "x": 1860,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_halloffameview_halloffameview",
+      "type": "file",
+      "file": "HallOfFameView().md",
+      "x": 2060,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_halloffameview",
+      "type": "file",
+      "file": "HallOfFameView.jsx.md",
+      "x": 2260,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_halloffameview_iconmap",
+      "type": "file",
+      "file": "IconMap.md",
+      "x": 1860,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_achievements",
+      "type": "file",
+      "file": "achievements.js.md",
+      "x": 2060,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_achievements_calculateagentlevel",
+      "type": "file",
+      "file": "calculateAgentLevel().md",
+      "x": 2260,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_config_achievements_checkunlockedbadges",
+      "type": "file",
+      "file": "checkUnlockedBadges().md",
+      "x": 1860,
+      "y": 1840,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g12",
+      "type": "group",
+      "label": "test-batch1.mjs",
+      "x": 3460,
+      "y": 1600,
+      "width": 660,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_rules_test_test_batch1_rules",
+      "type": "file",
+      "file": "RULES.md",
+      "x": 3480,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_rules_test_test_batch1_ctxfor",
+      "type": "file",
+      "file": "ctxFor().md",
+      "x": 3680,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_rules_test_test_batch1_expect",
+      "type": "file",
+      "file": "expect().md",
+      "x": 3880,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_rules_test_test_batch1_run",
+      "type": "file",
+      "file": "run().md",
+      "x": 3480,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_rules_test_test_batch1_seed",
+      "type": "file",
+      "file": "seed().md",
+      "x": 3680,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_rules_test_test_batch1",
+      "type": "file",
+      "file": "test-batch1.mjs.md",
+      "x": 3880,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g13",
+      "type": "group",
+      "label": "test-batch2.mjs",
+      "x": 4860,
+      "y": 1600,
+      "width": 660,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_rules_test_test_batch2_rules",
+      "type": "file",
+      "file": "RULES_1.md",
+      "x": 4880,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_rules_test_test_batch2_ctxfor",
+      "type": "file",
+      "file": "ctxFor()_1.md",
+      "x": 5080,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_rules_test_test_batch2_expect",
+      "type": "file",
+      "file": "expect()_1.md",
+      "x": 5280,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_rules_test_test_batch2_run",
+      "type": "file",
+      "file": "run()_1.md",
+      "x": 4880,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_rules_test_test_batch2_seed",
+      "type": "file",
+      "file": "seed()_1.md",
+      "x": 5080,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_rules_test_test_batch2",
+      "type": "file",
+      "file": "test-batch2.mjs.md",
+      "x": 5280,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g14",
+      "type": "group",
+      "label": "React + Vite",
+      "x": 6260,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_readme_expanding_the_eslint_configuration",
+      "type": "file",
+      "file": "Expanding the ESLint configuration.md",
+      "x": 6280,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme",
+      "type": "file",
+      "file": "README.md",
+      "x": 6480,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_react_vite",
+      "type": "file",
+      "file": "React + Vite.md",
+      "x": 6280,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_react_compiler",
+      "type": "file",
+      "file": "React Compiler.md",
+      "x": 6480,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g15",
+      "type": "group",
+      "label": "Duke3D.jsx",
+      "x": 0,
+      "y": 2100,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_src_duke3d_duke3d",
+      "type": "file",
+      "file": "Duke3D().md",
+      "x": 20,
+      "y": 2180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_duke3d",
+      "type": "file",
+      "file": "Duke3D.jsx.md",
+      "x": 220,
+      "y": 2180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_src_duke3d_rationale_4",
+      "type": "file",
+      "file": "NOTE You must place your 'duke.glb' file in the 'public' folder!.md",
+      "x": 20,
+      "y": 2260,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g16",
+      "type": "group",
+      "label": "CLAUDE.md",
+      "x": 1840,
+      "y": 2100,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_claude",
+      "type": "file",
+      "file": "CLAUDE.md",
+      "x": 1860,
+      "y": 2180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_claude_graphify",
+      "type": "file",
+      "file": "graphify.md",
+      "x": 2060,
+      "y": 2180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g17",
+      "type": "group",
+      "label": "eslint.config.js",
+      "x": 3460,
+      "y": 2100,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_eslint_config",
+      "type": "file",
+      "file": "eslint.config.js.md",
+      "x": 3480,
+      "y": 2180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g18",
+      "type": "group",
+      "label": "postcss.config.js",
+      "x": 4860,
+      "y": 2100,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_postcss_config",
+      "type": "file",
+      "file": "postcss.config.js.md",
+      "x": 4880,
+      "y": 2180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g19",
+      "type": "group",
+      "label": "tailwind.config.js",
+      "x": 6260,
+      "y": 2100,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_tailwind_config",
+      "type": "file",
+      "file": "tailwind.config.js.md",
+      "x": 6280,
+      "y": 2180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g20",
+      "type": "group",
+      "label": "vite.config.js",
+      "x": 0,
+      "y": 2580,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_vite_config",
+      "type": "file",
+      "file": "vite.config.js.md",
+      "x": 20,
+      "y": 2660,
+      "width": 180,
+      "height": 60
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_package_package_dependencies",
+      "fromNode": "n_package",
+      "toNode": "n_package_dependencies",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_package_devdependencies",
+      "fromNode": "n_package",
+      "toNode": "n_package_devdependencies",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_package_name",
+      "fromNode": "n_package",
+      "toNode": "n_package_name",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_package_private",
+      "fromNode": "n_package",
+      "toNode": "n_package_private",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_package_scripts",
+      "fromNode": "n_package",
+      "toNode": "n_package_scripts",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_package_type",
+      "fromNode": "n_package",
+      "toNode": "n_package_type",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_package_version",
+      "fromNode": "n_package",
+      "toNode": "n_package_version",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_src_app",
+      "fromNode": "n_package",
+      "toNode": "n_src_app",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_package_scripts_package_scripts_build",
+      "fromNode": "n_package_scripts",
+      "toNode": "n_package_scripts_build",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_scripts_package_scripts_deploy",
+      "fromNode": "n_package_scripts",
+      "toNode": "n_package_scripts_deploy",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_scripts_package_scripts_dev",
+      "fromNode": "n_package_scripts",
+      "toNode": "n_package_scripts_dev",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_scripts_package_scripts_lint",
+      "fromNode": "n_package_scripts",
+      "toNode": "n_package_scripts_lint",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_scripts_package_scripts_preview",
+      "fromNode": "n_package_scripts",
+      "toNode": "n_package_scripts_preview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_clsx",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_clsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_emailjs_browser",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_emailjs_browser",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_firebase",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_firebase",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_idb",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_idb",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_leaflet",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_leaflet",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_lucide_react",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_lucide_react",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_react",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_react",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_react_dom",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_react_dom",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_react_easy_crop",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_react_easy_crop",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_react_is",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_react_is",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_react_leaflet",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_react_leaflet",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_react_leaflet_cluster",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_react_leaflet_cluster",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_react_three_drei",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_react_three_drei",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_react_three_fiber",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_react_three_fiber",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_recharts",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_recharts",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_tailwind_merge",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_tailwind_merge",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_package_dependencies_three",
+      "fromNode": "n_package_dependencies",
+      "toNode": "n_package_dependencies_three",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_emailjs_browser_emailjs_browser",
+      "fromNode": "n_package_dependencies_emailjs_browser",
+      "toNode": "n_emailjs_browser",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_three_drei_react_three_drei",
+      "fromNode": "n_package_dependencies_react_three_drei",
+      "toNode": "n_react_three_drei",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_three_fiber_react_three_fiber",
+      "fromNode": "n_package_dependencies_react_three_fiber",
+      "toNode": "n_react_three_fiber",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_clsx_clsx",
+      "fromNode": "n_package_dependencies_clsx",
+      "toNode": "n_clsx",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_firebase_firebase",
+      "fromNode": "n_package_dependencies_firebase",
+      "toNode": "n_firebase",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_idb_idb",
+      "fromNode": "n_package_dependencies_idb",
+      "toNode": "n_idb",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_leaflet_leaflet",
+      "fromNode": "n_package_dependencies_leaflet",
+      "toNode": "n_leaflet",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_lucide_react_lucide_react",
+      "fromNode": "n_package_dependencies_lucide_react",
+      "toNode": "n_lucide_react",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_react",
+      "fromNode": "n_package_dependencies_react",
+      "toNode": "n_react",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_src_app_kpminventoryapp",
+      "fromNode": "n_package_dependencies_react",
+      "toNode": "n_src_app_kpminventoryapp",
+      "label": "references [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_src_components_settingsview_permissionmatrixeditor",
+      "fromNode": "n_package_dependencies_react",
+      "toNode": "n_src_components_settingsview_permissionmatrixeditor",
+      "label": "references [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_src_components_settingsview_settingsview",
+      "fromNode": "n_package_dependencies_react",
+      "toNode": "n_src_components_settingsview_settingsview",
+      "label": "references [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_src_journeyview_maprecenter",
+      "fromNode": "n_package_dependencies_react",
+      "toNode": "n_src_journeyview_maprecenter",
+      "label": "references [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_src_merchantsalesview_merchantsalesview",
+      "fromNode": "n_package_dependencies_react",
+      "toNode": "n_src_merchantsalesview_merchantsalesview",
+      "label": "references [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_dom_react_dom",
+      "fromNode": "n_package_dependencies_react_dom",
+      "toNode": "n_react_dom",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_easy_crop_react_easy_crop",
+      "fromNode": "n_package_dependencies_react_easy_crop",
+      "toNode": "n_react_easy_crop",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_is_react_is",
+      "fromNode": "n_package_dependencies_react_is",
+      "toNode": "n_react_is",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_leaflet_react_leaflet",
+      "fromNode": "n_package_dependencies_react_leaflet",
+      "toNode": "n_react_leaflet",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_react_leaflet_cluster_react_leaflet_cluster",
+      "fromNode": "n_package_dependencies_react_leaflet_cluster",
+      "toNode": "n_react_leaflet_cluster",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_recharts_recharts",
+      "fromNode": "n_package_dependencies_recharts",
+      "toNode": "n_recharts",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_tailwind_merge_tailwind_merge",
+      "fromNode": "n_package_dependencies_tailwind_merge",
+      "toNode": "n_tailwind_merge",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_dependencies_three_three",
+      "fromNode": "n_package_dependencies_three",
+      "toNode": "n_three",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_autoprefixer",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_autoprefixer",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_cross_env",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_cross_env",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_eslint",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_eslint",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_eslint_js",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_eslint_js",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_eslint_plugin_react_hooks",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_eslint_plugin_react_hooks",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_eslint_plugin_react_refresh",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_eslint_plugin_react_refresh",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_globals",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_globals",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_postcss",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_postcss",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_tailwindcss",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_tailwindcss",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_types_react",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_types_react",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_types_react_dom",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_types_react_dom",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_vite",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_vite",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_vite_plugin_pwa",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_vite_plugin_pwa",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_package_devdependencies_vitejs_plugin_react",
+      "fromNode": "n_package_devdependencies",
+      "toNode": "n_package_devdependencies_vitejs_plugin_react",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_eslint_js_eslint_js",
+      "fromNode": "n_package_devdependencies_eslint_js",
+      "toNode": "n_eslint_js",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_types_react_types_react",
+      "fromNode": "n_package_devdependencies_types_react",
+      "toNode": "n_types_react",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_types_react_dom_types_react_dom",
+      "fromNode": "n_package_devdependencies_types_react_dom",
+      "toNode": "n_types_react_dom",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_vitejs_plugin_react_vitejs_plugin_react",
+      "fromNode": "n_package_devdependencies_vitejs_plugin_react",
+      "toNode": "n_vitejs_plugin_react",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_autoprefixer_autoprefixer",
+      "fromNode": "n_package_devdependencies_autoprefixer",
+      "toNode": "n_autoprefixer",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_cross_env_cross_env",
+      "fromNode": "n_package_devdependencies_cross_env",
+      "toNode": "n_cross_env",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_eslint_eslint",
+      "fromNode": "n_package_devdependencies_eslint",
+      "toNode": "n_eslint",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_eslint_plugin_react_hooks_eslint_plugin_react_hooks",
+      "fromNode": "n_package_devdependencies_eslint_plugin_react_hooks",
+      "toNode": "n_eslint_plugin_react_hooks",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_eslint_plugin_react_refresh_eslint_plugin_react_refresh",
+      "fromNode": "n_package_devdependencies_eslint_plugin_react_refresh",
+      "toNode": "n_eslint_plugin_react_refresh",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_globals_globals",
+      "fromNode": "n_package_devdependencies_globals",
+      "toNode": "n_globals",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_postcss_postcss",
+      "fromNode": "n_package_devdependencies_postcss",
+      "toNode": "n_postcss",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_tailwindcss_tailwindcss",
+      "fromNode": "n_package_devdependencies_tailwindcss",
+      "toNode": "n_tailwindcss",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_vite_vite",
+      "fromNode": "n_package_devdependencies_vite",
+      "toNode": "n_vite",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_package_devdependencies_vite_plugin_pwa_vite_plugin_pwa",
+      "fromNode": "n_package_devdependencies_vite_plugin_pwa",
+      "toNode": "n_vite_plugin_pwa",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_public_manifest_public_manifest_background_color",
+      "fromNode": "n_public_manifest",
+      "toNode": "n_public_manifest_background_color",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_public_manifest_public_manifest_display",
+      "fromNode": "n_public_manifest",
+      "toNode": "n_public_manifest_display",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_public_manifest_public_manifest_icons",
+      "fromNode": "n_public_manifest",
+      "toNode": "n_public_manifest_icons",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_public_manifest_public_manifest_name",
+      "fromNode": "n_public_manifest",
+      "toNode": "n_public_manifest_name",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_public_manifest_public_manifest_orientation",
+      "fromNode": "n_public_manifest",
+      "toNode": "n_public_manifest_orientation",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_public_manifest_public_manifest_short_name",
+      "fromNode": "n_public_manifest",
+      "toNode": "n_public_manifest_short_name",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_public_manifest_public_manifest_start_url",
+      "fromNode": "n_public_manifest",
+      "toNode": "n_public_manifest_start_url",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_public_manifest_public_manifest_theme_color",
+      "fromNode": "n_public_manifest",
+      "toNode": "n_public_manifest_theme_color",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch1_rules_test_test_batch1_ctxfor",
+      "fromNode": "n_rules_test_test_batch1",
+      "toNode": "n_rules_test_test_batch1_ctxfor",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch1_rules_test_test_batch1_expect",
+      "fromNode": "n_rules_test_test_batch1",
+      "toNode": "n_rules_test_test_batch1_expect",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch1_rules_test_test_batch1_rules",
+      "fromNode": "n_rules_test_test_batch1",
+      "toNode": "n_rules_test_test_batch1_rules",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch1_rules_test_test_batch1_run",
+      "fromNode": "n_rules_test_test_batch1",
+      "toNode": "n_rules_test_test_batch1_run",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch1_rules_test_test_batch1_seed",
+      "fromNode": "n_rules_test_test_batch1",
+      "toNode": "n_rules_test_test_batch1_seed",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch1_expect_rules_test_test_batch1_run",
+      "fromNode": "n_rules_test_test_batch1_expect",
+      "toNode": "n_rules_test_test_batch1_run",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch1_seed_rules_test_test_batch1_run",
+      "fromNode": "n_rules_test_test_batch1_seed",
+      "toNode": "n_rules_test_test_batch1_run",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch1_ctxfor_rules_test_test_batch1_run",
+      "fromNode": "n_rules_test_test_batch1_ctxfor",
+      "toNode": "n_rules_test_test_batch1_run",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch2_rules_test_test_batch2_ctxfor",
+      "fromNode": "n_rules_test_test_batch2",
+      "toNode": "n_rules_test_test_batch2_ctxfor",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch2_rules_test_test_batch2_expect",
+      "fromNode": "n_rules_test_test_batch2",
+      "toNode": "n_rules_test_test_batch2_expect",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch2_rules_test_test_batch2_rules",
+      "fromNode": "n_rules_test_test_batch2",
+      "toNode": "n_rules_test_test_batch2_rules",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch2_rules_test_test_batch2_run",
+      "fromNode": "n_rules_test_test_batch2",
+      "toNode": "n_rules_test_test_batch2_run",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch2_rules_test_test_batch2_seed",
+      "fromNode": "n_rules_test_test_batch2",
+      "toNode": "n_rules_test_test_batch2_seed",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch2_expect_rules_test_test_batch2_run",
+      "fromNode": "n_rules_test_test_batch2_expect",
+      "toNode": "n_rules_test_test_batch2_run",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch2_seed_rules_test_test_batch2_run",
+      "fromNode": "n_rules_test_test_batch2_seed",
+      "toNode": "n_rules_test_test_batch2_run",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_rules_test_test_batch2_ctxfor_rules_test_test_batch2_run",
+      "fromNode": "n_rules_test_test_batch2_ctxfor",
+      "toNode": "n_rules_test_test_batch2_run",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentinventoryview_src_agentinventoryview_agentinventoryview",
+      "fromNode": "n_src_agentinventoryview",
+      "toNode": "n_src_agentinventoryview_agentinventoryview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentinventoryview_src_agentinventoryview_getcurrentdate",
+      "fromNode": "n_src_agentinventoryview",
+      "toNode": "n_src_agentinventoryview_getcurrentdate",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentinventoryview_src_agentinventoryview_quarantineledgerboard",
+      "fromNode": "n_src_agentinventoryview",
+      "toNode": "n_src_agentinventoryview_quarantineledgerboard",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentinventoryview_src_utils_helpers",
+      "fromNode": "n_src_agentinventoryview",
+      "toNode": "n_src_utils_helpers",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentinventoryview_src_utils_helpers_formatrupiah",
+      "fromNode": "n_src_agentinventoryview",
+      "toNode": "n_src_utils_helpers_formatrupiah",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentinventoryview_getcurrentdate_src_agentinventoryview_agentinventoryview",
+      "fromNode": "n_src_agentinventoryview_getcurrentdate",
+      "toNode": "n_src_agentinventoryview_agentinventoryview",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentinventoryview_agentinventoryview_src_utils_helpers_formatrupiah",
+      "fromNode": "n_src_agentinventoryview_agentinventoryview",
+      "toNode": "n_src_utils_helpers_formatrupiah",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_agentprofileview_achievementcard",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_agentprofileview_achievementcard",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_agentprofileview_agentprofileview",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_agentprofileview_agentprofileview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_agentprofileview_badgeiconmap",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_agentprofileview_badgeiconmap",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_agentprofileview_crazyrankborder",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_agentprofileview_crazyrankborder",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_agentprofileview_createimage",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_agentprofileview_createimage",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_agentprofileview_default_badges",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_agentprofileview_default_badges",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_agentprofileview_dynamiciconmap",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_agentprofileview_dynamiciconmap",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_agentprofileview_getcroppedimg",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_agentprofileview_getcroppedimg",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_config_permissions",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_config_permissions",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_config_permissions_dynamic_tiers",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_config_permissions_dynamic_tiers",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_config_permissions_hasclearance",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_config_permissions_hasclearance",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_halloffameview",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_halloffameview",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_halloffameview_halloffameview",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_halloffameview_halloffameview",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_utils_helpers",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_utils_helpers",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_utils_helpers_deletephotofromstorage",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_utils_helpers_deletephotofromstorage",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_src_utils_helpers_savephotoandgetreference",
+      "fromNode": "n_src_agentprofileview",
+      "toNode": "n_src_utils_helpers_savephotoandgetreference",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_createimage_src_agentprofileview_getcroppedimg",
+      "fromNode": "n_src_agentprofileview_createimage",
+      "toNode": "n_src_agentprofileview_getcroppedimg",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_getcroppedimg_src_agentprofileview_agentprofileview",
+      "fromNode": "n_src_agentprofileview_getcroppedimg",
+      "toNode": "n_src_agentprofileview_agentprofileview",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_agentprofileview_src_config_permissions_dynamic_tiers",
+      "fromNode": "n_src_agentprofileview_agentprofileview",
+      "toNode": "n_src_config_permissions_dynamic_tiers",
+      "label": "references [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_agentprofileview_src_config_permissions_hasclearance",
+      "fromNode": "n_src_agentprofileview_agentprofileview",
+      "toNode": "n_src_config_permissions_hasclearance",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_agentprofileview_src_utils_helpers_deletephotofromstorage",
+      "fromNode": "n_src_agentprofileview_agentprofileview",
+      "toNode": "n_src_utils_helpers_deletephotofromstorage",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_src_agentprofileview_agentprofileview_src_utils_helpers_savephotoandgetreference",
+      "fromNode": "n_src_agentprofileview_agentprofileview",
+      "toNode": "n_src_utils_helpers_savephotoandgetreference",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_agentinventoryview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_agentinventoryview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_agentprofileview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_agentprofileview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_branchwarehousemanager",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_branchwarehousemanager",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_consignmentfinanceview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_consignmentfinanceview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_dashboardview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_dashboardview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_eodreconciliationview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_eodreconciliationview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_fleetcanvasmanager",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_fleetcanvasmanager",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_getdocofflinesafe",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_getdocofflinesafe",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_historyreportview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_historyreportview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_journeyview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_journeyview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_kpminventoryapp",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_kpminventoryapp",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_mapmissioncontrol",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_mapmissioncontrol",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_merchantsalesview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_merchantsalesview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_residentevilinventory",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_residentevilinventory",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_restockvaultview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_restockvaultview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_app_stockopnameview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_app_stockopnameview",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_auditvaultview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_auditvaultview",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_auditvaultview_auditvaultview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_auditvaultview_auditvaultview",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_biohazardtheme",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_biohazardtheme",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_biohazardtheme_biohazardtheme",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_biohazardtheme_biohazardtheme",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_capybaramascot",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_capybaramascot",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_capybaramascot_capybaramascot",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_capybaramascot_capybaramascot",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_crowntransferprotocol",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_crowntransferprotocol",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_crowntransferprotocol_crowntransferprotocol",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_crowntransferprotocol_crowntransferprotocol",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_customermanager",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_customermanager",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_customermanager_customerdetailview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_customermanager_customerdetailview",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_customermanager_customermanagement",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_customermanager_customermanagement",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_examinemodal",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_examinemodal",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_examinemodal_examinemodal",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_examinemodal_examinemodal",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_imagecropper",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_imagecropper",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_imagecropper_imagecropper",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_imagecropper_imagecropper",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_landlorddashboard",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_landlorddashboard",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_landlorddashboard_landlorddashboard",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_landlorddashboard_landlorddashboard",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_notificationbell",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_notificationbell",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_notificationbell_notificationbell",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_notificationbell_notificationbell",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_safetystatus",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_safetystatus",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_safetystatus_safetystatus",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_safetystatus_safetystatus",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_samplingmanager",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_samplingmanager",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_samplingmanager_sampleentrymodal",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_samplingmanager_sampleentrymodal",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_samplingmanager_samplinganalyticsview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_samplingmanager_samplinganalyticsview",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_samplingmanager_samplingcartview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_samplingmanager_samplingcartview",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_samplingmanager_samplingfolderview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_samplingmanager_samplingfolderview",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_settingsview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_settingsview",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_components_settingsview_settingsview",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_components_settingsview_settingsview",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_config_firebase",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_config_firebase",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_config_firebase_auth",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_config_firebase_auth",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_config_firebase_db",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_config_firebase_db",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_config_firebase_googleprovider",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_config_firebase_googleprovider",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_config_firebase_storage",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_config_firebase_storage",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_config_permissions",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_config_permissions",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_config_permissions_injectdynamicpermissions",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_config_permissions_injectdynamicpermissions",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_config_permissions_isfieldleveltier",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_config_permissions_isfieldleveltier",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_hooks_usedatabasesync",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_hooks_usedatabasesync",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_hooks_usedatabasesync_usedatabasesync",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_hooks_usedatabasesync_usedatabasesync",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_hooks_useofflineengine",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_hooks_useofflineengine",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_hooks_useofflineengine_useofflineengine",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_hooks_useofflineengine_useofflineengine",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_hooks_usetransactionengine",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_hooks_usetransactionengine",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_hooks_usetransactionengine_usetransactionengine",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_hooks_usetransactionengine_usetransactionengine",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_musicplayer",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_musicplayer",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_musicplayer_musicplayer",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_musicplayer_musicplayer",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_utils_helpers",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_utils_helpers",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_utils_helpers_commitinchunks",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_utils_helpers_commitinchunks",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_utils_helpers_converttobks",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_utils_helpers_converttobks",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_utils_helpers_formatrupiah",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_utils_helpers_formatrupiah",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_utils_helpers_getcurrentdate",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_utils_helpers_getcurrentdate",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_utils_helpers_getrandomcolor",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_utils_helpers_getrandomcolor",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_src_app_src_utils_helpers_savephotoandgetreference",
+      "fromNode": "n_src_app",
+      "toNode": "n_src_utils_helpers_savephotoandgetreference",
+      "label": "imports [EXTRACTED]"
+    }
+  ]
+}
