@@ -1,7 +1,7 @@
 ---
 title: Remove unused code and dependencies
-description: Duke3D.jsx, monalisa.jpg, and 5 of 6 flagged deps removed and PR'd — but the "no functional risk" claim below was wrong for react-is, and react.svg was never actually touched.
-status: Ready to Deploy
+description: Duke3D.jsx, monalisa.jpg, and 5 of 6 flagged deps removed, merged to main. react.svg still not touched — leftover, low priority.
+status: Done
 area: Cleanup
 priority: Low
 created: 2026-07-26
@@ -10,9 +10,9 @@ updated: 2026-07-28
 
 # Remove unused code and dependencies
 
-**Update 2026-07-28**: executed on branch `cleanup-dead-weight-hygiene`
-([PR](https://github.com/Aldi-ang/kpm-inventory/pull/new/cleanup-dead-weight-hygiene), not
-yet merged). Corrects the original claim below — **it was not actually risk-free**:
+**Merged 2026-07-28**: [PR #4](https://github.com/Aldi-ang/kpm-inventory/pull/4) merged into
+`main` (`b3e2a33`), CI green (build + Vercel both passed) before merge. Corrects the original
+claim below — **it was not actually risk-free**:
 `react-is` broke the Vercel production build because `recharts` imports it internally, even
 though nothing in `src/` did. Fixed by restoring it (commit `9cddd45`), verified with a real
 build. Full story: [[../Wiki/Summaries/Dead Weight Cleanup and Rules-Deploy Gap]].
