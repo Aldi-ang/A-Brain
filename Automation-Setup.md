@@ -209,3 +209,32 @@ it without anything extra. Flag if this guess is wrong.
 | Web chat export extension | Needs Aldi to install the browser extension and do exports himself |
 | Obsidian → code-graph export (`/graphify . --obsidian`) | **Done** 2026-07-27 — 315 notes + a graph.canvas, committed |
 | Vault + repo rename (2.1) | **Done** — folder, GitHub repo, and Obsidian's vault pointer all confirmed switched to A-Brain. Full detail: [[PLAN-A-Brain-agentic-OS]] task 2.1. |
+| **Alucard** (`/alucard`) | **Built 2026-07-28** as a SKILL at `~/.claude/skills/alucard/`, not a subagent — see the reversal note below. 9,098 B, under its own 9,216 B cap. |
+| `/godmode` | **Built 2026-07-28** — `~/.claude/commands/godmode.md`, 45 lines. Effort dial, explicitly NOT a permission dial. |
+| Alucard self-edit guard | **Live and tested** — `permissions.deny` on `Edit(//c/Users/ASUS/.claude/skills/alucard/SKILL.md)` in user settings. Verified by attempting a real edit (blocked) and a real `lessons.md` edit (allowed). |
+| Alucard learning loop | **Untested.** `lessons.md` seeded empty. Do not describe Alucard as "learning" until an entry has been written AND fired. Gate: [[runs/alucard-benchmark]]. |
+
+## Why Alucard is a skill, not a subagent (2026-07-28 reversal)
+
+Four planning rounds hardened a Communication Contract for a subagent. Then someone asked who
+actually reads the output: **a subagent's final report is not shown to Aldi** — the parent
+session relays what matters. So every contract-shaped sentence (the challenging first line,
+the `[certain]` tags, the `not-chosen:` opportunity cost) would be paraphrased by a parent
+agent that is not running the contract. The persona gets filtered out before he reads it.
+
+A skill's instructions load into the **main** session. The main agent becomes Alucard and
+talks to Aldi directly. Contract applies verbatim, no relay.
+
+**The reversal fixed a second problem nobody named at the time:** the learning loop's capture
+path. As a subagent, Alucard's conversation might not appear in the session transcript the
+nightly ingest task reads (subagent-internal turns are neither user nor top-level assistant
+messages) — the loop could have silently never captured anything. As a skill, its
+conversations are ordinary main-session turns, and those are demonstrably captured (the
+2026-07-28 third ingest run read real sessions via `list_sessions` and correctly reconciled
+them). Verified, not assumed.
+
+**not-chosen:** the subagent. It wins on context isolation and parallel dispatch. It lost
+because Alucard's whole value is how it talks and what it challenges, and the subagent
+boundary destroys exactly that. **Flips if** `/alucard`'s context load starts crowding out
+real work in long sessions — then keep the skill as the advisor and add a thin worker
+subagent with no contract.

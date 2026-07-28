@@ -77,10 +77,23 @@ Only after a skill is proven manually. Claude Desktop has a **Routines** feature
 scheduling (verify current capabilities before relying on it — this is a product feature that
 may have changed).
 
-### 1.5 — Add loop engineering to ONE skill first
+### 1.5 — Add loop engineering to ONE skill first — pilot started 2026-07-28
 A self-improving loop: the skill reads its own past run logs and improves. Do this on one
 skill and verify it actually improves anything before applying it broadly. Requires L2's
 logging to exist first.
+
+**Pilot: Alucard** (`~/.claude/skills/alucard/`). Its `lessons.md` is the growth surface —
+append-only, dated, capped at 5 entries, overflow archived to
+[[Wiki/Lessons-Archive]] so per-invocation cost stays flat. Alucard writes its own entries
+(it is in the conversation and knows the lesson in the moment); the nightly ingest task is
+explicitly forbidden from writing there and proposes candidates in
+`runs/lesson-candidates.md` instead.
+
+**Status: UNPROVEN, deliberately labelled as such.** No entry has been written or fired.
+This plan's own words — "verify it actually improves anything before applying it broadly" —
+are operationalised as [[runs/alucard-benchmark]], whose decision rule is fixed in advance:
+if Alucard is not cheaper on tokens AND not higher on criteria-met, delete the skill. Do not
+promote this pattern to any other skill until that benchmark has run.
 
 ---
 
@@ -332,3 +345,32 @@ valuable than any single snapshot. Applies to this PLAN document too.
   session reach than before (see 2.5's update). This entry itself written after re-verifying
   every claim above against real `git log`/file contents, not trusted from prior sessions'
   summaries — the status table and 2.1/2.5 sections above were corrected to match.
+- **2026-07-28 — v10. Alucard built; task 1.5 pilot started.** Five planning rounds, the last
+  of which **reversed the core decision**: Alucard is a SKILL (`/alucard`), not a subagent,
+  because a subagent's output is never shown to Aldi directly — the parent relays it, so the
+  Communication Contract would have been paraphrased away by an agent not running it. Four
+  rounds had hardened a contract for a vehicle that could not deliver it. Built:
+  `~/.claude/skills/alucard/{SKILL.md,lessons.md}`, `~/.claude/commands/godmode.md`, a
+  `permissions.deny` self-edit guard, [[Wiki/Lessons-Archive]], and
+  [[runs/alucard-benchmark]]. Deleted the superseded `~/.claude/agents/a-brain-assistant.md`
+  so two near-identical descriptions couldn't make agent selection nondeterministic.
+
+  **Two silent-failure traps caught before shipping**, both the same shape as this project's
+  own `UI-Says-Yes-Server-Says-No` pattern, aimed at the guard rather than the app: (1) a
+  `Write(path)` deny rule is *accepted but never matched* by Claude Code — it must be
+  `Edit(path)`, so the plan's own wording would have produced a guard that looked right and
+  protected nothing; (2) on Windows, deny paths must be POSIX-normalised (`//c/Users/...`) —
+  escaped backslashes silently never match. Both confirmed against current docs, then the
+  guard was tested for real: editing `SKILL.md` was blocked, editing `lessons.md` was allowed.
+
+  **U2 (A-Brain push) resolved** — `push --dry-run` completes clean, no interactive hang. The
+  learning loop no longer terminates on one disk. **U4 partly resolved by the reversal
+  itself**: as a skill, Alucard's turns are ordinary main-session turns, and the third nightly
+  ingest run demonstrably read real sessions via `list_sessions` and reconciled them
+  correctly — so the capture path is verified rather than hoped for.
+
+  **Still unproven and labelled as such:** the learning loop has never written or fired an
+  entry. Nothing may call Alucard "learning" until [[runs/alucard-benchmark]] runs, and that
+  benchmark's decision rule — delete the skill if it is neither cheaper nor more accurate than
+  the hooks Aldi already runs — was fixed in advance precisely so the verdict cannot be
+  rationalised afterwards.
