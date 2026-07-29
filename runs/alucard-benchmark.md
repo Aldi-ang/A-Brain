@@ -165,11 +165,26 @@ Run 1 done. Five to go — do not fill remaining rows from memory, paste real nu
 | Run | Arm | Task | Tokens (in / out / cache) | Criteria met | Session file |
 |---|---|---|---|---|---|
 | 1 | control | T1 | 52 / 5664 / 1966780 | 4 / 4 | `081f208e-82d0-4216-8481-bd419528e6a3.jsonl` |
-| 2 | alucard | T1 | | / 4 | |
+| 2 | alucard | T1 | *(pending)* | 4 / 4† | *(pending)* |
 | 3 | control | T2 | | / 3 | |
 | 4 | alucard | T2 | | / 3 | |
 | 5 | control | T3 | | / 3 | |
 | 6 | alucard | T3 | | / 3 | |
+
+† **Passes all 4 fixed process criteria, but the answer was materially wrong** — the rubric's
+criteria measure behavior (graphify-first, stop-at-source, no bloat), not correctness, and
+that gap showed up for real on the first alucard run. Run 2's graphify call-edge query found
+7 callers of `commitInChunks` and stated "graphify gave the complete answer without needing
+to search further." Grep-verified ground truth: **21** real call sites across 7 files — run 2
+missed 14, including 7 of 8 in `App.jsx` alone. Run 1 (control, grep-based) got `App.jsx`
+completely right. First Lessons entry ever written is this exact finding — see
+`~/.claude/skills/alucard/lessons.md`, unfired.
+
+**Open question this raises for the verdict:** if Alucard is cheaper on tokens but its
+process discipline produces a confidently-wrong answer a plain grep wouldn't have, is that a
+pass? The decision rule as written (tokens + criteria-met) says yes. Whether that's still the
+right rule is worth deciding once all 6 rows are in, not now — don't relitigate a fixed rule
+mid-benchmark on an n=1 data point.
 
 **Verdict:** _not yet run._
 
