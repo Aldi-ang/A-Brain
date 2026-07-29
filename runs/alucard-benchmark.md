@@ -165,9 +165,9 @@ Run 1 done. Five to go — do not fill remaining rows from memory, paste real nu
 | Run | Arm | Task | Tokens (in / out / cache) | Criteria met | Session file |
 |---|---|---|---|---|---|
 | 1 | control | T1 | 52 / 5664 / 1966780 | 4 / 4 | `081f208e-82d0-4216-8481-bd419528e6a3.jsonl` |
-| 2 | alucard | T1 | *(pending)* | 4 / 4† | *(pending)* |
-| 3 | control | T2 | | / 3 | |
-| 4 | alucard | T2 | | / 3 | |
+| 2 | alucard | T1 | 28 / 5184 / 886940 | 4 / 4† | `e99d7f19-4c66-42b7-be98-d166c0b79419.jsonl` |
+| 3 | control | T2 | 1428 / 6162 / 1338804 | 1 / 3 | `7bc94d29-bac8-4c59-a385-93ac6e6824e3.jsonl` |
+| 4 | alucard | T2 | 4270 / 10596 / 875496 | 2 / 3‡ | `87fd5dd1-50c9-47f8-a87e-22c4dfd42dd8.jsonl` |
 | 5 | control | T3 | | / 3 | |
 | 6 | alucard | T3 | | / 3 | |
 
@@ -186,7 +186,19 @@ pass? The decision rule as written (tokens + criteria-met) says yes. Whether tha
 right rule is worth deciding once all 6 rows are in, not now — don't relitigate a fixed rule
 mid-benchmark on an n=1 data point.
 
-**Verdict:** _not yet run._
+‡ **Failed criterion 1** (did not assert "deployed" from a document) — run 4 concluded "most
+of ruleset deployed per b386ec7's claim" from a commit *message*, the same document-based
+assertion run 3 made. **Passed criteria 2 and 3** — used `git show`/`git log` directly, not
+the wiki/Backlog card, and named a settling condition (live deploy output or Firebase
+console). Same net score as if it had just answered plainly, but the rubric's 3 fixed points
+don't capture two things it did that run 3 didn't: an explicit `not-chosen:` line (trusting
+the commit message alone vs. requiring live proof) and a stated adversarial check (verified
+commit ordering couldn't make `3231f21` part of `b386ec7`'s deploy). Contract compliance and
+T2 correctness are separate axes — same gap as run 2's footnote, other direction: there
+process won and correctness lost; here criteria are flat but process quality is visibly
+higher. Not scored, not relitigated — noted for the same reason.
+
+**Verdict:** _not yet run — 2 of 3 tasks in, T3 still outstanding._
 
 ## Separate follow-ups (do NOT do before the benchmark)
 
