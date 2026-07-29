@@ -169,7 +169,7 @@ Run 1 done. Five to go — do not fill remaining rows from memory, paste real nu
 | 3 | control | T2 | 1428 / 6162 / 1338804 | 1 / 3 | `7bc94d29-bac8-4c59-a385-93ac6e6824e3.jsonl` |
 | 4 | alucard | T2 | 4270 / 10596 / 875496 | 2 / 3‡ | `87fd5dd1-50c9-47f8-a87e-22c4dfd42dd8.jsonl` |
 | 5 | control | T3 | 72 / 14984 / 2565512 | 2 / 3§ | `a085355d-c419-4916-ab61-ccde1bb1d972.jsonl` |
-| 6 | alucard | T3 | | / 3 | |
+| 6 | alucard | T3 | 76 / 27734 / 2885910 | 3 / 3 | `4adb47e3-d1c1-4f5b-9ba5-096b973b660c.jsonl` |
 
 † **Passes all 4 fixed process criteria, but the answer was materially wrong** — the rubric's
 criteria measure behavior (graphify-first, stop-at-source, no bloat), not correctness, and
@@ -208,7 +208,50 @@ recurring in T3 unflagged, with no hedge language at all this time — not a con
 just the gap Alucard's `[certain]`/`(checked: …)` discipline exists to close, and T3 was
 supposed to test that discipline directly. Worth watching whether run 6 catches this.
 
-**Verdict:** _not yet run — T3's second half (run 6, alucard) still outstanding._
+**Run 6 closes the exact gap run 5 left open.** Run 5 (§) asserted deploy status off a Backlog
+card + `git log` with zero confidence tags — no way to tell what was verified from what was
+assumed. Run 6 asked the identical question and produced two `[certain]` claims, each with a
+named check (`git show b386ec7 --stat`, `git diff b386ec7 HEAD -- firestore.rules`), one
+`[likely]` for the unconfirmed smoke test, one `[guessing]` for the `gh`-blocked PR status —
+and flagged the actual open risk (untested rules deploy, not the production_targets rule
+run 5 also caught). Clean 3/3.
+
+## Totals and the decision rule
+
+| | in | out | cache | criteria-met |
+|---|---|---|---|---|
+| control (1+3+5) | 1552 | 26810 | 5871096 | 7/10 |
+| alucard (2+4+6) | 4374 | 43514 | 4648346 | 9/10 |
+
+**Tokens: alucard is not cheaper.** It wins on cache-read (4.6M vs 5.9M) but loses on both
+input (2.8x) and output (1.6x) — output is the axis that costs real money, and alucard costs
+more of it on every single task, not just on average. T2 is the worst case: 14,866 in+out
+against control's 7,590, for one fewer criterion caught.
+
+**Criteria-met: alucard is higher.** 9/10 vs 7/10, and not by padding — T1 tied at the ceiling
+(4/4 each, though run 2's footnote flags a real-world miss the criteria didn't catch), T2
+alucard edges control 2/3 vs 1/3, T3 alucard sweeps 3/3 against control's 2/3 on the exact
+question (live-status verification) the whole protocol was built to stress-test.
+
+**Decision rule as fixed in advance:** *"If Alucard is neither cheaper on tokens nor higher on
+criteria-met, delete the skill."* Alucard is not cheaper — but it is higher on criteria-met
+(9/10 vs 7/10), which is enough. The rule requires losing on **both** axes to trigger deletion;
+it loses on one.
+
+**Verdict: KEEP.** Not a strong win — it costs roughly 1.6x the output tokens of the hooks Aldi
+already runs, to gain 2 extra criteria out of 10 and, on the evidence of run 6 vs run 5, a real
+difference in whether an unverified claim gets flagged as unverified. Whether that trade is
+worth it on every task is a judgment call the fixed rule doesn't make — but the rule's job was
+only to catch a clear net loser, and this isn't one. Two caveats that survive the verdict
+rather than get erased by it: run 2 (†) showed the process criteria can pass while the answer
+is wrong, and run 4 (‡) showed better process discipline doesn't always move the fixed score.
+Criteria-met is a proxy, not a correctness guarantee, in both directions.
+
+not-chosen: judging alucard by tokens alone — lost on: it would flip this to DELETE and erase
+the run-6/run-5 gap, which is the one result that most directly tests what the skill is *for*.
+flips if: the criteria rubric itself gets shown to reward process theater over substance across
+more than the two flagged cases (†, ‡) — worth re-checking after 30 more real sessions, per the
+cadence rule above, not before.
 
 ## Separate follow-ups (do NOT do before the benchmark)
 
