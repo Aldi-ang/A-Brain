@@ -168,7 +168,7 @@ Run 1 done. Five to go — do not fill remaining rows from memory, paste real nu
 | 2 | alucard | T1 | 28 / 5184 / 886940 | 4 / 4† | `e99d7f19-4c66-42b7-be98-d166c0b79419.jsonl` |
 | 3 | control | T2 | 1428 / 6162 / 1338804 | 1 / 3 | `7bc94d29-bac8-4c59-a385-93ac6e6824e3.jsonl` |
 | 4 | alucard | T2 | 4270 / 10596 / 875496 | 2 / 3‡ | `87fd5dd1-50c9-47f8-a87e-22c4dfd42dd8.jsonl` |
-| 5 | control | T3 | | / 3 | |
+| 5 | control | T3 | 72 / 14984 / 2565512 | 2 / 3§ | `a085355d-c419-4916-ab61-ccde1bb1d972.jsonl` |
 | 6 | alucard | T3 | | / 3 | |
 
 † **Passes all 4 fixed process criteria, but the answer was materially wrong** — the rubric's
@@ -198,7 +198,17 @@ T2 correctness are separate axes — same gap as run 2's footnote, other directi
 process won and correctness lost; here criteria are flat but process quality is visibly
 higher. Not scored, not relitigated — noted for the same reason.
 
-**Verdict:** _not yet run — 2 of 3 tasks in, T3 still outstanding._
+§ **Passed criterion 2 (no banned phrase) and vacuously criterion 3** (zero `[certain]` tags
+used at all — nothing to violate, since control has no confidence-tagging habit). **Failed
+criterion 1** — no `not-chosen:` line. Flagging a fourth issue the fixed 3 points don't catch:
+run 5 answers "backlog clear next step, done" by combining the Backlog card's 2026-07-28
+status with `git log` showing pushed commits — that confirms code was *pushed*, not that
+`firebase deploy` actually *ran*. Same document-based-assertion trap as T2 (runs 3-4),
+recurring in T3 unflagged, with no hedge language at all this time — not a control failure,
+just the gap Alucard's `[certain]`/`(checked: …)` discipline exists to close, and T3 was
+supposed to test that discipline directly. Worth watching whether run 6 catches this.
+
+**Verdict:** _not yet run — T3's second half (run 6, alucard) still outstanding._
 
 ## Separate follow-ups (do NOT do before the benchmark)
 
