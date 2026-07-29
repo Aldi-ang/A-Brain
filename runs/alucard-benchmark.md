@@ -105,17 +105,30 @@ Score each run out of its own criteria. One point each, no partial credit.
 
 ## Measuring tokens
 
-Run this **immediately after each session ends**, before starting the next one — it reads the
-most recently modified session file:
+**Corrected 2026-07-29 after run 1 — the original command below was wrong, kept struck
+through so the mistake stays visible instead of silently vanishing.**
+
+~~`ls -t ~/.claude/projects/*/*.jsonl | head -1`~~ — globs **every** Claude Code project on
+the machine, not just this one. Run 1 hit this for real: it picked up a stale file from an
+unrelated worktree (`critical-bugs-permissions-batch-c3371f`) that some other process had
+touched more recently, returning `out=355470` for a one-line lookup — two orders of magnitude
+implausible. Caught by checking whether the number was plausible before writing it down, not
+by the command itself.
+
+**Use this instead** — scoped to the one project folder every run in this benchmark shares
+(same repo, same branch, worktree unchecked):
 
 ```bash
-f=$(ls -t ~/.claude/projects/*/*.jsonl | head -1)
+f=$(ls -t "$HOME/.claude/projects/D--APP-DEVELOPMENT-kpm-inventory-main-FILES-kpm-inventory-main"/*.jsonl | head -1)
 echo "$f"
 sum() { grep -o "\"$1\":[0-9]*" "$f" | cut -d: -f2 | awk '{s+=$1} END{print (s?s:0)}'; }
 echo "in=$(sum input_tokens) out=$(sum output_tokens) cache_read=$(sum cache_read_input_tokens)"
 ```
 
-Record the file path with each result so a number can always be traced back to its session.
+Run it **immediately after each session ends**, before starting the next one. Record the file
+path with each result so a number can always be traced back to its session — and if a number
+looks implausible for the task, don't write it down, check which file it actually came from
+first.
 
 ## Decision rule — fixed in advance
 
@@ -147,11 +160,11 @@ more coding sessions.
 
 ## Results
 
-_Empty. Nothing has been run. Do not fill this in from memory — paste real numbers._
+Run 1 done. Five to go — do not fill remaining rows from memory, paste real numbers only.
 
 | Run | Arm | Task | Tokens (in / out / cache) | Criteria met | Session file |
 |---|---|---|---|---|---|
-| 1 | control | T1 | | / 4 | |
+| 1 | control | T1 | 52 / 5664 / 1966780 | 4 / 4 | `081f208e-82d0-4216-8481-bd419528e6a3.jsonl` |
 | 2 | alucard | T1 | | / 4 | |
 | 3 | control | T2 | | / 3 | |
 | 4 | alucard | T2 | | / 3 | |
