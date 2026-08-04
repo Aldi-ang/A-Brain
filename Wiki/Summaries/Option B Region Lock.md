@@ -4,6 +4,8 @@ description: Locking Area Admin/Fleet Captain roster changes to their own region
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [ingest, incident, permissions, firestore]
 source: "[[../../Raw/2026-07-24_source_option-b-region-lock.md]]"
 ---

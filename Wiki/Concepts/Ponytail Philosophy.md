@@ -4,6 +4,8 @@ description: The lazy-but-correct coding discipline that governs how Claude Code
 type: concept
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [tooling, code-quality, philosophy]
 ---
 

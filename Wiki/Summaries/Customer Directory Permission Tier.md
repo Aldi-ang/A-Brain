@@ -4,6 +4,8 @@ description: A 3-level edit permission (view only / own region / global) added f
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [ingest, feature, permissions]
 source: "[[../../Raw/2026-07-25_source_customer-directory-permission-tier.md]]"
 ---

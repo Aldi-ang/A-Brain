@@ -4,6 +4,8 @@ description: Ponytail-ultra review found batch 1+2 fixes fully merged but Firest
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [kpm, cleanup, ponytail, firestore-rules, security]
 ---
 

@@ -4,6 +4,8 @@ description: Three separate times finished work almost vanished because of how g
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [ingest, incident, git]
 source: "[[../../Raw/2026-07-26_source_verify-before-claiming-committed.md]], [[../../Raw/2026-07-25_source_noo-audits-fix-and-worktree-incident.md]], [[../../Raw/2026-07-26_source_worktree-recovery-git-log.md]]"
 ---

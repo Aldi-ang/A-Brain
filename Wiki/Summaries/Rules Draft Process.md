@@ -4,6 +4,8 @@ description: The house rule — document a blocked security fix in a comment, ne
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [ingest, process, firestore]
 source: "[[../../Raw/2026-07-24_source_rules-draft-process.md]]"
 ---

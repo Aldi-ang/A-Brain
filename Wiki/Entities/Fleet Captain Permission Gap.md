@@ -4,6 +4,8 @@ description: The #1 most recurring bug in KPM — a permission check that covers
 type: entity
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [bug-pattern, firestore, permissions, fleet-captain]
 ---
 

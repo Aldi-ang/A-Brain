@@ -4,6 +4,8 @@ description: The bug shape where a button works fine in the UI but silently fail
 type: concept
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [pattern, permissions, bug-class]
 ---
 

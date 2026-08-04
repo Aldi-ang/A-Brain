@@ -4,6 +4,8 @@ description: The six role levels in KPM, from Developer down to Rookie, and how 
 type: entity
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [architecture, roles, permissions]
 ---
 

@@ -4,6 +4,8 @@ description: The rule born from 3 "it's committed" lies — never claim a save h
 type: concept
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [pattern, discipline, git]
 ---
 

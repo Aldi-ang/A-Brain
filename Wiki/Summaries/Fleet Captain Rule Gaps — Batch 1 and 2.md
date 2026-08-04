@@ -4,6 +4,8 @@ description: Two batches of permission fixes, their scary unmerged-branch moment
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [ingest, incident, permissions, firestore]
 source: "[[../../Raw/2026-07-26_source_batch1-permissions-fix.md]], [[../../Raw/2026-07-26_source_batch2-unmerged-discovery.md]], [[../../Raw/2026-07-26_source_batch12-pr3-merged.md]]"
 ---

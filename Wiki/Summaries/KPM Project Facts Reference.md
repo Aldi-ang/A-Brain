@@ -4,6 +4,8 @@ description: The core facts every session should already know — stack, tiers, 
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [ingest, facts, architecture]
 source: "[[../../Raw/2026-07-source_kpm-inventory-facts-reference.md]]"
 ---

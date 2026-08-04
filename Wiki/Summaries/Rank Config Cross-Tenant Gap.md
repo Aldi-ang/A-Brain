@@ -4,6 +4,8 @@ description: The closest thing in KPM to a real "security escalation" bug — on
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [ingest, incident, security, firestore, multi-tenant]
 source: "[[../../Raw/2026-07-26_source_firestore-rules-excerpts.md]], [[../../Raw/2026-07-26_source_batch1-permissions-fix.md]]"
 ---

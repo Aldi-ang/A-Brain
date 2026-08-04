@@ -4,6 +4,8 @@ description: Installing the Claude Code CLI on Aldi's Windows machine silently f
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [ingest, environment, tooling]
 source: "[[../../Raw/2026-07-26_source_claude-cli-install-mcafee-ponytail-marketplace.md]]"
 ---

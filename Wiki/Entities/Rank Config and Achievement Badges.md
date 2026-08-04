@@ -4,6 +4,8 @@ description: A profile feature with two bugs — one fixed rule gap, and one sti
 type: entity
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [firestore, security, multi-tenant, bug]
 ---
 

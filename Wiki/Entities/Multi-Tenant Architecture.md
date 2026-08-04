@@ -4,6 +4,8 @@ description: How one shared database keeps every company's data separate from ev
 type: entity
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [architecture, firestore, multi-tenant]
 ---
 

@@ -3,7 +3,9 @@ title: Firestore Rules
 description: The server-side rule file that actually decides who can read or write what — separate from whatever the UI shows.
 type: entity
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-07-29
+confidence: medium
+checked: 2026-07-29
 tags: [firestore, security, rules]
 ---
 
@@ -47,6 +49,28 @@ confirmed this is still the single highest-leverage open item: every fix in both
 exists only as a draft. See [[Dead Weight Cleanup and Rules-Deploy Gap]] — that session did
 an unrelated dead-code/hygiene cleanup instead, deliberately leaving the actual
 `firebase deploy --only firestore:rules` step for the project owner to run by hand.
+
+## Superseded, 2026-07-29 — most of the ruleset deployed 2026-07-28
+
+Per this project's own document-don't-silently-overwrite convention, the "still-undeployed"
+section above is **left in place, not deleted** — it was correct for two days and stayed
+after it stopped being true, which is the exact failure mode this correction is about.
+
+[certain] (checked: `git show b386ec7 --stat`, commit message) — `b386ec7` (2026-07-28) ran
+`firebase deploy --only firestore:rules` against `cello-inventory-manager`, live. Covers Rank
+Config, motorists/products Fleet Captain fixes, Option B region-lock, `pending_audits`
+widening, Customer Directory tier — the batches this page's "still-undeployed" section was
+about.
+
+[certain] (checked: `git diff b386ec7 HEAD -- firestore.rules`) — the very next commit,
+`3231f21`, same day, added a `production_targets` rule **after** that deploy. Its own message
+says draft only. That one rule is still genuinely undeployed; everything else on this page is
+not.
+
+This correction surfaced only because the Alucard benchmark's T2 task happened to ask about
+deploy status directly (`A-Brain/runs/alucard-benchmark.md`) — the page itself gave no signal
+it had gone stale. See [[Conventions]] for the `confidence`/`checked` frontmatter fields added
+to prevent needing a benchmark to catch this again.
 
 ## Related
 

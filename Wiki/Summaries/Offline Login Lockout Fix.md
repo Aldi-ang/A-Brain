@@ -4,6 +4,8 @@ description: Why refreshing the page offline could show a real employee a false 
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [ingest, incident, auth, offline]
 source: "[[../../Raw/2026-07-24_source_offline-auth-lockout-fix.md]]"
 ---

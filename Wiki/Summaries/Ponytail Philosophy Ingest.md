@@ -4,6 +4,8 @@ description: The source text behind the Ponytail Philosophy page, and why it was
 type: summary
 created: 2026-07-27
 updated: 2026-07-27
+confidence: high
+checked: 2026-07-27
 tags: [ingest, tooling]
 source: "[[../../Raw/2026-07-27_source_ponytail-rulebook-excerpt.md]]"
 ---
