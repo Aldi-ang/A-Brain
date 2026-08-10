@@ -12,6 +12,22 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard
+
+New sibling domain `Hermes-Agent-Research/` (outside `Wiki/` by design — it is not KPM app
+knowledge). Two pages: an architecture read of Nous Research's Hermes Agent from its installed
+source, and the output of a 16-agent sweep that put 19 candidate rules through an adversarial cut.
+Seven survived and were applied to `~/.claude/skills/alucard/SKILL.md` (263 → 282 lines).
+
+The change that matters for everything else in this vault: **`(checked: ...)` receipts now go
+stale at the next edit, not at the end of the session**, and a check that could not have gone red
+counts zero. Both tighten the evidence standard behind every `[certain]` claim recorded here.
+Also new: never write a Lesson saying a tool is broken — this repo's own `0aabb81` → `b1aee4e`
+proved such a claim can be false one day later, while a stale negative fires forever.
+
+Twelve proposals were rejected, and the pattern is worth keeping: Alucard already covered most of
+what Hermes enforces in code. See [[../Hermes-Agent-Research/2026-08-10 Seven Rules Worth Porting]].
+
 ## 2026-07-27 — First ingest pass (structure build + seed content)
 
 Built the vault structure (`CLAUDE.md`, `Raw/`, `Inbox/`, `Wiki/Index.md`, `Wiki/Log.md`,

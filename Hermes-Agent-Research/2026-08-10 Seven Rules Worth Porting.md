@@ -132,9 +132,34 @@ already covers most of what Hermes enforces in code.** Representative kills —
 - *Never end a turn on a narrated intention* — rejected: §11a, §10 and §2 each already forbid the
   deferral at the same checkpoint.
 
-## Status
+## Status — ALL SEVEN APPLIED 2026-08-10 15:30 WIB
 
-**Awaiting Aldi's approval on all seven.** Nothing applied. Three earlier edits from
-[[2026-08-10 Hermes Desktop Inspection]] are in `SKILL.md` already (prompt-cache reason, session
-search, the subagent rule carrying his *"allow parents write is my best pick"*) and he was
-offered a revert he has not answered.
+Aldi approved in one line: *"can u continue, apply all that hermes have inside alucard"*. All
+seven landed in `~/.claude/skills/alucard/SKILL.md`, plus one consistency fix: §4's "Done = every
+criterion verified by its check, **this session**" carried the same wrong freshness anchor rule 1
+corrects, so it now reads "after the last edit". Eight edits, **263 → 282 lines**.
+
+Verified by presence-grep, each of the seven phrases matching exactly once. That is the honest
+ceiling here: this is a prompt file, so text presence is the only checkable property — rule 1 of
+this very page says `file:line` proves text exists, not that it runs. Whether the rules change
+behavior is only observable across future sessions.
+
+Also already in `SKILL.md` from [[2026-08-10 Hermes Desktop Inspection]]: the prompt-cache reason
+in §1, session search in §2, and §10's subagent rule carrying his *"allow parents write is my
+best pick"*. He was offered a revert of those three and never answered; they stand.
+
+## What is still NOT ported, and why
+
+The three genuinely-missing Hermes systems are **infrastructure, not text**, so no rule can carry
+them. Named here so a later session does not re-derive the gap:
+
+1. **The curator** — Hermes runs skill maintenance as a *separate forked agent on a cheaper
+   model*, triggered by idleness, that archives and consolidates without touching the live
+   session's cache. Alucard's equivalent is a manual "archive the oldest at cap" step. Buildable
+   with `CronCreate` + 9Router; not built.
+2. **Autonomous skill creation** — Hermes writes new `SKILL.md` files from what worked mid-task.
+   Alucard is forbidden from editing its own `SKILL.md` (Aldi's rule, 2026-08-09) — a deliberate
+   choice, not a gap.
+3. **Automated user modeling** — Hermes' Honcho integration builds a model of the user
+   continuously. Aldi's equivalent is `Personal-Context.md` + [[../Wiki/Concepts/Aldi's Design
+   Taste.md|Aldi's Design Taste]], maintained by hand.
