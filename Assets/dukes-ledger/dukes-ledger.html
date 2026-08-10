@@ -1,0 +1,1063 @@
+<title>Duke's Ledger — MerchantSalesView flow prototype</title>
+
+<style>
+  /* ============ PAGE CHROME TOKENS ============ */
+  :root {
+    --ground: #ebe7e1;
+    --ground-2: #f5f2ed;
+    --rule: #cdc6bb;
+    --ink: #211d19;
+    --ink-2: #6b6157;
+    --ember: #b35c00;
+    --gold: #7a5a12;
+    --danger: #8b1a1a;
+    --shadow: 0 1px 2px rgba(33,29,25,.10), 0 8px 24px rgba(33,29,25,.08);
+
+    --sans: ui-sans-serif, "Segoe UI", Roboto, system-ui, sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #14120f;
+      --ground-2: #1d1a16;
+      --rule: #38322a;
+      --ink: #ece6dc;
+      --ink-2: #9a8f80;
+      --ember: #ff9d00;
+      --gold: #d4af37;
+      --danger: #d24a4a;
+      --shadow: 0 1px 2px rgba(0,0,0,.5), 0 8px 28px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #14120f; --ground-2: #1d1a16; --rule: #38322a;
+    --ink: #ece6dc; --ink-2: #9a8f80; --ember: #ff9d00; --gold: #d4af37; --danger: #d24a4a;
+    --shadow: 0 1px 2px rgba(0,0,0,.5), 0 8px 28px rgba(0,0,0,.4);
+  }
+  :root[data-theme="light"] {
+    --ground: #ebe7e1; --ground-2: #f5f2ed; --rule: #cdc6bb;
+    --ink: #211d19; --ink-2: #6b6157; --ember: #b35c00; --gold: #7a5a12; --danger: #8b1a1a;
+    --shadow: 0 1px 2px rgba(33,29,25,.10), 0 8px 24px rgba(33,29,25,.08);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: var(--s6) var(--s4) var(--s7); }
+
+  /* ---- masthead ---- */
+  .mast { border-bottom: 2px solid var(--ink); padding-bottom: var(--s4); margin-bottom: var(--s5); }
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ember); margin: 0 0 var(--s2);
+  }
+  h1 {
+    margin: 0; font-size: clamp(28px, 5vw, 44px); font-weight: 800;
+    letter-spacing: -.02em; text-wrap: balance; line-height: 1.05;
+  }
+  .dek { margin: var(--s3) 0 0; color: var(--ink-2); max-width: 62ch; font-size: 15px; }
+
+  /* ---- control rail ---- */
+  .rail {
+    display: grid; gap: var(--s3);
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    margin-bottom: var(--s5);
+  }
+  .ctl {
+    background: var(--ground-2); border: 1px solid var(--rule);
+    padding: var(--s3); display: flex; flex-direction: column; gap: var(--s2);
+  }
+  .ctl > span.lbl {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--ink-2);
+  }
+  .seg { display: flex; gap: 2px; background: var(--rule); padding: 2px; }
+  .seg button {
+    flex: 1; border: 0; background: transparent; color: var(--ink-2);
+    font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .04em;
+    padding: 7px 4px; cursor: pointer; text-transform: uppercase;
+  }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+  .seg button:focus-visible { outline: 2px solid var(--ember); outline-offset: -2px; }
+
+  /* ---- scoreboard ---- */
+  .score {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--rule); border: 1px solid var(--rule); margin-bottom: var(--s5);
+  }
+  .score div { background: var(--ground-2); padding: var(--s3) var(--s4); }
+  .score .k {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--ink-2); display: block;
+  }
+  .score .v {
+    font-family: var(--mono); font-size: clamp(22px, 4vw, 30px); font-weight: 700;
+    font-variant-numeric: tabular-nums; display: block; margin-top: 2px;
+  }
+  .score .v.hot { color: var(--danger); }
+  .score .v.cool { color: var(--gold); }
+
+  /* ---- stage ---- */
+  .stage { display: grid; grid-template-columns: minmax(0,1fr); gap: var(--s5); }
+  @media (min-width: 900px) { .stage { grid-template-columns: auto minmax(0,1fr); align-items: start; } }
+
+  .phone-holder { display: flex; justify-content: center; }
+  .phone {
+    width: 380px; height: 760px; flex: none;
+    background: #0d0c0b; border: 10px solid #17140f; border-radius: 30px;
+    box-shadow: var(--shadow); overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+    font-size: 14px; color: #e8e0d2;
+  }
+  .phone.land { width: 760px; height: 380px; }
+  @media (max-width: 820px) {
+    .phone { width: 100%; max-width: 380px; height: 700px; }
+    .phone.land { width: 100%; max-width: 380px; height: 420px; }
+  }
+
+  /* ============ APP TONE TOKENS ============ */
+  /* wares side is fixed (RE4 attache); ledger side is the variable under test */
+  .phone {
+    --w-bg: #141210;        /* wares ground */
+    --w-card: #0f0e0d;
+    --w-edge: #3a332b;
+    --w-ink: #e8e0d2;
+    --w-dim: #8d8172;
+    --w-acc: #ff9d00;
+    --w-gold: #d4af37;
+    --w-bad: #8b1a1a;
+  }
+  .phone[data-tone="parchment"] {
+    --l-bg: #c9b391; --l-bg2: #bda684; --l-edge: #8b7256;
+    --l-ink: #3e3226; --l-dim: #6d5c47; --l-acc: #8a3d0b; --l-chip: #a89070;
+  }
+  .phone[data-tone="graphite"] {
+    --l-bg: #22201c; --l-bg2: #2b2823; --l-edge: #4a4239;
+    --l-ink: #ece4d6; --l-dim: #968a79; --l-acc: #d4af37; --l-chip: #3a352d;
+  }
+  .phone[data-tone="steel"] {
+    --l-bg: #c4c1bb; --l-bg2: #b8b5ae; --l-edge: #7d7a76;
+    --l-ink: #1c1a17; --l-dim: #5b564e; --l-acc: #7a5a12; --l-chip: #a9a69f;
+  }
+
+  /* motion, killed by lite mode */
+  .phone { --dur: .16s; }
+  .phone[data-lite="on"] { --dur: 0s; }
+  @media (prefers-reduced-motion: reduce) { .phone { --dur: 0s; } }
+
+  /* ---- merchant strip ---- */
+  .mstrip {
+    flex: none; background: linear-gradient(180deg, #1a1714, #100e0c);
+    border-bottom: 2px solid var(--w-edge);
+    padding: 10px 12px; display: flex; gap: 10px; align-items: center;
+  }
+  .mfig { width: 46px; height: 46px; flex: none; }
+  .mfig svg { display: block; width: 100%; height: 100%; }
+  .mtxt { min-width: 0; flex: 1; }
+  .mbark {
+    font-size: 11px; font-style: italic; color: var(--w-acc);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .mstore {
+    font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--w-dim); font-family: var(--mono);
+  }
+  .mtot {
+    font-family: var(--mono); font-size: 15px; font-weight: 700;
+    font-variant-numeric: tabular-nums; color: var(--w-gold); white-space: nowrap;
+  }
+
+  /* ---- tabs (NOW mode only) ---- */
+  .tabs { flex: none; display: flex; background: #0a0908; border-top: 2px solid var(--w-edge); }
+  .tabs button {
+    flex: 1; border: 0; background: transparent; color: var(--w-dim);
+    padding: 12px 4px; font-size: 11px; font-weight: 800; letter-spacing: .16em;
+    text-transform: uppercase; cursor: pointer; font-family: var(--sans);
+  }
+  .tabs button[aria-pressed="true"] { background: #2a241d; color: var(--w-acc); box-shadow: inset 0 3px 0 var(--w-acc); }
+
+  /* ---- wares ---- */
+  .wares { flex: 1; min-height: 0; background: var(--w-bg); display: flex; flex-direction: column; }
+  .wlist { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+
+  .row {
+    display: flex; align-items: center; gap: 10px; padding: 8px 10px;
+    border-bottom: 1px solid #241f1a; min-height: 60px; cursor: pointer;
+    background: transparent; width: 100%; text-align: left; border-left: 0; border-right: 0; border-top: 0;
+    color: inherit; font: inherit;
+    transition: background var(--dur) linear;
+  }
+  .row:hover { background: #1c1814; }
+  .row:focus-visible { outline: 2px solid var(--w-acc); outline-offset: -2px; }
+  .row.flash { background: #3a2a0d; }
+  .thumb {
+    width: 40px; height: 40px; flex: none; border: 1px solid var(--w-edge);
+    display: grid; place-items: center; font-family: var(--mono);
+    font-size: 13px; font-weight: 700; color: #0d0c0b;
+  }
+  .rmid { flex: 1; min-width: 0; display: block; }
+  .rname {
+    display: block; font-size: 13px; font-weight: 600; color: var(--w-ink);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .rmeta {
+    display: block; font-family: var(--mono); font-size: 10.5px; color: var(--w-dim);
+    font-variant-numeric: tabular-nums; margin-top: 1px;
+  }
+  .rmeta .low { color: var(--w-bad); }
+  .baru {
+    font-family: var(--mono); font-size: 9px; letter-spacing: .1em;
+    background: var(--w-acc); color: #0d0c0b; padding: 1px 4px; margin-left: 5px; font-weight: 700;
+  }
+  .badge {
+    flex: none; min-width: 48px; height: 48px; border: 1px solid var(--w-edge);
+    background: #0f0e0d; color: var(--w-dim); display: grid; place-items: center;
+    font-family: var(--mono); font-size: 18px; font-weight: 700; cursor: pointer;
+    transition: transform var(--dur) ease-out;
+  }
+  .badge.on { background: var(--w-acc); color: #0d0c0b; border-color: var(--w-acc); }
+  .badge.bump { transform: scale(1.18); }
+  .badge:focus-visible { outline: 2px solid var(--w-gold); outline-offset: 2px; }
+
+  /* inline qty editor */
+  .qed { background: #1a1611; border-bottom: 2px solid var(--w-acc); padding: 10px; }
+  .qed .qtop { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+  .qed input {
+    flex: 1; min-width: 0; background: #0d0c0b; border: 1px solid var(--w-edge); color: var(--w-acc);
+    font-family: var(--mono); font-size: 22px; font-weight: 700; padding: 8px 10px; text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .qed input:focus { outline: 2px solid var(--w-acc); outline-offset: -1px; }
+  .units { display: flex; gap: 2px; background: var(--w-edge); padding: 2px; margin-bottom: 8px; }
+  .units button {
+    flex: 1; border: 0; background: #0f0e0d; color: var(--w-dim); padding: 10px 2px;
+    font-size: 11px; font-weight: 800; letter-spacing: .06em; cursor: pointer; font-family: var(--sans);
+  }
+  .units button[aria-pressed="true"] { background: var(--w-acc); color: #0d0c0b; }
+  .qrow { display: flex; gap: 6px; }
+  .qrow button {
+    flex: 1; border: 1px solid var(--w-edge); background: #0f0e0d; color: var(--w-ink);
+    padding: 9px 2px; font-family: var(--mono); font-size: 12px; cursor: pointer;
+  }
+  .qrow button.go { background: var(--w-gold); color: #0d0c0b; border-color: var(--w-gold); font-weight: 700; }
+
+  /* ---- bottom controls ---- */
+  .bctl { flex: none; background: #100e0c; border-top: 2px solid var(--w-edge); padding: 8px; }
+  .srch {
+    width: 100%; background: #0a0908; border: 1px solid var(--w-edge); color: var(--w-acc);
+    font-family: var(--mono); font-size: 12px; padding: 10px; letter-spacing: .06em;
+  }
+  .srch:focus { outline: 2px solid var(--w-acc); outline-offset: -1px; }
+  .srch::placeholder { color: #6a6054; }
+  .chips { display: flex; gap: 5px; overflow-x: auto; margin-top: 7px; padding-bottom: 2px; }
+  .chips button {
+    flex: none; border: 1px solid var(--w-edge); background: transparent; color: var(--w-dim);
+    font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 6px 10px;
+    cursor: pointer; font-family: var(--mono); white-space: nowrap;
+  }
+  .chips button[aria-pressed="true"] { background: var(--w-acc); color: #0d0c0b; border-color: var(--w-acc); }
+
+  /* ---- ledger drawer ---- */
+  .drawer {
+    flex: none; background: var(--l-bg); color: var(--l-ink);
+    border-top: 3px solid var(--l-edge);
+    display: flex; flex-direction: column; min-height: 0;
+  }
+  .drawer.open { flex: 1; }
+  .dhandle {
+    display: flex; align-items: center; gap: 8px; padding: 9px 11px; cursor: pointer;
+    background: var(--l-bg2); border: 0; width: 100%; text-align: left; color: inherit; font: inherit;
+  }
+  .dhandle:focus-visible { outline: 2px solid var(--l-acc); outline-offset: -2px; }
+  .grip { width: 26px; height: 3px; background: var(--l-edge); flex: none; }
+  .dsum { flex: 1; min-width: 0; }
+  .dcount {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--l-dim);
+  }
+  .dlast {
+    font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .dtot {
+    font-family: var(--mono); font-size: 15px; font-weight: 700;
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .dbody { flex: 1; min-height: 0; overflow-y: auto; padding: 0 11px 11px; }
+  .lline {
+    display: flex; gap: 8px; align-items: baseline; padding: 7px 0;
+    border-bottom: 1px dashed var(--l-edge); font-size: 12px;
+  }
+  .lline.enter { animation: ink var(--dur) ease-out; }
+  @keyframes ink { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
+  .lline .ln { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lline .lq { font-family: var(--mono); color: var(--l-dim); font-variant-numeric: tabular-nums; }
+  .lline .lv { font-family: var(--mono); font-variant-numeric: tabular-nums; font-weight: 700; }
+  .lline .x { border: 0; background: transparent; color: var(--l-dim); cursor: pointer; font-size: 14px; padding: 0 2px; }
+
+  .fld { margin-top: 10px; }
+  .fld > label {
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--l-dim); display: block; margin-bottom: 3px;
+  }
+  .fld input[type="text"] {
+    width: 100%; background: var(--l-bg2); border: 1px solid var(--l-edge); color: var(--l-ink);
+    padding: 8px; font-size: 13px; font-family: var(--sans);
+  }
+  .pays { display: flex; gap: 2px; background: var(--l-edge); padding: 2px; }
+  .pays button {
+    flex: 1; border: 0; background: var(--l-bg2); color: var(--l-dim); padding: 8px 2px;
+    font-size: 11px; font-weight: 700; cursor: pointer; font-family: var(--sans);
+  }
+  .pays button[aria-pressed="true"] { background: var(--l-acc); color: var(--l-bg); }
+  .tempo { display: flex; align-items: center; gap: 8px; }
+  .tempo input[type="range"] { flex: 1; accent-color: var(--l-acc); }
+  .tempo output { font-family: var(--mono); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .debt {
+    margin-top: 8px; border-left: 3px solid var(--w-bad); background: rgba(139,26,26,.14);
+    padding: 6px 8px; font-size: 11px;
+  }
+  .commit {
+    margin-top: 11px; width: 100%; border: 0; padding: 14px;
+    background: linear-gradient(180deg, var(--l-acc), color-mix(in srgb, var(--l-acc) 70%, #000));
+    color: var(--l-bg); font-size: 13px; font-weight: 800; letter-spacing: .16em;
+    text-transform: uppercase; cursor: pointer; font-family: var(--sans);
+  }
+  .commit[disabled] { opacity: .4; cursor: not-allowed; }
+
+  /* NOW-mode manifest + carousel */
+  .carousel { display: flex; gap: 10px; overflow-x: auto; padding: 12px 10px; flex: 1; align-items: flex-start; }
+  .pcard {
+    flex: none; width: 150px; background: var(--w-card); border: 2px solid var(--w-edge);
+    cursor: pointer; padding-bottom: 8px; color: inherit; font: inherit; text-align: left;
+  }
+  .pcard:focus-visible { outline: 2px solid var(--w-acc); }
+  .pcard .pimg { height: 90px; display: grid; place-items: center; font-family: var(--mono); font-weight: 700; color: #0d0c0b; }
+  .pcard .pn { font-size: 12px; font-weight: 600; padding: 6px 7px 2px; }
+  .pcard .pp { font-family: var(--mono); font-size: 11px; color: var(--w-acc); padding: 0 7px; }
+
+  .brokebox {
+    flex: 1; display: grid; place-items: center; text-align: center; padding: var(--s5);
+    background: repeating-linear-gradient(45deg, #191512 0 10px, #141210 10px 20px);
+  }
+  .brokebox p { margin: 0; font-size: 12px; color: var(--w-dim); max-width: 34ch; }
+  .brokebox strong { color: var(--w-bad); display: block; font-size: 13px; margin-bottom: 6px; letter-spacing: .1em; }
+
+  /* toast */
+  .toast {
+    position: absolute; left: 10px; right: 10px; bottom: 78px; z-index: 40;
+    background: #0a0908; border: 1px solid var(--w-acc); color: var(--w-ink);
+    padding: 9px 11px; display: flex; align-items: center; gap: 10px; font-size: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.6);
+  }
+  .toast button {
+    border: 1px solid var(--w-acc); background: transparent; color: var(--w-acc);
+    font-size: 10px; letter-spacing: .12em; text-transform: uppercase; padding: 5px 9px;
+    cursor: pointer; font-family: var(--mono); flex: none;
+  }
+  .toast .tmsg { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .hapt {
+    position: absolute; top: 8px; right: 10px; z-index: 45;
+    font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+    background: var(--w-gold); color: #0d0c0b; padding: 3px 6px; opacity: 0;
+    transition: opacity var(--dur) linear;
+  }
+  .hapt.on { opacity: 1; }
+
+  /* ---- notes column ---- */
+  .notes { min-width: 0; }
+  .note { border-left: 3px solid var(--rule); padding: 0 0 0 var(--s4); margin-bottom: var(--s5); }
+  .note h3 {
+    margin: 0 0 var(--s2); font-size: 13px; letter-spacing: .14em;
+    text-transform: uppercase; font-family: var(--mono); color: var(--ember);
+  }
+  .note p { margin: 0 0 var(--s2); font-size: 14px; color: var(--ink-2); }
+  .note p strong { color: var(--ink); font-weight: 700; }
+  .note.warn { border-left-color: var(--danger); }
+  .note.warn h3 { color: var(--danger); }
+  .goal {
+    background: var(--ground-2); border: 1px solid var(--rule);
+    padding: var(--s3) var(--s4); margin-bottom: var(--s5);
+  }
+  .goal h3 { margin: 0 0 4px; font-size: 12px; font-family: var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .goal p { margin: 0; font-size: 14px; }
+
+  footer { margin-top: var(--s7); border-top: 1px solid var(--rule); padding-top: var(--s4); }
+  footer p { font-size: 12.5px; color: var(--ink-2); margin: 0 0 var(--s2); max-width: 70ch; }
+  code {
+    font-family: var(--mono); font-size: .9em; background: var(--ground-2);
+    border: 1px solid var(--rule); padding: 1px 4px;
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">KPM Inventory · MerchantSalesView · flow prototype</p>
+    <h1>Duke's Ledger</h1>
+    <p class="dek">
+      The same sale, recorded two ways. Run a basket on the current build, then on the proposed one,
+      and watch the panel-switch counter. Everything here is a mockup — no repo code has been touched.
+    </p>
+  </header>
+
+  <div class="rail">
+    <div class="ctl">
+      <span class="lbl">Design</span>
+      <div class="seg" id="segMode">
+        <button type="button" data-v="now" aria-pressed="false">Current build</button>
+        <button type="button" data-v="new" aria-pressed="true">Duke's Ledger</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <span class="lbl">Basket</span>
+      <div class="seg" id="segScen">
+        <button type="button" data-v="a" aria-pressed="true">A · Warung</button>
+        <button type="button" data-v="b" aria-pressed="false">B · Grosir</button>
+        <button type="button" data-v="c" aria-pressed="false">C · Repeat</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <span class="lbl">Ledger tone — pick one</span>
+      <div class="seg" id="segTone">
+        <button type="button" data-v="parchment" aria-pressed="true">Parchment</button>
+        <button type="button" data-v="graphite" aria-pressed="false">Graphite</button>
+        <button type="button" data-v="steel" aria-pressed="false">Steel</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <span class="lbl">Orientation</span>
+      <div class="seg" id="segOrient">
+        <button type="button" data-v="port" aria-pressed="true">Portrait</button>
+        <button type="button" data-v="land" aria-pressed="false">Landscape</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <span class="lbl">Lite Mode (performance)</span>
+      <div class="seg" id="segLite">
+        <button type="button" data-v="off" aria-pressed="true">Off</button>
+        <button type="button" data-v="on" aria-pressed="false">On</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <span class="lbl">Sound</span>
+      <div class="seg" id="segSnd">
+        <button type="button" data-v="off" aria-pressed="true">Off</button>
+        <button type="button" data-v="on" aria-pressed="false">On</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="score">
+    <div><span class="k">Panel switches</span><span class="v" id="scSw">0</span></div>
+    <div><span class="k">Lines in cart</span><span class="v cool" id="scLn">0</span></div>
+    <div><span class="k">Cart total</span><span class="v cool" id="scTot">Rp 0</span></div>
+  </div>
+
+  <div class="stage">
+    <div class="phone-holder">
+      <div class="phone" id="phone" data-tone="parchment" data-lite="off"></div>
+    </div>
+
+    <div class="notes">
+      <div class="goal" id="goal"></div>
+
+      <div class="note">
+        <h3>What the counter measures</h3>
+        <p>
+          On the current build, quantity and unit can only be edited inside the Manifest, and the Manifest
+          is a separate full-screen tab. So every line costs a trip there and a trip back.
+          <strong>A 12-line warung sale runs about 24 switches.</strong> The proposed design never needs one.
+        </p>
+      </div>
+
+      <div class="note">
+        <h3>Two speeds, one control</h3>
+        <p>
+          Tap a row to add one. Tap the <strong>number badge</strong> to type an exact quantity and pick a unit —
+          not a long-press, because nobody discovers a long-press. Small warung baskets stay one tap per line;
+          a Grosir line of 40 Karton is three interactions instead of forty taps.
+        </p>
+      </div>
+
+      <div class="note">
+        <h3>Karton is in the app already</h3>
+        <p>
+          The pricing math handles it — <code>balsPerCarton || 4</code>, exactly your 4 Bal — but the unit
+          dropdown never offered it. <strong>Grosir customers currently cannot buy by Karton at all.</strong>
+          The unit row here shows all four.
+        </p>
+      </div>
+
+      <div class="note warn">
+        <h3>Landscape, on the current build</h3>
+        <p>
+          Switch orientation with <strong>Current build</strong> selected. Between 768 and 1023 pixels wide,
+          both copies of the Manifest are hidden — no customer, no payment, no cart. That is today's behaviour,
+          reproduced. The drawer design has no such band.
+        </p>
+      </div>
+
+      <div class="note">
+        <h3>Grosir usually isn't cash</h3>
+        <p>
+          Since most new Grosir customers take Titip, payment and tempo days sit inside the expanded ledger
+          where the sale ends, not buried below a scroll. Basket B lands there on purpose.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      Merchant portrait is a placeholder silhouette — the real assets are 4.5 MB of local PNG and would not
+      load here anyway. Sounds are synthesised in the browser, so you can judge the feel before anyone records a file.
+    </p>
+    <p>
+      Prices, stock and tier logic are representative, not live data. Plan:
+      <code>.claude/plans/merchantsales-dukes-ledger.md</code>
+    </p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- data ---------------- */
+  var PRODUCTS = [
+    { id: 'p1',  n: 'Djarum Super 12',        c: 'Kretek',  ecer: 24500, retail: 23800, grosir: 23200, stock: 480, tint: '#c0392b' },
+    { id: 'p2',  n: 'Gudang Garam Surya 16',  c: 'Kretek',  ecer: 34000, retail: 33200, grosir: 32400, stock: 260, tint: '#d4af37' },
+    { id: 'p3',  n: 'Sampoerna Mild 16',      c: 'Mild',    ecer: 32500, retail: 31800, grosir: 31000, stock: 340, tint: '#e8e0d2' },
+    { id: 'p4',  n: 'LA Bold 20',             c: 'Mild',    ecer: 28000, retail: 27300, grosir: 26600, stock: 150, tint: '#8b4513' },
+    { id: 'p5',  n: 'Djarum 76 12',           c: 'Kretek',  ecer: 19500, retail: 19000, grosir: 18400, stock: 620, tint: '#b7791f' },
+    { id: 'p6',  n: 'Class Mild 16',          c: 'Mild',    ecer: 24000, retail: 23400, grosir: 22800, stock: 90,  tint: '#a0522d' },
+    { id: 'p7',  n: 'Magnum Filter 16',       c: 'Filter',  ecer: 27500, retail: 26900, grosir: 26200, stock: 210, tint: '#6b4423' },
+    { id: 'p8',  n: 'Surya Pro 16',           c: 'Filter',  ecer: 26000, retail: 25400, grosir: 24800, stock: 18,  tint: '#cd853f' },
+    { id: 'p9',  n: 'Djarum Black 12',        c: 'Kretek',  ecer: 26500, retail: 25900, grosir: 25200, stock: 175, tint: '#3e3226' },
+    { id: 'p10', n: 'U Mild 16',              c: 'Mild',    ecer: 23000, retail: 22400, grosir: 21800, stock: 300, tint: '#deb887' },
+    { id: 'p11', n: 'Dunhill Mild 16',        c: 'Mild',    ecer: 36000, retail: 35200, grosir: 34400, stock: 120, tint: '#8b0000' },
+    { id: 'p12', n: 'Sukun Executive 12',     c: 'Filter',  ecer: 17500, retail: 17000, grosir: 16500, stock: 410, tint: '#a67c52' }
+  ];
+  var UNITS = ['Bks', 'Slop', 'Bal', 'Karton'];
+  var MULT  = { Bks: 1, Slop: 10, Bal: 200, Karton: 800 };
+
+  var SCEN = {
+    a: { store: 'Warung Bu Sari',   tier: 'ecer',   pay: 'Cash',
+         goal: 'Twelve different products, one or two of each. The grind case — the rhythm is what matters.',
+         prior: [], neu: [] },
+    b: { store: 'UD Cahaya Grosir', tier: 'grosir', pay: 'Titip',
+         goal: 'Three products, large quantities, mixed units. Ends on Titip with tempo days, like most new Grosir.',
+         prior: [], neu: [] },
+    c: { store: 'Toko Berkah Jaya', tier: 'retail', pay: 'Cash',
+         goal: 'A repeat customer. Load last visit in one tap, then push the two products they have never bought.',
+         prior: [
+           { id: 'p1', q: 3, u: 'Slop' }, { id: 'p5', q: 2, u: 'Slop' }, { id: 'p3', q: 4, u: 'Bks' },
+           { id: 'p10', q: 2, u: 'Slop' }, { id: 'p12', q: 1, u: 'Bal' }, { id: 'p7', q: 3, u: 'Bks' },
+           { id: 'p2', q: 1, u: 'Slop' }, { id: 'p9', q: 2, u: 'Bks' }, { id: 'p6', q: 1, u: 'Slop' }
+         ],
+         neu: ['p11', 'p4'] }
+  };
+
+  var BARKS = {
+    idle:    "What're ya buyin'?",
+    talking: 'Ahh… good choice, stranger.',
+    deal:    "Heh heh heh… thank you.",
+    remove:  'Changed yer mind?'
+  };
+
+  /* ---------------- state ---------------- */
+  var S = {
+    mode: 'new', scen: 'a', tone: 'parchment', orient: 'port',
+    lite: false, snd: false,
+    tab: 'wares', open: false, editing: null,
+    cart: [], switches: 0, last: '', mood: 'idle',
+    q: '', cat: 'ALL', pay: 'Cash', tempo: 7, haptic: false,
+    undo: null
+  };
+
+  var phone = document.getElementById('phone');
+  var elSw = document.getElementById('scSw');
+  var elLn = document.getElementById('scLn');
+  var elTot = document.getElementById('scTot');
+  var elGoal = document.getElementById('goal');
+  var barkTimer = null, haptTimer = null, undoTimer = null;
+
+  /* ---------------- helpers ---------------- */
+  function rp(n) {
+    return 'Rp ' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+  function prod(id) {
+    for (var i = 0; i < PRODUCTS.length; i++) { if (PRODUCTS[i].id === id) return PRODUCTS[i]; }
+    return null;
+  }
+  function unitPrice(p, unit) { return p[SCEN[S.scen].tier] * MULT[unit]; }
+  function lineTotal(it) { return unitPrice(prod(it.id), it.u) * it.q; }
+  function cartTotal() {
+    var t = 0; for (var i = 0; i < S.cart.length; i++) { t += lineTotal(S.cart[i]); } return t;
+  }
+  function findLine(id) {
+    for (var i = 0; i < S.cart.length; i++) { if (S.cart[i].id === id) return S.cart[i]; }
+    return null;
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+    });
+  }
+
+  /* ---------------- sound ---------------- */
+  var ac = null;
+  function tone(freq, dur, type, vol, slideTo) {
+    if (!S.snd) return;
+    try {
+      if (!ac) { ac = new (window.AudioContext || window.webkitAudioContext)(); }
+      if (ac.state === 'suspended') { ac.resume(); }
+      var o = ac.createOscillator(), g = ac.createGain(), t0 = ac.currentTime;
+      o.type = type || 'triangle';
+      o.frequency.setValueAtTime(freq, t0);
+      if (slideTo) { o.frequency.exponentialRampToValueAtTime(slideTo, t0 + dur); }
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(vol || 0.14, t0 + 0.008);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      o.connect(g); g.connect(ac.destination);
+      o.start(t0); o.stop(t0 + dur + 0.02);
+    } catch (e) { /* audio unavailable — silent, not fatal */ }
+  }
+  function sfx(kind) {
+    if (kind === 'add')    { tone(760, 0.07, 'triangle', 0.13); tone(1520, 0.045, 'sine', 0.05); }
+    if (kind === 'remove') { tone(300, 0.09, 'sine', 0.11); }
+    if (kind === 'commit') { tone(620, 0.10, 'triangle', 0.14); setTimeout(function () { tone(930, 0.22, 'triangle', 0.13, 1240); }, 90); }
+  }
+
+  /* ---------------- actions ---------------- */
+  function bark(mood) {
+    S.mood = mood;
+    if (barkTimer) { clearTimeout(barkTimer); }
+    barkTimer = setTimeout(function () { S.mood = 'idle'; render(); }, 1800);
+  }
+  function buzz() {
+    S.haptic = true;
+    if (navigator.vibrate) { try { navigator.vibrate(25); } catch (e) {} }
+    if (haptTimer) { clearTimeout(haptTimer); }
+    haptTimer = setTimeout(function () { S.haptic = false; render(); }, 240);
+  }
+  function showUndo(id, msg) {
+    S.undo = { id: id, msg: msg };
+    if (undoTimer) { clearTimeout(undoTimer); }
+    undoTimer = setTimeout(function () { S.undo = null; render(); }, 3000);
+  }
+
+  function addOne(id) {
+    var ln = findLine(id);
+    if (ln) { ln.q += 1; } else { S.cart.push({ id: id, q: 1, u: 'Bks', fresh: true }); }
+    S.last = prod(id).n;
+    bark('talking'); buzz(); sfx('add');
+    showUndo(id, 'Added ' + prod(id).n);
+    render();
+  }
+  function removeLine(id) {
+    for (var i = 0; i < S.cart.length; i++) {
+      if (S.cart[i].id === id) { S.cart.splice(i, 1); break; }
+    }
+    bark('remove'); sfx('remove');
+    S.undo = null;
+    render();
+  }
+  function undoLast() {
+    if (!S.undo) return;
+    var ln = findLine(S.undo.id);
+    if (ln) { if (ln.q > 1) { ln.q -= 1; } else { removeLine(S.undo.id); return; } }
+    S.undo = null; sfx('remove'); render();
+  }
+  function switchTab(t) {
+    if (S.tab === t) return;
+    S.tab = t; S.switches += 1; render();
+  }
+  function loadPrior() {
+    var pr = SCEN.c.prior;
+    S.cart = pr.map(function (x) { return { id: x.id, q: x.q, u: x.u, fresh: true }; });
+    S.last = 'Last visit loaded';
+    bark('talking'); buzz(); sfx('add'); render();
+  }
+  function commit() {
+    if (!S.cart.length) return;
+    bark('deal'); sfx('commit');
+    var n = S.cart.length, t = cartTotal();
+    S.cart = []; S.open = false; S.editing = null; S.undo = null;
+    S.last = n + ' lines · ' + rp(t) + ' — done';
+    render();
+  }
+  function resetRun(keepScen) {
+    S.cart = []; S.switches = 0; S.tab = 'wares'; S.open = false;
+    S.editing = null; S.last = ''; S.q = ''; S.cat = 'ALL'; S.undo = null;
+    S.pay = SCEN[S.scen].pay; S.tempo = 7;
+    if (!keepScen) { S.mood = 'idle'; }
+  }
+
+  /* ---------------- filtering ---------------- */
+  function visible() {
+    var q = S.q.trim().toLowerCase();
+    return PRODUCTS.filter(function (p) {
+      if (S.cat !== 'ALL' && p.c !== S.cat) return false;
+      if (q && p.n.toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    });
+  }
+  function cats() {
+    var out = ['ALL'], seen = {};
+    PRODUCTS.forEach(function (p) { if (!seen[p.c]) { seen[p.c] = 1; out.push(p.c); } });
+    return out;
+  }
+
+  /* ---------------- markup pieces ---------------- */
+  function merchantSvg() {
+    return '<svg viewBox="0 0 40 40" aria-hidden="true">' +
+      '<path d="M20 4c-6 0-9 4-9 9 0 3 1 5 1 5l-6 4c-2 1-3 3-3 5v9h34v-9c0-2-1-4-3-5l-6-4s1-2 1-5c0-5-3-9-9-9z" ' +
+      'fill="#2a2018" stroke="#5a4a35" stroke-width="1.2"/>' +
+      '<ellipse cx="20" cy="14" rx="7" ry="6" fill="#0a0806"/>' +
+      '<circle cx="17" cy="14" r="1.5" fill="#ff9d00"/><circle cx="23" cy="14" r="1.5" fill="#ff9d00"/>' +
+      '</svg>';
+  }
+
+  function strip() {
+    return '<div class="mstrip">' +
+      '<div class="mfig">' + merchantSvg() + '</div>' +
+      '<div class="mtxt">' +
+        '<div class="mbark">' + esc(BARKS[S.mood] || BARKS.idle) + '</div>' +
+        '<div class="mstore">' + esc(SCEN[S.scen].store) + ' · ' + esc(SCEN[S.scen].tier) + '</div>' +
+      '</div>' +
+      '<div class="mtot">' + rp(cartTotal()) + '</div>' +
+    '</div>';
+  }
+
+  function rowHtml(p) {
+    var ln = findLine(p.id);
+    var isNew = SCEN[S.scen].neu.indexOf(p.id) !== -1;
+    var low = p.stock < 50;
+    var price = unitPrice(p, 'Bks');
+    var initials = p.n.split(' ').slice(0, 2).map(function (w) { return w.charAt(0); }).join('');
+
+    if (S.editing === p.id) {
+      var q = ln ? ln.q : 1, u = ln ? ln.u : 'Bks';
+      return '<div class="qed" data-ed="' + p.id + '">' +
+        '<div class="qtop">' +
+          '<div class="rmid"><div class="rname">' + esc(p.n) + '</div>' +
+          '<div class="rmeta">' + rp(unitPrice(p, u)) + ' / ' + u + '</div></div>' +
+          '<input type="text" inputmode="numeric" id="qin" value="' + q + '" aria-label="Quantity" />' +
+        '</div>' +
+        '<div class="units">' + UNITS.map(function (uu) {
+          return '<button type="button" data-u="' + uu + '" aria-pressed="' + (uu === u) + '">' + uu + '</button>';
+        }).join('') + '</div>' +
+        '<div class="qrow">' +
+          '<button type="button" data-add="10">+10</button>' +
+          '<button type="button" data-add="50">+50</button>' +
+          '<button type="button" data-clr="1">C</button>' +
+          '<button type="button" class="go" data-done="1">Done</button>' +
+        '</div>' +
+      '</div>';
+    }
+
+    return '<button type="button" class="row" data-row="' + p.id + '">' +
+      '<span class="thumb" style="background:' + p.tint + '">' + esc(initials) + '</span>' +
+      '<span class="rmid">' +
+        '<span class="rname">' + esc(p.n) + (isNew ? '<span class="baru">BARU</span>' : '') + '</span>' +
+        '<span class="rmeta">' + rp(price) + ' / Bks · <span class="' + (low ? 'low' : '') + '">' + p.stock + ' bks</span></span>' +
+      '</span>' +
+      '<span class="badge ' + (ln ? 'on' : '') + '" data-badge="' + p.id + '" role="button" tabindex="0" ' +
+        'aria-label="Set exact quantity for ' + esc(p.n) + '">' + (ln ? '×' + ln.q : '+') + '</span>' +
+    '</button>';
+  }
+
+  function bottomCtl() {
+    var c = cats();
+    return '<div class="bctl">' +
+      '<input class="srch" id="srch" type="text" placeholder="SEARCH WARES…" value="' + esc(S.q) + '" aria-label="Search products" />' +
+      '<div class="chips">' + c.map(function (x) {
+        return '<button type="button" data-cat="' + esc(x) + '" aria-pressed="' + (S.cat === x) + '">' + esc(x) + '</button>';
+      }).join('') + '</div>' +
+    '</div>';
+  }
+
+  function ledgerLines() {
+    if (!S.cart.length) {
+      return '<p style="font-size:12px;opacity:.6;margin:14px 0;text-align:center">Manifest empty</p>';
+    }
+    return S.cart.map(function (it) {
+      var p = prod(it.id);
+      var cls = it.fresh ? 'lline enter' : 'lline';
+      it.fresh = false;
+      return '<div class="' + cls + '">' +
+        '<span class="ln">' + esc(p.n) + '</span>' +
+        '<span class="lq">' + it.q + ' ' + it.u + '</span>' +
+        '<span class="lv">' + rp(lineTotal(it)) + '</span>' +
+        '<button type="button" class="x" data-del="' + it.id + '" aria-label="Remove ' + esc(p.n) + '">×</button>' +
+      '</div>';
+    }).join('');
+  }
+
+  function drawer() {
+    var n = S.cart.length;
+    var head = '<button type="button" class="dhandle" data-toggle="1" aria-expanded="' + S.open + '">' +
+      '<span class="grip"></span>' +
+      '<span class="dsum">' +
+        '<span class="dcount">' + n + (n === 1 ? ' line' : ' lines') + ' · manifest</span>' +
+        '<span class="dlast">' + esc(S.last || 'Nothing added yet') + '</span>' +
+      '</span>' +
+      '<span class="dtot">' + rp(cartTotal()) + '</span>' +
+    '</button>';
+
+    if (!S.open) { return '<div class="drawer">' + head + '</div>'; }
+
+    var showTempo = S.pay === 'Titip';
+    var body = '<div class="dbody">' +
+      ledgerLines() +
+      (S.scen === 'c' && !S.cart.length
+        ? '<button type="button" class="commit" data-prior="1" style="margin-top:10px">Load last visit — 9 lines</button>'
+        : '') +
+      '<div class="fld"><label for="cust">Customer</label>' +
+        '<input id="cust" type="text" value="' + esc(SCEN[S.scen].store) + '" /></div>' +
+      '<div class="fld"><label>Payment</label><div class="pays">' +
+        ['Cash', 'Transfer', 'Titip'].map(function (m) {
+          return '<button type="button" data-pay="' + m + '" aria-pressed="' + (S.pay === m) + '">' + m + '</button>';
+        }).join('') +
+      '</div></div>' +
+      (showTempo
+        ? '<div class="fld"><label for="tmp">Tempo days</label><div class="tempo">' +
+          '<input id="tmp" type="range" min="1" max="60" value="' + S.tempo + '" />' +
+          '<output>' + S.tempo + 'd</output></div>' +
+          '<div class="debt">Jatuh tempo in ' + S.tempo + ' days. This customer has no overdue balance.</div></div>'
+        : '') +
+      '<button type="button" class="commit" data-commit="1"' + (S.cart.length ? '' : ' disabled') + '>Make deal</button>' +
+    '</div>';
+
+    return '<div class="drawer open">' + head + body + '</div>';
+  }
+
+  function toastHtml() {
+    if (!S.undo) return '';
+    return '<div class="toast"><span class="tmsg">' + esc(S.undo.msg) + '</span>' +
+      '<button type="button" data-undo="1">Undo</button></div>';
+  }
+
+  /* ---------------- renderers ---------------- */
+  function renderNew() {
+    var rows = visible().map(rowHtml).join('');
+    return strip() +
+      '<div class="wares"><div class="wlist">' + rows + '</div></div>' +
+      bottomCtl() +
+      drawer() +
+      toastHtml() +
+      '<div class="hapt ' + (S.haptic ? 'on' : '') + '">buzz</div>';
+  }
+
+  function renderNow() {
+    // Reproduces today's build: two exclusive tabs, horizontal carousel, qty only in the manifest.
+    if (S.orient === 'land') {
+      return strip() +
+        '<div class="wares"><div class="brokebox"><p><strong>Manifest missing</strong>' +
+        'At 768–1023 px the mobile manifest is <code>md:hidden</code> and the desktop one is ' +
+        '<code>hidden lg:flex</code>, so neither renders. No customer, no payment, no cart — ' +
+        'the sale cannot be finished.</p></div></div>' +
+        '<div class="tabs">' +
+          '<button type="button" data-tab="wares" aria-pressed="' + (S.tab === 'wares') + '">Wares</button>' +
+          '<button type="button" data-tab="manifest" aria-pressed="' + (S.tab === 'manifest') + '">Merchant (' + S.cart.length + ')</button>' +
+        '</div>';
+    }
+
+    var pane;
+    if (S.tab === 'wares') {
+      pane = '<div class="wares"><div class="carousel">' + visible().map(function (p) {
+        var initials = p.n.split(' ').slice(0, 2).map(function (w) { return w.charAt(0); }).join('');
+        return '<button type="button" class="pcard" data-card="' + p.id + '">' +
+          '<span class="pimg" style="background:' + p.tint + '">' + esc(initials) + '</span>' +
+          '<span class="pn" style="display:block">' + esc(p.n) + '</span>' +
+          '<span class="pp" style="display:block">' + rp(unitPrice(p, 'Bks')) + '</span>' +
+        '</button>';
+      }).join('') + '</div></div>' + bottomCtl();
+    } else {
+      var lines = S.cart.length
+        ? S.cart.map(function (it) {
+            var p = prod(it.id);
+            return '<div class="lline">' +
+              '<span class="ln">' + esc(p.n) + '</span>' +
+              '<span class="lq">' +
+                '<input type="text" inputmode="numeric" value="' + it.q + '" data-q="' + it.id + '" ' +
+                'style="width:38px;text-align:center;background:#fff;border:1px solid var(--l-edge);color:#3e3226;font-family:var(--mono)" />' +
+                ' <select data-u="' + it.id + '" style="background:transparent;color:inherit;border:0;font-weight:700">' +
+                  UNITS.map(function (u) {
+                    if (u === 'Karton') return '';   // today's dropdown has no Karton — reproduced
+                    return '<option' + (it.u === u ? ' selected' : '') + '>' + u + '</option>';
+                  }).join('') +
+                '</select>' +
+              '</span>' +
+              '<span class="lv">' + rp(lineTotal(it)) + '</span>' +
+              '<button type="button" class="x" data-del="' + it.id + '" aria-label="Remove">×</button>' +
+            '</div>';
+          }).join('')
+        : '<p style="font-size:12px;opacity:.6;margin:14px 0;text-align:center">Manifest empty</p>';
+
+      pane = '<div class="drawer open" style="flex:1"><div class="dbody" style="padding-top:11px">' +
+        lines +
+        '<div class="fld"><label for="cust2">Customer</label>' +
+          '<input id="cust2" type="text" value="' + esc(SCEN[S.scen].store) + '" /></div>' +
+        '<button type="button" class="commit" data-commit="1"' + (S.cart.length ? '' : ' disabled') + '>Make deal</button>' +
+      '</div></div>';
+    }
+
+    return strip() + pane +
+      '<div class="tabs">' +
+        '<button type="button" data-tab="wares" aria-pressed="' + (S.tab === 'wares') + '">Wares</button>' +
+        '<button type="button" data-tab="manifest" aria-pressed="' + (S.tab === 'manifest') + '">Merchant (' + S.cart.length + ')</button>' +
+      '</div>' +
+      toastHtml();
+  }
+
+  function render() {
+    phone.setAttribute('data-tone', S.tone);
+    phone.setAttribute('data-lite', S.lite ? 'on' : 'off');
+    phone.className = 'phone' + (S.orient === 'land' ? ' land' : '');
+
+    var keepFocus = document.activeElement && document.activeElement.id;
+    var selStart = null;
+    if (keepFocus === 'srch' || keepFocus === 'qin') {
+      try { selStart = document.activeElement.selectionStart; } catch (e) {}
+    }
+
+    phone.innerHTML = (S.mode === 'new') ? renderNew() : renderNow();
+
+    if (keepFocus) {
+      var again = document.getElementById(keepFocus);
+      if (again) {
+        again.focus();
+        if (selStart !== null) { try { again.setSelectionRange(selStart, selStart); } catch (e) {} }
+      }
+    }
+
+    elSw.textContent = S.switches;
+    elSw.className = 'v' + (S.switches > 0 ? ' hot' : ' cool');
+    elLn.textContent = S.cart.length;
+    elTot.textContent = rp(cartTotal());
+    elGoal.innerHTML = '<h3>Basket ' + S.scen.toUpperCase() + ' — ' + esc(SCEN[S.scen].store) + '</h3><p>' +
+      esc(SCEN[S.scen].goal) + '</p>';
+  }
+
+  /* ---------------- events ---------------- */
+  phone.addEventListener('click', function (e) {
+    var t = e.target;
+
+    var badge = t.closest('[data-badge]');
+    if (badge) { e.stopPropagation(); S.editing = badge.getAttribute('data-badge'); render();
+      var qi = document.getElementById('qin'); if (qi) { qi.focus(); qi.select(); } return; }
+
+    var row = t.closest('[data-row]');
+    if (row) { addOne(row.getAttribute('data-row')); return; }
+
+    var card = t.closest('[data-card]');
+    if (card) { addOne(card.getAttribute('data-card')); return; }
+
+    var tab = t.closest('[data-tab]');
+    if (tab) { switchTab(tab.getAttribute('data-tab')); return; }
+
+    if (t.closest('[data-toggle]')) { S.open = !S.open; render(); return; }
+    if (t.closest('[data-commit]')) { commit(); return; }
+    if (t.closest('[data-prior]')) { loadPrior(); return; }
+    if (t.closest('[data-undo]'))  { undoLast(); return; }
+
+    var del = t.closest('[data-del]');
+    if (del) { removeLine(del.getAttribute('data-del')); return; }
+
+    var pay = t.closest('[data-pay]');
+    if (pay) { S.pay = pay.getAttribute('data-pay'); render(); return; }
+
+    var cat = t.closest('[data-cat]');
+    if (cat) { S.cat = cat.getAttribute('data-cat'); render(); return; }
+
+    // qty editor controls
+    var ed = t.closest('.qed');
+    if (ed) {
+      var id = ed.getAttribute('data-ed');
+      var ln = findLine(id);
+      var input = document.getElementById('qin');
+
+      var ub = t.closest('[data-u]');
+      if (ub) {
+        if (!ln) { S.cart.push({ id: id, q: parseInt(input.value, 10) || 1, u: ub.getAttribute('data-u'), fresh: true }); }
+        else { ln.u = ub.getAttribute('data-u'); }
+        S.last = prod(id).n; buzz(); render();
+        var qi2 = document.getElementById('qin'); if (qi2) { qi2.focus(); }
+        return;
+      }
+      var ab = t.closest('[data-add]');
+      if (ab) { input.value = (parseInt(input.value, 10) || 0) + parseInt(ab.getAttribute('data-add'), 10); input.focus(); return; }
+      if (t.closest('[data-clr]')) { input.value = ''; input.focus(); return; }
+      if (t.closest('[data-done]')) {
+        var v = parseInt(input.value, 10);
+        if (!v || v < 1) { v = 1; }
+        if (!ln) { S.cart.push({ id: id, q: v, u: 'Bks', fresh: true }); }
+        else { ln.q = v; }
+        S.last = prod(id).n;
+        S.editing = null; bark('talking'); buzz(); sfx('add'); render();
+        return;
+      }
+    }
+  });
+
+  phone.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      var b = e.target.closest && e.target.closest('[data-badge]');
+      if (b) { e.preventDefault(); S.editing = b.getAttribute('data-badge'); render();
+        var qi = document.getElementById('qin'); if (qi) { qi.focus(); qi.select(); } }
+    }
+    if (e.key === 'Enter' && e.target.id === 'qin') {
+      e.preventDefault();
+      var done = phone.querySelector('[data-done]');
+      if (done) { done.click(); }
+    }
+  });
+
+  phone.addEventListener('input', function (e) {
+    if (e.target.id === 'srch') { S.q = e.target.value; render(); return; }
+    if (e.target.id === 'tmp')  { S.tempo = parseInt(e.target.value, 10); render(); return; }
+    var q = e.target.getAttribute && e.target.getAttribute('data-q');
+    if (q) { var l = findLine(q); if (l) { l.q = parseInt(e.target.value, 10) || 1; render(); } }
+  });
+
+  phone.addEventListener('change', function (e) {
+    var u = e.target.getAttribute && e.target.getAttribute('data-u');
+    if (u && e.target.tagName === 'SELECT') { var l = findLine(u); if (l) { l.u = e.target.value; render(); } }
+  });
+
+  function wireSeg(id, fn) {
+    var el = document.getElementById(id);
+    el.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-v]');
+      if (!b) return;
+      Array.prototype.forEach.call(el.querySelectorAll('button'), function (x) {
+        x.setAttribute('aria-pressed', String(x === b));
+      });
+      fn(b.getAttribute('data-v'));
+    });
+  }
+
+  wireSeg('segMode',   function (v) { S.mode = v; resetRun(true); render(); });
+  wireSeg('segScen',   function (v) { S.scen = v; resetRun(true); render(); });
+  wireSeg('segTone',   function (v) { S.tone = v; render(); });
+  wireSeg('segOrient', function (v) { S.orient = v; render(); });
+  wireSeg('segLite',   function (v) { S.lite = (v === 'on'); render(); });
+  wireSeg('segSnd',    function (v) { S.snd = (v === 'on'); if (S.snd) { sfx('add'); } render(); });
+
+  resetRun(true);
+  render();
+})();
+</script>

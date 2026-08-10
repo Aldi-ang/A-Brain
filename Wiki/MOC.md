@@ -52,6 +52,19 @@ The shape of the app everything else sits on top of.
 - [[Tier System]] — the six role levels, from Developer down to Rookie, and how delegation works.
 - [[KPM Project Facts Reference]] — the one-page cheat sheet covering both of the above, plus reusable patterns worth knowing.
 
+## 🎨 Design & Interface
+
+What the app looks like, and what Aldi wants it to feel like.
+
+- [[Aldi's Design Taste]] — what he actually likes and rejects, built only from real screens he judged. **Read before designing anything for him.**
+- [[Master Vault Gate]] — the master-password screen every session starts at; its locked numbers and its closed decisions.
+- [[Silent Failure Disease]] — his first law as a bug class: a screen that acts without saying so reads as broken.
+
+## 📱 Phone & Device
+
+- [[Secure Context Requirement]] — why the app worked on his PC and did nothing on his phone for months.
+- [[Six Days — Gate, Phone Access, Quota Meter]] — the backfill covering 2026-08-04 → 2026-08-10, including how phone access was finally fixed.
+
 ## 🚨 Incidents
 
 Real things that went wrong (or nearly did), and what was learned.

@@ -65,6 +65,35 @@ browse:
 - `CLAUDE.md` updated: documents `Wiki/MOC.md` in the vault map, and adds a step to the
   Ingest operation so future passes keep the MOC and frontmatter current, not just the Index.
 
+## 2026-08-10 — Six-day backfill, on Aldi's emergency instruction
+
+**The vault had not been written to since 2026-08-04 while 178 commits landed in
+`kpm-inventory`.** Aldi called the gap an emergency and ordered it closed before any code work:
+*"make sure that all the data that we have done here is written in A-Brain before anything else,
+because its part of the plan to become agentic Agent for alucard"*.
+
+Ingested one source covering 2026-08-04 → 2026-08-10:
+`Raw/2026-08-10_source_kpm-six-days-aug04-to-aug10.md` — commit skeleton, his verbatim quotes,
+the findings, the mistakes, and the decisions he closed.
+
+Produced:
+- 3 Concept pages: [[Secure Context Requirement]] (the `crypto.subtle` root cause behind months
+  of failed phone logins), [[Silent Failure Disease]] (the app's oldest bug class, named at last),
+  [[Aldi's Design Taste]] (written on his instruction — he wants his taste learned, not re-derived)
+- 1 Entity page: [[Master Vault Gate]]
+- 1 Summary page: [[Six Days — Gate, Phone Access, Quota Meter]]
+- `Wiki/MOC.md` gained two new sections — **Design & Interface** and **Phone & Device** — the
+  first structural change to the MOC since it was built.
+
+**Why the gap happened, recorded so it does not repeat:** all six days of reasoning went into
+`kpm-inventory/.claude/PROGRESS.md`, which a `SessionStart` hook prints automatically. It served
+the resume-the-session job so well that the vault was never reached for. **A note that survives a
+`/clear` is not the same as knowledge that survives a project.** The Alucard skill was amended in
+the same session to make the vault write mandatory rather than optional.
+
+Known gaps left honest, not papered over: the Duke's Ledger / sales terminal surface still has no
+Entity page, and the quest log (the instrument every test result comes through) is undocumented.
+
 ## 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run)
 
 Reviewed CCD session history (14 sessions, 2026-07-22 through 2026-07-27) against existing

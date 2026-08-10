@@ -24,6 +24,7 @@ should trace back to one of these.
 - [[Ponytail Philosophy Ingest]]
 - [[Rank Config Cross-Tenant Gap]]
 - [[Rules Draft Process]]
+- [[Six Days — Gate, Phone Access, Quota Meter]]
 
 ## Adding a new summary
 

@@ -21,6 +21,7 @@ folder-level map, not a replacement for it.
 - [[Firestore Rules]]
 - [[Fleet Captain Permission Gap]]
 - [[Git Worktrees]]
+- [[Master Vault Gate]]
 - [[Multi-Tenant Architecture]]
 - [[Rank Config and Achievement Badges]]
 - [[Tier System]]

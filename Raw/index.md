@@ -30,6 +30,11 @@ edited after creation** except for display-only frontmatter (title/description/t
 - `2026-07-27_source_ponytail-rulebook-excerpt.md`
 - `2026-07-source_kpm-inventory-facts-reference.md`
 
+## Files here (added 2026-08-10)
+
+- `2026-08-10_source_kpm-six-days-aug04-to-aug10.md` — the six-day backfill: 178 commits,
+  Aldi's verbatim reports, the mistakes made, and the decisions he closed.
+
 Naming convention observed: `YYYY-MM-DD_source_short-slug.md`. Keep using it for new sources
 so files sort chronologically by filename.
 

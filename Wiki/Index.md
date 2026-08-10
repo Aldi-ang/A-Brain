@@ -3,7 +3,7 @@ title: Wiki Index
 description: Flat A-Z catalog of every Wiki page — the reference list. For browsing by topic, start at Wiki/MOC.md instead.
 type: index
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-07-31
 ---
 
 # Wiki Index
@@ -24,6 +24,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Rank Config and Achievement Badges]] — a feature with two distinct real bugs: zero rule
   coverage (fixed), and a cross-tenant shared document (open, documented)
 - [[Git Worktrees]] — the tool behind three real lost-work incidents
+- [[Master Vault Gate]] — the master-password screen, its locked numbers, and its closed decisions
 
 ## Concepts (recurring patterns)
 
@@ -32,6 +33,13 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Draft-Then-Deploy Discipline]] — rules changes are always draft until manually deployed
 - [[Ponytail Philosophy]] — the minimal-code discipline governing how the real repo gets
   edited
+- [[9Router Subordinate AI Delegation]] — curl-delegating subtasks to free models via 9Router,
+  and logging what each one is actually good at
+- [[Secure Context Requirement]] — browser APIs that are undefined off HTTPS; the PC-works
+  phone-does-nothing bug class
+- [[Silent Failure Disease]] — a code path that ends without telling the user; the app's oldest
+  and most expensive bug class
+- [[Aldi's Design Taste]] — what he actually likes and rejects, built only from screens he judged
 
 ## Summaries (one per ingested source, newest ingest pass first)
 
@@ -51,6 +59,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   intercepting the download, plus the non-interactive ponytail marketplace install
 - [[Dead Weight Cleanup and Rules-Deploy Gap]] — ponytail-ultra review re-confirmed rules
   still undeployed; dead code/deps/assets and a leaking "GOD MODE" console.log cleaned up
+- [[Six Days — Gate, Phone Access, Quota Meter]] — 178 commits, 2026-08-04 → 2026-08-10; the
+  backfill pass that closed a six-day vault gap
 
 ## Known gaps (honest, not filled in yet)
 

@@ -1,0 +1,52 @@
+<!-- KPM rank frames — accepted markup. One block per tier. -->
+
+<!-- Bronze (rank 1) — Balok kayu tipis, serat kayu, mata kayu, braket besi. Tanpa animasi. -->
+<div class="sframe s-bronze"><div class="av"><!-- avatar img --></div><div class="lyr beams"></div><div class="lyr grain"></div><div class="lyr wear"></div><div class="lyr joints"></div><div class="lyr iron"></div><div class="lyr rim"></div></div>
+
+<!-- Silver (rank 2) — Rel baja ganda, kilau putih berjalan menyusuri bentuk bingkai — tidak keluar tepi. -->
+<div class="sframe s-silver"><div class="av"><!-- avatar img --></div><div class="lyr plate"></div><div class="lyr railo"></div><div class="lyr raili"></div><div class="lyr corners"></div><div class="glw"><div class="gl gT"></div><div class="gl gR"></div><div class="gl gB"></div><div class="gl gL"></div></div><div class="hv bloom"></div></div>
+
+<!-- Gold (rank 3) — Batang emas gelap, titik putih menyala terang hanyut di sepanjang tepi — kontras jelas. -->
+<div class="sframe s-gold"><div class="av"><!-- avatar img --></div><div class="lyr bed"></div><div class="lyr bar"></div><div class="lyr baked"></div><div class="glw"><div class="hs h1"></div><div class="hs h2"></div><div class="hs h3"></div><div class="hs h4"></div></div><div class="lyr halo"></div></div>
+
+<!-- Platinum (rank 4) — Marmer korupsi hitam-putih mengalir dalam pita tipis, ditahan rel putih tajam. -->
+<div class="sframe s-platinum"><div class="av"><!-- avatar img --></div><div class="lyr ink"></div><div class="cg"><div class="veins"></div></div><div class="lyr edge"></div></div>
+
+<!-- Diamond (rank 5) — Blok-blok berserak menyusun bingkai, muncul-hilang tegas. Tanpa kilau melintas. -->
+<div class="sframe s-diamond"><div class="av"><!-- avatar img --></div><div class="lyr k2"></div><div class="lyr k1"></div><div class="lyr e"></div><div class="lyr a"></div><div class="lyr b"></div><div class="lyr c"></div><div class="lyr d"></div><div class="lyr h h1"></div><div class="lyr h h2"></div><div class="lyr h h3"></div><div class="lyr h h4"></div><div class="hv dglow"></div><div class="brt"></div></div>
+
+<!-- Mythic (rank 6) — Bingkai tulang simetris, satu mata merah menyatu di puncak, pecahan ungu berkedip sepanjang pita — tidak ada yang keluar bingkai. -->
+<div class="sframe s-mythic"><div class="av"><!-- avatar img --></div><div class="mvoid"><div class="mnz"></div></div>
+<div class="mshard k1"></div><div class="mshard k2"></div><div class="mshard k3"></div><div class="mshard k4"></div>
+<svg class="mbone" viewBox="0 0 128 128" aria-hidden="true">
+  <defs>
+    <linearGradient id="myBone" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#F4EAD0"/><stop offset=".3" stop-color="#DCC79A"/>
+      <stop offset=".66" stop-color="#A88C5C"/><stop offset="1" stop-color="#6B5634"/>
+    </linearGradient>
+    <radialGradient id="myRed" cx=".5" cy=".42" r=".62">
+      <stop offset="0" stop-color="#FFE4DE"/><stop offset=".26" stop-color="#FF2A18"/>
+      <stop offset=".62" stop-color="#9E0C06"/><stop offset="1" stop-color="#2A0202"/>
+    </radialGradient>
+    <g id="myTal">
+      <path d="M3 40 L3 14 Q3 3 14 3 L40 3 L40 8 L17 8 Q8 8 8 17 L8 40 Z" fill="url(#myBone)" stroke="#2A2318" stroke-width=".7"/>
+      <path d="M8 24 Q0 18 -5 8 Q4 14 10 16 Z" fill="url(#myBone)" stroke="#2A2318" stroke-width=".6"/>
+      <path d="M24 8 Q18 0 8 -5 Q14 4 16 10 Z" fill="url(#myBone)" stroke="#2A2318" stroke-width=".6"/>
+      <path d="M11 11 L22 11 L11 22 Z" fill="url(#myBone)" stroke="#2A2318" stroke-width=".5"/>
+    </g>
+  </defs>
+  <use href="#myTal"/>
+  <use href="#myTal" transform="translate(128,0) scale(-1,1)"/>
+  <use href="#myTal" transform="translate(0,128) scale(1,-1)"/>
+  <use href="#myTal" transform="translate(128,128) scale(-1,-1)"/>
+  <rect x="3.5" y="3.5" width="121" height="121" fill="none" stroke="url(#myBone)" stroke-width="2.2"/>
+  <rect x="3.5" y="3.5" width="121" height="121" fill="none" stroke="#2A2318" stroke-width=".6"/>
+  <!-- SOCKET: the eye is set INTO the rail so it reads as part of the frame, not stuck on it -->
+  <path d="M50 4 L56 -4 L72 -4 L78 4 L74 12 L54 12 Z" fill="url(#myBone)" stroke="#2A2318" stroke-width=".8"/>
+  <path d="M56 -1 L72 -1 L70 3 L58 3 Z" fill="#2A2318" opacity=".5"/>
+  <g class="meye">
+    <ellipse cx="64" cy="4.6" rx="7.4" ry="4.6" fill="url(#myRed)"/>
+    <ellipse cx="64" cy="4.6" rx="1.9" ry="3.7" fill="#180000"/>
+  </g>
+  <path d="M64 118 L69 124 L64 129 L59 124 Z" fill="url(#myRed)" stroke="#2A2318" stroke-width=".6"/>
+</svg></div>
