@@ -31,6 +31,8 @@ before digging into a specific folder.
   Scaffolding only as of 2026-07-27, no real content ingested yet.
 - **[[Crypto-Learning/index|Crypto-Learning/]]** — crypto/financial learning. Scaffolding
   only, no real content ingested yet.
+- **[[Hermes-Agent-Research/index|Hermes-Agent-Research/]]** — studying Nous Research's Hermes
+  Agent to inform the `alucard` skill. Unrelated to KPM. Added 2026-08-10.
 - **[[Personal/index|Personal/]]** — life goals and reflection beyond any single project.
   [[Personal-Context]] itself lives at vault root, not inside this folder.
 - **[[graphify/index|graphify/]]** — Graphify's auto-generated code-graph export for KPM
