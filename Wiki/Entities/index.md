@@ -24,6 +24,7 @@ folder-level map, not a replacement for it.
 - [[Master Vault Gate]]
 - [[Multi-Tenant Architecture]]
 - [[Rank Config and Achievement Badges]]
+- [[Terminal Tenant Path Split]]
 - [[Tier System]]
 
 ## Adding a new entity

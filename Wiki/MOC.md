@@ -25,6 +25,7 @@ How KPM decides who can read or write what, and where that's gone wrong.
 
 - [[Firestore Rules]] — the server-side file that actually enforces access, separate from the UI.
 - [[Fleet Captain Permission Gap]] — the #1 recurring bug: a check that covers Area Admin but forgets Fleet Captain.
+- [[Terminal Tenant Path Split]] — the sales terminal wrote IOUs and new outlets into the salesman's own vault while reading the boss's. Works on the owner's account, broken for everyone it was built for.
 - [[UI-Says-Yes-Server-Says-No Pattern]] — the general bug shape behind that gap: a button that works in the UI but silently fails at the database.
 - [[Rank Config and Achievement Badges]] — a feature with two bugs, one fixed, one still open — the closest thing in KPM to a real "escalation" vulnerability.
 - [[Rank Config Cross-Tenant Gap]] — the summary that names that open vulnerability precisely: one company's settings shared by every company.
