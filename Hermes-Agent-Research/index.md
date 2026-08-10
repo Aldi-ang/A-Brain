@@ -21,6 +21,8 @@ Tobacco-Business/.
 - [[2026-08-10 Hermes Desktop Inspection]] — first look: extracted the Electron app, found and
   read the actual Python agent source on disk, mapped the architecture, shortlisted what's
   portable to `alucard`.
+- [[2026-08-10 Seven Rules Worth Porting]] — the 16-agent deep sweep: 19 proposals in, 7 out
+  after an adversarial cut. **Awaiting Aldi's approval; nothing applied.**
 
 ## Status
 
