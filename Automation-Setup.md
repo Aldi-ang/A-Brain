@@ -38,6 +38,31 @@ the same name created from a Claude Code session — its first real run mined 14
 sessions via `list_sessions`/`list_events`, correctly told apart what was genuinely new
 from what was already covered. See `runs/2026-07-27_a-brain-session-ingest_first-run.md`.
 
+### 🔴 2026-08-10 — this task has recorded NOTHING since 2026-07-28
+
+Found while testing a new detector, not by the task reporting a problem. Three artifacts agree:
+
+- `runs/session-ingest-state.md` — last row dated **2026-07-28**.
+- `runs/` — last ingest run log dated **2026-07-28**. Step 4 of the task's own prompt requires
+  a run log every run.
+- The scheduler reports `lastRunAt: 2026-08-09`. So it fires; it just records nothing.
+
+**It also passed straight through the failure it exists to prevent.** 178 commits landed in
+`kpm-inventory` between 2026-08-04 and 2026-08-10 with nothing written to this vault. That gap
+was found and closed by hand on 2026-08-10 (`a5921e6`), not by this task.
+
+**Cause, unconfirmed [likely]:** Step 1 tells it to "check whatever real session history is
+actually accessible from this environment." If session history is not reachable from a scheduled
+context, it finds nothing every run, hits Step 5's "if genuinely nothing new happened, say so
+plainly and stop", and exits clean. A silent, well-behaved no-op. Nothing errors, so nothing ever
+surfaced it — the same [[Wiki/Concepts/Silent Failure Disease|Silent Failure Disease]] shape the
+app itself has been fighting.
+
+**What now covers it:** `.claude/vault-gap.mjs` in the kpm repo counts commits since the last
+vault commit — pure git, always readable, no session history needed — and the `vault-gap-curator`
+task (daily 19:13) reports when the number climbs. It only detects; it never writes. Deciding
+whether to repair this ingest task or move the writing job elsewhere is **still open for Aldi**.
+
 ---
 
 ## 2. Claude Code CLI capture — revised recommendation
