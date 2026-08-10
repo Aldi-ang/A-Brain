@@ -3,9 +3,9 @@ title: Firestore Rules
 description: The server-side rule file that actually decides who can read or write what — separate from whatever the UI shows.
 type: entity
 created: 2026-07-27
-updated: 2026-07-29
+updated: 2026-08-10
 confidence: medium
-checked: 2026-07-29
+checked: 2026-08-10
 tags: [firestore, security, rules]
 ---
 
@@ -80,6 +80,34 @@ to prevent needing a benchmark to catch this again.
 - [[UI-Says-Yes-Server-Says-No Pattern]]
 - Summaries: [[Rank Config Cross-Tenant Gap]], [[Fleet Captain Rule Gaps — Batch 1 and 2]],
   [[Dead Weight Cleanup and Rules-Deploy Gap]]
+
+## The owner's email is a hardcoded master key — found 2026-08-10
+
+Aldi's own email is written directly into the rules as a full override:
+
+```
+firestore.rules:20   request.auth != null && request.auth.token.email == 'adikaryasukses99@gmail.com'
+```
+
+and the same address appears again in the app as `masterVIPs` (`src/App.jsx:2130`). Two layers,
+same constant, no config indirection.
+
+For Aldi running his own business this is not a bug — it is how he keeps developer access. **It
+becomes one the moment the app is sold.** A buyer's deployment would still grant the previous
+owner server-level master access to their tenants' data, and it reads exactly like a backdoor
+whether or not it was meant as one. Anyone who gains control of that one email address gains it
+across every deployment that ever shipped this file.
+
+Found by a packaging tool, not by a security review — `A-Brain/automation/export-app-for-sale.mjs`
+scans a would-be sale export for personal markers and refused to write, exiting 1 on 7 hits. The
+other 6 were paths and comments. This one was the reason the scan was worth writing.
+
+**Not fixed, and deliberately not fixed by an agent.** Replacing a hardcoded owner email touches
+both the rules draft and the auth path, and rules are Aldi's to change and deploy by hand
+([[Draft-Then-Deploy Discipline]]). The shape of the fix, when he wants it: move the address to a
+config value or a Firestore document so a buyer sets their own, rather than inheriting his.
+
+confidence: high · checked: 2026-08-10 (grep of both files, quoted above)
 
 ## Verify before trusting
 
