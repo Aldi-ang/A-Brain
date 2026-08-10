@@ -51,12 +51,32 @@ Found while testing a new detector, not by the task reporting a problem. Three a
 `kpm-inventory` between 2026-08-04 and 2026-08-10 with nothing written to this vault. That gap
 was found and closed by hand on 2026-08-10 (`a5921e6`), not by this task.
 
-**Cause, unconfirmed [likely]:** Step 1 tells it to "check whatever real session history is
-actually accessible from this environment." If session history is not reachable from a scheduled
-context, it finds nothing every run, hits Step 5's "if genuinely nothing new happened, say so
-plainly and stop", and exits clean. A silent, well-behaved no-op. Nothing errors, so nothing ever
-surfaced it — the same [[Wiki/Concepts/Silent Failure Disease|Silent Failure Disease]] shape the
-app itself has been fighting.
+**Cause — CONFIRMED 2026-08-10, and it is not what was first guessed.** The first write-up of this
+page said [likely] the task could not see session history from a scheduled context. **That was
+wrong**, and it is left here rather than deleted because the correction is the useful part: the
+guess was plausible, cheap to believe, and would have sent a repair at completely the wrong
+target. Reading the actual run transcripts settled it in one step.
+
+The task is **dead on arrival**. Every run consists of exactly two messages — the prompt, then:
+
+> There's an issue with the selected model (cc/claude-sonnet-5). It may not exist or you may not
+> have access to it.
+
+Identical on the 2026-08-03 and 2026-08-09 runs. It never reaches Step 0. `list_sessions` works
+fine, and a run session exists for every single day (Aug 3-10, no gaps) — so it fires reliably and
+dies instantly.
+
+`cc/claude-sonnet-5` **does exist** on 9router (checked `/v1/models`: 57 models, 4 under the `cc/`
+prefix). So it is the *"may not have access"* half — authentication. `/v1/chat/completions`
+returns `{"error":{"message":"Missing API key"}}`, and 9router has had no usable credential.
+Aldi generated one on 2026-08-10 and installed it himself.
+
+It is still [[Wiki/Concepts/Silent Failure Disease|Silent Failure Disease]] in shape — a daily job
+failing for two weeks with nobody told — but the mechanism is a locked door, not a blind one.
+
+**How it was found:** not by the task reporting anything, and not by inspecting it. A new detector
+was built for an unrelated reason, and testing *that* is what exposed it. Nothing in the system
+was watching the watcher.
 
 **What now covers it:** `.claude/vault-gap.mjs` in the kpm repo counts commits since the last
 vault commit — pure git, always readable, no session history needed — and the `vault-gap-curator`
