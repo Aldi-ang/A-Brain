@@ -102,12 +102,38 @@ Found by a packaging tool, not by a security review — `A-Brain/automation/expo
 scans a would-be sale export for personal markers and refused to write, exiting 1 on 7 hits. The
 other 6 were paths and comments. This one was the reason the scan was worth writing.
 
-**Not fixed, and deliberately not fixed by an agent.** Replacing a hardcoded owner email touches
-both the rules draft and the auth path, and rules are Aldi's to change and deploy by hand
-([[Draft-Then-Deploy Discipline]]). The shape of the fix, when he wants it: move the address to a
-config value or a Firestore document so a buyer sets their own, rather than inheriting his.
+### 🔴 DO NOT DELETE THAT LINE — it is load-bearing
 
-confidence: high · checked: 2026-08-10 (grep of both files, quoted above)
+Correcting this page's own first draft, which framed the email as pure excess access. **It is not
+excess. It is the only thing granting super-admin at the server.** `isSuperAdmin()` never reads
+`system_admins`, so deleting the literal leaves **nobody** with god-mode — Aldi included.
+
+The rules file has said so since before this page existed, in a comment directly under the
+function: Crown Transfer writes `system_admins_invites` and deletes the old owner's
+`system_admins/{uid}`, and `App.jsx` creates `system_admins/{newUid}` — but because
+`isSuperAdmin()` ignores all of that, *"a newly-crowned owner gains NO god-mode, and the hardcoded
+email keeps it even after revocation."* The one-line repair is written out there too:
+
+```
+|| exists(/databases/$(database)/documents/system_admins/$(request.auth.uid))
+```
+
+and was **deliberately left unapplied**, with the reason recorded: *"it widens god-mode and is the
+owner's call to make knowingly."* That earlier session was right to stop, and so was the
+2026-08-11 03:17 one, which came within a step of deleting the email before reading the comment
+block around it.
+
+**Real fix, whenever Aldi wants it:** make super-admin come from the database, so the crown can
+actually transfer and his own address stops being special. Order matters — add the `exists()`
+clause and prove it works on the emulator FIRST, only then remove the literal. Reverse that order
+and the app has no owner. Rules are his to deploy by hand ([[Draft-Then-Deploy Discipline]]);
+no agent deploys them.
+
+**Status 2026-08-11: closed, left as-is at his instruction — "leave it then".** Not forgotten:
+`A-Brain/automation/export-app-for-sale.mjs` exits 1 on this exact string, so a sale cannot be
+packaged until it is dealt with deliberately.
+
+confidence: high · checked: 2026-08-11 (both files read with surrounding context, comment quoted)
 
 ## Verify before trusting
 
