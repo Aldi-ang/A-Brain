@@ -3,10 +3,10 @@ title: 9Router Subordinate AI Delegation
 description: Practice of delegating grunt-work subtasks to free/cheap models via 9Router, and logging what each model is actually good at so future prompts to them get sharper.
 type: concept
 created: 2026-07-31
-updated: 2026-07-31
+updated: 2026-08-11
 confidence: high
-checked: 2026-07-31
-tags: [tooling, 9router, ai-delegation, cost]
+checked: 2026-08-11
+tags: [tooling, 9router, ai-delegation, cost, ollama]
 ---
 
 # 9Router Subordinate AI Delegation
@@ -106,6 +106,42 @@ look broken.
 **2026-08-01 — prompt overhead confirmed again:** a ~10-word ping billed `prompt_tokens: 4132`.
 Consistent with the 2026-07-31 note; 9Router injects a sizeable system prompt. Delegation is
 worth it for heavy *output*, never for many small round-trips.
+
+## A second channel: local Ollama (decided 2026-08-11)
+
+Aldi found `D:\LLAMA` already had Ollama installed with two working models —
+`qwen2.5-coder:7b` and `llama3:latest`, both 4.7GB, both fit his 8GB VRAM card, both
+confirmed generating real output the same session (`const LoadingSpinner = () => <div
+className="spinner"></div>;` from a one-line prompt). Zero cost, zero Claude plan-quota
+hit. His question: wire it into the delegation pattern alongside 9Router?
+
+**Decision: keep it, scope narrow. Not a primary channel.** `kr/claude-sonnet-4.5` and
+`kr/deepseek-3.2` via 9Router are already free and already stronger than a local 7B —
+Ollama doesn't out-compete the existing free channel on quality, so routing more work to
+it "because it's free" would be a silent downgrade, not a saving. [certain — 9Router's
+confirmed-free tier already listed above, same page]
+
+**Where Ollama actually wins, and the only cases worth using it for:**
+- **9Router/Kiro is unreachable.** Third-party free tier, not guaranteed to stay up.
+  Ollama has zero network dependency — insurance, not routine use.
+- **The ask is trivially small.** 9Router injects a ~3-4k token system prompt per call
+  (see Delegation log, 2026-08-01 entries) — for a one-line ping that overhead dominates
+  the actual work. Ollama has none.
+- **Real KPM data would be in the prompt.** Customer records, transaction data — nothing
+  that should transit a third-party gateway even for free. Ollama never leaves the
+  machine. [likely — no case of this has come up yet, flagging it as the reason worth
+  keeping if it ever does]
+
+**Not built, and deliberately not building it:** a router/wrapper script that picks
+9Router vs Ollama automatically. Both are already a single Bash line (`curl
+localhost:20128/...` vs `ollama run <model> "prompt"`) — the choice is a per-task
+judgment call, not missing infrastructure. Building a decision layer for two commands is
+speculative scope Ponytail already rules out.
+
+**Also answers "can we schedule/automate this":** no — not for anything that currently
+touches KPM. The one candidate (`a-brain-session-ingest`, dead since 2026-07-28) exists
+to *judge* what's worth writing to the vault; that's exactly the kind of call a 7B local
+model gets wrong quietly. Don't hand that job to Ollama.
 
 ## Related
 
