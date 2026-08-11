@@ -67,9 +67,40 @@ fine, and a run session exists for every single day (Aug 3-10, no gaps) — so i
 dies instantly.
 
 `cc/claude-sonnet-5` **does exist** on 9router (checked `/v1/models`: 57 models, 4 under the `cc/`
-prefix). So it is the *"may not have access"* half — authentication. `/v1/chat/completions`
-returns `{"error":{"message":"Missing API key"}}`, and 9router has had no usable credential.
-Aldi generated one on 2026-08-10 and installed it himself.
+prefix). So it is the *"may not have access"* half, not a missing model.
+
+### 2026-08-11 — the API key did NOT fix it, and the real cause is a config mismatch
+
+Aldi generated a 9router API key on 2026-08-10 and installed it himself. **It did not help.** The
+`vault-gap-curator` task ran at 21:07 that night and died with the identical error, as did
+`a-brain-session-ingest` at 21:02. So *every* scheduled task on this machine is dead, not just the
+ingest one.
+
+The actual mismatch, from `C:\Users\ASUS\.claude\settings.json` (model names only; the token was
+never read):
+
+| Setting | Points at | Served by 9router? |
+|---|---|---|
+| `ANTHROPIC_DEFAULT_SONNET_MODEL` | `cc/claude-sonnet-5` | listed, but **access denied** |
+| `ANTHROPIC_DEFAULT_OPUS_MODEL` | `cc/claude-opus-4-8` | **NO — not served at all** |
+| `ANTHROPIC_MODEL` (this repo's `.claude/settings.json`) | `cc/claude-opus-5` | **yes, works** |
+
+9router serves exactly four `cc/` models: `cc/claude-opus-5`, `cc/claude-fable-5`,
+`cc/claude-sonnet-5`, `cc/claude-haiku-4-5-20251001`.
+
+**Why interactive sessions work and scheduled ones don't:** a session opened in the kpm repo picks
+up that repo's `ANTHROPIC_MODEL` (`cc/claude-opus-5`) and runs fine — this diagnosis was written
+on it. A scheduled task has no project override, so it falls back to the global tier defaults,
+lands on `cc/claude-sonnet-5`, and dies before its first step.
+
+**The fix is one line, and it is Aldi's to make** — that file holds his API key, so no agent edits
+it. In `C:\Users\ASUS\.claude\settings.json`, set `ANTHROPIC_DEFAULT_SONNET_MODEL` to
+`cc/claude-opus-5` (the one model proven to work with his current token). `ANTHROPIC_DEFAULT_OPUS_MODEL`
+is also wrong and worth fixing in the same edit. Then restart Claude Code and use **Run now** on a
+scheduled task to confirm — the scheduler reads config at startup.
+
+**Until that one line changes, no automation on this machine runs — including the curator built to
+watch for exactly this kind of silence.**
 
 It is still [[Wiki/Concepts/Silent Failure Disease|Silent Failure Disease]] in shape — a daily job
 failing for two weeks with nobody told — but the mechanism is a locked door, not a blind one.
