@@ -62,13 +62,33 @@ fault — but they carry the **sale commit**, and `MerchantSalesView.jsx:958` re
 already hit a rules wall writing motorists to another vault. An audit check pins the count at
 three, so leaving them is a recorded decision and changing them will be visible.
 
-## The open risk — this is not proven fixed
+## The open risk — narrowed 2026-08-11 08:35, not closed
 
-No live salesman account was used, and `firestore.rules` was not read. **If a salesman is
-rules-blocked from writing the boss's customer doc, the write now fails at the server instead of
-silently landing in the wrong place.** Better — a loud failure beats an invisible one — but still
-not working, and the repair would be a rules change, which is
-[[Draft-Then-Deploy Discipline|a draft Aldi deploys himself]].
+The rules were read the same morning. **Cross-tenant writing into the boss's vault is the intended
+design, not a loophole:** `firestore.rules:106`
+
+```
+function isSalesman(bossUid) {
+  let profile = getEmployeeProfile();
+  return isAuthenticated() && profile != null && profile.bossUid == bossUid;
+}
+```
+
+Anyone whose `employee_directory` doc carries that `bossUid` passes. The customer rules
+(`:411-419`) then allow `update` — the IOU write — and `create` — NOO registration — for exactly
+that predicate. Default when no `permission_matrix` doc exists is `global`, i.e. allowed.
+
+**Two settings can still deny it, and they are the whole remaining risk:**
+
+| Tier setting | Effect on the IOU write |
+|---|---|
+| `customers_view_only` | `update` DENIED — IOU fails at the server |
+| `customers_edit_own_region` | DENIED when the customer's `region` is classified and differs from the salesman's profile `location`; unclassified/legacy regions stay editable by design |
+
+**What is still UNKNOWN, and only Aldi can settle it: what is actually DEPLOYED.** This rules file
+is a draft; CHANGE 6 (the customer permission tier) was emulator-tested and never deployed, so the
+live text may be an older revision. Firebase Console → Firestore → Rules is the only source, and
+[[Draft-Then-Deploy Discipline|deploying is his to do, never the agent's]].
 
 ## The lesson worth carrying
 
