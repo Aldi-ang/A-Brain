@@ -20,6 +20,7 @@ For the authoritative flat catalog, always check [[../Index]] first.
 - [[Aldi's Design Taste]]
 - [[Anti-Recurrence Check]]
 - [[Draft-Then-Deploy Discipline]]
+- [[Fat Documents in a Live Listener]]
 - [[Ponytail Philosophy]]
 - [[Secure Context Requirement]]
 - [[Silent Failure Disease]]

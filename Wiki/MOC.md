@@ -64,6 +64,7 @@ What the app looks like, and what Aldi wants it to feel like.
 ## 📱 Phone & Device
 
 - [[Secure Context Requirement]] — why the app worked on his PC and did nothing on his phone for months.
+- [[Fat Documents in a Live Listener]] — why registering an outlet froze his phone and nothing on a desktop: a fat field plus a collection listener, and one write costs megabytes.
 - [[Six Days — Gate, Phone Access, Quota Meter]] — the backfill covering 2026-08-04 → 2026-08-10, including how phone access was finally fixed.
 
 ## 🚨 Incidents
