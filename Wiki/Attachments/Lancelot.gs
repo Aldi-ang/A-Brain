@@ -31,7 +31,7 @@ var TAB_BUANG = ['KULAK', 'LIHAT MITA', 'LIHAT YOHAN', 'LIHAT PAK MUL'];
 var H_NOTA = [
   'NO NOTA', 'TANGGAL', 'JENIS NOTA', 'JENIS BARANG', 'AGEN', 'PABRIK',
   'CARA TARA', 'NILAI TARA', 'ONGKOS / GULUNG',
-  'JUMLAH GULUNG', 'TOTAL BRUTO', 'TOTAL NETTO', 'TOTAL JUMLAH', 'TOTAL ONGKOS', 'DIBAYAR',
+  'JUMLAH GULUNG', 'TOTAL BRUTO', 'TOTAL NETTO', 'TOTAL JUMLAH', 'TOTAL ONGKOS', 'TAMBAHAN', 'DIBAYAR',
   'IN', 'OUT', 'LUNAS', 'CARA BAYAR', 'DIBAYAR KE', 'TGL BAYAR', 'REF TRANSFER',
   'LINK NOTA', 'LINK BUKTI TRANSFER', 'CATATAN'
 ];
@@ -78,10 +78,47 @@ function huruf_(n) {
   return s;
 }
 
+/**
+ * Indonesian numbers. Number("55.000") is 55, not 55000 - the dots are
+ * thousands separators here, and reading them as a decimal point turns
+ * Rp 55.000 into Rp 55. This is the single most expensive mistake possible
+ * in this file, so it has its own asserts in lancelotSelfCheck.
+ *   "55.000" -> 55000     "55.5" -> 55.5      "1.234.567" -> 1234567
+ *   "166,5"  -> 166.5     "2,045,000" -> 2045000     "Rp 9.357.500" -> 9357500
+ */
 function angka_(x) {
   if (x === undefined || x === null || x === '') return '';
-  var n = Number(String(x).replace(/[^0-9.\-]/g, ''));
-  return isNaN(n) ? '' : n;
+  if (typeof x === 'number') return isNaN(x) ? '' : x;
+  var t = String(x).replace(/rp/ig, '').replace(/\s/g, '').trim();
+  if (!t) return '';
+  var minus = /^-/.test(t);
+  t = t.replace(/-/g, '');
+  var titik = (t.match(/\./g) || []).length;
+  var koma = (t.match(/,/g) || []).length;
+
+  if (titik && koma) {                       // whichever is last is the decimal
+    t = t.lastIndexOf(',') > t.lastIndexOf('.')
+      ? t.replace(/\./g, '').replace(',', '.')
+      : t.replace(/,/g, '');
+  } else if (koma) {
+    t = (koma > 1 || /,\d{3}$/.test(t)) ? t.replace(/,/g, '') : t.replace(',', '.');
+  } else if (titik) {                        // "55.000" thousands vs "55.5" decimal
+    if (titik > 1 || /\.\d{3}$/.test(t)) t = t.replace(/\./g, '');
+  }
+  var n = Number(t.replace(/[^0-9.]/g, ''));
+  if (isNaN(n)) return '';
+  return minus ? -n : n;
+}
+
+/** Money is whole rupiah. Floats leave sub-rupiah dust that makes totals disagree. */
+function rupiah_(n) { return Math.round(Number(n) || 0); }
+/** Weights to 3 decimals kills float noise without changing any real figure. */
+function berat_(n) { return Math.round((Number(n) || 0) * 1000) / 1000; }
+
+/** A cell value starting with = + - or @ becomes a live formula. Neutralise it. */
+function aman_(v) {
+  if (typeof v !== 'string') return v;
+  return /^[=+\-@]/.test(v) ? "'" + v : v;
 }
 
 function tanggal_(s) {
@@ -98,7 +135,10 @@ function tanggal_(s) {
     if (i >= 0) return new Date(+b[3], i, +b[1]);
   }
   var d = new Date(t);
-  return isNaN(d.getTime()) ? new Date() : d;
+  // Returning today() for an unreadable date silently files the nota in the
+  // wrong month and quietly moves money between periods. Refuse instead.
+  if (isNaN(d.getTime())) throw new Error('TANGGAL TIDAK TERBACA: "' + s + '". Pakai dd/mm/yyyy.');
+  return d;
 }
 
 function baris_(sh, minimal) {
@@ -116,7 +156,9 @@ function header_(sh, lebar, baris) {
 /** 'persen' -> bruto x nilai (RA 7 pakai 10%) · 'kg' -> nilai, rata (MT 1: 1kg, ALR 1: 2kg) */
 function hitungTara_(bruto, cara, nilai) {
   bruto = Number(bruto) || 0; nilai = Number(nilai) || 0;
-  return String(cara).toLowerCase() === 'kg' ? nilai : bruto * nilai;
+  // untrimmed, "kg " fell through to the percent branch and multiplied a flat
+  // tara by bruto, producing negative netto and negative money
+  return String(cara).trim().toLowerCase() === 'kg' ? nilai : bruto * nilai;
 }
 
 // ------------------------------------------------------------------ pasang
@@ -141,9 +183,12 @@ function pasangSheet() {
   fmt_(n, nr, CN['TANGGAL'], 'dd/mm/yyyy'); fmt_(n, nr, CN['TGL BAYAR'], 'dd/mm/yyyy');
   fmt_(n, nr, CN['TOTAL BRUTO'], '0.0'); fmt_(n, nr, CN['TOTAL NETTO'], '0.0');
   fmt_(n, nr, CN['NILAI TARA'], '0.###');
-  ['TOTAL JUMLAH', 'TOTAL ONGKOS', 'DIBAYAR', 'ONGKOS / GULUNG'].forEach(function (h) {
+  ['TOTAL JUMLAH', 'TOTAL ONGKOS', 'TAMBAHAN', 'DIBAYAR', 'ONGKOS / GULUNG'].forEach(function (h) {
     fmt_(n, nr, CN[h], '"Rp "#,##0');
   });
+  // a numeric-looking nota number becomes a number, and QUERY then drops the
+  // row from every generated view while it still sits in NOTA
+  n.getRange(2, CN['NO NOTA'], nr, 1).setNumberFormat('@');
   pilih_(n, nr, CN['JENIS NOTA'], ['BELI PETANI', 'NOTA AGEN', 'JUAL PABRIK']);
   pilih_(n, nr, CN['CARA TARA'], ['persen', 'kg']);
   pilih_(n, nr, CN['LUNAS'], ['LUNAS', 'BELUM LUNAS']);
@@ -156,6 +201,9 @@ function pasangSheet() {
   rapi_(it, ir, H_ITEM.length);
   ['BRUTO', 'TARA', 'NETTO'].forEach(function (h) { fmt_(it, ir, CI[h], '0.0'); });
   ['HARGA', 'JUMLAH', 'ONGKOS'].forEach(function (h) { fmt_(it, ir, CI[h], '"Rp "#,##0'); });
+  it.getRange(2, CI['NO NOTA'], ir, 1).setNumberFormat('@');
+  it.getRange(2, CI['SERI'], ir, 1).setNumberFormat('@');
+  it.getRange(2, CI['LABEL'], ir, 1).setNumberFormat('@');
   pilih_(it, ir, CI['IN/OUT'], ['IN', 'OUT']);
 
   warnaKolom_(n, nr, CN['LUNAS'], [['LUNAS', WARNA.hijau], ['BELUM LUNAS', WARNA.merah]]);
@@ -260,22 +308,30 @@ function tulisNota_(d) {
 
   var noNota = String(d.noNota || '').trim();
   if (!noNota) throw new Error('noNota wajib diisi.');
+  if (d.tanggal === undefined || d.tanggal === null || d.tanggal === '')
+    throw new Error('TANGGAL TIDAK TERBACA: kosong. Nota ' + noNota + ' wajib punya tanggal.');
   if (cariNota_(noNota) > 0) throw new Error('Nota ' + noNota + ' sudah ada. Tidak ditimpa.');
 
   var cara = d.caraTara || 'persen';
-  var nilai = d.nilaiTara === undefined ? 0.1 : Number(d.nilaiTara);
-  var ongkos = Number(d.ongkosPerGulung) || 0;
+  var nilai = d.nilaiTara === undefined ? 0.1 : (angka_(d.nilaiTara) || 0);
+  var ongkos = rupiah_(angka_(d.ongkosPerGulung) || 0);
   var items = d.item || [];
 
   var bT = 0, nT = 0, jT = 0, oT = 0, masuk = 0, keluar = 0, rows = [];
 
   items.forEach(function (t, i) {
     var out = String(t.inOut || 'IN').toUpperCase() === 'OUT';
-    var bruto = Number(t.bruto) || 0;
-    var tara = (t.tara !== undefined && t.tara !== '') ? Number(t.tara) : hitungTara_(bruto, cara, nilai);
-    var netto = (t.netto !== undefined && t.netto !== '') ? Number(t.netto) : bruto - tara;
-    var harga = Number(t.harga) || 0;
-    var jumlah = out ? 0 : netto * harga;
+    var bruto = berat_(angka_(t.bruto) || 0);
+    var tara = (t.tara !== undefined && t.tara !== '')
+      ? berat_(angka_(t.tara)) : berat_(hitungTara_(bruto, cara, nilai));
+    var netto = (t.netto !== undefined && t.netto !== '')
+      ? berat_(angka_(t.netto)) : berat_(bruto - tara);
+    var harga = rupiah_(angka_(t.harga) || 0);
+    var jumlah = out ? 0 : rupiah_(netto * harga);
+    if (netto < 0) throw new Error('NETTO MINUS pada gulungan "' + kunciSeri_(t.seri, t.label)
+      + '": bruto ' + bruto + ' - tara ' + tara + '. Cek CARA TARA / NILAI TARA nota ini.');
+    if (netto > bruto) throw new Error('NETTO ' + netto + ' lebih besar dari BRUTO ' + bruto
+      + ' pada gulungan "' + kunciSeri_(t.seri, t.label) + '".');
     var ong = out ? 0 : ongkos;
 
     if (out) keluar++; else { bT += bruto; nT += netto; jT += jumlah; oT += ong; masuk++; }
@@ -294,7 +350,7 @@ function tulisNota_(d) {
     r[CI['LABEL BARU']] = t.labelBaru || '';
     r[CI['CATATAN']] = t.catatan || '';
     var out2 = [];
-    for (var c = 1; c <= H_ITEM.length; c++) out2.push(r[c] === undefined ? '' : r[c]);
+    for (var c = 1; c <= H_ITEM.length; c++) out2.push(aman_(r[c] === undefined ? '' : r[c]));
     rows.push(out2);
   });
 
@@ -306,7 +362,11 @@ function tulisNota_(d) {
       + 'gulung, total bruto dan total uang semuanya sama. Kemungkinan besar nota yang sama '
       + 'dikirim dua kali.\nKalau memang dua nota berbeda, tambahkan "abaikanDuplikat": true.');
 
-    var peta = petaSeri_(), bentrok = [], sendiri = {};
+    // The exemption belongs to the INCOMING nota, not the stored one. Getting
+    // this backwards meant every real sale clashed with the buy nota its
+    // gulungan came from, and the whole sell side was unusable.
+    var jualan = String(d.jenisNota || '') === 'JUAL PABRIK';
+    var peta = jualan ? {} : petaSeri_(), bentrok = [], sendiri = {};
     items.forEach(function (t) {
       var k = kunciSeri_(t.seri, t.label);
       if (!k) return;
@@ -337,7 +397,9 @@ function tulisNota_(d) {
   v[CN['ONGKOS / GULUNG']] = ongkos;         v[CN['JUMLAH GULUNG']] = items.length;
   v[CN['TOTAL BRUTO']] = bT;                 v[CN['TOTAL NETTO']] = nT;
   v[CN['TOTAL JUMLAH']] = jT;                v[CN['TOTAL ONGKOS']] = oT;
-  v[CN['DIBAYAR']] = jT - oT + (Number(d.tambahan) || 0);
+  var tambahan = rupiah_(angka_(d.tambahan) || 0);
+  v[CN['TAMBAHAN']] = tambahan;
+  v[CN['DIBAYAR']] = rupiah_(jT - oT + tambahan);
   v[CN['IN']] = masuk;                       v[CN['OUT']] = keluar;
   v[CN['LUNAS']] = d.lunas || 'BELUM LUNAS'; v[CN['CARA BAYAR']] = d.caraBayar || '';
   v[CN['DIBAYAR KE']] = d.dibayarKe || '';
@@ -348,7 +410,11 @@ function tulisNota_(d) {
   v[CN['CATATAN']] = d.catatan || '';
 
   var keluarN = [];
-  for (var c2 = 1; c2 <= H_NOTA.length; c2++) keluarN.push(v[c2] === undefined ? '' : v[c2]);
+  for (var c2 = 1; c2 <= H_NOTA.length; c2++) {
+    var isi = v[c2] === undefined ? '' : v[c2];
+    // the two IMAGE cells are formulas on purpose; everything else is neutralised
+    keluarN.push((c2 === CN['LINK NOTA'] || c2 === CN['LINK BUKTI TRANSFER']) ? isi : aman_(isi));
+  }
   var br = shN.getLastRow() + 1;
   if (br > shN.getMaxRows()) shN.insertRowsAfter(shN.getMaxRows(), 100);
   shN.getRange(br, 1, 1, H_NOTA.length).setValues([keluarN]);
@@ -514,6 +580,12 @@ function coba_(id, tambah) {
 function lupakanCoba_(id) { PropertiesService.getScriptProperties().deleteProperty('coba_' + id); }
 
 function cekInbox() {
+  // Every write does getLastRow() + 1. Without a lock two overlapping runs pick
+  // the SAME row and the second silently overwrites the first. Five reviewers
+  // found this independently, which is the strongest signal in the whole audit.
+  var kunci = LockService.getScriptLock();
+  if (!kunci.tryLock(0)) { catat_('cekInbox', 'LEWAT', 'run lain sedang jalan'); return { masuk: 0, gagal: 0, ulang: 0 }; }
+  try {
   var masuk = folder_(FOLDER_INBOX), selesai = folder_(FOLDER_SELESAI), gagal = folder_(FOLDER_GAGAL);
   var files = masuk.getFiles(), ok = 0, err = 0, ulang = 0;
   while (files.hasNext()) {
@@ -540,21 +612,50 @@ function cekInbox() {
       }
     }
   }
+  detak_();
   return { masuk: ok, gagal: err, ulang: ulang };
+  } finally { kunci.releaseLock(); }
 }
 
+/** A heartbeat he can actually see. LOG is a tab nobody opens; DASHBOARD is not. */
+function detak_() {
+  try { ss_().getSheetByName('DASHBOARD').getRange('N1').setValue(new Date()); } catch (e) {}
+}
+
+/**
+ * getFoldersByName searches the WHOLE Drive and happily returns a folder that
+ * is in the bin - notas would be "processed" straight into the trash and then
+ * auto-purged after 30 days. Skip trashed, and warn when the name is ambiguous.
+ */
 function folder_(nama) {
-  var it = DriveApp.getFoldersByName(nama);
-  return it.hasNext() ? it.next() : DriveApp.createFolder(nama);
+  var it = DriveApp.getFoldersByName(nama), hidup = [];
+  while (it.hasNext()) { var f = it.next(); if (!f.isTrashed()) hidup.push(f); }
+  if (hidup.length > 1) catat_('folder_', 'AWAS', 'ada ' + hidup.length + ' folder bernama "' + nama + '"');
+  return hidup.length ? hidup[0] : DriveApp.createFolder(nama);
 }
 
 /** One bad delete loses the ledger, so this runs whether anyone remembers it or not. */
 function backupMingguan() {
   var f = folder_(FOLDER_BACKUP);
   var tz = ss_().getSpreadsheetTimeZone();
-  var nama = 'TEMBAKAU 2026 — backup ' + Utilities.formatDate(new Date(), tz, 'yyyy-MM-dd HHmm');
-  DriveApp.getFileById(SPREADSHEET_ID).makeCopy(nama, f);
-  catat_('backupMingguan', 'OK', nama);
+  var nama = 'TEMBAKAU 2026 - backup ' + Utilities.formatDate(new Date(), tz, 'yyyy-MM-dd HHmm');
+  try {
+    DriveApp.getFileById(SPREADSHEET_ID).makeCopy(nama, f);
+  } catch (e) {
+    // makeCopy used to sit BEFORE the log line, so a full Drive meant the
+    // failure was never recorded either.
+    catat_('backupMingguan', 'GAGAL', nama + ' - ' + (e.message || e));
+    throw e;
+  }
+  // keep the last 8; an unbounded backup folder eventually fills Drive and
+  // then the backup that protects everything stops working
+  try {
+    var semua = [], it = f.getFiles();
+    while (it.hasNext()) { var x = it.next(); semua.push([x.getDateCreated(), x]); }
+    semua.sort(function (a, b) { return b[0] - a[0]; });
+    for (var i = 8; i < semua.length; i++) semua[i][1].setTrashed(true);
+    catat_('backupMingguan', 'OK', nama + (semua.length > 8 ? ' (' + (semua.length - 8) + ' lama dibuang)' : ''));
+  } catch (e2) { catat_('backupMingguan', 'OK', nama + ' - pruning gagal: ' + (e2.message || e2)); }
   return nama;
 }
 
@@ -744,7 +845,21 @@ function migrasiDataLama() {
   lapor_('Selesai', n + ' nota masuk (MITA, YOHAN, PAK MUL).\n\nTab lama tidak berubah.');
 }
 
+/** Destructive and one dropdown-slip away from the setup steps, so it asks. */
 function hapusMigrasi() {
+  var ui;
+  try { ui = SpreadsheetApp.getUi(); } catch (e) {
+    throw new Error('hapusMigrasi harus dijalankan dari sheet, bukan dari trigger.');
+  }
+  var jawab = ui.prompt('Hapus data migrasi',
+    'Ini menghapus nota MITA, YOHAN dan PAK MUL dari NOTA + ITEM.\n\n'
+    + 'Ketik HAPUS untuk lanjut.', ui.ButtonSet.OK_CANCEL);
+  if (jawab.getSelectedButton() !== ui.Button.OK
+      || String(jawab.getResponseText()).trim().toUpperCase() !== 'HAPUS') {
+    lapor_('Dibatalkan', 'Tidak ada yang dihapus.');
+    return;
+  }
+  backupMingguan();                          // never delete without a copy first
   var ss = ss_(), target = { 'MITA': 1, 'YOHAN': 1, 'PAK MUL': 1 };
   function hapus(sh, kol) {
     var n = sh.getLastRow() - 1; if (n < 1) return 0;
@@ -760,9 +875,92 @@ function hapusMigrasi() {
 
 // ----------------------------------------------------------------- tampilan
 
+/**
+ * CUAN - the only place profit is actually computed.
+ *
+ * A gulungan is bought on one nota and sold on another. NO NOTA JUAL links
+ * them, and the two rows are matched by SERI + LABEL because they are the same
+ * physical gulungan. Anything not yet sold is reported as BELUM TERJUAL and is
+ * never counted as loss - unsold tobacco is stock, not a hole.
+ */
+function buatCuan() {
+  var ss = ss_();
+  var shN = ss.getSheetByName(T_NOTA), shI = ss.getSheetByName(T_ITEM);
+  var nn = Math.max(shN.getLastRow() - 1, 0), ni = Math.max(shI.getLastRow() - 1, 0);
+  var nota = nn ? shN.getRange(2, 1, nn, H_NOTA.length).getValues() : [];
+  var item = ni ? shI.getRange(2, 1, ni, H_ITEM.length).getValues() : [];
+  var g = function (r, h) { return r[CN[h] - 1]; }, gi = function (r, h) { return r[CI[h] - 1]; };
+
+  var jenis = {}, agen = {}, ongkos = {};
+  nota.forEach(function (r) {
+    var no = String(g(r, 'NO NOTA')).trim(); if (!no) return;
+    jenis[no] = String(g(r, 'JENIS NOTA')).trim();
+    agen[no] = String(g(r, 'AGEN') || '');
+    ongkos[no] = Number(g(r, 'TOTAL ONGKOS')) || 0;
+  });
+
+  // sell-side price per physical gulungan, keyed by nota + seri
+  var hargaJual = {};
+  item.forEach(function (r) {
+    var no = String(gi(r, 'NO NOTA')).trim();
+    if (jenis[no] !== 'JUAL PABRIK') return;
+    var k = kunciSeri_(gi(r, 'SERI'), gi(r, 'LABEL'));
+    if (k) hargaJual[no + '||' + k] = Number(gi(r, 'JUMLAH')) || 0;
+  });
+
+  var per = {};
+  item.forEach(function (r) {
+    var no = String(gi(r, 'NO NOTA')).trim();
+    if (!no || jenis[no] === 'JUAL PABRIK') return;
+    if (String(gi(r, 'IN/OUT')).toUpperCase() === 'OUT') return;
+    if (!per[no]) per[no] = { terjual: 0, belum: 0, modal: 0, omset: 0 };
+    var jual = String(gi(r, 'NO NOTA JUAL') || '').trim();
+    var k = kunciSeri_(gi(r, 'SERI'), gi(r, 'LABEL'));
+    var nilaiJual = jual && k ? hargaJual[jual + '||' + k] : undefined;
+    if (jual && nilaiJual !== undefined) {
+      per[no].terjual++;
+      per[no].modal += Number(gi(r, 'JUMLAH')) || 0;
+      per[no].omset += nilaiJual;
+    } else {
+      per[no].belum++;
+    }
+  });
+
+  var baris = Object.keys(per).sort().map(function (no) {
+    var x = per[no];
+    var ong = x.terjual ? ongkos[no] || 0 : 0;
+    return [no, agen[no], x.terjual, rupiah_(x.modal), rupiah_(x.omset),
+            x.terjual ? rupiah_(x.omset - x.modal - ong) : '', x.belum];
+  });
+
+  var sh = ss.getSheetByName('CUAN') || ss.insertSheet('CUAN');
+  sh.clear(); bebaskan_(sh); sh.setHiddenGridlines(true);
+  sh.getRange('A1:G1').merge().setValue('CUAN - hanya dari gulungan yang sudah terjual')
+    .setFontSize(15).setFontWeight('bold').setFontColor('#ffffff').setBackground(WARNA.gelap);
+  sh.setRowHeight(1, 36);
+  sh.getRange(2, 1, 1, 7).setValues([['NO NOTA', 'AGEN', 'GULUNG TERJUAL', 'MODAL', 'OMSET', 'CUAN', 'BELUM TERJUAL']])
+    .setFontWeight('bold').setBackground(WARNA.kartu);
+  if (baris.length) {
+    sh.getRange(3, 1, baris.length, 7).setValues(baris);
+    sh.getRange(3, 4, baris.length, 3).setNumberFormat('"Rp "#,##0');
+    var rng = sh.getRange(3, 6, baris.length, 1);
+    sh.setConditionalFormatRules([
+      SpreadsheetApp.newConditionalFormatRule().whenNumberLessThan(0)
+        .setBackground(WARNA.merah).setBold(true).setRanges([rng]).build(),
+      SpreadsheetApp.newConditionalFormatRule().whenNumberGreaterThan(0)
+        .setBackground(WARNA.hijau).setBold(true).setRanges([rng]).build()
+    ]);
+  } else {
+    sh.getRange('A3').setValue('Belum ada gulungan yang terjual.');
+  }
+  sh.setFrozenRows(2);
+  for (var c = 1; c <= 7; c++) sh.setColumnWidth(c, 130);
+  catat_('buatCuan', 'OK', baris.length + ' nota');
+}
+
 function buatSemuaTampilan() {
-  buatTampilan(); buatDashboard(); buatNotaCetak();
-  lapor_('Selesai', '📊 COMPILE, IN-OUT, RINGKASAN, DASHBOARD dan NOTA CETAK dibuat.\n\n'
+  buatTampilan(); buatCuan(); buatDashboard(); buatNotaCetak();
+  lapor_('Selesai', 'COMPILE, IN-OUT, RINGKASAN, CUAN, DASHBOARD dan NOTA CETAK dibuat.\n\n'
     + 'Semua otomatis dari NOTA + ITEM. Jangan diketik manual.');
 }
 
@@ -855,6 +1053,15 @@ function buatDashboard() {
   sh.getRange('E3').setValue('SEMUA').setBackground(WARNA.biru).setFontWeight('bold')
     .setDataValidation(SpreadsheetApp.newDataValidation()
       .requireValueInList(['SEMUA', '7 HARI', '30 HARI', '90 HARI'], true).build());
+  sh.getRange('M1').setFormula(
+    '=IF(N1="","BELUM PERNAH JALAN",IF(NOW()-N1>1/48,"OTOMATIS MACET - cek trigger","otomatis sehat"))')
+    .setFontWeight('bold');
+  sh.setConditionalFormatRules(sh.getConditionalFormatRules().concat([
+    SpreadsheetApp.newConditionalFormatRule().whenTextContains('MACET')
+      .setBackground(WARNA.merah).setBold(true).setRanges([sh.getRange('M1')]).build(),
+    SpreadsheetApp.newConditionalFormatRule().whenTextContains('sehat')
+      .setBackground(WARNA.hijau).setRanges([sh.getRange('M1')]).build()
+  ]));
   sh.getRange('N3').setFormula('=IF($E$3="SEMUA",DATE(2000,1,1),TODAY()-VALUE(LEFT($E$3,LEN($E$3)-5)))');
   sh.getRange('N3').setNumberFormat('dd/mm/yyyy');
   sh.getRange('M3').setValue('batas tanggal').setFontSize(8).setFontColor('#999');
@@ -869,8 +1076,13 @@ function buatDashboard() {
 
   var kartu = [
     ['A5', '💰 MODAL BELI', jum('BELI PETANI', 'DIBAYAR'), '"Rp "#,##0'],
-    ['C5', '📈 OMSET JUAL', jum('JUAL PABRIK', 'TOTAL JUMLAH'), '"Rp "#,##0'],
-    ['E5', '🪙 CUAN', '=C6-A6', '"Rp "#,##0'],
+    // Omset and cuan come from tab CUAN, not from filtering sale notas by agen.
+    // A sale nota has no agen, so filtering it that way produced omset 0 and a
+    // huge fake loss the moment you picked one agen.
+    ['C5', '📈 OMSET JUAL',
+      '=SUMPRODUCT(((\'CUAN\'!B3:B=$B$3)+($B$3="SEMUA")>0)*N(\'CUAN\'!E3:E))', '"Rp "#,##0'],
+    ['E5', '🪙 CUAN',
+      '=SUMPRODUCT(((\'CUAN\'!B3:B=$B$3)+($B$3="SEMUA")>0)*N(\'CUAN\'!F3:F))', '"Rp "#,##0'],
     ['G5', '🧺 GULUNG', cacah('BELI PETANI', 'JUMLAH GULUNG'), '#,##0'],
     ['I5', '❌ OUT', cacah('BELI PETANI', 'OUT'), '#,##0']
   ];
@@ -961,7 +1173,7 @@ function buatDashboard() {
   }
 
   for (var c = 1; c <= 10; c++) sh.setColumnWidth(c, 115);
-  sh.hideColumns(13, 2);       // M:N hold the period cut-off date
+  sh.hideColumns(14, 1);       // N holds the cut-off date and the heartbeat stamp
   catat_('buatDashboard', 'OK', bulanKeys.length + ' bulan, ' + agenKeys.length + ' agen');
 }
 
@@ -996,7 +1208,7 @@ function buatNotaCetak() {
   sh.getRange('D3').setValue('MODE').setFontWeight('bold');
   sh.getRange('E3').setValue('UNTUK AGEN').setBackground(WARNA.kuning).setFontWeight('bold')
     .setDataValidation(SpreadsheetApp.newDataValidation()
-      .requireValueInList(['UNTUK AGEN', 'UNTUK SAYA'], true).build());
+      .requireValueInList(['UNTUK AGEN', 'UNTUK SAYA'], true).setAllowInvalid(false).build());
 
   function ambil(h) {
     return '=IFERROR(VLOOKUP($B$3,' + N + 'A2:' + huruf_(H_NOTA.length) + ',' + CN[h] + ',FALSE),"")';
@@ -1029,13 +1241,18 @@ function buatNotaCetak() {
   sh.getRange('H11:L11').setValues([['NO', 'SERI', 'NETTO', 'HARGA', 'JUMLAH']])
     .setFontWeight('bold').setBackground(WARNA.kartu);
   sh.getRange('H12').setFormula(
-    '=IF($E$3="UNTUK AGEN","",IFERROR(FILTER({' + i('NO') + ',' + i('SERI') + ',' + i('NETTO')
+    // FAILS CLOSED. Anything that is not exactly "UNTUK SAYA" hides the pabrik
+    // side - a cleared cell, a typo, a reset. The old test hid it only on an
+    // exact match with "UNTUK AGEN", so every other value revealed the prices.
+    '=IF($E$3<>"UNTUK SAYA","",IFERROR(FILTER({' + i('NO') + ',' + i('SERI') + ',' + i('NETTO')
     + ',' + i('HARGA') + ',' + i('JUMLAH') + '},' + i('NO NOTA') + '=$B$3),""))');
 
-  sh.getRange('H8').setValue('🪙 CUAN').setFontWeight('bold').setBackground(WARNA.kartu);
-  sh.getRange('I8').setFormula('=IF($E$3="UNTUK AGEN","",IFERROR(VLOOKUP($B$3,' + N + 'A2:'
-    + huruf_(H_NOTA.length) + ',' + CN['TOTAL JUMLAH'] + ',FALSE)-VLOOKUP($B$3,' + N + 'A2:'
-    + huruf_(H_NOTA.length) + ',' + CN['DIBAYAR'] + ',FALSE),""))')
+  // The old formula here was TOTAL JUMLAH - DIBAYAR, which cancels down to
+  // ongkos - tambahan: the freight cost, printed under the word "profit".
+  // Real cuan needs the buy and sell notas joined, so it lives in tab CUAN.
+  sh.getRange('H8').setValue('CUAN').setFontWeight('bold').setBackground(WARNA.kartu);
+  sh.getRange('I8').setFormula('=IF($E$3<>"UNTUK SAYA","",IFERROR(VLOOKUP($B$3,'
+    + "'CUAN'!A3:F1000,6,FALSE)" + ',"belum terjual"))')
     .setNumberFormat('"Rp "#,##0').setFontWeight('bold').setFontColor(WARNA.emas);
 
   for (var c = 1; c <= 12; c++) sh.setColumnWidth(c, 100);
@@ -1117,7 +1334,7 @@ function cekKualitas() {
   nota.forEach(function (r, idx) {
     var no = String(g(r, 'NO NOTA')).trim(); if (!no) return;
     if (daftar[no] && !ganda[no]) { lapor('BERAT', 'NOTA baris ' + (idx + 2), 'NO NOTA ganda: ' + no); ganda[no] = 1; }
-    daftar[no] = { baris: idx + 2, r: r, bruto: 0, jumlah: 0, n: 0 };
+    daftar[no] = { baris: idx + 2, r: r, bruto: 0, jumlah: 0, netto: 0, n: 0 };
   });
 
   item.forEach(function (r, idx) {
@@ -1129,6 +1346,10 @@ function cekKualitas() {
     var harga = Number(gi(r, 'HARGA')) || 0, jumlah = Number(gi(r, 'JUMLAH')) || 0;
 
     if (bruto <= 0) lapor('BERAT', dimana, 'BRUTO kosong atau nol');
+    var tara = Number(gi(r, 'TARA')) || 0;
+    if (Math.abs((bruto - tara) - netto) > 0.05)
+      lapor('BERAT', dimana, 'NETTO ' + netto + ' tidak sama dengan BRUTO ' + bruto
+        + ' - TARA ' + tara + ' (' + berat_(bruto - tara) + ')');
     if (netto > bruto) lapor('BERAT', dimana, 'NETTO ' + netto + ' lebih besar dari BRUTO ' + bruto);
     if (out && jumlah > 0) lapor('BERAT', dimana, 'gulungan OUT tapi JUMLAH ' + jumlah);
     if (!out && harga <= 0) lapor('RINGAN', dimana, 'HARGA kosong pada gulungan IN');
@@ -1138,7 +1359,7 @@ function cekKualitas() {
     if (jual && !daftar[jual]) lapor('RINGAN', dimana, 'NO NOTA JUAL "' + jual + '" belum ada');
 
     var d = daftar[no]; d.n++;
-    if (!out) { d.bruto += bruto; d.jumlah += jumlah; }
+    if (!out) { d.bruto += bruto; d.jumlah += jumlah; d.netto += netto; }
   });
 
   Object.keys(daftar).forEach(function (no) {
@@ -1155,6 +1376,22 @@ function cekKualitas() {
         lapor('RINGAN', dimana, 'LUNAS tapi tidak ada LINK BUKTI TRANSFER');
     }
     if (!String(g(r, 'AGEN')).trim()) lapor('RINGAN', dimana, 'AGEN kosong');
+
+    // DIBAYAR decides what money leaves his pocket and nothing used to check it
+    var harusDibayar = (Number(g(r, 'TOTAL JUMLAH')) || 0)
+                     - (Number(g(r, 'TOTAL ONGKOS')) || 0)
+                     + (Number(g(r, 'TAMBAHAN')) || 0);
+    if (Math.abs((Number(g(r, 'DIBAYAR')) || 0) - harusDibayar) > 1)
+      lapor('BERAT', dimana, 'DIBAYAR ' + g(r, 'DIBAYAR') + ' tidak sama dengan '
+        + 'TOTAL JUMLAH - TOTAL ONGKOS + TAMBAHAN (' + Math.round(harusDibayar) + ')');
+
+    // a hand-deleted gulungan leaves the count wrong and nothing else notices
+    if (Number(g(r, 'JUMLAH GULUNG')) !== d.n)
+      lapor('BERAT', dimana, 'JUMLAH GULUNG tertulis ' + g(r, 'JUMLAH GULUNG')
+        + ' tapi di tab ITEM cuma ada ' + d.n + ' baris - mungkin ada baris terhapus');
+
+    if (Math.abs((Number(g(r, 'TOTAL NETTO')) || 0) - d.netto) > 0.05)
+      lapor('BERAT', dimana, 'TOTAL NETTO tidak sama dengan jumlah gulungan (' + berat_(d.netto) + ')');
   });
 
   cekDuplikat().forEach(function (t) { masalah.push(t); });
@@ -1239,6 +1476,24 @@ function lancelotSelfCheck() {
   cek('KS 5 dan KS 6 beda', kunciSeri_('KS', 5) === kunciSeri_('KS', 6) ? 1 : 0, 0);
   cek('KS 5 dan ks 5 sama', kunciSeri_('KS', 5) === kunciSeri_('ks', '5') ? 1 : 0, 1);
   cek('seri kosong diabaikan', kunciSeri_('', '') === '' ? 1 : 0, 1);
+
+  // the 1000x bug: Indonesian thousands dots must not become a decimal point
+  cek('angka 55.000', angka_('55.000'), 55000);
+  cek('angka 9.357.500', angka_('9.357.500'), 9357500);
+  cek('angka Rp 55.000', angka_('Rp 55.000'), 55000);
+  cek('angka 55.5 tetap desimal', angka_('55.5'), 55.5);
+  cek('angka 166,5 koma desimal', angka_('166,5'), 166.5);
+  cek('angka 2,045,000', angka_('2,045,000'), 2045000);
+  cek('angka sudah number', angka_(55000), 55000);
+  cek('rupiah dibulatkan', rupiah_(2870999.9999), 2871000);
+
+  // cara tara must survive a stray space, or a flat kg becomes a percentage
+  cek('cara tara "kg " tetap kg', hitungTara_(34, 'kg ', 1), 1);
+  cek('cara tara "KG" tetap kg', hitungTara_(34, 'KG', 1), 1);
+
+  // a value starting with = must never become a live formula
+  cek('formula dinetralkan', aman_('=IMPORTDATA("x")').charAt(0) === "'" ? 1 : 0, 1);
+  cek('teks biasa tidak diubah', aman_('MITA') === 'MITA' ? 1 : 0, 1);
 
   // retry rules: a real mistake is exiled, a Google hiccup is retried.
   // Getting this backwards is how a valid nota disappeared in the first place.
