@@ -101,6 +101,76 @@ the same behaviour on the phone he must create a claude.ai **Project**, paste th
 `lancelot.md` in as its custom instructions, and connect Autosheet + Drive there. Same brain, two
 doors — and the instructions have to be copied again whenever `lancelot.md` changes.
 
+## How the business actually works — confirmed 2026-08-11
+
+Aldi is a **mediator**. Roles, in his own words and settled:
+
+- **Agen** — MITA, YOHAN, PAK MUL. They work for him and find the tobacco. He rejected *partner*
+  and *pengepul* in favour of **agen**. They are **not petani**; the old sheet's `PETANI :` label
+  on their tabs was simply wrong.
+- **Petani** — the farmers, e.g. Sri Rahayu. Each has a unique code.
+- **Pabrik** — the customer. **"OM CK" is a pabrik**, and the `C` tab is already the buy-vs-sell
+  comparison against it.
+
+**Three prices**: harga petani (what the farmer gets) < harga agen (Aldi's decision, the agen's
+commission is the gap) < harga pabrik (what comes back). Plus **margin timbangan**, the kilos
+gained between buying and selling — real and large: MITA netto 48 kg bought, 52 kg sold;
+YOHAN 115 kg bought, 128 kg sold.
+
+**Two purchase methods.** (1) **BON** — agen borrows, buys, settles after the sale;
+*deactivated for now*, may return. (2) **BAYAR LANGSUNG** — the agen brings the nota and Aldi
+pays the petani directly. This is the live method and explains the Sri Rahayu transfer on a nota
+addressed to Pak Mul.
+
+**No gudang.** Goods ship agen → pabrik directly. That deletes stock tracking and probably the
+buy-to-sell matching table too.
+
+**The unit is a package, not a kilogram** — keranjang, gulungan, or plastik. **One row = one
+gulungan** (`JUMLAH GULUNG` 2 for MITA's 2 rows, 4 for YOHAN's 4). Rejection is per package:
+*"could be only 1 keranjang or few"*.
+
+**Two kinds of seri, and this matters.** `SERI` on the sheet is the **agen's** serial (e.g. `KS`)
+and changes every time. `DN`, `JWD`, `TR1`, `TR2` on Pak Mul's nota are **petani seri** — codes
+the agen writes for his own notes, used *when the agen seri is missing*, so a gulungan can be
+traced to the petani it came from. An agen buys from many petani, so this is the only link back.
+**`NO GUDANG` is the tie-breaker** when a gulungan's seri is missing, which happens often; not
+every customer supplies it.
+
+### A trap already in the data
+
+**`ONGKOS` carries opposite signs in the same file.** In MITA and YOHAN it is *subtracted*
+(23 kg × Rp 40.000 = 920.000, − Rp 10.000 ongkos = Rp 910.000, and Rp 10.000 is per gulungan).
+In the PAK MUL row it is *added* (Rp 9.157.500 + Rp 200.000 contoh tbk = Rp 9.357.500). One
+column, two meanings — it must split into **ongkos naik turun** (deduction, per package, rate set
+by the pabrik) and **tambahan** (addition). Left as one column it silently corrupts every total.
+
+## Tooling: Autosheet is a dead end on cost
+
+Autosheet writes reliably but is **metered, and the balance ran out mid-build** on 2026-08-11 —
+the agent stopped part-way through creating tabs. Nothing was written (verified by reading the
+file through the Drive connector afterwards), but a paid dependency in the middle of a
+bookkeeping workflow is a standing risk.
+
+Aldi asked for a free replacement. The tutorials he found all demonstrate the **Claude add-on
+from the Google Workspace Marketplace**, which runs Claude *inside* Sheets via formulas — it
+needs an Anthropic API key and bills per call, so it is not free either, and it does not read
+photos.
+
+**The genuinely free split is Claude for the eyes, Apps Script for the hands:** Claude reads the
+nota photo and emits one structured line; a Google Apps Script bound to the sheet parses it,
+computes tara/netto/totals, assigns the KODE, files the Drive link, and refreshes the dashboards.
+Apps Script is free, native, runs with the PC off, and — unlike any connector — can give him
+custom menus and dialogs, which is what he asked for when he said the sheet should look
+*"tidy and presentable… some cool UI and decoration"*.
+
+### Unrelated blocker found the same day
+
+`WebFetch` and `WebSearch` both run on Haiku, and this machine's
+`ANTHROPIC_DEFAULT_HAIKU_MODEL=cc/claude-haiku-4-5-20251001` points at a model 9router does not
+serve — so both tools fail with "issue with the selected model". Sonnet and Opus were already
+remapped to `cc/claude-opus-5`; Haiku was missed. The fix is to point it at a served model. The
+browser tools are the workaround until then.
+
 ## Never
 
 - Initiate, authorise, or advise on a money transfer. Lancelot **records payments that already
