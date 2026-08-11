@@ -222,6 +222,38 @@ piece is about using Claude (dashboards, Cowork, Claude Code debugging), not abo
 Neither category contains the discipline above. Say so honestly rather than pretending the
 videos supplied it.
 
+## Where the build stands — 2026-08-11 18:40 WIB
+
+Live in the sheet and working: `NOTA`, `ITEM`, four masters, `LOG`, plus generated `COMPILE`,
+`IN-OUT`, `RINGKASAN`, `DASHBOARD`, `MASALAH`. Drive inbox watcher running every 5 minutes.
+`lancelotSelfCheck` 13/13. Aldi ran all seven functions himself.
+
+**`cekKualitas` justified itself on its first run**, catching a bug in the migration rather than
+in his data: his `YOHAN` tab has 11 columns (he added JENIS BARANG and GRADE) while `MITA` still
+has 9, so position-based reading took the word `SAPUT` as a weight and wrote four gulungan of
+0 kg. Fixed by mapping columns **by header name**. The rule: never read a hand-made sheet
+positionally — the drift that motivated this whole rebuild will bite the migration code too.
+
+### Not built yet, ranked
+
+1. **Append-only is documented but unenforced** — nothing stops a manual edit erasing history.
+   Needs `koreksiNota()` writing a reversing row, plus a `KOREKSI` tab.
+2. **No backup.** One bad delete loses the ledger. A scheduled snapshot copy is small and
+   everything else depends on the data surviving — do it first.
+3. **Manual edits are invisible.** `LOG` records Lancelot's actions only; an `onEdit` trigger
+   would catch a human changing a cell.
+4. **No surrogate keys** — `NO NOTA` is the natural key, so renaming a nota breaks its links.
+5. **Sell side incomplete.** `JUAL PABRIK` notas can be stored but cuan per gulungan is not
+   computed, so `DASHBOARD` reads −Rp 11.202.500 — that is unsold stock, not loss, and the
+   system cannot yet tell the two apart.
+6. **The side-by-side nota generator** — agen nota left, pabrik nota right, cuan between — his
+   actual working format, still hand-made.
+7. **No archiving per musim.**
+
+**His process instruction, 2026-08-11:** *"i rather give u all the time to learn first then we
+update the code at last, i dont want to update it everytime u learn a new thing"*. So: settle
+the whole design in writing, get it approved, then **one** script paste. No incremental drops.
+
 ## Tooling: Autosheet is a dead end on cost
 
 Autosheet writes reliably but is **metered, and the balance ran out mid-build** on 2026-08-11 —
