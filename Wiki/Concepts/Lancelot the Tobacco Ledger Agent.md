@@ -254,6 +254,62 @@ positionally — the drift that motivated this whole rebuild will bite the migra
 update the code at last, i dont want to update it everytime u learn a new thing"*. So: settle
 the whole design in writing, get it approved, then **one** script paste. No incremental drops.
 
+## The failure hunt — 111 scenarios, 2026-08-11 evening
+
+Six reviewers with different lenses (human error, integrity, money, infrastructure,
+confidentiality, scale) read the real source. **111 scenarios, 42 rated high-likelihood.** Only 3
+got adversarially verified before the usage limit killed the verifiers; the rest are **unverified,
+not disproven.** Raw catalogue kept at `Wiki/Attachments/lancelot-scenarios.txt` and
+`lancelot-findings.json`.
+
+### Four bugs confirmed by hand, all mine, all in code that had passed 32 self-tests
+
+1. **Every sale to the pabrik would be rejected** (`petaSeri_`, line 414). The `JUAL PABRIK`
+   exemption is applied to the **stored** nota instead of the **incoming** one. A new sale nota's
+   gulungan match the buy nota they came from, so the clash guard refuses it. The entire sell side
+   was dead on arrival and would not have surfaced until Aldi tried his first sale.
+2. **The secrecy gate fails OPEN** (`buatNotaCetak`, 1032/1036). `IF(E3="UNTUK AGEN","",pabrik…)`
+   hides the pabrik prices *only* when the cell holds exactly those words. Cleared, mistyped or
+   reset, it reveals them. A safety switch must fail closed.
+3. **The printed CUAN is the freight cost** (1036–1037). `TOTAL JUMLAH − DIBAYAR` cancels to
+   `ongkos − tambahan`, labelled as profit. Real cuan needs the buy and sell notas joined.
+4. **`angka_()` is written and never called** (line 274 uses raw `Number`). `Number("55.000")` is
+   **55**. And `angka_` would not have saved it either — it keeps the dots. Rp 55.000 → Rp 55.
+
+### The strongest signal: no lock
+
+**Five reviewers independently found the same thing** — every write does `getLastRow() + 1`, and
+there is no `LockService` anywhere. Two overlapping runs compute the same target row and the second
+overwrites the first. Independent rediscovery is the most reliable signal in the whole report.
+
+### The finding that changes the workflow, not the code
+
+**NOTA CETAK's two modes are not access control and never can be.** An agen who can open the file
+can open `COMPILE`, `ITEM`, `DASHBOARD`, `RINGKASAN` — all carrying pabrik money. So the rule is
+**never give an agen access to the file**; export the agen block as a PDF. The mode switch is a
+convenience for Aldi's own screen, not a wall.
+
+Also flagged: while the file was world-editable that morning its **bound Apps Script was editable
+too**, and any trigger a stranger installed would still be running, invisible. Low odds, total cost.
+Check File → Version history and the trigger list for handlers that are not the five Lancelot ones.
+
+### The process lesson — his observation, not mine
+
+His words: *"even after several video and learning we almost forgot this kind of workflow, to
+recheck our data again."*
+
+Every check in this system was written **after** a bug. `cekKualitas` exists because a migration
+broke. The duplicate check exists because he thought of it. The retry logic exists because a
+reviewer found a nota could vanish silently. That is a system built by getting hurt.
+
+**Rule that replaces it: a rule and its check are written in the same breath.** If a rule is added
+and I cannot name the test that fails when it breaks, the rule is decoration. And the review runs
+**before** the paste — this hunt found four blockers in code that had already passed a syntax check
+and 32 asserts.
+
+**Also his standing instruction, and I failed it once already today:** write the notes *before* the
+usage limit hits, not when it is convenient. A stranded session with no notes is the real cost.
+
 ## Tooling: Autosheet is a dead end on cost
 
 Autosheet writes reliably but is **metered, and the balance ran out mid-build** on 2026-08-11 —
