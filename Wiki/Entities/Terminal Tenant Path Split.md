@@ -85,10 +85,22 @@ that predicate. Default when no `permission_matrix` doc exists is `global`, i.e.
 | `customers_view_only` | `update` DENIED — IOU fails at the server |
 | `customers_edit_own_region` | DENIED when the customer's `region` is classified and differs from the salesman's profile `location`; unclassified/legacy regions stay editable by design |
 
-**What is still UNKNOWN, and only Aldi can settle it: what is actually DEPLOYED.** This rules file
-is a draft; CHANGE 6 (the customer permission tier) was emulator-tested and never deployed, so the
-live text may be an older revision. Firebase Console → Firestore → Rules is the only source, and
-[[Draft-Then-Deploy Discipline|deploying is his to do, never the agent's]].
+## CLOSED 2026-08-11 08:45 — the rules are deployed, so the fix works
+
+Aldi read the Firebase Console → Firestore → Rules tab himself and pasted the live text back. It
+is byte-identical to the repo's `firestore.rules`, **including CHANGE 6**. His words: *"i got it
+from firebase console"*.
+
+**So the last open risk on this bug is gone.** The IOU write and NOO create both pass at the
+server for a salesman writing into the boss's vault. The only remaining ways it can fail are the
+two tier settings in the table above — configuration, not a defect.
+
+**The correction worth keeping:** several notes in this project asserted the rules were "a draft,
+NOT deployed", and that assertion was carried forward for weeks without anyone opening the
+Console. It was wrong. **A file in the repo named `firestore.rules` proves what someone intended
+to deploy, never what Firebase is enforcing** — the Console is the only source, and reading it
+took Aldi about thirty seconds. [[Draft-Then-Deploy Discipline]] still holds for *writing* rules:
+deploying remains his to do, never the agent's.
 
 ## The lesson worth carrying
 
