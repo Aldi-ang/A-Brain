@@ -184,6 +184,44 @@ compilation. Two of the three are pure copying, and each is a chance to fumble a
 once and **generating** his existing side-by-side layout keeps the format he already reads while
 removing both copies. He is right about the layout; only the typing changes.
 
+## The discipline has a name, and he reinvented most of it
+
+Aldi asked what companies like Tokopedia or Indomaret do to manage data at scale, believing
+his own system was amateur because he built it from his own head. **It is called dimensional
+modelling** (Kimball) — facts and dimensions — and his `Compile Master 101` already is one.
+Facts are things that happened (`NOTA`, `ITEM`); dimensions are things that exist (the `M_*`
+lists). Tell him this plainly when it comes up: the gap was never his thinking, it was five
+named techniques nobody had shown him.
+
+Rules now enforced in the Apps Script, each tied to a mistake that actually occurred here:
+
+1. **One grain per table** — `NOTA` = one nota, `ITEM` = one gulungan. Never mixed.
+2. **Store once, generate the rest** — COMPILE, IN-OUT, RINGKASAN, DASHBOARD are derived.
+3. **Freeze the price on the fact** — `HARGA` is what it cost that day; looking it up from a
+   master later would silently rewrite history.
+4. **Append-only; corrections are new rows** — his own instruction, and the reason a wrong
+   number must never be editable away.
+5. **Referential integrity** — names come from master dropdowns. Free-typed `MITA` and
+   `MITHA` become two agen who each own half the truth.
+6. **Idempotent writes** — `cariNota_()` refuses a duplicate `NO NOTA`, so the Drive inbox
+   cannot double-post a nota.
+7. **Blank means unknown, zero means zero** — a blank harga yields a blank total. This one is
+   from a real bug: `Rp 0` propagated into a payment of **−Rp 10.000**.
+8. **Every rule gets a runnable check** — `lancelotSelfCheck` (arithmetic, 14 asserts) and
+   `cekKualitas` (10 data rules → the `MASALAH` tab).
+
+The variability that broke every previous format is now one field: **`CARA TARA` + `NILAI
+TARA`** on the nota. RA 7 took 10%, MT 1 took a flat 1 kg, ALR 1 took 2 kg — same skeleton,
+different method. Storing the method instead of retyping the arithmetic is what stopped 37
+hand-copied tabs from drifting.
+
+**On his sources:** the YouTube links he supplied (*Become a Data Management Master with
+Google Sheets*, *10 INCREDIBLE things Google Sheets can do*, *Gemini to Create a Sheets
+Dashboard*) teach Sheets **tactics** — QUERY, pivots, dashboards. The Towards Data Science
+piece is about using Claude (dashboards, Cowork, Claude Code debugging), not about modelling.
+Neither category contains the discipline above. Say so honestly rather than pretending the
+videos supplied it.
+
 ## Tooling: Autosheet is a dead end on cost
 
 Autosheet writes reliably but is **metered, and the balance ran out mid-build** on 2026-08-11 —
