@@ -21,6 +21,7 @@ For the authoritative flat catalog, always check [[../Index]] first.
 - [[Anti-Recurrence Check]]
 - [[Draft-Then-Deploy Discipline]]
 - [[Fat Documents in a Live Listener]]
+- [[Lancelot the Tobacco Ledger Agent]]
 - [[Ponytail Philosophy]]
 - [[Secure Context Requirement]]
 - [[Silent Failure Disease]]

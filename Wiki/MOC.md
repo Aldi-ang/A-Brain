@@ -44,6 +44,7 @@ The house rules this project follows so mistakes don't repeat.
 - [[Ponytail Philosophy]] — the lazy-but-correct coding style that governs how Claude Code writes real code here.
 - [[Ponytail Philosophy Ingest]] — where that page's content actually came from.
 - [[Claude Code CLI Install — McAfee Download Freeze]] — the CLI install got silently blocked by McAfee scanning the download; how it was diagnosed and worked around, plus the non-interactive ponytail marketplace install.
+- [[Lancelot the Tobacco Ledger Agent]] — the bookkeeper agent for Aldi's separate tobacco business: which connector can actually write to Google Sheets, the arithmetic checks that catch a misread nota, and why receipt images are Drive links rather than embedded objects.
 
 ## 🏗️ Architecture
 

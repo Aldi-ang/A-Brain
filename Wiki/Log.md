@@ -171,3 +171,24 @@ match real conditions"), `Wiki/MOC.md`, `Backlog/Remove unused code and dependen
 (corrected its own wrong "no functional risk" claim), and the `delegate-coding-task`
 skill's `kpm-inventory-facts.md` reference (so future sessions doing dependency cleanup
 start with this already known — not just documented here passively).
+
+## 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent
+
+Aldi's tobacco (tembakau) buying business now has its own agent, separate from the KPM app.
+New Concept page [[Concepts/Lancelot the Tobacco Ledger Agent]], linked from
+`Wiki/Index.md`, `Wiki/Concepts/index.md`, and `Wiki/MOC.md` (Process & Discipline).
+
+Three findings worth not re-deriving:
+1. **Google Drive alone cannot write to an existing spreadsheet** — it is read-only for existing
+   files. **Autosheet** is the MCP connector that writes. There is no standalone "Google Sheets"
+   connector on claude.ai. Establishing this consumed most of a session.
+2. **His call: receipt images are Drive links, not embedded image objects** — "A is better".
+   Links survive row insertion; embedded images shift and detach.
+3. **Photos pasted into chat are not files** and cannot be uploaded to Drive from the
+   conversation. Permanent property of the workflow, not a bug.
+
+First real transaction written: `PAK MUL` tab, 11/08/2026, bruto 185kg → netto 166.5kg at
+Rp 55.000/kg, total Rp 9.357.500, LUNAS (BCA→BRI transfer matched the nota exactly). `TR2` was
+unreadable under the business stamp and was recovered as 29 from the arithmetic; he confirmed it.
+That produced the standing rule: say which number was *inferred* rather than *read*, and ask
+before writing it.

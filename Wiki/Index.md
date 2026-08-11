@@ -41,6 +41,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   phone-does-nothing bug class
 - [[Silent Failure Disease]] — a code path that ends without telling the user; the app's oldest
   and most expensive bug class
+- [[Lancelot the Tobacco Ledger Agent]] — the bookkeeper agent for the tobacco business (NOT the
+  KPM app): reads nota + bukti transfer photos, checks the arithmetic, writes the Sheets ledger
 - [[Fat Documents in a Live Listener]] — a base64 photo inside a customer document turns every
   unrelated write into megabytes of main-thread work, because a snapshot re-materialises the
   whole collection; found chasing the phone freeze after registering an outlet
