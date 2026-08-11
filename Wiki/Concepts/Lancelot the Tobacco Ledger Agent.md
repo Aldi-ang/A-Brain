@@ -163,6 +163,32 @@ Apps Script is free, native, runs with the PC off, and — unlike any connector 
 custom menus and dialogs, which is what he asked for when he said the sheet should look
 *"tidy and presentable… some cool UI and decoration"*.
 
+### The ledger was world-editable — found and closed 2026-08-11
+
+`get_file_permissions` on the spreadsheet returned `{"role": "writer", "type": "anyone"}`.
+No sign-in, no invitation: **anyone holding the URL could edit or delete the financial records**,
+which include a real bank account number, a real person's name, transfer reference codes, buying
+prices and margins. It was found only because an unrelated failure (Apps Script refusing to open)
+prompted a permissions check.
+
+It also explained the failure. The file was owned by **`kurniawanaldi576@gmail.com`** while Aldi
+was signed in as **`adikaryasukses99@gmail.com`** — the sheet sat in "Shared with me". A bound
+Apps Script project lives in the *owner's* Drive, so Extensions → Apps Script tried to open a
+project his signed-in account did not own.
+
+**The silent failure it would have caused later is the real lesson.** The script would have run
+under one account's Drive while Claude dropped inbox files into another's. Two different Drives,
+no error, no warning — the watcher would simply have found nothing forever.
+
+Resolved by **transferring ownership** rather than copying. A copy would have left the original
+world-editable and created two files that drift apart. Verified after: owner is now
+`adikaryasukses99@gmail.com`, and the permissions list contains only that one owner entry — the
+`type: anyone` grant is gone.
+
+**Rule that falls out of this: before building any automation on a shared document, check who
+owns it and who can reach it.** Everything — file, script, Drive inbox, and the Claude connector —
+must sit on one account, and `get_file_permissions` is one call.
+
 ### Unrelated blocker found the same day
 
 `WebFetch` and `WebSearch` both run on Haiku, and this machine's
