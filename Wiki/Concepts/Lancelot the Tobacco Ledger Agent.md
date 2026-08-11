@@ -144,6 +144,46 @@ In the PAK MUL row it is *added* (Rp 9.157.500 + Rp 200.000 contoh tbk = Rp 9.35
 column, two meanings — it must split into **ongkos naik turun** (deduction, per package, rate set
 by the pabrik) and **tambahan** (addition). Left as one column it silently corrupts every total.
 
+## The real shape of the data — settled 2026-08-11, from his own sheets
+
+**The unit is the NOTA, not the gulungan.** His YOHAN tab proves it: four gulungan each carry
+their own **bruto** (27, 22, 53, 27), but **tara and netto are blank on every row** and appear
+only on the total line — bruto 129, tara 14, netto 115. And 129 × 10% = 12,9, not 14, so **tara
+is negotiated, not a fixed percentage**.
+
+A first build that computed tara and netto per gulungan invented numbers that were never in his
+book (netto 24,3 / 19,8 / 47,7 / 24,3). Correct model:
+
+- **GULUNGAN level** — bruto, seri agen, seri petani, no gudang, jenis, grade
+- **NOTA level** — tara, netto, harga, ongkos, jumlah, lunas — and **twice over**, once for the
+  agen side and once for the pabrik side
+
+**Every delivery produces two notas of the same gulungan.** Same items, two weighings, two
+prices. `C` compiles both across all agen per date:
+
+| | Agen side (NOTA BAYAR PETANI) | Pabrik side (NOTA OM CK) | Cuan |
+|---|---|---|---|
+| MITA | 54 bruto → 48 netto, Rp 2.025.000 | 54 → **52** netto, Rp 2.330.000 | Rp 305.000 |
+| YOHAN | 129 → 115 netto, Rp 4.790.000 | **132** → 128 netto, Rp 5.720.000 | Rp 930.000 |
+
+Cuan is the plain difference between the two notas — Rp 1.235.000 that day. Note the pabrik side
+records **more** bruto and much less tara; the timbangan gap is a large part of the margin.
+
+### The pabrik nota is confidential — a hard design constraint
+
+His words: the factory's nota *"shouldnt be sent to our agen due to ethic matters"*.
+
+That makes confidentiality a **build requirement, not a preference**. Any per-agen view, printed
+nota, or export must carry the **agen side only**. The pabrik side and the cuan column belong to
+Aldi's own summary and nowhere else. A view that leaks it is a broken view, not a cosmetic bug.
+
+### Three retypings, and why the flat store wins
+
+He currently types the same numbers three times — the agen nota, the pabrik nota, and the `C`
+compilation. Two of the three are pure copying, and each is a chance to fumble a digit. Storing
+once and **generating** his existing side-by-side layout keeps the format he already reads while
+removing both copies. He is right about the layout; only the typing changes.
+
 ## Tooling: Autosheet is a dead end on cost
 
 Autosheet writes reliably but is **metered, and the balance ran out mid-build** on 2026-08-11 —
