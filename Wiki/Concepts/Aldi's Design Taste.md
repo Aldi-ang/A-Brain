@@ -3,9 +3,9 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-08-10
+updated: 2026-08-11
 confidence: medium
-checked: 2026-08-10
+checked: 2026-08-11
 tags: [pattern, design, taste, ux, aldi]
 ---
 
@@ -83,6 +83,17 @@ that misreading. **Ask which part before designing.**
   preview. **A control shown in the wrong context is a design bug to him, not a minor one.**
 - **Fixed elements on a phone.** He rejects pinned toolbars that shrink the content area. His
   choice on the manifest sheet, 2026-08-10: one slim bar with SIGN only, everything else scrolls.
+  **But he will BUY fixed height when the thing pinned answers the first question of the task.**
+  One day later, 2026-08-10 ~21:00, on the sales terminal: *"what if we put the customer on top
+  instead just near the strip?"* — the customer picker was in the middle of the manifest paper, so
+  naming the buyer meant opening the drawer and scrolling. It shipped 2026-08-11 (`237bf6f`) as a
+  44px bar above the drag handle; the closed drawer went 52px → 96px, permanently taking 44px from
+  the wares list — the exact category he rejected the day before. **The rule that reconciles the
+  two is his own condition: it had to collapse to ONE LINE.** Fixed height is not the objection;
+  fixed height that grows, or that pins something you are not currently answering, is.
+
+  **So the question to ask before pinning anything: is this the FIRST thing the salesman must
+  answer, and is it one line?** Two noes and it scrolls with the paper.
 
 ## How to give him a design decision
 

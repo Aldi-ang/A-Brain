@@ -12,6 +12,23 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-11 — the customer picker moved to the top of the sales terminal
+
+His design call, made 2026-08-10 ~21:00 and deliberately not built that night for lack of quota:
+*"what if we put the customer on top instead just near the strip?"* Shipped this morning as commits
+`237bf6f` and the follow-up direction fix — a 44px one-line bar above the manifest drawer's grip,
+closed drawer 52px → 96px, the paper keeping the geofence column and echoing the name read-only.
+Audit group 22 (7 checks) pins the shape: one input, one dropdown, the read-only echo, the bar
+above the grip, the click-outside class, both opening directions, and the three places that must
+agree on 96.
+
+Two things worth carrying forward, both written into [[Concepts/Aldi's Design Taste]]: he **will**
+buy permanent fixed height on a phone when the pinned thing is the first question of the task and
+collapses to one line — which reconciles this with his 2026-08-10 rejection of pinned toolbars;
+and the near-miss, a suggestion list pinned above a drawer that opens to 92% of the screen, which
+would have rendered 200px past the top edge and made no customer selectable. Found by reading the
+geometry, never in a browser — **the layout has still not been seen at 375px by anyone.**
+
 ## 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard
 
 New sibling domain `Hermes-Agent-Research/` (outside `Wiki/` by design — it is not KPM app
