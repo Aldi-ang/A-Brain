@@ -410,6 +410,23 @@ pure `hitungCuan_(nota, item)` precisely so it can be executed outside Apps Scri
 3. **A nota's whole ongkos was charged to the first gulungan that sold.** `x.terjual ? ongkos[no]`
    took TOTAL ONGKOS for all 20 rolls the moment one sold. Ongkos now follows its own gulungan.
 
+### The PESAN tab — Aldi's request, 2026-08-12
+
+His words: *"if there is duplicate i want lancelot to inform me and add some logs or notification
+panel so that i can see the old notification if i accidently dismiss it"*.
+
+Built as a `PESAN` tab, not a dialog. Reasons: this script is **standalone**, so `onOpen` menus and
+`SpreadsheetApp.getUi()` do not exist under a time trigger — every alert-shaped notification would
+be swallowed exactly like `lapor_` already is. A tab cannot be swallowed and cannot be lost.
+
+- `pesan_(jenis, judul, isi)` inserts at **row 2**, so the newest is never scrolled to.
+- `SUDAH DIBACA` is a checkbox. **Dismissing = ticking; the row stays forever.** That is precisely
+  the "I accidentally dismissed it" case he asked about.
+- `jenisMasalah_(pesan)` is pure and turns a raw error into a plain-Indonesian title plus *what to
+  do about it*. All three duplicate flavours — NOTA KEMBAR, NOMOR SERI BENTROK, "sudah ada" — are
+  classified `DOBEL` and each says whether the ledger was touched (it was not).
+- `DASHBOARD!M2` counts unread live with `COUNTIFS` — no trigger, so it cannot go stale.
+
 ### The strongest unverified findings, for whoever picks this up
 
 `buatCuan` charges a nota's whole ongkos to the first gulungan that sells · a resold OUT gulungan

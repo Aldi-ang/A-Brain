@@ -24,7 +24,7 @@ var FOLDER_INBOX = 'Lancelot-Inbox', FOLDER_SELESAI = 'Lancelot-Selesai',
     FOLDER_GAGAL = 'Lancelot-Gagal', FOLDER_BACKUP = 'Lancelot-Backup';
 var CEK_TIAP_MENIT = 5;
 
-var T_NOTA = 'NOTA', T_ITEM = 'ITEM', T_LOG = 'LOG', T_KOREKSI = 'KOREKSI';
+var T_NOTA = 'NOTA', T_ITEM = 'ITEM', T_LOG = 'LOG', T_KOREKSI = 'KOREKSI', T_PESAN = 'PESAN';
 var TAB_LAMA = ['MITA', 'YOHAN', 'PAK MUL', 'C'];          // read-only, sacred
 var TAB_BUANG = ['KULAK', 'LIHAT MITA', 'LIHAT YOHAN', 'LIHAT PAK MUL'];
 
@@ -70,6 +70,23 @@ function lapor_(judul, pesan) {
 function catat_(aksi, hasil, ket) {
   var sh = ss_().getSheetByName(T_LOG);
   if (sh) sh.appendRow([new Date(), aksi, hasil, ket]);
+}
+
+/**
+ * PESAN is the notification panel: things Aldi must SEE, not the LOG firehose.
+ * Newest goes on row 2 so nothing has to be scrolled to. A message is never
+ * deleted - ticking SUDAH DIBACA only stops it counting on the DASHBOARD, so
+ * dismissing one by accident loses nothing. It is still there tomorrow.
+ */
+function pesan_(jenis, judul, isi) {
+  try {
+    var sh = ss_().getSheetByName(T_PESAN);
+    if (!sh) return;
+    sh.insertRowBefore(2);
+    sh.getRange(2, 1, 1, 5).setValues([[new Date(), jenis, judul, isi, false]]);
+    sh.getRange(2, 5).insertCheckboxes();
+    sh.getRange(2, 1).setNumberFormat('dd/mm/yyyy HH:mm');
+  } catch (e) { Logger.log('pesan_ gagal: ' + e); }
 }
 
 function huruf_(n) {
@@ -172,6 +189,12 @@ function pasangSheet() {
   var log = ss.getSheetByName(T_LOG) || ss.insertSheet(T_LOG);
   log.getRange(1, 1, 1, 4).setValues([['WAKTU', 'AKSI', 'HASIL', 'KETERANGAN']]);
   header_(log, 4); log.setColumnWidth(1, 150); log.setColumnWidth(4, 480);
+
+  var psn = ss.getSheetByName(T_PESAN) || ss.insertSheet(T_PESAN);
+  psn.getRange(1, 1, 1, 5).setValues([['WAKTU', 'JENIS', 'JUDUL', 'PESAN', 'SUDAH DIBACA']]);
+  header_(psn, 5); psn.setFrozenRows(1);
+  psn.setColumnWidth(1, 140); psn.setColumnWidth(2, 90);
+  psn.setColumnWidth(3, 260); psn.setColumnWidth(4, 560); psn.setColumnWidth(5, 120);
 
   var kor = ss.getSheetByName(T_KOREKSI) || ss.insertSheet(T_KOREKSI);
   kor.getRange(1, 1, 1, 6).setValues([['WAKTU', 'NO NOTA', 'APA YANG SALAH', 'SEHARUSNYA', 'SIAPA', 'CATATAN']]);
@@ -603,11 +626,13 @@ function cekInbox() {
       if (GAGAL_PERMANEN.test(pesan)) {
         f.moveTo(gagal); lupakanCoba_(f.getId()); err++;
         catat_('cekInbox', 'GAGAL', f.getName() + ' - ' + pesan);
+        beritahuGagal_(f.getName(), pesan);
       } else {
         var n = coba_(f.getId(), true);
         if (n >= MAKS_COBA) {
           f.moveTo(gagal); lupakanCoba_(f.getId()); err++;
           catat_('cekInbox', 'GAGAL', f.getName() + ' - gagal ' + n + 'x berturut: ' + pesan);
+          beritahuGagal_(f.getName(), pesan);
         } else {
           ulang++;                      // stays in the inbox; the next run tries again
           catat_('cekInbox', 'ULANG', f.getName() + ' - percobaan ' + n + '/' + MAKS_COBA + ': ' + pesan);
@@ -618,6 +643,31 @@ function cekInbox() {
   detak_();
   return { masuk: ok, gagal: err, ulang: ulang };
   } finally { kunci.releaseLock(); }
+}
+
+/**
+ * Turns a raw error into something Aldi can act on. Pure, so lancelotSelfCheck
+ * runs it for real. A duplicate is the case he asked to be told about: it means
+ * a nota he already has was sent again, and nothing was written.
+ */
+function jenisMasalah_(pesan) {
+  var p = String(pesan || '');
+  if (/NOTA KEMBAR/i.test(p)) return { jenis: 'DOBEL', judul: 'Nota dobel - tidak dimasukkan',
+    saran: 'Isinya sama persis dengan nota yang sudah ada: tanggal, agen, jumlah gulung, total bruto dan total uang. Tidak ada yang ditulis, jadi ledger aman. Kalau ini memang dua nota berbeda, kirim ulang file-nya dengan "abaikanDuplikat": true.' };
+  if (/NOMOR SERI BENTROK/i.test(p)) return { jenis: 'DOBEL', judul: 'Nomor seri dipakai dua kali',
+    saran: 'Nomor seri gulungan ini sudah pernah masuk di nota lain. Cek dulu nota yang disebut di pesan. Kalau agen memang memakai ulang nomornya, kirim ulang dengan "abaikanDuplikat": true.' };
+  if (/sudah ada/i.test(p)) return { jenis: 'DOBEL', judul: 'Nomor nota sudah ada',
+    saran: 'Nota dengan nomor ini sudah tercatat dan tidak ditimpa. Kalau harganya berubah atau ada salah tulis, perbaiki lewat KOREKSI - jangan kirim ulang dengan nomor yang sama.' };
+  if (/JSON|Unexpected/i.test(p)) return { jenis: 'FILE RUSAK', judul: 'File dari Lancelot tidak terbaca',
+    saran: 'Isi file-nya bukan JSON yang utuh. Minta Lancelot mengirim ulang nota ini.' };
+  if (/wajib diisi|wajib punya/i.test(p)) return { jenis: 'DATA KURANG', judul: 'Ada isian yang kosong',
+    saran: 'Lancelot tidak menyebut satu isian yang wajib. Cek fotonya - kalau angkanya memang tidak kelihatan, tulis sendiri di sheet setelah nota masuk.' };
+  return { jenis: 'GAGAL', judul: 'Nota gagal masuk', saran: 'File dipindah ke Lancelot-Gagal. Buka LOG untuk pesan lengkapnya.' };
+}
+
+function beritahuGagal_(namaFile, pesan) {
+  var k = jenisMasalah_(pesan);
+  pesan_(k.jenis, k.judul + ' (' + namaFile + ')', pesan + '\n\nApa yang harus dilakukan: ' + k.saran);
 }
 
 /** A heartbeat he can actually see. LOG is a tab nobody opens; DASHBOARD is not. */
@@ -1087,11 +1137,19 @@ function buatDashboard() {
   sh.getRange('M1').setFormula(
     '=IF(N1="","BELUM PERNAH JALAN",IF(NOW()-N1>1/48,"OTOMATIS MACET - cek trigger","otomatis sehat"))')
     .setFontWeight('bold');
+  // Unread notifications, live from the PESAN tab. No trigger involved: if this
+  // says 2, there are 2 messages he has not ticked, and they are still on PESAN.
+  sh.getRange('M2').setFormula(
+    "=IF(COUNTIFS('" + T_PESAN + "'!A2:A,\"<>\",'" + T_PESAN + "'!E2:E,FALSE)=0,\"tidak ada pesan baru\","
+    + "COUNTIFS('" + T_PESAN + "'!A2:A,\"<>\",'" + T_PESAN + "'!E2:E,FALSE)&\" PESAN BARU - buka tab PESAN\")")
+    .setFontWeight('bold');
   sh.setConditionalFormatRules(sh.getConditionalFormatRules().concat([
     SpreadsheetApp.newConditionalFormatRule().whenTextContains('MACET')
       .setBackground(WARNA.merah).setBold(true).setRanges([sh.getRange('M1')]).build(),
     SpreadsheetApp.newConditionalFormatRule().whenTextContains('sehat')
-      .setBackground(WARNA.hijau).setRanges([sh.getRange('M1')]).build()
+      .setBackground(WARNA.hijau).setRanges([sh.getRange('M1')]).build(),
+    SpreadsheetApp.newConditionalFormatRule().whenTextContains('PESAN BARU')
+      .setBackground(WARNA.merah).setBold(true).setRanges([sh.getRange('M2')]).build()
   ]));
   sh.getRange('N3').setFormula('=IF($E$3="SEMUA",DATE(2000,1,1),TODAY()-VALUE(LEFT($E$3,LEN($E$3)-5)))');
   sh.getRange('N3').setNumberFormat('dd/mm/yyyy');
@@ -1486,6 +1544,14 @@ function lancelotSelfCheck() {
 
   cek('cuan MITA (C tab)', 2330000 - 2025000, 305000);
   cek('cuan YOHAN (C tab)', 5720000 - 4790000, 930000);
+
+  // ---- the notification panel classifies real error texts correctly
+  cek('pesan: nota kembar = DOBEL', jenisMasalah_('NOTA KEMBAR. Nota ini sama persis dengan "RA 7"').jenis, 'DOBEL');
+  cek('pesan: seri bentrok = DOBEL', jenisMasalah_('NOMOR SERI BENTROK:\n- "KS 5" sudah pernah masuk').jenis, 'DOBEL');
+  cek('pesan: nota sudah ada = DOBEL', jenisMasalah_('Nota RA 7 sudah ada. Tidak ditimpa.').jenis, 'DOBEL');
+  cek('pesan: JSON rusak = FILE RUSAK', jenisMasalah_('Unexpected token } in JSON at position 4').jenis, 'FILE RUSAK');
+  cek('pesan: error lain = GAGAL', jenisMasalah_('Service Spreadsheets timed out').jenis, 'GAGAL');
+  cek('pesan: selalu ada saran', jenisMasalah_('apa saja').saran.length > 20 ? 1 : 0, 1);
 
   // ---- CUAN arithmetic, run for real on made-up rows (no sheet needed)
   var brsN = function (o) {
