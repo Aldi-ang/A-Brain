@@ -365,9 +365,18 @@ browser tools are the workaround until then.
 
 ## THE TWO-NOTA MODEL — his spec, 2026-08-12. Supersedes the three-price model above.
 
-**Not built yet.** Specced 17:00 WIB, deferred to after the quota reset at his instruction:
-*"i rather let u take notes first and do this after token reset"*. Everything below is his words
-plus the decisions they force. Read this before touching `tulisNota_` again.
+**BUILT 2026-08-12 18:50, commit `0e8f84c`.** Specced 17:00, deferred by him to after the quota
+reset, then implemented in full. Everything below is his words plus the decisions they force.
+Read this before touching `tulisNota_` again.
+
+What shipped: the `petaSeri_` fix (item 1 below — it would have blocked every sale), `NO GUDANG`
+replacing `LABEL BARU` on ITEM, the resold-OUT lookup deleted from `hitungCuan_`, and two new tabs
+built from pure functions — `CUAN HARIAN` (`hitungCuanHarian_`, one row per day per agen) and
+`IN-OUT AGEN` (`hitungInOutAgen_`). Seven new `lancelotSelfCheck` cases, each proven able to fail.
+
+**Still owed by Aldi:** confirmation of the `-AGEN` pairing suffix (item 3), and whether the sale
+nota's `AGEN` column is reliably filled — `hitungInOutAgen_` and `hitungCuanHarian_` both group by
+it, and neither has seen real data yet.
 
 ### The loop he wants
 
