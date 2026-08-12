@@ -1043,6 +1043,81 @@ function lanjutCuan_(sh, baris) {
   catat_('buatCuan', 'OK', baris.length + ' nota');
 }
 
+/**
+ * Tab tidy-up. Aldi asked to DELETE most tabs; this HIDES them instead, and the
+ * difference is the whole point: hiding is one right-click to undo, deleting a
+ * tab's history is permanent. A 21-tab audit found ZERO tabs that are safe to
+ * delete - every candidate turned out to hold something nothing else holds.
+ *
+ * TAB_LINDUNGI is the refuse-list. Nothing here is ever hidden or deleted by
+ * script, whatever else changes in this file.
+ */
+var TAB_LINDUNGI = [
+  'NOTA', 'ITEM',                                   // the only stored data
+  'MITA', 'YOHAN', 'PAK MUL', 'C',                  // Aldi's handwriting, never regenerable
+  'KOREKSI', 'PESAN', 'LOG',                        // history; deleting KOREKSI crashes koreksiNota
+  'CUAN', 'NOTA CETAK', 'DASHBOARD', 'TANYA',       // DASHBOARD and NOTA CETAK point AT CUAN
+  'M_AGEN', 'M_PABRIK', 'M_PETANI', 'M_BARANG'      // rekening numbers and ongkos live only here
+];
+/** Rebuilt end-to-end by buatSemuaTampilan/cekKualitas, and read by nothing. */
+var TAB_RAPIKAN = ['COMPILE', 'IN-OUT', 'RINGKASAN', 'MASALAH'];
+
+function rapikanTab() {
+  var ss = ss_(), disembunyikan = [], dilewati = [];
+  TAB_RAPIKAN.forEach(function (nama) {
+    if (TAB_LINDUNGI.indexOf(nama) >= 0) { dilewati.push(nama + ' (dilindungi)'); return; }
+    var sh = ss.getSheetByName(nama);
+    if (!sh) { dilewati.push(nama + ' (tidak ada)'); return; }
+    if (sh.isSheetHidden()) { dilewati.push(nama + ' (sudah tersembunyi)'); return; }
+    sh.hideSheet(); disembunyikan.push(nama);
+  });
+  catat_('rapikanTab', 'OK', 'disembunyikan: ' + (disembunyikan.join(', ') || 'tidak ada'));
+  lapor_('Tab dirapikan',
+    'Disembunyikan: ' + (disembunyikan.join(', ') || '(tidak ada)') + '\n'
+    + 'Dilewati: ' + (dilewati.join(', ') || '(tidak ada)') + '\n\n'
+    + 'TIDAK ADA yang dihapus. Semua isinya masih utuh.\n'
+    + 'Mau lihat lagi: klik kanan di bar tab bawah, pilih tab yang tersembunyi.\n'
+    + 'Atau jalankan tampilkanSemuaTab().');
+  return disembunyikan;
+}
+
+function tampilkanSemuaTab() {
+  var sheets = ss_().getSheets(), muncul = [];
+  sheets.forEach(function (sh) { if (sh.isSheetHidden()) { sh.showSheet(); muncul.push(sh.getName()); } });
+  catat_('tampilkanSemuaTab', 'OK', muncul.join(', ') || 'tidak ada yang tersembunyi');
+  lapor_('Semua tab ditampilkan', muncul.length ? muncul.join(', ') : 'Tidak ada tab yang tersembunyi.');
+  return muncul;
+}
+
+/**
+ * Real deletion, kept separate and deliberately awkward. Only tabs in
+ * TAB_RAPIKAN can go, a backup is taken first, and Aldi must type HAPUS.
+ */
+function hapusTabRapikan() {
+  var ui = SpreadsheetApp.getUi();
+  var jawab = ui.prompt('Hapus tab tampilan',
+    'Ini MENGHAPUS: ' + TAB_RAPIKAN.join(', ') + '\n\n'
+    + 'Semuanya dibuat ulang oleh buatSemuaTampilan dan cekKualitas, jadi tidak ada angka yang hilang.\n'
+    + 'NOTA, ITEM, dan tab tulisan tangan tidak akan disentuh.\n\n'
+    + 'Ketik HAPUS untuk lanjut:', ui.ButtonSet.OK_CANCEL);
+  if (jawab.getSelectedButton() !== ui.Button.OK || jawab.getResponseText().trim() !== 'HAPUS') {
+    catat_('hapusTabRapikan', 'BATAL', 'tidak diketik HAPUS');
+    lapor_('Dibatalkan', 'Tidak ada yang dihapus.');
+    return [];
+  }
+  backupMingguan();
+  var ss = ss_(), dihapus = [];
+  TAB_RAPIKAN.forEach(function (nama) {
+    if (TAB_LINDUNGI.indexOf(nama) >= 0) return;      // sabuk pengaman kedua
+    var sh = ss.getSheetByName(nama);
+    if (sh) { ss.deleteSheet(sh); dihapus.push(nama); }
+  });
+  catat_('hapusTabRapikan', 'OK', dihapus.join(', ') || 'tidak ada');
+  lapor_('Tab dihapus', (dihapus.join(', ') || '(tidak ada)')
+    + '\n\nBackup sudah dibuat lebih dulu. Jalankan buatSemuaTampilan untuk membuatnya lagi.');
+  return dihapus;
+}
+
 function buatSemuaTampilan() {
   buatTampilan(); buatCuan(); buatDashboard(); buatNotaCetak(); buatTanya();
   lapor_('Selesai', 'COMPILE, IN-OUT, RINGKASAN, CUAN, DASHBOARD, NOTA CETAK dan TANYA dibuat.\n\n'
@@ -1627,6 +1702,15 @@ function lancelotSelfCheck() {
 
   cek('cuan MITA (C tab)', 2330000 - 2025000, 305000);
   cek('cuan YOHAN (C tab)', 5720000 - 4790000, 930000);
+
+  // ---- the tidy-up can never touch data. These four asserts are the safety belt.
+  cek('rapikan: NOTA dilindungi', TAB_LINDUNGI.indexOf('NOTA') >= 0 ? 1 : 0, 1);
+  cek('rapikan: ITEM dilindungi', TAB_LINDUNGI.indexOf('ITEM') >= 0 ? 1 : 0, 1);
+  cek('rapikan: tab tulisan tangan dilindungi',
+    (TAB_LINDUNGI.indexOf('MITA') >= 0 && TAB_LINDUNGI.indexOf('YOHAN') >= 0
+      && TAB_LINDUNGI.indexOf('PAK MUL') >= 0) ? 1 : 0, 1);
+  cek('rapikan: tidak ada tab dilindungi di daftar rapikan',
+    TAB_RAPIKAN.filter(function (t) { return TAB_LINDUNGI.indexOf(t) >= 0; }).length, 0);
 
   // ---- the notification panel classifies real error texts correctly
   cek('pesan: nota kembar = DOBEL', jenisMasalah_('NOTA KEMBAR. Nota ini sama persis dengan "RA 7"').jenis, 'DOBEL');

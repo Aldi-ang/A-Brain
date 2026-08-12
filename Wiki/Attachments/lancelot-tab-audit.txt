@@ -1,0 +1,99 @@
+[SEMBUNYIKAN] LOG
+  dibaca: Nobody. No function reads LOG, and no formula in any other tab names it — the DASHBOARD/CUAN/NOTA CETAK/TANYA/COMPILE formula builders never mention '
+  kalau dihapus: Nothing throws and nothing shows #REF. catat_ line 71-72 is `var sh = ...getSheetByName(T_LOG); if (sh) sh.appendRow(...)` — the `if (sh)` guard means all 26 call sites silently no-op. That is the danger: the onEdit/onChange audit trail stops recording that a 
+  alasan: Nothing in the code needs it, so it is not WAJIB SIMPAN in the mechanical sense — but it is the ONLY record that a person touched NOTA or ITEM by hand, on a real-money ledger, and it dies quietly rath
+[WAJIB SIMPAN] KOREKSI
+  dibaca: Nobody. Grep for T_KOREKSI returns exactly three hits — 27 (const), 203 (create), 588 (the write). No formula in any tab references 'KOREKSI'. Read on
+  kalau dihapus: koreksiNota() THROWS. Line 588 is `var sh = ss_().getSheetByName(T_KOREKSI);` with NO null guard, and line 589 immediately calls `sh.appendRow(...)` → TypeError: Cannot read properties of null (reading 'appendRow'). The correction Aldi was trying to record is 
+  alasan: Two independent reasons. (1) Hard crash: unlike catat_ and pesan_, koreksiNota has no `if (sh)` guard. (2) The design comment at line 586 is explicit — 'Never edit a mistake away. Write the correction
+[WAJIB SIMPAN] PESAN
+  dibaca: No function reads it. One formula does: DASHBOARD, built at lines 1223-1224 — `COUNTIFS('PESAN'!A2:A,"<>",'PESAN'!E2:E,FALSE)` twice, the unread-messa
+  kalau dihapus: Two failures, both quiet. (1) pesan_ line 84 is `if (!sh) return;` AND the whole body sits in try/catch (line 89) — so it double-swallows. Every failed nota import stops producing a notification and nothing complains. A nota that never made it into the ledger 
+  alasan: This is the 'every action must report' tab — it is the app's mouth. Deleting it does not break the import, it breaks the app's ability to tell him the import failed, which is the worst possible failur
+[AMAN DIHAPUS] MASALAH
+  dibaca: Nobody. No function reads it, no formula in any tab names it. The only downstream use is line 1591, a lapor_ popup that says 'Lihat tab MASALAH' — hum
+  kalau dihapus: Nothing. cekKualitas() recreates it end to end on the next run, from NOTA + ITEM only (duplicate check line 666, trigger check 667, netto-vs-gulungan check 662). No throw, no #REF, no data loss. The alert at line 1590-1592 still fires with the finding count ev
+  alasan: Fully derived, self-healing, read by no code. It is misfiled as append-only history — the `sh.clear()` at line 1570 proves it is a generated view like COMPILE or RINGKASAN. Honest caveat: deleting it 
+[WAJIB SIMPAN] NOTA
+  dibaca: Script readers: migrasiDataLama line 899 (existence check); petaSidik_ lines 487-497 (duplicate fingerprint); petaSeri_ lines 503-504; cekDuplikat lin
+  kalau dihapus: Hard crashes: migrasiDataLama throws 'Jalankan pasangSheet dulu.' at line 899; pasangValidasiMaster_ line 309 gets null and dies on setDataValidation at line 310; tulisNota_ line 336/448 throws, so no new nota can ever be recorded again; buatNotaCetak line 137
+  alasan: One of the two stored tables. Nothing derives it; it derives everything. The hand tabs only cover the MITA/YOHAN/PAK MUL era and migrasiDataLama (line 900) can re-import just that slice — every nota t
+[WAJIB SIMPAN] ITEM
+  dibaca: Script readers: petaSeri_ lines 506-509 (seri/label reuse guard); hapusNotaSatu_ line 558; buatCuan/hitungCuan_ lines 945-948 plus 974, 985 and 989 (t
+  kalau dihapus: Hard crashes: tulisNota_ line 418 throws, and because ITEM is written BEFORE the NOTA row, no nota can be saved at all — deleting ITEM breaks NOTA writing too; pasangValidasiMaster_ line 313 throws on the ITEM!PETANI dropdown. Formula damage: IN-OUT goes #REF 
+  alasan: NOTA holds totals; ITEM holds the per-roll detail. The rebuild only runs one way — you can re-sum ITEM to recover NOTA's TOTAL BRUTO/NETTO/JUMLAH GULUNG, but you can never split NOTA's totals back int
+[WAJIB SIMPAN] M_AGEN
+  dibaca: 3 tempat, semuanya lewat `ss.getSheetByName('M_AGEN')`, tidak ada satu pun yang dijaga null-check: (1) baris 306+310 — `dari('M_AGEN','B2:B200')` di p
+  kalau dihapus: KERAS di dua tempat. Jalankan buatDashboard: baris 1195 `sh.clear()` menghapus isi DASHBOARD dulu, lalu baris 1211 error TypeError ('Cannot read properties of null') karena getSheetByName('M_AGEN') = null. Hasilnya DASHBOARD tinggal judul, sisanya kosong, scri
+  alasan: Satu-satunya master yang matinya KERAS: dua view (DASHBOARD, TANYA) crash total, dan keduanya sudah menghapus isinya sendiri sebelum crash. Di luar itu ia menyimpan nomor rekening dan cara komisi yang
+[WAJIB SIMPAN] M_PETANI
+  dibaca: 1 tempat: baris 306+313 — `dari('M_PETANI','B2:B500')` di pasangValidasiMaster_, jadi dropdown kolom PETANI di ITEM. Tidak ada rumus di tab mana pun y
+  kalau dihapus: DIAM-DIAM, tidak ada error merah. Satu-satunya pembacanya (baris 313) hanya jalan di dalam pasangSheet, dan pasangSheet sudah membuat ulang tabnya di baris 242-243 sebelum sampai ke sana — jadi script tidak pernah crash. Yang rusak: dropdown PETANI di ITEM ber
+  alasan: Ini uang. Nomor rekening petani hanya hidup di sini — kalau hilang, transfer berikutnya harus tanya ulang satu per satu. Matinya diam-diam justru lebih bahaya daripada M_AGEN: tidak ada error yang mem
+[WAJIB SIMPAN] M_PABRIK
+  dibaca: 1 tempat: baris 306+311 — `dari('M_PABRIK','B2:B200')` di pasangValidasiMaster_, jadi dropdown kolom PABRIK di NOTA. Tidak ada rumus di tab mana pun y
+  kalau dihapus: DIAM-DIAM. Pembacanya cuma baris 311, yang hanya jalan di dalam pasangSheet setelah tabnya dibuat ulang di baris 242-243 — jadi tidak ada script yang crash. Dropdown PABRIK di NOTA berhenti memvalidasi. Yang hilang permanen: CARA POTONGAN, ONGKOS / GULUNG, dan
+  alasan: Ongkos per gulung dan cara potongan tiap pabrik cuma tercatat di sini. Itu angka yang dipakai menghitung apakah satu nota untung atau rugi — dihapus berarti menebak-nebak lagi. Sembunyikan, jangan hap
+[SEMBUNYIKAN] M_BARANG
+  dibaca: 1 tempat: baris 306+312 — `dari('M_BARANG','A2:A200')` di pasangValidasiMaster_, jadi dropdown kolom JENIS BARANG di NOTA. Tidak ada rumus di tab mana
+  kalau dihapus: DIAM-DIAM, sama polanya: pembacanya (baris 312) hanya jalan di dalam pasangSheet yang sudah membuat ulang tabnya lebih dulu, jadi tidak ada error. Dropdown JENIS BARANG di NOTA berhenti memvalidasi — 'Saput' dan 'saput ' (dengan spasi) mulai jadi dua jenis bar
+  alasan: Satu-satunya master yang isinya nyaris bisa diketik ulang dalam semenit (5 baris teks, tanpa uang di dalamnya). Tapi menghapusnya tetap mematikan pagar salah-ketik di NOTA tanpa suara apa pun, dan unt
+[WAJIB SIMPAN] MITA
+  dibaca: HANYA migrasiLama_('MITA') — baris 826 (getSheetByName), 830 (petaKolom_ cari baris header), 835-836 (cariSetelahLabel_ ambil TANGGAL dan PETANI), 840
+  kalau dihapus: Tidak ada yang error, tidak ada #REF, tidak ada dropdown mati. migrasiLama_ baris 827 `if (!sh) return 0;` — diam saja, migrasiDataLama cuma melapor "0 nota masuk". Yang rusak bukan script, tapi datanya: (1) hapusMigrasi baris 906 memang ada dan tugasnya mengh
+  alasan: Ini catatan tulisan tangan Aldi, bukan hasil hitungan script. NOTA/ITEM cuma memegang ringkasannya — bukti kodenya baris 853, 854, 861-862 membuang detail per-baris. Kalau tabnya dibuang, detail itu t
+[WAJIB SIMPAN] YOHAN
+  dibaca: HANYA migrasiLama_('YOHAN') — jalur baris yang persis sama dengan MITA: 826, 830, 835-836, 840. Pemanggil tunggal migrasiDataLama baris 900. Guard bar
+  kalau dihapus: Sama persis dengan MITA: tidak ada yang error (baris 827 return 0 diam-diam), tidak ada #REF, tidak ada validasi mati. Bedanya YOHAN justru yang paling banyak kehilangan detail — komentar baris 795 menyebut YOHAN punya 11 kolom karena JENIS BARANG dan GRADE di
+  alasan: Justru tab yang kolomnya paling kaya (11 kolom, baris 795) dan paling banyak dipangkas saat migrasi. Nol biaya untuk disimpan — tidak dibaca script lagi, tidak dirujuk rumus mana pun.
+[WAJIB SIMPAN] PAK MUL
+  dibaca: HANYA migrasiPakMul_() — baris 874 (getSheetByName), 878 (baca BARIS 3 saja, kolom 1-13), 879 (regex pecah kolom 3 jadi 4 gulungan). Pemanggil tunggal
+  kalau dihapus: Tidak ada yang error — baris 875 `if (!sh || sh.getLastRow() < 3) return 0;` diam saja. Tidak ada #REF, tidak ada dropdown mati (M_PETANI dan M_AGEN sudah punya salinan namanya sebagai teks, baris 250-251). Tapi tab ini yang PALING banyak isinya tidak pernah d
+  alasan: Dari tiga tab, ini yang paling sedikit dipindahkan ke NOTA/ITEM — script cuma mengambil satu baris dan 13 kolom, sisanya belum pernah tersentuh. Menghapusnya membuang data yang bahkan belum pernah mas
+[SEMBUNYIKAN] C
+  dibaca: TIDAK ADA. Nol. Ini temuan pentingnya: var TAB_LAMA di baris 28 tidak pernah dipakai lagi di mana pun — grep 'TAB_LAMA' cuma mengembalikan baris 28 it
+  kalau dihapus: Tidak ada satu pun yang rusak. Tidak ada fungsi yang error, tidak ada rumus jadi #REF, tidak ada dropdown mati, lancelotSelfCheck tetap lulus karena baris 1628-1629 pakai angka mati. Yang hilang cuma satu hal, dan ini di luar script: catatan cuan hitungan tang
+  alasan: Satu-satunya tab di grup ini yang benar-benar nol dipakai script — Aldi juga tidak menyebutnya di antara "3 nota data". Tapi menghapusnya membuang satu-satunya catatan untung tulisan tangan, dan CUAN 
+[AMAN DIHAPUS] COMPILE
+  dibaca: Nobody. There is no getSheetByName('COMPILE') anywhere (full handle list checked, lines 71-1569), and no formula string in any other tab names COMPILE
+  kalau dihapus: Nothing throws and no cell goes #REF anywhere in the spreadsheet. Aldi loses a newest-first view of 14 NOTA columns — the exact same 14 columns are already sitting in NOTA. Because no trigger rebuilds views, it stays deleted until he runs buatSemuaTampilan() h
+  alasan: One QUERY formula over NOTA with zero readers. It shows Aldi data he already has in NOTA, in a different column order. Deleting costs him nothing he cannot get back with one run of buatSemuaTampilan()
+[AMAN DIHAPUS] IN-OUT
+  dibaca: Only line 1155, inside buatTampilan() itself, four lines after tampil_() created the tab. That is a self-read for formatting, not an outside dependenc
+  kalau dihapus: Nothing throws. Line 1155 cannot fail because tampil_() recreates the tab before that line runs. No #REF anywhere. Aldi loses the green/red colouring on the IN/OUT column — the raw IN/OUT values are still in ITEM, just uncoloured.
+  alasan: A recoloured copy of ITEM. The only thing it adds over ITEM is two conditional-format rules, and buatTampilan() rebuilds those with the tab.
+[AMAN DIHAPUS] RINGKASAN
+  dibaca: Nobody. No getSheetByName('RINGKASAN'), no formula in any other tab references it. Lines 14, 1048 and 1163 are comment, popup text and LOG text.
+  kalau dihapus: Nothing throws, no #REF. Aldi loses an all-agen-at-once totals table. That is not unique: buatDashboard() builds its own per-agen breakdown in script (its LOG line 1346 reports the agen count it wrote), so the same per-agen numbers survive on DASHBOARD. One ru
+  alasan: One group-by formula over NOTA, no readers, and DASHBOARD already carries a per-agen breakdown. The most disposable of the three tampil_ tabs.
+[WAJIB SIMPAN] CUAN
+  dibaca: Two other tabs read it by formula, three cells total. DASHBOARD line 1252 (=SUMPRODUCT over 'CUAN'!B3:B and 'CUAN'!E3:E, the OMSET card) and line 1254
+  kalau dihapus: Three cells break immediately and visibly: DASHBOARD E4 (OMSET) and E5 (CUAN) turn into #REF!, and NOTA CETAK H9 turns into #REF!. Those are the only profit numbers anywhere in the spreadsheet — the comment at line 936 says so and the grep agrees, no other fun
+  alasan: It is rebuildable, but it is the only tab in this whole group that other tabs point at. Delete it and Aldi sees #REF! on his money numbers in two places. It is also the single source of profit — nothi
+[WAJIB SIMPAN] DASHBOARD
+  dibaca: Nobody. No formula in any other tab names DASHBOARD, and the only getSheetByName('DASHBOARD') in the file is the heartbeat WRITE at line 679, not a re
+  kalau dihapus: No crash. The heartbeat at line 679 is wrapped in try/catch, so cekInbox() keeps running every 5 minutes and silently swallows the failure — Aldi gets no error telling him anything is wrong. What he actually loses is two live signals that exist nowhere else: t
+  alasan: Nothing in the code depends on it — deleting it breaks no formula and throws no error. Keep it anyway, because it is the only surface where the 5-minute heartbeat and the unread-message count appear. 
+[WAJIB SIMPAN] NOTA CETAK
+  dibaca: Nobody. No getSheetByName('NOTA CETAK') outside line 1358, and no formula in any other tab points at it. It only reads outward — NOTA, ITEM, CUAN.
+  kalau dihapus: No code breaks, no #REF appears anywhere else. But this is the only tab that formats one nota for printing — nothing else in the file produces a receipt. While it is gone, Aldi cannot print a nota for an agen at all. Note the direction of the B3 validation at 
+  alasan: This is a tool, not a view. Every other tab in this group shows Aldi data he could read elsewhere; this one produces a physical receipt an agen walks away with. Real money leaves the room on this tab.
+[SEMBUNYIKAN] TANYA
+  dibaca: No function and no formula inside Lancelot.gs reads it — checked the full getSheetByName list and the full cross-sheet formula list. One unverified cl
+  kalau dihapus: Nothing in Lancelot.gs breaks — no throw, no #REF. If the docstring is telling the truth and the chat agent really does read TANYA, then the two questions it answers (which notas this agen brought between these dates, and how today went per agen) start failing
+  alasan: Hiding it costs nothing and keeps a possible outside reader alive; deleting it bets real chat answers on a code comment being wrong. Right-click the tab, Hide sheet. Revisit only after checking whethe
+REFUTE: aman=False | The reviewer's mechanics are right but their premise is wrong in three checkable places, and the third one is the dangerous one.
+
+WHAT THEY GOT RIGHT: line 1569 is `ss.getSheetByName('MASALAH') || ss. | hilang: Four things, none recoverable from NOTA + ITEM:
+
+1. The list of notas that FAILED to import. jagaOtomatis_ 1461-1469 scans FOLDER_GAGAL and names up t
+REFUTE: aman=False | The reviewer's MECHANICAL claims check out — I verified them and will not pretend otherwise. RINGKASAN appears exactly 4 times in 1732 lines: line 14 (header comment), line 1048 (a lapor_ message stri | hilang: Immediately and until someone re-runs buatTampilan from the Apps Script editor: the only LIVE, all-time, unfiltered all-agen-at-once totals table. Lin
+REFUTE: aman=False | The reviewer's crash analysis is right, and it is the wrong question. I checked every path they named and three they did not.
+
+WHAT THEY GOT RIGHT (confirmed, do not re-argue these):
+- Line 1155 `ss_( | hilang: Not "the green/red colouring" — that is the trivial part, and yes lines 1157-1162 rebuild it.
+
+What actually disappears is the ONLY per-gulungan view 
+REFUTE: aman=False | Script-side, the reviewer's homework checks out and I will not pretend otherwise: grep over all 1732 lines finds COMPILE in only 4 places, all of them non-readers (a doc comment at line 14, popup text | hilang: No stored data and no history -- COMPILE holds one QUERY formula in A2 and nothing else, and buatTampilan() already wipes it on every run.
+
+What is ac

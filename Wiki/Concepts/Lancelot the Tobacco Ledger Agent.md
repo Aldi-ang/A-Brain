@@ -447,6 +447,35 @@ Built as **formulas on a `TANYA` tab**, not a script function and not agent memo
 answers which question, and **"You do not know what day it is — read `TANYA!B2` first."** An LLM
 asked "how was today" will otherwise answer from its training-cutoff idea of the date, silently.
 
+### The tab audit — 21 tabs traced, ZERO safe to delete (2026-08-12)
+
+Aldi: *"there are too many useless sheets u should delete most of it except the 3 nota data that i
+mentioned before from yohan mita and p mul"*. Taken literally that deletes `NOTA` and `ITEM` — the
+only stored data — leaving only his pre-migration handwriting.
+
+Workflow `wf_f20bc26d-9ec` (11 agents) traced every tab; its synthesis agent died on the session
+limit, so the findings were salvaged from `journal.jsonl` again. **Every `AMAN DIHAPUS` verdict was
+refuted.** Caveat worth keeping: the refuters were instructed to default to "not safe", so treat
+"zero deletable" as a strong prior, not proof. What the refutations actually establish:
+
+- `MASALAH` — looks generated, but `jagaOtomatis_` writes the list of notas that FAILED to import
+  there. That list exists nowhere else.
+- `IN-OUT` — not "a recoloured ITEM": it is the only per-gulungan view.
+- `RINGKASAN`, `COMPILE` — genuinely rebuildable, lost only until `buatSemuaTampilan` runs. These
+  are the honest hide-don't-delete cases.
+- `CUAN` — **two other tabs point at it by formula** (`DASHBOARD` OMSET/CUAN cards, `NOTA CETAK`
+  H9). Deleting it puts `#REF!` on his profit numbers.
+- `KOREKSI` — `koreksiNota` has no null guard, unlike `catat_`/`pesan_`. Deleting it makes
+  recording a correction throw.
+- `M_PETANI`/`M_PABRIK` die **silently**: their only reader runs inside `pasangSheet`, which
+  recreates the tab first. No error ever appears, and the petani bank account numbers are gone.
+- Dead code found: `TAB_LAMA` (line 28) is referenced nowhere.
+
+Answer shipped as `rapikanTab()` — **hides** COMPILE, IN-OUT, RINGKASAN, MASALAH; `TAB_LINDUNGI`
+refuses everything else by name; `tampilkanSemuaTab()` undoes it; `hapusTabRapikan()` is the only
+deleter and needs the typed word HAPUS plus a backup. Four self-check cases assert NOTA, ITEM and
+the handwritten tabs are on the protected list and that no protected tab appears on the tidy list.
+
 ### The strongest unverified findings, for whoever picks this up
 
 `buatCuan` charges a nota's whole ongkos to the first gulungan that sells · a resold OUT gulungan

@@ -65,3 +65,16 @@ retried once, hung another 30 min — 60 min dead with zero progress. The CLI fo
 same command (`agent-browser open <url>`) worked instantly on the first try right after.
 Seen: 2026-07-29
 Fired: 2026-07-29 (this session — switched to CLI after 2nd MCP hang, rest of both Phase 0 tests ran through it)
+
+### 2026-08-11 — a fixed element anchored to a resizable container must be checked at EVERY size
+*Archived 2026-08-12 at cap, zero fires. Still true; it just never got a chance to fire.*
+**Trigger:** before a completion claim on any `position: fixed` element whose offset is computed
+from a container that the user can drag, snap or animate to another size.
+**Lesson:** evaluate the offset arithmetic at each snap point, not just the resting one, and say
+which sizes were checked. If any size pushes it past a viewport edge, pick the direction per size.
+**Would have prevented:** shipped and committed `237bf6f` with the customer suggestion list pinned
+`bottom: calc(var(--drawer-h) + 8px)`. Correct at the 96px and 55% snaps, but the drawer also snaps
+to 92% of the screen, where the 192px list renders ~200px above the top edge — invisible, and no
+customer selectable at all. Caught 20 minutes later by re-reading the geometry, in a second commit.
+Seen: 2026-08-11
+Fired: never
