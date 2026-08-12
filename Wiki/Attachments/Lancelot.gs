@@ -1598,7 +1598,10 @@ function cekKualitas() {
 function lancelotSelfCheck() {
   var baris = [], semua = true;
   function cek(nama, dapat, harus) {
-    var ok = Math.abs(dapat - harus) < 0.01;
+    // Text is compared as text. Math.abs('DOBEL' - 'DOBEL') is NaN, so before
+    // this line every check on a word failed no matter how right it was.
+    var teks = typeof dapat === 'string' || typeof harus === 'string';
+    var ok = teks ? String(dapat) === String(harus) : Math.abs(dapat - harus) < 0.01;
     if (!ok) semua = false;
     baris.push((ok ? 'OK    ' : 'GAGAL ') + nama + ' = ' + dapat + (ok ? '' : '  (harus ' + harus + ')'));
   }
