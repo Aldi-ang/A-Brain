@@ -443,6 +443,11 @@ function tulisNota_(d) {
     rows.push(out2);
   });
 
+  // ---- whose nota is this? Checked BEFORE any duplicate work, because a nota
+  // filed under the wrong agen is worse than one rejected twice.
+  var salahAgen = cocokAgen_(d.agen, d.agenDiNota, daftarAgen_());
+  if (salahAgen) throw new Error(salahAgen);
+
   // ---- duplicate guards. Nothing is written until both pass.
   if (!d.abaikanDuplikat) {
     var kembar = petaSidik_()[sidikNota_(tanggal_(d.tanggal), d.agen, items.length, bT, jT)];
@@ -661,7 +666,7 @@ function koreksiNota(noNota, apaYangSalah, seharusnya, catatan) {
  * timeouts, "server error occurred", quota blips — is transient, and a
  * transient error must not throw a real nota away.
  */
-var GAGAL_PERMANEN = /sudah ada|KEMBAR|BENTROK|wajib diisi|pasangSheet dulu|JSON|Unexpected token|Unexpected end/i;
+var GAGAL_PERMANEN = /sudah ada|KEMBAR|BENTROK|wajib diisi|pasangSheet dulu|JSON|Unexpected token|Unexpected end|AGEN TIDAK COCOK|AGEN BELUM/i;
 var MAKS_COBA = 6;                      // 6 x 5 menit = 30 menit mencoba lagi
 
 function coba_(id, tambah) {
@@ -725,6 +730,10 @@ function jenisMasalah_(pesan) {
     saran: 'Nomor seri gulungan ini sudah pernah masuk di nota lain. Cek dulu nota yang disebut di pesan. Kalau agen memang memakai ulang nomornya, kirim ulang dengan "abaikanDuplikat": true.' };
   if (/sudah ada/i.test(p)) return { jenis: 'DOBEL', judul: 'Nomor nota sudah ada',
     saran: 'Nota dengan nomor ini sudah tercatat dan tidak ditimpa. Kalau harganya berubah atau ada salah tulis, perbaiki lewat KOREKSI - jangan kirim ulang dengan nomor yang sama.' };
+  if (/AGEN TIDAK COCOK/i.test(p)) return { jenis: 'AGEN SALAH', judul: 'Nama agen di nota beda dengan yang disebut',
+    saran: 'Notanya TIDAK dimasukkan, jadi ledger aman. Cek kertasnya: nota ini punya siapa? Kalau Lancelot salah baca namanya, kirim ulang dengan nama yang benar.' };
+  if (/AGEN BELUM/i.test(p)) return { jenis: 'AGEN SALAH', judul: 'Agen ini belum ada di M_AGEN',
+    saran: 'Buka tab M_AGEN dan tambahkan agen ini dulu — hanya Aldi yang boleh menambah nama agen. Sesudah itu kirim ulang notanya.' };
   if (/JSON|Unexpected/i.test(p)) return { jenis: 'FILE RUSAK', judul: 'File dari Lancelot tidak terbaca',
     saran: 'Isi file-nya bukan JSON yang utuh. Minta Lancelot mengirim ulang nota ini.' };
   if (/wajib diisi|wajib punya/i.test(p)) return { jenis: 'DATA KURANG', judul: 'Ada isian yang kosong',
@@ -1139,6 +1148,53 @@ function lanjutCuan_(sh, baris) {
   sh.setFrozenRows(2);
   for (var c = 1; c <= 7; c++) sh.setColumnWidth(c, 130);
   catat_('buatCuan', 'OK', baris.length + ' nota');
+}
+
+/** "  mita  agung " and "MITA AGUNG" are the same agen. Spacing is not identity. */
+function namaRapi_(x) {
+  return String(x === undefined || x === null ? '' : x).trim().replace(/\s+/g, ' ').toUpperCase();
+}
+
+/**
+ * Whose nota is this? Aldi's rule, 2026-08-12: Lancelot asks EVERY time, and if
+ * the paper itself carries a name it must agree with the answer.
+ *
+ * Pure on purpose - the self-check runs it. Returns '' when everything agrees,
+ * otherwise the exact sentence to throw.
+ *
+ * @param diminta  the agen Aldi named
+ * @param diNota   the name printed on the nota, '' when the paper shows none
+ * @param daftar   every NAMA in M_AGEN
+ */
+function cocokAgen_(diminta, diNota, daftar) {
+  var a = namaRapi_(diminta), b = namaRapi_(diNota);
+  var punya = {};
+  (daftar || []).forEach(function (n) { if (namaRapi_(n)) punya[namaRapi_(n)] = String(n); });
+
+  if (!a) return 'AGEN BELUM DISEBUT. Setiap nota wajib punya nama agen. '
+    + 'Tanya Aldi dulu: "nota ini punya agen siapa?"';
+
+  if (Object.keys(punya).length && !punya[a]) return 'AGEN BELUM TERDAFTAR: "' + diminta + '". '
+    + 'Tambahkan dulu di tab M_AGEN, baru kirim ulang notanya. '
+    + 'Yang sudah terdaftar: ' + Object.keys(punya).sort().join(', ') + '.';
+
+  if (b && b !== a) {
+    var milik = punya[b] ? ' Nama itu terdaftar sebagai agen lain (' + punya[b] + ').' : '';
+    return 'AGEN TIDAK COCOK. Aldi bilang nota ini punya "' + diminta + '", tapi di kertasnya '
+      + 'tertulis "' + diNota + '".' + milik + ' Notanya TIDAK dimasukkan. '
+      + 'Cek dulu nota ini punya siapa.';
+  }
+  return '';
+}
+
+/** Every NAMA in M_AGEN. Empty list means the master is not filled in yet. */
+function daftarAgen_() {
+  var sh = ss_().getSheetByName('M_AGEN');
+  if (!sh) return [];
+  var n = sh.getLastRow() - 1;
+  if (n < 1) return [];
+  return sh.getRange(2, 2, n, 1).getValues().map(function (r) { return r[0]; })
+    .filter(function (x) { return String(x).trim(); });
 }
 
 /** Date key that does not need Utilities, so the self-check can run it. */
@@ -1986,6 +2042,21 @@ function lancelotSelfCheck() {
   cek('CUAN: 2 gulungan sisa belum dihitung rugi', c1[6], 2);
   cek('CUAN: baris OUT di nota jual tidak jadi omset nol', c2[4], 1200000);
   cek('CUAN: cuan nota yang ada baris OUT-nya', c2[5], 195000);
+
+  // ---- whose nota is this. Every branch of cocokAgen_, run for real.
+  var dfA = ['MITA', 'YOHAN', 'Pak Mul'];
+  cek('agen: cocok, kertas tidak menyebut nama', cocokAgen_('MITA', '', dfA), '');
+  cek('agen: cocok walau spasi dan huruf beda', cocokAgen_('  mita ', 'MITA', dfA), '');
+  cek('agen: kosong ditolak', cocokAgen_('', 'MITA', dfA).indexOf('AGEN BELUM DISEBUT') === 0 ? 1 : 0, 1);
+  cek('agen: belum terdaftar ditolak', cocokAgen_('BUDI', '', dfA).indexOf('AGEN BELUM TERDAFTAR') === 0 ? 1 : 0, 1);
+  cek('agen: nama di kertas beda ditolak', cocokAgen_('MITA', 'YOHAN', dfA).indexOf('AGEN TIDAK COCOK') === 0 ? 1 : 0, 1);
+  cek('agen: pesan menyebut agen lain yang cocok',
+    cocokAgen_('MITA', 'YOHAN', dfA).indexOf('terdaftar sebagai agen lain') >= 0 ? 1 : 0, 1);
+  cek('agen: master kosong tidak memblokir', cocokAgen_('SIAPA SAJA', '', []), '');
+  cek('agen: salah agen = gagal permanen, bukan dicoba ulang',
+    GAGAL_PERMANEN.test(cocokAgen_('MITA', 'YOHAN', dfA)) ? 1 : 0, 1);
+  cek('agen: salah agen jadi pesan AGEN SALAH',
+    jenisMasalah_(cocokAgen_('MITA', 'YOHAN', dfA)).jenis, 'AGEN SALAH');
 
   // ---- the two-nota model: profit is the gap between the real nota and the agen's
   var hariUji = new Date(2026, 7, 12);
