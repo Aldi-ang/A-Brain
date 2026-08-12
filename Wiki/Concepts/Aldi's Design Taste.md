@@ -105,6 +105,28 @@ that misreading. **Ask which part before designing.**
 - Live and playable beats a picture. He judges motion by feeling it, and he uses slow-motion
   toggles when offered.
 
+## Law: only Aldi names the categories in his own trade (2026-08-12)
+
+His words, unprompted: *"dont add extra grade or jenis tembakau inside yourself, only i can decide
+what considered as jenis or grade and any other criteria"*.
+
+Context: `pasangSheet` used to seed `M_BARANG` with `Janturan 2026`, `Rajangan Boyolali 2026`,
+`Rajangan Panggil 2026`, `Saput`, `Non Gula`, plus a petani `SRI RAHAYU` with a real-looking BRI
+account and a pabrik `OM CK`. Those were written as *placeholders*. In a dropdown a placeholder is
+indistinguishable from real master data, and he was still seeing them weeks later — *"i dont know
+why it still show up in the dropdown as well"*.
+
+**The rule, generalised:** a value that classifies his business — jenis barang, grade, agen,
+petani, pabrik, or any future criterion — is his to name. Never invent one, never seed one as an
+example, never "helpfully" extend a list he wrote. Structural values the *code* needs are a
+different thing and are fine (`IN`/`OUT`, `persen`/`kg`, `LUNAS`/`BELUM LUNAS`) — the test is
+whether the word describes his tobacco or describes the software.
+
+Applied: all `CONTOH_*` seed arrays are now empty; `GRADE` was already free text and stays that
+way. **Still unaudited against this rule:** `CARA BAYAR` offers `TRANSFER / CASH / BON` and
+`JENIS NOTA` offers `NOTA AGEN` — both may be my inventions rather than his vocabulary, and the
+round-2 review separately flagged that `NOTA AGEN` is explained nowhere. Ask before relying on them.
+
 ## Related
 
 - [[Master Vault Gate]] — the screen most of this evidence comes from

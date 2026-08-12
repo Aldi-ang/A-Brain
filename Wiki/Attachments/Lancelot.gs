@@ -247,17 +247,76 @@ function pasangSheet() {
     m.getRange(1, 1, mr + 1, MASTER[nama].length).setFontSize(11);
     for (var c = 1; c <= MASTER[nama].length; c++) m.setColumnWidth(c, 165);
   });
-  seed_('M_AGEN', [['AG1', 'MITA', '', '', ''], ['AG2', 'YOHAN', '', '', ''], ['AG3', 'PAK MUL', '', '', '']]);
-  seed_('M_PETANI', [['PT1', 'SRI RAHAYU', 'PAK MUL', '', 'BRI 666301018474532', '']]);
-  seed_('M_PABRIK', [['PB1', 'OM CK', '', '', '', '']]);
-  seed_('M_BARANG', [['Janturan 2026', ''], ['Rajangan Boyolali 2026', ''],
-                     ['Rajangan Panggil 2026', ''], ['Saput', ''], ['Non Gula', '']]);
+  seedMaster_();
 
   pasangValidasiMaster_();
   catat_('pasangSheet', 'OK', 'NOTA + ITEM + master siap');
   lapor_('Selesai', 'NOTA, ITEM, master, KOREKSI dan LOG siap.\n\n'
     + 'Nama agen, pabrik, petani dan jenis barang dipilih dari master, bukan diketik bebas.\n\n'
     + 'Tab MITA, YOHAN, PAK MUL, C tidak disentuh.');
+}
+
+/**
+ * The ONLY place starting master data lives. Everything here shows up in a
+ * dropdown, so an example left in here looks exactly like real data forever.
+ * Aldi's rule, 2026-08-12: no example rows at all. Type the real ones in the
+ * M_ tabs by hand; seed_ only fills a master that is still empty.
+ */
+var CONTOH_AGEN = [];       // [kode, nama, rekening, cara komisi, catatan]
+var CONTOH_PETANI = [];     // [kode, nama, agen, desa, rekening, catatan]
+var CONTOH_PABRIK = [];     // [kode, nama, cara potongan, ongkos/gulung, rekening, catatan]
+var CONTOH_BARANG = [];     // [nama, catatan]
+
+function seedMaster_() {
+  if (CONTOH_AGEN.length) seed_('M_AGEN', CONTOH_AGEN);
+  if (CONTOH_PETANI.length) seed_('M_PETANI', CONTOH_PETANI);
+  if (CONTOH_PABRIK.length) seed_('M_PABRIK', CONTOH_PABRIK);
+  if (CONTOH_BARANG.length) seed_('M_BARANG', CONTOH_BARANG);
+}
+
+/**
+ * Start over. Empties the ledger and every generated tab, keeps the file, the
+ * script and the triggers. Aldi asked for this after test runs left half-filled
+ * rows and example jenis barang in the dropdowns.
+ *
+ * NEVER touches: MITA, YOHAN, PAK MUL, C — his handwriting. Everything in
+ * TAB_LINDUNGI that holds his own typing is preserved as a tab; only the rows
+ * this script generated are cleared.
+ */
+function mulaiBersih() {
+  var ui = SpreadsheetApp.getUi();
+  var jawab = ui.prompt('Mulai dari nol',
+    'Ini MENGOSONGKAN: NOTA, ITEM, LOG, KOREKSI, PESAN, dan semua master (M_AGEN, M_PABRIK, '
+    + 'M_PETANI, M_BARANG).\n\n'
+    + 'TIDAK disentuh: tab tulisan tangan MITA, YOHAN, PAK MUL, C.\n'
+    + 'Backup dibuat lebih dulu, jadi masih bisa dilihat lagi di folder Lancelot-Backup.\n\n'
+    + 'Ketik MULAI BARU untuk lanjut:', ui.ButtonSet.OK_CANCEL);
+  if (jawab.getSelectedButton() !== ui.Button.OK || jawab.getResponseText().trim() !== 'MULAI BARU') {
+    catat_('mulaiBersih', 'BATAL', 'tidak diketik MULAI BARU');
+    lapor_('Dibatalkan', 'Tidak ada yang dikosongkan.');
+    return;
+  }
+  backupMingguan();
+
+  var ss = ss_(), dikosongkan = [];
+  [T_NOTA, T_ITEM, T_LOG, T_KOREKSI, T_PESAN, 'M_AGEN', 'M_PABRIK', 'M_PETANI', 'M_BARANG']
+    .forEach(function (nama) {
+      if (['MITA', 'YOHAN', 'PAK MUL', 'C'].indexOf(nama) >= 0) return;   // sabuk pengaman
+      var sh = ss.getSheetByName(nama);
+      if (!sh) return;
+      var n = sh.getLastRow() - 1;
+      if (n > 0) { sh.getRange(2, 1, n, sh.getLastColumn()).clearContent(); dikosongkan.push(nama + ' (' + n + ' baris)'); }
+    });
+
+  buatSemuaTampilan();
+  catat_('mulaiBersih', 'OK', dikosongkan.join(', ') || 'sudah kosong');
+  lapor_('Sudah bersih',
+    'Dikosongkan: ' + (dikosongkan.join(', ') || '(sudah kosong)') + '\n\n'
+    + 'Tab tulisan tangan tidak disentuh.\n\n'
+    + 'Langkah berikutnya:\n'
+    + '1. Isi M_AGEN, M_PABRIK, M_PETANI, M_BARANG dengan nama yang BENAR-BENAR dipakai.\n'
+    + '2. Foto nota, taruh di folder Lancelot-Inbox lewat Lancelot.\n'
+    + '3. JANGAN jalankan migrasiDataLama — itu yang membuat baris setengah terisi.');
 }
 
 /** CLIP, never wrap — a wrapped REF TRANSFER made rows five lines tall. */
@@ -896,10 +955,51 @@ function migrasiPakMul_() {
 }
 
 function migrasiDataLama() {
-  if (!ss_().getSheetByName(T_NOTA)) throw new Error('Jalankan pasangSheet dulu.');
+  var ss = ss_();
+  if (!ss.getSheetByName(T_NOTA)) throw new Error('Jalankan pasangSheet dulu.');
+
+  // Importing on top of rows that already exist is what produced half-filled,
+  // duplicated notas. Refuse instead of throwing NOTA KEMBAR halfway through.
+  var shN = ss.getSheetByName(T_NOTA);
+  if (shN.getLastRow() > 1) throw new Error(
+    'NOTA sudah berisi ' + (shN.getLastRow() - 1) + ' baris. Migrasi hanya boleh jalan di sheet '
+    + 'yang masih kosong.\nKosongkan dulu dengan mulaiBersih(), atau lewati langkah ini.');
+
+  var ada = [], hilang = [];
+  ['MITA', 'YOHAN', 'PAK MUL'].forEach(function (t) {
+    (ss.getSheetByName(t) ? ada : hilang).push(t);
+  });
   var n = migrasiLama_('MITA') + migrasiLama_('YOHAN') + migrasiPakMul_();
-  catat_('migrasiDataLama', 'OK', n + ' nota');
-  lapor_('Selesai', n + ' nota masuk (MITA, YOHAN, PAK MUL).\n\nTab lama tidak berubah.');
+  catat_('migrasiDataLama', 'OK', n + ' nota; ada: ' + ada.join(',') + '; hilang: ' + (hilang.join(',') || '-'));
+  lapor_('Selesai', n + ' nota masuk.\n\nTab yang dibaca: ' + (ada.join(', ') || '(tidak ada)')
+    + (hilang.length ? '\nTab TIDAK ADA di file ini: ' + hilang.join(', ') : '')
+    + '\n\nTab lama tidak berubah.');
+}
+
+/**
+ * Shows what the handwritten tabs actually contain, so the importer can be
+ * written against the real shape instead of a remembered one. Reads only -
+ * it changes nothing. Copy the whole output back into the chat.
+ */
+function lihatTabLama() {
+  var ss = ss_(), keluar = [];
+  ss.getSheets().forEach(function (sh) {
+    var nama = sh.getName();
+    if (['NOTA', 'ITEM', 'LOG', 'KOREKSI', 'PESAN', 'MASALAH', 'COMPILE', 'IN-OUT', 'RINGKASAN',
+         'CUAN', 'DASHBOARD', 'NOTA CETAK', 'TANYA'].indexOf(nama) >= 0) return;
+    if (nama.indexOf('M_') === 0) return;
+    var br = Math.min(sh.getLastRow(), 10), kl = Math.min(sh.getLastColumn(), 20);
+    keluar.push('=== TAB "' + nama + '" — ' + sh.getLastRow() + ' baris x ' + sh.getLastColumn() + ' kolom');
+    if (!br || !kl) { keluar.push('(kosong)'); return; }
+    sh.getRange(1, 1, br, kl).getDisplayValues().forEach(function (r, i) {
+      keluar.push((i + 1) + ' | ' + r.join(' | '));
+    });
+    keluar.push('');
+  });
+  var teks = keluar.join('\n');
+  Logger.log(teks);
+  catat_('lihatTabLama', 'OK', 'dibaca ' + keluar.length + ' baris');
+  return teks;
 }
 
 /** Destructive and one dropdown-slip away from the setup steps, so it asks. */
