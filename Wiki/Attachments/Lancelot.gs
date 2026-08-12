@@ -185,6 +185,10 @@ function hitungTara_(bruto, cara, nilai) {
 
 function pasangSheet() {
   var ss = ss_();
+  // Every TODAY()/NOW() in this file, and every date Lancelot reads back, is
+  // this timezone. Left unset it follows whoever created the file, so "hari ini"
+  // could roll over at 17:00 WIB and put an evening nota on the wrong day.
+  try { ss.setSpreadsheetTimeZone('Asia/Jakarta'); } catch (e) { Logger.log('zona waktu: ' + e); }
 
   var log = ss.getSheetByName(T_LOG) || ss.insertSheet(T_LOG);
   log.getRange(1, 1, 1, 4).setValues([['WAKTU', 'AKSI', 'HASIL', 'KETERANGAN']]);
@@ -1040,9 +1044,85 @@ function lanjutCuan_(sh, baris) {
 }
 
 function buatSemuaTampilan() {
-  buatTampilan(); buatCuan(); buatDashboard(); buatNotaCetak();
-  lapor_('Selesai', 'COMPILE, IN-OUT, RINGKASAN, CUAN, DASHBOARD dan NOTA CETAK dibuat.\n\n'
+  buatTampilan(); buatCuan(); buatDashboard(); buatNotaCetak(); buatTanya();
+  lapor_('Selesai', 'COMPILE, IN-OUT, RINGKASAN, CUAN, DASHBOARD, NOTA CETAK dan TANYA dibuat.\n\n'
     + 'Semua otomatis dari NOTA + ITEM. Jangan diketik manual.');
+}
+
+/**
+ * TANYA answers the two questions Aldi actually asks out loud: "which notas did
+ * this agen bring me between these dates" and "how did today go, per agen".
+ *
+ * Formulas, not a script. Nothing to run, nothing to schedule, nothing to go
+ * stale - he changes B3/B4/B5 on his phone and the answer is already there. It
+ * is also the tab Lancelot reads when he asks either question in chat, so the
+ * agent and the sheet can never disagree about the numbers.
+ */
+function buatTanya() {
+  var ss = ss_();
+  var sh = ss.getSheetByName('TANYA') || ss.insertSheet('TANYA');
+  sh.clear(); bebaskan_(sh); sh.setConditionalFormatRules([]); sh.setHiddenGridlines(true);
+
+  var N = "'" + T_NOTA + "'!A2:" + huruf_(H_NOTA.length);
+  var n = function (h) { return huruf_(CN[h]); };
+  var kol = function (h) { return "'" + T_NOTA + "'!" + n(h) + '2:' + n(h); };
+
+  sh.getRange('A1:H1').merge().setValue('❓ TANYA — nota per agen, dan hari ini')
+    .setFontSize(15).setFontWeight('bold').setFontColor('#ffffff')
+    .setBackground(WARNA.gelap).setVerticalAlignment('middle');
+  sh.setRowHeight(1, 38);
+
+  sh.getRange('A3').setValue('AGEN').setFontWeight('bold');
+  sh.getRange('B3').setValue('SEMUA').setBackground(WARNA.kartu).setFontWeight('bold')
+    .setDataValidation(SpreadsheetApp.newDataValidation()
+      .requireValueInRange(ss.getSheetByName('M_AGEN').getRange('B2:B200'), true)
+      .setAllowInvalid(true).build());
+  sh.getRange('A4').setValue('DARI TANGGAL').setFontWeight('bold');
+  sh.getRange('A5').setValue('SAMPAI TANGGAL').setFontWeight('bold');
+  sh.getRange('B4').setValue(new Date(new Date().getFullYear(), 0, 1)).setNumberFormat('dd/mm/yyyy');
+  sh.getRange('B5').setValue(new Date()).setNumberFormat('dd/mm/yyyy');
+  sh.getRange('C3').setValue('← pilih agen, atau ketik SEMUA').setFontSize(9).setFontColor('#999');
+  sh.getRange('C4:C5').merge().setValue('← batas tanggal, boleh diubah kapan saja')
+    .setFontSize(9).setFontColor('#999');
+
+  // ---- the exact notas, filtered live
+  sh.getRange('A8').setFormula(
+    '=IFERROR(SORT(FILTER({' + [kol('TANGGAL'), kol('NO NOTA'), kol('JENIS NOTA'), kol('AGEN'),
+      kol('JUMLAH GULUNG'), kol('TOTAL NETTO'), kol('DIBAYAR'), kol('LUNAS')].join(',') + '},'
+    + kol('NO NOTA') + '<>"",'
+    + kol('TANGGAL') + '>=$B$4,' + kol('TANGGAL') + '<=$B$5,'
+    + '(' + kol('AGEN') + '=$B$3)+($B$3="SEMUA")),1,FALSE),"Tidak ada nota pada rentang ini.")');
+  sh.getRange(7, 1, 1, 8).setValues([['TANGGAL', 'NO NOTA', 'JENIS', 'AGEN', 'GULUNG', 'NETTO', 'DIBAYAR', 'LUNAS']])
+    .setFontWeight('bold').setBackground(WARNA.kartu);
+  sh.getRange('A8:A').setNumberFormat('dd/mm/yyyy');
+  sh.getRange('G8:G').setNumberFormat('"Rp "#,##0');
+
+  // ---- today, per agen. Same numbers, no date typing.
+  sh.getRange('J3').setValue('📅 HARI INI (' + 'otomatis' + ')').setFontWeight('bold').setFontSize(12);
+  sh.getRange(4, 10, 1, 5).setValues([['AGEN', 'NOTA', 'GULUNG', 'NETTO', 'DIBAYAR']])
+    .setFontWeight('bold').setBackground(WARNA.kartu);
+  sh.getRange('J5').setFormula(
+    '=IFERROR(QUERY({' + [kol('AGEN'), kol('NO NOTA'), kol('JUMLAH GULUNG'), kol('TOTAL NETTO'),
+      kol('DIBAYAR'), kol('TANGGAL')].join(',') + '},'
+    + '"select Col1, count(Col2), sum(Col3), sum(Col4), sum(Col5) '
+    + 'where Col1 is not null and Col6 >= date \'"&TEXT(TODAY(),"yyyy-mm-dd")&"\' '
+    + 'group by Col1 label Col1 \'\', count(Col2) \'\', sum(Col3) \'\', sum(Col4) \'\', sum(Col5) \'\'",0),'
+    + '"Belum ada nota hari ini.")');
+  sh.getRange('N5:N').setNumberFormat('"Rp "#,##0');
+
+  // The clock Lancelot must read. An AI does not know what day it is; this cell
+  // does, in Aldi's own timezone, so "hari ini" means one thing to both of them.
+  sh.getRange('A2').setValue('SEKARANG').setFontWeight('bold');
+  sh.getRange('B2').setFormula('=TEXT(NOW(),"dddd, dd mmmm yyyy, HH:mm")').setFontWeight('bold');
+  sh.getRange('C2').setValue('← waktu WIB dari sheet. Lancelot WAJIB baca ini sebelum menjawab "hari ini".')
+    .setFontSize(9).setFontColor('#999');
+
+  sh.getRange('J1').setValue('Angka di sini selalu ikut NOTA. Jangan diketik manual.')
+    .setFontSize(9).setFontColor('#999');
+  sh.setFrozenRows(1);
+  for (var c = 1; c <= 8; c++) sh.setColumnWidth(c, 120);
+  for (var c2 = 10; c2 <= 14; c2++) sh.setColumnWidth(c2, 110);
+  catat_('buatTanya', 'OK', 'TANYA dibuat');
 }
 
 function buatTampilan() {

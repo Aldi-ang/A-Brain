@@ -427,6 +427,26 @@ be swallowed exactly like `lapor_` already is. A tab cannot be swallowed and can
   classified `DOBEL` and each says whether the ledger was touched (it was not).
 - `DASHBOARD!M2` counts unread live with `COUNTIFS` — no trigger, so it cannot go stale.
 
+### The TANYA tab and the clock — Aldi's request, 2026-08-12
+
+His words: *"i also want [lancelot] to be able to give me the exact nota for specific agen in
+specific time, and also i want [lancelot] to be able to summarise todays activities and
+performance from the agen"*, then: *"make sure that lancelot know the time right now, so if i said
+today he know that today is what date"*.
+
+Built as **formulas on a `TANYA` tab**, not a script function and not agent memory:
+
+- `B3` agen (or SEMUA), `B4`/`B5` date range → the exact matching notas live under row 7. He can
+  change them on his phone; nothing has to be run.
+- Column J: **HARI INI per agen** — nota count, gulungan, netto, dibayar, via `QUERY` on `TODAY()`.
+- **`TANYA!B2` is the clock.** `=TEXT(NOW(),...)` in the sheet's own timezone, and `pasangSheet`
+  now pins that timezone to `Asia/Jakarta` — left unset it follows whoever created the file, so
+  an evening nota could land on the wrong day.
+
+`~/.claude/agents/lancelot.md` gained an "Answering questions about the ledger" section: which tab
+answers which question, and **"You do not know what day it is — read `TANYA!B2` first."** An LLM
+asked "how was today" will otherwise answer from its training-cutoff idea of the date, silently.
+
 ### The strongest unverified findings, for whoever picks this up
 
 `buatCuan` charges a nota's whole ongkos to the first gulungan that sells · a resold OUT gulungan
