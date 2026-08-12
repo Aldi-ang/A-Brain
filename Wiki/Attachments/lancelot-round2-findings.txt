@@ -1,0 +1,179 @@
+=== LENS
+[BUG/BLOCKED WORK/tinggi] Musim baru: nomor seri lama bikin semua nota ditolak
+  WHERE: petaSeri_() lines 469-487, dipanggil dari tulisNota_() line 369; GAGAL_PERMANEN line 571
+  WHEN: Mita mulai musim 2027 dan memakai nomor seri dari awal lagi (KS 1, KS 2, ...) — persis seperti musim 2026. petaSeri_() memindai SELURUH tab ITEM sejak awal, tanpa batas tanggal dan tanpa kolom MUSIM (H_NOTA line 31-37 tidak punya satu pun). Jadi 'KS 1' 2027 be
+  FIX: Tambah kolom MUSIM di H_NOTA (isi otomatis dari TANGGAL saat tulisNota_), lalu di petaSeri_() lewati baris yang musimnya beda dari nota yang masuk. Kalau mau paling malas: batasi petaSeri_() ke nota 1
+[BUG/WRONG DATA/tinggi] Gulungan OUT lalu dijual ulang dicatat sebagai rugi total
+  WHERE: buatCuan() lines 904-927; kolom ITEM 'NO NOTA JUAL' dan 'LABEL BARU' (H_ITEM line 41)
+  WHEN: Om CK menolak gulungan 308 di nota jual JUAL-01. Aldi menandai baris itu OUT, JUMLAH-nya 0. Tembakau kembali, dilabel ulang 347, lalu terjual di JUAL-05. Dua hal patah sekaligus. Pertama, buatCuan line 908 menyimpan hargaJual['JUAL-01||K5 308'] = 0, dan line 9
+  FIX: Di buatCuan, lewati baris nota jual yang IN/OUT = OUT saat membangun hargaJual — gulungan itu belum terjual, bukan terjual seharga nol. Lalu pindahkan sambungan beli-jual ke tabel anak PENGIRIMAN (NO 
+[UPGRADE/WRONG DATA/tinggi] Pabrik bayar sebagian atau telat tidak bisa dicatat, malah dimarahi cek kualitas
+  WHERE: H_NOTA line 34-35 (DIBAYAR, TGL BAYAR, REF TRANSFER); pilih_ LUNAS line 194; cekKualitas lines 1381-1386
+  WHEN: Om CK bayar Rp 5.000.000 dari nota Rp 9.357.500, sisanya minggu depan. Kolom DIBAYAR bukan uang yang masuk — tulisNota_ line 402 mengisinya dengan hitungan TOTAL JUMLAH - TOTAL ONGKOS + TAMBAHAN, dan cekKualitas line 1384 setiap malam memaksa angka itu tetap s
+  FIX: Pisahkan dua arti yang sekarang menumpuk di satu kolom: ganti nama DIBAYAR jadi NILAI NOTA (tetap dicek cekKualitas) dan tambah SUDAH DITERIMA + SISA (tidak dicek). Tambah pilihan 'SEBAGIAN' di dropdo
+[BUG/WRONG DATA/tinggi] Ongkos satu nota penuh dibebankan ke gulungan pertama yang laku
+  WHERE: buatCuan() line 931
+  WHEN: Nota beli MITA-07 berisi 20 gulungan, ongkos Rp 10.000/gulung, TOTAL ONGKOS Rp 200.000. Baru 1 gulungan terjual (modal Rp 1.900.000, omset Rp 2.000.000). Line 931 berbunyi var ong = x.terjual ? ongkos[no] || 0 : 0 — begitu ADA satu saja yang terjual, seluruh R
+  FIX: Kolom ONGKOS sudah ada per gulungan di ITEM (CI['ONGKOS']). Jumlahkan di loop line 912-927: per[no].ongkos += Number(gi(r,'ONGKOS'))||0 hanya untuk baris yang terjual, lalu pakai itu di line 931 dan h
+[BUG/WRONG DATA/sedang] Satu gulungan dipecah ke dua penjualan: uangnya hilang diam-diam
+  WHERE: buatCuan() line 908 (hargaJual[...] = ...); kolom ITEM 'NO NOTA JUAL'
+  WHEN: Gulungan besar dipecah: separuh masuk JUAL-03, separuh JUAL-07. Dua kerusakan. (a) Lintas nota: baris beli hanya punya satu kolom NO NOTA JUAL. Diisi JUAL-03, maka uang JUAL-07 tidak nempel ke baris beli mana pun — buatCuan hanya membaca hargaJual lewat nota y
+  FIX: Perbaikan satu baris untuk (b): ubah line 908 jadi penambahan, hargaJual[k] = (hargaJual[k]||0) + jumlah. Untuk (a) butuh tabel PENGIRIMAN yang sama seperti temuan gulungan OUT — satu baris per (gulun
+[UPGRADE/SILENT FAILURE/tinggi] Bon agen, uang kembali dari petani, dan semua gerakan uang tanpa barang tidak punya tempat
+  WHERE: pilih_ JENIS NOTA line 192; cekKualitas line 1367; kolom TAMBAHAN line 34
+  WHEN: Mita minta bon Rp 2.000.000 di muka, dipotong dari nota bulan depan. Atau petani mengembalikan uang karena tembakaunya kurang. Tidak ada barang, jadi tidak ada gulungan. JENIS NOTA cuma punya tiga pilihan dan pilih_ line 252 memakai setAllowInvalid(false), jad
+  FIX: Tabel KAS terpisah (TANGGAL, JENIS: BON/CICILAN/REFUND/BONUS, PIHAK, AGEN, JUMLAH bertanda, NO NOTA POTONG, REF, LINK BUKTI) plus satu tampilan saldo per agen. Jangan dipaksa masuk NOTA. Sekalian: kal
+[UPGRADE/WRONG DATA/tinggi] Komisi agen tidak punya kolom, dan CARA KOMISI adalah kolom mati
+  WHERE: MASTER 'M_AGEN' line 50 dan 'M_PABRIK' line 51 (tidak pernah dibaca kode mana pun); H_ITEM line 38-42 hanya punya satu HARGA
+  WHEN: Tiga harga hidup di bisnis ini — harga petani, harga agen, harga pabrik — tapi baris ITEM cuma punya satu kolom HARGA. Selisih petani-agen (komisi) tidak tercatat di mana pun. Kalau Pak Mul ambil komisi lebih besar di satu nota, satu-satunya tempat menaruhnya 
+  FIX: Tambah HARGA PETANI di ITEM (di sebelah HARGA yang jadi HARGA AGEN), lalu KOMISI = netto x (harga agen - harga petani) sebagai kolom turunan. Di NOTA tambah TOTAL KOMISI. Baru setelah itu CARA KOMISI 
+[BUG/MANUAL TOIL/tinggi] Nota yang harganya dinegosiasi ulang tidak bisa dikirim ulang — selamanya
+  WHERE: tulisNota_() line 313; GAGAL_PERMANEN line 571; cekInbox() line 600
+  WHEN: Tembakau ditimbang ulang di pabrik dan harga RA 7 dinegosiasi turun. Lancelot membaca foto nota yang sudah dikoreksi dan menulis file JSON baru dengan noNota RA 7. tulisNota_ line 313 melempar 'Nota RA 7 sudah ada. Tidak ditimpa.', pesan itu cocok dengan pola 
+  FIX: Tambah field "ganti": true di JSON: kalau ada dan nota sudah ada, jalankan hapusNotaSatu_ lalu tulis ulang di dalam lock cekInbox yang sama, dan catat nilai lama ke tab KOREKSI otomatis. Alternatif ta
+[UPGRADE/LOST DATA/sedang] Jenis barang cuma ada di level nota, padahal tab tulis tangannya per gulungan
+  WHERE: H_ITEM line 38-42 (tidak ada JENIS BARANG); migrasiLama_() line 796 dan 808
+  WHEN: Satu nota dari Yohan berisi Janturan dan Saput sekaligus — dan itu bukan tebakan: tab tulis tangan lamanya memang punya kolom JENIS BARANG PER BARIS, buktinya migrasiLama_ line 796 membacanya baris demi baris. Tapi ITEM tidak punya kolom itu, jadi line 796 men
+  FIX: Tambah JENIS BARANG ke H_ITEM dan isi per gulungan di tulisNota_ (default ke d.jenisBarang kalau item tidak menyebut). Kolom di NOTA tetap dipakai sebagai ringkasan. Di migrasiLama_ kirimkan barang pe
+[BUG/WRONG DATA/sedang] Jenis nota NOTA AGEN dihitung CUAN tapi tidak terlihat di DASHBOARD
+  WHERE: pilih_ line 192; buatDashboard() lines 1078, 1086-1087; buatCuan() line 914
+  WHEN: Dropdown JENIS NOTA menawarkan tiga pilihan, dan pilihan kedua NOTA AGEN tidak dijelaskan di mana pun. Aldi memakainya untuk nota milik agen. Semua kartu DASHBOARD dikunci ke string 'BELI PETANI': MODAL BELI (line 1078), GULUNG (line 1086), OUT (line 1087) — j
+  FIX: Putuskan artinya lalu tegakkan di satu tempat. Paling malas: buat helper isBeli(jenis) yang berarti 'bukan JUAL PABRIK', pakai di buatCuan dan ubah rumus DASHBOARD dari (JENIS='BELI PETANI') jadi (JEN
+[UPGRADE/MANUAL TOIL/tinggi] Margin timbangan — sumber untung kedua — tidak bisa diukur
+  WHERE: buatCuan() lines 911-934 (kolom keluaran line 941); tidak ada perbandingan netto beli vs netto jual di mana pun
+  WHEN: Untung Aldi datang dari dua tempat: selisih harga, dan kilo yang bertambah antara timbangan beli dan timbangan jual. Kedua angka netto sebenarnya sudah tersimpan — netto di baris ITEM nota beli dan netto di baris ITEM nota jual — tapi tidak ada satu pun kode y
+  FIX: Di buatCuan, kumpulkan juga netto sisi beli dan netto sisi jual saat menyambungkan gulungan (nettoBeli += , nettoJual += ), lalu tambah tiga kolom di CUAN: KG BELI, KG JUAL, SELISIH KG. Sekitar enam b
+=== LENS
+[BUG/LOST DATA/tinggi] A plural typo in the JSON eats the whole nota, and the retry is blocked forever
+  WHERE: tulisNota_ — Lancelot.gs:318 (`var items = d.item || [];`), cekInbox — Lancelot.gs:595-597
+  WHEN: Lancelot emits `"items": [...]` instead of `"item": [...]` (LLMs alternate between the two constantly), or the array fails to serialise. tulisNota_ falls back to an empty list, throws nothing, and writes a NOTA row with JUMLAH GULUNG 0, TOTAL BRUTO 0, TOTAL JU
+  FIX: Two lines at the top of tulisNota_, before anything is written: `var items = d.item || d.items || [];` and `if (!items.length) throw new Error('Nota ' + noNota + ' wajib diisi minimal satu gulungan (f
+[BUG/WRONG DATA/tinggi] angka_ reads "Rp 55.000/kg" as 55 — a 1000x underpayment that reconciles perfectly
+  WHERE: angka_ — Lancelot.gs:105-108
+  WHEN: A handwritten nota writes the price the way everyone writes it: '55.000/kg'. Lancelot transcribes the unit with the number. angka_ strips 'Rp' and spaces but decides whether the dots are thousands separators BEFORE stripping the unit text: the test `/\.\d{3}$/
+  FIX: Strip everything that is not a digit, dot, comma or minus BEFORE counting separators — insert `t = t.replace(/[^0-9.,\-]/g, '');` right after line 92. Then add to lancelotSelfCheck: `cek('angka 55.000
+[UPGRADE/SILENT FAILURE/tinggi] Nothing ever compares Lancelot's arithmetic to the total written on the paper
+  WHERE: tulisNota_ — Lancelot.gs:320-355 and 398-402; schema comment Lancelot.gs:300-303
+  WHEN: Lancelot misreads one gulungan on a blurry photo — 58 kg read as 53. Every number it produces is then internally consistent: bruto 53, netto 47.7, jumlah = netto x harga, TOTAL BRUTO = sum of items, DIBAYAR = TOTAL JUMLAH - TOTAL ONGKOS + TAMBAHAN. cekKualitas
+  FIX: Add two required fields the agent must TRANSCRIBE and never compute: `totalBrutoNota` and `totalDibayarNota`. In tulisNota_, after bT/jT are summed: `if (Math.abs(bT - angka_(d.totalBrutoNota)) > 0.5 
+[BUG/WRONG DATA/tinggi] JENIS NOTA is never validated and silently defaults to BELI PETANI — a sale gets booked as a purchase
+  WHERE: tulisNota_ — Lancelot.gs:393; consumers petaSeri_:480, buatCuan:906 & 914, buatDashboard:1113, DASHBOARD cards:1078-1087
+  WHEN: Lancelot omits jenisNota on the pabrik nota, or writes 'JUAL PABRIK ' with a trailing space, or 'Jual Pabrik'. Line 393 writes whatever arrives (or 'BELI PETANI' when it is missing) straight to the sheet — the dropdown built by pilih_ does NOT block script wri
+  FIX: Whitelist at the gate in tulisNota_: `var JN = {'BELI PETANI':1,'NOTA AGEN':1,'JUAL PABRIK':1}; var jn = String(d.jenisNota||'').trim().toUpperCase(); if (!JN[jn]) throw new Error('JENIS NOTA wajib di
+[BUG/WRONG DATA/sedang] "OUT " with a space is paid for as if the pabrik had accepted it
+  WHERE: tulisNota_ — Lancelot.gs:323 (`String(t.inOut || 'IN').toUpperCase() === 'OUT'`); cekKualitas repeats the same untrimmed compare at Lancelot.gs:1344
+  WHEN: Lancelot emits `"inOut": "OUT "` or `"OUT (ditolak)"` or 'keluar'. The comparison is uppercased but never trimmed, so the gulungan is treated as IN: it gets a HARGA, a JUMLAH, an ONGKOS, its bruto joins TOTAL BRUTO and its money joins DIBAYAR. The NOTA row rec
+  FIX: One shared helper used by both callers: `function keluar_(v){ return String(v == null ? '' : v).trim().toUpperCase().indexOf('OUT') === 0; }`. Use it at line 323 and line 1344, and write the normalise
+[BUG/WRONG DATA/sedang] "nilaiTara": null means no tara at all — he pays for 10% packaging on every gulungan
+  WHERE: tulisNota_ — Lancelot.gs:316
+  WHEN: The tara rule is not printed on the nota, so Lancelot does what JSON generators do with an unknown value and emits `"nilaiTara": null`. Line 316 only treats `undefined` as 'use the 10% default'; `null` goes through angka_, which returns '' for null, and `'' ||
+  FIX: `var nilai = (d.nilaiTara == null || d.nilaiTara === '') ? 0.1 : (angka_(d.nilaiTara) || 0);` (loose `==` catches both null and undefined), plus `if (cara === 'persen' && !nilai) throw new Error('NILA
+[BUG/WRONG DATA/sedang] abaikanDuplikat is a field the AI can set, and it switches off both duplicate defences at once
+  WHERE: tulisNota_ — Lancelot.gs:358, with the error texts at Lancelot.gs:363 and 379 literally instructing the reader to set it
+  WHEN: An import fails with NOTA KEMBAR. The error message ends with 'tambahkan "abaikanDuplikat": true' — and that message is what gets pasted back to Lancelot, or read by Lancelot itself in a retry loop. The next JSON carries the flag, and line 358 skips BOTH guard
+  FIX: Strip it on the machine path — first line of the forEach in tulisDariJson_ (line 548): `delete d.abaikanDuplikat;`. Keep the override for humans only, e.g. a menu function `importPaksa(namaFile)` that
+[BUG/WRONG DATA/sedang] HARGA has no floor and no plausibility band; a zero price is only a RINGAN warning
+  WHERE: tulisNota_ — Lancelot.gs:329 (`rupiah_(angka_(t.harga) || 0)`); cekKualitas — Lancelot.gs:1355
+  WHEN: The price is under the pabrik's stamp, so Lancelot omits harga or emits 0. tulisNota_ substitutes 0, JUMLAH becomes 0 for that gulungan, TOTAL JUMLAH drops, and DIBAYAR can even go negative (TOTAL JUMLAH - TOTAL ONGKOS + TAMBAHAN). Every arithmetic check still
+  FIX: Reject at the gate in tulisNota_: `if (!out && !(harga > 0)) throw new Error('HARGA wajib diisi pada gulungan IN "' + kunciSeri_(t.seri, t.label) + '".');` plus a tunable band `var HARGA_MIN = 10000, 
+[BUG/WRONG DATA/sedang] A gulungan with no seri gets no duplicate protection and can never be matched to its sale
+  WHERE: tulisNota_ — Lancelot.gs:372 (`if (!k) return;`); petaSeri_ — Lancelot.gs:482; buatCuan — Lancelot.gs:907 and 918-919
+  WHEN: The seri is under the stamp, so Lancelot emits `"seri": ""` and no label. kunciSeri_ returns an empty string and every guard that keys on it simply skips the row: the nota can be re-imported under a differently spelled nota number without ever tripping NOMOR S
+  FIX: In the items loop: `if (!kunciSeri_(t.seri, t.label)) throw new Error('SERI/LABEL wajib diisi untuk gulungan ke-' + (i+1) + ' nota ' + noNota + '.');` for BELI PETANI and NOTA AGEN notas. If the seri 
+[BUG/WRONG DATA/sedang] LABEL BARU is written but never read — a rejected-then-resold gulungan shows as a permanent loss
+  WHERE: buatCuan — Lancelot.gs:907 and 918 (both keys use LABEL only); the field is written at tulisNota_:350 and displayed at buatTampilan:981, and read nowhere
+  WHEN: Gulungan 308 is rejected by the pabrik (OUT, Rp 0) and later resold under label 347 — the business's normal path. The sale nota carries 347, the buy row carries 308 in LABEL and 347 in LABEL BARU. buatCuan builds hargaJual from the sale's SERI+LABEL ('… 347') 
+  FIX: In buatCuan's buy-side loop, try both keys: `var k2 = kunciSeri_(gi(r,'SERI'), gi(r,'LABEL BARU')); var nilaiJual = jual ? (hargaJual[jual+'||'+k] !== undefined ? hargaJual[jual+'||'+k] : hargaJual[ju
+[BUG/WRONG DATA/sedang] "RA 7", "RA7" and "ra 7" are three different notas to this script
+  WHERE: tulisNota_ — Lancelot.gs:309; cariNota_ — Lancelot.gs:519; buatCuan — Lancelot.gs:917
+  WHEN: Two runs over the same photo do not have to agree on spacing: run 1 reads 'RA 7', run 2 reads 'RA7'. cariNota_ compares trimmed strings exactly, so the second import is not recognised as the same nota; if any weight also came out slightly different the fingerp
+  FIX: One helper, applied on write and on every lookup: `function noRapi_(x){ return String(x == null ? '' : x).trim().toUpperCase().replace(/\s+/g,' '); }`. Use it at line 309 for noNota, at line 349 for n
+[BUG/WRONG DATA/sedang] A month-first date passes the regex and files the nota in the wrong year
+  WHERE: tanggal_ — Lancelot.gs:127-128 (no range check on the captured month or day)
+  WHEN: Lancelot emits '07/13/2026' — month-first is the default habit of an English-trained model, and nothing in the JSON contract says otherwise. The regex captures day=07, month=13 and hands it to `new Date(2026, 12, 7)`, which JavaScript rolls over into 7 January
+  FIX: After the regex match: `if (+m[2] < 1 || +m[2] > 12 || +m[1] < 1 || +m[1] > 31) throw new Error('TANGGAL TIDAK TERBACA: "' + s + '". Pakai dd/mm/yyyy.');`. Add a future guard before returning any date
+[BUG/MANUAL TOIL/tinggi] Errors caused by bad AI data are retried for 30 minutes as if Google were down
+  WHERE: GAGAL_PERMANEN — Lancelot.gs:571 vs the throws at Lancelot.gs:140, 312, 331, 333
+  WHEN: Lancelot produces netto larger than bruto, or an unreadable date. tulisNota_ throws, but the message ('NETTO MINUS…', 'TANGGAL TIDAK TERBACA…', 'wajib punya tanggal') matches nothing in GAGAL_PERMANEN, so cekInbox classes it as transient: it re-reads and re-pa
+  FIX: Give every content validation one recognisable token. Prefix each throw in tulisNota_/tanggal_ with 'DATA SALAH: ' and add it to the regex: `var GAGAL_PERMANEN = /DATA SALAH|sudah ada|KEMBAR|BENTROK|w
+[BUG/LOST DATA/sedang] A file Lancelot names anything but *.json sits in the inbox forever with no trace
+  WHERE: cekInbox — Lancelot.gs:593 (`continue` with no log); jagaOtomatis_ — Lancelot.gs:1291-1300 watches only the GAGAL folder
+  WHEN: Lancelot writes 'nota-25-07.json.txt', or a blob with no extension, or a name with a trailing space. Line 593 checks the last five characters and skips the file silently — no LOG row, no move, no counter. It is skipped again every 5 minutes, forever. DASHBOARD
+  FIX: Add one block to jagaOtomatis_: walk FOLDER_INBOX and report as BERAT any file whose getDateCreated() is more than 30 minutes old, whatever its name — `'file nyangkut di inbox: ' + nama`. That covers 
+[BUG/WRONG DATA/sedang] Agen, pabrik, petani and jenis barang names are never checked against the masters
+  WHERE: tulisNota_ — Lancelot.gs:342, 394-395; pasangValidasiMaster_ — Lancelot.gs:277 (allowInvalid(true), and dropdowns never apply to script writes)
+  WHEN: On one blurry nota Lancelot reads 'MITA' as 'MITHA', or invents a petani name it half-saw. Line 395 writes it verbatim — the data validation set up at line 277 warns humans who type and does nothing at all to setValues(). RINGKASAN groups by AGEN and now shows
+  FIX: Read the master columns once per tulisDariJson_ run and reject an unknown name: `if (d.agen && !masterAgen[noRapi_(d.agen)]) throw new Error('AGEN "' + d.agen + '" wajib ada di M_AGEN dulu. Yang terda
+[BUG/LOST DATA/sedang] linkNota and linkTransfer are pasted into a live formula with no escaping
+  WHERE: tulisNota_ — Lancelot.gs:408-409, deliberately exempted from aman_ at Lancelot.gs:416
+  WHEN: These two are the only cells that skip the formula-injection guard, and they are filled from a string the AI generates. Lancelot commonly emits the value already wrapped — `=IMAGE("https://…")` — or a Drive URL containing a quote; line 408 wraps it again and t
+  FIX: Validate before interpolating: `function urlAman_(u){ if (!u) return ''; if (!/^https:\/\/[^"'\s]+$/.test(u)) throw new Error('LINK wajib berupa URL https tanpa tanda kutip. Dapat: ' + u); return u; }
+[BUG/LOST DATA/rendah] A multi-nota file can be applied half-way and then permanently rejected
+  WHERE: tulisDariJson_ — Lancelot.gs:543-554, under the 6-minute Apps Script limit with the cekInbox lock held
+  WHEN: Lancelot batches a day's 8 notas into one file. Every nota triggers a full re-read of NOTA and ITEM (cariNota_, petaSidik_, petaSeri_ each scan the whole sheet), so the run is slow and can hit the 6-minute execution limit at nota 5 — mid-rollback, or before it
+  FIX: Change the contract: one nota per JSON file. Then the file IS the transaction unit and the rollback has nothing to coordinate. Belt and braces in cekInbox: record `var mulai = Date.now();` before the 
+[UPGRADE/MANUAL TOIL/tinggi] No field says which photo produced a number, or which numbers the AI was unsure about
+  WHERE: JSON schema comment — Lancelot.gs:300-303; consumed in tulisNota_ — Lancelot.gs:305-427
+  WHEN: Three weeks later MASALAH flags a nota, or an agen disputes a weight. Nothing connects the row to the photo Lancelot read, to the run that read it, or to the version of the agent. Aldi cannot tell whether the agen wrote it wrong or the AI read it wrong, so he 
+  FIX: Two fields. `sumberFoto` (required, the Drive file id of the photo) written into CATATAN or a new column — one line in tulisNota_. And `ragu: ["harga","tanggal"]` (optional, the fields the agent was n
+[UPGRADE/WRONG DATA/sedang] Four self-check lines assert literal arithmetic, and one of them contradicts how ongkos is actually computed
+  WHERE: lancelotSelfCheck — Lancelot.gs:1449, 1450, 1456, 1457; the ongkos model lives at tulisNota_ — Lancelot.gs:336-337
+  WHEN: `cek('MITA baris 1 (ongkos dikurangi)', 23*40000 - 10000, 910000)` computes 910000 and asserts 910000 — it would pass with every function in the file deleted, and the same is true of lines 1450, 1456 and 1457. Behind that false comfort sits a real ambiguity: l
+  FIX: Make those four cases call the real code path instead of restating their own answer — extract the totals loop from tulisNota_ into `hitungTotal_(items, cara, nilai, ongkos)` and assert against its out
+=== LENS
+[BUG/BLOCKED WORK/tinggi] lancelotSelfCheck can never say SEMUA BENAR — the recovery procedure's step 1 is permanently red
+  WHERE: lancelotSelfCheck, line 1459: cek('kolom NOTA', H_NOTA.length, 25) — H_NOTA (lines 31-37) actually has 26 entries (verified by counting: ...LINK NOTA(24), LINK 
+  WHEN: Aldi's ledger breaks and he opens the file header, which tells him the order to run things in: '1. lancelotSelfCheck must say SEMUA BENAR'. He runs it. It returns 'GAGAL kolom NOTA = 26 (harus 25)', so `semua` is set false and the whole report prints '❌ ADA YA
+  FIX: Line 1459: change 25 to 26. Then make the assert self-maintaining instead of a magic number — cek('kolom NOTA', CN['CATATAN'], H_NOTA.length) — so adding a column can never make the money asserts look
+[BUG/SILENT FAILURE/tinggi] KOREKSI is write-only — nothing on earth reads it
+  WHERE: koreksiNota (line 557) writes T_KOREKSI; T_KOREKSI appears only at lines 27, 173 (created) and 558 (appended). No read anywhere — not cekKualitas, not buatCuan,
+  WHEN: Three weeks ago a nota came in with harga 55.000 instead of 57.500 and Aldi already paid the agen on it. He does the thing the file tells him to do at line 556 ('Never edit a mistake away. Write the correction, keep the history') and calls koreksiNota. A row l
+  FIX: Make KOREKSI visible where he already looks: at the end of cekKualitas, read KOREKSI and push each row into `masalah` as ['RINGAN','KOREKSI '+noNota, apaYangSalah+' -> '+seharusnya]. Ten lines, reuses
+[UPGRADE/WRONG DATA/tinggi] There is no way to void, delete or replace a nota — and hand-deleting it half-way corrupts CUAN
+  WHERE: tulisNota_ line 313 refuses to overwrite; hapusNotaSatu_ line 524 is the only delete and is only called internally (lines 422, 550); hapusMigrasi line 863 is ha
+  WHEN: The wrong nota must go. Aldi cannot re-send the corrected JSON: tulisNota_ line 313 throws 'Nota X sudah ada. Tidak ditimpa', which matches GAGAL_PERMANEN, so the corrected file is exiled to Lancelot-Gagal while the wrong nota stays. He cannot run hapusNotaSat
+  FIX: One public wrapper, ~6 lines: `function batalkanNota(){ var no = SpreadsheetApp.getUi().prompt('Batalkan nota','NO NOTA:',...).getResponseText(); backupMingguan(); koreksiNota(no,'nota dibatalkan','',
+[UPGRADE/WRONG DATA/tinggi] Nothing recomputes a nota's totals after a repair — the six derived fields are typed once and never again
+  WHERE: tulisNota_ lines 391-420 write TOTAL BRUTO / TOTAL NETTO / TOTAL JUMLAH / TOTAL ONGKOS / JUMLAH GULUNG / IN / OUT / DIBAYAR as static values; cekKualitas lines 
+  WHEN: Two everyday events land here. (a) The pabrik rejects three gulungan, so Aldi edits IN/OUT from IN to OUT in ITEM. (b) He renegotiates harga after import and edits HARGA. In both cases the ITEM row changes and the NOTA row does not. He must now hand-recompute,
+  FIX: `hitungUlangNota(noNota)`: read that nota's ITEM rows, re-run the exact accumulation already written in tulisNota_ lines 322-337 and 397-402, write the eight NOTA fields back. ~25 lines, no new logic.
+[UPGRADE/LOST DATA/sedang] The weekly backup cannot actually be restored — the copy gets a new id and the script is hard-wired to the old one
+  WHERE: backupMingguan line 643 (DriveApp.getFileById(SPREADSHEET_ID).makeCopy), SPREADSHEET_ID constant line 21, nyalakanOtomatis lines 699-700 (forSpreadsheet(SPREADS
+  WHEN: Something goes badly wrong and Aldi opens Lancelot-Backup. He gets a spreadsheet with a different id and no script attached (this project is standalone, so makeCopy copies the sheets only). Opening it and typing feels like recovery, but cekInbox keeps importin
+  FIX: Skip the id-swap entirely — restore into the original file instead: `pulihkanDariBackup(namaBackup)` that copies the NOTA and ITEM tab values from the backup over the live ones (after taking a fresh b
+[BUG/LOST DATA/sedang] backupMingguan prunes to 8 on EVERY call — including the 'safety copy first' call, so panic destroys the history
+  WHERE: backupMingguan lines 652-657 (prune runs unconditionally after every makeCopy); called by the Sunday trigger (line 698) and by hapusMigrasi line 862, plus manua
+  WHEN: Aldi is repairing something and does exactly what any sensible person would tell him: run backupMingguan before each risky step. Every run makes a copy AND trashes everything past the 8th newest in the folder. Eight manual safety copies in one afternoon and ev
+  FIX: Prune by age, not count: keep anything newer than ~90 days, or only prune when called from the Sunday trigger (pass a flag: `backupMingguan(pangkas)`, hapusMigrasi and manual runs pass nothing). One-l
+[BUG/WRONG DATA/tinggi] A resold OUT gulungan earns money that CUAN cannot see — LABEL BARU is written and never read
+  WHERE: buatCuan line 915 (`if IN/OUT === 'OUT' return`) and line 919 (`hargaJual[jual + '||' + k]`, where k = kunciSeri_ of SERI+LABEL only). 'LABEL BARU' is written a
+  WHEN: Gulungan 308 is rejected by Om CK, marked OUT, and later resold under new label 347. Aldi enters the sale nota and fills NO NOTA JUAL on the buy row. buatCuan skips the row entirely at line 915 before it counts anything, so the resale money never becomes OMSET
+  FIX: Line 919: fall back to the new label — `var nilaiJual = hargaJual[jual+'||'+k]; if (nilaiJual===undefined) nilaiJual = hargaJual[jual+'||'+kunciSeri_(gi(r,'LABEL BARU'), '')] ...` (try SERI+LABEL BARU
+[BUG/SILENT FAILURE/tinggi] CUAN and half the DASHBOARD are frozen snapshots, while the heartbeat next to them says 'otomatis sehat'
+  WHERE: buatCuan (886) and buatDashboard (1031) write static values; nyalakanOtomatis lines 696-700 creates triggers for cekInbox, cekKualitas, backupMingguan, catatEdi
+  WHEN: Aldi imports three weeks of notas and makes several sales. He opens DASHBOARD. M1 says 'otomatis sehat' because cekInbox is stamping N1 every five minutes, MODAL BELI updates live, and right beside it OMSET and CUAN show whatever they were the last time he per
+  FIX: Add buatCuan + buatDashboard to the nightly job — one line at the end of cekKualitas — so the frozen half refreshes on the same schedule as the check. Cheaper still: stamp the CUAN title cell (line 93
+[UPGRADE/SILENT FAILURE/tinggi] The nightly quality check reports to nobody — lapor_ is swallowed under a trigger
+  WHERE: cekKualitas line 1421 calls lapor_, which at line 67 wraps SpreadsheetApp.getUi() in `catch (e) {}`; there is no UI when a time trigger runs at 02:00. No MailAp
+  WHEN: At 02:00 cekKualitas finds 'BACKUP MINGGUAN MATI', or twelve orphan gulungan whose NOTA row he deleted by hand, or a DIBAYAR that no longer matches its own gulungan. It writes them to MASALAH and one line to LOG, then calls lapor_ — which throws inside getUi()
+  FIX: Two lines at the end of cekKualitas: write the BERAT count into DASHBOARD M2 next to the heartbeat with the same red conditional format, and `if (berat) MailApp.sendEmail(Session.getEffectiveUser().ge
+[BUG/BLOCKED WORK/sedang] One file cekInbox cannot move kills the whole run, and the next run, and every run after that
+  WHERE: cekInbox line 601 (`f.moveTo(gagal)` sits inside the catch with nothing around it) and line 606; the while loop at 591 and detak_ at 615 are both downstream
+  WHEN: A JSON in Lancelot-Inbox fails permanently (bad date, duplicate) and cekInbox tries to exile it. If that moveTo throws — the file is owned by Lancelot's Google account rather than Aldi's and he only has view rights on it, or Drive rate-limits during a busy imp
+  FIX: Wrap both moveTo calls: `try { f.moveTo(gagal); } catch (m) { catat_('cekInbox','AWAS','tidak bisa memindahkan '+f.getName()+': '+m); }` and continue the loop. Move detak_ out of the loop's fate by ca
+[UPGRADE/MANUAL TOIL/tinggi] Lancelot-Gagal is a one-way door, and one bad nota exiles the four good ones with it
+  WHERE: tulisDariJson_ lines 543-554 (whole file rolled back on any nota's failure); cekInbox lines 600-607 (moves to gagal); jagaOtomatis_ lines 1292-1301 reports the 
+  WHEN: A file holds five notas and nota 3 has a duplicate seri. tulisDariJson_ rolls back notas 1 and 2 and the file lands in Lancelot-Gagal. cekKualitas dutifully reports 'n nota gagal masuk dan menunggu diperiksa' — and that is the end of the system's involvement. 
+  FIX: Stop rolling back the good notas — in tulisDariJson_, catch per nota, keep the successes, and write the failed ones to a `<namafile>.SISA.json` in Lancelot-Gagal containing only the blocks that did no
+[BUG/LOST DATA/sedang] Every repair Aldi performs races cekInbox — the lock protects the importer from itself and from nothing else
+  WHERE: LockService appears only at line 586 (cekInbox). hapusMigrasi (849), migrasiDataLama (841), tulisNota_ (305) and hapusNotaSatu_ (524) take no lock; hapusMigrasi
+  WHEN: Aldi is cleaning up a bad nota — running hapusMigrasi, or hand-deleting rows — at 14:35. The five-minute trigger fires at 14:35 too. cekInbox computes `awal = shI.getLastRow() + 1` (line 386) and starts writing; his deleteRow loop (line 867) removes rows under
+  FIX: Take the same script lock inside tulisNota_ and hapusNotaSatu_ rather than in each caller — one place, all callers covered, and cekInbox's outer lock is re-entrant for the same execution. If that is a
+[BUG/WRONG DATA/sedang] abaikanDuplikat switches off both duplicate guards at once, and the error message teaches Aldi to use it
+  WHERE: tulisNota_ line 358 — `if (!d.abaikanDuplikat)` wraps BOTH the fingerprint check (359-363) and the seri-clash check (368-379); the thrown messages at 363 and 37
+  WHEN: A nota is rejected for NOMOR SERI BENTROK because an agen genuinely reused a seri. Aldi reads the error in LOG, which tells him the fix: add "abaikanDuplikat": true. He does, and re-drops the file. He has now also disabled the nota-kembar fingerprint on that f
+  FIX: Two flags instead of one: keep abaikanDuplikat for the fingerprint and add abaikanSeri for the seri clash; make each error message name only its own flag. One `if` split at line 358.
+[UPGRADE/WRONG DATA/rendah] When a nota number is duplicated, cekKualitas checks only the second copy
+  WHERE: cekKualitas line 1337 — `daftar[no] = {...}` overwrites unconditionally, right after line 1336 has just reported the duplicate
+  WHEN: Two rows in NOTA share NO NOTA 'RA 7' (a double import that got through, or the aftermath of a half-finished repair). Line 1336 correctly reports 'NO NOTA ganda'. Line 1337 then throws away the first row's record, so every gulungan belonging to either copy is 
+  FIX: Line 1337: `if (daftar[no]) return;` — keep the first record, skip the rest. The duplicate itself is already reported one line above; do not let it poison the other twenty checks.

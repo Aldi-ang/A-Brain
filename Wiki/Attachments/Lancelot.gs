@@ -90,6 +90,9 @@ function angka_(x) {
   if (x === undefined || x === null || x === '') return '';
   if (typeof x === 'number') return isNaN(x) ? '' : x;
   var t = String(x).replace(/rp/ig, '').replace(/\s/g, '').trim();
+  // units glued to the number ("55.000/kg") must go BEFORE we count separators,
+  // otherwise /\.\d{3}$/ fails and "55.000/kg" becomes 55 instead of 55000
+  t = t.replace(/[^0-9.,\-]/g, '');
   if (!t) return '';
   var minus = /^-/.test(t);
   t = t.replace(/-/g, '');
@@ -1456,8 +1459,11 @@ function lancelotSelfCheck() {
   cek('cuan MITA (C tab)', 2330000 - 2025000, 305000);
   cek('cuan YOHAN (C tab)', 5720000 - 4790000, 930000);
 
-  cek('kolom NOTA', H_NOTA.length, 25);
-  cek('kolom ITEM', H_ITEM.length, 16);
+  cek('kolom NOTA', CN['CATATAN'], H_NOTA.length);   // self-maintaining: last column = length
+  cek('kolom ITEM', CI['CATATAN'], H_ITEM.length);
+  cek('angka 55.000/kg', angka_('55.000/kg'), 55000);
+  cek('angka Rp 9.357.500', angka_('Rp 9.357.500'), 9357500);
+  cek('angka 55.5 kg tetap desimal', angka_('55.5 kg'), 55.5);
   cek('PABRIK di NOTA', CN['PABRIK'] ? 1 : 0, 1);
   cek('PETANI di ITEM', CI['PETANI'] ? 1 : 0, 1);
   cek('huruf kolom 27 = AA', huruf_(27) === 'AA' ? 1 : 0, 1);

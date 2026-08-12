@@ -363,6 +363,46 @@ serve — so both tools fail with "issue with the selected model". Sonnet and Op
 remapped to `cc/claude-opus-5`; Haiku was missed. The fix is to point it at a served model. The
 browser tools are the workaround until then.
 
+## Round 2 review — 2026-08-12, and what it cost to learn
+
+The 16-agent second-pass workflow (`wf_6d41c78e-354`) **did not finish**. It launched at 01:10 WIB
+and hit the Anthropic session limit ("resets 5am") at 01:56. Three of five hunt lenses returned
+(`lancelot`, `pulih`, `bisnis`); `regresi` — the most important one, the regression audit — and
+`lengkap` both died mid-read, 9 of 12 agents errored, and the synthesis agent that was supposed to
+write Aldi's morning report never ran. `result.laporan` is `null`. 641k tokens spent, no report.
+
+**Lesson: a fan-out that ends in one synthesis agent loses everything when the quota dies at the
+end.** The findings survived only because the per-agent journal is on disk
+(`subagents/workflows/<runId>/journal.jsonl`) and could be re-read the next morning. Salvaged and
+kept verbatim at `Wiki/Attachments/lancelot-round2-findings.txt` — 20 findings, **unverified**: the
+refute stage died too, so exactly one of them was checked by an agent (rejected) and two by hand.
+
+### The two confirmed by hand (both fixed, both proven red before the edit)
+
+1. **`lancelotSelfCheck` could never pass.** Line 1459 asserted `H_NOTA.length === 25`, but adding
+   the `TAMBAHAN` column in the previous fix round made it 26. Step 1 of the whole run order was
+   permanently red — the previous round's own fix broke its own check, and nothing caught it
+   because the script has never been executed inside Apps Script. Now written as
+   `cek('kolom NOTA', CN['CATATAN'], H_NOTA.length)` so a new column can never make it lie again.
+2. **`angka_("55.000/kg")` returned 55, not 55000.** Units glued to the number were stripped
+   *after* the thousands-separator test had already failed on the trailing `kg`. A price written
+   the way every handwritten nota writes it became a 1000x underpayment that reconciles perfectly
+   against every arithmetic check in the file. Fixed by stripping non-numeric characters before
+   counting separators.
+
+Both were introduced or missed by the *first* audit's fixes. That is the shape of the risk here:
+each round of patches adds constants and parsing rules that nothing executes until Aldi runs it.
+
+### The strongest unverified findings, for whoever picks this up
+
+`buatCuan` charges a nota's whole ongkos to the first gulungan that sells · a resold OUT gulungan
+(`LABEL BARU`) is written and never read, so it books as a total loss · a new musim reusing seri
+numbers gets every nota permanently rejected · `abaikanDuplikat` is a flag the AI can set and it
+disables both duplicate guards at once, and the error message teaches the reader to set it ·
+`KOREKSI` is write-only, nothing reads it · the weekly backup cannot be restored (the copy gets a
+new id; the standalone script stays bolted to the original) · the nightly `cekKualitas` reports
+through `lapor_`, which is a no-op under a time trigger, so nobody is ever told.
+
 ## Never
 
 - Initiate, authorise, or advise on a money transfer. Lancelot **records payments that already
