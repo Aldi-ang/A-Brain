@@ -892,14 +892,26 @@ function buatCuan() {
   var nn = Math.max(shN.getLastRow() - 1, 0), ni = Math.max(shI.getLastRow() - 1, 0);
   var nota = nn ? shN.getRange(2, 1, nn, H_NOTA.length).getValues() : [];
   var item = ni ? shI.getRange(2, 1, ni, H_ITEM.length).getValues() : [];
+  var baris = hitungCuan_(nota, item);
+
+  var sh = ss.getSheetByName('CUAN') || ss.insertSheet('CUAN');
+  return lanjutCuan_(sh, baris);
+}
+
+/**
+ * The whole CUAN arithmetic, with no sheet in it, so lancelotSelfCheck can run
+ * it on made-up rows. Three real losses hid in here until it was testable:
+ * a rejected gulungan booked as sold for Rp 0, a resale under LABEL BARU that
+ * nothing looked up, and a nota's entire ongkos charged to the first sale.
+ */
+function hitungCuan_(nota, item) {
   var g = function (r, h) { return r[CN[h] - 1]; }, gi = function (r, h) { return r[CI[h] - 1]; };
 
-  var jenis = {}, agen = {}, ongkos = {};
+  var jenis = {}, agen = {};
   nota.forEach(function (r) {
     var no = String(g(r, 'NO NOTA')).trim(); if (!no) return;
     jenis[no] = String(g(r, 'JENIS NOTA')).trim();
     agen[no] = String(g(r, 'AGEN') || '');
-    ongkos[no] = Number(g(r, 'TOTAL ONGKOS')) || 0;
   });
 
   // sell-side price per physical gulungan, keyed by nota + seri
@@ -907,8 +919,11 @@ function buatCuan() {
   item.forEach(function (r) {
     var no = String(gi(r, 'NO NOTA')).trim();
     if (jenis[no] !== 'JUAL PABRIK') return;
+    // A gulungan the pabrik REJECTED is not sold for Rp 0 — it is not sold at all.
+    // Storing the 0 made the buy row count as terjual with omset 0, i.e. a total loss.
+    if (String(gi(r, 'IN/OUT')).trim().toUpperCase().indexOf('OUT') === 0) return;
     var k = kunciSeri_(gi(r, 'SERI'), gi(r, 'LABEL'));
-    if (k) hargaJual[no + '||' + k] = Number(gi(r, 'JUMLAH')) || 0;
+    if (k) hargaJual[no + '||' + k] = (hargaJual[no + '||' + k] || 0) + (Number(gi(r, 'JUMLAH')) || 0);
   });
 
   var per = {};
@@ -916,27 +931,40 @@ function buatCuan() {
     var no = String(gi(r, 'NO NOTA')).trim();
     if (!no || jenis[no] === 'JUAL PABRIK') return;
     if (String(gi(r, 'IN/OUT')).toUpperCase() === 'OUT') return;
-    if (!per[no]) per[no] = { terjual: 0, belum: 0, modal: 0, omset: 0 };
+    if (!per[no]) per[no] = { terjual: 0, belum: 0, modal: 0, omset: 0, ongkos: 0 };
     var jual = String(gi(r, 'NO NOTA JUAL') || '').trim();
     var k = kunciSeri_(gi(r, 'SERI'), gi(r, 'LABEL'));
     var nilaiJual = jual && k ? hargaJual[jual + '||' + k] : undefined;
+    // A rejected gulungan resold under a new label carries LABEL BARU; the sale
+    // nota knows it by that name only. Without this the resale money vanished.
+    if (nilaiJual === undefined && jual) {
+      var kBaru = kunciSeri_(gi(r, 'SERI'), gi(r, 'LABEL BARU'));
+      var kBaru2 = kunciSeri_(gi(r, 'LABEL BARU'), '');
+      if (kBaru !== k && hargaJual[jual + '||' + kBaru] !== undefined) nilaiJual = hargaJual[jual + '||' + kBaru];
+      else if (kBaru2 && hargaJual[jual + '||' + kBaru2] !== undefined) nilaiJual = hargaJual[jual + '||' + kBaru2];
+    }
     if (jual && nilaiJual !== undefined) {
       per[no].terjual++;
       per[no].modal += Number(gi(r, 'JUMLAH')) || 0;
       per[no].omset += nilaiJual;
+      // ongkos follows its own gulungan. Charging the nota's whole TOTAL ONGKOS
+      // the moment ONE gulungan sold turned real profit into a red loss.
+      per[no].ongkos += Number(gi(r, 'ONGKOS')) || 0;
     } else {
       per[no].belum++;
     }
   });
 
-  var baris = Object.keys(per).sort().map(function (no) {
+  return Object.keys(per).sort().map(function (no) {
     var x = per[no];
-    var ong = x.terjual ? ongkos[no] || 0 : 0;
+    var ong = x.ongkos || 0;
     return [no, agen[no], x.terjual, rupiah_(x.modal), rupiah_(x.omset),
             x.terjual ? rupiah_(x.omset - x.modal - ong) : '', x.belum];
   });
+}
 
-  var sh = ss.getSheetByName('CUAN') || ss.insertSheet('CUAN');
+/** Everything from here down is drawing, not arithmetic. */
+function lanjutCuan_(sh, baris) {
   sh.clear(); bebaskan_(sh); sh.setHiddenGridlines(true);
   sh.getRange('A1:G1').merge().setValue('CUAN - hanya dari gulungan yang sudah terjual')
     .setFontSize(15).setFontWeight('bold').setFontColor('#ffffff').setBackground(WARNA.gelap);
@@ -1458,6 +1486,47 @@ function lancelotSelfCheck() {
 
   cek('cuan MITA (C tab)', 2330000 - 2025000, 305000);
   cek('cuan YOHAN (C tab)', 5720000 - 4790000, 930000);
+
+  // ---- CUAN arithmetic, run for real on made-up rows (no sheet needed)
+  var brsN = function (o) {
+    var r = []; for (var i = 0; i < H_NOTA.length; i++) r.push('');
+    Object.keys(o).forEach(function (k) { r[CN[k] - 1] = o[k]; }); return r;
+  };
+  var brsI = function (o) {
+    var r = []; for (var i = 0; i < H_ITEM.length; i++) r.push('');
+    Object.keys(o).forEach(function (k) { r[CI[k] - 1] = o[k]; }); return r;
+  };
+  var notaUji = [
+    brsN({ 'NO NOTA': 'BELI-1', 'JENIS NOTA': 'BELI PETANI', 'AGEN': 'MITA', 'TOTAL ONGKOS': 30000 }),
+    brsN({ 'NO NOTA': 'BELI-2', 'JENIS NOTA': 'BELI PETANI', 'AGEN': 'YOHAN', 'TOTAL ONGKOS': 5000 }),
+    brsN({ 'NO NOTA': 'BELI-3', 'JENIS NOTA': 'BELI PETANI', 'AGEN': 'PAK MUL', 'TOTAL ONGKOS': 5000 }),
+    brsN({ 'NO NOTA': 'JUAL-1', 'JENIS NOTA': 'JUAL PABRIK', 'PABRIK': 'OM CK' }),
+    brsN({ 'NO NOTA': 'JUAL-2', 'JENIS NOTA': 'JUAL PABRIK', 'PABRIK': 'OM CK' }),
+    brsN({ 'NO NOTA': 'JUAL-3', 'JENIS NOTA': 'JUAL PABRIK', 'PABRIK': 'OM CK' })
+  ];
+  var itemUji = [
+    // BELI-1: three gulungan, only the first is sold. Ongkos is 10.000 each.
+    brsI({ 'NO NOTA': 'BELI-1', 'SERI': 'K1', 'JUMLAH': 1900000, 'ONGKOS': 10000, 'NO NOTA JUAL': 'JUAL-1' }),
+    brsI({ 'NO NOTA': 'BELI-1', 'SERI': 'K2', 'JUMLAH': 1900000, 'ONGKOS': 10000 }),
+    brsI({ 'NO NOTA': 'BELI-1', 'SERI': 'K3', 'JUMLAH': 1900000, 'ONGKOS': 10000 }),
+    brsI({ 'NO NOTA': 'JUAL-1', 'SERI': 'K1', 'JUMLAH': 2000000 }),
+    // BELI-2: gulungan 308 rejected, relabelled 347, sold under the new label.
+    brsI({ 'NO NOTA': 'BELI-2', 'SERI': 'K5', 'LABEL': '308', 'LABEL BARU': '347', 'JUMLAH': 1000000, 'ONGKOS': 5000, 'NO NOTA JUAL': 'JUAL-2' }),
+    brsI({ 'NO NOTA': 'JUAL-2', 'SERI': 'K5', 'LABEL': '308', 'IN/OUT': 'OUT', 'JUMLAH': 0 }),
+    brsI({ 'NO NOTA': 'JUAL-2', 'SERI': 'K5', 'LABEL': '347', 'JUMLAH': 1200000 }),
+    // BELI-3: rejected and NOT yet resold. Stock, not a loss.
+    brsI({ 'NO NOTA': 'BELI-3', 'SERI': 'K9', 'JUMLAH': 500000, 'ONGKOS': 5000, 'NO NOTA JUAL': 'JUAL-3' }),
+    brsI({ 'NO NOTA': 'JUAL-3', 'SERI': 'K9', 'IN/OUT': 'OUT', 'JUMLAH': 0 })
+  ];
+  var cuanUji = hitungCuan_(notaUji, itemUji);
+  var cariCuan = function (no) { for (var i = 0; i < cuanUji.length; i++) if (cuanUji[i][0] === no) return cuanUji[i]; return []; };
+  var c1 = cariCuan('BELI-1'), c2 = cariCuan('BELI-2'), c3 = cariCuan('BELI-3');
+  cek('CUAN: ongkos ikut gulungan, bukan senota', c1[5], 90000);
+  cek('CUAN: 2 gulungan sisa belum dihitung rugi', c1[6], 2);
+  cek('CUAN: gulungan dilabel ulang tetap dapat omset', c2[4], 1200000);
+  cek('CUAN: cuan gulungan dilabel ulang', c2[5], 195000);
+  cek('CUAN: gulungan OUT belum laku = belum terjual', c3[6], 1);
+  cek('CUAN: gulungan OUT belum laku bukan rugi', c3[5] === '' ? 1 : 0, 1);
 
   cek('kolom NOTA', CN['CATATAN'], H_NOTA.length);   // self-maintaining: last column = length
   cek('kolom ITEM', CI['CATATAN'], H_ITEM.length);

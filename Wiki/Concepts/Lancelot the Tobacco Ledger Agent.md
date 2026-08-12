@@ -393,6 +393,23 @@ refute stage died too, so exactly one of them was checked by an agent (rejected)
 Both were introduced or missed by the *first* audit's fixes. That is the shape of the risk here:
 each round of patches adds constants and parsing rules that nothing executes until Aldi runs it.
 
+### Three more confirmed by hand the same morning — all in CUAN, all money
+
+Verified by extracting the **real** pre-fix `buatCuan` body out of the previous commit and running
+it on made-up rows: 5 of 6 cases failed before, 6 of 6 pass after. The arithmetic was split into a
+pure `hitungCuan_(nota, item)` precisely so it can be executed outside Apps Script.
+
+1. **A rejected gulungan was booked as sold for Rp 0.** `hargaJual` was built from every sale-nota
+   row including `OUT` ones, storing 0; the buy row then saw a *defined* value and counted the
+   gulungan as sold with no revenue. A Rp 500.000 roll waiting to be resold printed as
+   **−Rp 505.000**. Now OUT rows are skipped, so it stays BELUM TERJUAL — stock, not a hole.
+2. **`LABEL BARU` was written and never read.** Gulungan 308 rejected, relabelled 347, resold: the
+   sale nota knows it as 347, the join only tried 308, so the resale money vanished. Real case in
+   this trade, printed as **−Rp 1.005.000** instead of **+Rp 195.000**. Now falls back to the new
+   label.
+3. **A nota's whole ongkos was charged to the first gulungan that sold.** `x.terjual ? ongkos[no]`
+   took TOTAL ONGKOS for all 20 rolls the moment one sold. Ongkos now follows its own gulungan.
+
 ### The strongest unverified findings, for whoever picks this up
 
 `buatCuan` charges a nota's whole ongkos to the first gulungan that sells · a resold OUT gulungan
