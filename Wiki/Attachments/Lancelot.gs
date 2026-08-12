@@ -38,7 +38,7 @@ var H_NOTA = [
 var H_ITEM = [
   'NO NOTA', 'NO', 'SERI', 'LABEL', 'PETANI', 'GRADE',
   'BRUTO', 'TARA', 'NETTO', 'HARGA', 'JUMLAH', 'ONGKOS',
-  'IN/OUT', 'NO NOTA JUAL', 'LABEL BARU', 'CATATAN'
+  'IN/OUT', 'NO NOTA JUAL', 'NO GUDANG', 'CATATAN'
 ];
 
 var CN = {}, CI = {};
@@ -389,7 +389,7 @@ function bersihkanTabLama() {
  * { noNota, tanggal, jenisNota, jenisBarang, agen, pabrik, caraTara, nilaiTara,
  *   ongkosPerGulung, tambahan, lunas, caraBayar, dibayarKe, tglBayar,
  *   refTransfer, linkNota, linkTransfer, catatan,
- *   item:[{seri,label,petani,grade,bruto,harga,inOut,noNotaJual,labelBaru,catatan}] }
+ *   item:[{seri,label,noGudang,petani,grade,bruto,harga,inOut,noNotaJual,catatan}] }
  */
 function tulisNota_(d) {
   var ss = ss_(), shN = ss.getSheetByName(T_NOTA), shI = ss.getSheetByName(T_ITEM);
@@ -436,7 +436,7 @@ function tulisNota_(d) {
     r[CI['ONGKOS']] = ong;
     r[CI['IN/OUT']] = out ? 'OUT' : 'IN';
     r[CI['NO NOTA JUAL']] = t.noNotaJual || '';
-    r[CI['LABEL BARU']] = t.labelBaru || '';
+    r[CI['NO GUDANG']] = t.noGudang === undefined ? '' : t.noGudang;
     r[CI['CATATAN']] = t.catatan || '';
     var out2 = [];
     for (var c = 1; c <= H_ITEM.length; c++) out2.push(aman_(r[c] === undefined ? '' : r[c]));
@@ -454,7 +454,11 @@ function tulisNota_(d) {
     // The exemption belongs to the INCOMING nota, not the stored one. Getting
     // this backwards meant every real sale clashed with the buy nota its
     // gulungan came from, and the whole sell side was unusable.
-    var jualan = String(d.jenisNota || '') === 'JUAL PABRIK';
+    // The agen's copy of a sale carries the SAME seri as the real nota on purpose
+    // - same barang, different price. Without NOTA AGEN here, every agen copy
+    // would be rejected as NOMOR SERI BENTROK and no sale could ever be recorded.
+    var jn = String(d.jenisNota || '').trim().toUpperCase();
+    var jualan = jn === 'JUAL PABRIK' || jn === 'NOTA AGEN';
     var peta = jualan ? {} : petaSeri_(), bentrok = [], sendiri = {};
     items.forEach(function (t) {
       var k = kunciSeri_(t.seri, t.label);
@@ -1055,8 +1059,8 @@ function buatCuan() {
 /**
  * The whole CUAN arithmetic, with no sheet in it, so lancelotSelfCheck can run
  * it on made-up rows. Three real losses hid in here until it was testable:
- * a rejected gulungan booked as sold for Rp 0, a resale under LABEL BARU that
- * nothing looked up, and a nota's entire ongkos charged to the first sale.
+ * a rejected gulungan booked as sold for Rp 0, and a nota's entire ongkos
+ * charged to the first gulungan that sold.
  */
 function hitungCuan_(nota, item) {
   var g = function (r, h) { return r[CN[h] - 1]; }, gi = function (r, h) { return r[CI[h] - 1]; };
@@ -1089,14 +1093,8 @@ function hitungCuan_(nota, item) {
     var jual = String(gi(r, 'NO NOTA JUAL') || '').trim();
     var k = kunciSeri_(gi(r, 'SERI'), gi(r, 'LABEL'));
     var nilaiJual = jual && k ? hargaJual[jual + '||' + k] : undefined;
-    // A rejected gulungan resold under a new label carries LABEL BARU; the sale
-    // nota knows it by that name only. Without this the resale money vanished.
-    if (nilaiJual === undefined && jual) {
-      var kBaru = kunciSeri_(gi(r, 'SERI'), gi(r, 'LABEL BARU'));
-      var kBaru2 = kunciSeri_(gi(r, 'LABEL BARU'), '');
-      if (kBaru !== k && hargaJual[jual + '||' + kBaru] !== undefined) nilaiJual = hargaJual[jual + '||' + kBaru];
-      else if (kBaru2 && hargaJual[jual + '||' + kBaru2] !== undefined) nilaiJual = hargaJual[jual + '||' + kBaru2];
-    }
+    // No resold-OUT lookup here on purpose. Aldi's rule, 2026-08-12: once the
+    // pabrik refuses a gulungan it is the agen's to sell and we record nothing.
     if (jual && nilaiJual !== undefined) {
       per[no].terjual++;
       per[no].modal += Number(gi(r, 'JUMLAH')) || 0;
@@ -1141,6 +1139,134 @@ function lanjutCuan_(sh, baris) {
   sh.setFrozenRows(2);
   for (var c = 1; c <= 7; c++) sh.setColumnWidth(c, 130);
   catat_('buatCuan', 'OK', baris.length + ' nota');
+}
+
+/** Date key that does not need Utilities, so the self-check can run it. */
+function hariKunci_(t) {
+  var d = (t instanceof Date) ? t : new Date(t);
+  if (isNaN(d.getTime())) return '';
+  var b = d.getMonth() + 1, g = d.getDate();
+  return d.getFullYear() + '-' + (b < 10 ? '0' + b : b) + '-' + (g < 10 ? '0' + g : g);
+}
+
+/**
+ * CUAN HARIAN — one row per day per agen, which is what Aldi asked for.
+ *
+ * The two-nota model: a sale writes the real pabrik nota (JUAL PABRIK, our
+ * revenue) and the agen's copy (NOTA AGEN, the lower price we pay him). The gap
+ * between them IS the profit - no buy-side join needed.
+ *
+ * Ongkos is deliberately taken from the agen side only. Aldi: "ongkos is
+ * dibebankan on the agen side not ours", so DIBAYAR (which already subtracts it)
+ * is the right column for the agen nota, and the real nota must not carry it.
+ */
+function hitungCuanHarian_(nota) {
+  var g = function (r, h) { return r[CN[h] - 1]; };
+  var per = {};
+  nota.forEach(function (r) {
+    var no = String(g(r, 'NO NOTA')).trim(); if (!no) return;
+    var jenis = String(g(r, 'JENIS NOTA')).trim().toUpperCase();
+    if (jenis !== 'JUAL PABRIK' && jenis !== 'NOTA AGEN') return;
+    var hari = hariKunci_(g(r, 'TANGGAL')); if (!hari) return;
+    var agen = String(g(r, 'AGEN') || '').trim();
+    var k = hari + '||' + agen;
+    if (!per[k]) per[k] = { hari: hari, agen: agen, real: 0, agenBayar: 0, nota: 0 };
+    if (jenis === 'JUAL PABRIK') { per[k].real += Number(g(r, 'TOTAL JUMLAH')) || 0; per[k].nota++; }
+    else per[k].agenBayar += Number(g(r, 'DIBAYAR')) || 0;
+  });
+  return Object.keys(per).sort().reverse().map(function (k) {
+    var x = per[k];
+    return [x.hari, x.agen, x.nota, rupiah_(x.real), rupiah_(x.agenBayar),
+            rupiah_(x.real - x.agenBayar)];
+  });
+}
+
+/**
+ * Barang IN / OUT per agen, from the real sale notas only. IN means the pabrik
+ * took it. OUT means it was refused - and that is where our record stops, by
+ * his rule: "its their responsibility and we dont need to take notes".
+ */
+function hitungInOutAgen_(nota, item) {
+  var g = function (r, h) { return r[CN[h] - 1]; }, gi = function (r, h) { return r[CI[h] - 1]; };
+  var jual = {};
+  nota.forEach(function (r) {
+    var no = String(g(r, 'NO NOTA')).trim(); if (!no) return;
+    if (String(g(r, 'JENIS NOTA')).trim().toUpperCase() !== 'JUAL PABRIK') return;
+    jual[no] = { agen: String(g(r, 'AGEN') || '').trim(), hari: hariKunci_(g(r, 'TANGGAL')) };
+  });
+  var baris = [];
+  item.forEach(function (r) {
+    var no = String(gi(r, 'NO NOTA')).trim();
+    if (!jual[no]) return;
+    var keluar = String(gi(r, 'IN/OUT')).trim().toUpperCase().indexOf('OUT') === 0;
+    baris.push([jual[no].agen, jual[no].hari, no, gi(r, 'SERI'), gi(r, 'LABEL'),
+                gi(r, 'NO GUDANG'), Number(gi(r, 'NETTO')) || 0, keluar ? 'OUT' : 'IN']);
+  });
+  return baris.sort(function (a, b) {
+    if (a[0] !== b[0]) return a[0] < b[0] ? -1 : 1;      // agen
+    if (a[1] !== b[1]) return a[1] < b[1] ? 1 : -1;      // newest day first
+    return 0;
+  });
+}
+
+/** One drawing routine for both new tabs. Values only - no formulas to break. */
+function tulisTabel_(nama, judul, kepala, baris, lebar) {
+  var ss = ss_();
+  var sh = ss.getSheetByName(nama) || ss.insertSheet(nama);
+  sh.clear(); bebaskan_(sh); sh.setConditionalFormatRules([]); sh.setHiddenGridlines(true);
+  var n = kepala.length;
+  sh.getRange(1, 1, 1, n).merge().setValue(judul)
+    .setFontSize(15).setFontWeight('bold').setFontColor('#ffffff')
+    .setBackground(WARNA.gelap).setVerticalAlignment('middle');
+  sh.setRowHeight(1, 36);
+  sh.getRange(2, 1, 1, n).setValues([kepala]).setFontWeight('bold').setBackground(WARNA.kartu);
+  if (baris.length) sh.getRange(3, 1, baris.length, n).setValues(baris);
+  else sh.getRange('A3').setValue('Belum ada data.');
+  sh.setFrozenRows(2);
+  for (var c = 1; c <= n; c++) sh.setColumnWidth(c, lebar[c - 1] || 120);
+  return sh;
+}
+
+function buatCuanHarian() {
+  var ss = ss_(), shN = ss.getSheetByName(T_NOTA);
+  var nn = Math.max(shN.getLastRow() - 1, 0);
+  var nota = nn ? shN.getRange(2, 1, nn, H_NOTA.length).getValues() : [];
+  var baris = hitungCuanHarian_(nota);
+  var sh = tulisTabel_('CUAN HARIAN', '💰 CUAN HARIAN — per hari, per agen',
+    ['TANGGAL', 'AGEN', 'NOTA JUAL', 'JUAL KE PABRIK', 'DIBAYAR KE AGEN', 'CUAN'],
+    baris, [110, 140, 90, 150, 150, 140]);
+  if (baris.length) {
+    sh.getRange(3, 4, baris.length, 3).setNumberFormat('"Rp "#,##0');
+    var rng = sh.getRange(3, 6, baris.length, 1);
+    sh.setConditionalFormatRules([
+      SpreadsheetApp.newConditionalFormatRule().whenNumberLessThan(0)
+        .setBackground(WARNA.merah).setBold(true).setRanges([rng]).build(),
+      SpreadsheetApp.newConditionalFormatRule().whenNumberGreaterThan(0)
+        .setBackground(WARNA.hijau).setBold(true).setRanges([rng]).build()
+    ]);
+  }
+  catat_('buatCuanHarian', 'OK', baris.length + ' hari x agen');
+}
+
+function buatInOutAgen() {
+  var ss = ss_(), shN = ss.getSheetByName(T_NOTA), shI = ss.getSheetByName(T_ITEM);
+  var nn = Math.max(shN.getLastRow() - 1, 0), ni = Math.max(shI.getLastRow() - 1, 0);
+  var nota = nn ? shN.getRange(2, 1, nn, H_NOTA.length).getValues() : [];
+  var item = ni ? shI.getRange(2, 1, ni, H_ITEM.length).getValues() : [];
+  var baris = hitungInOutAgen_(nota, item);
+  var sh = tulisTabel_('IN-OUT AGEN', '📦 BARANG IN / OUT — per agen',
+    ['AGEN', 'TANGGAL', 'NO NOTA', 'SERI', 'LABEL', 'NO GUDANG', 'NETTO', 'IN/OUT'],
+    baris, [140, 110, 120, 90, 90, 110, 90, 80]);
+  if (baris.length) {
+    var rng = sh.getRange(3, 8, baris.length, 1);
+    sh.setConditionalFormatRules([
+      SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('IN')
+        .setBackground(WARNA.hijau).setBold(true).setRanges([rng]).build(),
+      SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('OUT')
+        .setBackground(WARNA.merah).setBold(true).setRanges([rng]).build()
+    ]);
+  }
+  catat_('buatInOutAgen', 'OK', baris.length + ' gulungan');
 }
 
 /**
@@ -1219,8 +1345,10 @@ function hapusTabRapikan() {
 }
 
 function buatSemuaTampilan() {
-  buatTampilan(); buatCuan(); buatDashboard(); buatNotaCetak(); buatTanya();
-  lapor_('Selesai', 'COMPILE, IN-OUT, RINGKASAN, CUAN, DASHBOARD, NOTA CETAK dan TANYA dibuat.\n\n'
+  buatTampilan(); buatCuan(); buatCuanHarian(); buatInOutAgen();
+  buatDashboard(); buatNotaCetak(); buatTanya();
+  lapor_('Selesai', 'COMPILE, IN-OUT, RINGKASAN, CUAN, CUAN HARIAN, IN-OUT AGEN, DASHBOARD, '
+    + 'NOTA CETAK dan TANYA dibuat.\n\n'
     + 'Semua otomatis dari NOTA + ITEM. Jangan diketik manual.');
 }
 
@@ -1314,7 +1442,7 @@ function buatTampilan() {
 
   tampil_('IN-OUT', '✅ IN / ❌ OUT — semua gulungan',
     '=QUERY(' + I + ',"select ' + [i('NO NOTA'), i('NO'), i('SERI'), i('LABEL'), i('PETANI'),
-      i('GRADE'), i('BRUTO'), i('NETTO'), i('IN/OUT'), i('NO NOTA JUAL'), i('LABEL BARU')].join(',')
+      i('GRADE'), i('BRUTO'), i('NETTO'), i('IN/OUT'), i('NO NOTA JUAL'), i('NO GUDANG')].join(',')
     + ' where ' + i('NO NOTA') + ' is not null order by ' + i('NO NOTA') + ',' + i('NO') + '",0)', 11);
 
   tampil_('RINGKASAN', '👥 RINGKASAN per agen',
@@ -1844,7 +1972,7 @@ function lancelotSelfCheck() {
     brsI({ 'NO NOTA': 'BELI-1', 'SERI': 'K3', 'JUMLAH': 1900000, 'ONGKOS': 10000 }),
     brsI({ 'NO NOTA': 'JUAL-1', 'SERI': 'K1', 'JUMLAH': 2000000 }),
     // BELI-2: gulungan 308 rejected, relabelled 347, sold under the new label.
-    brsI({ 'NO NOTA': 'BELI-2', 'SERI': 'K5', 'LABEL': '308', 'LABEL BARU': '347', 'JUMLAH': 1000000, 'ONGKOS': 5000, 'NO NOTA JUAL': 'JUAL-2' }),
+    brsI({ 'NO NOTA': 'BELI-2', 'SERI': 'K5', 'LABEL': '347', 'JUMLAH': 1000000, 'ONGKOS': 5000, 'NO NOTA JUAL': 'JUAL-2' }),
     brsI({ 'NO NOTA': 'JUAL-2', 'SERI': 'K5', 'LABEL': '308', 'IN/OUT': 'OUT', 'JUMLAH': 0 }),
     brsI({ 'NO NOTA': 'JUAL-2', 'SERI': 'K5', 'LABEL': '347', 'JUMLAH': 1200000 }),
     // BELI-3: rejected and NOT yet resold. Stock, not a loss.
@@ -1856,8 +1984,32 @@ function lancelotSelfCheck() {
   var c1 = cariCuan('BELI-1'), c2 = cariCuan('BELI-2'), c3 = cariCuan('BELI-3');
   cek('CUAN: ongkos ikut gulungan, bukan senota', c1[5], 90000);
   cek('CUAN: 2 gulungan sisa belum dihitung rugi', c1[6], 2);
-  cek('CUAN: gulungan dilabel ulang tetap dapat omset', c2[4], 1200000);
-  cek('CUAN: cuan gulungan dilabel ulang', c2[5], 195000);
+  cek('CUAN: baris OUT di nota jual tidak jadi omset nol', c2[4], 1200000);
+  cek('CUAN: cuan nota yang ada baris OUT-nya', c2[5], 195000);
+
+  // ---- the two-nota model: profit is the gap between the real nota and the agen's
+  var hariUji = new Date(2026, 7, 12);
+  var notaDua = [
+    brsN({ 'NO NOTA': 'JUAL-9', 'JENIS NOTA': 'JUAL PABRIK', 'AGEN': 'MITA', 'TANGGAL': hariUji,
+           'TOTAL JUMLAH': 9000000, 'DIBAYAR': 9000000 }),
+    brsN({ 'NO NOTA': 'JUAL-9-AGEN', 'JENIS NOTA': 'NOTA AGEN', 'AGEN': 'MITA', 'TANGGAL': hariUji,
+           'TOTAL JUMLAH': 8200000, 'TOTAL ONGKOS': 100000, 'DIBAYAR': 8100000 })
+  ];
+  var ch = hitungCuanHarian_(notaDua);
+  cek('CUAN HARIAN: satu baris per hari per agen', ch.length, 1);
+  cek('CUAN HARIAN: jual ke pabrik', ch.length ? ch[0][3] : 0, 9000000);
+  cek('CUAN HARIAN: dibayar ke agen (ongkos sudah dipotong di sisi agen)', ch.length ? ch[0][4] : 0, 8100000);
+  cek('CUAN HARIAN: cuan = real - agen', ch.length ? ch[0][5] : 0, 900000);
+
+  var itemDua = [
+    brsI({ 'NO NOTA': 'JUAL-9', 'SERI': 'AK 1', 'LABEL': '101', 'NO GUDANG': 'G7', 'NETTO': 50, 'IN/OUT': 'IN' }),
+    brsI({ 'NO NOTA': 'JUAL-9', 'SERI': 'AK 2', 'LABEL': '102', 'NETTO': 48, 'IN/OUT': 'OUT' }),
+    brsI({ 'NO NOTA': 'JUAL-9-AGEN', 'SERI': 'AK 1', 'LABEL': '101', 'NETTO': 50, 'IN/OUT': 'IN' })
+  ];
+  var io = hitungInOutAgen_(notaDua, itemDua);
+  cek('IN-OUT AGEN: hanya nota jual asli yang dihitung', io.length, 2);
+  cek('IN-OUT AGEN: gulungan ditolak ditandai OUT', io.length > 1 ? (io[0][7] === 'OUT' || io[1][7] === 'OUT' ? 1 : 0) : 0, 1);
+  cek('IN-OUT AGEN: nomor gudang ikut terbawa', io.length ? (io[0][5] === 'G7' || io[1][5] === 'G7' ? 1 : 0) : 0, 1);
   cek('CUAN: gulungan OUT belum laku = belum terjual', c3[6], 1);
   cek('CUAN: gulungan OUT belum laku bukan rugi', c3[5] === '' ? 1 : 0, 1);
 
