@@ -416,6 +416,26 @@ somewhere after out"*.
 **This deletes work.** The `LABEL BARU` column and the resold-OUT fallback added to `buatCuan` on
 the morning of 2026-08-12 are now obsolete: once a gulungan is OUT it leaves our books entirely.
 
+### Whose nota is it — asked every time (2026-08-12, commit `259c078`)
+
+His words: *"lancelot should ask me everytime for the nota name, if there is name in the nota u
+should make sure that the nota is belong to that agen or not"*.
+
+Two halves, and they are not interchangeable:
+
+- **The asking is the agent's job.** `lancelot.md` now forbids inferring the agen from the previous
+  nota, the filename, the folder, or a recognised name on the paper. The question is asked per
+  nota, even inside one batch, and when the paper carries a name Lancelot reads it back and lets
+  Aldi resolve the conflict — it never picks a side itself.
+- **The refusing is the script's job.** `cocokAgen_(diminta, diNota, daftar)` runs *before* the
+  duplicate guards, because a nota filed under the wrong agen is worse than one rejected twice. It
+  refuses: no agen named · an agen absent from `M_AGEN` · a printed name that disagrees with the
+  answer, naming the other agen if the printed one belongs to a real agen. Both refusals are
+  permanent (no retry storm) and surface on PESAN as `AGEN SALAH`, stating the ledger was untouched.
+
+`namaRapi_` means spacing and case are not identity: `"  mita "` and `"MITA"` are one agen. An
+empty `M_AGEN` deliberately blocks nothing, so a freshly wiped sheet still accepts notas.
+
 ### The bon context
 
 *"my system between me and my agent right now is buy and sell, so we give them bon then they buy
