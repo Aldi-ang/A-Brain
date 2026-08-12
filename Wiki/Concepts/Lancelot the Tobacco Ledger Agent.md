@@ -363,6 +363,73 @@ serve — so both tools fail with "issue with the selected model". Sonnet and Op
 remapped to `cc/claude-opus-5`; Haiku was missed. The fix is to point it at a served model. The
 browser tools are the workaround until then.
 
+## THE TWO-NOTA MODEL — his spec, 2026-08-12. Supersedes the three-price model above.
+
+**Not built yet.** Specced 17:00 WIB, deferred to after the quota reset at his instruction:
+*"i rather let u take notes first and do this after token reset"*. Everything below is his words
+plus the decisions they force. Read this before touching `tulisNota_` again.
+
+### The loop he wants
+
+1. He gives the nota (photo).
+2. If he says nothing, Lancelot asks: *"ini nota pembelian atau penjualan?"*
+3. **Nota pembelian** → write the exact numbers on the paper.
+   **Nota penjualan** → **two notas**: *"1 is the exact same nota penjualan as our revenue then the
+   other one is nota that we give to our agent, which is the minus"*.
+   Row format for both: nomor (1,2,3,4), nomor seri (*"ak 1 for example"*), **nomor gudang (not
+   compulsory — not all notas have it)**, bruto, netto, tara, harga, ongkos, jumlah. Tanggal and
+   agen name on top; **LUNAS with a tickbox** at the bottom.
+4. Lancelot must ASK whether an adjustment is needed on the agen's nota — that adjustment *is* the
+   profit margin, as a minus against the real nota. *"can be flexible for that but usually per
+   gulungan"*.
+5. A per-agen sheet listing barang IN and OUT, taken from the nota penjualan.
+6. A sheet showing profit = nota penjualan agen vs real. **One row per day per agen.**
+7. Upload his attachments (nota + bukti transfer) to Drive and attach them near the nota pembelian.
+8. During writing, warn on similarity — *"usually in the form of seri nama yg sama"* — and give him
+   the option to change it or not.
+
+### What the two notas share, and what differs
+
+*"the nota is exactly have the same list barang and seri and everything else but then with
+different price and maybe tarra, thats all, and of course regarding the ongkos we dont count the
+ongkos twice right, ongkos is dibebankan on the agen side not ours"*.
+
+So: identical rows, identical seri. Only **harga**, possibly **tara**, and **ongkos** differ, and
+**ongkos belongs to the agen side only** — the real (pabrik) nota must not carry it, or the margin
+is counted twice.
+
+### IN/OUT is now much smaller
+
+*"yes diterima pabrik and out is our agen responsibility to sell the item themself resold or not
+its their responsibility and we dont need to take notes of anything if the agent want to sell it
+somewhere after out"*.
+
+**This deletes work.** The `LABEL BARU` column and the resold-OUT fallback added to `buatCuan` on
+the morning of 2026-08-12 are now obsolete: once a gulungan is OUT it leaves our books entirely.
+
+### The bon context
+
+*"my system between me and my agent right now is buy and sell, so we give them bon then they buy
+item, with their bon and sell it to us, so it may be a change that we dont use nota pembelian at
+all for few agent... but in this case we dont need to worry about bon since my other family doing
+that anyway"*. So **nota pembelian is optional**, and bon is explicitly out of scope.
+
+### Consequences — the build list, in order
+
+1. **BUG, blocking, found while specced and NOT yet fixed:** `petaSeri_` is skipped only when
+   `jenisNota === 'JUAL PABRIK'`. The agen copy carries the **same seri**, so every agen nota would
+   be rejected with `NOMOR SERI BENTROK`. It must skip `NOTA AGEN` too.
+2. Add `NO GUDANG` to `H_ITEM` (optional). Remove `LABEL BARU` and the `buatCuan` fallback for it.
+3. Pairing — **my decision, needs his OK**: the agen copy takes the real nota's number plus
+   `-AGEN` (`JUAL-07` → `JUAL-07-AGEN`), with `JENIS NOTA = NOTA AGEN`. He described only the
+   content relationship, not a key; the number is the one thing that can differ. This finally gives
+   `NOTA AGEN` — the dropdown value nobody could explain — a real meaning.
+4. New tab per step 5 (barang IN/OUT per agen) and per step 6 (`CUAN HARIAN`, one row per day per
+   agen: jual real, bayar agen, cuan). Build the arithmetic as a pure `hitungCuanHarian_(nota)` so
+   `lancelotSelfCheck` can run it, the same pattern that caught three CUAN bugs.
+5. Keep the existing `CUAN` (buy↔sell join) — it still serves the agen who DO issue a nota
+   pembelian. Do not delete working machinery on the assumption that none will.
+
 ## Round 2 review — 2026-08-12, and what it cost to learn
 
 The 16-agent second-pass workflow (`wf_6d41c78e-354`) **did not finish**. It launched at 01:10 WIB
