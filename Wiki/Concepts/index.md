@@ -24,6 +24,7 @@ For the authoritative flat catalog, always check [[../Index]] first.
 - [[Lancelot the Tobacco Ledger Agent]]
 - [[Off-Token Colour Migration Map]]
 - [[Ponytail Philosophy]]
+- [[The KPM Control System]]
 - [[Secure Context Requirement]]
 - [[Silent Failure Disease]]
 - [[UI-Says-Yes-Server-Says-No Pattern]]

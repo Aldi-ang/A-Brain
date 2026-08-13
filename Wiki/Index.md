@@ -33,6 +33,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[UI-Says-Yes-Server-Says-No Pattern]] — a UI control shown without a matching server rule
 - [[Anti-Recurrence Check]] — never claim "committed" without `git show --stat` proof
 - [[Draft-Then-Deploy Discipline]] — rules changes are always draft until manually deployed
+- [[The KPM Control System]] — the reusable button/panel/record vocabulary, and the rule that
+  authority is graded by material rather than colour
 - [[Off-Token Colour Migration Map]] — the hardcoded-colour → theme-token table every screen
   migration follows, and the two checks that prove one landed
 - [[Ponytail Philosophy]] — the minimal-code discipline governing how the real repo gets
