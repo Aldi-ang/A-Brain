@@ -3,9 +3,9 @@ title: The KPM Control System
 description: The reusable button/panel/record vocabulary in theme.css, the material-over-colour rule behind it, and the Lite-Mode contract every control must keep.
 type: concept
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-08-14
 confidence: high
-checked: 2026-08-13
+checked: 2026-08-14
 tags: [pattern, design, components, kpm, settings]
 ---
 
@@ -48,6 +48,30 @@ buttons do not fit side by side at 375px).
 3. **44px minimum on every control**, buttons and inputs alike.
 4. **One writer per setting.** A two-position switch with two copies of the write is how a setting
    saves locally and never reaches the database — see [[Silent Failure Disease]].
+5. **A class that pins its own background must pin its own ink.** Added 2026-08-14 after a live
+   bug, below. A token like `var(--ink)` is a promise about *the theme's* ground; the moment a
+   class paints its own ground, that promise is void and the token becomes a coin flip between
+   the two themes.
+
+## The invisible panel: a token on a ground the theme does not own (2026-08-14)
+
+`.kpm-mod.gate` is the shell shared by the two locked screens — the Master Vault gate and the
+Google sign-in door. It pins its own background, `rgba(4,3,2,.9)`, because both screens are
+near-black **in both themes**. Its title, description and button, though, were plain
+`.kpm-mod` parts still taking colour from `var(--ink)` / `var(--accent-ink)`.
+
+In light mode `--ink` is **`#131211`** — near-black. Near-black ink on a near-black card is
+**≈1.05:1**. So anyone who last left the app in light mode and then signed out was looking at a
+card with **no readable text on it at all**: no title, no explanation, no visible button label.
+It shipped, passed 357 audit checks, and was found the same night only because he asked for that
+panel's colours to match the gate's — the fix for his ask *is* the fix for the bug.
+
+**Why no check caught it:** every contrast check compared a token against the token ground it was
+designed for. Nothing compared a token against a **literal** background declared in the same rule.
+That is the shape to look for — `background:` a hex, `color:` a var, in one class.
+
+Fixed by giving the class the gate card's literal hexes (`#f7e9c8` cream, `#8a7048` dim gold),
+which is also what makes the two locked screens genuinely one screen. Group 15 now asserts it.
 
 ## Two traps found while building it
 

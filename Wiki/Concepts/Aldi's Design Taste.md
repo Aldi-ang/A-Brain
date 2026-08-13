@@ -3,9 +3,9 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-08-11
+updated: 2026-08-14
 confidence: medium
-checked: 2026-08-11
+checked: 2026-08-14
 tags: [pattern, design, taste, ux, aldi]
 ---
 
@@ -165,6 +165,31 @@ Applied: all `CONTOH_*` seed arrays are now empty; `GRADE` was already free text
 way. **Still unaudited against this rule:** `CARA BAYAR` offers `TRANSFER / CASH / BON` and
 `JENIS NOTA` offers `NOTA AGEN` — both may be my inventions rather than his vocabulary, and the
 round-2 review separately flagged that `NOTA AGEN` is explained nowhere. Ask before relying on them.
+
+## "Similar format" is a separate ask from "same colours" (2026-08-14)
+
+Two instructions the same night, both about the screen you see *before* Google signs you in:
+
+1. *"remove the left sidebar then its old stuff already"*
+2. *"and make the panel in the middle to have the same color theme of our panel inside vault gate
+   as well, and similar format"*
+
+**The second one is the lesson.** Hours earlier that panel had already been given the vault gate
+card's exact background, border and width — as a shared class, so the two screens could not drift
+— and he looked at it and said it still did not match. He was right. What had been copied was the
+**shell**; what he was reading was the **contents**. The gate's panel is one centred column in
+mono: a 9px eyebrow, a 13px title, the control, nothing ruled across it. The module default is the
+opposite — a left-aligned head on its own tinted band, a 19px display title, a divider above the
+buttons. Same colours, different screen.
+
+**So: "same colour" and "same format" are two jobs, and matching a card's fill finishes neither.**
+When he points at two screens and says they should be the same, ask which of the two he is
+looking at — the material, or the layout — and expect the answer to be layout.
+
+Ask 1 is a second instance of a law already on this page: *"i dont want to see the sidebar button
+on the login screen"* (recorded above under **controls that appear where they do not belong**).
+The drawer is the app's whole navigation; signed out it carried only gated tabs and a duplicate
+login button. **A control that cannot do anything yet is not neutral to him — it is old UI.**
 
 ## Related
 
