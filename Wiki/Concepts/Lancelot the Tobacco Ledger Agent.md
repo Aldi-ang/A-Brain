@@ -445,9 +445,39 @@ and without the rounding. Worse, `cekKualitas` line 1894 asserts
 blank, would raise a **BERAT alarm on every gulungan, every night**. The nightly check would call
 his most accurate data an error.
 
-Design agreed but unbuilt: a `caraHitung` field (`total` | `per gulungan`); on `total` the nota
-totals come from the paper and the per-row netto/jumlah stay blank, and `cekKualitas` skips the
-per-row identity for those notas; on `per gulungan` each netto rounds to a whole kg before summing.
+**BUILT 2026-08-13 23:40.** `caraHitung` (`total` | `per gulungan`, default per gulungan) is a new
+NOTA column, and `BIAYA` is a new child table. What shipped:
+
+- `taraBulat_` rounds the derived tara to a whole kg. **The rounding is on the TARA, not the netto** —
+  the paper's `TARA (10%)` column carries whole numbers, and 26 kg → tara 3 → netto 23 is his own
+  nota. The two readings agree on every row he has sent and differ only when the potongan lands
+  exactly on `.5`; if a real nota ever shows otherwise, the rounding target is what to change.
+  It never runs when the tara is printed — a printed tara is copied.
+- On `caraHitung: 'total'`, `tulisNota_` writes per-row `TARA` / `NETTO` / `JUMLAH` **blank** and
+  **refuses the nota** unless `totalNetto` and `totalJumlah` are supplied off the paper. Refusing
+  is the feature: the alternative is inventing his most accurate figures.
+- `cekKualitas` reads `CARA HITUNG` and skips the per-row `bruto − tara = netto` and
+  `netto × harga = jumlah` identities for those notas, plus the two nota-level sums that would
+  compare a real total against absent rows. **Without this the nightly check called every gulungan
+  of his most accurate nota an error, every night.** What replaces them: a RINGAN warning if a
+  per-row netto or jumlah IS filled in, and `TOTAL NETTO > TOTAL BRUTO` — the one thing the paper
+  can still get wrong.
+- **`BIAYA` child table** (`NO NOTA · NO · JENIS BIAYA · KETERANGAN · JUMLAH`) + an empty
+  `M_BIAYA` master he fills himself. `TAMBAHAN` on NOTA is only the list's total, and `cekKualitas`
+  now fails BERAT when they disagree — `DIBAYAR` is computed from `TAMBAHAN`, so a hand-edited
+  biaya row is a money bug. Rollback (`hapusNotaSatu_`), `mulaiBersih` and `TAB_LINDUNGI` all
+  cover the new tabs.
+- `CARA HITUNG` is **appended, never inserted**: `pasangSheet` rewrites row 1 in place, so a column
+  added mid-list silently relabels every stored value to its right. `CN` is built from `H_NOTA` and
+  therefore agrees with any order — it cannot catch that. A frozen copy of the header order in
+  `lancelotSelfCheck` can, and now does.
+
+103 self-check cases green, up from 82. Four mutations were run to prove the new ones can fail:
+rounding removed, `caraHitungRapi_` broken, blank-biaya filter disabled, and a column inserted
+mid-header — each turned exactly the expected cases red.
+
+**Not verified by any runnable check:** the `tulisNota_` TOTAL path and the `cekKualitas` skips
+both need a real sheet. They are proven only when Aldi pastes and runs `cekKualitas` in Apps Script.
 
 ### Whose nota is it — asked every time (2026-08-12, commit `259c078`)
 

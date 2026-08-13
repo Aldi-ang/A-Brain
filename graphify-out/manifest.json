@@ -10,28 +10,28 @@
     "semantic_hash": ""
   },
   ".obsidian/app.json": {
-    "mtime": 1785114367.8146915,
-    "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
+    "mtime": 1786331379.0887146,
+    "ast_hash": "b174403c0f00bfffdacc9b872bce7c2e",
     "semantic_hash": ""
   },
   ".obsidian/appearance.json": {
-    "mtime": 1785114367.8156915,
+    "mtime": 1786331379.0897124,
     "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
     "semantic_hash": ""
   },
   ".obsidian/community-plugins.json": {
-    "mtime": 1785114368.0393796,
-    "ast_hash": "d8a9b71407eb4fb79473ab4c04569231",
+    "mtime": 1786331379.619197,
+    "ast_hash": "80ecc2606563e447f2b32667569a64dd",
     "semantic_hash": ""
   },
   ".obsidian/core-plugins.json": {
-    "mtime": 1785114367.345109,
-    "ast_hash": "7c877bea49eaeabb100563bd157b9051",
+    "mtime": 1786331378.767432,
+    "ast_hash": "fbb939bcf80f0a75d9d1b4205dd32515",
     "semantic_hash": ""
   },
   ".obsidian/graph.json": {
-    "mtime": 1785121865.026,
-    "ast_hash": "ffb346bc037b1050ead2c3981163dbba",
+    "mtime": 1786331380.718,
+    "ast_hash": "40b4d056f0b11166ec8aa9639cccf8a2",
     "semantic_hash": ""
   },
   ".obsidian/plugins/realclaudian/manifest.json": {
@@ -65,18 +65,18 @@
     "semantic_hash": ""
   },
   "Automation-Setup.md": {
-    "mtime": 1785138260.533561,
-    "ast_hash": "e2b8763862e63b58435c0dc1a1122029",
+    "mtime": 1786411008.50563,
+    "ast_hash": "aa006638d209b5c6a43b466977d38d77",
     "semantic_hash": ""
   },
   "Backlog/Add production_targets Firestore rule.md": {
-    "mtime": 1785115988.0761476,
-    "ast_hash": "3b3e768d4c79d671897745816cb432c9",
+    "mtime": 1785201070.1567934,
+    "ast_hash": "ef7a7a3b58cdf12f57513a27c30dd177",
     "semantic_hash": ""
   },
   "Backlog/Chunk handleAdminApproveTransfer.md": {
-    "mtime": 1785115990.1445897,
-    "ast_hash": "ac37f11b53f34c300484c9cd6e3b2c82",
+    "mtime": 1785201056.4475243,
+    "ast_hash": "ce66a630d5400498670fcefbf8a91609",
     "semantic_hash": ""
   },
   "Backlog/Crown Transfer (Option A).md": {
@@ -85,8 +85,8 @@
     "semantic_hash": ""
   },
   "Backlog/Deploy firestore.rules to production.md": {
-    "mtime": 1785115993.9501817,
-    "ast_hash": "c97bfecd547c3c7f7c5ce95e49dc29b9",
+    "mtime": 1785190537.9184306,
+    "ast_hash": "804c3b9c110c40a3a2a0bd123d3d3c31",
     "semantic_hash": ""
   },
   "Backlog/Merge Batch 1+2 fixes into main.md": {
@@ -115,13 +115,13 @@
     "semantic_hash": ""
   },
   "Backlog/Remove unused code and dependencies.md": {
-    "mtime": 1785116008.324761,
-    "ast_hash": "1059133b58b118479ca07b3914e3b4e2",
+    "mtime": 1785190551.6861537,
+    "ast_hash": "df4bf8053ec52cc6fc3441872d9fe10a",
     "semantic_hash": ""
   },
   "Backlog/index.md": {
-    "mtime": 1785134424.0520198,
-    "ast_hash": "14cd3a7e51020be98523398fb05e8b32",
+    "mtime": 1785187511.1383882,
+    "ast_hash": "74e320ffc66d224691278032fae5dad3",
     "semantic_hash": ""
   },
   "Brainstorm/Crown Transfer \u2014 options.md": {
@@ -140,8 +140,8 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1785148117.5339963,
-    "ast_hash": "f2cc97980283ff48e90ff60de7af1d70",
+    "mtime": 1785187705.9051907,
+    "ast_hash": "acb57032805f22ecc399e7e89bbb287a",
     "semantic_hash": ""
   },
   "Crypto-Learning/index.md": {
@@ -155,8 +155,8 @@
     "semantic_hash": ""
   },
   "PLAN-A-Brain-agentic-OS.md": {
-    "mtime": 1785137686.0351548,
-    "ast_hash": "50319852fdedbd15b211c7ffaa96f0d2",
+    "mtime": 1785261569.8002024,
+    "ast_hash": "260e6ecc9b797a2d7bc0f2e295788890",
     "semantic_hash": ""
   },
   "PLAN-second-brain-integration.md": {
@@ -240,8 +240,8 @@
     "semantic_hash": ""
   },
   "Raw/index.md": {
-    "mtime": 1785134396.4828217,
-    "ast_hash": "209e74d84676b7a2d3ab9b4da8c3f374",
+    "mtime": 1786333499.484502,
+    "ast_hash": "074ca0f0091b564c3eb1c6e846167214",
     "semantic_hash": ""
   },
   "Skill-Audit-2026-07-27.md": {
@@ -255,128 +255,128 @@
     "semantic_hash": ""
   },
   "Wiki/Concepts/Anti-Recurrence Check.md": {
-    "mtime": 1785115897.6671038,
-    "ast_hash": "0195719168fe475a34c9783a8e4f1374",
+    "mtime": 1785824704.547887,
+    "ast_hash": "e003a3b11b79a52e43d9e4c5b6fa6109",
     "semantic_hash": ""
   },
   "Wiki/Concepts/Draft-Then-Deploy Discipline.md": {
-    "mtime": 1785115899.607815,
-    "ast_hash": "0a73f938085ec3436b1a67bd112a24be",
+    "mtime": 1785824705.1914244,
+    "ast_hash": "644fe7c86a72c6bca3be273d0dfc22d9",
     "semantic_hash": ""
   },
   "Wiki/Concepts/Ponytail Philosophy.md": {
-    "mtime": 1785115901.5548608,
-    "ast_hash": "40b5b45861af3e3eb7a30eb3b055ebcc",
+    "mtime": 1785824705.8992088,
+    "ast_hash": "8c6aaff6dee78523896647a8435b1a43",
     "semantic_hash": ""
   },
   "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md": {
-    "mtime": 1785115903.386015,
-    "ast_hash": "d69b5bccb7f6533e2f7fb665766f039e",
+    "mtime": 1785824706.6652987,
+    "ast_hash": "d4e11fdf0f2e6cd02e0e33dc94167335",
     "semantic_hash": ""
   },
   "Wiki/Concepts/index.md": {
-    "mtime": 1785134386.2694097,
-    "ast_hash": "1bdd44610c4cdfcac3b79b3d4e86dbc1",
+    "mtime": 1786619928.6684935,
+    "ast_hash": "3e17d6130a248a905b08c1c47f6b1f83",
     "semantic_hash": ""
   },
   "Wiki/Entities/Firestore Rules.md": {
-    "mtime": 1785115880.8744955,
-    "ast_hash": "5c2cbd18516412d69992f382065ce2f0",
+    "mtime": 1786393302.1816573,
+    "ast_hash": "28941f257de9c3d5edcc9e2389cb3e62",
     "semantic_hash": ""
   },
   "Wiki/Entities/Fleet Captain Permission Gap.md": {
-    "mtime": 1785115882.839888,
-    "ast_hash": "2967f60d69e835cd2890021baf7131e9",
+    "mtime": 1785824707.3403287,
+    "ast_hash": "04f47dade61337b4a11ee7e0994ee6ee",
     "semantic_hash": ""
   },
   "Wiki/Entities/Git Worktrees.md": {
-    "mtime": 1785115885.3021543,
-    "ast_hash": "14aff6f4078efd7cb02b9d4c6e7c7340",
+    "mtime": 1785824708.0071862,
+    "ast_hash": "7acbaa7b98352d39f9d1d7145abfbb7e",
     "semantic_hash": ""
   },
   "Wiki/Entities/Multi-Tenant Architecture.md": {
-    "mtime": 1785115887.858534,
-    "ast_hash": "fa9060671f09809643dd9d9db53a5079",
+    "mtime": 1785824708.7279818,
+    "ast_hash": "14ade1f366fc57aecbe2112eaab253a4",
     "semantic_hash": ""
   },
   "Wiki/Entities/Rank Config and Achievement Badges.md": {
-    "mtime": 1785115891.68311,
-    "ast_hash": "f9a414e1ff2c2857b719e8de25dc002c",
+    "mtime": 1785824709.459017,
+    "ast_hash": "6ca81d634ff622d968fa8336a6c5f80f",
     "semantic_hash": ""
   },
   "Wiki/Entities/Tier System.md": {
-    "mtime": 1785115889.9094129,
-    "ast_hash": "7563b366787ea4d2e7c02b5f04fee067",
+    "mtime": 1785824710.1124964,
+    "ast_hash": "8b002d3ee9f1827c717b6509ff731eb3",
     "semantic_hash": ""
   },
   "Wiki/Entities/index.md": {
-    "mtime": 1785134381.5465338,
-    "ast_hash": "4f9da41bc6df376ba21be5a2e22483d7",
+    "mtime": 1786393677.7810364,
+    "ast_hash": "44c5e4890ce522eb09e2cd51235589fe",
     "semantic_hash": ""
   },
   "Wiki/Index.md": {
-    "mtime": 1785115941.383648,
-    "ast_hash": "656cf435ca952cbab4bbdb98a411ef73",
+    "mtime": 1786619937.7325842,
+    "ast_hash": "ecb19d4a54fa3dfe63e676dec9d22960",
     "semantic_hash": ""
   },
   "Wiki/Log.md": {
-    "mtime": 1785116141.3433523,
-    "ast_hash": "f2799d58da0090c5226a2f5432116fcf",
+    "mtime": 1786428826.0104158,
+    "ast_hash": "44de00ae9d1609f9d7af618e50246b29",
     "semantic_hash": ""
   },
   "Wiki/MOC.md": {
-    "mtime": 1785116083.0107963,
-    "ast_hash": "fee7f76d432d4c6305e4594ef2314791",
+    "mtime": 1786619945.1515942,
+    "ast_hash": "150fa75cd5a728086e696dd672125bc8",
     "semantic_hash": ""
   },
   "Wiki/Summaries/Customer Directory Permission Tier.md": {
-    "mtime": 1785115911.1515415,
-    "ast_hash": "3b2f93a82e18e7fbba7a03bedc678610",
+    "mtime": 1785824711.3891404,
+    "ast_hash": "bf44a18bb9e5f1e23a0d7cba6f81e860",
     "semantic_hash": ""
   },
   "Wiki/Summaries/Fleet Captain Rule Gaps \u2014 Batch 1 and 2.md": {
-    "mtime": 1785115914.0285046,
-    "ast_hash": "eb1c16b3edba897995ffbe93a27cbc5a",
+    "mtime": 1785824712.598535,
+    "ast_hash": "c46e9871bd0055278de96ed496fcb6d6",
     "semantic_hash": ""
   },
   "Wiki/Summaries/KPM Project Facts Reference.md": {
-    "mtime": 1785115916.4708118,
-    "ast_hash": "8af7baaea4afb7719294294a523be9e5",
+    "mtime": 1785824713.2269137,
+    "ast_hash": "4ab4b76e5d5a2f2c924756215011a4a1",
     "semantic_hash": ""
   },
   "Wiki/Summaries/Lost Work in Worktrees \u2014 Three Incidents.md": {
-    "mtime": 1785115918.6820278,
-    "ast_hash": "85e1dc7476ac842c65dc9a4914aaa1fe",
+    "mtime": 1785824713.863893,
+    "ast_hash": "2eee705e0f24554bbbe44aca490dfd51",
     "semantic_hash": ""
   },
   "Wiki/Summaries/Offline Login Lockout Fix.md": {
-    "mtime": 1785115920.6076286,
-    "ast_hash": "10073cc43b2346a0c5dcc4f295fee5f8",
+    "mtime": 1785824714.4687464,
+    "ast_hash": "6aa04fd3d72030407e2b3b8d283765bc",
     "semantic_hash": ""
   },
   "Wiki/Summaries/Option B Region Lock.md": {
-    "mtime": 1785115922.5546474,
-    "ast_hash": "573ca105a9341219a774d59d59e7aaec",
+    "mtime": 1785824715.1530066,
+    "ast_hash": "6b72fa82c6c4ceee73d2b8c062856824",
     "semantic_hash": ""
   },
   "Wiki/Summaries/Ponytail Philosophy Ingest.md": {
-    "mtime": 1785115927.6546936,
-    "ast_hash": "5b45bef87de2f9c79ec39b8f221021b9",
+    "mtime": 1785824715.8029325,
+    "ast_hash": "4f2bb5bc3d9473ea4fb406ca13a43f42",
     "semantic_hash": ""
   },
   "Wiki/Summaries/Rank Config Cross-Tenant Gap.md": {
-    "mtime": 1785115929.718055,
-    "ast_hash": "d52b811edf66efafe63f98924d285f72",
+    "mtime": 1785824716.418999,
+    "ast_hash": "1e7c5fccfc0832d912aee0a746ca3944",
     "semantic_hash": ""
   },
   "Wiki/Summaries/Rules Draft Process.md": {
-    "mtime": 1785115932.3195412,
-    "ast_hash": "681b48304b46e62cdb1032eb580f7e26",
+    "mtime": 1785824717.043794,
+    "ast_hash": "6433f720c34c1a1af16ab186c4659442",
     "semantic_hash": ""
   },
   "Wiki/Summaries/index.md": {
-    "mtime": 1785134390.6683972,
-    "ast_hash": "bab893e545a6aea75fb80a6944131a68",
+    "mtime": 1786333469.8270369,
+    "ast_hash": "d5fd9c785e9067f10d08cbf428de2c13",
     "semantic_hash": ""
   },
   "graphify/index.md": {
@@ -1960,8 +1960,8 @@
     "semantic_hash": ""
   },
   "index.md": {
-    "mtime": 1785135957.083928,
-    "ast_hash": "2b8755147f61d206c20bc0cba6476102",
+    "mtime": 1786336172.5045707,
+    "ast_hash": "feba819484bc107ec34c87577729adca",
     "semantic_hash": ""
   },
   "runs/index.md": {
@@ -1970,8 +1970,448 @@
     "semantic_hash": ""
   },
   "runs/session-ingest-state.md": {
-    "mtime": 1785135528.0084105,
-    "ast_hash": "6944278e431db6700ad34e931135c434",
+    "mtime": 1785189838.100579,
+    "ast_hash": "5e574c171304d05ad4bac31c9640131a",
+    "semantic_hash": ""
+  },
+  ".obsidian/plugins/vault-as-mcp/manifest.json": {
+    "mtime": 1785816196.1660395,
+    "ast_hash": "d6cb2b00472ad75660c44de0c3180b82",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/ping.json": {
+    "mtime": 1785631978.2779462,
+    "ast_hash": "0f378c08c02395599fa2b4f4656ae6ee",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/req1.json": {
+    "mtime": 1785631978.2819464,
+    "ast_hash": "0f5f4b643223ccb3e41b98c9871cda3e",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/req2.json": {
+    "mtime": 1785631978.2849462,
+    "ast_hash": "1a48205c5f76208fd19bbd9fbcc49774",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/req3.json": {
+    "mtime": 1785631978.2869475,
+    "ast_hash": "768a74a54ab5d6ab4aab8d7fc7dd2bcf",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/res1.json": {
+    "mtime": 1785631978.290456,
+    "ast_hash": "d1072c74d3ac0f7072e5d2a1781c9723",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/res2.json": {
+    "mtime": 1785631978.2934587,
+    "ast_hash": "83da03c72aae340750ee75d8fc1aefd1",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/res3.json": {
+    "mtime": 1785631978.2974558,
+    "ast_hash": "c1d02fca6c2c8ddd58e02027fabd6bff",
+    "semantic_hash": ""
+  },
+  "Wiki/Attachments/lancelot-findings.json": {
+    "mtime": 1786469850.060957,
+    "ast_hash": "be8083b2cd4aa70780fe23fe144558b5",
+    "semantic_hash": ""
+  },
+  "automation/export-app-for-sale.mjs": {
+    "mtime": 1786392624.0649252,
+    "ast_hash": "b99ac3d8e05af6d548c0ffd8b9b8c464",
+    "semantic_hash": ""
+  },
+  "automation/lessons-health.mjs": {
+    "mtime": 1786370956.9612505,
+    "ast_hash": "9f1227da15e9aa785487a2db0a9fe218",
+    "semantic_hash": ""
+  },
+  "automation/vault-gap.mjs": {
+    "mtime": 1786370956.9582477,
+    "ast_hash": "486f3def787640e30fa23d219feb8a47",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/dukes-ledger-v2.html": {
+    "mtime": 1785631978.2635238,
+    "ast_hash": "174ffac64c32476cd47e66ddb5631bad",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/dukes-ledger.html": {
+    "mtime": 1785631978.26552,
+    "ast_hash": "ecf37337db895318f781ea97a2672cc9",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/merchant-animation-prompts.md": {
+    "mtime": 1785637868.6945548,
+    "ast_hash": "7506d224f5432e73284e4ff1071d3de5",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/merchant-prompt-pack.md": {
+    "mtime": 1785637451.6507857,
+    "ast_hash": "d5223d66df5622393e8c611f8387fcae",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/res1.md": {
+    "mtime": 1785631978.291456,
+    "ast_hash": "d96ba748eb7a27d3c1f886f312171b20",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/res2.md": {
+    "mtime": 1785631978.2954557,
+    "ast_hash": "96ce6cd92b622c4956a8bd0b24f4510c",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/res3.md": {
+    "mtime": 1785631978.299457,
+    "ast_hash": "26a0c993297ecdd848a6ff92591a3504",
+    "semantic_hash": ""
+  },
+  "Assets/rank-frames/README.md": {
+    "mtime": 1785478728.9151943,
+    "ast_hash": "6923bec32f7cb9c8a73e40d3b7a3098f",
+    "semantic_hash": ""
+  },
+  "Assets/rank-frames/markup.html": {
+    "mtime": 1785478728.9131944,
+    "ast_hash": "d2c777d99c3b595b7e85fb205969a30b",
+    "semantic_hash": ""
+  },
+  "Assets/rank-frames/svg-defs.html": {
+    "mtime": 1785478728.9141934,
+    "ast_hash": "517c99bdc12da228e4346893c61f1d72",
+    "semantic_hash": ""
+  },
+  "Backlog/Business and UX improvement testing session.md": {
+    "mtime": 1785157313.7993212,
+    "ast_hash": "b9382dfe0f55082a6c25f59f81102c82",
+    "semantic_hash": ""
+  },
+  "Backlog/Follow-up fixes after Trophy Room update.md": {
+    "mtime": 1785346917.5704155,
+    "ast_hash": "fbbb22e17db36261b5deb8a4f8808c68",
+    "semantic_hash": ""
+  },
+  "Backlog/Phase 0 follow-up notes.md": {
+    "mtime": 1785304803.1623974,
+    "ast_hash": "a1b5937b8bc41f5edf78e9e3f5d65e49",
+    "semantic_hash": ""
+  },
+  "Backlog/Phase 1 follow-up notes.md": {
+    "mtime": 1785305691.558254,
+    "ast_hash": "6b04cbfcaac0f424034b205428f1e0d7",
+    "semantic_hash": ""
+  },
+  "Backlog/Trophy Room Phases 4-8 doubts and questions.md": {
+    "mtime": 1785327074.1176043,
+    "ast_hash": "4e1e0e6fc0329386a16fef2033a69696",
+    "semantic_hash": ""
+  },
+  "Hermes-Agent-Research/2026-08-10 Hermes Desktop Inspection.md": {
+    "mtime": 1786336157.244466,
+    "ast_hash": "c0fb0d3a365dc6a854a377ea14c25df9",
+    "semantic_hash": ""
+  },
+  "Hermes-Agent-Research/2026-08-10 Seven Rules Worth Porting.md": {
+    "mtime": 1786368124.699224,
+    "ast_hash": "7f85c5219e81a248fa99827b0419921e",
+    "semantic_hash": ""
+  },
+  "Hermes-Agent-Research/index.md": {
+    "mtime": 1786349539.2887142,
+    "ast_hash": "9628744c966fe5db58c4799dcdeff60d",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-26_source_claude-cli-install-mcafee-ponytail-marketplace.md": {
+    "mtime": 1785150362.861881,
+    "ast_hash": "5e70c351a97c892d774435762a0ec7e9",
+    "semantic_hash": ""
+  },
+  "Raw/2026-07-27_full-app-review-and-dead-weight-cleanup.md": {
+    "mtime": 1785161169.6649482,
+    "ast_hash": "fbcef4a3a2984edb133baaf7dc3fc33f",
+    "semantic_hash": ""
+  },
+  "Raw/2026-08-10_source_kpm-six-days-aug04-to-aug10.md": {
+    "mtime": 1786333336.484871,
+    "ast_hash": "4115f9dc2f1aafa6909fb0a2de66e24e",
+    "semantic_hash": ""
+  },
+  "Wiki/Attachments/lancelot-round2-findings.txt": {
+    "mtime": 1786494068.9364834,
+    "ast_hash": "29fb03f7b783e0dd56e0fe43ffa2b32f",
+    "semantic_hash": ""
+  },
+  "Wiki/Attachments/lancelot-scenarios.txt": {
+    "mtime": 1786469849.9688127,
+    "ast_hash": "6047e21a77d519fadb8dd6579aa0dd90",
+    "semantic_hash": ""
+  },
+  "Wiki/Attachments/lancelot-tab-audit.txt": {
+    "mtime": 1786515085.6225412,
+    "ast_hash": "0877f1c4c5082b06365c7a2ad70f48de",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/9Router Subordinate AI Delegation.md": {
+    "mtime": 1786410776.8689916,
+    "ast_hash": "c03c7212411a6a689c22bb2a635b9434",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/Aldi's Design Taste.md": {
+    "mtime": 1786583188.862138,
+    "ast_hash": "fccf35e3a32e47584743beb2e363d14d",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/Fat Documents in a Live Listener.md": {
+    "mtime": 1786428682.6720903,
+    "ast_hash": "796792955d16601920d444d46d2e46c7",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/Lancelot the Tobacco Ledger Agent.md": {
+    "mtime": 1786603120.9364603,
+    "ast_hash": "34db5c10cf0218f27d92ff5703f58dd3",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/Off-Token Colour Migration Map.md": {
+    "mtime": 1786581739.7484987,
+    "ast_hash": "8366dcbaedb790e39bf83e55faa76bed",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/Secure Context Requirement.md": {
+    "mtime": 1786333361.076024,
+    "ast_hash": "fbadd279248a79bf80a7a12e88f62c22",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/Silent Failure Disease.md": {
+    "mtime": 1786333374.7021682,
+    "ast_hash": "354d06e2d48566786288cdb91357c3ba",
+    "semantic_hash": ""
+  },
+  "Wiki/Concepts/The KPM Control System.md": {
+    "mtime": 1786619955.2309403,
+    "ast_hash": "f06d684a8f07f704d586016cb0e0a43a",
+    "semantic_hash": ""
+  },
+  "Wiki/Conventions.md": {
+    "mtime": 1785824682.4524033,
+    "ast_hash": "c5b93ea8aa04f76265ecc4013de6715e",
+    "semantic_hash": ""
+  },
+  "Wiki/Entities/Master Vault Gate.md": {
+    "mtime": 1786333425.902272,
+    "ast_hash": "30506b22dd230865641f0128e8596050",
+    "semantic_hash": ""
+  },
+  "Wiki/Entities/Terminal Tenant Path Split.md": {
+    "mtime": 1786416124.2017467,
+    "ast_hash": "aa11dfe2fc666963682cbefc715f4c37",
+    "semantic_hash": ""
+  },
+  "Wiki/Lessons-Archive.md": {
+    "mtime": 1786514952.0711727,
+    "ast_hash": "3229dafe4fc6948b186140b08c3c83df",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Claude Code CLI Install \u2014 McAfee Download Freeze.md": {
+    "mtime": 1785824710.7882056,
+    "ast_hash": "9cc76f0f9f2f745ddb8e16beb91bb485",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Dead Weight Cleanup and Rules-Deploy Gap.md": {
+    "mtime": 1785824711.9668705,
+    "ast_hash": "4a5f17982a9b94828fb7a6899f15451d",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Six Days \u2014 Gate, Phone Access, Quota Meter.md": {
+    "mtime": 1786333455.511516,
+    "ast_hash": "c054e8ec39ae123f590fee4f28d01365",
+    "semantic_hash": ""
+  },
+  "Wiki/Summaries/Trophy Room and Rank System Design.md": {
+    "mtime": 1785204967.8370788,
+    "ast_hash": "33d917f23444ca6af72e77faf288419d",
+    "semantic_hash": ""
+  },
+  "runs/2026-07-27_a-brain-session-ingest_first-run.md": {
+    "mtime": 1785150451.5361109,
+    "ast_hash": "291982deac3bb4a9df5d1161a4ff424b",
+    "semantic_hash": ""
+  },
+  "runs/2026-07-27_a-brain-session-ingest_second-run.md": {
+    "mtime": 1785161251.7064188,
+    "ast_hash": "d71ae8b65c679bd5b5d31ace504a44ed",
+    "semantic_hash": ""
+  },
+  "runs/2026-07-28_a-brain-session-ingest_third-run.md": {
+    "mtime": 1785189854.1845684,
+    "ast_hash": "9751980fbbcbf684adb1cd5b1fface1c",
+    "semantic_hash": ""
+  },
+  "runs/2026-08-03_merchant-and-pc-terminal.md": {
+    "mtime": 1785737994.952237,
+    "ast_hash": "7eaaca0a09ba4371c1052a1dd60028dc",
+    "semantic_hash": ""
+  },
+  "runs/alucard-benchmark.md": {
+    "mtime": 1785284980.8755355,
+    "ast_hash": "f3ea148a8cf05a53d6d673d65713c3ee",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/check_deal.png": {
+    "mtime": 1785631978.2497435,
+    "ast_hash": "1a680add03bd760172a795cb64982911",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/check_idle.png": {
+    "mtime": 1785631978.2517438,
+    "ast_hash": "18862101518b29ede1618084b7c6d722",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/check_talking.png": {
+    "mtime": 1785631978.253742,
+    "ast_hash": "eafd335a294ed261a632daca390d1eb4",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/m_deal.webp": {
+    "mtime": 1785631978.2729418,
+    "ast_hash": "6237aac13e91f63ac8c53061d47f08dc",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/m_idle.webp": {
+    "mtime": 1785631978.2749474,
+    "ast_hash": "dad7b0ab177e172c675bc76c9b26a1c4",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/m_talking.webp": {
+    "mtime": 1785631978.275946,
+    "ast_hash": "042521534d24640cfdfaf5dce1ca6909",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/cf.wav": {
+    "mtime": 1785631978.2477422,
+    "ast_hash": "493fc1dd4fed6fc24371a7f80df6a404",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/click.mp3": {
+    "mtime": 1785631978.254742,
+    "ast_hash": "d5301302d8ef9166ee74fb05d7e2b3e4",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/click.wav": {
+    "mtime": 1785631978.257516,
+    "ast_hash": "f1a8668eb7e77902b068659f9d754ebc",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/clk.wav": {
+    "mtime": 1785631978.25952,
+    "ast_hash": "0a5876ffc2e48966cfd298214b5a5092",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/confirm.mp3": {
+    "mtime": 1785631978.26152,
+    "ast_hash": "8a6d7e8d0a2bd994de0e9a84244cc0cf",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/g1.m4a": {
+    "mtime": 1785631978.2675214,
+    "ast_hash": "f415a3afc76f8f474928368acf480960",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/g1.mp3": {
+    "mtime": 1785631978.2695203,
+    "ast_hash": "f90b6540ca58a1e90f9260ec932a210d",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/g1.wav": {
+    "mtime": 1785631978.2705219,
+    "ast_hash": "7fbe54f827476e3c3a3d57129645f00c",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/req.wav": {
+    "mtime": 1785631978.280948,
+    "ast_hash": "a5e4911414988427f6e95a91a0d4ab73",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/req_src.mp3": {
+    "mtime": 1785631978.288946,
+    "ast_hash": "66cd4a2b2f96a72c088739c33372216b",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/sfx1.m4a": {
+    "mtime": 1785631978.3024554,
+    "ast_hash": "f856cb8f978c547037a9c7fe4eb61d13",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/sfx1.mp3": {
+    "mtime": 1785631978.3044572,
+    "ast_hash": "9d0b6efdabb579cec7a0b33321159643",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/sfx2.m4a": {
+    "mtime": 1785631978.3084555,
+    "ast_hash": "f856cb8f978c547037a9c7fe4eb61d13",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/sfx2.mp3": {
+    "mtime": 1785631978.3094559,
+    "ast_hash": "0eaaf2b44df95edc25c1f8ce9e072d1d",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/sfx3.m4a": {
+    "mtime": 1785631978.313456,
+    "ast_hash": "f856cb8f978c547037a9c7fe4eb61d13",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/sfx3.mp3": {
+    "mtime": 1785631978.3154564,
+    "ast_hash": "2b08a8bd34547a37cf6e08c9b33bd27d",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/sfx4.m4a": {
+    "mtime": 1785631978.321456,
+    "ast_hash": "f856cb8f978c547037a9c7fe4eb61d13",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/sfx4.mp3": {
+    "mtime": 1785631978.3234577,
+    "ast_hash": "1a280142755df7d939cead49e0c9ecc4",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/t1.wav": {
+    "mtime": 1785631978.3254578,
+    "ast_hash": "ff2f980b5e79ab88acfab62c026178c4",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/t3.wav": {
+    "mtime": 1785631978.3274562,
+    "ast_hash": "d7ed0c3a108985592ffc02de060fe771",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/vshop.wav": {
+    "mtime": 1785631978.3324568,
+    "ast_hash": "e142c0d0f483be6ca3b4fbad330bdb51",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/w1.wav": {
+    "mtime": 1785631978.3344557,
+    "ast_hash": "7fbe54f827476e3c3a3d57129645f00c",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/w2.wav": {
+    "mtime": 1785631978.338456,
+    "ast_hash": "e3f9bfaf6f0651a7eff1dcfedade332d",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/w3.wav": {
+    "mtime": 1785631978.3394556,
+    "ast_hash": "8c95e5e4e953cd94661eb791e620e3fa",
+    "semantic_hash": ""
+  },
+  "Assets/dukes-ledger/w4.wav": {
+    "mtime": 1785631978.341457,
+    "ast_hash": "260d81746bbb407e064e6bd74cbcb64b",
     "semantic_hash": ""
   }
 }
