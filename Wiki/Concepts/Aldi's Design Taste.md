@@ -32,6 +32,45 @@ taste at 14 moves, and this page is young. Add to it; do not invent from it.
 4. **The receipt keeps KPM's company blue.** The printed nota is not app UI; the palette law
    stops at the print block.
 
+## The theme has a name now: RE9 "Ark Lab" (2026-08-13)
+
+His words, unprompted, while rejecting a screen: *"always remember, our theme is Resident evil 9
+ark lab theme, for dark mode is black white and amber, while light mode is white black amber and
+red color"*.
+
+Two things follow, and they are not the same thing:
+
+1. **Amber is the accent's name.** `--gold` (#D4AF37) is that amber. Nothing to change in code.
+2. **He said light mode is WHITE.** The locked Phase 3 decision is that light mode's ground is
+   bench STEEL and *"#FFFFFF appears nowhere as a surface"*. Asked directly on 2026-08-13 he
+   chose **"Keep steel for now, decide later"** — so the law stands, but he has now said "white"
+   once and it will come back. Do not repaint the light tokens without asking again.
+
+**What he actually wants from a redesign, his words:** *"i want u to rebuild everything, but make
+sure that all the features is still intake, i want better presentation of all of this button and
+features to be more presentable, since i will redesign the whole setting as well, make sure that
+the logic and theme and button design and animation that we made here could be use for button in
+another place so design it well"*.
+
+That is a request for a **control system, not a screen**: one button/panel/switch vocabulary
+defined once and reused. It is also the first time he has asked for something to be built to be
+reused elsewhere — treat a one-off className sweep as the wrong answer to this ask.
+
+**Rejection worth recording:** the Architect Terminal was migrated onto the tokens (`b25c526`,
+palette-clean, audit group 27) and his verdict was still *"i dont like the UI for the architect
+terminal still, redesign it again"*. **Palette-correct is not designed.** The tokens are the
+floor, not the deliverable — layout, hierarchy and character are what he is judging.
+
+## Stock assets: watermarked files are not raw material (2026-08-13)
+
+He pointed at `bluefire pixel.webm` in his reference folder and asked for the alcove's fire to
+look like it. The file is a **Shutterstock clip with the watermark burned into every frame**,
+directly across the flame. It cannot ship in a business app.
+
+**The rule:** a reference folder is for LOOKING at. Generate an equivalent asset instead — the
+blue pixel flame was rebuilt as an 8-frame sprite from a Doom-fire automaton, which he owns
+outright. Say why, once, and hand him the replacement rather than the objection.
+
 ## What he calls "cheap"
 
 He has used the word twice, both times about motion, and both times he was right:
