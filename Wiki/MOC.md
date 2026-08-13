@@ -41,6 +41,7 @@ The house rules this project follows so mistakes don't repeat.
 - [[Anti-Recurrence Check]] — never say "committed" without checking `git show --stat` yourself.
 - [[Draft-Then-Deploy Discipline]] — a Firestore rule change is only a draft until a human deploys it by hand.
 - [[Rules Draft Process]] — the summary this discipline was built from: document a blocked fix, don't silently skip it.
+- [[Off-Token Colour Migration Map]] — how a KPM screen moves off hardcoded Tailwind colours onto the theme tokens, and what proves it landed.
 - [[Ponytail Philosophy]] — the lazy-but-correct coding style that governs how Claude Code writes real code here.
 - [[Ponytail Philosophy Ingest]] — where that page's content actually came from.
 - [[Claude Code CLI Install — McAfee Download Freeze]] — the CLI install got silently blocked by McAfee scanning the download; how it was diagnosed and worked around, plus the non-interactive ponytail marketplace install.

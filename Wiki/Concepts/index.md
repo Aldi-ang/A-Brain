@@ -22,6 +22,7 @@ For the authoritative flat catalog, always check [[../Index]] first.
 - [[Draft-Then-Deploy Discipline]]
 - [[Fat Documents in a Live Listener]]
 - [[Lancelot the Tobacco Ledger Agent]]
+- [[Off-Token Colour Migration Map]]
 - [[Ponytail Philosophy]]
 - [[Secure Context Requirement]]
 - [[Silent Failure Disease]]
