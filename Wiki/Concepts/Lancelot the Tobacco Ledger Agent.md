@@ -416,6 +416,39 @@ somewhere after out"*.
 **This deletes work.** The `LABEL BARU` column and the resold-OUT fallback added to `buatCuan` on
 the morning of 2026-08-12 are now obsolete: once a gulungan is OUT it leaves our books entirely.
 
+### Two potongan methods, and the rule "copy the nota" (2026-08-13)
+
+Found the moment a real nota was read instead of a remembered one. His words:
+
+> *"there is 2 way to calculate the whole value of data pembelian, 1 is by sum all the bruto first
+> then the total will be cutted by 10% (the potongan value in this case, could be different) or
+> there also some calculation where we cut 10% for every gulungan then we round the number so 0.5
+> and above increase the number and below that decrease the number, becoming whole number then add
+> them all together... this calculation is good for us the mediator and the first calculation is
+> good for the petani"*
+
+> *"always follow the nota... dont calculate everything yourself even though the total value is
+> correct but our data is not accurate"*
+
+- **Total-level** (the Pak Mul nota): `sum(bruto) → −potongan% → × harga`. Per-gulungan netto and
+  per-gulungan money **are never written and do not exist**. Favours the petani.
+- **Per-gulungan**: potongan per roll, **each rounded to a whole kg** (≥ .5 up), then summed.
+  Favours Aldi as middleman. The rounding is part of the method, not a display choice.
+- The potongan is 10% on this nota and **is not always 10%**.
+- `+ 200.000 (contoh tbk)` is a **sample payment** — a sample is taken from each gulungan, which
+  lowers the bruto he is paid for, so it is settled separately on top.
+
+**What this breaks in the script — found, not yet fixed.** `tulisNota_` always derives netto per
+item through `hitungTara_` (lines 415-417) and sums the totals from those, i.e. method B hard-coded
+and without the rounding. Worse, `cekKualitas` line 1894 asserts
+`|(bruto − tara) − netto| ≤ 0.05` per row: a total-level nota, whose per-row netto is correctly
+blank, would raise a **BERAT alarm on every gulungan, every night**. The nightly check would call
+his most accurate data an error.
+
+Design agreed but unbuilt: a `caraHitung` field (`total` | `per gulungan`); on `total` the nota
+totals come from the paper and the per-row netto/jumlah stay blank, and `cekKualitas` skips the
+per-row identity for those notas; on `per gulungan` each netto rounds to a whole kg before summing.
+
 ### Whose nota is it — asked every time (2026-08-12, commit `259c078`)
 
 His words: *"lancelot should ask me everytime for the nota name, if there is name in the nota u
