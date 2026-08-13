@@ -12,6 +12,27 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-14 — the two locked screens became one, and a panel that was invisible in light mode
+
+Two of his asks on the sign-in screen (`371a165`), then one on the PC drawer. The middle panel took
+the vault gate panel's **format**, not only its colours — he had already been given the gate card's
+background, border and width as a shared class hours earlier and said it still did not match,
+because what he reads is the contents, not the shell. That ask surfaced a live bug:
+`.kpm-mod.gate` paints its own near-black ground in both themes while its text still read
+`var(--ink)`, which is `#131211` in light mode. Every light-mode user who signed out saw a card
+with no readable text. Now written up as contract rule 5 in [[The KPM Control System]] — *a class
+that pins its own background must pin its own ink*.
+
+Also recorded in [[Aldi's Design Taste]]: **"same colour" and "similar format" are two separate
+asks**, and a control that can do nothing in the current context reads to him as old UI rather than
+as neutral. The drawer no longer renders while signed out and no longer opens itself on the desk.
+
+The answer he needed on the drawer's age is the one worth keeping: the sidebar redesign he
+remembered **did** happen, on 9–10 August, and every commit in it was the **phone** rail. The desk
+list is still hand-written `lg:` classes. *Name the width before saying whether a screen was done.*
+That one is in `skills/delegate-coding-task/references/kpm-inventory-facts.md`, where Alucard
+loads it for KPM code work. Vault commit for the concept pages: `128fa7c`.
+
 ## 2026-08-11 — the customer picker moved to the top of the sales terminal
 
 His design call, made 2026-08-10 ~21:00 and deliberately not built that night for lack of quota:
