@@ -53,6 +53,32 @@ buttons do not fit side by side at 375px).
    class paints its own ground, that promise is void and the token becomes a coin flip between
    the two themes.
 
+## The app shell: two layouts in one file — name the WIDTH before saying a screen is done
+
+`src/components/BiohazardTheme.jsx` renders the navigation for the **phone and the desk from one
+element**, split by Tailwind's `lg:` prefix. So "was this screen redesigned?" has three possible
+answers, and the useful one is almost never yes or no.
+
+**It has already cost a round.** On 2026-08-14 Aldi said *"i thought i have already redesign these
+sidebar"* while looking at his PC. He was right: seven commits on 9–10 August rebuilt it —
+`1984ad4` two columns and the grip that follows his thumb, `39dfd72` the scrub that lights every
+mark, `5cc7d0f` fits without scrolling, `9d4a367` opens from the edge, `a528633` the three-second
+hold, `6f706cb` the music pill, `6a3aa1b` the flash-before-styles fix. **Every one of them was the
+PHONE.** The desk half still carried `lg:bg-white` + a white glow for the active tab and
+`lg:text-gray-500` for the rest.
+
+**The rule: answer with the width.** *"It was redesigned, at the other width"* is true far more
+often than either single-word answer, and both single-word answers are wrong in a way he can see
+on his own monitor. Applies to any `lg:`-prefixed component in this repo.
+
+**Shell state as of 2026-08-14** (commits `371a165`, `20193bd`): the panel does not render at all
+while signed out; the phone keeps its 176px two-column rail opened by the right-edge ribbon; the
+**desk is an 88px strip of marks, always visible, never opened or closed** — his ask, *"so it
+doesnt take so much space"*, against a Framer *Totem Side Bar* reference measuring ~70–98px wide
+with 44px rows. Both widths share `.kpm-rail-mark` now. Words that do not fit an 88px column live
+on the `title` tooltip (desk) and the peek plate (phone). The desk header's 76px left inset — which
+cleared a menu button deleted weeks earlier — is gone; it was the *"spaces useless"* he pointed at.
+
 ## The invisible panel: a token on a ground the theme does not own (2026-08-14)
 
 `.kpm-mod.gate` is the shell shared by the two locked screens — the Master Vault gate and the

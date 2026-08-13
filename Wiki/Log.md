@@ -12,6 +12,28 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-14 — A-BRAIN IS THE MEMORY, and the desk navigation becomes an 88px strip
+
+**His standing instruction, and it changes where things get written:** *"this app memories and
+facts should be take noted inside the A-Brain, this app folder is just for workspace, all the
+memories regarding anything should be taken from A-Brain"*. So the vault is the authority for every
+fact, decision, incident and taste note about the KPM app. Anything in the repo or in a skill
+reference file is a **pointer**, and when the two disagree A-Brain wins and the copy gets fixed.
+`.claude/PROGRESS.md` stays as session state — where the work stands — never as knowledge.
+Applied immediately: the shell facts written into
+`skills/delegate-coding-task/references/kpm-inventory-facts.md` earlier the same night were cut
+down to a summary that names [[The KPM Control System]] as their authority.
+
+**The desk navigation** (`20193bd`): 256px of words became an **88px strip of marks**, always
+visible, never opened or closed — his ask *"i want u to change the sidebar for pc to be like this,
+so it doesnt take so much space"* against a Framer *Totem Side Bar* reference (~70–98px wide, 44px
+rows, 10px gaps, 20–32px icons), plus *"the sidebar u pull here is the sidebar for phone only dont
+use it on PC"*. The pull-ribbon is phone-only again. The desk finally joins `.kpm-rail-mark`, so
+the white glowing slab and the hand-rolled gold UNLOCK button are gone. 76px of dead header inset,
+left over from a menu button deleted weeks ago, removed — that was the *"spaces useless"*.
+Written up in [[The KPM Control System]] under **two layouts in one file**, with the rule it
+taught: *name the WIDTH before saying a screen was or was not done*.
+
 ## 2026-08-14 — the two locked screens became one, and a panel that was invisible in light mode
 
 Two of his asks on the sign-in screen (`371a165`), then one on the PC drawer. The middle panel took
