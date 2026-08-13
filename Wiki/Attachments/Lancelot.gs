@@ -1156,6 +1156,22 @@ function namaRapi_(x) {
 }
 
 /**
+ * A nota says "P. Mul"; M_AGEN says "Mul". Same man. Aldi confirmed this on
+ * 2026-08-13 with his own master already filled in, so the honorific cannot be
+ * part of the identity or his first real nota would have been rejected.
+ *
+ * Only the leading title is dropped. "MITA" and "MITHA" stay different people -
+ * this trims a prefix, it never matches on a resemblance.
+ */
+var GELAR = ['P', 'PAK', 'BPK', 'BAPAK', 'BU', 'IBU', 'MBAK', 'MAS', 'H', 'HJ', 'HAJI'];
+function namaInti_(x) {
+  var t = namaRapi_(x).replace(/\./g, ' ').replace(/\s+/g, ' ').trim();
+  var bagian = t ? t.split(' ') : [];
+  while (bagian.length > 1 && GELAR.indexOf(bagian[0]) >= 0) bagian.shift();
+  return bagian.join(' ');
+}
+
+/**
  * Whose nota is this? Aldi's rule, 2026-08-12: Lancelot asks EVERY time, and if
  * the paper itself carries a name it must agree with the answer.
  *
@@ -1167,9 +1183,9 @@ function namaRapi_(x) {
  * @param daftar   every NAMA in M_AGEN
  */
 function cocokAgen_(diminta, diNota, daftar) {
-  var a = namaRapi_(diminta), b = namaRapi_(diNota);
+  var a = namaInti_(diminta), b = namaInti_(diNota);
   var punya = {};
-  (daftar || []).forEach(function (n) { if (namaRapi_(n)) punya[namaRapi_(n)] = String(n); });
+  (daftar || []).forEach(function (n) { if (namaInti_(n)) punya[namaInti_(n)] = String(n); });
 
   if (!a) return 'AGEN BELUM DISEBUT. Setiap nota wajib punya nama agen. '
     + 'Tanya Aldi dulu: "nota ini punya agen siapa?"';
@@ -2053,6 +2069,13 @@ function lancelotSelfCheck() {
   cek('agen: pesan menyebut agen lain yang cocok',
     cocokAgen_('MITA', 'YOHAN', dfA).indexOf('terdaftar sebagai agen lain') >= 0 ? 1 : 0, 1);
   cek('agen: master kosong tidak memblokir', cocokAgen_('SIAPA SAJA', '', []), '');
+  // His real case, 2026-08-13: M_AGEN says "Mul", the nota says "P. Mul".
+  cek('agen: gelar di kertas tidak bikin beda orang', cocokAgen_('Mul', 'P. Mul', ['Mul']), '');
+  cek('agen: PAK MUL = MUL', cocokAgen_('MUL', 'PAK MUL', ['Mul']), '');
+  cek('agen: gelar juga dilepas di master', cocokAgen_('P. Mul', '', ['Pak Mul']), '');
+  cek('agen: MITA dan MITHA tetap beda orang',
+    cocokAgen_('MITA', 'MITHA', ['MITA', 'MITHA']).indexOf('AGEN TIDAK COCOK') === 0 ? 1 : 0, 1);
+  cek('agen: nama yang cuma gelar tidak jadi kosong', namaInti_('PAK'), 'PAK');
   cek('agen: salah agen = gagal permanen, bukan dicoba ulang',
     GAGAL_PERMANEN.test(cocokAgen_('MITA', 'YOHAN', dfA)) ? 1 : 0, 1);
   cek('agen: salah agen jadi pesan AGEN SALAH',
