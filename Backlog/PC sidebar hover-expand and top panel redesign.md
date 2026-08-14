@@ -10,6 +10,14 @@ updated: 2026-08-14
 
 # PC sidebar hover-expand and top panel redesign
 
+> ✅ **UPDATE 2026-08-14 07:35 — items 1, 2 and 3 below are BUILT** (`d248017`), and so is the
+> profile-picture bug at the foot of this page. He overruled the parking the same morning:
+> *"why does the sidebar not shrinking like i ask before?"*. **Only §4, the top panel, is still
+> open** — that is the whole of this item now. The rest is kept below because it records what was
+> decided and why, and the hover rail's one non-obvious number is
+> **`margin-right: -132px`**: the strip paints 236px and occupies 104px, so opening it never
+> reflows the main UI.
+
 Raised 2026-08-14 ~07:00 in one message of eight items. Four were built the same morning
 (`20193bd`, `cedd779`): the desk became a strip, then two columns at 144px so the logout button
 stopped being clipped. **These four were not**, and they were not started because they are a design
