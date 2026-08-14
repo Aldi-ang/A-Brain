@@ -88,6 +88,36 @@ on the same element carried the phone's `176px`. Full pattern and the other two 
 [[The Rule That Never Applied]]. The fix is the same shape as `git show --stat` — read the real
 result (`getComputedStyle`, `getBoundingClientRect`), not the source that was supposed to produce it.
 
+## A fifth shape: measuring numbers instead of LOOKING at the page (2026-08-14)
+
+Three defects in one afternoon, all in a prototype built for Aldi to judge by eye, and none of
+them caught by measurement:
+
+1. **An `<svg>` with a `viewBox` and no `width`/`height` paints at its intrinsic fallback size** —
+   several hundred pixels. It covered the entire dock. Every geometry check passed, because none
+   of them asked "is anything absurdly large?".
+2. **`pointer-events: none` inherited onto the buttons**, so nothing was hoverable at all.
+3. **A label clipped by a preview frame** narrower than the label.
+
+His report: *"u dont even fix the problem ... its broken bro recheck again of what u doing"*. He
+was right three times.
+
+**The rule: when the deliverable is judged by eye, a measurement is not a verification.** If a
+screenshot is impossible — and it was, the Browser pane was not displayed, so the page never
+composited — then replace looking with a **sweep over every element**, not a check of the handful
+of numbers you expected to matter:
+
+- any element far larger than its container (catches the unsized-`<svg>` class of bug),
+- anything painting outside the box that is supposed to contain it,
+- anything that should be interactive but computes `pointer-events: none`,
+- anything that should be visible but computes zero size or zero opacity.
+
+**And the sub-rule that recurred three separate times in one day:** any check that forces a
+hover/animated state must also force `transition: none`. Without it every reading is taken
+mid-animation and reports the *start* value — which produced two confident wrong diagnoses,
+including one where I told him a real bug was fixed when my own check was simply reading too
+early. See [[The Rule That Never Applied]] for the same lesson in its CSS-cascade form.
+
 ## Related
 
 - [[The Rule That Never Applied]] — the CSS-shaped instance of this discipline
