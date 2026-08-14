@@ -25,6 +25,7 @@ folder-level map, not a replacement for it.
 - [[Multi-Tenant Architecture]]
 - [[Rank Config and Achievement Badges]]
 - [[Terminal Tenant Path Split]]
+- [[The Admin Agent Profile Id]]
 - [[Tier System]]
 
 ## Adding a new entity

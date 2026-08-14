@@ -12,6 +12,44 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-14 (later) — the desk sidebar becomes one button, and the video was finally watchable
+
+`16c8ff9`, 362/362 checks. The strip built earlier the same day was **the wrong format** and he
+said so with a screen recording. Four things came out of the round worth not re-deriving:
+
+**A video reference can be read.** `ffmpeg` is installed on this machine, so
+`ffmpeg -i <clip> -vf fps=1 f%02d.png` turns a 6-second recording into frames that can simply be
+looked at. Two sessions of guessing from prose descriptions ended in one command. **Do this first
+whenever he sends a clip** — see [[Concepts/Aldi's Design Taste]].
+
+**What the frames showed**, against what had been guessed from his words: collapsed is **one
+circle**, not a narrow column of icons — the earlier backlog note said "one button WIDE" and that
+was wrong. Open is a floating rounded capsule, translucent over the page. The feature's name
+prints **outside** the capsule, beside the icon under the pointer, on the app's own background —
+only that one name, never a column of labels.
+
+**The two-box rule that came out of it.** The panel has to keep `overflow: hidden` (a conditional
+overflow there once left an expanded music panel floating over the app), but the label has to
+escape the glass while the glass stays one button wide. One element cannot both clip and be
+clipped, so the panel became the WINDOW and `.kpm-rail-pod` became the CAPSULE. The glass sits on
+the pod's `::before`, which is what lets a circle grow into a column without moving one pixel of
+what is inside it. On a phone the pod is `display: contents`, so the layout he already signed off
+does not know it exists.
+
+⚠️ **The invisible-panel trap, second shape.** The panel gave up every surface of its own for
+this, so anything that hides the pod's glass hides the whole sidebar. Two ways that happens:
+putting the appearance behind the `hover: hover` gate (a touch laptop matches `lg:` but not that),
+or Lite Mode deleting `backdrop-filter` with nothing solid underneath. Both are pinned by a check
+now. Same family as the sign-in panel that pinned its own background and not its own ink — see
+[[Concepts/The KPM Control System]].
+
+**The music player lost its desk accordion** for the reason it had already lost its card: it
+opened downwards into a panel that is now 72px wide and, once the pointer leaves, 72px tall. The
+pill answers both widths. Net −48 lines.
+
+Also written up this round: [[Entities/The Admin Agent Profile Id]], the real reason his profile
+picture never followed his Agent Profile.
+
 ## 2026-08-14 — A-BRAIN IS THE MEMORY, and the desk navigation becomes an 88px strip
 
 **His standing instruction, and it changes where things get written:** *"this app memories and

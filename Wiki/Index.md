@@ -27,6 +27,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Master Vault Gate]] — the master-password screen, its locked numbers, and its closed decisions
 - [[Terminal Tenant Path Split]] — the terminal read one vault and wrote another; invisible on the
   boss's own account, broken for every salesman
+- [[The Admin Agent Profile Id]] — why the shell's face does not follow Agent Profile for the boss,
+  and the ghost-killer line that looks like the cause and is not
 
 ## Concepts (recurring patterns)
 

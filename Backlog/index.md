@@ -29,7 +29,7 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | Offline auth lockout fix | Done |
 | Rank Config and Achievement Badges redesign | Parked |
 | Remove unused code and dependencies | Ready to Deploy — PR open, react-is regression fixed |
-| PC sidebar hover-expand and top panel redesign | **Open — added 2026-08-14**, reopened the same day: the built version is the wrong format, video reference in Assets |
+| Top panel background and UI redesign | To Do — added 2026-08-14. Same file also holds the record of the PC sidebar, which SHIPPED as `16c8ff9` after the video reference was read frame by frame |
 | Phone ribbon position must survive logout | To Do — added 2026-08-14; already in localStorage, so find what clears it |
 
 This table is a snapshot, not live — open `Backlog.base` in Obsidian for current status, since

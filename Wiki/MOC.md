@@ -63,6 +63,7 @@ What the app looks like, and what Aldi wants it to feel like.
 - [[Aldi's Design Taste]] — what he actually likes and rejects, built only from real screens he judged. **Read before designing anything for him.**
 - [[Master Vault Gate]] — the master-password screen every session starts at; its locked numbers and its closed decisions.
 - [[Silent Failure Disease]] — his first law as a bug class: a screen that acts without saying so reads as broken.
+- [[The Admin Agent Profile Id]] — the identity behind the shell's profile picture, and why it falls back to the Google photo.
 
 ## 📱 Phone & Device
 

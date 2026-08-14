@@ -191,6 +191,25 @@ on the login screen"* (recorded above under **controls that appear where they do
 The drawer is the app's whole navigation; signed out it carried only gated tabs and a duplicate
 login button. **A control that cannot do anything yet is not neutral to him — it is old UI.**
 
+## 🎥 When he sends a video, WATCH it — do not paraphrase it
+
+2026-08-14. He rejected a shipped sidebar with *"wrong format"* and attached a six-second screen
+recording, calling it *"the exact sidebar i want"*. Two sessions were then spent building from his
+written description of that recording. That was avoidable: **`ffmpeg` is installed on this
+machine.**
+
+    ffmpeg -i clip.mp4 -vf "fps=1,scale=900:-1" -frames:v 12 f%02d.png
+
+Then look at the frames. One command settled what prose could not: *"shrink in to 1 button big"*
+had been read as *one button WIDE* — a narrow column of icons — and the frames showed **one single
+circle**, with the whole menu appearing only on hover. Everything built on the wrong reading had
+to be redone.
+
+The general law: **his reference is the artefact, not his sentence about the artefact.** He is 14
+and describes shapes by feeling — accurately, but loosely; when he hands over an image, a link or
+a clip, that is the specification and his words around it are commentary. The same goes for
+screenshots. Open them.
+
 ## Related
 
 - [[Master Vault Gate]] — the screen most of this evidence comes from
