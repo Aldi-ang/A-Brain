@@ -10,6 +10,34 @@ updated: 2026-08-14
 
 # PC sidebar hover-expand and top panel redesign
 
+> 🔴 **REOPENED 2026-08-14 07:50 — the built version is the WRONG FORMAT. His words, verbatim:**
+> *"wrong format for the sidebar, what i want is a sidebar that shrink in to 1 button big and when
+> it hover it opens all the way to show all the button , including the music button, when we hover
+> it will show the name of that features , i want the initial position for the music player also
+> the same with that, i want background for the sidebar to be transparant but blurred, look at the
+> vidieo this is the exact sidebar i want for the pc version, it is liquid expensive looks"*.
+>
+> **What is wrong with what shipped**, point by point, so the next session does not re-derive it:
+> 1. **Collapsed must be ONE BUTTON WIDE.** It ships as two columns at rest — that came from his
+>    earlier *"2 colomn"* ask, which he has now superseded for the desk. One column, one button.
+> 2. **The music button lives in that collapsed strip**, in the same shape as every other mark
+>    ("i want the initial position for the music player also the same with that").
+> 3. **Opening shows every button "all the way"**, with each feature's NAME beside it. The word
+>    part is built; the geometry around it is not.
+> 4. **The panel must be TRANSPARENT AND BLURRED.** It currently ships near-opaque —
+>    `bg-[#0b0a09]/97 lg:bg-black/95` with `backdrop-blur-xl` behind it, so the blur is invisible.
+>    Real transparency plus the blur is what he means by *"liquid expensive looks"*.
+>    ⚠️ Lite Mode strips `backdrop-filter` — that mode needs a solid fallback, not a see-through
+>    panel over the app.
+>
+> 🎥 **THE REFERENCE IS A VIDEO, and it is the spec**: `Assets/references/2026-08-14_pc-sidebar-liquid-reference.mp4`
+> (copied out of `Microsoft.ScreenSketch/TempState/Recordings/`, which Windows clears — the
+> original path will not survive). **Watch it before writing any CSS.**
+>
+> ✅ **Still correct from the last round, do not rebuild:** the hover word (`.kpm-rail-word`), the
+> `margin-right: -132px` trick so opening never reflows the main UI, the music player wearing the
+> phone's shape, and the `hover:hover`/`pointer:fine` gate.
+
 > ✅ **UPDATE 2026-08-14 07:35 — items 1, 2 and 3 below are BUILT** (`d248017`), and so is the
 > profile-picture bug at the foot of this page. He overruled the parking the same morning:
 > *"why does the sidebar not shrinking like i ask before?"*. **Only §4, the top panel, is still
