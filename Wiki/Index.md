@@ -34,6 +34,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 
 - [[UI-Says-Yes-Server-Says-No Pattern]] — a UI control shown without a matching server rule
 - [[Anti-Recurrence Check]] — never claim "committed" without `git show --stat` proof
+- [[The Rule That Never Applied]] — three same-day CSS bugs where the declaration was written
+  correctly and still lost; greping the source proves it was typed, not that it applies
 - [[Draft-Then-Deploy Discipline]] — rules changes are always draft until manually deployed
 - [[The KPM Control System]] — the reusable button/panel/record vocabulary, and the rule that
   authority is graded by material rather than colour

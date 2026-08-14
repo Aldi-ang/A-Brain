@@ -26,6 +26,17 @@ size, one hover, one press. **The band they sit on was never touched.** That ban
 first** (`ffmpeg -i clip.mp4 -vf fps=1 f%02d.png`) — that is how the sidebar round finally landed,
 after two sessions of guessing from prose.
 
+## 🔴 HIS OPEN DECISION — the blank column (2026-08-14, after `9e975aa`)
+
+**Do not answer this for him; the answer decides the work.** His words: *"the sidebar have it own
+space but it just blank while its closed ... so much item on the left while the right it is just
+one big panel ... i want ... more balance and more organic"*.
+
+The rail paints 272px and **occupies 72px**, so opening it never moves the main UI — but that 72px
+sits empty while closed, which is the strip he is looking at. The Totem sheet he pasted says
+*"set it to Fixed, and pin to your chosen edge"* — a floating dock reserves **no** column at all.
+Three options were put to him; nothing proceeds until he picks one.
+
 ## Open questions he has not answered
 
 - The desk sidebar is glass now (translucent, blurred, floating capsule). Should the top band

@@ -12,6 +12,35 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-14 (13:20) — Scheduled ingest pass: the boot-animation cascade trap
+
+`9e975aa` + `5d4f61f`, 364/364. Ingested by the `a-brain-session-ingest` task; source saved at
+[[../Raw/2026-08-14_source_desk-rail-cascade-and-torch|Raw/2026-08-14_source_desk-rail-cascade-and-torch]].
+Four screenshot reports from Aldi, three fixed, the fourth is his to answer.
+
+🔑 **Music, face and logout stayed visible around a CLOSED capsule and could not be clicked.** They
+carry `boot-1/2/3`, the arrival animations, which run `forwards` — and **a filled animation
+outranks a normal declaration in the cascade**, so the rail's `opacity: 0` never reached them. It
+reached the marks, which carry none: exactly the split he photographed. Fixed by switching the boot
+animation off on the desk, not with `!important`. Circle 72 → 56 inside a 64px column.
+
+**The left torch stood in the doorway at every real width** — the arch is `left: 4%` **plus a fixed
+124px**, the torch was `21%` of the same box; they only clear past ~729px and the ledger column
+never is. ⚠️ Mixing % and px positioning in one scene is the bug class, not this one instance.
+
+This is the third same-day occurrence of one shape, so it now has a page:
+[[Concepts/The Rule That Never Applied]] — new, with the two from the entry below. Rippled into
+[[Concepts/The KPM Control System]] (arrival animations cannot be overridden by a plain rule later)
+and [[Concepts/Anti-Recurrence Check]] (fourth shape: grep the source vs. measure the result). His
+open decision — *"it just blank while its closed … i want more balance and more organic"* — is
+recorded verbatim in `Backlog/PC sidebar hover-expand and top panel redesign.md`, unanswered on
+purpose.
+
+Also from that commit's notes and **flagged as environment-dependent, not a project fact**: the
+PROGRESS entry states seven design skills "do not exist" and cannot be installed. In the ingest
+session six of those seven were listed as available. Treat "skill X is unavailable" as a fact about
+one session's environment, never as a standing project fact.
+
 ## 2026-08-14 (afternoon) — the app can be LOOKED AT, and a check that only proved a class was typed
 
 `c53025b`, `a611857`, 364/364. Aldi: *"fix your app access in your browser first so that u can

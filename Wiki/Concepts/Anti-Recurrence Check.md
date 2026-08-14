@@ -79,8 +79,18 @@ collision 176px on the phone could not produce.
 Same lesson from the answering side — *name the width before saying a screen was done* — is in
 [[The KPM Control System]] under **two layouts in one file**.
 
+## A fourth shape: the check greps the source instead of measuring the result (2026-08-14)
+
+The narrowest version of the same mistake, and it recurred three times in one day in `theme.css`:
+an audit check that greps for a class or a value **proves it was typed, not that it applies**. A
+`144px` check passed for a whole day over a value the browser never used, because a Tailwind class
+on the same element carried the phone's `176px`. Full pattern and the other two occurrences:
+[[The Rule That Never Applied]]. The fix is the same shape as `git show --stat` — read the real
+result (`getComputedStyle`, `getBoundingClientRect`), not the source that was supposed to produce it.
+
 ## Related
 
+- [[The Rule That Never Applied]] — the CSS-shaped instance of this discipline
 - [[The KPM Control System]] — the two-layouts rule and the shell's current state
 - [[Git Worktrees]] — the three incidents this rule was built from
 - [[Draft-Then-Deploy Discipline]] — the same "verify, don't assume" spirit applied to rules

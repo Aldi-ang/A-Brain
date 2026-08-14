@@ -35,6 +35,12 @@ edited after creation** except for display-only frontmatter (title/description/t
 - `2026-08-10_source_kpm-six-days-aug04-to-aug10.md` — the six-day backfill: 178 commits,
   Aldi's verbatim reports, the mistakes made, and the decisions he closed.
 
+## Files here (added 2026-08-14)
+
+- `2026-08-14_source_desk-rail-cascade-and-torch.md` — commit `9e975aa` verbatim plus the
+  `.claude/PROGRESS.md` 13:20 WIB section: the filled-animation cascade trap, the torch/arch
+  % + px overlap, and his open "more balance and more organic" design question.
+
 Naming convention observed: `YYYY-MM-DD_source_short-slug.md`. Keep using it for new sources
 so files sort chronologically by filename.
 

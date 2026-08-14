@@ -39,6 +39,7 @@ How KPM decides who can read or write what, and where that's gone wrong.
 The house rules this project follows so mistakes don't repeat.
 
 - [[Anti-Recurrence Check]] — never say "committed" without checking `git show --stat` yourself.
+- [[The Rule That Never Applied]] — the CSS-shaped version of the same discipline: a Tailwind class, source order and a filled animation each beat a correct rule in one day. Measure the computed value, don't grep the source.
 - [[Draft-Then-Deploy Discipline]] — a Firestore rule change is only a draft until a human deploys it by hand.
 - [[Rules Draft Process]] — the summary this discipline was built from: document a blocked fix, don't silently skip it.
 - [[The KPM Control System]] — the shared button/panel/record classes every KPM screen should spend, and the Lite-Mode contract they keep.

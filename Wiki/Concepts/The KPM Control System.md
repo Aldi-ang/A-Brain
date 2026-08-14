@@ -110,4 +110,24 @@ which is also what makes the two locked screens genuinely one screen. Group 15 n
   buttons; it went 18 → 17 because the tenant delete button now carries the word "Delete", and the
   rule says a worded button must not be marked or the label prints twice.
 
-Related: [[Off-Token Colour Migration Map]], [[Aldi's Design Taste]], [[Silent Failure Disease]]
+## The desk rail's two arrivals fought each other (2026-08-14, `9e975aa`)
+
+The hover-expand desk rail shipped with the music mark, the face and the logout **visible around a
+closed capsule and unclickable** — the marks went dark correctly and those three did not. The
+difference: those three carry `boot-1/2/3`, the arrival animations, which run `forwards`, and **a
+filled animation outranks a normal declaration in the cascade**, so the rail's `opacity: 0` never
+reached them.
+
+Fixed by switching the boot animation off on the desk (`.kpm-rail-pod > * { animation: none }`)
+rather than with `!important` — the capsule unfurling *is* the arrival at that width, and two
+entrances over each other was never the design. The phone keeps its own. Circle also went 72 → 56
+inside the 64px column (*"button is too big"*), and the capsule now grows from `inset 4px` to
+flush.
+
+**Standing consequence for this system:** any control that carries an arrival animation cannot be
+hidden by a plain `opacity`/`visibility` rule later. The full pattern, with the two other
+same-day occurrences, is [[The Rule That Never Applied]] — read it before adding a rule that is
+supposed to override an existing one.
+
+Related: [[Off-Token Colour Migration Map]], [[Aldi's Design Taste]], [[Silent Failure Disease]],
+[[The Rule That Never Applied]]

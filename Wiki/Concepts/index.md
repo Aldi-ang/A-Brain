@@ -25,6 +25,7 @@ For the authoritative flat catalog, always check [[../Index]] first.
 - [[Off-Token Colour Migration Map]]
 - [[Ponytail Philosophy]]
 - [[The KPM Control System]]
+- [[The Rule That Never Applied]]
 - [[Secure Context Requirement]]
 - [[Silent Failure Disease]]
 - [[UI-Says-Yes-Server-Says-No Pattern]]
