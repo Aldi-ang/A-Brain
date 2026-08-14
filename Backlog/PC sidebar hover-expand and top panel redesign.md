@@ -70,3 +70,33 @@ where you are.
 
 Two audit checks pin it, including the one that matters most — the capsule must still paint on a
 desk with no hover at all, and in Lite Mode, because the panel no longer paints anything itself.
+
+### ✅ ALSO SHIPPED — the marks got their space back, `f6c5dbe`, 2026-08-14
+
+His last open item: *"button for each should be spacier, so that all the button can be put inside
+the sidebar without some of them exiting the sidebar space"*. **Measured before believing it** —
+1366x768, all seventeen marks: each plate was **21.8px tall around a 27px icon**. The glyph was
+physically bigger than its own button. He was not describing a preference, he was describing a
+defect.
+
+**Two of his own rules collided here, and neither was broken.** *"there is still scroll feature
+inside sidebar, i dont want that"* forbids a scrollbar, and a `min-height` floor is worse still —
+the nav is `overflow-hidden`, so a mark pushed past the bottom becomes a tab that cannot be
+reached at all. With no floor and no scroll, a taller mark can only come from something else in
+the column giving height up. Three things were spending it: a **4px gap in place of 8px** (sixteen
+gaps ate a quarter of the column), **4px of grid padding** on a strip 64px wide, and a **foot that
+had grown to 221px** of the 744px available. After: **29.7px rows, 4.8px of plate around every
+icon**, no scrollbar, nothing clipped. Degrades sanely too — 22.2px at 1280x640, still no clipping.
+
+**A SECOND COLUMN IS NOT AVAILABLE HERE, and this is worth knowing before someone proposes it
+again.** The pod stays **64px wide by design**; the extra 228px of the open 292px panel is the room
+the **label pills slide into**. Two columns would be 21px each. If the dock ever needs two columns,
+the pill has to stop being anchored to the mark first.
+
+**The measurement turned up a silent trap on the way past:** the longest tab name,
+"Receivables & Consignment", draws a 201px pill ending at x=271 — **21px short of the panel edge**,
+and the panel clips. A longer name is sliced off with no other symptom. Now pinned by a check that
+caps tab names at 27 characters.
+
+Both facts are audit checks, not prose — see `integration.audit.mjs`, group 25, the two checks
+following *"the rail never scrolls"*.
