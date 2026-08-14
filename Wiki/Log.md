@@ -12,6 +12,44 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-14 (afternoon) — the app can be LOOKED AT, and a check that only proved a class was typed
+
+`c53025b`, `a611857`, 364/364. Aldi: *"fix your app access in your browser first so that u can
+look and check it before u gave it to me"*. Done, and it paid for itself within the hour.
+
+**How.** The dev server is HTTPS on purpose ([[Concepts/Secure Context Requirement]]) and the
+in-app browser refuses its self-signed certificate — which is why nothing had been seen for two
+sessions. **Plain HTTP is not blocked.** Copy the built stylesheet beside a mock page, serve the
+folder with `python -m http.server`, and open that. The mock carries the shell's real class
+strings and the real built CSS but no React and **no login**, which is the only reason it is
+usable — the rail does not render signed out. `:hover` cannot be forced from a script; **`:focus-
+within` can**, so `.focus()` on a mark reaches the open state. Kill transitions first or you
+measure a frame mid-animation. Screenshots still need Aldi to display the pane; everything else is
+scriptable.
+
+**Two bugs it found immediately**, both invisible to reading:
+
+1. The desk panel was **176px wide — the phone's width**. A Tailwind width class on the element
+   and a width rule in the stylesheet owned the same property, and the phone value won on the
+   desk. The previous session's "144px so the logout stops being clipped" had never once applied.
+2. The hover label was **`position: relative`**, because `.kpm-rail-mark > *` sets relative to
+   lift icons above their plate and won on order at equal specificity. The label sat inside the
+   capsule and, as a flex child, pushed the icon off centre.
+
+🔑 **The lesson, worth more than either fix: a check that greps the source for a class proves the
+class was TYPED, not that it APPLIES.** The 144px check passed for a whole day over a value that
+never reached the screen. Assert the outcome, or measure it in a browser. Belongs with
+[[Concepts/Anti-Recurrence Check]].
+
+**And his Totem spec, from the component's own description** — he pasted it and said *"i want
+exactly like that"*. That settled a contradiction: the sheet says *"Solid surface. No backdrop
+blur"*, which **supersedes his earlier "transparant but blurred"** (his reading of the video).
+Artefact over sentence, again — see [[Concepts/Aldi's Design Taste]]. Solid also deleted a failure
+mode rather than adding one: no backdrop-filter means nothing for Lite Mode to strip. Plus the
+label became its own pill, the logo became the trigger (at rest the panel takes no pointer events,
+so it is not an invisible wall down the screen edge), the icons cascade, and **every control in
+the rail is one shape now** — the gold unlock block and the `.kpm-expand` logout are gone.
+
 ## 2026-08-14 (later) — the desk sidebar becomes one button, and the video was finally watchable
 
 `16c8ff9`, 362/362 checks. The strip built earlier the same day was **the wrong format** and he
