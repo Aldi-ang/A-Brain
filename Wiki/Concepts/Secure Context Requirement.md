@@ -63,3 +63,26 @@ service worker for offline mode. Both would fail the same silent way on a plain-
   cannot exercise a phone's origin
 - [[Master Vault Gate]] — the screen this happened on
 - Source: [[../../Raw/2026-08-10_source_kpm-six-days-aug04-to-aug10|the six-day source]]
+
+## The second thing a new LAN address breaks: `auth/unauthorized-domain` (2026-08-14)
+
+The secure-context rule above explains why the phone must load `https://<LAN-IP>:5173`. There is a
+second, separate gate on that same address, and it fails with a different error: **Firebase Auth
+refuses Google sign-in on any host not listed under Authentication → Settings → Authorized
+domains.**
+
+**One root cause, two symptoms, hours apart.** 2026-08-14: the router handed the PC a new DHCP
+address. First his saved phone link stopped resolving — read as "did the URL change?" (it had not;
+`vite.config.js` and `launch.json` were untouched, the server answered 200). Then, once he had the
+right address, sign-in died with `auth/unauthorized-domain`, because only the OLD address was on
+the allow-list.
+
+**So when the phone breaks after "nothing changed", check the address FIRST** — `ipconfig | grep -i
+IPv4`, never from memory — and expect it to break two things, not one.
+
+**Aldi does the console step himself; we touch no live Firebase config.** The durable fix is a DHCP
+reservation for the PC in the router, so the address stops moving and the Firebase entry is added
+once. [likely] the console accepts a bare IP, since `localhost` sits on that list by the same
+mechanism — unconfirmed, he had not reported back when this was written.
+
+Related: [[The KPM Control System]] · [[Anti-Recurrence Check]]
