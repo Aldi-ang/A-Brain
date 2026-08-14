@@ -50,6 +50,34 @@ pill answers both widths. Net −48 lines.
 Also written up this round: [[Entities/The Admin Agent Profile Id]], the real reason his profile
 picture never followed his Agent Profile.
 
+### ⚠️ And the one I had already got wrong once: the sidebar over the lock screen (`06f299b`)
+
+He reported it on 2026-08-14 as *"why did u change our login screen after google login tho, these
+sidebar format shouldnt be showing"*. It was answered as old un-converted UI, from the diff. **That
+was wrong**, and he reported it again the same day with a screenshot: *"why sidebar keep showing in
+login screen"*.
+
+**A z-index only competes inside its own stacking context.** The Master Vault gate is rendered as
+one of `<BiohazardTheme>`'s own children, so it lands inside the content div — and that div is
+`relative z-10`, which IS a stacking context. The gate's `z-[9999]` is resolved against its
+siblings in there, and then the whole context is stamped at 10. The navigation panel is a sibling
+of that div at `z-[90]`. 90 beats 10, so a menu paints over a full-screen modal, and **raising the
+gate's number can never fix it.**
+
+The panel steps aside instead — `{user && !showAdminLogin && (`, which the edge ribbon already
+did. Two checks now carry the reasoning so the next person reaches for the guard and not for a
+bigger number.
+
+The general law, worth more than this instance: **when a `fixed` full-screen overlay fails to
+cover something, look for a positioned ancestor with a z-index, not for a bigger z-index.** Same
+family as the `backdrop-filter` trap recorded above — an ancestor quietly deciding where and how
+high a child lives.
+
+🔑 **And the process lesson:** the first answer was reasoned entirely from the diff — "I changed
+nothing here, therefore nothing here is broken". A diff proves what changed. It cannot prove what
+is correct. He was reporting a real defect that predated the change, and the reply talked him out
+of it. Verify the report before disproving the cause.
+
 ## 2026-08-14 — A-BRAIN IS THE MEMORY, and the desk navigation becomes an 88px strip
 
 **His standing instruction, and it changes where things get written:** *"this app memories and
