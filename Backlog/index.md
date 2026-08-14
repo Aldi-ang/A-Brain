@@ -29,6 +29,7 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | Offline auth lockout fix | Done |
 | Rank Config and Achievement Badges redesign | Parked |
 | Remove unused code and dependencies | Ready to Deploy — PR open, react-is regression fixed |
+| PC sidebar hover-expand and top panel redesign | **Open — added 2026-08-14**, four items he raised that morning and were deliberately not built |
 
 This table is a snapshot, not live — open `Backlog.base` in Obsidian for current status, since
 items here move between columns over time and this index won't auto-update.

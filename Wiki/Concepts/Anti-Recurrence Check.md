@@ -50,8 +50,38 @@ local check (`grep src/`) looked sufficient; it wasn't. See
 fixed by actually running a production build before trusting the cleanup, not just the
 narrower check.
 
+## A third shape: rebuilding the second layout instead of PORTING the solved one (2026-08-14)
+
+**His complaint, and it is about workflow, not about the app:** *"u should know all this logic and
+take notes of it when we doing the phone sidebar yesterday, looks like there is flaw in the
+workflow of alucard that make them forgot what he did on the phone sidebar yesterday, because of
+that i need to tell u twice, yesterday and today"*.
+
+**The honest diagnosis is not amnesia — the notes existed and were found.** The failure was
+building the desk navigation from a blank page instead of starting from the phone's already
+signed-off answers. Four things he had decided during one night's work on 9–10 August had to be
+asked for again on 2026-08-14: **two columns** (his words then: *"instead of 1 line of sidebar i
+want it to be 2 colomn per row"*), **a label under the pointer** rather than nothing, **the music
+player's pill shape**, and **the agent's own profile picture**. Every one was already solved,
+tested, and sitting in the same file behind a different breakpoint.
+
+**The rule: a component with two layouts has ONE set of decisions.** Before writing the second
+layout, list what the solved one already answers — density, labels, spacing, states, what hides,
+what expands — and port each answer, or say in one clause why this width genuinely differs. Never
+open a blank page for a width whose sibling is finished. Cheapest way to run it: read the solved
+layout's classes **and the audit checks that pin them** before the first edit, not after his
+screenshot arrives.
+
+**Cost when skipped:** a full re-specification round, plus a defect the solved width had never hit
+— the desk strip was built at 88px, which clipped the logout button's 118px hover expansion, a
+collision 176px on the phone could not produce.
+
+Same lesson from the answering side — *name the width before saying a screen was done* — is in
+[[The KPM Control System]] under **two layouts in one file**.
+
 ## Related
 
+- [[The KPM Control System]] — the two-layouts rule and the shell's current state
 - [[Git Worktrees]] — the three incidents this rule was built from
 - [[Draft-Then-Deploy Discipline]] — the same "verify, don't assume" spirit applied to rules
   deployment

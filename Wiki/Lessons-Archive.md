@@ -78,3 +78,20 @@ to 92% of the screen, where the 192px list renders ~200px above the top edge —
 customer selectable at all. Caught 20 minutes later by re-reading the geometry, in a second commit.
 Seen: 2026-08-11
 Fired: never
+
+### 2026-08-12 — price a fan-out against the quota BEFORE launching, and never let one last agent own the answer
+*Archived 2026-08-14 at cap, zero fires. Still true; it just never got a chance to fire — no
+Workflow run happened between it being written and the cap being needed again.*
+**Trigger:** before calling `Workflow` (or any fan-out) whose deliverable is produced by a single
+synthesis agent at the end. Read the `[plan-quota]` / `[context-watch]` number first, out loud.
+**Lesson:** size the run to the stated headroom, not to the task; and make each worker persist its
+own findings, so a mid-run limit costs the summary, never the work. If the headroom cannot cover
+the run, say so and hand-verify instead — that is what actually found the bugs both times.
+**Would have prevented:** two runs died at the session limit before synthesis and produced no
+report: `wf_6d41c78e-354` (641k tokens, 9 of 12 agents errored, `laporan: null`) and
+`wf_f20bc26d-9ec` (584k tokens, 21 tabs traced, `rencana: null`). 1.2M tokens, both reports lost,
+findings recovered only by hand-parsing `journal.jsonl` afterwards. The quota hook had already
+printed 76% before the first launch, and I launched anyway. Aldi, 2026-08-12: *"u just failed to
+measure the token usage"*.
+Seen: 2026-08-12 (twice in one night)
+Fired: never
