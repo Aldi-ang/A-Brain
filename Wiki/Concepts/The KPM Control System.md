@@ -31,12 +31,56 @@ full width while Crown Transfer, which permanently hands over the product, wore 
 
 ## The vocabulary
 
-`.kpm-band` (group caption — says what the group may DO) · `.kpm-mod` (one instrument; stacked ones
-share an edge, a rack rather than floating cards) · `.kpm-rail` (name left, live state right) ·
-`.kpm-read` (a printed state, so a module answers before it is opened) · `.kpm-btn`
-(`.key` / `.hazard` / `.block`) · `.kpm-field` (label printed above, never a placeholder) ·
-`.kpm-switch` (both positions visible) · `.kpm-rec` (identity above, actions below — three word
-buttons do not fit side by side at 375px).
+`.kpm-band` (group caption — says what the group may DO) · `.kpm-mod` (one instrument) ·
+`.kpm-rail` (name left, live state right) · `.kpm-read` (a printed state, so a module answers
+before it is opened) · `.kpm-btn` (`.key` / `.hazard` / `.block`) · `.kpm-acts` (the action row —
+buttons hug their word and settle right) · `.kpm-hold` (hold to confirm, see below) ·
+`.kpm-field` (label printed above, never a placeholder) · `.kpm-switch` (both positions visible) ·
+`.kpm-rec` (identity above, actions below — three word buttons do not fit side by side at 375px).
+
+## The three rationing laws (2026-08-15) — all three are the SAME law
+
+Aldi found all three by eye in one session, and each time the fix was to make a signal rarer.
+**A signal that covers most of the surface is not a signal.** Checked by groups 30, 31, 33.
+
+1. **SPACE.** *"i want u to give more space between features ... i thought it is the same
+   components"*. Modules sat 0px apart sharing one 1px line, while each module's OWN head→shelf
+   waist carried TWO stacked lines (`--line` + the brighter `--line-2`) also at 0px — the inner
+   division was heavier than the outer one, so the eye grouped across module boundaries. The ladder
+   now only ever grows outward: **12px between controls · 16px module padding · 20px module→module
+   · 40px between groups**, and `.kpm-shelf.split` lost its duplicate border. ⚠️ **Never let an
+   inner number reach an outer one** — at a tie the eye picks the wrong grouping and no border
+   weight argues it back.
+2. **AMBER.** *"too much yellow gold color ... few amber color and more black and white"*.
+   `--gold`/`--accent-ink`/`--accent-edge` went **#D4AF37 → #D08A2E**, but the real fix was
+   frequency: a live module carried FOUR amber marks (stripe, slot code, title rule, state chip).
+   Now two. **Amber marks the STATE and the ACT, never the label.** `--tier-gold` is untouched —
+   a gold RANK is a medal, not UI accent.
+3. **RED.** *"u can add red but not this much especially on few buttons and panel"*. ~70% of a
+   hazard module was red before a warning word was read: a `--danger-well` wash under
+   `--hatch-danger`, above buttons that were also red-hatched, under a red-hatched band. Red now
+   costs **5px of stripe, 2px of rule, a title and a chip**. ⚠️ The head must still be DISTINCT —
+   that is his older *"too standardise"* call and it still stands; group 31 asserts both halves.
+
+## Hold to confirm — `HoldButton.jsx`, the gate that is not a dialog
+
+He pasted an "interactive hover button" (dot expands to fill → text slides → spinner → tick) and
+asked for it on the confirming buttons. **The component as pasted has no confirmation in it** —
+click runs straight to "Complete!" — so dropped onto a wipe, one tap destroys the database.
+
+Built instead: **1.6s of deliberate pressure**, a `clip-path: inset()` sweep that snaps back on
+early release, then the button reports its own result in place (`Wiping…` → `Products wiped`).
+A dialog costs one more click and a thumb clicks by reflex; pressure cannot be done by accident.
+
+- 🔴 **IT DOES NOT REPLACE `confirmAction`.** Both wipe dialogs still run behind it, and a check
+  fails if either disappears. Trading a confirmation for an animation is Aldi's explicit call.
+- **No new dependency.** The pasted version wanted `framer-motion` + `clsx` + `tailwind-merge` +
+  TypeScript + shadcn; this repo is **JavaScript + Vite** and has none of them. `lucide-react` yes.
+- `clip-path` + `background-color` only, so **Lite Mode keeps it — and must**: the fill is the only
+  thing saying how much longer to press. This is the rare case where motion is function.
+- ⚠️ `keyHeld` ref is load-bearing: **keydown REPEATS while a key is held**, and without the guard
+  the timer restarts forever and the button reads as broken.
+- ⚠️ `no-unsafe-finally` — never `return` from a `finally`; lint blocks it.
 
 ## The contract, checked by audit group 30
 
