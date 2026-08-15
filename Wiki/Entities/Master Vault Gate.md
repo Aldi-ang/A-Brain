@@ -3,9 +3,9 @@ title: Master Vault Gate
 description: The master-password screen every KPM session starts at — its five modes, the numbers Aldi locked, and the decisions that are closed.
 type: entity
 created: 2026-08-10
-updated: 2026-08-10
+updated: 2026-08-15
 confidence: high
-checked: 2026-08-10
+checked: 2026-08-15
 tags: [kpm, ui, auth, vault-gate, phone]
 ---
 
@@ -68,6 +68,18 @@ Three real fixes preceded the actual cause. See [[Secure Context Requirement]] �
 not hash a password over plain HTTP, and [[Silent Failure Disease|said nothing about it]].
 **The dev server is HTTPS from now on: `https://192.168.1.141:5173/`.** Safari warns once about
 the self-signed certificate; that warning is expected.
+
+## Biometric is Vercel-only, by design (2026-08-15)
+
+`App.jsx:1118` — `rp: { id: window.location.hostname }` — locks each registered passkey to the
+exact hostname that created it. Registered at the Vercel address, opened at a LAN IP
+(`192.168.1.109`): different host, so the device reports no key. **Nothing was lost or reset** —
+it is a different origin starting blank, same as a brand-new phone. It can never work on a LAN IP
+regardless of re-registering: **WebAuthn rejects a bare IP address as `rp.id` outright**, and
+refuses to run on any page showing a certificate warning, which the self-signed LAN dev server
+always does. The 5-minute vault grace period (`localStorage['kpm-vault-grace']`) is the same
+per-origin shape, so "biometric is gone" and "grace is gone" reported together are one fact, not
+two bugs. Full write-up: [[The KPM Control System]].
 
 ## Open against this screen
 

@@ -41,6 +41,13 @@ edited after creation** except for display-only frontmatter (title/description/t
   `.claude/PROGRESS.md` 13:20 WIB section: the filled-animation cascade trap, the torch/arch
   % + px overlap, and his open "more balance and more organic" design question.
 
+## Files here (added 2026-08-15)
+
+- `2026-08-15_source_header-dock-ship-webauthn.md` — commit log + `.claude/PROGRESS.md`
+  00:00–08:15 WIB entries: the desk header/dock shipped and approved, the phone's duplicate-totem
+  media-query gap, the `grid-auto-rows: minmax(0,1fr)` definite-height trap, and the WebAuthn
+  hostname-lock explanation for biometric.
+
 Naming convention observed: `YYYY-MM-DD_source_short-slug.md`. Keep using it for new sources
 so files sort chronologically by filename.
 

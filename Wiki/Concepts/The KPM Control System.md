@@ -3,9 +3,9 @@ title: The KPM Control System
 description: The reusable button/panel/record vocabulary in theme.css, the material-over-colour rule behind it, and the Lite-Mode contract every control must keep.
 type: concept
 created: 2026-08-13
-updated: 2026-08-14
+updated: 2026-08-15
 confidence: high
-checked: 2026-08-14
+checked: 2026-08-15
 tags: [pattern, design, components, kpm, settings]
 ---
 
@@ -128,6 +128,42 @@ flush.
 hidden by a plain `opacity`/`visibility` rule later. The full pattern, with the two other
 same-day occurrences, is [[The Rule That Never Applied]] — read it before adding a rule that is
 supposed to override an existing one.
+
+## Shell state as of 2026-08-15 — the desk header and dock SHIPPED and Aldi approved
+
+The whole app-shell round from 2026-08-13 → 08-15 closed out: desk dock (Label B, square 44px
+cells, liquid glass, `--cap` on the grid), the header band reworked to match it (weaker glass on
+purpose — blur 18 vs the dock's 30, because the dock is what you reach for and the header is what
+you read), and the phone's duplicate-totem bug. **He has seen it and approved it** — *"it looks
+fine"*, after one overlap fix (header's left margin had to clear the dock's *open* 112px pane, not
+just its closed 60px circle — that number tracks `.kpm-rail-pod`'s width, change one and change
+both). No frame was ever captured on this machine to verify by screenshot; his eyes are the only
+check that has run on the appearance.
+
+Also closed: the `Backlog/PC sidebar hover-expand and top panel redesign.md` open questions —
+glass-vs-flat for the header (glass, weaker than the dock) and whether to keep the ghost watermark
+(kept, but changed from the section's **name** to its **icon**, since it was printing 24px behind
+the bell).
+
+**A fourth CSS trap, different mechanism from [[The Rule That Never Applied]]:** `grid-auto-rows:
+minmax(0, 1fr)` only resolves against a **definite** height on its container. Sizing the dock's pod
+from `height: 100%` to `max-content` (needed for "follow how many buttons there are") made the
+grid's height indefinite, and every `1fr` row silently collapsed to its icon (44×17 instead of
+44×44.9) rather than erroring. Fix: give the grid its own definite `flex: 0 1 var(--cap, auto)`
+rather than trusting the ancestor. Isolated-box-chain measurement is what found it; the two wrong
+first guesses (max-content on the clipping PANEL instead of the visible POD; shipping unverified)
+cost a duplicate bug report.
+
+## Biometric / passkeys are Vercel-only, by design — not a Firebase problem
+
+`App.jsx:1118` — `rp: { id: window.location.hostname }` — locks each WebAuthn passkey to the exact
+hostname that created it. A passkey registered at the Vercel address reports "no key" at
+`192.168.1.109`; nothing was lost or reset, it is a different origin. It can never work on the LAN
+IP regardless: **WebAuthn rejects a bare IP as `rp.id`** and refuses to run on a page with a
+certificate warning, which the self-signed LAN dev server always shows. **The LAN IP is PIN-only,
+by design.** The 5-minute vault grace period is the same shape — `localStorage['kpm-vault-grace']`
+is per-origin — so "biometric is gone" and "grace is gone" reported together are one fact, not two
+bugs: a new address starts blank like a brand-new phone. See [[Master Vault Gate]].
 
 Related: [[Off-Token Colour Migration Map]], [[Aldi's Design Taste]], [[Silent Failure Disease]],
 [[The Rule That Never Applied]]

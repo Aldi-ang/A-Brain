@@ -3,7 +3,7 @@ title: The Rule That Never Applied
 description: Three same-day bugs where the CSS was written correctly and still lost — a Tailwind class, source order, and a filled animation. The check must read the computed value, not the source.
 type: concept
 created: 2026-08-14
-updated: 2026-08-14
+updated: 2026-08-15
 confidence: high
 checked: 2026-08-14
 tags: [pattern, css, theme-css, app-shell, kpm, discipline]
@@ -50,6 +50,27 @@ Occurrence 3 was fixed by switching the boot animation **off on the desk**
 design one, not a specificity one: the capsule unfurling *is* the arrival at that width, and two
 entrances playing over each other was never the design. The phone keeps its own boot animations.
 `!important` would have hidden the fact that the shell had two arrival animations fighting.
+
+## A fourth occurrence: no rule at all is also a rule that never applied (2026-08-15)
+
+`.kpm-rail-totem` had a rule for a desk that hovers (it *becomes* the collapsed circle) and a rule
+for a desk that cannot (hidden) — and nothing at all for a phone, which matches neither media
+query. A bare `<span>` with no rule renders inline by browser default, so it drew the active tab's
+own icon a second time above the grid. **The written rules were all correct; the bug was in the
+gap between them.**
+
+> **When a class is only ever styled inside media queries, ask what it looks like OUTSIDE them —
+> that is a real screen too.**
+
+Fixed by hiding it at file scope, letting the hover-desk block turn it back on later at equal
+specificity — deleting the element outright would have taken the PC's collapsed circle with it.
+
+**The check that caught it broke on its own first run**, worth recording next to the fix: it
+anchored on `@media (min-width: 1024px) {`, which occurs several times in `theme.css`, and a plain
+text search returns the *first* one — the gate landed 28,000 characters early and missed the real
+block. **Fourth time in one week a regex anchor was wrong.** Count the occurrences a pattern
+matches before trusting the first one; anchor on something unique (a value, a selector's full
+string), never on a fragment that repeats.
 
 ## A neighbouring trap: two coordinate systems in one scene
 

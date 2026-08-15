@@ -3,9 +3,9 @@ title: Anti-Recurrence Check
 description: The rule born from 3 "it's committed" lies — never claim a save happened without checking git yourself.
 type: concept
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-08-15
 confidence: high
-checked: 2026-07-27
+checked: 2026-08-15
 tags: [pattern, discipline, git]
 ---
 
@@ -117,6 +117,22 @@ hover/animated state must also force `transition: none`. Without it every readin
 mid-animation and reports the *start* value — which produced two confident wrong diagnoses,
 including one where I told him a real bug was fixed when my own check was simply reading too
 early. See [[The Rule That Never Applied]] for the same lesson in its CSS-cascade form.
+
+## A sixth shape: a regex anchor that matches the wrong occurrence (recurred 4x in one week, 2026-08-15)
+
+Not a coding mistake in the app — a mistake in the **check itself**. An audit check's regex
+anchored on a fragment that repeats in the file (`@media (min-width: 1024px) {`, occurring several
+times in `theme.css`) and a plain text search returns the *first* match, not the relevant one — the
+check's gate landed 28,000 characters early and validated the wrong block entirely. This is the
+fourth time in one week the same shape recurred: an anchor that is short or common enough to match
+more than once, silently validating the wrong span.
+
+**The rule: before trusting a regex/text-search anchor in a check, count how many times it matches
+the file — not just whether it matches at all.** Anchor on something unique (a specific value, a
+full selector string), never on a fragment likely to repeat. See [[The Rule That Never Applied]]'s
+fourth occurrence for the incident this was pulled from. **This lesson was also written into
+`kpm-inventory-facts.md`** (the skill reference), since it is about how audit checks are written in
+this project, not a one-off bug — see the ingest run note for 2026-08-15.
 
 ## Related
 

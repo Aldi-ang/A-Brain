@@ -1,14 +1,31 @@
 ---
-title: PC sidebar (shipped) and top panel redesign
-description: The last open item from Aldi's 2026-08-14 list of eight — the header band's whole background and UI, not just the chips on it. The PC sidebar half of this note shipped as 16c8ff9 and is now a short record at the foot.
-status: To Do
+title: PC sidebar and top panel redesign (both SHIPPED)
+description: Aldi's 2026-08-14 list of eight, closed out 2026-08-15 — the header band now matches the dock and he has seen and approved both. Kept as the record of what shipped and why.
+status: Done
 area: App shell / BiohazardTheme
 priority: High
 created: 2026-08-14
-updated: 2026-08-14
+updated: 2026-08-15
 ---
 
 # Top panel — background and UI
+
+## ✅ SHIPPED 2026-08-15 — header reworked, he approved: *"it looks fine"*
+
+Both open questions below answered by the actual work: the header became a **glass pane**, weaker
+than the dock's on purpose (blur 18 vs 30 — the dock is what you reach for, the header is what you
+read), and the ghost watermark was **kept** but changed from printing the section's *name* to its
+*icon* (it was sitting 24px behind the bell). One overlap fix followed his screenshot: the header's
+left margin had to clear the dock's **open** 112px pane, not just its closed 60px circle — that
+number tracks `.kpm-rail-pod`'s width, so the two must change together. Full reasoning:
+[[../Wiki/Concepts/The KPM Control System]] and [[../Wiki/Log]], 2026-08-15.
+
+His **"more balance and more organic" / blank-column** decision below was never explicitly chosen
+between the three options — the shipped header answers "should the band match the glass dock" (yes)
+but the rail's own blank 72px strip while closed was not separately revisited this round. Leave
+this flagged rather than assumed closed.
+
+
 
 **His words:** *"we need to redesign the whole background and UI for this top panel, we only did
 the buttons yesterday add this to task list"*.

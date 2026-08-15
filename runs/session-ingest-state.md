@@ -3,7 +3,7 @@ title: "Session Ingest State"
 description: Tracking file for the a-brain-session-ingest scheduled task — which sessions/Inbox items have already been processed.
 type: state
 created: 2026-07-27
-updated: 2026-08-14
+updated: 2026-08-15
 tags: [runs, state]
 ---
 
@@ -29,3 +29,5 @@ not hand-edit unless correcting a mistake the task made.
 | local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-08-14 | **Partially ingested.** Its work through 12:11 had already self-ingested into `Wiki/Log.md`. The 13:20 WIB block (commits `9e975aa`, `5d4f61f`) had NOT — that is what this run captured. Session was still running at ingest time; later work will need a further pass |
 | _(2026-07-29 → 2026-08-12 sessions)_ | — | 2026-08-14 | Not re-reviewed row-by-row. This table was left un-updated by the runs between 2026-07-29 and 2026-08-12, but those runs did write to the vault (`Raw/2026-08-10_source_kpm-six-days-aug04-to-aug10.md`, the `Wiki/Log.md` 2026-08-11 and 2026-08-14 entries). Coverage was verified against `Wiki/Log.md` and the vault's own git log rather than re-read from transcripts |
 | local_d5db1b80-1dbf-4f34-b83b-24625632ada6 | Obsidian vault relationship and Claudian integration | 2026-07-28 | Session continued after being logged as "already reflected" — later activity fixed a real Vercel build break (`react-is` transitive-dep removal) and self-ingested it directly into Wiki/Log.md, Anti-Recurrence Check, the Backlog card, and the delegate-coding-task skill file. Verified all four landed; nothing left for this run to add |
+| local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-08-15 | **New — ingested.** The 2026-08-15 00:00–08:15 WIB block (commits `36fdae2` through `8939567`): desk header/dock shipped and Aldi-approved, phone duplicate-totem media-query gap, `grid-auto-rows` definite-height trap, WebAuthn hostname-lock explanation. Session's earlier activity (through 12:11 on 08-14) was already covered by the previous run |
+| local_3b681328-7f1c-4355-b2b7-5063b85099eb | Vault gap curator | 2026-08-15 | Skipped — vault-maintenance session, not user work; no vault commit followed it (nothing new to capture) |

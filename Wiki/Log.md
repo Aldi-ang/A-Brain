@@ -12,6 +12,42 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-15 — Scheduled ingest pass: the header/dock shipped, and biometric was never a Firebase bug
+
+The app-shell round from 2026-08-13 closed out: the desk header and dock shipped, Aldi saw it and
+said *"it looks fine"*. Raw source: [[../Raw/2026-08-15_source_header-dock-ship-webauthn|Raw]].
+
+Rippled, no new pages:
+- [[Concepts/The KPM Control System]] — shell-state update (shipped, approved), the
+  `grid-auto-rows: minmax(0,1fr)`-needs-a-definite-height trap, and the WebAuthn hostname-lock
+  fact (biometric/passkeys are Vercel-only by design; the LAN IP is PIN-only).
+- [[Concepts/The Rule That Never Applied]] — fourth occurrence: a class styled only inside media
+  queries had no rule for the phone at all, so the browser default (inline `<span>`) drew the
+  active tab's icon twice. Caught by, then broke, an audit check whose regex anchor matched the
+  *first* of several identical `@media` fragments instead of the relevant one.
+- [[Concepts/Anti-Recurrence Check]] — sixth shape: regex anchors that match the wrong occurrence,
+  now the fourth time in one week. **Also propagated to the skill file**, see below.
+- [[Entities/Master Vault Gate]] — the WebAuthn hostname-lock explanation, so future sessions don't
+  re-diagnose "biometric keeps resetting" as a Firebase problem.
+- `Backlog/PC sidebar hover-expand and top panel redesign.md` — marked shipped; its two open
+  design questions were answered by the actual work (glass header, ghost watermark kept as icon).
+  Its **blank-column / "more balance and more organic"** decision was left explicitly flagged as
+  still open — the header round answered a different question than that one.
+
+**Skill-file edit (the one allowed exception outside the vault):**
+`C:\Users\ASUS\.claude\skills\delegate-coding-task\references\kpm-inventory-facts.md` gained a
+"count the regex matches before trusting the first one" section — this is the fourth same-shape
+occurrence in a week (audit-check anchors matching the wrong span of `theme.css`), which crosses
+from "worth noting" to "should be known before writing the next check."
+
+**Also closed, verbatim, not a wiki page:** *"21 dev is no"* — `/21st:21st-design-sync` must never
+run on this project. Recorded in the raw source and in `.claude/PROGRESS.md`; not worth a standing
+page for one closed yes/no.
+
+Skipped: "Vault gap curator" (01:05 UTC) and "CROWN PLAN PHASE 4 PART 9" itself — the vault-facing
+one is maintenance, and the KPM session's own commits/PROGRESS.md entries are the primary source
+already captured above. No Inbox items.
+
 ## 2026-08-14 (13:20) — Scheduled ingest pass: the boot-animation cascade trap
 
 `9e975aa` + `5d4f61f`, 364/364. Ingested by the `a-brain-session-ingest` task; source saved at
