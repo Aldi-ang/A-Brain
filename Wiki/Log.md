@@ -404,3 +404,45 @@ Rp 55.000/kg, total Rp 9.357.500, LUNAS (BCA→BRI transfer matched the nota exa
 unreadable under the business stamp and was recovered as 29 from the arithmetic; he confirmed it.
 That produced the standing rule: say which number was *inferred* rather than *read*, and ask
 before writing it.
+
+## 2026-08-15 — Phase 6 closed: Settings is fully on the control system
+
+27 commits, `phase0-solid-ground`, audit 419 → 508. All of `SettingsView.jsx` converted — Security
+& Data, General & Brand, Tiers & Logic, the Command Center chrome, and `PermissionMatrixEditor`.
+Details and the new class list are in [[Concepts/The KPM Control System]]; the light-mode warning
+that came out of it is in [[Concepts/Off-Token Colour Migration Map]].
+
+**Light mode is the next front**, on his order, and Phase 6 was chosen first precisely because it
+does most of that job in advance. Indonesian is queued behind it and **has not been asked for** —
+his words were *"if needed in the future"*.
+
+Six things worth not re-deriving:
+
+1. **The mascot never appeared on the size slider because the dispatch ran LAST.** It sat after a
+   `setDoc(doc(db, …))` in the same handler; `doc()` throws synchronously, so the call was skipped
+   while the number had already moved. General rule: **the user-visible effect goes first, before
+   anything that can throw.** A check now asserts nothing precedes it.
+2. **The receipt watermark was anchored to the modal SHELL, not the printed SHEET.** Found only by
+   building the "View receipt" preview he asked for — the bug was invisible until something drew
+   the page at its real size. Geometry now lives in one shared config so preview and nota cannot
+   drift.
+3. **An under-counting needle hides exactly what the check exists to catch.** Wrapping a
+   delete-button count in `strip()` looked like the clean fix for a comment being counted; it is
+   not — `strip`'s non-greedy comment pair swallows real code in `CustomerManager.jsx` and dropped
+   one of its two genuine delete buttons. The comment was reworded instead.
+4. **Needles matching their own documentation, four times in one week.** A check's regex found the
+   comment that explained the check. When a needle is quoted in prose near the code it scans, the
+   count is wrong and everything still passes.
+5. **`data-kpm-del` must be the FIRST attribute on the tag** — the needle anchors immediately after
+   the tag name, so slipping `type="button"` in front silently unmarks the button. Nothing errors.
+6. **"There is 2 default here."** The customer-access dropdown listed a "not set" line and a Global
+   line under identical words, because `getCustomerAccessLevel()` resolves an absent permission to
+   `'global'` — **one state wearing two names**, and the second could never be selected. The fix
+   collapses the STATE on the read side (`|| 'customers_edit_global'`) *before* removing the
+   option; deleting the option first would have left every unset tier valued at a choice that no
+   longer exists — a blank control on the screen that decides who may edit customers. Reporting
+   Authority looked identical and is not: there `'none'` genuinely means no access.
+
+⚠️ **Nothing in this entry was verified by screenshot.** The dev server is HTTPS by design and the
+in-app browser refuses it; the app needs Google sign-in. **His eyes remain the only test that has
+ever run on appearance.**

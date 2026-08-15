@@ -211,3 +211,60 @@ bugs: a new address starts blank like a brand-new phone. See [[Master Vault Gate
 
 Related: [[Off-Token Colour Migration Map]], [[Aldi's Design Taste]], [[Silent Failure Disease]],
 [[The Rule That Never Applied]]
+
+## Phase 6 closed — `SettingsView.jsx` is fully on the system (2026-08-15)
+
+All four tabs plus the Command Center chrome and `PermissionMatrixEditor` are converted. Audit
+groups **33–37**; the count went 419 → 508. New classes since the last entry: `.kpm-swatch`(+`.sm`),
+`.kpm-swatch-input`, `.kpm-dot`, `.kpm-cmd`(+`.clearance.tier1`), `.kpm-nav`, `.kpm-matrix`,
+`.kpm-toggle`, `.kpm-sw`, `.kpm-chips`, `.kpm-permlist`, `.kpm-permrow`, `.kpm-rank`,
+`.kpm-field.kpm-authority`, `.kpm-pick`, `.kpm-picklist`.
+
+**This is most of the light-mode job done in advance**, which was Aldi's own reasoning for the
+order: one token name resolves to both themes, and no `dark:` variant was written anywhere in the
+rework. Screens still on `dark:bg-slate-800` are the ones that have to be coloured twice.
+
+### The switch, built from a video he recorded
+
+He filmed a toggle he liked and asked for it in amber. Two rounds of *"it look so kaku"* (stiff)
+before it landed, and the second round was a **bug, not a taste call**: the press animated `width`,
+`height` and `margin-top` — three LAYOUT properties, so every frame re-ran layout and paint instead
+of riding the compositor. `transform: scale(.92)` does the same job for free. A check now forbids
+the layout properties coming back.
+
+What actually makes it read as the video: the amber is uncovered by `clip-path: inset(0 100% 0 0)`
+→ `inset(0 0 0 0)` so the colour ARRIVES WITH the knob rather than appearing all over the track at
+once; and the knob overshoots (`cubic-bezier(.22, 1, .36, 1)`) instead of arriving and stopping
+dead. The glow is `box-shadow`, so it is the one part not on the compositor — kept because Lite
+Mode strips it automatically, on his *"yeah of course do use the shadow for normal mode"*.
+
+### The authority picker — why a dropdown had to become a component
+
+A native `<select>` draws its **open list in the operating system**, outside the page. No stylesheet
+in this project has ever reached it, which is why those two dropdowns were the last controls on the
+panel still looking foreign. Restyling was never possible; drawing it ourselves was the only route.
+
+Drawing it yourself means owing back every behaviour the native control gave away: arrows, Home/End,
+Enter, Space, Escape, Tab, type-ahead, and an announcement that matches what is saved. Focus stays
+on the trigger (`role="combobox"` + `aria-activedescendant`) so there is one tab stop and nothing to
+be trapped in — on the screen that decides who may edit what, that is not polish.
+
+⚠️ **A popup inside `overflow-x: auto` is CLIPPED at the box's edge and scrolls away from its own
+trigger.** The desktop matrix is exactly that box. Fix: portal to `<body>` + `position: fixed` from
+a measured rect — and then it must close on any scroll or resize, because a fixed box cannot follow
+a trigger that moved. This is a general shape, not a matrix quirk: any popup in this app that lives
+inside a scroller needs the same treatment.
+
+### Four CSS facts this phase paid for
+
+- **A `<select>` sizes itself to its LONGEST OPTION.** Under `table-layout: fixed` the column cannot
+  grow to fit it, so it silently spills over its neighbour. `width: 100%` alone loses to the
+  intrinsic minimum — it needs `min-width: 0` too.
+- **`min-width` floors never fix sideways scroll.** 800px then 560px both still overflowed;
+  `table-layout: fixed` + `width: 100%` is what actually removed the drag.
+- **Red-as-text is `--danger-ink`, never `--danger-text`.** Only the `-ink` tokens darken under
+  `html.light`. Group 32 caught a clearance line that would have been **invisible in light mode**.
+  See [[Off-Token Colour Migration Map]] — this is the single most likely light-mode defect class.
+- **`focus-within` on a hover-expand dock holds it open after the pointer leaves**, and every
+  control inside then sits under an invisible overlay. Half of his *"the sidebar will remain open
+  and i cant press any button"* was that; the other half was a separate pointer-events cause.

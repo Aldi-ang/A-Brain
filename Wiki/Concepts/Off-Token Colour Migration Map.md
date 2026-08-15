@@ -58,3 +58,18 @@ architect tab's tenant switch, ownership transfer and data wipe have no other ro
 and losing one to a cosmetic edit is silent.
 
 Related: [[Aldi's Design Taste]], [[Anti-Recurrence Check]], [[Ponytail Philosophy]]
+
+## ⚠️ Read this first when light mode starts (added 2026-08-15)
+
+**`-ink` tokens darken under `html.light`. `-text` tokens do not.** `--danger-ink` #E08C82 → #611A14
+and `--accent-ink` #D08A2E → #6B4A05 when `html.light` is set; a `-text` token keeps its dark-theme
+value and becomes **pale text on a pale ground — invisible, with nothing failing**. Group 32 already
+caught one instance (a Tier-1 clearance line) before it shipped.
+
+So the light-mode sweep is not mainly "pick light colours". It is:
+1. every colour that reaches the eye as TEXT must come from an `-ink` token,
+2. every hardcoded hex or Tailwind palette class is a second theme that has to be hand-written,
+3. `--panel` / `--inset` / `--raised` / `--sunk` invert their brightness ORDER, so anything that
+   assumed "inset is darker" reads inverted rather than broken — the quietest failure of the three.
+
+The printed nota is **out of scope**: it keeps KPM company blue and prints on white either way.
