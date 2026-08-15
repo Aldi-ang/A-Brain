@@ -3185,3 +3185,83 @@ side effect of a bug fix.
 _Older entries live in `git log -p .claude/PROGRESS.md`. Trimmed to five on 2026-08-10 21:11.
 The `crypto.subtle` root cause it ends on is written up permanently in the A-Brain vault at
 `Wiki/Concepts/Secure Context Requirement.md`, so nothing load-bearing left with it._
+
+---
+
+## Trimmed from PROGRESS.md on 2026-08-15 14:31 WIB — the 2026-08-15 morning KPM entries (08:47, 08:30, 08:09)
+
+### 2026-08-15 08:47 (KPM app session) — Security & Data joins the control system. Phase 6, slice 1.
+
+**393/393.** 94 off-token colours to zero. The tab is grouped by **consequence** now, not by
+feature — copies, then writes, then the stripe — which is what it was actually missing.
+
+🔑 **The regrouping found a real hierarchy inversion, the same shape as the Architect tab's.**
+**Restore replaces the entire database**, and it was a dashed drop-zone at the foot of the backup
+card — *quieter* than the three download buttons above it. It is under the hazard band now with
+the wipes. The three backup states (RECOVERY / USB / CLOUD) were pulsing green-or-red tiles;
+**Lite Mode strips colour and left three identical boxes**, so they are `.kpm-rail` rows and the
+word carries the state. The biometric card was the last bright blue anywhere in the app.
+
+The rank toggle became a two-position `.kpm-switch` with **one writer** (`writeCareerLedger`),
+matching photo storage — a copy of the write behind each position is [[Silent Failure Disease]].
+
+⚠️ **The icon-delete count went 17 → 16**, the same migration as 18 → 17 before it: a record's
+action strip carries a WORD ("Revoke"), and a worded button must not wear `data-kpm-del` or the
+label prints twice. Both halves of that edit are checked.
+✅ **All 17 new checks were run against the pre-edit block and seen to FAIL first** — palette,
+kinds, hazard band, rails, one-writer. A check never seen red is a decoration.
+
+### 2026-08-15 08:30 (KPM app session) — the grace period unlocked the vault behind a curtain it never raised
+
+**376/376.** His report: *"grace period is not working on my phone, i just close the safari and it
+force me to login"* — master PIN screen, LAN address, iPhone Safari.
+
+🔴 **It had NEVER worked, on any device, and the reason is one missing line.** The gate has TWO
+pieces of state. The system-owner branch of the auth handler sets **`setShowAdminLogin(true)` on
+every cold load** (`App.jsx` ~2155) and the app renders only under `{user && !showAdminLogin}`. The
+restore raised `isAdmin` and stopped — so a perfectly valid grace session sat behind a modal that
+only `handleAdminAuthSuccess` knew how to close. **The door was unlocked and the curtain was down**,
+which from his side is identical to the feature not existing.
+🔑 **Anything that opens the vault must do BOTH, exactly as `handleAdminAuthSuccess` does.** Check.
+
+Also removed the one-shot `graceRestoreTried` ref and the blanket `clearGrace()` it guarded: the
+auth handler asserts `setIsAdmin(false)` on **every** load and can fire twice, and on that second
+assert the effect deleted a still-valid record. A ref cannot tell a deliberate lock from a cold
+load; `handleAdminLogout` can, so it clears now. That is the only `setIsAdmin(false)` of the eight
+that means *"keep it locked"*.
+
+⚠️ **`vaultGrace.selfcheck.mjs` was GREEN through all of this** — it covers the pure `graceIsValid`
+maths and nothing that touches the screen. **A green self-check over the pure half of a feature
+says nothing about the half that renders.** The integration audit had zero checks on grace; it has
+two now. **When a feature has a self-check, ask what the self-check cannot see.**
+
+⚠️ **`src/utils/vaultGrace.js` does not exist on `main`** — the feature has never been deployed.
+
+### 2026-08-15 08:09 (KPM app session) — the phone was printing the active icon twice, and biometric was never a Firebase problem
+
+**374/374, `src/` clean.** His screenshots: *"there is a duplicate logo of the active segment in
+the top left of the sidebar panel i want u to delete that, because it is not aesthetic"*.
+
+**`.kpm-rail-totem` had a rule for a desk that hovers (it BECOMES the collapsed circle) and a rule
+for a desk that cannot (hidden) — and no rule at all for a phone, which matches neither media
+query.** A bare `<span>` renders inline, so it drew the active tab's own icon a second time above
+the grid. Hidden at file scope now; the hover-desk block still turns it back on because it is later
+at equal specificity. **Deleting the span was the wrong fix** — it would have taken the PC's
+collapsed circle with it.
+🔑 **The shape to remember: when a class is only ever styled inside media queries, ask what it
+looks like OUTSIDE them, because that is a real screen too.** Now a check.
+⚠️ That check failed on its first run: I anchored it on `@media (min-width: 1024px) {`, which
+occurs several times, and `.search` returns the FIRST — the gate landed 28,000 characters early.
+**Fourth time this week a regex anchor has been wrong. Count the occurrences, do not assume one.**
+
+**His biometric question — answered, nothing to build.** *"why biometric keep resetting ... is
+there any problem with the biometric data inside the firebase?"* **No.** The device list is in
+Firestore and [firebase.js:37](../src/config/firebase.js:37) hardcodes `appId`, so the path is
+identical on every site. The cause is [App.jsx:1118](../src/App.jsx:1118) —
+`rp: { id: window.location.hostname }` — which locks each passkey to the exact hostname it was
+created on. Registered at the Vercel address, opened at `192.168.1.109`: different host, so the
+phone reports no key. **It can never work there anyway**: WebAuthn requires a real *domain* (an IP
+is rejected outright) and refuses to run on a page with a certificate warning, which is what his
+"Not Secure" address bar is. **Biometric is Vercel-only; the LAN IP is PIN-only, by design.**
+No new file was created this session.
+
