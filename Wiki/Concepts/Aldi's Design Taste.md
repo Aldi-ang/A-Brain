@@ -46,6 +46,16 @@ Two things follow, and they are not the same thing:
    chose **"Keep steel for now, decide later"** — so the law stands, but he has now said "white"
    once and it will come back. Do not repaint the light tokens without asking again.
 
+   > ✅ **IT CAME BACK, 2026-08-16, AND HE DECIDED IT.** *"use the light theme that we apply to
+   > the setting panel to its background as well"*, then *"this task is finish until the
+   > background is light color and on theme with the panel that we work so far"*. The steel
+   > ground is **gone**: the whole app ladder moved into the modules' cream family
+   > (`--ground #B4B0A9 → #D2C9B4`, `--panel → #E1DAC8`, `--raised → #EDE7D8`).
+   > **The "no white surface" half of the law survives** — `--raised` stops at `#EDE7D8`. So the
+   > direction of his 2026-08-13 "white" was right and the literal reading of it was not: he
+   > wanted *light and warm*, not `#FFFFFF`. See
+   > [[../Summaries/Light Ground and the Theme Lab]].
+
 **What he actually wants from a redesign, his words:** *"i want u to rebuild everything, but make
 sure that all the features is still intake, i want better presentation of all of this button and
 features to be more presentable, since i will redesign the whole setting as well, make sure that
@@ -210,8 +220,37 @@ and describes shapes by feeling — accurately, but loosely; when he hands over 
 a clip, that is the specification and his words around it are commentary. The same goes for
 screenshots. Open them.
 
+## One theme, or it is not finished (2026-08-16)
+
+The night's whole lesson, in his order:
+
+1. *"yea fix all of the color for light mode and the adjustment as well for the outside panel, we
+   can start from the settingview"*
+2. *"the background is still black on light mode, why are u rushing things that havent done"*
+3. *"make sure u check the app first before moving on"*
+4. *"if the browser is broken then fix it until u can see it"*
+5. *"yes use the light theme that we apply to the setting panel to its background as well"*
+6. *"this task is finish until the background is light color and on theme with the panel that we
+   work so far, im going to sleep first, dont stop working until u done achieving that"*
+
+**He judges a theme as ONE THING, not as a list of converted components.** Every module on the
+screen he photographed was already correct. He still called the screen not done, and he was right:
+the page under those modules was a different colour family. A conversion that is 95% complete does
+not look 95% done to him — it looks broken, because the 5% is what everything else sits on.
+
+**He also defines "done" himself, and it is a state, not a task list** — sentence 6 sets a
+condition, not a scope. Read that as permission to keep going past the literal ask until the
+condition is actually true.
+
+⚠️ **"Why are you rushing" is his phrase for a claim made without checking.** It appeared right
+after two replies that said a thing was fixed when nothing had been rendered. He is not objecting
+to speed — he is objecting to being told something is done. See
+[[Looking at the App]] for the harness built in response, and use it before the claim, not after
+he pushes back.
+
 ## Related
 
+- [[Looking at the App]] — how to see a screen before telling him it is fixed
 - [[Master Vault Gate]] — the screen most of this evidence comes from
 - [[Silent Failure Disease]] — law 2, in its bug-class form
 - [[Ponytail Philosophy]] — the minimal-code discipline; his taste and it agree more often than not

@@ -43,6 +43,10 @@ edited after creation** except for display-only frontmatter (title/description/t
 
 ## Files here (added 2026-08-15)
 
+- `2026-08-16_source_light-ground-and-the-theme-lab.md` — the light-mode night session: his eight
+  verbatim instructions, the page-ground literal that made three surfaces look wrong at once, the
+  two light themes the app was carrying, and the browser harness built after three "fixed" claims
+  made without ever rendering the app.
 - `2026-08-15_source_header-dock-ship-webauthn.md` — commit log + `.claude/PROGRESS.md`
   00:00–08:15 WIB entries: the desk header/dock shipped and approved, the phone's duplicate-totem
   media-query gap, the `grid-auto-rows: minmax(0,1fr)` definite-height trap, and the WebAuthn

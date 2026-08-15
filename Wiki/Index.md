@@ -34,6 +34,9 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 
 - [[UI-Says-Yes-Server-Says-No Pattern]] — a UI control shown without a matching server rule
 - [[Anti-Recurrence Check]] — never claim "committed" without `git show --stat` proof
+- [[Looking at the App]] — how to actually SEE a KPM screen before claiming a visual fix: the
+  theme-lab harness, why the dev server cannot be opened directly, and the three ways the
+  harness lied first
 - [[The Rule That Never Applied]] — three same-day CSS bugs where the declaration was written
   correctly and still lost; greping the source proves it was typed, not that it applies
 - [[Draft-Then-Deploy Discipline]] — rules changes are always draft until manually deployed
@@ -58,6 +61,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 
 ## Summaries (one per ingested source, newest ingest pass first)
 
+- [[Light Ground and the Theme Lab]] — why light mode looked unfinished when every panel was
+  already converted, and the harness built after three "fixed" claims made without ever looking
 - [[KPM Project Facts Reference]] — the delegate-coding-task skill's KPM facts doc
 - [[Fleet Captain Rule Gaps — Batch 1 and 2]] — two batches of fixes, their unmerged-branch
   scare, and their eventual real-PR merge

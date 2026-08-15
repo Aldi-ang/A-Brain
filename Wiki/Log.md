@@ -12,6 +12,35 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-16 — Ingest: the light ground, and the session that finally looked at the app
+
+Nine commits on `phase0-solid-ground`, 543/543 audit checks, contrast self-check passing both
+themes. Raw source:
+[[../Raw/2026-08-16_source_light-ground-and-the-theme-lab|Raw]] · Summary:
+[[Summaries/Light Ground and the Theme Lab]].
+
+**New page:**
+- [[Concepts/Looking at the App]] — the theme-lab harness (`tools/theme-lab.html`,
+  `theme-lab-server.mjs`, `make-preview.mjs`), why the HTTPS dev server + Google login made the
+  app unviewable here, and the three ways the harness produced confident wrong readings before it
+  produced a true one. **Linked from Concepts/index, Wiki/Index and MOC → Process & Discipline.**
+
+**Rippled:**
+- [[Concepts/Aldi's Design Taste]] — the 2026-08-13 *"light mode is white"* question is
+  **CLOSED**: he chose the modules' cream family for the page ground, so the Phase-3 steel law is
+  superseded (the "no `#FFFFFF` surface" half survives). Plus a new section on judging a theme as
+  ONE thing, and on *"why are u rushing"* being his phrase for a claim made without checking.
+- [[Concepts/Anti-Recurrence Check]] — **shape 5 recurred** (read a colour mid-transition, got the
+  previous theme's value, nearly reported a false bug) and **shape 7 added**: a check that freezes
+  a hex breaks when the hex is correctly changed — three times in one day, with the lesson already
+  written in the same audit file weeks earlier. Seventh instance of a needle matching its own
+  documentation also recorded.
+
+**Not done:** ten screens still built from `bg-slate-*` panels are untouched; the measured table
+lives in the repo's `.claude/PROGRESS.md`, not here, because it is work state rather than
+knowledge. [[Concepts/Off-Token Colour Migration Map]] was NOT updated — it describes the
+per-screen migration recipe and that recipe did not change.
+
 ## 2026-08-15 — Scheduled ingest pass: the header/dock shipped, and biometric was never a Firebase bug
 
 The app-shell round from 2026-08-13 closed out: the desk header and dock shipped, Aldi saw it and

@@ -19,6 +19,7 @@ should trace back to one of these.
 - [[Fleet Captain Rule Gaps — Batch 1 and 2]]
 - [[KPM Project Facts Reference]]
 - [[Lost Work in Worktrees — Three Incidents]]
+- [[Light Ground and the Theme Lab]]
 - [[Offline Login Lockout Fix]]
 - [[Option B Region Lock]]
 - [[Ponytail Philosophy Ingest]]

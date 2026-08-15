@@ -118,6 +118,16 @@ mid-animation and reports the *start* value — which produced two confident wro
 including one where I told him a real bug was fixed when my own check was simply reading too
 early. See [[The Rule That Never Applied]] for the same lesson in its CSS-cascade form.
 
+> 🔁 **RECURRED 2026-08-16, with this page already written.** A new browser harness read
+> `.kpm-btn`'s colour immediately after flipping the theme class; the button has a 120ms colour
+> transition, so it returned the *previous* theme's value in both themes — and I was one step from
+> reporting "the Command Center buttons don't flip in dark" as a shipping bug. **The sub-rule
+> above is exactly this, and it did not fire because it lived on a page nobody re-read at the
+> moment of writing a new check.** Two additional lies from the same harness are recorded in
+> [[Looking at the App]]: it loaded the wrong stylesheet and reported an unstyled page as passing,
+> and it invented a class name and measured the invention. **Any new measuring tool is itself
+> unverified until one reading from it is confirmed against something independent.**
+
 ## A sixth shape: a regex anchor that matches the wrong occurrence (recurred 4x in one week, 2026-08-15)
 
 Not a coding mistake in the app — a mistake in the **check itself**. An audit check's regex
@@ -134,8 +144,37 @@ fourth occurrence for the incident this was pulled from. **This lesson was also 
 `kpm-inventory-facts.md`** (the skill reference), since it is about how audit checks are written in
 this project, not a one-off bug — see the ingest run note for 2026-08-15.
 
+## A seventh shape: the check freezes a value the measurement later moves (3x in one day, 2026-08-16)
+
+Three audit checks failed in a single session for one cause: each **pinned a hex literal**, so
+correcting a colour broke the check whose whole job was to protect that colour.
+
+- group 32 pinned `--accent-ink: #6B4A05` — the day that value was measured in a browser for the
+  first time it turned out to be 3,73:1 and had to move;
+- group 25 pinned the ground glow's `rgba(255, 157, 0, .13)` — which was the same statement as
+  "there is a lit corner" only while the corner was a literal, and a literal was the bug;
+- group 25 pinned the scrollbar's three browns — replaced by tokens for exactly the reason the
+  check existed.
+
+**The audit file already contained this lesson in its own words**, written into group 39 weeks
+earlier: *"NO HEX IS NAMED HERE ON PURPOSE … freezing a value a measurement later moved just turns
+the check into a second thing to fix."* It was not applied to the three checks written after it.
+
+**The rule: a check asserts a RELATIONSHIP, not a number.** "The light ink is darker than the dark
+ink." "This token is declared twice with different values." "This gradient names the token." The
+numbers belong to the thing that *measures* — here `contrast.selfcheck.mjs` — because a measuring
+script re-derives on every run and a frozen literal cannot.
+
+⚠️ **Corollary, and the tell that you are about to do it again:** if fixing a bug requires editing a
+check in the same commit, ask whether the check was asserting the fix or asserting a snapshot.
+
+**And a seventh occurrence of the oldest shape on this page** landed the same night: a check that
+hunts slate hex codes found four of them inside the code comment explaining that those four had
+been removed. *Describe a removed colour; never quote it.*
+
 ## Related
 
+- [[Looking at the App]] — the harness that produced shapes 5-recurred and 7, and its own guards
 - [[The Rule That Never Applied]] — the CSS-shaped instance of this discipline
 - [[The KPM Control System]] — the two-layouts rule and the shell's current state
 - [[Git Worktrees]] — the three incidents this rule was built from
