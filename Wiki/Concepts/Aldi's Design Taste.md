@@ -633,3 +633,34 @@ the concept with the most physical objects to animate.
 
 ⚠️ Still unanswered when he chose: whether he wants the **Accept short** outcome (real money logic,
 needs an explicit yes) and whether a perfectly-matched day earns a COLOUR or only motion.
+
+### 🔴 HE BROKE HIS OWN PALETTE LAW, ON PURPOSE, AND IT IS A GOOD EXCEPTION (2026-08-16)
+
+Asked whether a perfectly-counted day should stay colourless — his own law is *colour marks what
+needs ATTENTION; "fine" is the ABSENCE of colour* — he chose **"Gold — let it glow"** over
+"Motion only, no colour", with the cost stated in the option itself (*"gold starts meaning two
+different things on the same screen"*).
+
+**So gold now carries two meanings in KPM: needs-attention everywhere, and a perfect close on the
+EOD stamp.** He took that knowingly. Do not "fix" it later as a violation — it is a decision.
+
+**What makes it survivable, and the shape to reuse when he breaks a rule again:** the exception is
+*contained*. It fires ONCE, on ONE element, at the END of a whole day's work, and only when
+everything matched. A law with a single loud exception still reads as a law; a law with exceptions
+scattered through a screen does not.
+
+⚠️ **Note the asymmetry he chose without being asked about it:** the same stamp lands in DANGER red
+and reads SHORT when the day closes with a gap. So the stamp is the one place in the app where the
+outcome is spoken in colour at both ends — gold for perfect, red for short, nothing in between.
+
+### He also approved the money change: "Accept short" (2026-08-16)
+
+He chose **"Yes, add it"** over admin-only and over leaving it alone. So the regional admin gets a
+third action beside Verify and Reset: close the day AND mint a debt for the gap, the same mechanic
+`cukaiDebts` already uses for lost pita cukai.
+
+**This is the first time he has approved a change to a MONEY path in this redesign**, and he did it
+after the two existing buttons were described concretely — Verify records a number that is false,
+Reset throws away a whole day's counting. ⚠️ The lesson for how to ask: he said yes to a logic
+change only once the *status quo* was shown to be the risky option. Naming what today's code
+actually does beat describing what the new feature would do.
