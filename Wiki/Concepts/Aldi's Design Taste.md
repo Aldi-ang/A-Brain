@@ -248,6 +248,39 @@ to speed — he is objecting to being told something is done. See
 [[Looking at the App]] for the harness built in response, and use it before the claim, not after
 he pushes back.
 
+## He hands over a component and means the LOOK, not the library (2026-08-16)
+
+He pasted a 21st.dev / motion-primitives `SlidingNumber` and said *"and change the clock UI into
+this"*. Asked to choose between porting it as pure CSS, installing the libraries with a hand-written
+Lite guard, or parking it, he answered: *"create one using CSS like u recommended before"*.
+
+**That is the second time he has taken the no-dependency option when the look was identical.** The
+paste was the specification for the APPEARANCE; it was never a request for `motion` (~50KB) and
+`react-use-measure` in an offline-first app. The deciding fact was his own law — that component
+animates in JS, and `html.lite-mode *` can only force `animation` and `transition` to none, so a JS
+spring runs straight through the setting that exists for cheap phones. **Reach for a CSS transition
+whenever Lite Mode has to be able to stop the thing.**
+
+Then, unprompted, he extended it: *"i want the clock to swapped into dates for 5 second then animate
+back in into clock display can u do that, and use this date format 16 agustus 2026, i want this
+action works on press"*.
+
+Three things in that one sentence worth keeping:
+
+1. **He specifies formats in his own writing, lowercase** — `16 agustus 2026`, not `16 Agustus 2026`.
+   Indonesian month names, day first, no punctuation. Treat the string he types as the spec, the same
+   way [[Aldi's Design Taste#🎥 When he sends a video, WATCH it — do not paraphrase it]] treats a clip.
+2. **He asks for a temporary state, not a mode** — "for 5 second then animate back". A flip that
+   stays flipped would be a different control from the one he described.
+3. **"works on press" turns a readout into a control**, and the CSS that said *"the clock does not
+   light up under the pointer — it is a readout, not a control"* became wrong the moment he said it.
+   ⚠️ A comment stating a design intent is evidence of a decision, not a permanent rule; when the
+   ask changes, the comment is part of the change.
+
+⚠️ **The clock had never ticked.** It was `new Date()` written inline in the header — no state, no
+timer — so it printed the time the shell last happened to re-render at. Nobody caught it because
+nothing was broken enough to look at: a wrong clock still looks like a clock.
+
 ## Related
 
 - [[Looking at the App]] — how to see a screen before telling him it is fixed
