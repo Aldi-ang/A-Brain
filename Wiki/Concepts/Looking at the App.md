@@ -159,3 +159,48 @@ source proves a class was *typed*, never that it *applies*.
 **And verify the replacement, not just the removal.** "The old pattern is gone" and "the new one
 works" are two claims. Read the emitted **declarations** — they are unescaped and carry real
 spaces, so they need no escaping guesswork — rather than hunting for escaped selectors.
+
+## Rendering a React component without signing in (2026-08-16)
+
+Most KPM screens sit behind the vault gate, and Claude never signs into Aldi's account — so for
+months the only way to see a component was to describe it. This works and is now the house method:
+
+```bash
+# 1. an entry that mounts the real component
+cat > mount.tmp.jsx <<'JSX'
+import React from 'react'; import { createRoot } from 'react-dom/client';
+import Thing from './src/components/Thing.jsx';
+createRoot(document.getElementById('root')).render(React.createElement(Thing, { ...props }));
+JSX
+# 2. bundle it (esbuild ships with vite, no install)
+npx esbuild mount.tmp.jsx --bundle --format=iife --jsx=automatic \
+  --define:process.env.NODE_ENV='"development"' --outfile=app.js
+# 3. a harness page that links the REAL built stylesheet, then drive and screenshot
+```
+
+**Three traps, each of which cost a cycle:**
+
+⚠️ **Tailwind only emits classes it has SEEN.** The harness links `dist/assets/index-*.css`, so a
+component written after the last `npm run build` renders with none of its arbitrary classes
+(`w-[290px]`, `duration-[700ms]`) and the layout collapses into a heap that looks like a bug in the
+component. **Always `npm run build` after writing a component and BEFORE rendering it** — and
+re-point the harness, because the CSS filename hash changes every build.
+
+⚠️ **Headless Chrome does not advance CSS transitions under `--virtual-time-budget`.** Sampling an
+"after" value returns the START value and reads as a broken feature. Three different questions need
+three different instruments:
+- *does it end in the right place?* → force Lite (`html.lite-mode`), which zeroes transitions, and
+  read the computed style. This doubles as the Lite-law check.
+- *is it actually animating?* → `document.getAnimations()` and check `playState`.
+- *what does the motion look like?* → pause every animation and seek:
+  `document.getAnimations().forEach(a => { a.pause(); a.currentTime = duration * 0.45 })`, then
+  screenshot. The only still that can show motion.
+
+⚠️ **Headless reports `clientWidth=503` for `--window-size=390`**, so a phone screenshot looks
+clipped when nothing is wrong. **Wrap the component in a fixed-width div and MEASURE** — never
+judge phone layout from the crop.
+
+**And the limit of the whole method, learned the hard way the same night:** it renders the
+COMPONENT, never the SCREEN. A component that is correct next to a block that is also correct can
+still make a broken page — see [[Aldi's Design Taste#He tests on the REAL screen and finds what a
+harness cannot]]. Read the whole branch being modified before adding to it.
