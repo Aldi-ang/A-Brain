@@ -296,3 +296,30 @@ Paired with his earlier *"if the browser is broken then fix it until u can see i
 is: **a blocked viewer is a problem to solve, not a result to report.** And state which proof you
 have — a measurement proves a ratio, only a frame proves an appearance. See
 [[Looking at the App]].
+
+## ✅ THE LIGHT PALETTE IS APPROVED — locked 2026-08-16
+
+*"regarding the color i like it we can use this color"*, said after looking at the showroom page
+with every colour in place. Also, of the showroom itself: *"it is what im looking for, i like it"*.
+
+**So the cream light theme is settled and is not to be re-litigated:**
+`--ground #D2C9B4` · `--panel #E1DAC8` · `--raised #EDE7D8` · `--inset #C6BDA9` · `--sunk #B9B0A0`,
+with the gold bloom top-left at `.09` and `--raised` stopping short of white.
+
+⚠️ **This closes the 2026-08-13 *"light mode is white"* thread for good.** He wanted *light and
+warm*, and cream is the answer he approved on sight — not `#FFFFFF`, and not the old bench steel.
+
+## A screen can be exempt from the theme entirely (2026-08-16)
+
+*"for the master vault panel, let the textbox to stay dark, light or dark mode should not affect
+the loading screen"*.
+
+**He thinks in SCREENS, not in components.** The vault gate is not "a dark card that also needs a
+dark input" — it is a screen that the theme does not reach. Once he says a screen is exempt,
+expect *everything* inside it to be exempt, including anything added later.
+
+That is what [[Looking at the App]]'s dark-island exists for, and the first version got it wrong
+in the most instructive way: it re-declared a **hand-copied list** of the tokens that gate
+happened to use, so a field painted with a token nobody listed still flipped. **A list of
+exceptions is complete on the day it is written.** The fix was to make the island ride the dark
+palette itself rather than copy from it.
