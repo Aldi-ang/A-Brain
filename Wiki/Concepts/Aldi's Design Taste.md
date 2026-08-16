@@ -664,3 +664,40 @@ after the two existing buttons were described concretely — Verify records a nu
 Reset throws away a whole day's counting. ⚠️ The lesson for how to ask: he said yes to a logic
 change only once the *status quo* was shown to be the risky option. Naming what today's code
 actually does beat describing what the new feature would do.
+
+### 🏆 HE DESIGNED THE FLOW HIMSELF, AND IT BEAT BOTH OF MINE (2026-08-16)
+
+After choosing B he did not ask for B. He specified a combination of A and B, in one message, in
+detail: four cards (cash, transfer, goods return, pita cukai) that SWAP one to the next as each is
+confirmed; the cards then go INTO a letter; the letter is sent to the regional admin; the admin
+sees a STACK of letters, opens one, views each card, **approves the cards one by one**, and only
+then gets a button to approve the whole letter and send it back; the WANTED poster is repurposed to
+carry **unpaid bounties only** (missing item, missing cukai, missing cash, missing transfer); and a
+separate feature beside EOD repays a bounty via a receipt the admin also confirms, ending in a
+cleared-bounty animation.
+
+**Why it is better than what I pitched, stated plainly because it is a lesson about my own work:**
+
+1. **It fixes the flaw I had named but not solved.** I costed B as *"the one that risks hiding the
+   money behind a costume"* and shipped it anyway. He split the objects by JOB — the letter holds
+   the facts, the poster holds the debt — so the theme stops competing with the numbers. That was
+   available to me and I did not see it.
+2. **Per-card approval is where "Accept short" actually belongs.** One verdict per day forces the
+   admin to judge four different things with one button. Four cards means goods can be approved
+   while cash is marked short. My design put the precision in a third BUTTON; his puts it in the
+   STRUCTURE, which needs no extra rule to explain.
+3. **He is completing what already exists again.** `reportType: 'BOUNTY'`, `penaltyKeys` and
+   `handleVerifyEOD`'s debt-wiping branch are already in the code — his "repay the bounty" feature
+   is roughly half built and has no UI. Second time in one day he has chosen to finish something
+   already in the repo over accepting something new. See his choice of B for the first.
+
+**The pattern to carry:** when he answers a design question with a paragraph of mechanics rather
+than a preference, that paragraph IS the specification — treat it the way
+[[Aldi's Design Taste#🎥 When he sends a video, WATCH it — do not paraphrase it]] treats a clip.
+He describes objects and what happens to them, and the nouns are load-bearing: cards, letter,
+stack, poster, receipt.
+
+⚠️ **What he has not priced, and owes an answer on:** approving four cards plus a letter is 5 taps
+per agent per day for an admin who may have several agents; today an EOD report carries ONE status
+field, so per-card approval is a schema change inside the `handleVerifyEOD` transaction; and a bank
+transfer cannot be "short in the envelope" the way cash can, so "missing transfer" needs defining.
