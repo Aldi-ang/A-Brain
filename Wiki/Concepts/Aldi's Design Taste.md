@@ -837,3 +837,41 @@ it: the open envelope flap threw an 81px wedge over the step strip, the wax seal
 last row's figure, and the letter's slot stayed open after it flew away. See
 [[Looking at the App#What the frames bought this time (2026-08-17)]] — the shared cause is that a
 component which stops being an ENDING and becomes PRESENT has states nobody has ever looked at.
+
+### He reports a palette bug and a money bug in the same breath, and the palette one is the tell (2026-08-17)
+
+Two sentences, one message, about the legacy Pita Cukai card:
+
+> *"the color pallete and design is really bad, make sure it follow our theme"*
+
+> *"i add more item and submit on the EOD it still allow us to sent the item data more than what
+> the agent bring, this is really niche happen tho"*
+
+**The screen he was looking at was the OLD card**, still on display because he had already
+submitted cash that day — so the new flow had replaced it only in the state where cash was still
+open. ⚠️ **"I hid it in the case I was working on" is not "I removed it".** Ask which STATES a
+replaced component still renders in before calling it replaced.
+
+**On the palette half, the mechanism was the same one already recorded twice on this page.** The
+panel was a full `--gold` slab carrying `--ink-dim` text — gold on gold — and its two fields were
+`bg-black/60`, a hardcoded black that lets the dark theme decide what light mode looks like. Both
+are shapes this page already names ([[#Where the bug actually lived: hexes in the JSX]], and the
+`--accent-ink` / `--gold-ink` confusion). **The audit check written for it immediately found two
+MORE gold-on-gold sites on the admin side of the same file** that nobody had reported. A complaint
+about one card is worth grepping the whole screen for.
+
+**On the "niche" half — he undersold it, and that is worth knowing about how he reports.** He
+called it *"really niche happen tho"*. Chased into the code it is the most expensive bug found in
+this feature: `handleVerifyEOD` spends the submitted stamp figure against the debt ledger and turns
+any surplus into a **negative `global_credit`** (App.jsx:1918-1920), which permanently reduces what
+that agent owes on every later day. An over-count did not record a wrong number — it minted credit.
+⚠️ **He rates a bug by how often he thinks it happens, never by what it costs when it does.** Price
+the consequence before agreeing with his severity.
+
+**And the fix had to choose between two of his own principles**, so it is recorded rather than
+assumed: capping a physical line reveals the expected figure, which the money cards deliberately
+hide so that counting cannot become copying. It was capped anyway, because the vehicle's own load
+is not a secret — the agent can read it on their Agent Inventory screen — while which sales made up
+today's cash is. **Cash and transfer stay uncapped**: an agent genuinely can be holding more money
+than the app expected, and that over is a real gap worth keeping. The ceiling belongs to physical
+objects, where the number is *impossible* rather than merely *unlikely*.

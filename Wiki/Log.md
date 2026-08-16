@@ -12,6 +12,22 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-17 — Ripple: the stamp ceiling, and a palette bug that was really a money bug
+
+Commit `23d1977` on `phase0-solid-ground`, 594/594 audit (group 48 is new and was seen to
+FAIL before the fix), 12/12 record self-check. A second harness now mounts the WHOLE
+`EODReconciliationView`, not a component out of it — the legacy card is inline JSX and a component
+harness cannot reach it.
+
+**Rippled:**
+- [[Concepts/Aldi's Design Taste]] — *"He reports a palette bug and a money bug in the same
+  breath"*. Three things worth keeping: "I hid it in the case I was working on" is not "I removed
+  it" (the card he screenshotted was still live in a state I had not covered); a complaint about
+  one card is worth grepping the whole screen for (the new check found two more gold-on-gold sites
+  nobody reported); and **he rates a bug by how often he thinks it happens, never by what it costs
+  when it does** — his *"really niche"* over-count was minting permanent stamp credit through
+  `global_credit`.
+
 ## 2026-08-17 — Ripple: his three EOD corrections, built and rendered
 
 One commit on `phase0-solid-ground` (`661498f`), 586/586 audit, 12/12 record self-check, flow
