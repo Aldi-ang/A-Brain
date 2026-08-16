@@ -32,6 +32,29 @@ discovered — meaning the pattern wasn't caught by the rule the first two times
 project owner manually checking GitHub later. The rule exists specifically to stop a
 fourth occurrence, not just to explain the first three after the fact.
 
+## The same shape in the checks themselves: a check that its own explanation can break (2026-08-16)
+
+`integration.audit.mjs` greps the CSS as **text**, and it hit this trap twice in two days from
+opposite directions:
+
+1. **Group 45** — a regex matched the PROSE in a comment. The comment said *"never an
+   `animation:`"* to explain a decision, and the check read that as the code doing it.
+2. **Group 46** — `the theme switch turns white and black` scans `[\s\S]{0,300}?` from the selector
+   to a colour. Adding a four-line comment INSIDE that rule pushed the colour past 300 characters
+   and the check went red **with nothing wrong in the CSS at all**.
+
+The second is the dangerous one. A check that a comment can break quietly teaches the next person
+to **delete the comment** — the check starts eating the explanations that make the codebase
+readable, and it looks like a passing build the whole time.
+
+**The rule:** any check that greps source must run on comment-stripped text, and any check that
+measures DISTANCE inside a rule must, without exception. `noCmt` is defined once beside the file it
+strips, at the top of the audit, so a new check does not have to rediscover this.
+
+⚠️ Note the failure mode it shares with the commit lies above: **the check reported on the
+explanation rather than on the thing**, exactly as a commit message reported on the intent rather
+than on the diff.
+
 ## Related concept: verify before claiming, generally
 
 This project treats "I did X" and "X actually happened, verified" as two different claims
