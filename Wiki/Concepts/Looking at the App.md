@@ -94,3 +94,27 @@ token is a real pair" — and leave the ratios to `contrast.selfcheck.mjs`, whic
 - [[The KPM Control System]] — the classes the lab renders
 - [[Aldi's Design Taste]] — *"live and playable beats a picture"*, the same instinct from his side
 - Source: [[../../Raw/2026-08-16_source_light-ground-and-the-theme-lab|2026-08-16]]
+
+## The stylesheet is the only witness (2026-08-16)
+
+A class can be spelled perfectly and still paint nothing.
+
+**Tailwind's `/N` opacity modifier needs a colour it can parse**, so it can rewrite it as
+`rgb(r g b / a)`. `var(--x)` is opaque to it. So `bg-[var(--duke-amber)]/10` matches **no rule at
+all** — not a wrong colour, no colour. Found 2026-08-16: **35 distinct classes over 54 sites**, in
+`App.jsx` and in the sales terminal Aldi had already approved. The vault's amber buttons had no
+background and no border; the gate's inputs had no border; the nota's paper tints were absent.
+
+The fix is `color-mix(in_srgb,var(--token)_N%,transparent)`, which compiles.
+
+⚠️ **Nothing caught it because every audit check greps the SOURCE.** The source looked correct, and
+was correct — as text. This is [[Anti-Recurrence Check]] shape 4 at project scale: grepping the
+source proves a class was *typed*, never that it *applies*.
+
+> **When the question is "does this render", the built stylesheet is the only witness.**
+> `dist/assets/*.css` is one file read away, and it settles in seconds what source-reading cannot
+> settle at all.
+
+**And verify the replacement, not just the removal.** "The old pattern is gone" and "the new one
+works" are two claims. Read the emitted **declarations** — they are unescaped and carry real
+spaces, so they need no escaping guesswork — rather than hunting for escaped selectors.

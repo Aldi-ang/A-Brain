@@ -183,3 +183,27 @@ been removed. *Describe a removed colour; never quote it.*
 - Summary: [[Lost Work in Worktrees — Three Incidents]]
 - Summary: [[Dead Weight Cleanup and Rules-Deploy Gap]] — the dependency-removal instance of
   this same pattern
+
+## An eighth shape: the probe's own escaping lied (4x in one investigation, 2026-08-16)
+
+Not the check, not the code — the **throwaway command used to look**. Chasing a CSS question
+through `node -e "..."` inside a bash double-quoted string means backslashes are eaten twice, and
+every one of these reported a confident, specific, wrong answer:
+
+1. a regex that threw `Unmatched ')'` — the honest failure, and the only one that announced itself;
+2. `bg-[var(--x)] utilities emitted: 0` — the escaping was wrong, they existed;
+3. `ABSENT` for a control string that was demonstrably present two commands earlier;
+4. `3 missing` for a fix that was complete, because the selector search escaped a `%` wrongly.
+
+Reading 3 is the dangerous one: it agreed with the hypothesis under test, so it would have been
+believed if the control had not been in the same output.
+
+**The rules:**
+- **Always include a control** whose answer is already known. A probe that cannot fail is not a
+  measurement, and a probe with no control cannot tell "absent" from "my escaping is broken".
+- **Write the probe to a file** when it contains regexes or escapes. A scratchpad `.mjs` has one
+  level of escaping; `node -e` inside a shell string has three.
+- **Prefer the unescaped side of the data.** CSS *declarations* keep real spaces and no
+  backslashes; CSS *selectors* are escaped. Query the side that needs no guessing.
+
+See [[Looking at the App]] for the bug this was found chasing.
