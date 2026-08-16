@@ -88,3 +88,45 @@ Only one file in the whole tree was actually broken.
 leftovers are the classes that are *meaningless alone but still valid CSS*. `bg-gradient-to-br`,
 a bare `border`, a lone `ring` — each renders something wrong rather than nothing at all, so
 nothing errors. See [[Off-Token Colour Migration Map]] and [[Aldi's Design Taste]].
+
+---
+
+## Case: a transition on an element that was just created (2026-08-16)
+
+**Symptom Aldi reported:** *"where is the animation for C and D"*. Two of four concept demos looked
+completely static while the other two animated. Nothing was broken, nothing errored, and the CSS
+was written correctly.
+
+**Root cause:** the demos rebuild their DOM on every state change (`innerHTML = ''`, then repaint).
+Concepts A and B expressed their motion as `@keyframes` **animations**; C and D expressed theirs as
+CSS **transitions**.
+
+    a CSS animation replays when an element is inserted.
+    a CSS transition needs a previous computed value to interpolate FROM — an element born in
+    its final state has none, so it just appears there.
+
+So the key was created already `.turned`, the chain link created already `.forged`, and both
+snapped to the end value with no motion. Same family as the envelope flap earlier the same day,
+which had been worked around with a nested `requestAnimationFrame` — a workaround that itself
+fails in a throttled or backgrounded tab, where rAF never runs.
+
+**The fix, and the rule:** express state-change motion as keyframes, and gate it with a one-shot
+class that is set only on the render following the event.
+
+    st.anim = 'agentKey';           // set by the event
+    ... class="keyhole turned just" // paint() reads st.anim
+    st.anim = null;                 // cleared at the END of render()
+
+`.turned` owns the end state; `.turned.just` owns the movement. Three properties fall out of it:
+Lite Mode (`animation:none`) keeps the turned key and loses only the turn; re-rendering for an
+unrelated reason — switching seats, resizing — never replays the animation; and there is no timing
+workaround to go stale.
+
+**Verified, not assumed:** `getComputedStyle(el).animationName` was read for every one —
+`flapClose`, `slam`, `keyTurn`, `boltSlide`, `boltThunk`, `forge`, `tug`, `crackShake` — plus a
+check that the class is absent after a seat switch, and that the JS run-counter still lands on its
+final value in Lite where CSS cannot help it.
+
+⚠️ **The general shape: a workaround that hides a mechanism mismatch will fail again somewhere
+else.** The rAF patch made one envelope work and taught nothing, so the same fault shipped twice
+more in the same file.
