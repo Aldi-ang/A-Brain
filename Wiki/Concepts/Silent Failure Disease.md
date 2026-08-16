@@ -57,3 +57,34 @@ The disease hides in exactly three shapes. Grep for them:
   gave
 - [[Aldi's Design Taste]] — "every action must report" is a taste law, not only a bug class
 - Source: [[../../Raw/2026-08-10_source_kpm-six-days-aug04-to-aug10|the six-day source]]
+
+---
+
+## Case: the gradient with no colour stops (2026-08-16)
+
+**Symptom Aldi reported:** *"the folder in sampling ihave the same color with it background it is
+not clear enough on the dark or light mode"*.
+
+**Root cause:** `SamplingManager.jsx:500` carried `bg-gradient-to-br` with its `from-`/`to-` classes
+gone — the automated palette migration dropped the colour stops and left the direction behind.
+A Tailwind gradient direction with no stops compiles to a `linear-gradient` whose stops are
+undefined, so **the element paints nothing and shows the page ground through it**. In light mode
+`--ground #D2C9B4` sat directly behind a card meant to be `--raised #EDE7D8`, which is exactly the
+"same colour as its background" he described. The card's 100px folder watermark made it worse: it
+was `--ink` at `opacity-5`, i.e. 5% — invisible by construction in both themes.
+
+**Why it is this disease and not a colour mistake:** there is no error, no warning, no failing
+build, and no red in any linter. The CSS is valid. Only a human looking at the page can see it, and
+only if they know what the card was supposed to look like. It survived a build, a 579-check audit
+and a contrast self-check — every automated gate the project has.
+
+**The fix that generalises:** an audit check that fails on any `className` containing
+`bg-gradient-to-` with no `from-`/`via-` stop, scanning all of `src/`. Verified it goes RED against
+the pre-fix file and green after — a check that could not have failed proves nothing. Named stops
+(`from-gold`, `from-verified`) pass, so the app's existing custom-palette gradients are unaffected.
+Only one file in the whole tree was actually broken.
+
+**Transferable lesson:** when a migration DROPS classes rather than replacing them, the dangerous
+leftovers are the classes that are *meaningless alone but still valid CSS*. `bg-gradient-to-br`,
+a bare `border`, a lone `ring` — each renders something wrong rather than nothing at all, so
+nothing errors. See [[Off-Token Colour Migration Map]] and [[Aldi's Design Taste]].

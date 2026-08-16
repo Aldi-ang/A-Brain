@@ -486,3 +486,44 @@ Safe/healthy/verified = plain ink on the normal surface, no plate. Needs-attenti
 Destructive or overdue = the existing red. That is not a new rule — it is the rule the header chips
 already follow (*"the resting plate has no colour at all"*) and the one the danger red already
 follows (*"rationed to things that destroy data"*), applied to the states nobody had ruled on.
+
+---
+
+## 2026-08-16 — "animation and 3D more with gamification on all of this segment"
+
+Four judgements in one message, after seeing Sampling and Customer Directory rendered. Verbatim:
+
+> *"sc1 the folder in sampling ihave the same color with it background it is not clear enough on the
+> dark or light mode i suggest redesign the whole sampling segment to looks better but keep the logic"*
+
+> *"sc2 customer segment also needed to be redesign the UI and animation better increase ergonomics
+> and usefullness as well, color is not clear enough as u can see here, i was thinking about making
+> some animated card for each customer and animated folder for each 3D animated cards should looks
+> really cool lets brainstorm about this later"*
+
+> *"stock opname also need whole redesign for this concept and UI and animation as well brainstorm
+> topic for later"*
+
+> *"EOD setoran looks really bad need redesign for later as well, we need new concept for this
+> segment as well lets use animation and 3D more with gamification on all of this segment"*
+
+**What this establishes about his taste, beyond the four screens:**
+
+1. **Motion is not decoration to him — it is the point.** Three of the four messages name animation
+   unprompted. A screen that is correctly coloured and completely still still reads as unfinished.
+2. **"3D" means depth and physicality**, not WebGL. The vocabulary he reaches for is *cards* and
+   *folders* — objects that tilt, lift, open. The existing card set is flat rectangles; he wants
+   them to behave like things.
+3. **Gamification is wanted on operational screens**, including the money ones (EOD Setoran). This
+   is consistent with the app's existing Hall of Fame / agent-stats direction, and it is the first
+   time he has asked for it as a *system-wide* property rather than one feature.
+4. **"keep the logic" is said every single time.** He separates how a screen looks from what it
+   computes, and he does not want the second one touched while the first is being redone. Same
+   phrasing he used for Customer Directory a message earlier.
+5. **He defers deliberately.** *"lets brainstorm about this later"* and *"brainstorm topic for
+   later"* are instructions, not politeness — the design conversation comes before the code.
+
+**What he actually filed as a bug, versus what he filed as a want:** only sc1 named a defect
+(*"same color with it background"*). It was a real one — a gradient left with no colour stops
+painting nothing at all. The other three are ambitions. Reading all four as bugs would have
+produced three unwanted rewrites. See [[Silent Failure Disease]] for the sc1 root cause.
