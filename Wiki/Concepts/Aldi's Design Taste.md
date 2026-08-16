@@ -701,3 +701,39 @@ stack, poster, receipt.
 per agent per day for an admin who may have several agents; today an EOD report carries ONE status
 field, so per-card approval is a schema change inside the `handleVerifyEOD` transaction; and a bank
 transfer cannot be "short in the envelope" the way cash can, so "missing transfer" needs defining.
+
+### He answers a restriction question with an ACCOUNTABILITY answer (2026-08-16)
+
+Asked whether the "approve all" shortcut should be greyed out when a day does not balance — a
+restriction on the regional admin — he refused the framing:
+
+> *"well at the end of the day we gave admin power and we should trust them but on the other hands
+> if there is some missing input data to the factory then all the blame will go to the regional
+> admin, every day regional admin approval need to be sent to the HQ, so HQ should be able to check
+> whether there is some cheating or manipulation been done by the regional team"*
+
+**Do not build the grey-out.** His instinct is consistent and worth naming as a rule:
+
+> **Give the power, keep the record.** He does not take a capability away from someone he has
+> chosen to trust; he makes what they did visible to the layer above.
+
+This is the same instinct behind the Dialog Gate (*"every action must report"*) and the Audit Vault
+— his answer to risk is a record, not a lock. ⚠️ So a proposal that reads as *"stop them doing X"*
+will usually lose to one that reads *"log X so it can be checked"*. Reframe before proposing.
+
+**And note who he is protecting.** He named the honest case first: if data is missing at the
+factory *"all the blame will go to the regional admin"*. The record exists to defend the admin as
+much as to catch one. That framing should be used when the feature is explained to him and to them.
+
+**It also revealed a third party nobody had mentioned in six messages of design work: HQ.** EOD is
+agent → regional admin → HQ, not agent → admin. Every concept pitched to him had assumed two
+parties. ⚠️ **Ask who else sees the output before designing the ending of a flow** — this is the
+second time in one day a whole ending was designed for the wrong last actor (the first was
+forgetting the regional admin existed at all).
+
+**What checking found, and it flatters nobody:** `logAudit()` already stores `user: user.email` on
+every `EOD_VERIFIED`, so WHO approved is captured. What is not captured is the numbers — the audit
+line records the agent's name and nothing about the money. **HQ can see that a day was approved,
+never what was approved.** The fix is not a new system; it is putting the figures into a line that
+already gets written. Cheapest real work in the feature, and the only part that does the job he
+actually described.
