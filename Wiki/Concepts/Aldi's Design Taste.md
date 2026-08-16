@@ -255,3 +255,44 @@ he pushes back.
 - [[Silent Failure Disease]] — law 2, in its bug-class form
 - [[Ponytail Philosophy]] — the minimal-code discipline; his taste and it agree more often than not
 - Source: [[../../Raw/2026-08-10_source_kpm-six-days-aug04-to-aug10|the six-day source]]
+
+## Lite Mode gives up motion, never colour (2026-08-16)
+
+His law, verbatim, on finding the header's title gone in light + Lite: *"lite item use to
+sacrifice the animation but not the color"*. Report: *"the lite light moe causing the system
+acitve settings text to gone, since it causing the background for that top panel to be black"*.
+
+This sharpens law 3 on this page (*"lite mode means performance, not a white theme"*) into
+something checkable. Lite Mode may drop **motion, blur and shadow**. It may not touch a **hue** —
+and an opaque fallback that a stripped blur requires is still a colour, so it has to be a token
+with a value per theme, not a fixed one. Enforced by audit group 43, which asserts the law rather
+than any value.
+
+⚠️ **Three audit checks were pinning the offending literal, so they were protecting the bug.** The
+"freeze a value" trap in [[Anti-Recurrence Check]] shape 7, for the fourth time in two days.
+
+## He approved the preview artifact, and asked for bigger small type (2026-08-16)
+
+Handed a single self-contained HTML file rendering the real stylesheet — light by default, with
+light/dark/lite buttons. His verdict: *"it is what im looking for, i like it"*.
+
+**This is the second time the same instinct has shown:** the page already records *"live and
+playable beats a picture"* and *"give him sliders on a live prototype, not a gallery of finished
+options"*. A file he can open and toggle himself is the format he says yes to.
+
+His only change: *"maybe make the font little bit bigger especially for the small description,
+without sacrificing any aesthetics"*. Module description 13 → 14px, mono eyebrow and caption strip
+10 → 11px. **Tracking eased with the size** (.26 → .24em, .22 → .2em) — letter-spacing is chosen
+for a size, and carrying the old value onto a larger glyph is exactly what makes a bumped label
+read as stretched rather than bigger. That is the "without sacrificing any aesthetics" half of the
+ask, and it is the half that is easy to skip.
+
+## Law: proof before the claim (2026-08-16)
+
+*"dont claim anything with no proof, facts above everything"* — said while approving a rule change
+to the Alucard skill after three "fixed" claims in one session with nothing rendered.
+
+Paired with his earlier *"if the browser is broken then fix it until u can see it"*, the standard
+is: **a blocked viewer is a problem to solve, not a result to report.** And state which proof you
+have — a measurement proves a ratio, only a frame proves an appearance. See
+[[Looking at the App]].
