@@ -268,3 +268,40 @@ inside a scroller needs the same treatment.
 - **`focus-within` on a hover-expand dock holds it open after the pointer leaves**, and every
   control inside then sits under an invisible overlay. Half of his *"the sidebar will remain open
   and i cant press any button"* was that; the other half was a separate pointer-events cause.
+
+## The EOD record shape — built 2026-08-16, and why it came before any pixel
+
+`src/utils/eodRecord.js` + `src/config/eodRecord.selfcheck.mjs` + integration audit group 47.
+
+Aldi: *"we need to make system where this leak of cash or input can be traced down to the root"*.
+That is a data requirement, and it is **the only part of the EOD redesign that cannot be
+retrofitted** — ship totals-only and traceability becomes a migration rather than a feature. So it
+was built first, before a single card was drawn.
+
+**The four properties, each pinned by a check that was proved to go red on a deliberate break:**
+
+1. **Every card keeps its `sources`** — the actual sales the total was built from. A sum cannot be
+   traced; you cannot ask a number which sale it came from. Cost is near zero: the loop in
+   `EODReconciliationView` that computes `expectedCash` already holds the transaction, `t.id`
+   included. Live result: `cashSourceRows=3`, `firstSourceCustomer="Warung Bu Sari"`.
+2. **`declared` (agent) and `accepted` (regional admin) are two stored fields.** Keep one and a
+   changed figure is invisible *by construction* — there is nothing left to compare against, so no
+   audit downstream can ever recover it.
+3. **`gap` is stored, never derived.** It is an audit record: it must say what the gap was at the
+   moment of approval, even if a source figure is corrected next week.
+4. **The three signatures are a sequence, not a set** — `sign()` refuses a regional signature with
+   no agent signature, or an HQ signature with no regional one.
+
+`HQ_CARDS = ['cash','transfer']` encodes his rule that HQ checks money and sales only, because
+*"HQ cant monitor the real supply number on the regional warehouse"*.
+
+### ⚠️ The self-check that passed a broken module
+
+The obvious test for "stored, not derived" is to spread the card and read `.gap`. **It proves
+nothing**: the spread operator EVALUATES a getter and copies the resulting value, so
+`get gap(){ return this.accepted - this.declared }` looked stored and passed. Only mutating the
+SAME object and re-reading separates them. Audit group 47 now bans `get gap(` outright rather than
+testing around it.
+
+**The general lesson: a test that constructs a copy cannot test how the original computes.** Found
+only by deliberately breaking the module — which is the practice that earns the word "verified".
