@@ -439,3 +439,33 @@ that was there to avoid needing the reveal.**
 header declares no height — it grows to its tallest child — so the ceiling was the two lines of
 text on the left, at 48px, and the buttons had 12 free pixels nobody had noticed. See
 [[Looking at the App]] for how to take that measurement.
+
+## The hole in the palette law: it bans colours but never named replacements (2026-08-16)
+
+By the end of one afternoon Aldi had asked for redesigns on **ten** screens, and eight of them fail
+in the same way. It is worth stating precisely, because "convert the colours" is the wrong summary:
+
+**The law says what is BANNED (no blue, no green, gold never as text on light). It never said what
+a state should be INSTEAD.** So every screen invented its own answer with a hardcoded hex, and each
+one was tuned against the near-black page that existed at the time. Light mode did not break these
+screens — it revealed that they were never theme-aware at all.
+
+The banned hues are not decoration on most of them. They carry MEANING that has no token:
+
+| screen | green means | blue means |
+|---|---|---|
+| Receivables | SAFE (not due yet) | the amount owed |
+| Stock Opname | HEALTHY | the selected tab |
+| EOD Setoran | verified / shift closed | Digital Transfers |
+| Audit Vault | a snapshot exists, revertable | the month folders |
+| Sampling | New Sample | View Analytics |
+
+⚠️ **The blues are all decoration** — a button that happens to be blue. Those convert freely.
+**The greens are all "everything is fine"**, which is the one meaning the palette has no token for,
+and it is why the same question kept coming back screen after screen instead of being answered once.
+
+**The proposal put to him:** *colour marks what needs attention; "fine" is the ABSENCE of colour.*
+Safe/healthy/verified = plain ink on the normal surface, no plate. Needs-attention = gold.
+Destructive or overdue = the existing red. That is not a new rule — it is the rule the header chips
+already follow (*"the resting plate has no colour at all"*) and the one the danger red already
+follows (*"rationed to things that destroy data"*), applied to the states nobody had ruled on.
