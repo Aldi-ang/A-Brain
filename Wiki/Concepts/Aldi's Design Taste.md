@@ -402,3 +402,18 @@ decoration — so the answer to texture eating a stroke is a thicker stroke, nev
 
 He named the symptom, offered a guess, and handed the mechanism over. That is permission to
 choose the lever — and an obligation to say which one was chosen and why, in his terms.
+
+### The verdict, and what it settles about unrequested changes
+
+> *"sidebar is good, grey example text is good, 3 is also good lets move on"*
+
+All three accepted on sight, including **the italic he never asked for**. It was flagged to him as
+mine before he looked, with the reason in one sentence, and he kept it.
+
+**The rule that earns:** when a legibility fix DELETES a distinction (darkening the example text
+made an empty field read as a filled one), restoring that distinction with **shape** — italic,
+weight, position — is welcome, because it costs none of the legibility he asked for. Colour is
+where he has strong opinions and standing laws; form is where he delegates. ⚠️ Still flag it as
+yours before he looks. He accepted it *and* was told it was a choice — those are not separable.
+
+`lets move on` is his close-the-topic marker. He does not want a summary of what was just agreed.
