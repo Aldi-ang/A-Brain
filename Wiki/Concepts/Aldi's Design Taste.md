@@ -440,6 +440,23 @@ header declares no height — it grows to its tallest child — so the ceiling w
 text on the left, at 48px, and the buttons had 12 free pixels nobody had noticed. See
 [[Looking at the App]] for how to take that measurement.
 
+## NEAR MISS: an automated palette migration almost repainted the nota (2026-08-16)
+
+A scripted conversion moved six screens onto the tokens in one pass. Two of them —
+`HistoryReportView.jsx` and `ConsignmentFinanceView.jsx` — contain a **`print-receipt` block**, and
+**the nota is exempt from the palette law**: it keeps KPM's company blue because it is a printed
+commercial document, not app UI.
+
+⚠️ **The `!important` classes inside it survived only by luck** — `!text-blue-800` and `!bg-white`
+begin with `!`, which made them unmatchable by a regex that expected a class to start with its
+property. Nothing in the script knew the nota existed. **Ordinary classes inside the same receipt
+were converted**, including a `bg-blue-50` proof box. Both files were reverted rather than shipped.
+
+**The lesson is about automation, not about colour: a sweep that is correct for a screen is not
+automatically correct for every REGION of that screen.** Before running any bulk transform over a
+file, ask which parts of it are governed by a different rule — print blocks, dark islands like the
+vault gate, embedded documents. An exemption that lives in a person's head is invisible to a script.
+
 ## The hole in the palette law: it bans colours but never named replacements (2026-08-16)
 
 By the end of one afternoon Aldi had asked for redesigns on **ten** screens, and eight of them fail
