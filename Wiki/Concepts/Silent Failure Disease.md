@@ -130,3 +130,34 @@ final value in Lite where CSS cannot help it.
 ⚠️ **The general shape: a workaround that hides a mechanism mismatch will fail again somewhere
 else.** The rAF patch made one envelope work and taught nothing, so the same fault shipped twice
 more in the same file.
+
+### The sharper version of the same case: the animation ran and was INVISIBLE (2026-08-16)
+
+His reply after the "fix": *"u should check ur work before handing the work to me, why dont u check
+option C and D and looks how the animation doesnt work for both of those option"*. He was right,
+and the reason is the most instructive part of the whole day.
+
+**The verification was of the wrong thing.** `getComputedStyle(el).animationName` returned
+`keyTurn`, so the check passed. But that only proves an animation was ASSIGNED — it says nothing
+about whether anything moved on screen. And nothing did: the keyhole's rotating part was a
+**featureless circle**, with the notch that shows rotation sitting OUTSIDE it as a sibling. The
+barrel rotated a full 96° every time, perfectly, and looked completely static.
+
+    <div class="keyhole"><span class="barrel"></span><span class="notch"></span></div>   ✗ invisible
+    <div class="keyhole"><span class="barrel"><i class="keyway"></i></span></div>        ✓ visible
+
+**A mark that does not travel with the thing that moves is not a mark.** Rotating, scaling or
+flipping anything radially symmetric is a no-op to the eye.
+
+**The check that actually catches it** is the transform value itself, read where timing cannot lie
+— with transitions disabled, so the computed style IS the declared end state:
+
+    C_barrelEnd = matrix(-0.104528, 0.994522, -0.994522, -0.104528, 0, 0)   // = rotate(96deg) ✓
+
+Plus `document.getAnimations()` to prove a transition is genuinely RUNNING, and a frame captured
+with every animation paused at 42% of its duration — the only still that can show motion at all.
+
+⚠️ **Headless Chrome does not advance CSS transitions under `--virtual-time-budget`.** Sampling
+"after" values there returns the START value and reads as a bug that is not there. Measure end
+states with Lite/transitions off; measure that motion exists with `getAnimations()`; and pause-and-
+seek for a picture. Three different questions, three different instruments.
