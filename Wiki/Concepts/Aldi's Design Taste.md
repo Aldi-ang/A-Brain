@@ -527,3 +527,51 @@ Four judgements in one message, after seeing Sampling and Customer Directory ren
 (*"same color with it background"*). It was a real one — a gradient left with no colour stops
 painting nothing at all. The other three are ambitions. Reading all four as bugs would have
 produced three unwanted rewrites. See [[Silent Failure Disease]] for the sc1 root cause.
+
+### He cannot judge a concept from prose — and said so plainly (2026-08-16)
+
+Handed three EOD Setoran concepts as written descriptions with costs and risks, he answered:
+
+> *"i cant imagine those, why dont u generate all of that inside artifact and i choose, u can do
+> research on the animation or the concept that we are about to do as well. i want to see the full
+> concept complete with the animation"*
+
+**This is the third confirmation of the same instinct, and the strongest.** The page already
+records *"live and playable beats a picture"* and *"give him sliders on a live prototype, not a
+gallery of finished options"*, plus his verdict on the first showroom file — *"it is what im
+looking for, i like it"*. This message upgrades it from a preference to a **constraint**: a written
+concept is not a proposal he can act on. It does not reach him.
+
+**So the deliverable for any design decision is a playable artifact, not a description of one.**
+Three concepts written out cost a turn and produced no decision; the same three built as a page he
+can press produced one. Budget the build in from the start rather than pitching in prose first.
+
+Note the second half of the sentence too — *"u can do research on the animation or the concept"*.
+He is explicitly authorising the expensive path when the output is something he can look at.
+
+**What shipped in response:** `scratchpad/eod-concepts.html` → *Three Ways to Close a Shift*, three
+working demos in the app's own tokens with light / dark / **Lite** / slow-mo toggles. The palette
+was lifted verbatim out of `theme.css` rather than approximated, because the whole point is that he
+judges the concept in his own colours.
+
+### Corollary to the Lite law: an animation must never OWN an element's visibility
+
+Found while building that artifact, and it is checkable. The wax seal and the CLEARED stamp were
+written the ordinary way — `opacity: 0` in the base rule, an `animation … forwards` that ends at
+`opacity: 1`. Turn Lite Mode on, `animation: none` applies, and **the seal and the stamp disappear
+entirely**. Not "less animated" — gone.
+
+That is Lite deleting **content**, and his law is that Lite may drop motion, blur and shadow and
+may never touch a hue or, by the same reasoning, a thing that is supposed to be on the screen.
+
+**The fix, and the pattern to reuse:** the STATE class carries the visibility, and the animation
+only carries the movement.
+
+    .env.sealed .wax { opacity: 1; animation: slam 420ms … both; }
+    @keyframes slam { from { opacity: 0; transform: scale(2.6) } to { opacity: 1; transform: scale(1) } }
+
+With `animation: none` the element still resolves to `opacity: 1` from the state rule. Lite loses
+the slam and keeps the seal. ⚠️ **Anything using `forwards` from a hidden base is suspect** — that
+is the exact shape of the bug. Verified by running the page with Lite forced on and reading
+computed styles: `waxOpacity=1`, `markOpacity=1` after the fix, `0` before it.
+See [[Silent Failure Disease]] — no error, no warning, only a missing thing.
