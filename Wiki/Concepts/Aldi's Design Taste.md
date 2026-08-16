@@ -604,3 +604,32 @@ question *"what if there is some miscount or lost pita cukai or lost item"*: los
 debt that follows the agent; short cash and missing goods have nowhere to go at all, because
 approval is all-or-nothing — accept the calculated number, or delete the submission. The proposal
 put to him is to generalise the mechanic the app already owns rather than invent one.
+
+### ✅ HE CHOSE THE SHERIFF'S DESK (2026-08-16)
+
+> *"i like B better TBH"*
+
+Of four EOD Setoran concepts — A The Shift Close (recommended), B The Sheriff's Desk, C Two Keys,
+D The Clean Run — he picked **B**, the one costed as *"High — it is a whole art direction, and the
+one that risks hiding the money behind a costume."* He had already deleted the vault-door concept
+and kept A and B; A was the recommendation and he went past it.
+
+**What this says about his taste, and it is consistent with everything above:**
+
+1. **Theme beats efficiency.** B is the largest build of the four and the least ergonomic, and he
+   took it anyway. He is buying a WORLD, not a workflow. Recommending the cheap option on
+   character grounds will keep losing.
+2. **He picks the concept that already exists in his own app.** The WANTED poster, the bounty and
+   *"Awaiting Sheriff Verification"* were already sitting in `EODReconciliationView.jsx` — an
+   RDR2-flavoured layer someone (him) put there and never finished. He chose the one that
+   completes something he started, over three that invent something new.
+3. **His stated ranking is not his real ranking.** He asked for "ergonomics" three separate times
+   and then chose the least ergonomic option. ⚠️ Read "make it ergonomic" as "do not make it
+   WORSE", not as "optimise for it".
+
+Consistent with the RE9 Ark Lab theme naming and the capybara mascot: this app is a place, and he
+is furnishing it. Also consistent with his *"animation and 3D more with gamification"* ask — B is
+the concept with the most physical objects to animate.
+
+⚠️ Still unanswered when he chose: whether he wants the **Accept short** outcome (real money logic,
+needs an explicit yes) and whether a perfectly-matched day earns a COLOUR or only motion.
