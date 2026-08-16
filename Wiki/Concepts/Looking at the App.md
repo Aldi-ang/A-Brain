@@ -42,6 +42,47 @@ over `dist/`.
 
 **Rebuild first.** The lab reads `dist/`; a stale build is a stale lab.
 
+## THE FRAME, FINALLY — headless Chrome (2026-08-16, second session)
+
+Everything above this line is a **measurement** harness: it reads computed styles and reports
+ratios. It proves a mechanism. It cannot prove an appearance, and for two sessions that gap was
+reported honestly and left open — the in-app Browser pane answers
+*"the Browser pane is not displayed, so the page is not compositing frames"*, `agent-browser`
+hung for 1801s and aborted, and there is no playwright or puppeteer in `node_modules`.
+
+**The way through was already on the machine.** Windows 11 ships Edge, and this machine also has
+Chrome. Either will render a PNG with no install, no dev server, and no login:
+
+    "/c/Program Files/Google/Chrome/Application/chrome.exe" \
+      --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=2500 \
+      --screenshot="<abs>/out.png" --window-size=1000,420 "http://localhost:4180/"
+
+Then **read the PNG** — the Read tool displays images, so the frame arrives as something to look
+at rather than something to assert about. Edge lives at
+`/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe` and takes the same flags.
+
+Two details that decide whether the shot is worth anything:
+
+- **`file://` works too, with `--allow-file-access-from-files`**, linking the built stylesheet by
+  absolute path. That is how a component the showroom does not contain (the sidebar rail) got
+  looked at without touching the repo — a scratch HTML file, the real `dist/assets/index-*.css`,
+  and **the real Tailwind class names copied out of the JSX**, so the cascade under test is the
+  shipped one including Tailwind's file-order win. A harness that drops the arbitrary-value
+  classes is testing a different stylesheet than the app ships.
+- **Screenshot each theme as its own shot** (`#dark` toggling `html.className`), never a dark
+  island nested inside a light document: `html.light .kpm-rail-mark` still matches inside the
+  island, so the nested version shows the light rules on a dark ground and proves nothing.
+
+⚠️ **The build hash changes every `npm run build`,** so a `file://` harness written before a
+rebuild silently loads a 404 and renders unstyled — the exact failure mode described below. Point
+it at the stylesheet that declares `--ground:` and re-point it after every build.
+
+**What looking bought that measuring could not, the same day it was first used:** the darkened
+placeholder passed 4,5:1 and looked *identical to a typed value* in light mode, because
+`--ink-dim` and `--ink` sit close together there. One number said pass; the frame said an empty
+field now reads as a filled one. The fix was italic — shape, not colour. See
+[[Aldi's Design Taste]].
+
 ## The three ways it lied before it told the truth
 
 All three produced *confident, plausible, wrong* readings. Guard against each:

@@ -356,3 +356,49 @@ in the most instructive way: it re-declared a **hand-copied list** of the tokens
 happened to use, so a field painted with a token nobody listed still flipped. **A list of
 exceptions is complete on the day it is written.** The fix was to make the island ride the dark
 palette itself rather than copy from it.
+
+## Three complaints in one message, and the single fault under all of them (2026-08-16)
+
+Three screenshots, three sentences, sent together:
+
+> *"i want the transparant example text inside the text to be more clear in the light mode"*
+
+> *"i want the black color text need to be clearer maybe add little bit thickness in color could
+> help? nah i'll just let u think about that"*
+
+> *"yellow color glow inside the sidebar on light mode is not good because it is not clear, feels
+> like the color is menyatu with the background human eyes hard to see light on light combination
+> like that"*
+
+**They looked like three unrelated contrast nits. They were one fault wearing three coats:**
+colour decided against a near-black ground and never re-decided for the cream one. Worth reading
+that way next time three small light-mode complaints arrive together.
+
+### He describes mechanisms, not preferences — read them literally
+
+*"light on light combination"* is not a complaint about a shade. It is the correct diagnosis. A
+glow works by **adding light**; on a cream ground there is none left to add, so the plate cannot
+end up darker than the surface it is supposed to stand on. `menyatu` = *merges into / blends with*.
+**The answer to a glow that fails on light is never a brighter glow** — it is the inversion this
+palette already makes everywhere else (`--gold` becomes a dark amber PLATE, `--gold-ink` the pale
+ink on it). Measured after: 5,32:1, from roughly 1,2:1.
+
+### Where the bug actually lived: hexes in the JSX
+
+The sidebar was the last place in the app still deciding its own colour from `text-[#ff9d00]` and
+`bg-[#ff9d00]` written into the markup. **A hardcoded hex means the dark theme is deciding what
+light mode looks like**, and no token, no palette law and no contrast check can see it. If a
+light-mode complaint has no matching token to blame, grep the JSX for arbitrary Tailwind colours
+before touching the stylesheet.
+
+### "thickness in color" meant WEIGHT, and he was right for a reason he did not have to state
+
+The band's ink was never the problem — `--ink` is 10,6:1 there. The **hatch** was: a 1px stripe
+every 4px cuts straight through 11px mono tracked to .2em, and a one-pixel stroke loses that
+argument. `font-weight: 700` fixed it. ⚠️ **He keeps the texture** — it is the tab's one surviving
+decoration — so the answer to texture eating a stroke is a thicker stroke, never a quieter texture.
+
+### *"nah i'll just let u think about that"* is delegation, not indifference
+
+He named the symptom, offered a guess, and handed the mechanism over. That is permission to
+choose the lever — and an obligation to say which one was chosen and why, in his terms.
