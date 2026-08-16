@@ -737,3 +737,27 @@ line records the agent's name and nothing about the money. **HQ can see that a d
 never what was approved.** The fix is not a new system; it is putting the figures into a line that
 already gets written. Cheapest real work in the feature, and the only part that does the job he
 actually described.
+
+### A "mismatch with the code" was a missing STEP, not a bug (2026-08-16)
+
+Told that his rule (damaged goods → Master Vault) disagreed with the code (damaged goods → regional
+branch), he did not accept the framing:
+
+> *"yea they went to the regional vault first and then on the stock opname allow the damaged goods
+> to be sent to the headquarters right"*
+
+**Both were right. The code does step one; he was describing the destination after step two.** The
+gap was a transfer action that does not exist yet, not a wrong route.
+
+⚠️ **The lesson is about how a discrepancy gets reported.** Saying "your rule and the code disagree"
+invites him to pick a side. Asking "the code sends these to the branch — is that the final stop, or
+is there a later step?" would have got the same answer without implying one of them was broken. He
+holds a model of his own business with steps that are not in the software yet, and a mismatch is
+more often a missing step than a defect.
+
+**And checking that path found the real prize:** `PENDING_HQ_APPROVAL`, HQ notifications, per-facility
+damaged-stock tracking with photos, and an `HQ` role tag are all ALREADY in `StockOpnameView.jsx`.
+**HQ is not a new layer in this app; it is new to EOD.** Third time in one day that "what he asked
+for is half-built already" has been true — after the bounty engine and the sheriff theme. Check for
+an existing implementation before designing a new one; with this codebase it is the higher-yield
+first move.
