@@ -417,3 +417,25 @@ where he has strong opinions and standing laws; form is where he delegates. ⚠�
 yours before he looks. He accepted it *and* was told it was a choice — those are not separable.
 
 `lets move on` is his close-the-topic marker. He does not want a summary of what was just agreed.
+
+### He removes information to make what is left bigger (2026-08-16)
+
+> *"i want u to make all this button bigger but dont allow it to exceed the given box space"*
+
+> *"removed the small dated above that and use that whole time box to 1 each time, so one side is
+> clock and u press it other one is date so that it look bigger on both side"*
+
+Two asks, one instinct: **a control should spend its whole area on one thing.** The clock had a
+9px date stacked above a 13px time on BOTH faces — four pieces of text to show two facts. He
+deleted the small line rather than shrink anything else, and the time went 13px → 20px in the
+same plate.
+
+⚠️ **The small line was a leftover from before the press existed.** It was the compromise you make
+when a chip must say everything at once; adding the press removed that requirement and nobody went
+back to remove the compromise. **When a control gains a way to reveal something, look for the thing
+that was there to avoid needing the reveal.**
+
+**"dont allow it to exceed the given box space" is a constraint he expects to be MEASURED.** The
+header declares no height — it grows to its tallest child — so the ceiling was the two lines of
+text on the left, at 48px, and the buttons had 12 free pixels nobody had noticed. See
+[[Looking at the App]] for how to take that measurement.
