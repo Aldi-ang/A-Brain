@@ -3,9 +3,9 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-08-14
+updated: 2026-08-16
 confidence: medium
-checked: 2026-08-14
+checked: 2026-08-16
 tags: [pattern, design, taste, ux, aldi]
 ---
 
