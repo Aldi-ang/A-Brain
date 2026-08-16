@@ -575,3 +575,32 @@ the slam and keeps the seal. ⚠️ **Anything using `forwards` from a hidden ba
 is the exact shape of the bug. Verified by running the page with Lite forced on and reading
 computed styles: `waxOpacity=1`, `markOpacity=1` after the fix, `0` before it.
 See [[Silent Failure Disease]] — no error, no warning, only a missing thing.
+
+### He rejects concepts individually and asks for MORE, not for a rewrite (2026-08-16)
+
+> *"btw im okay with 1 and 2 i dont like 3, i want u to make few other options for this and just
+> delete 3 keep 1 and 2 for comparison later. give me another gamification concept, anyway EOD
+> needs approval from the regional admin to be accepted, EOD wont be complete without admin
+> approval"*
+
+Three separate instructions in one sentence, and the shape is worth keeping:
+
+1. **He judges each option on its own** — two kept, one deleted, no explanation asked for or given.
+   A rejected concept is not a signal that the batch was wrong.
+2. **"keep 1 and 2 for comparison later"** — he wants the survivors held side by side against the
+   new ones rather than replaced. The deliverable grows; it does not get rewritten.
+3. **He supplies the missing domain rule himself, in passing.** The approval requirement arrived as
+   an afterthought clause and it invalidated the ending of all three concepts. ⚠️ **Ask what
+   completes a flow before designing its climax** — every concept had been built to end at the
+   agent's submit, and the real ending is a second person in another town.
+
+**What the domain rule turned up when it was chased into the code:** the gamification he keeps
+asking for **already exists** — XP, badges, day counters and streaks all fire inside
+`handleVerifyEOD`, at the admin's approval. It has simply never been shown on screen. Worth
+checking for a built-but-invisible mechanic before designing a new one.
+
+**And the three kinds of loss are handled three different ways**, which is the actual bug under his
+question *"what if there is some miscount or lost pita cukai or lost item"*: lost stamps become a
+debt that follows the agent; short cash and missing goods have nowhere to go at all, because
+approval is all-or-nothing — accept the calculated number, or delete the submission. The proposal
+put to him is to generalise the mechanic the app already owns rather than invent one.
