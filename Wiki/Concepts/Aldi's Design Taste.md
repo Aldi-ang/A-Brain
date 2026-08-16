@@ -761,3 +761,44 @@ damaged-stock tracking with photos, and an `HQ` role tag are all ALREADY in `Sto
 for is half-built already" has been true — after the bounty engine and the sheriff theme. Check for
 an existing implementation before designing a new one; with this codebase it is the higher-yield
 first move.
+
+### He tests on the REAL screen and finds what a harness cannot (2026-08-17)
+
+Five slices of EOD were built and each was verified — build clean, 586-check audit, a 10-assertion
+self-check, components mounted and driven in headless Chrome, rendered in both themes at 390px.
+Then he opened the actual app and reported three things in one message:
+
+> *"it look so broken sc1"* ·
+> *"sc2 is not effective, what if there are a lot of item types at once missing item on onetype wont
+> make a good record to the data"* ·
+> *"what i want is each card animations going inside 1 same letter then sending animation could be
+> better than now"*
+
+**All three were invisible to every check that passed.** Worth separating why, because they fail
+differently:
+
+1. **The broken screen was a COMPOSITION bug.** The new deck was correct and the old figures block
+   was correct; putting both on one screen was not. A component harness renders the component, so
+   it can never see this. ⚠️ **Rendering a component in isolation does not verify the screen it
+   lands on** — the only check that would have caught it is the real app, or reading what the
+   branch already rendered before adding to it. I replaced the submit BUTTON and left 73 lines of
+   figures above it.
+2. **The goods card was a DESIGN flaw with a data consequence**, and he found it by thinking about
+   his own trade rather than by looking: one input for all goods means a shortfall of one product
+   type vanishes inside a total. The record shape built hours earlier exists so a gap leads back to
+   a specific thing — and a single-number input discards that at the point of entry, before any of
+   the machinery downstream gets a chance. **He protected an architectural property I had built and
+   then undermined myself.**
+3. **The animation was a misread of his spec.** He wrote *"animation of those cards put inside the
+   letter"*. It was built as deck-then-letter, two scenes. He meant one letter present throughout
+   with each card flying INTO it. Re-read: his sentence says "inside", and "inside" is a
+   destination, not a sequence.
+
+**The rule this earns:** when he specifies motion with a preposition — *into*, *onto*, *behind* —
+that preposition is load-bearing and describes a spatial relationship between things that coexist.
+Two things cannot go "inside" each other if only one is on screen at a time.
+
+⚠️ **And the pattern across all three: every check I ran was a check of MY OWN work against MY OWN
+intent.** None of them compared the result to the screen he would actually open. Cheap correction
+available and not taken: read the whole branch being modified before adding to it, not just the
+line being replaced.
