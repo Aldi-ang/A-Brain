@@ -12,6 +12,24 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-08-17 — Ripple: his three EOD corrections, built and rendered
+
+One commit on `phase0-solid-ground` (`661498f`), 586/586 audit, 12/12 record self-check, flow
+driven end to end in headless Chrome at 390px in light, dark and Lite. No new page — both targets
+already existed and are linked from three places each.
+
+**Rippled:**
+- [[Concepts/Aldi's Design Taste]] — *"What his three corrections were worth once they were
+  built"*. The per-line goods card is a record-shape argument, not a layout one; his pita cukai
+  generalisation was wrong on the data and the correction is recorded next to it; *"sending
+  animation could be better"* is the third correct use of his "cheap" judgement.
+- [[Concepts/Looking at the App]] — two sections. *"Four ways the harness decayed on its second
+  outing"*: `vite build` empties `dist/`; a page with neither `html.light` nor `html.dark` renders
+  an undefined palette (the tell was two byte-identical PNGs); headless never advances a CSS
+  transition, so resting layout must be read in Lite; and freezing animations does not freeze the
+  component's own `setTimeout`. Plus *"What the frames bought this time"* — three defects that
+  passed every check, sharing one cause.
+
 ## 2026-08-16 — Ingest: the light ground, and the session that finally looked at the app
 
 Nine commits on `phase0-solid-ground`, 543/543 audit checks, contrast self-check passing both

@@ -802,3 +802,38 @@ Two things cannot go "inside" each other if only one is on screen at a time.
 intent.** None of them compared the result to the screen he would actually open. Cheap correction
 available and not taken: read the whole branch being modified before adding to it, not just the
 line being replaced.
+
+### What his three corrections were worth once they were built (2026-08-17)
+
+All three were fixed the same night (`661498f`). Two turned out to be **better design than the
+thing they replaced**, not just repairs, and that is the part worth keeping.
+
+**#2, the per-line goods card, is the strongest design note he has given.** He did not describe a
+screen — he described a *failure of the record*: a shortfall of one product type vanishing inside a
+total. The fix it implies is stricter than the version it replaces: one input per product, and
+**confirm blocked until every line carries a number, because a blank and a zero must not become the
+same record.** "There are none left" and "I did not count this" are different facts. He got there
+by thinking about his own trade, and it protects an architectural property that had been built
+hours earlier and then undermined at the point of entry.
+
+⚠️ **His generalisation did not survive contact with the data, and saying so is part of the
+answer.** He wrote *"same argument applies to pita cukai if stamps are tracked per product"* — they
+are not. `expectedCukai` is one pool (`calcTotal + globalCredit + legacyDebt`), so there is no
+per-product figure to count against. The two lines that card *does* need are the two OUTCOMES the
+legacy second card owned: handed over, and lost. **He named the shape; the data named the axis.**
+
+**#3 confirms the preposition rule above.** "Inside" needed the letter mounted for the whole flow —
+so it now shows **four blank rules from the first card**, and each confirm flies its card in and
+fills one. That beats the deck-then-letter it replaced for a reason that has nothing to do with
+animation: **the letter says what the evening is before the evening starts.**
+
+**And *"sending animation could be better than now"* is the "cheap" diagnosis again**, in its exact
+recorded form — *effort is not where the moment is*. The send was one 700ms slide at the end of a
+carefully staged flow. It is now a 200ms lift, then the arc away, then the slot closing behind it.
+Third time he has made that judgement; third time he has been right.
+
+⚠️ **The screen he called broken also had three defects he had NOT named**, all found by rendering
+it: the open envelope flap threw an 81px wedge over the step strip, the wax seal still clipped the
+last row's figure, and the letter's slot stayed open after it flew away. See
+[[Looking at the App#What the frames bought this time (2026-08-17)]] — the shared cause is that a
+component which stops being an ENDING and becomes PRESENT has states nobody has ever looked at.

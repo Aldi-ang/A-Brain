@@ -204,3 +204,50 @@ judge phone layout from the crop.
 COMPONENT, never the SCREEN. A component that is correct next to a block that is also correct can
 still make a broken page — see [[Aldi's Design Taste#He tests on the REAL screen and finds what a
 harness cannot]]. Read the whole branch being modified before adding to it.
+
+## Four ways the harness decayed on its second outing (2026-08-17)
+
+Rebuilding the EOD counting flow used the method above and hit four fresh failures. None of them
+produced an error; each produced a confident, plausible, wrong frame — the same family as the
+three above. All four have a one-line fix, so they are recorded as fixes, not as complaints.
+
+1. **`vite build` EMPTIES `dist/`.** A harness planted in `dist/` is deleted by the very rebuild
+   the harness requires (Tailwind must have seen the new classes). The second `npm run build`
+   returned `sed: can't read dist/eod-lab.html`. → **The harness source lives outside the build
+   output**, with a `relab.sh` that copies it in, resolves the stylesheet hash from the build that
+   just ran, and re-bundles. Never hard-code the hash; never keep the only copy in `dist/`.
+
+2. **A page with NEITHER `html.light` NOR `html.dark` is not "light" — it is undefined.**
+   `App.jsx:2436-2437` toggles *both* classes. A harness that only added `dark` for dark mode
+   rendered the same undefined palette in both shots, and the tell was two PNGs with **identical
+   byte counts**. → Add one class or the other, always, and **print
+   `getComputedStyle(document.body).backgroundColor` into the frame** — light must read
+   `rgb(210,201,180)`, dark `rgb(10,9,8)`. A theme check you cannot see in the shot is not a check.
+
+3. **Headless does not advance CSS transitions, so a resting layout read from a normal shot is a
+   lie.** The sealed flow measured 649px tall with 280px of dead space — the deck's collapse
+   transition had simply never run. `?lite=1` (which zeroes every duration by `!important`) gave
+   the true resting height of 365px. → **Read layout in Lite, read motion frozen.** Same page, two
+   instruments, and using the wrong one invents a bug that is not there.
+
+4. **Freezing the animations does not freeze the COMPONENT.** `document.getAnimations()` was
+   paused and seeked to 55%, and the frame still came back showing the end of the flow — because
+   the component's own `setTimeout` had advanced its stage under virtual time. → To hold a
+   mid-transition frame, **neuter `window.setTimeout` before the click that starts it**, keeping
+   the original for the harness's own waits.
+
+## What the frames bought this time (2026-08-17)
+
+586 audit checks, a 12-assertion record self-check and a build all passed on code that had three
+visible defects. Each was found by looking, and each is the same shape: **an element whose resting
+state nobody had ever seen, because the old design only showed it at the end of the flow.**
+
+| the frame showed | why every check missed it |
+|---|---|
+| the open flap threw an 81px beige wedge across the step strip | `rotateX(172deg)` about the top edge is *correct* for a folded-back flap; it had simply never been on screen at the same time as anything else |
+| the wax seal still clipped the last row's figure | it had already been moved off-centre once for exactly this reason — the corner is precisely where a right-aligned number ends |
+| a 238px hole above the "waiting" panel | the letter had flown away and its slot had not |
+
+**The rule worth carrying:** when a component stops being an ENDING and starts being PRESENT, every
+one of its states becomes a layout that has to be looked at — including the ones that used to last
+400ms. Half the checks in this repo are about the final frame; none of them describe the waiting one.
