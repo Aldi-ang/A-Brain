@@ -475,3 +475,30 @@ Six things worth not re-deriving:
 ⚠️ **Nothing in this entry was verified by screenshot.** The dev server is HTTPS by design and the
 in-app browser refuses it; the app needs Google sign-in. **His eyes remain the only test that has
 ever run on appearance.**
+
+## 2026-08-16 → 17 — EOD Setoran: the redesign Aldi specified himself
+
+Four pitched concepts, all rejected in favour of a flow he wrote out in one message: four cards →
+a letter → three approvals (agent → regional admin → HQ), with the WANTED poster demoted to unpaid
+bounties and a separate repayment flow. See [[Concepts/Aldi's Design Taste]] for why his beat mine.
+
+**Built and committed:** the record shape (`eodRecord.js`, self-check, audit group 47), the
+four-card counting deck, the letter, the composed agent flow, and the wiring into the live screen —
+with real per-sale source rows so a gap leads back to a named customer.
+
+**His decisions, all locked:** Sheriff's Desk concept · Accept short = yes · a perfectly-counted day
+glows GOLD (a deliberate exception to his own palette law) · per-card approval is real, one result
+per card · approve-all shortcut yes, no grey-out ("we gave admin power and we should trust them") ·
+missing transfer covers both never-arrived and arrived-short · HQ = T2, regional = T3, no new tier.
+
+**Three faults he found on the real screen** that every passing check missed — a composition bug, a
+one-input goods card that destroys traceability at the point of entry, and a misread of "cards put
+INSIDE the letter" as two scenes instead of one. Full reasoning in
+[[Concepts/Aldi's Design Taste#He tests on the REAL screen and finds what a harness cannot]].
+
+**Method that came out of it:** [[Concepts/Looking at the App#Rendering a React component without
+signing in]] — esbuild + the real stylesheet + pause-and-seek for a motion frame.
+
+**Open when this was written:** per-row goods counting, the cards-into-one-letter animation, the
+duplicate PITA CUKAI card, and two jobs only Aldi can do — tick `view_stock_opname` for T3 in the
+permission matrix, and deploy the rules change that Accept short will need.
