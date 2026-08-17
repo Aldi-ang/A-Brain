@@ -18,6 +18,15 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 
 | Item | Status |
 |---|---|
+| 🔴 **SWEEP 2026-08-18 — START HERE** | **To Do — read first.** 75 confirmed problems from the 14-agent workflow sweep, ranked, plus the 3 order options to choose from. Every detail file below hangs off this one |
+| **SWEEP — the sales terminal** | To Do — 16 findings. 2 HIGHEST (IOU rewrites the basket to Cash; a buyback never restocks) |
+| **SWEEP — the map screen** | To Do — 15 findings. 2 HIGHEST (sector settings never save at all; "Pricing Tier" writes a game rank into the price field). Worst-affected file in the app |
+| **SWEEP — App.jsx admin handlers** | To Do — 18 findings. 3 HIGH (damaged EOD goods not converted; hand-off matches by name; delete does nothing for a delegated admin) |
+| **SWEEP — history reports and audit vault** | To Do — 7 findings. 1 HIGH (the edit box reprices Karton from a field that does not exist) |
+| **SWEEP — agent profile ranks and awards** | To Do — 5 findings. 1 HIGHEST (**every agent is instantly max rank** — the ladder is in XP, the score is in rupiah) |
+| **SWEEP — warehouse and restock** | To Do — 7 findings. Includes corrections to the two shipment items already listed below — read the corrections before fixing |
+| **SWEEP — permission rules versus the screen** | To Do — 6 findings. 2 HIGHEST (customer "view only" does nothing; **anyone can claim your employee's email before they log in**) |
+| **SWEEP — 22 claims that got KILLED** | Reference — do not chase these. Includes one that **contradicts the excise item below** |
 | Add production_targets Firestore rule | (see file) |
 | Business and UX improvement testing session | To Do — scheduled 2026-07-28 |
 | Chunk handleAdminApproveTransfer | To Do |

@@ -22,11 +22,23 @@ It never checks whether the order was **already** delivered.
 
 So if the same shipment is confirmed twice, the stock is added twice. HQ is only ever debited once.
 
+## ✏️ CORRECTION — added 2026-08-18, second sweep
+
+**The single-person double-press path was REFUTED.** The confirmation dialog renders as a
+full-screen overlay covering the whole window, so the button underneath **cannot** be pressed while
+the dialog is open. The "busy flag is set too late" reasoning below is wrong and should not be used
+to justify the fix.
+
+**The two-person path survives and is the real one:** the request list is filtered only by branch,
+so every Tier-3 user at that branch sees the same live button on their own screen. Two humans within
+the same second is what it takes.
+
+The one-line fix below is unchanged and still correct.
+
 ## How it happens in practice
 
-Two people at the same branch both press the button at nearly the same moment. The button is only
-disabled by a local flag that is not set until **after** the confirmation dialog is answered, so a
-second press while the dialog is open is live too.
+Two people at the same branch both press the button at nearly the same moment — each on their own
+device, each seeing the same order in their own list.
 
 - Shipment of **100** packs to SEMARANG.
 - First confirmation: branch stock 0 → **100**, order marked delivered.

@@ -13,6 +13,26 @@ updated: 2026-08-18
 Found by the review workflow, 2026-08-17. **Verified** — survived a skeptic, which downgraded it
 from HIGH to MEDIUM because it distorts reporting rather than moving stock.
 
+## ✏️ CORRECTION — added 2026-08-18, second sweep
+
+**A second, independent checker killed this as a *defect*.** Its reasoning, and why it matters:
+
+The "TOTAL LANDED VALUE" field is **doing its job** — it is a document total for the ledger card and
+the printed GRN, and nothing in the code ever presents it as a per-unit cost. The app's cost basis is
+a different field that **you type in by hand**, labelled "DISTRIBUTOR (MODAL)" on the product form
+(*modal* = capital/cost). Every cost calculation in the app reads that one field, consistently.
+
+So **no code path computes a wrong number.** The Rp 6.400/pack understatement below is real **only if
+the number you typed into DISTRIBUTOR (MODAL) excludes the cukai** — which is an assumption about your
+data, not a fact about the code.
+
+**Reframed: this is a missing feature (rolling landed cost into a weighted-average cost price), not a
+logic bug.** That does not make it unimportant — a missing feature that silently overstates every
+margin is worth building. It changes *how* it gets fixed: this is a design decision for you, not a
+one-line repair.
+
+**The question below is now the whole item.** Answer it first; the fix depends entirely on the answer.
+
 ## What happens, in simple English
 
 When you record a production batch, the app carefully adds up the **true landed cost**: the base

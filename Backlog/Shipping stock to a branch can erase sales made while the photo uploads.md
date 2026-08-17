@@ -64,3 +64,14 @@ whose starting number comes from the screen.
 
 After the fix, the guard at `:280` is advisory only — it still cannot prevent stock going negative,
 which would need a transaction. But the write itself stops inventing units, which is the bug.
+
+## 🔎 One more piece of evidence, added 2026-08-18
+
+`src/FleetCanvasManager.jsx:294-296` carries this comment:
+
+> upgraded from writeBatch to runTransaction so we READ the correct source's real current stock
+> first, instead of trusting the viewer's own
+
+**Your app already found this exact bug once, diagnosed it correctly, and fixed it — in a different
+file.** Line 294 of BranchWarehouseManager is the site that was missed. That is worth remembering as
+a search pattern: when one instance of a bug is found, grep for the shape, not the file.
