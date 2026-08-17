@@ -38,6 +38,8 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | **Approving a stock count erases everything since the count** | **To Do — HIGH**, added 2026-08-17. HQ approval overwrites today's sales and EOD returns |
 | **Goods given back during a payment never reduce what the store owes** | **To Do — HIGH**, added 2026-08-17. `returnTotal` is written and never read — customers are overcharged |
 | **The pack-size maths is copy-pasted in six places and they disagree** | **To Do — HIGH**, added 2026-08-17. Root cause behind several stock bugs; two of the six copies are wrong |
+| Finish the logic review — four screens not checked yet | To Do — Medium, added 2026-08-17. Journey, Map, Fleet Canvas, Customers. The review covered ~6% of the code |
+| Check every UI permission against the database rules | To Do — Medium, added 2026-08-17. A check to run, not a bug found — the rules are a mixture of matrix-driven and role-locked |
 
 This table is a snapshot, not live — open `Backlog.base` in Obsidian for current status, since
 items here move between columns over time and this index won't auto-update.
