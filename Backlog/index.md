@@ -32,6 +32,7 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | Top panel background and UI redesign | To Do — added 2026-08-14. Same file also holds the record of the PC sidebar, which SHIPPED as `16c8ff9` after the video reference was read frame by frame |
 | Phone ribbon position must survive logout | To Do — added 2026-08-14; already in localStorage, so find what clears it |
 | 🔴 **What the agent counts at EOD is never used for anything** | **To Do — HIGHEST**, added 2026-08-17 fourth pass. The report sends the system's expected figures; the counted numbers are an unread side note, so a cash shortage cannot be detected. **Read this one first** |
+| **The first bounty you mint will break the agent dashboard** | **To Do — HIGH**, added 2026-08-17 fifth pass. A Rp 200.000 fine displays as 200.040 stamps owed. Not firing yet — fires when the bounty feature ships |
 | **Offline sales never reduce the van stock** | **To Do — HIGH**, added 2026-08-17 from the logic review. Costs stock AND blames the agent |
 | **Returning consignment goods can corrupt the stock count** | **To Do — HIGH**, added 2026-08-17. Unit not converted: 2 Slop adds 2 packs |
 | A sale can be booked to the wrong store | To Do — Medium, added 2026-08-17. Partial name match wins over the exact one |
