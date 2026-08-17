@@ -1,6 +1,6 @@
 ---
-title: The pack-size maths is copy-pasted in six places and they disagree
-description: Converting Slop/Bal/Karton into packs is hand-written in at least six places. Two of them are wrong in different ways. This is the root cause behind several separate stock bugs.
+title: The pack-size maths is copy-pasted in seven places and they disagree
+description: Converting Slop/Bal/Karton into packs is hand-written in at least seven places. Three of them are wrong in different ways. This is the root cause behind several separate stock bugs.
 status: To Do
 area: Stock / whole app
 priority: HIGH
@@ -8,9 +8,11 @@ created: 2026-08-17
 updated: 2026-08-17
 ---
 
-# The pack-size maths is copy-pasted in six places and they disagree
+# The pack-size maths is copy-pasted in seven places and they disagree
 
 Found in the 2026-08-17 logic review. **Fix this one and three other bugs stop being possible.**
+(The file name still says six — a seventh copy turned up on the second pass. Renaming a Backlog
+file breaks the links pointing at it, so the count lives in the title, not the filename.)
 
 ## What happens, in simple English
 
@@ -31,6 +33,13 @@ way — which is exactly what you would expect from six copies.
 | `src/App.jsx:1813-1815` | all 4 sizes | ok |
 | `src/App.jsx:3075` | all 4 sizes, reads the van row's own size | ok |
 | `src/App.jsx:3132` and `:3142` | **Slop only** | ❌ Bal and Karton silently treated as single packs |
+| `src/FleetCanvasManager.jsx:321` | **no conversion at all** | ❌ adds a pack count straight onto a row that may be counted in Slop |
+
+**A seventh copy was found on the second pass** and it is the worst of them: Load Canvas always
+loads in packs, and when the vehicle already has a row for that product it just adds the two
+numbers together (`:321`). If that row is counted in Slop, loading 10 packs adds **10 Slop** — the
+warehouse loses 10 and the van gains 100. Clear Canvas, forty lines below in the same file, does
+convert properly (`:379`), which is how the two ends stop agreeing.
 
 ## What each broken one costs you
 

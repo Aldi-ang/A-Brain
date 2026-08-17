@@ -19,7 +19,7 @@ paths that move money and stock first, and the hour ran out. **These four were n
 |---|---|---|
 | Journey Plan | `src/JourneyView.jsx` (1674 lines) | decides which stores an agent visits; a wrong filter hides a store from its own agent |
 | Map Mission Control | `src/MapMissionControl.jsx` (2567 lines) | biggest unreviewed file in the app |
-| Fleet & Canvas | `src/FleetCanvasManager.jsx` (1240 lines) | writes `activeCanvas`, the same van-stock field three found flaws already touch |
+| ~~Fleet & Canvas~~ | `src/FleetCanvasManager.jsx` | **DONE 2026-08-17** — found 2 flaws: Clear Canvas stale read, and Load Canvas skipping unit conversion |
 | Customers | `src/components/CustomerManager.jsx` (1700 lines) | store records and price tiers; the debt bugs all key off the store name |
 
 ## What to look for — the four shapes that produced every flaw found so far
