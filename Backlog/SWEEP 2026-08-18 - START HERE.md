@@ -1,5 +1,10 @@
 # SWEEP 2026-08-18 — START HERE
 
+> 📖 **The whole list in one readable page (all 75, plain English, ranked):**
+> **https://claude.ai/code/artifact/a394be49-4ab3-48e8-88b4-71dab447b794**
+> Private until Aldi shares it. Same content as the files below, written to be read
+> front-to-back rather than searched. Republish the same scratchpad path to update it.
+
 **The robot sweep finished. It found 75 real problems and killed 22 false alarms.**
 
 Every one below was found by one agent and then attacked by a second agent whose only job
