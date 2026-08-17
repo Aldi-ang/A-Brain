@@ -906,3 +906,35 @@ Three things to carry forward:
 Fix, measured inside a real 390px viewport: card 232→264 wide and 372→416 tall, name column
 89→112px, number field 70px content-box → 56px border-box, list turned into a flex child so no
 fixed height can clip it. All six names now render on one line.
+
+## Fault follows the goods, not the money (2026-08-17)
+
+Asked who owns a transfer that never lands — the agent or the customer — he refused both and gave
+a procedure instead:
+
+> *"well if there is a scenario, where customer use transfer to buy the product, show the agent
+> faked bukti transfer and agent bring that fake bukti transfer to the admin, then there will be
+> investigation towards this, if confirm the store already receive the item then it is customer
+> unpaid bill, but if there is no proof even that the customer did not buy and the agent make fake
+> receipts instead then it will be put on the agent bounties"*
+
+**The discriminator is whether the goods reached the store, not whether the money arrived.** Goods
+delivered + money missing = the customer owes. No evidence of a sale at all = the agent invented
+it, and it becomes an agent bounty.
+
+Two things this teaches about how he decides:
+
+- **He answers an either/or with the investigation that separates them.** The question offered
+  three owners; he supplied the evidence test. When a question has been posed as "who pays", check
+  whether the real answer is "here is how you find out" — a state machine, not a field.
+- **He thinks in fraud scenarios, not error scenarios.** The case he reached for first was a
+  *forged* bukti transfer, not a mistyped one. His app is built for a business where the person
+  entering the record can be the person stealing, which is why [[Every action must report]] and
+  the physical count ceiling both exist.
+
+**What it forces in the design, which he had not priced:** the investigation does not finish the
+same night the EOD does, so a shortfall needs a third, ownerless `DISPUTED` state at verify time.
+And "confirm the store received the item" cannot be settled from the sale record, because the
+agent typed it — the suspect's own entry cannot exonerate the suspect. Independent evidence is the
+customer's word, or the van count, which already catches the variant where the faked sale's goods
+are still on the vehicle.
