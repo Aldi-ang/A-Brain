@@ -44,6 +44,7 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | **Handing a store to another agent rewrites sales history** | **To Do — HIGH**, added 2026-08-17 third pass. Past sales are re-stamped with the new agent; the real seller is erased |
 | **Opening Journey Plan can silently reassign stores to the wrong agent** | **To Do — HIGH**, added 2026-08-17 fourth pass. Automatic bulk write on screen load, guessing by partial name match |
 | A deleted permission tier survives in the backup copy | To Do — Medium, added 2026-08-17 fourth pass. Matrix saved twice: one replaced, one merged, so deletions do not stick |
+| The app day rolls over at 7am instead of midnight | To Do — Medium, added 2026-08-17 fourth pass. UTC date stamps; route board resets mid-morning. **EOD money is unaffected — checked** |
 | Finish the logic review — screens not checked yet | To Do — Medium, added 2026-08-17. Journey, Map, Customers still unread. Fleet Canvas now done — it held 2 flaws |
 | Check every UI permission against the database rules | To Do — Medium, added 2026-08-17. A check to run, not a bug found — the rules are a mixture of matrix-driven and role-locked |
 
