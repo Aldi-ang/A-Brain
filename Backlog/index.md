@@ -42,6 +42,7 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | **Everything is linked by name instead of by id** | **To Do — HIGH**, added 2026-08-17 second pass. Root cause under three other flaws; step 1 of the fix is cheap and stops it growing |
 | **Some failures are hidden from the user completely** | **To Do — HIGH**, added 2026-08-17. SEVEN silent write failures, five in one map panel including the price tier |
 | **Handing a store to another agent rewrites sales history** | **To Do — HIGH**, added 2026-08-17 third pass. Past sales are re-stamped with the new agent; the real seller is erased |
+| **Opening Journey Plan can silently reassign stores to the wrong agent** | **To Do — HIGH**, added 2026-08-17 fourth pass. Automatic bulk write on screen load, guessing by partial name match |
 | Finish the logic review — screens not checked yet | To Do — Medium, added 2026-08-17. Journey, Map, Customers still unread. Fleet Canvas now done — it held 2 flaws |
 | Check every UI permission against the database rules | To Do — Medium, added 2026-08-17. A check to run, not a bug found — the rules are a mixture of matrix-driven and role-locked |
 
