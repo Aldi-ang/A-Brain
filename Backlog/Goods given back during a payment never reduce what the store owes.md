@@ -14,19 +14,21 @@ Found in the 2026-08-17 logic review. **This one overcharges your customers.**
 
 ## What happens, in simple English
 
-When an agent visits a store to collect on consignment, two things can happen at once:
+When an agent audits a consignment store, the stock is split three ways
+(`ConsignmentFinanceView.jsx:283-297`):
 
-1. the store pays some money, and
-2. the store hands back goods it could not sell.
+- **sold** — the store pays for these (`amountPaid`)
+- **damaged** — handed back to the agent, and their value is saved as `returnTotal`
+- **still on the shelf** — the store keeps them and still owes for them
 
-The app records both. The money is saved as `amountPaid`. The value of the returned goods is saved
-as `returnTotal`.
+The store's balance goes down by `amountPaid` only. **`returnTotal` is never subtracted anywhere.**
 
-Then **every** place that works out what the store still owes reads only `amountPaid`. Not one of
-them reads `returnTotal`.
+So a store that hands back Rp 500.000 of damaged stock still owes that Rp 500.000. The packs
+themselves are removed from its shelf list — the app does subtract those — and they go back onto the
+agent's van and into quarantine. The company takes the goods back **and** keeps billing for them.
 
-So a store that hands back Rp 500.000 of stock still owes that Rp 500.000. The goods are gone from
-its shelf list — the app does subtract those from the physical count — but the bill never moves.
+The shelf goods keeping the balance up is correct: the store still holds that stock. The damaged
+ones are the bug.
 
 ## Where it is
 
