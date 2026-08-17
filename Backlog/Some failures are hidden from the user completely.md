@@ -1,9 +1,9 @@
 ---
 title: Some failures are hidden from the user completely
-description: Two write paths catch their own errors and say nothing. The screen has already updated optimistically, so a failed save looks exactly like a successful one.
+description: Seven write paths catch their own errors and say nothing - five of them consecutive save functions in the map store panel, including the price tier.
 status: To Do
 area: Whole app
-priority: Medium
+priority: HIGH
 created: 2026-08-17
 updated: 2026-08-17
 ---
@@ -20,7 +20,27 @@ Two places catch a failed save and then do nothing with it. No message, no retry
 screen. And in one of them the screen has **already** been updated to show the new value, so a
 failure and a success look identical.
 
-## The two places
+## An entire panel where nothing reports — `MapMissionControl.jsx`
+
+Found on the third pass. **Five save functions in a row, every one of them silent.** This is the
+store detail panel on the map: the place where a store's commercial settings are changed.
+
+| What it saves | Line | On failure |
+|---|---|---|
+| Wholesaler / Retailer type | `:1204` | console only |
+| Which hub supplies the store | `:1213` | console only |
+| Catchment scale | `:1221` | console only |
+| Visit frequency | `:1231` | console only, **and the screen already shows the new value** (`:1226`) |
+| **Price tier** | `:1244` | console only |
+
+The price tier is the worst of the five: it decides what that store pays for everything. If that
+save fails, the agent believes the store is now on a different price level and it is not. Nobody is
+told, on a phone, where the browser console does not exist.
+
+`handleDeleteStore` twenty lines below (`:1247-1258`) **does** report its failure properly. So the
+pattern is not a house style — those five are just missing it.
+
+## The other two
 
 **1. Assigning a store to an agent** — `src/JourneyView.jsx:528`
 
