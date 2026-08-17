@@ -230,3 +230,41 @@ believed if the control had not been in the same output.
   backslashes; CSS *selectors* are escaped. Query the side that needs no guessing.
 
 See [[Looking at the App]] for the bug this was found chasing.
+
+## A ninth shape: a dead verifier scored as a successful refutation (2026-08-17, second occurrence)
+
+A review workflow fanned out 7 readers over the unreviewed KPM files, each followed by a skeptic
+told to refute its findings. The run returned `confirmed: []` and `refutedCount: 14` — which reads
+as *"we checked 14 claims and killed all of them"*.
+
+**Nothing was checked.** 7 of the 8 agents died on `You've hit your session limit`, including the
+only refuter that had work to do. The classifier was:
+
+```js
+if (v && v.refuted === false) confirmed.push(row)
+else refuted.push(row)          // <- a missing verdict lands here
+```
+
+So an agent that never ran produced the same output as an agent that examined the claim and
+rejected it. The tell was in the payload and easy to miss: every entry in `refutedTitles` ended
+with the fallback string *"no verdict returned"*.
+
+**This is the second occurrence.** Commit `07f0672`, five days earlier, is titled *"EOD review
+findings are UNVERIFIED - quota killed the verify phase"*. Same cause, same silent direction of
+failure.
+
+**The rule: absence of a verdict is its own state, never a verdict.** Any classifier that sorts
+results into pass/fail needs a third bucket for *did not run*, and the missing case must land
+there by construction, not by an `else`. Written into the script as three lists — `confirmed`,
+`refuted`, `unverified` — with the unverified count logged as a warning.
+
+⚠️ **The general shape, which is the whole point of this page:** the failure defaulted toward the
+*reassuring* answer. "14 refuted" sounds like rigour; "14 unchecked" sounds like a problem. When
+a default has to be picked for a missing measurement, pick the one that looks worse — a wrong
+alarm costs a re-check, a wrong all-clear costs the thing the check existed to catch. Same
+direction of error as a commit message that claims a fix the diff does not contain.
+
+**Cheap structural fix, reusable:** long fan-out runs should be resumable. This one was
+(`Workflow({scriptPath, resumeFromRunId})`), so the single agent that DID complete replayed from
+cache for free and only the dead ones re-ran. A review that has to start over after a quota reset
+usually just does not get finished.
