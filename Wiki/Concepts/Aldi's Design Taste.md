@@ -875,3 +875,34 @@ is not a secret — the agent can read it on their Agent Inventory screen — wh
 today's cash is. **Cash and transfer stay uncapped**: an agent genuinely can be holding more money
 than the app expected, and that over is a real gap worth keeping. The ceiling belongs to physical
 objects, where the number is *impossible* rather than merely *unlikely*.
+
+## A truncated product name is a data-entry hazard, not a cosmetic flaw (2026-08-17)
+
+Shown the fan-carousel prototype he had asked for, he approved the motion and rejected the rows,
+in one sentence:
+
+> *"its good but adjust the spacing and sizing, i dont want to see this kind of format, because i
+> want to see the product in full name to avoid mistake in the future"*
+
+The screenshot he attached read `Cell… / Cell… / Siga… / Djar…`. **Two of those are the same
+prefix** — the demo list holds *Cello Green 16* and *Cello Merah 12* — so an ellipsis at four
+characters removed the only part of the string that told them apart, on a screen where the number
+typed next to the name becomes money owed.
+
+Three things to carry forward:
+
+- **`text-overflow: ellipsis` is banned on any identifier the user must match against a physical
+  object.** Wrapping to a second line shows every character and costs only height; truncation is
+  silent and costs the wrong count. This is the same instinct as [[Every action must report]] —
+  he will not accept a UI that hides what it did or what it is.
+- **He does not say "make the card bigger", he says "adjust the spacing and sizing".** That is
+  permission to change the geometry, and it is on you to find which dimension was actually
+  starved. Here the name column was 89px because a *scrollbar* was eating 15px and the number
+  field was reserving 76px for four digits — neither is visible in the complaint.
+- **He justifies with consequence, never with taste**: *"to avoid mistake in the future"*. When he
+  gives a reason like that, the fix has to satisfy the consequence, not the appearance. Shrinking
+  the font to make `Cello Green 16` fit would have answered the screenshot and failed the reason.
+
+Fix, measured inside a real 390px viewport: card 232→264 wide and 372→416 tall, name column
+89→112px, number field 70px content-box → 56px border-box, list turned into a flex child so no
+fixed height can clip it. All six names now render on one line.
