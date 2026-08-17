@@ -35,6 +35,7 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | **Returning consignment goods can corrupt the stock count** | **To Do — HIGH**, added 2026-08-17. Unit not converted: 2 Slop adds 2 packs |
 | A sale can be booked to the wrong store | To Do — Medium, added 2026-08-17. Partial name match wins over the exact one |
 | **Two different debt numbers for the same store** | **To Do — HIGH**, added 2026-08-17. Both shown on one screen; returns reduce only one |
+| **Approving a stock count erases everything since the count** | **To Do — HIGH**, added 2026-08-17. HQ approval overwrites today's sales and EOD returns |
 
 This table is a snapshot, not live — open `Backlog.base` in Obsidian for current status, since
 items here move between columns over time and this index won't auto-update.
