@@ -1,0 +1,54 @@
+---
+title: Goods given back during a payment never reduce what the store owes
+description: A consignment payment records returnTotal, the value of goods handed back. No debt calculation in the app ever reads it, so the store is still billed for goods it returned.
+status: To Do
+area: Consignment / Debt
+priority: HIGH
+created: 2026-08-17
+updated: 2026-08-17
+---
+
+# Goods given back during a payment never reduce what the store owes
+
+Found in the 2026-08-17 logic review. **This one overcharges your customers.**
+
+## What happens, in simple English
+
+When an agent visits a store to collect on consignment, two things can happen at once:
+
+1. the store pays some money, and
+2. the store hands back goods it could not sell.
+
+The app records both. The money is saved as `amountPaid`. The value of the returned goods is saved
+as `returnTotal`.
+
+Then **every** place that works out what the store still owes reads only `amountPaid`. Not one of
+them reads `returnTotal`.
+
+So a store that hands back Rp 500.000 of stock still owes that Rp 500.000. The goods are gone from
+its shelf list — the app does subtract those from the physical count — but the bill never moves.
+
+## Where it is
+
+- The value is written here: `src/hooks/useTransactionEngine.js:448` (`returnTotal`)
+- The physical items ARE subtracted: `src/ConsignmentFinanceView.jsx:206-211`
+- But the money is not: `src/ConsignmentFinanceView.jsx:199` subtracts only `amountPaid`
+- Same omission in the aging engine: `src/ConsignmentFinanceView.jsx:105`
+- Same omission on the sales screen: `src/MerchantSalesView.jsx:114` and `:159`
+
+`returnTotal` is written in one place and read by nothing that calculates money.
+
+## Why it is easy to miss
+
+A separate transaction type called `RETURN` **is** handled correctly everywhere — it is saved with a
+negative total, so it subtracts itself. The broken case is only the return that happens *inside* a
+payment visit, which is the common one.
+
+## Suggested fix, smallest version
+
+Wherever a consignment payment is subtracted from the debt, subtract
+`amountPaid + returnTotal` instead of `amountPaid` alone.
+
+Do this **after** the two duplicate debt calculators are merged into one — see
+[[Two different debt numbers for the same store]] — otherwise this same fix has to be made in
+three separate places and one of them will be missed.
