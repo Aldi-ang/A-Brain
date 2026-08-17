@@ -53,19 +53,36 @@ Bal or Karton is treated as if it held single packs, so editing a sample can wip
 large amount of stock. The correct version, handling all four sizes, sits about sixty lines above
 it in the same file.
 
+## ✅ THE FIX IS SMALLER THAN IT LOOKS — the shared helper already exists
+
+Found while checking the last copy: **`convertToBks(qty, unit, product)` is already written**, in
+`src/utils/helpers.js:97-107`. It handles all four sizes correctly and defaults sensibly.
+
+A few places already call it — `FleetCanvasManager.jsx:379`, `MerchantSalesView.jsx:1410`,
+`ConsignmentFinanceView.jsx`. **Roughly ten other places ignore it and hand-write the same three
+lines**, and three of those hand-written copies are wrong.
+
+So this is not "write a helper". It is **"call the helper that is already there"**.
+
+Three more hand-written copies live in `src/MerchantSalesView.jsx` alone — `:87-89`, around `:545`,
+and around `:672` — none of them broken today, all of them free to drift tomorrow.
+
 ## Suggested fix, smallest version
 
-Write the conversion **once**, in `src/utils/helpers.js`, next to the other shared helpers:
+1. Fix the three broken copies **by replacing them with a `convertToBks` call**, not by patching
+   the maths in place: `useTransactionEngine.js:415`, `App.jsx:3132`/`:3142`,
+   `FleetCanvasManager.jsx:321`.
+2. Then replace the rest, one file at a time, whenever that file is being touched anyway.
+3. Add one self-check beside the helper — the same pattern `src/config/*.selfcheck.mjs` already
+   uses for the money maths — asserting a Karton is bigger than a Bal is bigger than a Slop is
+   bigger than a pack, and that an unknown size returns the quantity unchanged.
 
-```
-packsPerUnit(unit, product)   // 'Bks' | 'Slop' | 'Bal' | 'Karton' -> a number
-```
+**Do not add an eleventh copy while fixing the three broken ones.** That is how this started.
 
-Then replace all six copies with a call to it. Leave one small self-check beside it — the same
-pattern the money maths in `src/config/*.selfcheck.mjs` already uses — asserting that a Karton is
-bigger than a Bal is bigger than a Slop is bigger than a pack, and that an unknown size returns 1.
-
-**Do not add a seventh copy while fixing the two broken ones.** That is how this started.
+⚠️ **The price-tier ladder has the same disease.** `priceRetail / priceEcer / priceGrosir` is
+written out five separate times in `MerchantSalesView.jsx` (`:82-84`, `:541-543`, `:602-604`,
+`:667-669`, `:1405-1407`). None is wrong today. There is no shared helper for it yet, and by the
+same argument there should be.
 
 ## Related
 
