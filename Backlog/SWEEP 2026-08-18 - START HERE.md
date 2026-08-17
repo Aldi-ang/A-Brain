@@ -33,11 +33,32 @@ information, not a demotion.
 | 3 | A buyback pays the store and never puts the goods back into stock | `useTransactionEngine.js:163` |
 | 4 | Saving a sector's settings never reaches the database at all | `MapMissionControl.jsx:611` |
 | 5 | The "Pricing Tier" box on the new-store form writes a *game rank* into the *price* field | `MapMissionControl.jsx:1869` |
-| 6 | Shipping to a branch overwrites HQ stock with a number the screen cached minutes ago | `BranchWarehouseManager.jsx:294` |
+| 6 | ~~Shipping to a branch overwrites HQ stock with a cached number~~ **→ dropped to MEDIUM on a re-check** | `BranchWarehouseManager.jsx:294` |
 | 7 | The "view only" customer lock does nothing for every agent created the normal way | `firestore.rules:138` |
 | 8 | Anyone with a Google account can claim your employee's email before they log in | `firestore.rules:214` |
 
 Details: files below, grouped by screen.
+
+---
+
+## 🔄 THREE THINGS CHANGED AFTER A RE-CHECK — 2026-08-18
+
+Three findings were verified a **second** time, by the same model, on the same code. **It disagreed
+with itself on all three.** Not through carelessness — each pass found one extra fact the other
+missed, and that fact flipped the answer.
+
+- **#6 above drops HIGHEST → MEDIUM.** The "photo upload takes minutes" story is wrong — photo storage
+  is off by default, so that wait is a no-op. The real danger is **offline mode**, which can queue the
+  bad number for hours. And the same flaw exists in **four other files**, so it is a pattern to sweep,
+  not one line to fix.
+- **Confirming a shipment twice drops HIGH → LOW.** The button only exists while the order says
+  in-transit, so the window is a split second.
+- **The excise/cukai item, which the sweep KILLED, is un-killed.** It is a real defect. Score is now
+  **76 confirmed / 21 refuted.**
+
+**What this means for how you use this list: a single check is evidence, not proof.** Before doing any
+work on a HIGHEST item, reproduce it once by hand. That is cheaper and more certain than any number of
+robot passes.
 
 ---
 

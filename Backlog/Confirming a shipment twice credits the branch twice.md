@@ -22,7 +22,23 @@ It never checks whether the order was **already** delivered.
 
 So if the same shipment is confirmed twice, the stock is added twice. HQ is only ever debited once.
 
-## ✏️ CORRECTION — added 2026-08-18, second sweep
+## ✏️ SECOND CORRECTION — 2026-08-18, third check. **Priority drops to LOW.**
+
+A third check found **another** guard the first two both missed:
+
+> The KONFIRMASI button is only **rendered** when `order.status === 'IN_TRANSIT'`
+> (`BranchWarehouseManager.jsx:414` and `:452`), and the order comes from a live listener. The moment
+> the first confirmation sets status DELIVERED at `:189`, the button vanishes from every screen and is
+> replaced by an inert "Barang Sudah Diterima Branch" block at `:458-462`.
+
+**So a status check does exist — it is just in the screen, not in the transaction.** The two-user race
+needs both people to press inside the split second before the update reaches the second screen.
+
+**Real, still worth fixing, but LOW.** The one-line guard below costs nothing and closes it properly.
+Nothing can re-arm a delivered order from the UI either — there is no path that sets DELIVERED back to
+IN_TRANSIT.
+
+## ✏️ FIRST CORRECTION — added 2026-08-18, second sweep
 
 **The single-person double-press path was REFUTED.** The confirmation dialog renders as a
 full-screen overlay covering the whole window, so the button underneath **cannot** be pressed while

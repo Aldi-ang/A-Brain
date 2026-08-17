@@ -9,7 +9,22 @@ write-only field that nobody reads produces no wrong number, so it is tidying, n
 
 ---
 
-## ⚠️ ONE OF THESE CONTRADICTS AN EXISTING BACKLOG ITEM
+## 🔄 ONE OF THESE 22 HAS BEEN UN-KILLED
+
+**The excise/cukai refutation below was itself overturned** by a third check on 2026-08-18. It **is**
+a real defect, HIGH. The refutation rested on "you can just type the true cost into DISTRIBUTOR
+(MODAL)" — and that escape hatch does not exist, because **`App.jsx:2947` uses that same field as the
+selling price to Distributor-tier customers**, so raising it would reprice every distributor sale.
+
+**Read `Excise and shipping costs are printed but never counted as cost.md` for the current verdict.**
+The text below is kept because its facts are right; only its conclusion was wrong.
+
+**That makes the real score 76 confirmed / 21 refuted**, and it is the single most useful thing this
+sweep produced — see the closing section of this file.
+
+---
+
+## ⚠️ THE OVERTURNED ONE
 
 **`Excise and shipping costs are printed but never counted as cost.md`** — the sweep looked at
 this and **killed it as a defect.**
@@ -104,3 +119,24 @@ It is also why the *reverse* mistake is dangerous — see
 `Wiki/Concepts/Anti-Recurrence Check.md`, ninth shape: **a verifier that dies and gets scored as
 a successful refutation.** That happened earlier in this same review. "Refuted" and "never
 checked" must never be allowed to look alike.
+
+## 🔴 AND THE BIGGEST LESSON, FOUND BY ACCIDENT
+
+While testing whether a cheaper model could do the checking, three claims were re-verified by the
+**same model that checked them the first time**, on the same code, with a comparable prompt.
+
+**It disagreed with itself on all three.** One was a straight verdict reversal (the excise item above,
+refuted → confirmed). Two were severity changes of two full steps.
+
+Not because the first pass was careless — every fact it cited was true. **Because each pass found one
+extra fact the other missed**, and that one fact flipped the conclusion:
+
+| Claim | What pass 2 found that pass 1 did not | Effect |
+|---|---|---|
+| Excise / landed cost | `priceDistributor` is also the Distributor **selling** price | the "just type it in" fix is blocked → real defect |
+| Branch shipping | photo upload is a no-op by default; **offline persistence** is the real window; 4 other files share the flaw | HIGHEST → MEDIUM, and it is a pattern not a site |
+| Double confirm receipt | the button only renders while status is IN_TRANSIT | HIGH → LOW |
+
+**So: a single verification pass is evidence, not proof.** For anything that moves money, check it
+twice with independent attention — or reproduce it once by hand, which is cheaper and more certain
+than any number of passes.

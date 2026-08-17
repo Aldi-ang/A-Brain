@@ -65,6 +65,30 @@ whose starting number comes from the screen.
 After the fix, the guard at `:280` is advisory only — it still cannot prevent stock going negative,
 which would need a transaction. But the write itself stops inventing units, which is the bug.
 
+## ⚠️ THE TITLE IS MISLEADING — corrected 2026-08-18, third check
+
+**The photo upload is not the gap.** `savePhotoAndGetReference` returns the image immediately when
+photo storage is off — and off is **today's default**, said so in a comment at `helpers.js:168`. The
+only real wait is local image compression: **under a second to a couple of seconds**, not "seconds to
+minutes".
+
+**The genuinely wide window is somewhere else entirely:** `src/config/firebase.js:23-24` turns on
+offline persistence. So a shipment committed with no signal **queues an absolute stock number and
+lands it whenever the phone reconnects** — minutes or hours later, over whatever the vault holds by
+then. That is the dangerous case, and the title should say so.
+
+**Severity: MEDIUM, not HIGHEST.** It needs a genuine write overlap on the same product record.
+
+**And this file is not the only one with the flaw.** The earlier claim that "every other absolute
+stock write is inside a transaction" is **wrong**. `useTransactionEngine.js:209` is another absolute
+write inside a plain `writeBatch` — same shape, no transaction. `increment()` is used for stock in
+**exactly one file** (`RestockVaultView.jsx:113`, `:224`, `:281`); absolute read-modify-write is the
+dominant pattern app-wide (`useTransactionEngine.js:209/:425/:496`, `App.jsx:2917/:3018/:3084/:3156`,
+`StockOpnameView.jsx:281/:283/:484`, `FleetCanvasManager.jsx:312/:314`).
+
+**So fixing line 294 alone leaves the same hole in at least four other places.** Treat this as a
+pattern to sweep, not a one-line fix.
+
 ## 🔎 One more piece of evidence, added 2026-08-18
 
 `src/FleetCanvasManager.jsx:294-296` carries this comment:

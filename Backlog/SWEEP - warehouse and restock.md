@@ -9,7 +9,17 @@ original files; read the corrections below first.
 
 ---
 
-## 1. 🔴 HIGHEST — Shipping to a branch overwrites HQ stock with a cached number
+> ## 🔄 ITEMS 1, 2 AND 6 WERE RE-CHECKED A THIRD TIME AND CHANGED
+> A third Opus pass on 2026-08-18 disagreed with the sweep on all three. **Item 1 drops HIGHEST →
+> MEDIUM** (the photo-upload window is a no-op by default; the real window is offline persistence —
+> and the same flaw exists in four other files). **Item 2 drops HIGH → LOW** (the button is only
+> rendered while the order is IN_TRANSIT). **The excise item that the sweep KILLED is un-killed** —
+> see `Excise and shipping costs...md`. Full detail in each item's own Backlog file.
+>
+> **The lesson, which is bigger than any of them:** two runs of the same model on the same claim
+> reached opposite verdicts. **One verification pass is not proof.**
+
+## 1. 🟡 MEDIUM *(was HIGHEST)* — Shipping to a branch overwrites HQ stock with a cached number
 
 **Where:** `BranchWarehouseManager.jsx:294`
 **Existing file:** `Shipping stock to a branch can erase sales made while the photo uploads.md`
@@ -38,7 +48,7 @@ elsewhere and missed this one site.**
 
 ---
 
-## 2. 🟠 HIGH — Confirming the same shipment twice credits the branch twice
+## 2. 🟢 LOW *(was HIGH)* — Confirming the same shipment twice credits the branch twice
 
 **Where:** `BranchWarehouseManager.jsx:152`
 **Existing file:** `Confirming a shipment twice credits the branch twice.md`
