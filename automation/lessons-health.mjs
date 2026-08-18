@@ -35,7 +35,11 @@ const entries = blocks.map((b) => {
   const title = b.split('\n')[0].trim();
   /* "Fired:" with nothing after it on that line means never fired. */
   const fired = /^Fired:[ \t]*\S/m.test(b);
-  const lines = b.split('\n').filter((l) => l.trim()).length;
+  /* Bookkeeping comments are not entry content. The archive ledger sat between two entries
+     and was counted as part of the one above; moved to the foot of the file it was counted
+     as part of the LAST one instead. Strip them wherever they sit. (2026-08-18) */
+  const body = b.replace(/<!--[^]*?-->/g, '');
+  const lines = body.split('\n').filter((l) => l.trim()).length;
   return { title, fired, lines };
 });
 
