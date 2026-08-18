@@ -572,3 +572,26 @@ shared helper — `storeKey()` in `src/utils/helpers.js` — now used by the eng
 three source files, run the self-check, see 80/6, restore. A guard never seen red is not evidence.
 
 **Shipped:** commit `264c138`, build clean, 599/0, selfcheck 72/0 → 86/0.
+
+## 2026-08-18 (2) — the same split reached the agent's own debt list
+
+`storeDebt` in `AgentProfileView` keyed on the raw `customerName`, so after `264c138` stopped the
+sale engine welding the price tier on, one shop could sit in the "who owes me" list as
+"Warung Bu Sari (Retail)" AND "Warung Bu Sari", each holding part of the debt — and a payment
+filed under one spelling never cancelled the other. Keyed on `storeKey` now, display name kept as
+written. Commit `b0b8ad1`.
+
+**The decision worth keeping:** the `&& storeDebt[key]` guard on the payment line STAYED. Once the
+key is unified, the only case left where it fires is a payment whose sale is outside the loaded
+window — and there the debt is already absent, so subtracting would invent a negative for a shop
+that owes nothing. The alternative (drop the guard, clamp afterwards) is more code for a number
+the existing `> 0` filter already hides. **The self-check runs the branch that was NOT chosen** and
+pins what it would have produced (−400.000). A rejected option with a check on it cannot be
+quietly re-adopted later by someone who did not read this.
+
+**Still open, and the interesting one:** `src/utils/customerBrief.js` carries a PRIVATE copy of the
+name rule — trim + lowercase, no suffix strip. A shared helper does not help the file that never
+imported it, and its own comment shows the author reasoned about the problem and stopped one step
+short. That is how a fixed bug reappears one file over. See [[Concepts/A Store Name Is Not a Store]].
+
+**Shipped:** commit `b0b8ad1`, build clean, 599/0, selfcheck 86/0 → 99/0.
