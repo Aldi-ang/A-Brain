@@ -95,3 +95,18 @@ printed 76% before the first launch, and I launched anyway. Aldi, 2026-08-12: *"
 measure the token usage"*.
 Seen: 2026-08-12 (twice in one night)
 Fired: never
+
+### 2026-08-14 — PORT the solved layout, never rebuild the second one from a blank page
+Archived 2026-08-18 at cap, zero fires. **Not retired** — the same rule is written into
+`alucard/SKILL.md` §4 ("Second layout of an existing component"), so it still runs at plan time.
+**Trigger:** at plan time, before writing the `lg:`/`md:` half of a component whose other width is
+already finished and signed off. Also before any "make X work on PC/phone too".
+**Lesson:** list what the solved width already answers — density, labels, spacing, states, what
+hides, what expands — and port each answer or say in one clause why this width differs. Read the
+solved layout's classes AND the audit checks that pin them before the first edit.
+**Would have prevented:** built the desk navigation from scratch on 2026-08-14, so four things
+Aldi had already decided for the phone on 9–10 August had to be re-specified by him in one
+message: two columns, a label under the pointer, the music player's pill shape, the agent's own
+profile picture. It also produced a defect the solved width never had — an 88px strip clipping the
+logout button's 118px hover expansion. His words: *"because of that i need to tell u twice,
+yesterday and today"*.
