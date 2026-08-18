@@ -873,3 +873,42 @@ stated, look for the half of it he already asked for months ago.**
 because he said so — the change is that approving is no longer silent. The confirmation names the
 rupiah and says the agent can repay it. See [[Concepts/Aldi's Design Taste]] for the standing law
 this serves: every action must report.
+
+
+---
+
+## 2026-08-18 19:54 — the card that showed the gap, and the defect class it spread on the way
+
+`ce70287` `44efb69` `b904db2`. EOD integration is finished: the admin's report card now shows
+expected beside counted, names the short PRODUCTS rather than one goods total, and a short count
+changes the card's heading and the approve button's own words so it cannot be waved through.
+
+**The lesson worth keeping is not the feature. It is that I shipped three broken sites by copying
+the code around me.** The red banner, its badge and its product rows all used
+`text-[var(--danger-ink)]` on `bg-[var(--danger)]`, because that is what every neighbouring element
+did. That pair measures **1,94:1**. It was already on Aldi's own confirmed-and-still-to-do list,
+where it had been sitting as item 1 — I extended the defect an hour before finding the note that
+described it.
+
+**Matching the surrounding style is normally right, and it is exactly what spreads a defect class.**
+When the new element carries text that must be read, measure the pair being copied. The palette
+already held the answer (`--danger-well`, 7,04:1) and one site was already using it correctly.
+
+**Two traps inside the sweep itself, both of which produced confident wrong answers first:**
+- `bg-\[var\(--danger\)\]` also matches inside `hover:bg-[var(--danger)]`. 17 hits collapsed to 11
+  once the regex anchored on the variant boundary. A token search without that anchor over-reports,
+  and an over-reported sweep is one that edits things it should not.
+- The rule "this element has no text, so change its ground" darkened a 2px status dot and a
+  damaged-share bar into near-black. **A colour used as a GROUND and the same colour used as a FILL
+  are different jobs.** A dot exists to be seen; it has no contrast partner to protect.
+
+**The 3-layer rule paid for itself.** His own `PROGRESS.md` list named the contrast bug, the missing
+`key` on the counting flow, and a stale item (`letter.signatures` does not exist) — none of which a
+code search would have surfaced as *problems*. Read the note before hunting.
+
+Also fixed from that list: `key={effectiveId}` on the counting flow, so switching whose setoran is
+being entered cannot post one agent's counted cash under another's id. See
+[[Concepts/Anti-Recurrence Check]] — both fixes left a check (S20, S21), not a paragraph.
+
+**Still Aldi's call:** what a missing pack is worth in rupiah, and what colour replaces the banned
+green on the Verify button.
