@@ -3265,3 +3265,231 @@ is rejected outright) and refuses to run on a page with a certificate warning, w
 "Not Secure" address bar is. **Biometric is Vercel-only; the LAN IP is PIN-only, by design.**
 No new file was created this session.
 
+
+
+---
+
+# Cut from PROGRESS 2026-08-18 19:57 — the earlier half of that day
+
+## 🟠 2026-08-18 16:38 WIB — KPM app track — OLD NAMES CLEANED ON SCREEN: SHIPPED `883a62e`
+
+He decided: *"clean it then move on"*. Done at **display**, not in the database.
+
+- `storeLabel()` joins `storeKey()` in helpers. Same suffix rule, keeps capitals and spacing —
+  `storeKey` answers "same shop?", `storeLabel` answers "what do I print?".
+- `App.jsx` derives `displayCustomers` / `displayPermitted` → sales terminal, map, journey,
+  history report, and the sale engine. Receivables row + agent debt tally use `storeLabel`
+  directly (their label comes from a transaction, not a customer document).
+- **Nothing was written to his book.** Reversible by deleting one function.
+
+🔴 **Why not the migration he authorised — a fact found mid-work, not a second-guess.** The backup
+round-trips the in-memory customer list: `exportData.customers` is built from it and a RESTORE
+writes it back with `set()`. Stripping names on load (the one-line version) would have made any
+future restore a **silent permanent rename of every shop**. Checked before writing anything.
+
+- **Deliberately left on RAW names, both recorded as guards:** the backup export, and the customer
+  directory (`CustomerManager` — the one screen that writes customer docs in bulk). **The
+  directory still shows "(Retail)". Known gap, queued.**
+- **The quiet win:** the engine resolves against the display copy, so a store's NEXT sale is
+  written with the clean name. Old names retire as shops are served — no migration, no backup,
+  no button.
+- **Verified:** build clean · audit **599/0** · logic **150/0 → 163/0** · brief 9/9 · daystats
+  7/7. 4 of 8 new checks watched failing first; the other 4 guard what must NOT change.
+- Invariant pinned: every spelling ever written still resolves to the same shop after
+  relabelling, and relabelling never merges two shops that were separate.
+
+📋 **`.claude/NEXT-SESSION.md` rewritten** — next job from his Backlog: **the pack-size maths**,
+hand-written in ~10 places, 3 of them wrong, while `convertToBks()` already exists in helpers.
+Worst one: Load Canvas adds packs onto a Slop-counted row — warehouse loses 10, van gains 100.
+Same shape as today's win: call the helper that exists, then write the finder.
+
+## 🟠 2026-08-18 16:29 WIB — KPM app track — THE GUARD, AND THE 8 IT FOUND: SHIPPED `ef437b1`
+
+Four private copies of the store-name rule had been found one at a time, one session each. This
+session wrote the **finder** instead: scan every file under `src/`, comments stripped, for a
+`.trim().toLowerCase()` next to `customerName` / `storeName` / `store.name`, fail with
+`file:line`.
+
+**It found 8. Five were on no list.**
+
+| site | kind |
+|---|---|
+| `App.jsx:1530` hand-off duplicate check | guard |
+| `App.jsx:1540` picks the customer doc a hand-off pins to | selection |
+| `App.jsx:1644` selects which rows a hand-off moves | **WRITES** |
+| `JourneyView:278` builds today's visit map | key |
+| `JourneyView:1085/1142` reads it — both had their own copy | key must match |
+| `MerchantSalesView:105` FIFO debt engine | **SUM — what the counter says a shop owes** |
+| `MerchantSalesView:1099` rank metric vs tier target | **SUM** |
+| `EODReconciliationView:131` `storesServed` | **COUNT, banked with `increment()`** |
+
+BEFORE → AFTER, pinned on real rupiah: counter debt `300.000` → **`1.500.000`** · tier omset
+`800.000` → **`2.000.000`** · stores served `3` → **`2`**.
+
+- **Verified:** build clean · audit **599/0** · logic **130/0 → 150/0** · brief 9/9 · daystats
+  7/7 · txSize 6/6. Red-first: 141/9 against the pre-fix code.
+- **Two of my own claims were wrong and the checks caught both.** JourneyView's `.trim()` does
+  NOT throw on a nameless row — line 264 coerces through `String(... || '')` first. And the old
+  debt rule DID trim, so it subtracted a payment from a debt it could not see: BEFORE was
+  300.000, not the 800.000 I first asserted. **A prompt from a previous session is not evidence.**
+- **Files touched (5):** `App.jsx` · `MerchantSalesView.jsx` · `JourneyView.jsx` ·
+  `EODReconciliationView.jsx` · `logicFixes.selfcheck.mjs`. Over the 3-file rule on purpose —
+  the guard cannot ship green while any violation stands.
+
+🔴 **NEXT IS A DECISION, NOT CODE — `.claude/NEXT-SESSION.md` holds the question for him.** Old
+names are still written in the data; every screen shows whichever spelling came first, so a shop
+can read as "Warung Bu Sari (Retail)" forever. Cleaning that means writing to his live book.
+**The migration was deliberately NOT written** — a script that exists is a script someone runs.
+
+## 🟠 2026-08-18 15:5x WIB — KPM app track — MAP NAME MATCHING: SHIPPED `a3a9cf6`
+
+The map compared `store.name` (customer document) with `t.customerName` (typed at the counter)
+using a raw `===`. One capital letter apart → the pin showed no sales, no stock and **no debt**,
+so a shop with money outstanding read as settled.
+
+**Four sites, labelled BEFORE editing — they were not the same kind of comparison:**
+
+| site | kind | what changes |
+|---|---|---|
+| `stats` ~1154 | **SUM** | pin revenue + the consignment debt on that pin |
+| `recentSales` ~1192 | display | last 5 sales, no arithmetic |
+| XP loop ~1579 | **SUM, AND IT WRITES** | `lifetimeXP`/`seasonXP` banked into store docs |
+| `storeRevs` ~2031 | **SUM** | per-store revenue → heatmap zone colour |
+
+- **One fix beyond the four.** Two customer documents sharing a name return the SAME rows (no
+  customerId to separate them), so a zone added one shop's takings twice. Already true for
+  identical names; matching by key would have widened it to every spelling variant — so the zone
+  now counts each distinct key once. **A fix owns the pre-existing bug it widens.**
+- **Also:** the XP loop held a private trim+lowercase copy of the rule, same mistake as
+  `customerBrief`. Its `|| t.customer` fallback KEPT — no transaction writes that field
+  (checked), but that can't be proven for every offline row and keeping it costs nothing.
+- **Verified:** build clean · audit **599/0** · logic **115/0 → 130/0** · brief 9/9 · daystats
+  7/7. All 7 new guards watched failing first (123/7).
+- **Every sum site has a BEFORE/AFTER behaviour check on real rupiah**, because each is a number
+  he reads: a pin at "revenue 300.000, debt 0" now reads "2.300.000, debt 1.500.000"; XP banked
+  at 300.000 becomes 2.300.000; a zone that counted 800.000 counts the 400.000 actually taken.
+
+🔴 **HE SHOULD KNOW BEFORE HE PRESSES IT:** the RPG Migration button in the map re-banks
+`lifetimeXP`/`seasonXP` from transactions. After this fix those numbers come out **higher** for
+any shop whose history was split by spelling. Nothing is wrong until he presses it — but the
+numbers will move, and he should be told first.
+
+📋 **`.claude/NEXT-SESSION.md` rewritten** — one job: write the guard that FINDS private name
+rules instead of catching them one session at a time, then fix what it turns red (`JourneyView`
+~278 is a private copy plus an unguarded `.trim()` that throws on a nameless row;
+`EODReconciliationView` ~131 needs checking for a distinct-store count).
+
+## 🟠 2026-08-18 15:5x WIB — KPM app track — NAME SWEEP: SHIPPED `f1e3b28`
+
+Three files each compared store names by their own rule. All three now use `storeKey`.
+
+- **`customerBrief.js`** — the door-step panel. Carried its OWN normalizer (trim + lowercase,
+  no suffix rule), so a shop with older "(Retail)" rows returned "no recent order" and the
+  salesman opened that door blind. Private copy deleted.
+- **`dayStats.js`** — counted stores by raw name → one shop under two spellings counted as two
+  stores visited, inflating his own day on the rail.
+- **`MerchantSalesView`** auto-pick — compares by key now. **`exact.length === 1` untouched**,
+  and it matters MORE after this: normalising makes more names collide, so two documents
+  reducing to one key still count 2 and the dropdown stays open for him to choose. Checked.
+- **Files touched (5):** the three above · `logicFixes.selfcheck.mjs` (14 new) ·
+  `integration.audit.mjs` (one check repinned, see below).
+- **Verified:** build clean · audit **599/0** · logic **99/0 → 115/0** · customer-brief 9/9 ·
+  day-stats 7/7, **no fixture edited**. 6 of 7 new guards watched failing first.
+
+**Two things worth knowing, both caught by running checks rather than by reading code:**
+1. The two utils are executed directly by node in their own self-checks, and node's ESM resolver
+   does not add `.js` the way Vite does — an extensionless `./helpers` import crashed both. A
+   build would never catch it. The `.js` is deliberate now and there is a check on it.
+2. `integration.audit` G18 ("an empty name never selects anything") was pinned to the LITERAL
+   `typed.trim().toLowerCase()`, so it went red on a correct rename — and would have stayed
+   green if someone kept the spelling and deleted the gate. Repinned on the gate; the behaviour
+   is now asserted on real values (`''`, `'   '`, `null`, `undefined`, `' (Retail)'` → all `''`).
+   **A guard that goes red on a rename is the thing to look at first, not the rename.**
+
+📋 **`.claude/NEXT-SESSION.md` rewritten** — one job: `MapMissionControl.jsx`, which matches a
+store's history with a raw `t.customerName === store.name` in three places plus a fourth private
+copy. Strictest comparison left in the app: one capital letter apart and the pin shows no sales,
+no history, no debt, so a shop with an open Titip balance can look settled.
+
+## 🟠 2026-08-18 14:4x WIB — KPM app track — STORE-DEBT TALLY: SHIPPED `4b63118`
+
+Quota reset, work resumed, the queued job is done. (The 13:3x pause entry below is resolved.)
+
+`storeDebt` in `AgentProfileView` — the agent's own "who owes me" list — keyed on the raw
+`customerName`. After `264c138` one shop could sit in it as "Warung Bu Sari (Retail)" AND
+"Warung Bu Sari", each holding part of the debt, and a payment filed under one spelling never
+cancelled the other.
+
+- **Keyed on `storeKey` now**, same helper as the sale engine and the receivables screen. The
+  raw name is kept for DISPLAY — the key is lowercased, the list Aldi reads is not.
+- **The `&& storeDebt[key]` guard STAYS.** With the key unified, the only case left where it
+  fires is a payment whose Titip sale is outside the loaded window, and there the debt is
+  already absent, so subtracting would invent a negative for a shop that owes nothing. The
+  alternative — drop the guard, clamp the map afterwards — is more code for a number the
+  existing `> 0` filter already hides. **The self-check runs that rejected branch too** and pins
+  what it would have produced (−400.000), so it cannot be quietly re-adopted.
+- **Files touched (2):** `AgentProfileView.jsx` · `logicFixes.selfcheck.mjs` (13 new checks).
+- **Verified:** build clean · audit 599/0 · self-check **86/0 → 99/0**. The 5 regression guards
+  were watched failing first (stash the file, run the check, 94/5, restore).
+- **Vault:** `A-Brain` `376396f`. ⚠️ The first vault commit carried a GUESSED commit hash —
+  corrected in a follow-up. Never write a hash before `git log -1` prints it.
+
+📋 **`.claude/NEXT-SESSION.md` rewritten** — one job: finish the name sweep in the three places
+still using their own rule. The interesting one is `src/utils/customerBrief.js`, which carries a
+PRIVATE copy of the name rule (trim + lowercase, no suffix strip), so the door-step panel reports
+"no recent order" for a shop with older "(Retail)" rows and the salesman walks in blind.
+
+## 🟠 2026-08-18 13:3x WIB — KPM app track — PAUSED ON QUOTA, NOTHING HALF-DONE
+
+Plan quota hit 99%. **No work in flight, no uncommitted file, no half-edit.** The sale-engine
+fix below is shipped and committed; the vault is committed; `.claude/NEXT-SESSION.md` already
+holds the single next job (the `storeDebt` tally in `AgentProfileView.jsx`).
+
+**Exact next command when the quota resets** — open a fresh session, paste the only block in
+`.claude/NEXT-SESSION.md`. Nothing needs re-deriving first.
+
+## 🟠 2026-08-18 13:2x WIB — KPM app track — SALE-ENGINE NAME BUGS: SHIPPED `264c138`
+
+Both name bugs in `handleMerchantSale` fixed together — same root cause, the engine treated the
+store name as something it could guess at AND rewrite.
+
+- **A · loose lookup gone.** It matched on part of a name, so "SARI" typed for a walk-in booked
+  the sale and its Titip debt onto "WARUNG SARI RASA". Now an exact match, the same rule the
+  sales terminal already used.
+- **B · the price tier is no longer welded onto the name.** No more "Warung Bu Sari (Retail)"
+  customer documents. The tier was already on every cart line as `item.priceTier`.
+- **The trap, handled.** Dropping the suffix alone would SPLIT every shop that already carries
+  it — one shop, two receivable rows, half the balance each, no error. Old names are tolerated
+  when COMPARING, in one shared helper: `storeKey()` in `src/utils/helpers.js`. Used by the
+  engine and by `ConsignmentFinanceView`, which now groups on it.
+- **Files touched (4):** `useTransactionEngine.js` (the two fixes) · `helpers.js` (the helper)
+  · `ConsignmentFinanceView.jsx` (the trap) · `logicFixes.selfcheck.mjs` (14 new checks).
+- **Verified:** build clean · integration audit 599/0 · self-check **72/0 → 86/0**. The six
+  regression guards were watched failing first — stash the three source files, run the check,
+  see 80 passed / 6 failed, restore. Vault: `264c138`'s story is in
+  `A-Brain/Wiki/Concepts/A Store Name Is Not a Store.md` + `Wiki/Log.md`.
+- **Left alone on purpose:** `MerchantSalesView` auto-pick still compares raw names, so a shop
+  saved under the legacy "(Retail)" name no longer auto-picks when the clean name is typed —
+  the sale still books to the right shop, so it is a convenience gap, not a money bug.
+  `AgentProfileView`'s `storeDebt` map still keys on the raw name; that is the next job.
+
+📋 **`.claude/NEXT-SESSION.md` rewritten** — one job: the `storeDebt` tally in
+`AgentProfileView.jsx`, which splits the same way AND silently drops a payment whose sale is not
+in the loaded window.
+
+## 🟠 2026-08-18 16:54 — stock-count approval corrects instead of overwrites. `5c4d3c7`
+
+`git show 5c4d3c7`. Morning count no longer wipes the day; applies (counted − expected) via
+atomic `increment()`. Build clean · 599/0 · 189/0 · 11/11. Red-first 184/5. Next: **Clear Canvas
+credits the warehouse from a stale screen** (`.claude/NEXT-SESSION.md`).
+
+🔁 **Third bug of one shape today** — *a stock figure trusted after the moment it was true.*
+Fourth candidate (offline sales not reducing van stock) is queued.
+
+## 🟠 2026-08-18 16:47 — pack-size maths: 4 broken conversions → `convertToBks`. `f51a3a9`
+
+`git show f51a3a9` for the story. Worst: Load Canvas added packs onto a Slop-counted row —
+warehouse lost 10, van gained 100. Build clean · 599/0 · 177/0 · mixed-units 11/11 · 6/6 · 9/9 ·
+7/7. Red-first 171/6. Next job: **stock-count approval erases the day** (`.claude/NEXT-SESSION.md`).
+
+*(First entry written under the tell-it-once rule below — one line and a hash, not the story.)*
