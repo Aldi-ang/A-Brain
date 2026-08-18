@@ -973,3 +973,34 @@ that says *(no Retail price set)*: an unpriceable charge must be loud, not absen
 rule rather than keep hand-clearing it: it now archives one entry anyway and requires the reason in
 the archive. `74c9a88`. **A maintenance rule whose failure mode is silence needs a check that
 speaks** — the daily health script is what caught it, twice.
+
+---
+
+## 2026-08-18 20:52 — amber had to be two colours, and a guard had to be scoped
+
+`a0d27b5`. Aldi picked option B off the colour sheet, in amber: *"B is better but i like amber
+color more than gold TBH"*. Shipped.
+
+**The finding that generalises: a colour preference is not one hex value.** Bright amber measures
+10,60:1 on the dark surface and **1,34:1** on the light one — the same colour is excellent and
+invisible depending on the theme. Every token in this palette is already a pair for exactly this
+reason, and a new one is no exception: `#F59E0B` dark, `#92400E` light, picked as the deepest amber
+that still reads amber rather than brown. **When he names a colour, that is a direction, not a
+value — measure both themes before writing it down.**
+
+**And the measuring is what turned a taste question into a defect.** The green it replaced scored
+2,98:1 in dark mode and the cukai orange 2,81:1 in both. He asked about palette compliance; what
+was actually wrong was that the label on the button he presses every night could barely be read at
+night. See [[Concepts/Anti-Recurrence Check]] — the number found what the eye had lived with.
+
+**The guard took three attempts, and the failure mode is worth naming.** Scoping a regression guard
+by a *string that appears on an element* rather than by *the element* caught innocent bystanders
+twice: the WANTED total's drop-shadow, then the Pay Bounty button, both of which legitimately use
+the same rgba. The fix is to slice the source between the element's own handler and the end of its
+tag, then assert inside the slice. **Recorded in `lessons.md`** — and it is the first real use of
+the loop Aldi unjammed an hour earlier, which archived an entry by the new rule and accepted the
+new one without argument.
+
+The health check had two bugs of its own, both the same shape: it counted the archive ledger as
+part of whichever entry the ledger happened to sit beside. Comments are not entry content, wherever
+they sit. `7e887e1`
