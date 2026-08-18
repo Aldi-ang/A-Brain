@@ -751,3 +751,21 @@ shape of the DEFECT, not to the shape of the habit.**
 Second: the behaviour block imports the real helper instead of restating the maths. A self-check
 carrying its own copy of the rule it is checking would be the same disease. See
 [[Concepts/A Store Name Is Not a Store]] for the sibling case with store names.
+
+## 2026-08-18 (9) — a stock figure trusted after the moment it was true
+
+Stock-count approval fixed (`5c4d3c7` — story in the commit). **The lesson is the shape, and it has
+now appeared three times:** approving a morning count over an evening's stock, Clear Canvas
+crediting the warehouse from a stale screen, and offline sales never reducing van stock. Every one
+is the same sentence — *a stock figure is trusted after the moment it was true* — and every one
+inflates stock rather than losing it, so it looks like abundance, not like an error.
+
+Two things that keep making these smaller than they look: the correct value is usually **already
+stored** (`expectedStock` was snapshotted at count time; the live canvas is one read away), and the
+correct pattern is usually **already in the same file** — `handleLoadCanvas` re-reads inside its
+transaction fifty lines above the function that does not. **Before designing a fix here, look up
+the file for the sibling that already works.**
+
+Also: `increment()` turned "read current stock, subtract, write" into one atomic server-side delta,
+which is what stopped this fix from becoming a transaction rewrite. Worth reaching for whenever a
+batch write needs to adjust rather than replace.
