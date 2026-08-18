@@ -552,3 +552,23 @@ notified both agents, and moved zero rows. The over-broad match it replaced at l
 loudly. Checked before trusting the brief, not after.
 
 **Shipped:** commit `505ddcf`, build clean, 599/0, selfcheck 59/0 → 72/0.
+
+## 2026-08-18 — the sale engine both guessed at a store name and rewrote it
+
+Two bugs in `handleMerchantSale`, one root cause, fixed together in `264c138`. The profile lookup
+matched on PART of a name, so "SARI" typed for a walk-in booked the sale and its Rp 2.000.000
+Titip debt onto "WARUNG SARI RASA". And the price tier was appended to the name of any store not
+yet in the book — "Warung Bu Sari (Retail)" — so the next visit typed the real name, matched
+nothing, and the debt, last order and visit history vanished from the panel. Through the NOO
+modal the customer DOCUMENT was created with the suffix, permanently.
+
+**The half that was nearly missed:** dropping the suffix alone splits every shop that already
+carries it, and the receivables screen groups by name, so one shop becomes two rows with half
+the balance each and NOTHING errors. Handled by tolerating the old form when comparing, in one
+shared helper — `storeKey()` in `src/utils/helpers.js` — now used by the engine and by
+`ConsignmentFinanceView`. Written up in [[Concepts/A Store Name Is Not a Store]].
+
+**Method note worth keeping:** the six regression guards were watched FAILING first — stash the
+three source files, run the self-check, see 80/6, restore. A guard never seen red is not evidence.
+
+**Shipped:** commit `264c138`, build clean, 599/0, selfcheck 72/0 → 86/0.

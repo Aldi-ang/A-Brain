@@ -52,8 +52,38 @@ document carries matches nothing, which fails silently and reports success — s
 - **Account hand-off** — `handleAdminApproveTransfer` reassigned every shop sharing the name,
   fixed 2026-08-18, commit `505ddcf`. See
   [[../Summaries/Store Hand-off Name Collision]].
-- **Receivables screen** — still groups by name. Two same-named shops under one agent appear as
-  a single row. Known, unfixed, needs the view re-keyed on customer id.
+- **Sale engine** — `handleMerchantSale` did BOTH halves of this mistake at once, fixed
+  2026-08-18, commit `264c138`. It matched on part of a name (`.includes`), so "SARI" typed for
+  a walk-in booked the sale and its Titip debt onto "WARUNG SARI RASA" — and it APPENDED the
+  price tier to the name of any store it had not seen, saving "Warung Bu Sari (Retail)", so the
+  next visit typed the real name and found nothing. The sales terminal was already careful; the
+  engine redid the lookup loosely underneath it and overrode that care. A screen's guard is
+  worth nothing while the engine behind it guesses again.
+- **Receivables screen** — groups by name. Two same-named shops under one agent still appear as
+  a single row (unfixed, and NOT fixable by customer id — no transaction carries one). As of
+  `264c138` it at least groups on `storeKey`, so a legacy "(Retail)" row and a clean row are one
+  shop again instead of two half-balances.
+- **Agent profile** — `storeDebt` still keys on the raw name, so the same split lands there.
+  Open; it is the job queued in `.claude/NEXT-SESSION.md`.
+
+## The rule that follows from it, added 2026-08-18
+
+Because the name IS the key, **nothing may ever be appended to it.** Writing the price tier into
+the name looked harmless — it read nicely on a receipt — and it created a second shop on every
+first visit. The tier was already on every cart line as `item.priceTier`, so the suffix carried
+no information that was not already stored properly.
+
+And a fix that changes the written form is only half a fix. Dropping the suffix alone SPLITS
+every shop that already has it: old rows say "Warung Bu Sari (Retail)", new rows say "Warung Bu
+Sari", and any screen grouping by name shows one shop as two rows with half the balance each —
+no error, no red number, nothing to notice. So the old form has to be tolerated when COMPARING,
+in one shared place. That place is `storeKey()` in `src/utils/helpers.js`: trim, strip a
+**trailing** " (Retail|Individual|Wholesale)", lowercase, `String()`-coerced so a customer
+document with no name field cannot throw. Only at the end — "Warung (Retail) Jaya" is a real
+name, not a tier.
+
+Pinned by 14 assertions in `logicFixes.selfcheck.mjs`; the six regression guards were watched
+failing against the pre-fix code (stash the fix, run the check) before being trusted.
 
 ## Related
 
