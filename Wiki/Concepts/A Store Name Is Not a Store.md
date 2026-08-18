@@ -79,9 +79,14 @@ document carries matches nothing, which fails silently and reports success — s
   2026-08-18, commit `a3a9cf6`. **The XP loop WRITES**: `lifetimeXP` / `seasonXP` are committed to
   the store documents by the RPG Migration button, so a split history had been banked too low and
   those numbers will come out higher the next time he presses it.
-- **Still open** — `JourneyView.jsx` carries a private copy (and an unguarded `.trim()` that
-  throws on a nameless row); `EODReconciliationView.jsx` maps raw names and may feed a distinct
-  count. Both are queued behind the guard that finds this class automatically.
+- **Eight more, found by a guard instead of by hand** — 2026-08-18, commit `ef437b1`. After four
+  private copies had been found one session at a time, a check was written to scan every file
+  under `src/` for a `.trim().toLowerCase()` next to a store-name identifier. It found EIGHT, five
+  of them on no list: the hand-off duplicate check, the customer document a hand-off pins to, the
+  row sweep a hand-off WRITES, `JourneyView`'s visit map on the build side AND both read sides,
+  the FIFO debt engine at the counter, and the rank metric. Plus `EODReconciliationView`'s
+  `storesServed`, a count banked into the career document with `increment()`.
+  **Finding the class beat finding the instances by five to three.**
 
 ## The rule that follows from it, added 2026-08-18
 

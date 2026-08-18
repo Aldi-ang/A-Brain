@@ -654,3 +654,38 @@ codebase writes that field, but nothing here can prove it for every row ever wri
 keeping it costs nothing.
 
 See [[Concepts/A Store Name Is Not a Store]].
+
+## 2026-08-18 (5) — write the guard that finds the class, not the fourth instance
+
+Four private copies of the store-name rule had been found one at a time, one session each. The
+fifth session wrote the check instead: scan every file under `src/`, comments stripped, for a
+`.trim().toLowerCase()` next to `customerName` / `storeName` / `store.name`, and fail with
+`file:line`. It found **eight**, five of which were on no list — including the FIFO debt engine at
+the sales counter, both read sides of `JourneyView`'s visit map, and the row sweep an account
+hand-off WRITES. Commit `ef437b1`, build clean, 599/0, selfcheck 130/0 → 150/0.
+
+**The lesson is the ratio.** Hand-searching found 3 over four sessions. One guard found 8 in one
+run, and will find the ninth on the day someone writes it. **When the same defect has been found
+three times, stop fixing instances and write the finder.**
+
+**Two design points that made the guard survivable:**
+- **Comments stripped first.** A regression guard for `.includes(inputTrimmed)` once went red
+  against the FIXED code because the comment explaining the fix contained the phrase. A text scan
+  that reads prose reports the opposite of the truth. Three checks pin this: banned shape in a
+  comment must NOT count, same shape in code MUST count.
+- **Scoped to store-name identifiers.** `.trim().toLowerCase()` is correct on an email, a search
+  box, a product name. A guard that fails on those is a guard that gets deleted in a week.
+
+**One claim of mine was wrong and the file corrected it:** the hand-off note said `JourneyView`'s
+`.trim()` throws on a nameless row. It cannot — line 264 coerces every `customerName` through
+`String(t.customerName || '')` before that code sees it. **A prompt written by a previous session
+is not evidence; the file is.** A behaviour check also caught an arithmetic claim of mine — the
+old rule DID trim, so it subtracted a payment from a debt it could not see, making the BEFORE
+300.000 rather than the 800.000 I asserted.
+
+**Now open, and it is his call, not a code task:** old names are still written in the data, and
+every screen displays whichever spelling came first. Cleaning them means writing to his live book.
+Queued in `.claude/NEXT-SESSION.md` as a question for him, with the migration deliberately NOT
+written — a script that exists is a script someone runs.
+
+See [[Concepts/A Store Name Is Not a Store]].
