@@ -941,3 +941,35 @@ See [[Concepts/Aldi's Design Taste]]: every action must report.
 Also: the pricing lives in ONE function, `eodBountyLines()` in helpers, called by both the admin's
 card and `App.jsx`. The number he approves and the number the ledger writes cannot drift apart
 because they are the same call.
+
+---
+
+## 2026-08-18 20:30 — a rule that differs between companies belongs in Settings, not in code
+
+`bf75678`. Aldi asked for the damaged-goods penalty price to be configurable, and said why in one
+line: *"i just want to make sure that this app is flexible enought so that i can sell it to
+multiple company instead of one only."* **That sentence is a design constraint, not a feature
+request** — it means every rule where a different company would plausibly answer differently is a
+setting, and hardcoding one is a sale lost. Worth applying ahead of him asking next time.
+
+**The half that needed no code.** He also described the fair split: damage the agent brings back
+from a shop costs him nothing; damage he caused himself he buys. Stock Opname already offered three
+buttons — SAMPLING, RTV, PENALTY — where the first two charge nobody and the third is a deliberate
+admin choice. His rule was already the shape of that screen. **Check whether the described rule is
+already implemented before building a second mechanism for it** — the cheapest fix is the one
+already shipped.
+
+**The half that was backwards.** The penalty charged `priceDistributor`, what the company PAID for
+the stock, not what it sells for. So an agent who damaged goods repaid cost and the company ate the
+margin. Now `appSettings.penaltyPriceTier`, default Retail.
+
+**One fallback decision worth remembering:** an unknown tier, or a tier the product has no price
+for, falls back to **Retail — never zero**. A penalty that silently becomes Rp 0 looks like no
+penalty, and nobody investigates a number that isn't there. Same instinct as the Rp 0 bounty line
+that says *(no Retail price set)*: an unpriceable charge must be loud, not absent.
+
+**Also:** the Alucard lessons loop was jammed at 5/5-all-fired and had been since 2026-08-10 —
+§8's "or don't write" branch meant it silently stopped learning. Aldi gave permission to change the
+rule rather than keep hand-clearing it: it now archives one entry anyway and requires the reason in
+the archive. `74c9a88`. **A maintenance rule whose failure mode is silence needs a check that
+speaks** — the daily health script is what caught it, twice.
