@@ -689,3 +689,38 @@ Queued in `.claude/NEXT-SESSION.md` as a question for him, with the migration de
 written — a script that exists is a script someone runs.
 
 See [[Concepts/A Store Name Is Not a Store]].
+
+## 2026-08-18 (6) — clean the old names without writing to the book
+
+Aldi, asked whether to leave the legacy "(Retail)" endings or clean them: *"clean it then move on"*.
+Done at DISPLAY, not in the database. `storeLabel()` joins `storeKey()` in helpers — same suffix
+rule, but it keeps capitals and spacing, because `storeKey` answers "same shop?" and `storeLabel`
+answers "what do I print?". Commit `883a62e`, build clean, 599/0, selfcheck 150/0 → 163/0.
+
+**Why not the migration he authorised.** Rewriting the customer documents was the obvious reading
+of "clean it", and it is a live-data write that needs a verified backup first. Stripping at display
+reaches every screen he actually looks at, writes nothing, and is reversible by deleting one
+function. **The better option was available because a fact turned up during the work, not because
+his instruction was second-guessed** — see below.
+
+**The fact that decided the shape: the backup round-trips the in-memory customer list.**
+`exportData.customers` is built from the live array and a RESTORE writes it straight back with
+`set()`. So stripping names on load — the one-line version of this fix — would have turned any
+future restore into a silent permanent rename of every shop in the book. Checked before writing
+anything. The customer directory is excluded for the same class of reason: it is the one screen
+that writes customer documents in bulk through `commitInChunks`, so it still shows the suffix, and
+that gap is deliberate and recorded.
+
+**The quiet win:** the sale engine now resolves against the display copy, so a store's NEXT sale is
+written with the clean name. The old names retire as shops are served again — a migration that
+needs no migration, no backup and no button.
+
+**The invariant that makes relabelling safe, and it is checked:** every spelling ever written still
+resolves to the same shop after relabelling, and relabelling never merges two shops that were
+separate. If that could fail, renaming on screen would silently lose history.
+
+Also worth keeping: **four of the eight new checks assert what must NOT change** — the backup export
+must keep reading the raw list, the directory must keep receiving it. A guard on the thing you
+deliberately did not do is how a later session finds out it was deliberate.
+
+See [[Concepts/A Store Name Is Not a Store]].
