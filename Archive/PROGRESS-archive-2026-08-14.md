@@ -3586,3 +3586,71 @@ morning. Money is unaffected and that is already checked. `.claude/NEXT-SESSION.
 
 Next: **two different debt numbers for the same store** (`.claude/NEXT-SESSION.md`) — and its
 name-match third of the problem is already fixed, so the prompt says so.
+
+
+---
+
+# Cut from PROGRESS 2026-08-18 20:53 — back to five log entries
+
+## 🟠 2026-08-18 20:38 — he asked to see the button colours, so they were measured
+
+*"i want to see it myself the color can u make artifact for that?"* → artifact published, three
+options rendered in his real tokens with a light/dark toggle. **The measuring turned a taste
+question into a defect:** today's green scores **2,98** in dark mode and the cukai orange **2,81**
+in both — under the 4,5 readability line, on the button pressed every night. Waiting on A / B / leave it.
+
+Verification note: the Browser pane would not composite a screenshot again. Did not fight it —
+served the page over `tools/theme-lab-server.mjs` and read the COMPUTED colours back instead, which
+caught a real bug a screenshot might not have: the sample card inherited the page's ink, so the
+light-mode sample had near-white text on a light card. Fixed and re-verified before republishing.
+
+## 🟠 2026-08-18 20:32 — timestamp only; the note below was already current
+
+No code and no state change. The penalty-price setting and the lessons fix were both written up at
+20:30 and are unchanged. Today's log cut from 9 entries to 5 — the two housekeeping entries and the
+oldest work entry went to `A-Brain/Archive/PROGRESS-archive-2026-08-14.md`; `git log --oneline` has
+the rest for free.
+
+
+## 🟠 2026-08-18 19:44 — The admin can now SEE the gap. `ce70287`
+
+**EOD integration is finished.** The count decides the report (`d859d41`), a short count mints a
+bounty on approval (`7f96d19`), and now the card shows why. Full story in the commit message.
+
+- Expected sits beside counted with the gap named, on both money lines. Older reports keep the
+  single figure they were submitted with — history is not rewritten.
+- The short **products** are named row by row. `shortStockRows` in `helpers.js` does the compare,
+  in the row's own unit. His rule: one goods total hides a one-product shortfall.
+- A disputed report cannot be approved by reflex: red card, SHORT COUNT badge, a banner naming the
+  rupiah, and the button reads **Approve Short Count** instead of Verify. Approving is still
+  allowed — his ruling — it is just not silent.
+- Missing `countStatus` = CLEAN. Stacked on a phone, three columns on a desk.
+
+16 checks (logic S19), proved red first. build clean · audit 599/0 · logic 285/0 · eod-record 12/12.
+
+❓ **STILL HIS CALL:** what a missing pack is worth in rupiah. Until he answers, a goods shortage
+is shown and flagged but never priced into a bounty.
+
+✅ **STILL UNTESTED BY HIM:** the shakedown card —
+https://claude.ai/code/artifact/a42ce819-9d1a-46a8-8ae8-0291df6765ef
+
+## 🟠 2026-08-18 18:56 — EOD shortfall → bounty. ANSWERED AND SHIPPED. `7f96d19`
+
+**His ruling, verbatim:** *"admin can approve but it will add up to the agent's bounties instead,
+and for the bounties, the agent can repay their debt through the EOD screen even after bounties
+recorded on their name"*.
+
+- **Two-thirds already existed.** The WANTED board already summed every `PENALTY_` key, and a
+  `BOUNTY` clearance report from the agent's own EOD screen already cleared them. Only the
+  **minting** was missing — one line.
+- `PENALTY_EOD_<reportId>`, **assigned not incremented** → a double-approve cannot fine a man
+  twice for one night. Cash and transfer floored at zero **separately** → extra cash cannot pay
+  off a missing transfer.
+- **Money only.** A goods shortage rides along as `goodsShort` and is deliberately NOT priced —
+  ❓ **what a missing pack is worth in rupiah is still his call**, queued.
+- Admin is told the rupiah **before** approving, and that the agent can repay it. Approving is
+  allowed, as he asked; it is just not silent.
+- Build clean · 599/0 · **255/0 → 269/0** · eod-record 12/12. Red-first 266/3.
+
+Next: the admin's report card should show expected vs counted, and name the products that came up
+short. **No decision needed** — presentation only. `.claude/NEXT-SESSION.md`.
