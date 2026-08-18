@@ -579,7 +579,7 @@ three source files, run the self-check, see 80/6, restore. A guard never seen re
 sale engine welding the price tier on, one shop could sit in the "who owes me" list as
 "Warung Bu Sari (Retail)" AND "Warung Bu Sari", each holding part of the debt — and a payment
 filed under one spelling never cancelled the other. Keyed on `storeKey` now, display name kept as
-written. Commit `b0b8ad1`.
+written. Commit `4b63118`.
 
 **The decision worth keeping:** the `&& storeDebt[key]` guard on the payment line STAYED. Once the
 key is unified, the only case left where it fires is a payment whose sale is outside the loaded
@@ -594,4 +594,4 @@ name rule — trim + lowercase, no suffix strip. A shared helper does not help t
 imported it, and its own comment shows the author reasoned about the problem and stopped one step
 short. That is how a fixed bug reappears one file over. See [[Concepts/A Store Name Is Not a Store]].
 
-**Shipped:** commit `b0b8ad1`, build clean, 599/0, selfcheck 86/0 → 99/0.
+**Shipped:** commit `4b63118`, build clean, 599/0, selfcheck 86/0 → 99/0.

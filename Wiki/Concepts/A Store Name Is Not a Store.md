@@ -65,7 +65,7 @@ document carries matches nothing, which fails silently and reports success — s
   shop again instead of two half-balances.
 - **Agent profile** — `storeDebt`, the agent's own "who owes me" list, keyed on the raw name, so
   one shop appeared several times holding part of its debt each and a payment filed under one
-  spelling never cancelled the others. Fixed 2026-08-18, commit `b0b8ad1`. The map now keys on
+  spelling never cancelled the others. Fixed 2026-08-18, commit `4b63118`. The map now keys on
   `storeKey` and stores the name as written, so the key is lowercased and the list is not.
 - **Door-step brief** — `src/utils/customerBrief.js` defines its OWN normalizer (trim +
   lowercase, no suffix rule), so a shop with older "(Retail)" rows reports "no recent order" and
