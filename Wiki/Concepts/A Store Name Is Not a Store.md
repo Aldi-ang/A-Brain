@@ -72,12 +72,16 @@ document carries matches nothing, which fails silently and reports success — s
   with older "(Retail)" rows reported "no recent order" and the salesman walked in blind;
   `dayStats.js` counted stores by raw name, inflating his own day; `MerchantSalesView`'s auto-pick
   compared raw names. All three now use `storeKey`.
-- **Map mission control** — `src/MapMissionControl.jsx` matches a store's history with a raw
-  `t.customerName === store.name` in three places and a fourth private trim+lowercase copy. It is
-  the strictest comparison left: `store.name` comes from the customer document and
-  `t.customerName` is what was typed at the counter, so one capital letter apart and the pin
-  shows no sales, no history, no debt — a shop with an open Titip balance can look settled.
-  **Open**, queued in `.claude/NEXT-SESSION.md`; `JourneyView.jsx` carries a third private copy.
+- **Map mission control** — matched a store's history with a raw `===` between `store.name` (the
+  customer document) and `t.customerName` (typed at the counter) in three places, plus a fourth
+  private trim+lowercase copy in the XP loop. One capital letter apart and the pin showed no
+  sales, no stock and no debt — a shop with an open Titip balance read as settled. Fixed
+  2026-08-18, commit `a3a9cf6`. **The XP loop WRITES**: `lifetimeXP` / `seasonXP` are committed to
+  the store documents by the RPG Migration button, so a split history had been banked too low and
+  those numbers will come out higher the next time he presses it.
+- **Still open** — `JourneyView.jsx` carries a private copy (and an unguarded `.trim()` that
+  throws on a nameless row); `EODReconciliationView.jsx` maps raw names and may feed a distinct
+  count. Both are queued behind the guard that finds this class automatically.
 
 ## The rule that follows from it, added 2026-08-18
 

@@ -625,3 +625,32 @@ would never have caught it: Vite resolves it fine. The `.js` is deliberate in bo
 is a check on it now.
 
 See [[Concepts/A Store Name Is Not a Store]].
+
+## 2026-08-18 (4) — the map read a shop's whole history as empty, and a zone counted it twice
+
+`MapMissionControl` matched store history with a raw `===` between `store.name` (from the customer
+document) and `t.customerName` (typed at the counter). One capital letter apart and the pin showed
+no sales, no stock and **no debt** — a shop with money outstanding read as settled, which is the
+worst direction for this bug to fail in. Commit `a3a9cf6`, build clean, 599/0, selfcheck 115/0 →
+130/0.
+
+**The method that made this one safe: label every site before touching it.** Four matches, and
+they were not the same kind of comparison — one display list, and three sums, one of which
+**writes to Firestore** (the RPG Migration button banks `lifetimeXP` / `seasonXP` into the store
+documents). A "just normalise the comparison" sweep would have silently changed three numbers he
+reads and one he stores. Every sum site got a behaviour check stating the BEFORE next to the
+AFTER on real rupiah: a pin reading "revenue 300.000, debt 0" now reads "2.300.000, debt
+1.500.000". A changed number on his screen has to be a number that was decided.
+
+**And one fix beyond the four, because the change would have widened it:** two customer documents
+sharing a name return the SAME transactions — the rows are indistinguishable, there is no
+customerId to separate them — so a heatmap zone was adding one shop's takings twice. Already true
+for identical names; matching by key would have extended it to every spelling variant. The zone
+sum now counts each distinct key once. **When a fix widens the blast radius of a bug that was
+already there, the pre-existing bug is part of the job.**
+
+`.customer` was checked before the fallback at the XP loop was kept: no transaction in this
+codebase writes that field, but nothing here can prove it for every row ever written offline, and
+keeping it costs nothing.
+
+See [[Concepts/A Store Name Is Not a Store]].
