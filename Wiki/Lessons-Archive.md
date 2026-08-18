@@ -110,3 +110,40 @@ message: two columns, a label under the pointer, the music player's pill shape, 
 profile picture. It also produced a defect the solved width never had — an 88px strip clipping the
 logout button's 118px hover expansion. His words: *"because of that i need to tell u twice,
 yesterday and today"*.
+
+
+---
+
+## Archived 2026-08-18 — chosen because it was superseded in part AND over length
+
+At 5/5 with every entry fired, §8's old rule left no archive candidate and the loop went quiet.
+Aldi gave permission to fix the rule; the new rule says to archive one anyway and name the reason.
+This entry was picked over the two older ones because half of it had already been overruled by his
+own instruction — *"if the browser is broken then fix it until u can see it"* — and because it had
+grown to five times the four-line cap. Its live half survives as a new entry in `lessons.md`.
+
+### 2026-07-30 — verify JS-rendered Artifacts by executing them in Node, not the Browser pane
+**Trigger:** before claiming a published JS-heavy Artifact renders, when the Browser pane can't show it
+(file:// = static snapshot, no JS; localhost blocked by policy; claude.ai artifact needs a login the pane lacks).
+**Lesson:** skip the browser dance — `new Function(scriptSrc)` for syntax, then run the DOM-build with a
+stubbed `document`/`matchMedia` and assert each injected fragment is non-empty and tag-balanced. Then say the
+pixels are Aldi's to verify, not mine — never claim visual correctness I couldn't see.
+**Would have prevented:** burned 5 Browser-pane calls (preview_start file://, navigate, 2 failed screenshots,
+blocked localhost) finding out the pane can't render a script-built artifact, before falling back to Node.
+Seen: 2026-07-30, 2026-08-02 (2nd — MISSED: sent dukes-ledger-v2.html to the render panel with
+display:"render". Body holds 0 elements before <script>; all 47 buttons are built in JS, so Aldi
+got a black frame and unpressable UI, and read it as the prototype having lost its contents.)
+Fired: 2026-07-30 (this session — Node execution verified phase2-design.html: 15 cards/3 mocks/11 swatches)
+Fired: 2026-08-02 (after the miss — gave the published artifact URL, which runs JS, instead of the file)
+Fired: 2026-08-10 (second half only, no artifact involved — VaultGate port: Browser pane refused to
+composite, stopped after 4 calls instead of fighting it, and reported the unlock sequence as Aldi's
+to verify rather than claiming a look I never got)
+Seen: 2026-08-16 (3rd — MISSED THREE TIMES IN ONE SESSION: told Aldi light mode was fixed, then the
+shell was fixed, then the background was fixed, having rendered nothing. His reply: *"the background
+is still black on light mode, why are u rushing things that havent done"*.)
+⚠️ SUPERSEDED IN PART, 2026-08-16, by Aldi's own instruction: *"if the browser is broken then fix it
+until u can see it"*. This entry's "say the pixels are Aldi's to verify" branch is now the LAST
+resort, not the first — build the viewing path instead. For KPM that path exists and is documented:
+`A-Brain/Wiki/Concepts/Looking at the App.md` (`tools/theme-lab-server.mjs`, plain HTTP over
+`dist/`, no login, HTTPS dev server untouched). Handing back an unverified look is only acceptable
+after that harness has been tried.

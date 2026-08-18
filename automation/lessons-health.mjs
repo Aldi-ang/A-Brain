@@ -46,16 +46,12 @@ const unfired = entries.filter((e) => !e.fired);
 const oversize = entries.filter((e) => e.lines > 20);
 const problems = [];
 
-if (entries.length >= CAP && unfired.length === 0) {
-  problems.push(
-    `JAMMED — ${entries.length}/${CAP} entries and every one has fired, so there is no entry\n` +
-    `  eligible for archiving. Per §8 the only remaining branch is "don't write": Alucard can no\n` +
-    `  longer record ANY new lesson. This does not error, it just silently stops learning.\n` +
-    `  Fix is Aldi's call, not the curator's — he must pick one:\n` +
-    `    (a) archive the oldest entry anyway, fired or not, to A-Brain/Wiki/Lessons-Archive.md\n` +
-    `    (b) change §8's archive rule (needs his approval — Alucard may not edit SKILL.md)`
-  );
-}
+/* Was a JAMMED error until 2026-08-18. §8's old rule said "archive the oldest ZERO-FIRE entry, or
+ * don't write", so 5/5-all-fired left no branch and the loop went silent. Aldi authorised the rule
+ * change and §8 now archives one anyway. So this state is no longer a fault — it is a heads-up that
+ * the NEXT lesson costs an archival, and that the choice needs a reason written into the archive. */
+const archivalDue = entries.length >= CAP && unfired.length === 0;
+
 if (entries.length > CAP) {
   problems.push(`OVER CAP — ${entries.length} entries, cap is ${CAP}.`);
 }
@@ -74,6 +70,12 @@ if (/never been written or fired|No entry has ever been/i.test(preamble) && entr
 if (problems.length) {
   console.log(`LESSONS: NEEDS ATTENTION — ${entries.length} entries, ${unfired.length} never fired.`);
   for (const p of problems) console.log(`- ${p}`);
+  if (archivalDue) console.log('- note: at cap with every entry fired — the next lesson archives one (§8).');
+} else if (archivalDue) {
+  console.log(
+    `LESSONS: OK — ${entries.length}/${CAP}, every entry fired. The next lesson archives one: pick ` +
+    `the least useful now (superseded, over length, or oldest last-fire) and say why in the archive.`
+  );
 } else {
   console.log(
     `LESSONS: OK — ${entries.length}/${CAP} entries, ${unfired.length} never fired ` +
