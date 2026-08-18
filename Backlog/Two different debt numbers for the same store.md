@@ -1,7 +1,7 @@
 ---
 title: Two different debt numbers for the same store
 description: MerchantSalesView calculates a store's unpaid balance twice, in two different ways, and shows both on the same screen. Returned goods reduce one number and not the other.
-status: To Do
+status: Done — 2dbfc66 (2026-08-18)
 area: Sales / Debt
 priority: HIGH
 created: 2026-08-17

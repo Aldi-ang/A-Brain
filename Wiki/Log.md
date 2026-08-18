@@ -798,3 +798,26 @@ green one that proves nothing is a lie with a tick next to it.
 Also: two OLDER guards went red during the canvas extraction and were REPINNED, not relaxed —
 they pinned variable names the refactor renamed while the behaviour was untouched. **A guard going
 red on a rename is a guard doing its job; look at the guard first, not the rename.**
+
+## 2026-08-18 (11) — silence, and the guard that had to stop stripping comments
+
+Two debt numbers merged into one (`2dbfc66`), then twenty-three silent failures given a voice
+(`b3f6dae`). Stories in the commits.
+
+**The lesson is about the guard, again, and it inverts yesterday's rule.** The sweep for empty
+catch blocks was written the way every other guard here is written — comments stripped first — and
+it flagged eighteen catches that are empty ON PURPOSE, each carrying a comment explaining why
+silence is correct there. Stripping comments made a deliberate decision indistinguishable from an
+oversight.
+
+So: **strip comments when the comment could FAKE a fix; keep them when the comment IS the fix.**
+A regression guard looking for removed code must not read prose. A guard asking "did anyone think
+about this?" must read exactly that prose, because the comment is the evidence. Same file, opposite
+rules, and getting it backwards produces either a lie with a tick or a check nobody can keep.
+
+**And a rule for reporting, from the five silent saves in the map panel:** the message has to name
+the consequence, not the operation. "Save failed" tells him nothing he can act on; "PRICE TIER NOT
+SAVED — this store is still on its old tier, do not sell at the new price" tells him what to do in
+the next thirty seconds. Fourteen of the sixteen swept catches were left silent deliberately, each
+with one line saying why — **the fix for a cosmetic silent failure is a sentence, not a toast**, and
+a toast for every cache miss trains him to ignore all of them.
