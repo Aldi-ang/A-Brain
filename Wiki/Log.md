@@ -847,3 +847,29 @@ a person flagged as needing him to say it out loud.
 
 Also today, his call on shipping: *"we might it later if we done with everything"* — the 538-commit
 merge to `main` waits until the work is finished, not before.
+
+## 2026-08-18 (13) — Aldi ruled on the EOD shortfall, and most of it was already built
+
+His words, asked what the admin may do with a short count: *"admin can approve but it will add up to
+the agent's bounties instead, and for the bounties, the agent can repay their debt through the EOD
+screen even after bounties recorded on their name"*. Shipped as `7f96d19`.
+
+**The finding worth keeping: the answer was two-thirds already in the codebase.** The WANTED board
+already summed every `PENALTY_` key, and a `BOUNTY` clearance report submitted from the agent's own
+EOD screen already deleted them on verification. His "repay through the EOD screen" needed no code
+at all — only the MINTING was missing, and it is one line. **Before building a rule he has just
+stated, look for the half of it he already asked for months ago.**
+
+**Three choices inside that one line, each of which would have been a bug the other way:**
+- Keyed by report id and **assigned, never incremented** — verifying the same report twice writes
+  the same number, so a double-approve cannot fine a man twice for one night.
+- Cash and transfer floored at zero **separately** — counting extra cash must not silently pay off a
+  missing transfer.
+- **Money only.** A goods shortage rides along as a flag and is deliberately not priced. What a
+  missing pack is worth is his call; burying an assumed price inside a transaction would have been
+  inventing a fine.
+
+**And the pattern from earlier in the day held again:** the fix is allowed to let the admin approve,
+because he said so — the change is that approving is no longer silent. The confirmation names the
+rupiah and says the agent can repay it. See [[Concepts/Aldi's Design Taste]] for the standing law
+this serves: every action must report.
