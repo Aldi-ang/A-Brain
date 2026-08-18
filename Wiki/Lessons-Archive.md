@@ -147,3 +147,25 @@ resort, not the first — build the viewing path instead. For KPM that path exis
 `A-Brain/Wiki/Concepts/Looking at the App.md` (`tools/theme-lab-server.mjs`, plain HTTP over
 `dist/`, no login, HTTPS dev server untouched). Handing back an unverified look is only acceptable
 after that harness has been tried.
+
+
+---
+
+## Archived 2026-08-18 (2nd today) — chosen by oldest last-fire
+
+Second use of the revised §8 rule. Every entry had fired, so one had to go; this one's most recent
+fire is 2026-07-29, three weeks stale, and the work has moved away from handing Aldi install
+commands to run by hand. It is still true — restore it from here if skill installs come back.
+
+### 2026-07-29 — install commands need an explicit cwd, and -g when the goal is PATH
+**Trigger:** before handing a multi-line install command to the user to run by hand (or running
+one myself) meant to end with a bare CLI command on PATH.
+**Lesson:** state the exact directory to run it in; use `-g` (or `npx`) when the goal is a
+PATH-available binary — a local install with no stated cwd risks landing in the wrong folder.
+**Would have prevented:** told Aldi `npm install agent-browser` (no `-g`, no cwd) — he ran it
+from `C:\Users\ASUS`, added a line to an unrelated pre-existing `package.json` there, and the
+follow-up `agent-browser install` failed with "not recognized," nothing ever reached PATH.
+Seen: 2026-07-29, 2026-07-29 (2nd — MISSED: gave `npx ui-ux-pro-max-cli init --ai claude` with no
+`--global` and no cwd; installer defaults to process.cwd(), Aldi ran it from the kpm-inventory repo,
+145 untracked files landed in his production repo one broad `git add .` from being committed)
+Fired: 2026-07-29 (git clone commands for skill installs, absolute destination paths given)
