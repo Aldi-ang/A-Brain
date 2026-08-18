@@ -724,3 +724,14 @@ must keep reading the raw list, the directory must keep receiving it. A guard on
 deliberately did not do is how a later session finds out it was deliberate.
 
 See [[Concepts/A Store Name Is Not a Store]].
+
+## 2026-08-18 (7) — tell it once
+
+Measured one session: 195 lines of actual fix, 2,359 lines written *about* it — commit messages,
+PROGRESS, this vault, the next-job file, and the replies, all carrying the same facts. Aldi, shown
+the ratio: *"yes"*. **From now the full story lives in the commit message only; everything else is
+a pointer.** If a vault entry could be replaced by `git show <hash>`, it should be — so entries
+here shrink to the LESSON and drop the retelling.
+
+Not shortened, and this is the boundary: the self-checks, which caught two of my own wrong claims
+that same session, and any note recording why something must NOT change.
