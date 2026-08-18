@@ -769,3 +769,32 @@ the file for the sibling that already works.**
 Also: `increment()` turned "read current stock, subtract, write" into one atomic server-side delta,
 which is what stopped this fix from becoming a transaction rewrite. Worth reaching for whenever a
 batch write needs to adjust rather than replace.
+
+## 2026-08-18 (10) — five of one shape, and the guard that keeps passing itself
+
+Six fixes in a row, all commits: `ec45ab9` Clear Canvas, `4c38b91` the lying online flag,
+`ac492c3` offline sales not leaving the van, `553cf91` the offline store status, `655e7f1`
+shipping to a branch. Stories are in the commits.
+
+**The shape is now confirmed five times over: a stock figure trusted after the moment it was true.**
+Approving a morning count at night · clearing a van from a screen loaded an hour ago · selling with
+no signal and never touching the van · shipping HQ stock computed before a photo upload. **And the
+cure was the same twice: `increment()`.** A batch write that ADJUSTS instead of REPLACING needs no
+read, so there is no stale number to be wrong. Reach for it whenever a fix starts with "read the
+current value first".
+
+**Then the class was swept rather than waited on.** Every other `stock: cached ± qty` in `src/` was
+checked: all inside `runTransaction` (safe by construction), or sub-second windows where the
+computed value is also needed for the low-stock alert. **One real instance, and now it is known
+that the rest are fine — which is worth as much as the fix.**
+
+**The recurring self-inflicted wound, three times today: a guard that cannot fail.**
+Twice it matched a sibling function in the same file (`handleLoadCanvas` next to
+`handleClearCanvas`; the transaction flush next to the customer flush), once it matched the comment
+explaining the fix. All three PASSED against broken code. **Testing a pattern against a whole file
+is the bug — scope it to the function, and strip comments first.** A red guard is annoying; a
+green one that proves nothing is a lie with a tick next to it.
+
+Also: two OLDER guards went red during the canvas extraction and were REPINNED, not relaxed —
+they pinned variable names the refactor renamed while the behaviour was untouched. **A guard going
+red on a rename is a guard doing its job; look at the guard first, not the rename.**

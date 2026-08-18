@@ -1,7 +1,7 @@
 ---
 title: Clear Canvas can create stock out of thin air
 description: Emptying a vehicle credits the warehouse from the admin's cached screen data instead of the vehicle's live contents. Anything the agent sells while the admin has the screen open is returned to stock twice.
-status: To Do
+status: Done — ec45ab9 (2026-08-18)
 area: Fleet & Canvas
 priority: HIGH
 created: 2026-08-17

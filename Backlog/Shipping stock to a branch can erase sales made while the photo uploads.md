@@ -1,7 +1,7 @@
 ---
 title: Shipping stock to a branch can erase sales made while the photo uploads
 description: The HQ vault is written using a stock number the admin's screen cached before the package photo was compressed and uploaded. Any sale during that gap is silently undone.
-status: To Do
+status: Done — 655e7f1 (2026-08-18)
 area: Branch warehouse
 priority: HIGHEST
 created: 2026-08-18

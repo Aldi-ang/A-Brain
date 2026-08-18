@@ -1,7 +1,7 @@
 ---
 title: Offline sales never reduce the van stock
 description: A sale made with no signal writes only the receipt. The van's stock is never reduced, so the agent looks short at EOD and the warehouse is credited for goods that were already sold.
-status: To Do
+status: Done — 4c38b91 + ac492c3 + 553cf91 (2026-08-18)
 area: Offline engine / EOD
 priority: HIGH
 created: 2026-08-17
