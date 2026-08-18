@@ -595,3 +595,33 @@ imported it, and its own comment shows the author reasoned about the problem and
 short. That is how a fixed bug reappears one file over. See [[Concepts/A Store Name Is Not a Store]].
 
 **Shipped:** commit `4b63118`, build clean, 599/0, selfcheck 86/0 → 99/0.
+
+## 2026-08-18 (3) — the private copies, and a check that pinned a spelling instead of a behaviour
+
+`customerBrief.js`, `dayStats.js` and `MerchantSalesView`'s auto-pick each compared store names by
+their own rule. All three now use `storeKey`. Commit `f1e3b28`, build clean, 599/0, selfcheck
+99/0 → 115/0, customer-brief 9/9, day-stats 7/7, no fixture edited.
+
+**The pattern worth naming: a private copy of a shared rule is how a fixed bug comes back one file
+over.** `customerBrief`'s own comment argued correctly that a raw match splits a customer's history
+— the author had reasoned about the exact problem and stopped one step short of the tier suffix.
+Being right about the principle did not stop the bug, because the rule lived in that file instead
+of in one place. Three private copies have now been found by hand; the check that finds them all
+at once (grep for `.trim().toLowerCase()` next to a customer name) is queued and is worth more than
+any single fix.
+
+**A check can pin a spelling instead of a behaviour, and then it lies twice.** `integration.audit`
+G18 — "an empty or whitespace-only name never selects anything" — required the literal
+`typed.trim().toLowerCase()`. It went red on a rename while the behaviour it exists to protect was
+untouched: red for a change that was correct, and it would have stayed green if someone kept the
+spelling and deleted the `if (needle)` gate. Repinned on the gate, and the behaviour itself is now
+asserted on real values (`''`, `'   '`, `null`, `undefined`, `' (Retail)'` → all `''`). **When a
+guard goes red on a rename, the guard is the thing to look at first, not the rename.**
+
+**Method note:** the two util self-checks (`customerBrief`, `dayStats`) crashed on an extensionless
+`./helpers` import — node's ESM resolver does not add `.js` the way Vite does — and they crashed
+BEFORE anything was claimed working, because they were run first rather than at the end. A build
+would never have caught it: Vite resolves it fine. The `.js` is deliberate in both files and there
+is a check on it now.
+
+See [[Concepts/A Store Name Is Not a Store]].

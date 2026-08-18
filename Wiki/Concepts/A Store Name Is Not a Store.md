@@ -67,11 +67,17 @@ document carries matches nothing, which fails silently and reports success — s
   one shop appeared several times holding part of its debt each and a payment filed under one
   spelling never cancelled the others. Fixed 2026-08-18, commit `4b63118`. The map now keys on
   `storeKey` and stores the name as written, so the key is lowercased and the list is not.
-- **Door-step brief** — `src/utils/customerBrief.js` defines its OWN normalizer (trim +
-  lowercase, no suffix rule), so a shop with older "(Retail)" rows reports "no recent order" and
-  the salesman walks in blind. **Open**, queued in `.claude/NEXT-SESSION.md`, along with
-  `dayStats.js` (counts stores by raw name, inflating the day) and `MerchantSalesView`'s
-  auto-pick. A private copy of a shared rule is how a fixed bug comes back one file over.
+- **Door-step brief, day stats, auto-pick** — all three fixed 2026-08-18, commit `f1e3b28`.
+  `customerBrief.js` had defined its OWN normalizer (trim + lowercase, no suffix rule), so a shop
+  with older "(Retail)" rows reported "no recent order" and the salesman walked in blind;
+  `dayStats.js` counted stores by raw name, inflating his own day; `MerchantSalesView`'s auto-pick
+  compared raw names. All three now use `storeKey`.
+- **Map mission control** — `src/MapMissionControl.jsx` matches a store's history with a raw
+  `t.customerName === store.name` in three places and a fourth private trim+lowercase copy. It is
+  the strictest comparison left: `store.name` comes from the customer document and
+  `t.customerName` is what was typed at the counter, so one capital letter apart and the pin
+  shows no sales, no history, no debt — a shop with an open Titip balance can look settled.
+  **Open**, queued in `.claude/NEXT-SESSION.md`; `JourneyView.jsx` carries a third private copy.
 
 ## The rule that follows from it, added 2026-08-18
 
