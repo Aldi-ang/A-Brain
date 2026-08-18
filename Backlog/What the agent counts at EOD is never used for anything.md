@@ -1,7 +1,7 @@
 ---
 title: What the agent counts at EOD is never used for anything
 description: The EOD report is built from the system's own expected figures, not from what the agent counted. The counted numbers are attached as a side note that nothing reads, so a cash shortage cannot be detected.
-status: To Do
+status: In progress — payload done d859d41 (2026-08-18); admin screen still open
 area: EOD
 priority: HIGHEST
 created: 2026-08-17

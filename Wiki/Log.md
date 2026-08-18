@@ -821,3 +821,29 @@ SAVED — this store is still on its old tier, do not sell at the new price" tel
 the next thirty seconds. Fourteen of the sixteen swept catches were left silent deliberately, each
 with one line saying why — **the fix for a cosmetic silent failure is a sentence, not a toast**, and
 a toast for every cache miss trains him to ignore all of them.
+
+## 2026-08-18 (12) — the count that was recorded and never compared
+
+EOD payload now carries what the agent COUNTED, not what the app expected (`d859d41` — story in the
+commit). **The lesson is the failure shape, and it is a new one for this vault: a feature that is
+fully built, fully used, and connected to nothing.**
+
+Nothing was broken. The counting screen worked, the numbers were stored, the agent saw a shortfall
+on his own card. But the figure that ACTED was the system's own expectation, so the submitted cash
+was the expected cash and the two could never disagree. **A comparison that cannot come out
+negative is not a check.** Worth looking for elsewhere: any screen where the "actual" and the
+"expected" are the same variable by the time they are written.
+
+**And the discipline that mattered more than the code:** the backlog note said do not change this
+payload before deciding what happens when the count is LOWER, because sending it without a ruling
+step would post shortages straight against agents — the exact thing Aldi said must not happen. So
+the fix carries the gap and marks it DISPUTED, and debits nobody. **His rule for transfer shortfalls
+(it waits for the company to rule) was applied to cash and goods rather than inventing a third
+answer** — reuse his own decision before asking for a new one, and say plainly that you did.
+
+The half that stays open is his, not code: what the admin may DO with a disputed report. Written
+into `.claude/NEXT-SESSION.md` as a question in his words, with the one option that takes money from
+a person flagged as needing him to say it out loud.
+
+Also today, his call on shipping: *"we might it later if we done with everything"* — the 538-commit
+merge to `main` waits until the work is finished, not before.
