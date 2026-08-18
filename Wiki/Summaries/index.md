@@ -26,6 +26,7 @@ should trace back to one of these.
 - [[Rank Config Cross-Tenant Gap]]
 - [[Rules Draft Process]]
 - [[Six Days — Gate, Phone Access, Quota Meter]]
+- [[Store Hand-off Name Collision]] — a name-keyed transfer moved the wrong agent receivable; the prescribed id fix was impossible.
 
 ## Adding a new summary
 

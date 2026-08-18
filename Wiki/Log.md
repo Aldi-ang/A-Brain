@@ -536,3 +536,19 @@ signing in]] — esbuild + the real stylesheet + pause-and-seek for a motion fra
 **Open when this was written:** per-row goods counting, the cards-into-one-letter animation, the
 duplicate PITA CUKAI card, and two jobs only Aldi can do — tick `view_stock_opname` for T3 in the
 permission matrix, and deploy the rules change that Accept short will need.
+
+## 2026-08-18 — store hand-off name collision
+
+**Ingested:** [[../Raw/2026-08-18_source_store-handoff-name-collision|the hand-off session]] →
+[[Summaries/Store Hand-off Name Collision]].
+
+**New concept:** [[Concepts/A Store Name Is Not a Store]] — his book holds three shops with one
+name, 14.5 km apart, and nothing but the customer document carries an id. Every name-keyed sweep
+in this app is a money bug waiting for the second shop to register.
+
+**Near-miss worth keeping:** the job prescribed filtering transactions on `t.customerId`. That
+field exists on no transaction in the codebase, so the "fix" would have approved the hand-off,
+notified both agents, and moved zero rows. The over-broad match it replaced at least fails
+loudly. Checked before trusting the brief, not after.
+
+**Shipped:** commit `505ddcf`, build clean, 599/0, selfcheck 59/0 → 72/0.

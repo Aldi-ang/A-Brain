@@ -16,6 +16,9 @@ edited after creation** except for display-only frontmatter (title/description/t
 
 ## Files here (as of 2026-07-27)
 
+- `2026-08-18_source_store-handoff-name-collision.md` — the account hand-off that reassigned
+  every shop sharing a name, and why the id-based fix it was given could not be built.
+
 - `2026-07-24_source_offline-auth-lockout-fix.md`
 - `2026-07-24_source_option-b-region-lock.md`
 - `2026-07-24_source_rules-draft-process.md`

@@ -88,5 +88,6 @@ Real things that went wrong (or nearly did), and what was learned.
 ## Elsewhere in this vault
 
 - [[Index|Wiki Index]] and [[Log|Wiki Log]] — the flat catalog and the append-only build history, mainly for AI queries.
+- [[Concepts/A Store Name Is Not a Store]] — identity vs label, and the hand-off it broke.
 - `Backlog/` and `Brainstorm/` — a separate to-do board and scratch space for open work. Not part of this knowledge graph by design (see `CLAUDE.md`) — open `Backlog/` directly to see what's next.
 - `PLAN-second-brain-integration.md` — why this vault exists and how it's meant to be maintained.
