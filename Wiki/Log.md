@@ -912,3 +912,32 @@ being entered cannot post one agent's counted cash under another's id. See
 
 **Still Aldi's call:** what a missing pack is worth in rupiah, and what colour replaces the banned
 green on the Verify button.
+
+
+---
+
+## 2026-08-18 20:14 — pricing a missing pack, and why the money stayed a plain number
+
+`43f8059`. Aldi ruled that a missing pack is bought back at **retail** price, and that the bounty
+panel must show how each number was reached — his example: *"cello chocolate 5 bks = 50,000
+(7 agustus 2026), transfer loss 30,000 (8agustus 2026)"*.
+
+**The design decision worth keeping is the one about SHAPE.** The obvious move was to make each
+`PENALTY_` value a richer object — `{amount, label, date}` — so the explanation travels with the
+money. That would have broken three things at once, all of which read those keys as plain numbers:
+the WANTED board's sum, the bounty clearance report, and the stamp-payment loop that skips
+`PENALTY_` keys by name. **When a stored value already has readers, add a sibling, do not enrich the
+value.** `cukaiDebtNotes[key] = {label, date}` carries the words; `cukaiDebts[key]` stays a number.
+
+**Second: one key per reason, not one lump sum.** A lump sum cannot be explained to the man paying
+it. `_CASH`, `_TRANSFER`, `_GOODS_<productId>` — and because each is still keyed by the report id
+and assigned rather than incremented, a double-approve remains harmless.
+
+**Third, and this is the honest-reporting one:** a product with no `priceRetail` still mints a LINE,
+at Rp 0, whose label says *(no retail price set)*. Minting nothing would have been the tidier code
+and the worse answer — a shortfall nobody can price is exactly the thing that must stay visible.
+See [[Concepts/Aldi's Design Taste]]: every action must report.
+
+Also: the pricing lives in ONE function, `eodBountyLines()` in helpers, called by both the admin's
+card and `App.jsx`. The number he approves and the number the ledger writes cannot drift apart
+because they are the same call.
