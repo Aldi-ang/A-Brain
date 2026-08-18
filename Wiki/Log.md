@@ -735,3 +735,19 @@ here shrink to the LESSON and drop the retelling.
 
 Not shortened, and this is the boundary: the self-checks, which caught two of my own wrong claims
 that same session, and any note recording why something must NOT change.
+
+## 2026-08-18 (8) — a guard that is red on day one gets deleted in a week
+
+Four van-stock conversions replaced with the `convertToBks` helper they already had (`f51a3a9` —
+the story is in that commit). **The lesson is the guard, not the fix.**
+
+The obvious check was "no file may hand-write pack-size maths". About twenty CORRECT hand-written
+copies exist, so that check would have been red from the first run, and a permanently-red check is
+one nobody reads. The guard shipped instead is narrow: it fails a one-line size ladder that starts
+at Slop and never names `balsPerCarton`. Every correct copy names it; all three broken ones did
+not — so it named exactly the three real bugs and was silent on the twenty. **Scope a guard to the
+shape of the DEFECT, not to the shape of the habit.**
+
+Second: the behaviour block imports the real helper instead of restating the maths. A self-check
+carrying its own copy of the rule it is checking would be the same disease. See
+[[Concepts/A Store Name Is Not a Store]] for the sibling case with store names.
