@@ -1004,3 +1004,17 @@ new one without argument.
 The health check had two bugs of its own, both the same shape: it counted the archive ledger as
 part of whichever entry the ledger happened to sit beside. Comments are not entry content, wherever
 they sit. `7e887e1`
+
+## 2026-08-19 — he said the plain-English rule was not actually being followed
+
+Aldi, verbatim: *"why the caveman ultra not working, alucard still talk like it used to be not caveman
+that i ask tho, too many hard to understand words, too many unfamiliar terms i want this to change on
+next session"*.
+
+The miss: caveman was cutting sentence LENGTH but not hard WORDS. Replies were short and still full
+of specialist terms. Short plus jargon still fails him. Cut the vocabulary, keep file paths, function
+names, numbers and error text exact. See the `feedback_explain_in_plain_english` memory.
+
+Same day he settled two decisions: the stock-count expected number is a per-tier option, on by
+default for tiers 1-3 and blind for tiers 4-6 ("encourage them to really count the number right"),
+and the whole app says TITIP, not consignment.
