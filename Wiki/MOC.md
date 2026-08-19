@@ -39,6 +39,7 @@ How KPM decides who can read or write what, and where that's gone wrong.
 The house rules this project follows so mistakes don't repeat.
 
 - [[Anti-Recurrence Check]] — never say "committed" without checking `git show --stat` yourself.
+- [[The Named Path Was Already Shut]] — guard the WRITE, not the control someone noticed.
 - [[The Rule That Never Applied]] — the CSS-shaped version of the same discipline: a Tailwind class, source order and a filled animation each beat a correct rule in one day. Measure the computed value, don't grep the source.
 - [[Looking at the App]] — measuring is not looking. How to render a real KPM screen without the HTTPS dev server or a Google login, and why a new measuring tool is itself unverified until one of its readings is confirmed independently.
 - [[Draft-Then-Deploy Discipline]] — a Firestore rule change is only a draft until a human deploys it by hand.

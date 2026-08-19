@@ -43,3 +43,5 @@ different app.
 
 Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here, link in
 [[../Index]], link in the right section of [[../MOC]].
+
+- [[The Named Path Was Already Shut]] — a brief named one submit button; the two it did not name were the actual double-submit.

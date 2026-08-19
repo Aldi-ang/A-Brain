@@ -34,6 +34,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 
 - [[UI-Says-Yes-Server-Says-No Pattern]] — a UI control shown without a matching server rule
 - [[Anti-Recurrence Check]] — never claim "committed" without `git show --stat` proof
+- [[The Named Path Was Already Shut]] — the button a bug report names is usually the one already guarded
 - [[Looking at the App]] — how to actually SEE a KPM screen before claiming a visual fix: the
   theme-lab harness, why the dev server cannot be opened directly, and the three ways the
   harness lied first
