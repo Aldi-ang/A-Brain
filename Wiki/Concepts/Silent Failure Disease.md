@@ -64,9 +64,18 @@ Two traps this instance taught:
   fallback carries a Try Again button and a plain sentence, and that the state key
   `getDerivedStateFromError` returns is the same key `render` branches on — returning
   `{ hasError: true }` while render reads `this.state.failed` catches and then draws nothing.
-- **`npm run dev` installs no service worker** (no `devOptions` at `vite.config.js:21`), so on the
-  dev server nothing is cached and every offline chunk fetch fails by construction. Offline
-  behaviour can only be judged from a real build. Aldi tests on `https://192.168.1.141:5173`.
+- **The dev server had no service worker at all**, so on `npm run dev` nothing was cached and
+  every offline chunk fetch failed by construction - an airplane-mode test there proved nothing.
+  Fixed the same day: `devOptions: { enabled: true }` in `vite.config.js`, on Aldi's word
+  (*"sure so that i can test the offline mode"*), pinned by S26. Proof it serves: the dev server
+  answers `/dev-sw.js` with a 16 KB Workbox worker, HTTP 200.
+  **Still unconfirmed on his phone.** Chrome will not install a service worker on an origin whose
+  certificate it does not trust, and `https://192.168.1.141:5173` is self-signed (see
+  [[Secure Context Requirement]]). Note the split: a bypassed certificate still counts as a secure
+  context, so `crypto.subtle` and the login work there - service workers are the stricter case.
+  His one-step test: load the page with signal, turn on airplane mode, reload. App opens = the
+  worker installed. Chrome's own no-internet page = it did not, and the deployed site is the
+  fallback.
 
 Add to the grep list above:
 
