@@ -169,3 +169,21 @@ Seen: 2026-07-29, 2026-07-29 (2nd — MISSED: gave `npx ui-ux-pro-max-cli init -
 `--global` and no cwd; installer defaults to process.cwd(), Aldi ran it from the kpm-inventory repo,
 145 untracked files landed in his production repo one broad `git add .` from being committed)
 Fired: 2026-07-29 (git clone commands for skill installs, absolute destination paths given)
+
+
+<!-- archived 2026-08-19 from lessons.md, HAD fired, at 5/5-all-fired; chosen by oldest
+     last-fire (2026-08-01). Still true, but graphify's caller lists have not been the load-
+     bearing step in weeks, and the slot was needed for a live failure. -->
+
+### 2026-07-29 — graphify call-edge queries undercount real callers
+**Trigger:** before claiming a graphify `--context call` / "who calls X" query found the
+complete or all callers of a function.
+**Lesson:** cross-check with `grep -rn "await <fn>(" src/` (or the language-appropriate
+call pattern) before asserting completeness. Treat graphify's caller list as a lower bound,
+not a final answer — its call-edge extraction is a heuristic, not exhaustive.
+**Would have prevented:** benchmark run 2 (2026-07-29, T1) answered "commitInChunks has 7
+callers... graphify gave the complete answer without needing to search further." Real count,
+grep-verified: 21 call sites across 7 files. Run 2 missed 14 of 21 — including 7 of 8 in
+App.jsx alone, the same file run 1 (grep, no graphify) got completely right.
+Seen: 2026-07-29
+Fired: 2026-08-01 (RankBorder callers — grepped instead of trusting graphify; found exactly 2 render sites, AgentProfileView + CareerDevTools gallery, so the per-agent border change stays one file)
