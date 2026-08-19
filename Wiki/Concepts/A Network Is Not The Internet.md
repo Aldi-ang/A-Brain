@@ -3,9 +3,9 @@ title: A Network Is Not The Internet
 description: navigator.onLine only answers "does a network interface exist". It has now lied twice in this app — once turning the offline badge green, and once freezing a completed sale on the PROCESSING button.
 type: concept
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-08-20
 confidence: high
-checked: 2026-08-19
+checked: 2026-08-20
 tags: [pattern, offline, firestore, error-handling]
 ---
 
@@ -38,6 +38,26 @@ PC. So there was a network, and no internet.
 
 Note what this looks like from outside: the data is all correct and the app is broken. That is the
 signature — a hang, never an error, because nothing threw.
+
+## It survived the first fix, because the fix moved the lie instead of removing it
+
+Swapping `navigator.onLine` for the honest `isOnline` did not cure the freeze. `useOfflineEngine()`
+is called **twice** — `App.jsx:260` and `useTransactionEngine.js:48` — and each call created its
+own `isOnline` state, its own ref and its own 30-second probe. **Two independent answers to one
+question**, drifting apart for up to thirty seconds.
+
+That is precisely the window Aldi tested in: the transaction engine's copy had already flipped
+offline (hence the Ghost Ledger toast and the cut stock) while App's copy — the one handed down to
+the Sales Terminal — still said online. The terminal ran its online-only follow-up and hung again,
+with identical symptoms.
+
+The flag now lives once, at module scope, read through `useSyncExternalStore`. **A fact with two
+holders is a fact with two values.**
+
+And the structural fix that makes the whole question moot: **a finished sale must never wait for
+optional work.** `setReceiptData` and the button release now run immediately after
+`committed = true`, ahead of the IOU ledger and the tier auto-promoter. Pinned by **S30**, which
+asserts the ordering by offset inside the handler.
 
 ## The rule
 
