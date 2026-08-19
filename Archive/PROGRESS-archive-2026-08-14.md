@@ -3707,3 +3707,39 @@ detailed needed"*.
 18 checks (S22), red first, including his own example arithmetic. S18/S19 repinned onto the moved
 rule, not relaxed. build clean · audit 599/0 · logic 306/0 · contrast all pairs pass
 
+
+---
+
+<!-- moved out of .claude/PROGRESS.md on 2026-08-19 11:32 to keep the KPM log at five entries -->
+
+## 🟠 2026-08-18 20:30 — the penalty price is a SETTING now. `bf75678`
+
+**His ruling, verbatim:** *"if the damaged goods taken from store and the agent bring it back then
+there is no bounties for the agent, if there is damaged good because of agent mistake then agent
+need to buy it in retail price, but since i dont know the real rules that the company applies we
+should add this to the setting about this logic so that company can change how this logic going to
+work, can be retail, wholesale or ecer its companies decision, i just want to make sure that this
+app is flexible enought so that i can sell it to multiple company instead of one only"*.
+
+- **His first rule needed no code.** Store damage the agent brings back is resolved as SAMPLING or
+  RTV in Stock Opname and charges him nothing. PENALTY is a third button the admin picks. The split
+  he described is already the shape of that screen — verified, not assumed.
+- **His second rule was backwards in the code.** The damage penalty charged `priceDistributor` —
+  what the company PAID — not retail.
+- **Settings · Company · 05**, Tier 1: *"What a lost or damaged pack costs the salesman"*. Retail /
+  Grosir / Ecer / Distributor. Default **Retail**, his rule. Drives BOTH the EOD missing-pack bounty
+  and the damaged-goods charge.
+- `tierPrice()` in helpers is the one lookup. Unknown tier, or a tier the product has no price for,
+  falls back to Retail — **never zero**, because a fine that silently becomes nothing goes unnoticed.
+  The tier is printed on the bounty line: *Cello Chocolate 5 Bks @ Retail*.
+- ⚠️ `MerchantSalesView` and `useTransactionEngine` still carry their own copies of the tier → field
+  mapping for SALES. Untouched, noted in the helper. That is a wider change.
+
+**Also, on his permission** (*"u fix that lesson file then, i give u permission to upgrade if
+needed"*): the Alucard lessons loop is unjammed. §8 no longer says "or don't write" at 5/5-all-fired
+— it archives one anyway and makes you name the reason. One entry archived (superseded in part AND
+5x over the length cap), its live half carried forward. Health check agrees: `LESSONS: OK`. `74c9a88`
+
+18 checks (S23), red first. Four older guards repinned onto the new signature, not relaxed.
+build clean · audit 599/0 · logic 325/0 · contrast all pairs pass
+
