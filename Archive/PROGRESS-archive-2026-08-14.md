@@ -3654,3 +3654,30 @@ recorded on their name"*.
 
 Next: the admin's report card should show expected vs counted, and name the products that came up
 short. **No decision needed** — presentation only. `.claude/NEXT-SESSION.md`.
+
+---
+
+<!-- moved out of .claude/PROGRESS.md on 2026-08-19 07:55 to keep the KPM log at five entries -->
+
+## 🟠 2026-08-18 19:54 — two off his OWN to-do list, both found while shipping the card
+
+`44efb69` · **Red text on a red plate was 1,94:1 — nobody could read it.** `--danger-ink` on
+`--danger` measures 1,94:1 dark and 1,95:1 light. The palette already had the answer
+(`--danger-well`, 7,04:1 and 7,54:1), and one site was already using it. 18 class strings across
+the EOD, Stock Opname and card-deck screens moved their GROUND to the well; the red EDGE stays.
+Left alone deliberately: 9 gold-on-red badges (4,02:1, bold), hover states that swap the ink with
+the plate, and the two pure fills — the bounty dot and the damaged-share bar — because a 2px dot
+in near-black is not a warning. **Three of the 11 broken sites were mine, one hour old.** That is
+how a defect class spreads, so it left check S20 behind instead of a paragraph.
+
+`b904db2` · **`key={effectiveId}` on the counting flow.** The admin picks whose setoran he is
+entering; React reuses the component in that slot, so switching identity mid-count kept agent A's
+counted cash and posted it under agent B's id. One token. Check S21.
+
+His list, updated: **item 1 DONE, item 4 DONE, item 7 was stale** (there is no `letter.signatures`
+— the flow produces `cards` only). **Item 6 is next and it is a money bug:** `submitting` is never
+passed to `<EODAgentFlow>`, so both `disabled` guards inside it are dead and a double-tap on Send
+submits the EOD twice.
+
+build clean · audit 599/0 · logic 289/0 · contrast all pairs pass
+
