@@ -3,9 +3,9 @@ title: Silent Failure Disease
 description: The KPM app's oldest and most expensive bug class — a code path that ends without telling the user anything. Aldi's design law, in his own words, is that silence is a bug.
 type: concept
 created: 2026-08-10
-updated: 2026-08-10
+updated: 2026-08-19
 confidence: high
-checked: 2026-08-10
+checked: 2026-08-19
 tags: [pattern, ux, discipline, error-handling]
 ---
 
@@ -41,6 +41,36 @@ locked decision: **never reintroduce `window.confirm` / `window.prompt` / `alert
 `notify()` is deliberately **not async** and must never become async. Many call sites are written
 `return alert(msg)` → `return notify(msg)`; both return `undefined`, which is why the whole swap
 was textual and no function needed converting.
+
+## Shape 4, found 2026-08-19: the page that reports by disappearing
+
+The worst instance is not a bare `return` — it is having no `catch` at all. `MerchantSalesView`
+and every other tab are loaded on demand (`lazy()`, `src/App.jsx:41`) inside one `<Suspense>`.
+`<Suspense>` covers a chunk that is still DOWNLOADING; nothing in React covers a chunk that FAILED
+to download. With no signal the fetch fails, the failure escapes, and React throws away the entire
+page. Aldi, on his phone with airplane mode on: *"its all black screen cant move cant do anything"*.
+
+Searching all of `src/` for `ErrorBoundary`, `componentDidCatch` and `getDerivedStateFromError`
+returned nothing, and `src/main.jsx:57` mounted `<App/>` bare. **The app had no catcher anywhere.**
+
+Fixed by `LazyTabBoundary` in `src/App.jsx` — ~20 lines, and a `class`, because React has no hook
+form of `getDerivedStateFromError`. Keyed on `activeTab` so leaving a broken tab clears the
+failure. Pinned by **S26** in `src/config/logicFixes.selfcheck.mjs`: 9 checks, all seen red before
+the fix.
+
+Two traps this instance taught:
+
+- **A catcher that renders an empty box is the same disease in a new colour.** S26 asserts the
+  fallback carries a Try Again button and a plain sentence, and that the state key
+  `getDerivedStateFromError` returns is the same key `render` branches on — returning
+  `{ hasError: true }` while render reads `this.state.failed` catches and then draws nothing.
+- **`npm run dev` installs no service worker** (no `devOptions` at `vite.config.js:21`), so on the
+  dev server nothing is cached and every offline chunk fetch fails by construction. Offline
+  behaviour can only be judged from a real build. Aldi tests on `https://192.168.1.141:5173`.
+
+Add to the grep list above:
+
+4. A `lazy()` or dynamic `import()` with no error boundary above it.
 
 ## Where to look for the next instance
 
