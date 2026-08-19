@@ -70,7 +70,7 @@ Two traps this instance taught:
   (*"sure so that i can test the offline mode"*), pinned by S26. Proof it serves: the dev server
   answers `/dev-sw.js` with a 16 KB Workbox worker, HTTP 200.
   **Still unconfirmed on his phone.** Chrome will not install a service worker on an origin whose
-  certificate it does not trust, and `https://192.168.1.141:5173` is self-signed (see
+  certificate it does not trust, and the dev server's is self-signed (see
   [[Secure Context Requirement]]). Note the split: a bypassed certificate still counts as a secure
   context, so `crypto.subtle` and the login work there - service workers are the stricter case.
   His one-step test: load the page with signal, turn on airplane mode, reload. App opens = the
