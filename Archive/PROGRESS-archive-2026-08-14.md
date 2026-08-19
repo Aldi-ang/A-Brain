@@ -3681,3 +3681,29 @@ submits the EOD twice.
 
 build clean · audit 599/0 · logic 289/0 · contrast all pairs pass
 
+
+---
+
+<!-- moved out of .claude/PROGRESS.md on 2026-08-19 11:25 to keep the KPM log at five entries -->
+
+## 🟠 2026-08-18 20:14 — a missing pack is bought back at retail. ANSWERED AND SHIPPED. `43f8059`
+
+**His ruling, verbatim:** *"if there is missing pack then agent needs to buy the missing pack on
+retail price as a compensation, well u can add that to the bounties and the bounties panel need to
+specify how the bounties number are calculated, for example missing pita = 5000 (4 agustus 2026),
+cello chocolate 5 bks = 50,000 (7 agustus 2026), transfer loss 30,000 (8agustus 2026) this kind of
+detailed needed"*.
+
+- `eodBountyLines()` in `helpers.js` prices a report. Goods → `priceRetail` × packs, **converted
+  first** so a short Slop is ten packs. Cash and transfer still floored separately.
+- **One PENALTY key per reason**, not a lump sum: `_CASH`, `_TRANSFER`, `_GOODS_<productId>`.
+  `cukaiDebtNotes` carries `{label, date}` beside each key — **deliberately a sibling map**, because
+  every existing sum on `PENALTY_` expects a plain number and a richer value would have broken the
+  board, the clearance report and the stamp arithmetic at once.
+- The board reads back his format: *Cello Chocolate 5 Bks — Rp 50.000*, dated, newest first. Old
+  bounties still get a name; the quarantine charge now writes its own note.
+- A product with **no retail price** still gets a line at Rp 0 saying so. Unpriceable is not absent.
+
+18 checks (S22), red first, including his own example arithmetic. S18/S19 repinned onto the moved
+rule, not relaxed. build clean · audit 599/0 · logic 306/0 · contrast all pairs pass
+
