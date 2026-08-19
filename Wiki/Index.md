@@ -53,6 +53,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   phone-does-nothing bug class
 - [[Silent Failure Disease]] — a code path that ends without telling the user; the app's oldest
   and most expensive bug class
+- [[A Network Is Not The Internet]] — `navigator.onLine` says a network exists, not that packets
+  arrive; it has lied twice here, the second time freezing a finished sale on PROCESSING
 - [[Lancelot the Tobacco Ledger Agent]] — the bookkeeper agent for the tobacco business (NOT the
   KPM app): reads nota + bukti transfer photos, checks the arithmetic, writes the Sheets ledger
 - [[Fat Documents in a Live Listener]] — a base64 photo inside a customer document turns every
