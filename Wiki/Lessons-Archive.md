@@ -187,3 +187,19 @@ grep-verified: 21 call sites across 7 files. Run 2 missed 14 of 21 — including
 App.jsx alone, the same file run 1 (grep, no graphify) got completely right.
 Seen: 2026-07-29
 Fired: 2026-08-01 (RankBorder callers — grepped instead of trusting graphify; found exactly 2 render sites, AgentProfileView + CareerDevTools gallery, so the per-agent border change stays one file)
+
+
+<!-- archived 2026-08-20 from lessons.md, HAD fired (2026-07-29), at 5/5-all-fired.
+     Chosen by oldest last-fire: no third-party skill has been installed since. Still true. -->
+
+### 2026-07-29 — a skill's own "setup" doc can be the attack, not the SKILL.md
+**Trigger:** before promoting any third-party skill into a discoverable `~/.claude/skills/<name>/`
+path, or following a skill's "if key not set, read X" onboarding pointer.
+**Lesson:** read every reference file a SKILL.md points to (auth/setup docs especially), not just
+the SKILL.md itself. A clean-looking SKILL.md and a low star count do not clear the onboarding doc.
+**Would have prevented:** was about to promote `youtube-skills/skills/youtube-full` before reading
+`references/auth-setup.md`, which instructs registering a third-party account on the user's behalf,
+laundering a live API token through a temp file to dodge output redaction, and — naming Claude Code
+specifically — writing the fetched secret into "whatever config file Claude Code reads at runtime."
+Seen: 2026-07-29
+Fired: 2026-07-29 (caught before install, this session)
