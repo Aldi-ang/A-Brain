@@ -203,3 +203,19 @@ laundering a live API token through a temp file to dodge output redaction, and �
 specifically — writing the fetched secret into "whatever config file Claude Code reads at runtime."
 Seen: 2026-07-29
 Fired: 2026-07-29 (caught before install, this session)
+
+
+<!-- archived 2026-08-20 from lessons.md at 5/5. Chosen by oldest last-fire among the
+     entries that HAD fired; hashes have been read from git log every time since. Still true. -->
+
+### 2026-08-18 — read the hash, never write one from memory
+**Trigger:** before writing any commit hash into A-Brain, PROGRESS.md or a reply — the moment a
+sentence is about to name one.
+**Lesson:** run `git log -1 --format=%h` in THAT repo and paste what it prints. A hash written from
+memory looks exactly like a real one, and nothing downstream can tell.
+**Would have prevented:** wrote `b0b8ad1` into the concept page and Log.md this session for a
+commit that is actually `4b63118`, then had to make a second vault commit to correct three
+occurrences. Had it not been caught, the vault would permanently point at a commit that does not
+exist — in the one file whose whole job is to be trusted later without re-checking.
+Seen: 2026-08-18
+Fired: 2026-08-18 (this session, twice — read git log -1 before writing f1e3b28 and 4b63118 into A-Brain; the first vault write of the day is the one that had to be corrected)

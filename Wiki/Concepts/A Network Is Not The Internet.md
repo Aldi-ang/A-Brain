@@ -59,6 +59,36 @@ optional work.** `setReceiptData` and the button release now run immediately aft
 `committed = true`, ahead of the IOU ledger and the tier auto-promoter. Pinned by **S30**, which
 asserts the ordering by offset inside the handler.
 
+## The third round, and the fact underneath all of it
+
+Two fixes later it was still frozen. The thing nobody had checked was the **primitive**:
+
+Firestore's own `disableNetwork()` was switched on in node and the three calls on the path were
+raced against a four-second timer.
+
+| call | with the network cut |
+|---|---|
+| `setDoc` | **still pending after 4000ms — never settles** |
+| `updateDoc` | **still pending after 4000ms — never settles** |
+| `getDoc` | resolves, from cache |
+
+**A Firestore write promise settles only on a server acknowledgement.** `useTransactionEngine.js:192`
+awaited one *inside the offline branch*, eleven lines above the Ghost Ledger toast. For any agent
+with a vehicle: sale saved, stock cut, execution stopped dead — no toast, no receipt, button on
+PROCESSING for good.
+
+Aldi never hit that line. A plain ADMIN gets `currentAgentProfileId = null` and skips the block,
+which is why HE saw the toast and his report contradicted the code for three rounds. His salesmen
+would have hit it every time.
+
+**The rule: never `await` a write inside an offline path.** Fire it, `.catch()` it, carry on — the
+local copy is updated the instant it is called and syncs when signal returns. Pinned by **S32**,
+which slices the offline branch and fails on an awaited write at any line, not just line 192.
+
+**The method lesson is bigger than the bug.** Three rounds of tracing control flow were beaten by
+one ten-line experiment on the primitive. When a path "should work" and demonstrably does not,
+stop reading the path and test the thing it stands on.
+
 ## The rule
 
 Anything that decides *whether to talk to the server* must call `canReachInternet()` (or read
