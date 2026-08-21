@@ -93,3 +93,4 @@ Real things that went wrong (or nearly did), and what was learned.
 - [[Concepts/A Store Name Is Not a Store]] — identity vs label, and the hand-off it broke.
 - `Backlog/` and `Brainstorm/` — a separate to-do board and scratch space for open work. Not part of this knowledge graph by design (see `CLAUDE.md`) — open `Backlog/` directly to see what's next.
 - `PLAN-second-brain-integration.md` — why this vault exists and how it's meant to be maintained.
+- [[Concepts/Where KPM Is Going]] — START HERE: the theme, every locked decision, and the direction.
