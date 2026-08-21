@@ -117,3 +117,50 @@ PENALTY charges the agent at retail.
 - [[Aldi's Design Taste]] — his exact words on every visual decision
 - [[The KPM Control System]] · [[Anti-Recurrence Check]] · [[Silent Failure Disease]]
 - [[Sale Is Final - no refund, no credit]] · [[UI-Says-Yes-Server-Says-No Pattern]]
+
+---
+
+## Gap analysis — standard practice vs KPM (2026-08-21)
+
+Aldi sent a YouTube link believing it showed how a bigger system does this. **It did not, and that
+is worth recording so nobody chases it again:** the video is *"How to Build an Inventory Management
+System with Claude Code in Next.js (Full Tutorial 2026)"* (AyyazTech, 2.3K views) — a beginner
+build tutorial covering products, stock in/out, low-stock alerts and a dashboard. **KPM shipped all
+four long ago.** It is behind this app, not ahead of it.
+
+⚠️ Web search was unavailable in that session (`cc/haiku` routing fault, the same one that kills
+subagent `model:` overrides). The table below is standard warehouse practice from knowledge, not
+from fetched sources. **Re-verify before treating any row as authoritative.**
+
+| Practice | KPM |
+|---|---|
+| Blind counting — the counter cannot see the expected figure | ✅ tier-gated, `canSeeExpectedCount` |
+| Counter is not the approver | ✅ HQ approves `pending_audits` |
+| Corrections apply the DIFFERENCE, never an overwrite | ✅ `increment(counted - expected)` |
+| Full audit trail of every count | ✅ `pending_audits` |
+| A cause recorded against damage | ✅ shipped 2026-08-21 |
+| The count frozen against mid-count sales | ✅ shipped 2026-08-21 |
+| **A difference is recounted before it is accepted** | ❌ **hole — next job** |
+| **A cause recorded against a difference** | ❌ hole |
+| **A tolerance threshold, so small differences auto-accept** | ❌ hole — HQ currently sees everything |
+| Counting in resumable sessions | ❌ hole |
+| **Per-product count history** | ❌ hole — see below |
+| Barcode scan instead of scroll | ❌ hole, and depends on whether his products carry barcodes |
+| ABC cycle counting | ➖ not needed at his size; do not propose it again |
+
+**KPM already has the hard parts** — blind counting, separation of duties, delta corrections and an
+audit trail are what most small systems never build. **Every remaining hole sits in one place:** the
+gap between *"the agent found a different number"* and *"stock changed"*. That gap has no checking
+in it at all today.
+
+### The hole nobody had named: per-product count history
+
+One short count is a mistake. **The same product short three months running is theft** — and the app
+cannot show that, because each audit is filed on its own and never compared with the last one. The
+data is already in `pending_audits`; nothing new has to be collected. Proposed to him 2026-08-21,
+**not yet answered**.
+
+### Why recount is first, in one line
+
+A miscount that HQ approves is written into real stock by `increment()`, and that wrong figure
+becomes the **expected** figure for the next count. One typo poisons two months.
