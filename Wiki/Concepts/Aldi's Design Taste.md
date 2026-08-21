@@ -938,3 +938,59 @@ And "confirm the store received the item" cannot be settled from the sale record
 agent typed it — the suspect's own entry cannot exonerate the suspect. Independent evidence is the
 customer's word, or the van count, which already catches the variant where the faked sale's goods
 are still on the vehicle.
+
+## 🔴 AMBER IS AN EDGE AND AN INK. IT IS NOT A FILL. (2026-08-21)
+
+> *"stop using amber background i said, i hate it, use it for little things and u can do better
+> animation or UI for the damaged item not just all amber"*
+
+The word **"i said"** is the tell — this was the second time. The 2026-08-20 rule ("amber draws
+lines, it does not fill the box") was written down and then broken anyway, by me, in a fresh
+prototype: a gold slab on the MATCH plate and gold fills on the toggle buttons. Writing a design
+law down does not stop it being broken. **A number in a check does.**
+
+What survived as a legal fill, and why: a **3px rule whose LENGTH is the data** (how much of the
+damaged total has been given a cause). At 3px it reads as a line, not a slab. That is the only
+one left on the control.
+
+### He judges by measurement, not by vibe — twice in one session
+
+> *"i want u make the transparant circle on the back for the level to have outline color so that
+> i can see it clearly instead of black on black or something, just make it visible"*
+
+"black on black" was literal. The empty ring was `--line` (#26231F) on `--panel` (#121110):
+**1,19:1**. He read a contrast failure off a screenshot. After the fix: 5,60:1 dark, 7,97:1 light.
+
+> *"it is an taste issue why u have so much space between produt title and the 2x2 panel, why
+> dont u just expand the panel so that its more visible instead or smth?"*
+
+He called it taste; it was two bugs. **The rule underneath is his, and it is general: the SLACK
+BELONGS TO THE DATA, NOT THE LABEL.** A title given `flex:1` parks hard left and opens a dead
+channel across every row. The figures should grow into that space instead — bigger numbers are
+the point of having the space.
+
+### The near-miss worth remembering
+
+Fixing his invisible-dot report, I gave the ring `box-shadow: inset 0 0 0 1px`. **Lite Mode strips
+box-shadow**, so on a cheap Android every unvisited position would have gone invisible again — the
+identical bug he had just reported, arriving through a different door. The integration audit's
+rule *"nothing depends on a shadow, a blur or a filter"* caught it. Tailwind's `ring-*` is also a
+box-shadow, and caught the same way.
+
+**A check outlives the person who remembers why.** See [[Anti-Recurrence Check]].
+
+## A warehouse row holds several kinds of damage at once (2026-08-21)
+
+> *"i made this because there might be different kind of damaged good stored inside our warehouse
+> right?"*
+
+He killed my one-reason-per-product shortcut with one question, and he was right.
+
+**The structural finding underneath it:** KPM treats damage two different ways and they do not
+match. **Intake** is a bare integer (`damagedStock`). **Resolution** is a full ledger
+(`quarantine_logs` — qty, method, value, who, when). So the app can answer *"what left quarantine
+and why"* perfectly and *"what is in quarantine and why"* not at all. Damage now enters with a
+cause and a quantity per cause; the total stays the truth and the causes must sum to it.
+
+**Why it is a money change:** the cause decides who pays. RTV charges nobody, PENALTY charges the
+agent at retail. Damage entering with no cause makes that decision a guess.
