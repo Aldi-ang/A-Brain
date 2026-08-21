@@ -28,6 +28,7 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | **SWEEP — permission rules versus the screen** | To Do — 6 findings. 2 HIGHEST (customer "view only" does nothing; **anyone can claim your employee's email before they log in**) |
 | **SWEEP — 22 claims that got KILLED** | Reference — do not chase these. Includes one that **contradicts the excise item below** |
 | Add production_targets Firestore rule | (see file) |
+| Test the new Stock Opname on a real screen | **To Do — HIGH, only Aldi can do it.** Five features shipped 2026-08-21, none seen running |
 | Business and UX improvement testing session | To Do — scheduled 2026-07-28 |
 | Chunk handleAdminApproveTransfer | To Do |
 | Crown Transfer (Option A) | Parked — waiting on a conversation with the company boss |
