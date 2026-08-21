@@ -268,3 +268,38 @@ direction of error as a commit message that claims a fix the diff does not conta
 (`Workflow({scriptPath, resumeFromRunId})`), so the single agent that DID complete replayed from
 cache for free and only the dead ones re-ran. A review that has to start over after a quota reset
 usually just does not get finished.
+
+---
+
+## 🔴 A GREEN SUITE IS NOT A WORKING SCREEN (2026-08-21)
+
+The worst outcome this file exists to prevent happened anyway, and it is worth the space.
+
+The KPM Stock Opname count row read `hasTyped` **two lines above its own `const hasTyped`**. A
+`const` is in the temporal dead zone until its own line runs, so **every render threw** and the
+whole tab fell into its error boundary — a blank *"[STOCK_OPNAME] FAILED TO LOAD"*.
+
+It shipped, and survived two further commits, while:
+
+- `npm run build` compiled it without a word — bundlers do not evaluate the module,
+- `integration.audit.mjs` reported **599/599**,
+- `logicFixes.selfcheck.mjs` reported **565/565**.
+
+**Both suites read source text and run functions lifted out of components. Neither renders
+anything.** Every check in that repo can be green while the app is a black rectangle. Aldi asked
+*"can u do testing yourself"* and opening the screen in his own Chrome found it in ninety seconds.
+
+### The second lesson, from the same day
+
+A static guard for that ordering was written — and **deleted**, because a probe that restored the
+broken ordering **did not turn it red**. It passed on the bug as readily as on the fix.
+
+Earlier the same day, a threshold constant was **retyped** into its check instead of lifted from
+the source; loosening the shipped rule to a nonsense value changed nothing, because the checks
+were testing the check file's own copy.
+
+**Two decorations in one day, both found only by deliberately breaking the shipped code.**
+
+> **PROVE A CHECK FAILS BEFORE TRUSTING IT. DELETE IT WHEN IT CANNOT.**
+> Lift every constant and every rule from the source; never retype one.
+> And there is no static check for *"it renders"* — [[Looking at the App]] is not optional.
