@@ -1018,3 +1018,42 @@ names, numbers and error text exact. See the `feedback_explain_in_plain_english`
 Same day he settled two decisions: the stock-count expected number is a per-tier option, on by
 default for tiers 1-3 and blind for tiers 4-6 ("encourage them to really count the number right"),
 and the whole app says TITIP, not consignment.
+
+## 2026-08-21 — the count path closed end to end, and a page that went stale in seven hours
+
+**Ingested:** [[../Raw/2026-08-21_source_stock-count-trust-chain|the five afternoon commits]] →
+[[Summaries/Stock Count Trust Chain]]. Scheduled ingest run 2026-08-22.
+
+At 10:07 [[Concepts/Where KPM Is Going]] was written and named the gap four times: *"the gap
+between 'the agent found a different number' and 'stock changed' has no checking in it at all
+today."* **By 17:00 that sentence was false.** Recount (`2d8d371`), variance cause (`e103469`),
+one-pack tolerance (`7153a82`) and leak detection (`08e98ce`) all shipped. That page's gap table
+carried four ❌ rows that were ✅ the same afternoon — corrected in place, with the original claims
+kept and marked superseded rather than deleted.
+
+**Worth remembering on its own: a direction page can go stale in seven hours.** It is the most
+useful page in the vault precisely because it says what is missing, which is also the part with
+the shortest half-life. Nothing is wrong with the page — it needed a ripple that nobody ran until
+the next scheduled pass.
+
+**The finding that generalises, from the tolerance:** selling in Batang stores `qty /
+sticksPerPack`, so a product with loose sticks sold from it holds a **fraction** of a pack. The
+count box is `parseInt`. **A fractional stored value met by an integer-only input is an
+unsatisfiable equality** — variance could never reach zero, so with the recount in place it forced
+an endless second count and filed a fake half-pack shortage every week. It arrived looking like a
+preference question (*"what size difference is not worth your time"*) and was a defect underneath.
+
+**And where a feature lives is a design decision.** Leak detection deliberately does NOT go on the
+count row: `auditHistory` only loads for high command, so a counting agent would see an empty list
+and **conclude all was well** — and telling the counter "this one is usually short" biases the
+count blind counting exists to protect. It sits on HQ's review row.
+
+🔴 **One open decision was created and not closed:** the five shortage causes — *miscount,
+unrecorded sale, breakage, theft, supplier short* — **are Claude's words, not Aldi's**. His
+standing law is that only he names categories in his own trade. Saved records keep whatever string
+was used, so the list must be settled **before** agents count with it. New card:
+[[../Backlog/Name the five shortage causes]].
+
+The crash that blanked the tab for the afternoon, and the two decorative checks caught the same
+day, were already written up in [[Concepts/Anti-Recurrence Check]] by the session itself
+(`b05e841`) — not repeated here.

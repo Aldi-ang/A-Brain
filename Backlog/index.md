@@ -27,6 +27,8 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 | **SWEEP — warehouse and restock** | To Do — 7 findings. Includes corrections to the two shipment items already listed below — read the corrections before fixing |
 | **SWEEP — permission rules versus the screen** | To Do — 6 findings. 2 HIGHEST (customer "view only" does nothing; **anyone can claim your employee's email before they log in**) |
 | **SWEEP — 22 claims that got KILLED** | Reference — do not chase these. Includes one that **contradicts the excise item below** |
+| 🔴 **Name the five shortage causes** | **To Do — Aldi only.** The stock-count cause picker shipped 2026-08-21 with five words Claude invented. Saved records keep whatever string was used, so the list must be settled **before** agents count with it |
+| **Test the new Stock Opname on a real screen** | To Do — Aldi only. Five features shipped in one day; the count screen has never been opened |
 | Add production_targets Firestore rule | (see file) |
 | Test the new Stock Opname on a real screen | **To Do — HIGH, only Aldi can do it.** Five features shipped 2026-08-21, none seen running |
 | Business and UX improvement testing session | To Do — scheduled 2026-07-28 |

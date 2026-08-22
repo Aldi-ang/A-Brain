@@ -3,7 +3,7 @@ title: "Session Ingest State"
 description: Tracking file for the a-brain-session-ingest scheduled task — which sessions/Inbox items have already been processed.
 type: state
 created: 2026-07-27
-updated: 2026-08-15
+updated: 2026-08-22
 tags: [runs, state]
 ---
 
@@ -31,3 +31,7 @@ not hand-edit unless correcting a mistake the task made.
 | local_d5db1b80-1dbf-4f34-b83b-24625632ada6 | Obsidian vault relationship and Claudian integration | 2026-07-28 | Session continued after being logged as "already reflected" — later activity fixed a real Vercel build break (`react-is` transitive-dep removal) and self-ingested it directly into Wiki/Log.md, Anti-Recurrence Check, the Backlog card, and the delegate-coding-task skill file. Verified all four landed; nothing left for this run to add |
 | local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-08-15 | **New — ingested.** The 2026-08-15 00:00–08:15 WIB block (commits `36fdae2` through `8939567`): desk header/dock shipped and Aldi-approved, phone duplicate-totem media-query gap, `grid-auto-rows` definite-height trap, WebAuthn hostname-lock explanation. Session's earlier activity (through 12:11 on 08-14) was already covered by the previous run |
 | local_3b681328-7f1c-4355-b2b7-5063b85099eb | Vault gap curator | 2026-08-15 | Skipped — vault-maintenance session, not user work; no vault commit followed it (nothing new to capture) |
+| local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-08-22 | **Partially ingested (third pass).** Its 2026-08-15 08:30 -> 2026-08-21 work was largely self-ingested as it went (vault commits 08-18 to 08-21, plus the daily Vault gap curator runs) and was verified covered rather than re-read. The one real gap was the **2026-08-21 afternoon** block (`08e98ce` → `7989b82`) — captured this run as [[../Wiki/Summaries/Stock Count Trust Chain]] |
+| local_81170313-e515-42d2-ac38-172ff72651e1 | Vault gap curator | 2026-08-22 | Skipped — vault-maintenance session, not user work; its writes ARE the vault (through commit `b05e841`). Confirmed it left no uncommitted changes |
+| local_cc95e308-504d-4b5a-a57d-67657074571b | WiFi performance on phone | 2026-08-22 | Skipped — continued to 2026-08-16 but already covered by [[../Wiki/Concepts/Secure Context Requirement]] and the Silent Failure Disease commits (`d830906`, `800b3d8`, `79b930e`), all self-ingested |
+| _(2026-08-16 -> 2026-08-20 KPM work)_ | - | 2026-08-22 | Verified covered, not re-read from transcripts. Wiki/Log.md carries dated entries for 08-16 (light ground), 08-16/17 (EOD Setoran), 08-17 (stamp ceiling), and thirteen 08-18 entries; 08-19/08-20 landed as Concept pages (Silent Failure Disease, A Network Is Not The Internet, The Named Path Was Already Shut) |

@@ -26,6 +26,7 @@ should trace back to one of these.
 - [[Rank Config Cross-Tenant Gap]]
 - [[Rules Draft Process]]
 - [[Six Days — Gate, Phone Access, Quota Meter]]
+- [[Stock Count Trust Chain]] — recount, cause, tolerance and leak detection, all shipped in one afternoon; and the five cause words that are still Claude's, not Aldi's.
 - [[Store Hand-off Name Collision]] — a name-keyed transfer moved the wrong agent receivable; the prescribed id fix was impossible.
 
 ## Adding a new summary

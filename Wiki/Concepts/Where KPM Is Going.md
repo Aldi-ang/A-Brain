@@ -89,8 +89,11 @@ Concretely, in the order he has been driving:
 1. **Stock Opname is the priority.** *"stock opname is the most important lets fix that"*.
    Shipped 2026-08-21: expected damage has its own figure, damage carries a **cause and a
    quantity per cause**, and the target is frozen when a row is started so a mid-count sale
-   cannot move it. Next: **count a difference twice before HQ sees it**, then variance causes,
-   then thresholds so small differences stop drowning HQ.
+   cannot move it. **All three "next" items — recount, variance causes, and a tolerance threshold —
+   shipped the same afternoon, along with leak detection.** See
+   [[../Summaries/Stock Count Trust Chain]]. What is left: **counting in resumable sessions**, and
+   🔴 **Aldi naming the five shortage causes himself** — the current words are Claude's and must be
+   settled before agents count with them.
 2. **Counting in sessions, not wall-to-wall.** Pick a shelf, count it, close it, resume tomorrow.
    This is also the only real fix for a long product list on a phone.
 3. **He wants "tokopedia and indomaret level".** Underneath that phrase is ordinary warehouse
@@ -140,11 +143,11 @@ from fetched sources. **Re-verify before treating any row as authoritative.**
 | Full audit trail of every count | ✅ `pending_audits` |
 | A cause recorded against damage | ✅ shipped 2026-08-21 |
 | The count frozen against mid-count sales | ✅ shipped 2026-08-21 |
-| **A difference is recounted before it is accepted** | ❌ **hole — next job** |
-| **A cause recorded against a difference** | ❌ hole |
-| **A tolerance threshold, so small differences auto-accept** | ❌ hole — HQ currently sees everything |
+| **A difference is recounted before it is accepted** | ✅ shipped 2026-08-21 15:51 (`2d8d371`) |
+| **A cause recorded against a difference** | ✅ shipped 2026-08-21 16:43 (`e103469`) — 🔴 the five words are unapproved |
+| **A tolerance threshold, so small differences auto-accept** | ✅ shipped 2026-08-21 16:51 (`7153a82`) — one whole pack |
 | Counting in resumable sessions | ❌ hole |
-| **Per-product count history** | ❌ hole — see below |
+| **Per-product count history** | ✅ shipped 2026-08-21 15:46 (`08e98ce`) as leak detection — see below |
 | Barcode scan instead of scroll | ❌ hole, and depends on whether his products carry barcodes |
 | ABC cycle counting | ➖ not needed at his size; do not propose it again |
 
@@ -153,12 +156,25 @@ audit trail are what most small systems never build. **Every remaining hole sits
 gap between *"the agent found a different number"* and *"stock changed"*. That gap has no checking
 in it at all today.
 
+> ✅ **Superseded the same afternoon (2026-08-21, 15:46 → 16:51).** The sentence above was true
+> when this page was written at 10:07 and was false by 17:00. Recount, cause, tolerance and leak
+> detection all shipped; the table above has been corrected. The one hole left in this section is
+> **resumable counting sessions**. Full account:
+> [[../Summaries/Stock Count Trust Chain]]. It has still **never been opened on a real screen** —
+> see [[../../Backlog/Test the new Stock Opname on a real screen]].
+
 ### The hole nobody had named: per-product count history
 
 One short count is a mistake. **The same product short three months running is theft** — and the app
 cannot show that, because each audit is filed on its own and never compared with the last one. The
 data is already in `pending_audits`; nothing new has to be collected. Proposed to him 2026-08-21,
 **not yet answered**.
+
+> ✅ **Answered and shipped the same day** (`08e98ce`, 15:46). Aldi: *"u can add leak detection for
+> this trigger for everytime stock opname is done, which is each week actually."* Threshold: short
+> in at least two of at least three counts on record. It sits on **HQ's review row, not the count
+> row** — putting it on the count row would both show a counting agent an empty list (the rules
+> refuse `pending_audits` below high command) and bias the count.
 
 ### Why recount is first, in one line
 

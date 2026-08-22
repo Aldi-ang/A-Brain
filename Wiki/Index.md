@@ -64,6 +64,9 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 
 ## Summaries (one per ingested source, newest ingest pass first)
 
+- [[Stock Count Trust Chain]] — the afternoon the gap between "a different number was found" and
+  "stock changed" was closed: recount, cause, tolerance, leak detection. Plus the five shortage
+  words Aldi has not approved
 - [[Light Ground and the Theme Lab]] — why light mode looked unfinished when every panel was
   already converted, and the harness built after three "fixed" claims made without ever looking
 - [[KPM Project Facts Reference]] — the delegate-coding-task skill's KPM facts doc

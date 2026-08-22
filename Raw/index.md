@@ -16,6 +16,10 @@ edited after creation** except for display-only frontmatter (title/description/t
 
 ## Files here (as of 2026-07-27)
 
+- `2026-08-21_source_stock-count-trust-chain.md` — the five `StockOpnameView` commit messages from
+  the 2026-08-21 afternoon, verbatim: leak detection, the recount rule, the variance cause picker
+  (with its unapproved five words), the one-pack tolerance and the batang-fraction bug under it,
+  and the crash that blanked the tab while both suites read green.
 - `2026-08-18_source_store-handoff-name-collision.md` — the account hand-off that reassigned
   every shop sharing a name, and why the id-based fix it was given could not be built.
 
