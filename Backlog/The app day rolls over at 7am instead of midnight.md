@@ -1,7 +1,7 @@
 ---
 title: The app day rolls over at 7am instead of midnight
 description: Every transaction's date field is stamped in UTC, so "today" on the route board runs 07:00 to 07:00 WIB. An agent who starts before 7am sees his visited stores reset mid-morning. The EOD money is not affected.
-status: To Do
+status: Done — 60c53d8 (2026-08-23)
 area: Journey Plan / Fleet
 priority: Medium
 created: 2026-08-17
@@ -64,3 +64,29 @@ stamping new transactions with it too.
 ⚠️ **Do not bulk-rewrite old records.** For a few hours a day the old ones will disagree with the
 new ones. Since the EOD reads timestamps rather than this field, the safest order is: change the
 readers first, watch a morning, then change the writer.
+
+
+---
+
+## Done — 2026-08-23, `60c53d8`
+
+**It was never two bugs.** There was no 7am rule anywhere in the code, and nobody had configured
+one — which is why nobody could find it. `getCurrentDate()` was
+`new Date().toISOString().split('T')[0]`, the **UTC** date, and WIB is UTC+7, so the UTC date flips
+at 07:00 local. The rollover was the symptom of the timezone, not a second problem.
+
+**The fix was already in the file.** `getLocalDayKey` sat directly below the broken helper with a
+comment describing exactly this failure, and all 26 call sites went on using the UTC one anyway.
+Fixed at the definition: `getCurrentDate` now returns the local day key. Every caller wanted local.
+
+`AgentInventoryView.jsx` kept its **own private copy** of the UTC helper, so it would have stayed a
+day behind even after the shared one was fixed. Deleted, and a check now refuses any file that
+defines a second date rule.
+
+⚠️ **OLD RECORDS WERE NOT REWRITTEN.** Past sales between midnight and 07:00 WIB are still filed
+under the previous day. Repairing that means rewriting `date` on every historical transaction from
+its `timestamp` — **Aldi's decision, still open.**
+
+Two non-findings worth keeping: `dayStats` was already correct and pinned so, and the sales-draft
+cap is an AGE (twelve hours), never a day boundary, despite being captioned *"his day starts at
+07:00"* for months.
