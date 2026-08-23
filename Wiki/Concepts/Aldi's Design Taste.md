@@ -994,3 +994,8 @@ cause and a quantity per cause; the total stays the truth and the causes must su
 
 **Why it is a money change:** the cause decides who pays. RTV charges nobody, PENALTY charges the
 agent at retail. Damage entering with no cause makes that decision a guess.
+
+## Where his ideas come from
+
+The component and animation sources he pulls from are listed in [[Design Inspiration Sources]],
+with the four rules that decide whether an idea can survive inside KPM.
