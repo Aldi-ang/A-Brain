@@ -13,3 +13,6 @@
 
 # graphify: regenerable per-file extraction cache, not meaningful to version control
 graphify-out/cache/
+
+# a cloned repo someone dropped in the archive - not ours to track
+Archive/awesome-n8n-templates/

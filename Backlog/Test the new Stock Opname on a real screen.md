@@ -1,7 +1,7 @@
 ---
 title: "Test the new Stock Opname on a real screen — 2026-08-21 build"
 description: Five features shipped to the count screen in one day and none of them has been seen running. Audits and a prototype are not the same as a phone in his hand.
-status: To Do
+status: Partly done — Claude drove it 2026-08-23; three items still need a branch account
 area: Stock Opname
 priority: High
 created: 2026-08-21
@@ -88,3 +88,46 @@ Log in as **tier 1 / owner** and open the audit review list.
 
 Say which numbered item, and send the **build id from the Flight Recorder header** with any
 screenshot. Do not describe it as "the layout is broken" — name the box.
+
+
+---
+
+## Run 2026-08-23 — Claude drove it in his Chrome, he watched
+
+Build: `42fefe8` and earlier, dev server on localhost, **real Firebase**, so **nothing was
+submitted** — no stock audit and no receipt was written.
+
+### Passed, seen on screen
+
+- **Stock Opname loads.** No `[STOCK_OPNAME] FAILED TO LOAD`. This is the one that cost an
+  afternoon on 08-21.
+- **The four figures, full words** — `EXPECTED GOOD 1.086 · EXPECTED DAMAGED 5 · TOTAL FOUND ·
+  DIFFERENCE`. No `EXP DMG`.
+- **The recount panel** — *"COUNT THIS ONE AGAIN. Most differences are miscounts. It is only
+  reported once the same number comes up twice."* + **CLEAR AND COUNT AGAIN**.
+- **The damage ledger line** — `5 DAMAGED · 0 of 5 sorted`, red edge, appears the moment a damaged
+  number is typed.
+- **The reel he designed** — pressing the face steps EXPIRED → WATER DAMAGE → TORN / CRUSHED, the
+  dots track `1/5 → 2/5 → 3/5` with the current one filled and larger, ▲▼ arrows present.
+- **The reconcile counter is live** — typing 3 turns the line into `3 of 5 sorted` and fills the
+  progress bar to match.
+- **HQ pipeline says `PENDING, IN-TRANSIT & DISPUTED`** — the 2026-08-23 change is live.
+- **Factory intake is labelled FACTORY PRODUCTION INBOUND**, not supplier.
+
+### ⚠️ Found — over-sorted damage looks fine until you submit
+
+Typing **9** against a total of **5** shows `9 of 5 sorted` with the bar full and **nothing marking
+it as wrong**. The refusal is real but only fires at submit, so a counter can sit on a broken row
+believing it is finished. Small, but it is the *"UI says yes"* shape.
+
+### Could NOT be tested, and why
+
+- **The arrival check** — the logistics pipeline is empty, there is no shipment in transit to
+  receive, and creating one would write real stock.
+- **The stock-age line** (`Paling lama di sini · N hari`) — it renders on the **branch** side only,
+  and he is signed in as HQ. **Needs a regional-admin account.**
+- **Blind counting** — he is tier 1, so seeing the expected figures is correct behaviour. The blind
+  path needs a tier 5/6 account.
+- **Anything past submit** — refused on purpose against the live database.
+
+**The three gaps above all need either a branch/agent login or the Firebase emulator.**
