@@ -14,5 +14,7 @@
 # graphify: regenerable per-file extraction cache, not meaningful to version control
 graphify-out/cache/
 
-# a cloned repo someone dropped in the archive - not ours to track
-Archive/awesome-n8n-templates/
+# Archive/awesome-n8n-templates/ was ignored here until 2026-08-23 as "a cloned repo someone
+# dropped in the archive - not ours to track". Aldi reversed that deliberately: "make sure that we
+# saved this github even when the owner delete all of this on purpose". Tracking it IS the point --
+# an ignored clone dies with the upstream repo. Its own .git was removed so these are plain files.
