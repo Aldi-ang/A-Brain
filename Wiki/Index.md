@@ -61,6 +61,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   unrelated write into megabytes of main-thread work, because a snapshot re-materialises the
   whole collection; found chasing the phone freeze after registering an outlet
 - [[Aldi's Design Taste]] — what he actually likes and rejects, built only from screens he judged
+- [[The Eight Warehouse Gaps]] — what big warehouse operations do that KPM does not, ranked, with the build order and the excise question that blocks one of them
 - [[Design Inspiration Sources]] — the 5 sites his component and animation ideas come from, and the 4 rules an idea must clear to survive in KPM
 
 ## Summaries (one per ingested source, newest ingest pass first)
