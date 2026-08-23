@@ -36,6 +36,9 @@ How KPM decides who can read or write what, and where that's gone wrong.
 
 ## 🧭 Process & Discipline
 
+- [[n8n Automation Templates Archive]] — a parts bin of 347 prebuilt automations, archived
+  locally. Read before building any integration by hand.
+
 The house rules this project follows so mistakes don't repeat.
 
 - [[Anti-Recurrence Check]] — never say "committed" without checking `git show --stat` yourself.
