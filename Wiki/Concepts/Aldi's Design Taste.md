@@ -1065,3 +1065,37 @@ move what is measured, never to move the bar.
 
 ⚠️ Open, unanswered as of this note: whether he wants bright-amber plates with dark outlines
 instead of dark-brown plates with none. 68 fills ride on it.
+
+## 2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one
+
+> *"btw i dont like the lines on the sidebar background for the light mode can u change to other
+> plate instead, this line make the color that is intact on it seems darker as well"*
+
+The light-mode faceplate carried a brush texture: `repeating-linear-gradient(90deg,
+rgba(255,252,244,.28) 0 1px, transparent 1px 3px)`. **A 1px line every 3px covers a third of the
+plate**, so the surface the sixteen marks actually met was never `--plate` — and
+`contrast.selfcheck` was grading a colour that is not fully there. He read that off a screenshot
+before anyone measured it. **Third time he has caught a contrast fault by eye** (see the invisible
+ring at 1,19:1, and *"it looks more brown than amber"*).
+
+Fixed by removing the grain, not by tuning it. The flat faceplate is not a new material — **Lite
+Mode had shipped exactly it since the plate was built**, so the two modes now agree.
+
+⚠️ **Recorded so it is not "fixed" back:** do NOT put a gradient there instead. A vertical fade
+re-creates the moving ground that made the marks fade down the column before the plate existed.
+Flat, or nothing.
+
+### Refinement to [[AMBER IS AN EDGE AND AN INK]] — the size is what the law is really about
+
+His screenshot of the rail shows the active gear on a **bright amber disc**, and he is not
+complaining about it — he photographed it to complain about something else. So *"stop using amber
+background"* is not a ban on every amber fill; his own words were *"use it for little things"*.
+
+**The operative distinction is SLAB vs MARK.** A small disc, a 3px rule whose length is the data,
+a dot — legal, and bright. A button-sized or panel-sized amber plate — not. This matters because
+the light theme cannot make a large amber fill work anyway: a fill must be dark to clear 3:1
+against cream, and dark amber reads brown, which is the complaint he opened the day with.
+
+**So the fix for a brown button is to stop it being a fill at all** — transparent body, amber
+edge, amber word, fill only on press. `.kpm-btn.key` already does this and passes; the buttons he
+photographed are Tailwind ones that never adopted the house pattern.
