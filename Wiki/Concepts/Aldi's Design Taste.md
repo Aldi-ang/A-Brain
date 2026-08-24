@@ -32,6 +32,44 @@ taste at 14 moves, and this page is young. Add to it; do not invent from it.
 4. **The receipt keeps KPM's company blue.** The printed nota is not app UI; the palette law
    stops at the print block.
 
+## Light mode gets its own MATERIAL, not a paler copy (2026-08-24)
+
+He photographed the sidebar in light mode: *"as u can see on the light background the text on the
+sidebar almost invisible maybe we should change the color or edit the transparancy"*. Offered two
+fixes — paler glass, or a solid panel — **he invented a third and it was better than both**:
+
+> *"what if some laboratory panel kind of design for the light mode and keep the glass one for the
+> dark mode? do u have something in mind?"*
+
+Then, from four mockups: *"i like anodized the most"*, and after seeing the animations,
+*"A is minimalist and looks cooler"* (lamp beside the icon, not the icon itself lighting).
+
+**The principle, and it generalises past this rail:** the two themes may be different MATERIALS,
+not one design in two colour sets. Glass is a lens — it works by showing what is behind it, which
+is why it failed on a page lit from the top-left that falls off darker toward the bottom. A
+faceplate is opaque and owns its own ground.
+
+**Three things he taught by correcting me:**
+
+1. **My mockups all sat on near-white.** His verdict: *"most of the background is not really
+   difference"*. He was right — the real light ground is `--ground #D2C9B4` cream, and three
+   near-white plates on a widget's white canvas were indistinguishable. **Mock on the real ground
+   or the comparison is fake.**
+2. **"Dense LED" means DARKER on a light plate, not brighter.** *"make sure u make the amber color
+   more dense more like LED ... this color is too light on top of light theme"*. A lamp reads as
+   lit because it stands off its surround; on a pale plate the only direction available is down.
+   `#E0680A` measured 1,86:1 and failed; `#9A4200` measures 3,64:1. Same inversion `--gold`
+   already uses in light mode.
+3. **He asks to see motion running before choosing it.** *"i want to see both animation in
+   action to decide"*, then *"i want to see it on action"*. Static frames are not enough for
+   anything that moves — build the live thing.
+
+**A material that needs no effects also survives Lite Mode untouched**, which the glass never
+could: border + fill + a 1px pattern lose nothing when blur and shadow are stripped.
+
+Shipped: `--plate*` / `--lamp*` tokens, `html.light .kpm-rail-pod::before`, three new
+contrast pairs. Dark mode not touched. See [[Sidebar marks fade out in light mode]].
+
 ## The theme has a name now: RE9 "Ark Lab" (2026-08-13)
 
 His words, unprompted, while rejecting a screen: *"always remember, our theme is Resident evil 9
