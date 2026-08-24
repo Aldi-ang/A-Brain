@@ -75,9 +75,32 @@ But this makes the batch work MORE valuable, not less, and it changes what is tr
 | G3 | reordering is a guess — `minStock` is a flat number (default 50), no velocity, no lead time | high | G7 |
 | G4 | records joined by name, not id — a spelling fix silently splits one thing into two | high | — |
 | G5 | accuracy and shrinkage are never calculated, though the raw numbers now exist | medium | G7, G4 |
-| G6 | damaged stock has no route home — `damagedStock` only ever goes up | medium | — |
+| ~~G6~~ | ~~damaged stock has no route home~~ | **ALREADY BUILT — see below** | — |
 | G7 | the clock is wrong twice — day rolls at 7am, `getCurrentDate()` is UTC in 26 places | medium | — |
 | ~~G8~~ | ~~excise bands~~ | **DELETED** | answered — no government angle |
+
+### ⚠️ G6 WAS NEVER A GAP. IT SHIPPED BEFORE THIS DOCUMENT WAS WRITTEN.
+
+**Corrected 2026-08-24, by reading the code before building it.** The row above claimed
+`damagedStock` only ever goes up. It does not. **Stock Opname › Quarantine Vault** has held the
+route home the whole time — `StockOpnameView.jsx`, `executeResolution()`:
+
+| Way out | What it does |
+|---|---|
+| **SAMPLING** | converts the damaged packs into a sampling record and files the reason |
+| **RTV** | returns them to the factory against a reference number |
+| **PENALTY** | charges an agent for them, priced at `appSettings.penaltyPriceTier` |
+
+All three `increment(-qty)` on `damagedStock` and write a `quarantine_logs` row, at the master
+vault **or at any branch** — there is a facility picker. Four self-checks already cover the path.
+
+**The lesson, not the feature:** this document was written from research and a fast scan, and it
+was wrong about shipped code. Anything on this list gets a grep before it gets a design.
+
+The one thing genuinely worth noting: the Quarantine Vault is gated on `userRole === 'ADMIN'`,
+a hardcoded check, not a permission-matrix one. That covers tier 1 and tier 2 (the sign-in maps
+COMPANY_OWNER onto ADMIN) and can never be granted to anyone else, however Aldi sets the matrix.
+Same shape as the fleet-edit bug he found on 2026-08-24, lower stakes.
 
 ### G1 is cheaper than it looked
 
@@ -95,7 +118,7 @@ because only he knows when a kretek starts tasting old.
 
 ## Build order
 
-**G7 clock → G6 damaged route home → G3 suggested order qty → G5 accuracy panel → G1 batch
+**~~G7 clock~~ → ~~G6 damaged route home~~ → G3 suggested order qty → G5 accuracy panel → G1 batch
 identity → G2 age & oldest-first → G4 ids instead of names**
 
 G7 is first because everything measured per day is wrong until it lands, and it is the smallest job
