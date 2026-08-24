@@ -1,22 +1,55 @@
 #!/usr/bin/env node
-/* Lessons health check — the curator's second half.
+/* Lessons health check — the curator's second half. Runs at SessionStart.
  *
- * Alucard SKILL.md §8 sets the rules this enforces:
- *   - cap 5 entries, <=4 lines each, never raise the cap
- *   - at cap, archive the OLDEST entry WITH ZERO FIRES to A-Brain/Wiki/Lessons-Archive.md,
- *     "or don't write"
- *   - entries stay [likely] until they have a recorded Fired: date
+ * Alucard SKILL.md §8a-8c sets the rules this enforces. Rewritten 2026-08-24 when the
+ * 5-entry cap was replaced by a status lifecycle (the cap jammed the loop twice — a file of
+ * five useful entries has nothing to evict, so writing stopped without erroring):
  *
- * The failure mode this exists to catch: at cap with every entry fired, there is no archival
- * candidate, so the "or don't write" branch is the only one left and NO NEW LESSON CAN EVER BE
- * WRITTEN AGAIN. The learning loop jams shut silently — nothing errors, it just stops.
+ *   - every entry carries **Status:** LIKELY | LIVE | RETIRED (YYYY-MM-DD) - why
+ *   - no cap; archive RETIRED-before-today to A-Brain/Wiki/Lessons-Archive.md before appending
+ *   - LIKELY for 14+ days is a BROKEN rule, not an archive candidate: the trigger is wrong, or
+ *     it was a platitude. Retire it, or make it structural (audit check / self-check / hook).
  *
- * Pure text parsing, no model call. Run by hand:  node .claude/lessons-health.mjs
+ * Second job: record this session's lessons.md mtime so the Stop hook (lessons-flush.mjs) can
+ * tell whether anything was written. Fail-open everywhere — a hook that throws is worse than a
+ * hook that says nothing.
+ *
+ * Pure text parsing, no model call. Run by hand:
+ *   node "A-Brain/automation/lessons-health.mjs"
  */
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, statSync, readdirSync, unlinkSync } from 'node:fs';
+import { join } from 'node:path';
 
 const LESSONS = 'C:/Users/ASUS/.claude/skills/alucard/lessons.md';
-const CAP = 5;
+const STATE_DIR = 'D:/APP DEVELOPMENT/kpm inventory main FILES/A-Brain/runs/.lessons-state';
+const STALE_DAYS = 14;
+const MAX_LINES = 20;
+
+const today = new Date();
+const iso = (d) => d.toISOString().slice(0, 10);
+const daysBetween = (a, b) => Math.round((a - b) / 86400000);
+
+/* ---- side job: baseline for the Stop hook. Never let this break the report. ---- */
+function recordBaseline() {
+  let sessionId = '';
+  try {
+    sessionId = (JSON.parse(readFileSync(0, 'utf8')).session_id || '').replace(/[^\w-]/g, '');
+  } catch { /* no stdin, or not JSON — run by hand */ }
+  if (!sessionId) return;
+  try {
+    mkdirSync(STATE_DIR, { recursive: true });
+    /* prune: a state file per session adds up, and none matters after the session ends */
+    for (const f of readdirSync(STATE_DIR)) {
+      const p = join(STATE_DIR, f);
+      if (daysBetween(today, statSync(p).mtime) > 7) unlinkSync(p);
+    }
+    writeFileSync(
+      join(STATE_DIR, `${sessionId}.json`),
+      JSON.stringify({ mtime: statSync(LESSONS).mtimeMs, nagged: false })
+    );
+  } catch { /* fail open */ }
+}
+recordBaseline();
 
 let text;
 try {
@@ -26,63 +59,90 @@ try {
   process.exit(0);
 }
 
-/* Entries start at "### <date> — <title>"; everything before the first one is preamble.
- * The preamble contains a FORMAT TEMPLATE inside a code fence whose heading reads
- * "### YYYY-MM-DD — <short lesson>" — requiring a real numeric date is what excludes it.
- * Counting it inflated the total to 6 and hid the fact that the list was jammed. */
+/* Entries start at "### <date> — <title>"; everything before the first is preamble. The preamble
+ * holds a FORMAT TEMPLATE inside a code fence headed "### YYYY-MM-DD — <short lesson>" —
+ * requiring a real numeric date is what excludes it. Counting it once hid a jam. */
 const blocks = text.split(/^### /m).slice(1).filter((b) => /^\d{4}-\d{2}-\d{2}/.test(b));
+
 const entries = blocks.map((b) => {
-  const title = b.split('\n')[0].trim();
-  /* "Fired:" with nothing after it on that line means never fired. */
-  const fired = /^Fired:[ \t]*\S/m.test(b);
-  /* Bookkeeping comments are not entry content. The archive ledger sat between two entries
-     and was counted as part of the one above; moved to the foot of the file it was counted
-     as part of the LAST one instead. Strip them wherever they sit. (2026-08-18) */
+  const head = b.split('\n')[0].trim();
+  /* Bookkeeping comments are not entry content. The archive ledger has been miscounted as part
+     of both its neighbours before; strip comments wherever they sit. */
   const body = b.replace(/<!--[^]*?-->/g, '');
-  const lines = body.split('\n').filter((l) => l.trim()).length;
-  return { title, fired, lines };
+  const m = /^\*\*Status:\*\*[ \t]*(LIKELY|LIVE|RETIRED)\b[ \t]*(\(\d{4}-\d{2}-\d{2}\))?/m.exec(body);
+  return {
+    title: head,
+    written: head.slice(0, 10),
+    status: m ? m[1] : null,
+    retiredOn: m && m[2] ? m[2].slice(1, -1) : null,
+    fired: /^Fired:[ \t]*\S/m.test(body),
+    lines: body.split('\n').filter((l) => l.trim()).length,
+  };
 });
 
-const unfired = entries.filter((e) => !e.fired);
-/* §8 says "<=4 lines each", but every real entry has always run ~10-14 lines once Trigger /
- * Lesson / Would-have-prevented / Seen / Fired are counted. A check that fires on the normal
- * state is noise, not signal — so this only catches genuine runaway. */
-const oversize = entries.filter((e) => e.lines > 20);
 const problems = [];
+const live = entries.filter((e) => e.status === 'LIVE');
+const likely = entries.filter((e) => e.status === 'LIKELY');
+const retired = entries.filter((e) => e.status === 'RETIRED');
 
-/* Was a JAMMED error until 2026-08-18. §8's old rule said "archive the oldest ZERO-FIRE entry, or
- * don't write", so 5/5-all-fired left no branch and the loop went silent. Aldi authorised the rule
- * change and §8 now archives one anyway. So this state is no longer a fault — it is a heads-up that
- * the NEXT lesson costs an archival, and that the choice needs a reason written into the archive. */
-const archivalDue = entries.length >= CAP && unfired.length === 0;
-
-if (entries.length > CAP) {
-  problems.push(`OVER CAP — ${entries.length} entries, cap is ${CAP}.`);
-}
-if (oversize.length) {
-  problems.push(`TOO LONG — ${oversize.map((e) => `"${e.title}"`).join(', ')} exceed ~4 lines.`);
-}
-/* A stale-header check: the preamble claims nothing has ever fired, but entries say otherwise. */
-const preamble = text.split(/^### /m)[0];
-if (/never been written or fired|No entry has ever been/i.test(preamble) && entries.some((e) => e.fired)) {
+/* §8a — a status is mandatory and a resolved one must carry its date. */
+const statusless = entries.filter((e) => !e.status);
+if (statusless.length) {
   problems.push(
-    `STALE HEADER — the preamble still says no entry has ever fired, but ` +
-    `${entries.filter((e) => e.fired).length} have. The header is out of date.`
+    `NO STATUS — ${statusless.map((e) => `"${e.title}"`).join(', ')}. §8a: every entry opens ` +
+    `with **Status:** LIKELY | LIVE | RETIRED (date).`
   );
 }
+const undated = retired.filter((e) => !e.retiredOn);
+if (undated.length) {
+  problems.push(`RETIRED WITHOUT A DATE — ${undated.map((e) => `"${e.title}"`).join(', ')}. Invalid; add the date it was retired.`);
+}
+
+/* §8a — archive on write. Same-day retirements stay so parallel sessions can see them. */
+const dueForArchive = retired.filter((e) => e.retiredOn && e.retiredOn < iso(today));
+if (dueForArchive.length) {
+  problems.push(
+    `ARCHIVE DUE — ${dueForArchive.length} entry(ies) retired before today are still in the file: ` +
+    `${dueForArchive.map((e) => `"${e.title}"`).join(', ')}. Move them to A-Brain/Wiki/Lessons-Archive.md.`
+  );
+}
+
+/* §8b — the real change. A rule that has not fired is not waiting its turn, it is broken. */
+const stale = likely.filter((e) => daysBetween(today, new Date(e.written)) >= STALE_DAYS);
+if (stale.length) {
+  problems.push(
+    `NEVER FIRED IN ${STALE_DAYS}+ DAYS — ${stale.map((e) => `"${e.title}"`).join(', ')}. §8b: the ` +
+    `trigger is wrong, or it was a platitude. Retire it, or convert it into a check/hook and retire the prose.`
+  );
+}
+
+/* Status and evidence must agree, in both directions. */
+const mismatch = entries.filter(
+  (e) => (e.status === 'LIVE' && !e.fired) || (e.status === 'LIKELY' && e.fired)
+);
+if (mismatch.length) {
+  problems.push(
+    `STATUS DOES NOT MATCH Fired: — ${mismatch.map((e) => `"${e.title}"`).join(', ')}. ` +
+    `LIVE needs a Fired: date; LIKELY must have none.`
+  );
+}
+
+const oversize = entries.filter((e) => e.lines > MAX_LINES);
+if (oversize.length) {
+  problems.push(`RUNAWAY LENGTH — ${oversize.map((e) => `"${e.title}" (${e.lines} lines)`).join(', ')}.`);
+}
+
+const tally = `${entries.length} entries — ${live.length} LIVE, ${likely.length} LIKELY, ${retired.length} RETIRED`;
 
 if (problems.length) {
-  console.log(`LESSONS: NEEDS ATTENTION — ${entries.length} entries, ${unfired.length} never fired.`);
+  console.log(`LESSONS: NEEDS ATTENTION — ${tally}.`);
   for (const p of problems) console.log(`- ${p}`);
-  if (archivalDue) console.log('- note: at cap with every entry fired — the next lesson archives one (§8).');
-} else if (archivalDue) {
-  console.log(
-    `LESSONS: OK — ${entries.length}/${CAP}, every entry fired. The next lesson archives one: pick ` +
-    `the least useful now (superseded, over length, or oldest last-fire) and say why in the archive.`
-  );
 } else {
+  const soon = likely
+    .map((e) => STALE_DAYS - daysBetween(today, new Date(e.written)))
+    .filter((d) => d <= 4 && d > 0);
   console.log(
-    `LESSONS: OK — ${entries.length}/${CAP} entries, ${unfired.length} never fired ` +
-    `(archivable when at cap).`
+    `LESSONS: OK — ${tally}.` +
+    (soon.length ? ` ${soon.length} LIKELY entry(ies) go stale within ${Math.max(...soon)} day(s).` : '')
   );
 }
