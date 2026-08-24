@@ -1037,3 +1037,31 @@ agent at retail. Damage entering with no cause makes that decision a guess.
 
 The component and animation sources he pulls from are listed in [[Design Inspiration Sources]],
 with the four rules that decide whether an idea can survive inside KPM.
+
+## 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured)
+
+He photographed Sampling, Customer Directory and Settings: *"most of them have brown color not
+ARK Lab enough lol"*, and earlier *"apply this color to other components as well because most of
+them is too brown, but make sure that its not too bright that sharp to the eye level"*.
+
+**The brown is not neglect. It is forced by `src/config/contrast.selfcheck.mjs`.** Measured:
+
+- the gold plate must clear **3:1** against the darkest light ground → plate luminance **≤ 0.1376**
+- a dark ink (`#2B2318`) on that plate needs **4.5:1** → plate luminance **≥ 0.2552**
+
+The windows do not overlap, so **no colour** satisfies both — not just no amber. `--gold` is
+`#7A4C0C` (L 0.0933) with pale ink `#FCF7EE` because that is the only shape that passes. A trial
+swap to `#E07C00` + `#2B2318` failed 4 pairs (2.14, 1.60, 2.41, 2.16 vs a needed 3) and was
+reverted; the ink half passed at 5.20:1.
+
+**The escape is the rule he had already accepted the same day for the sidebar rail:** *"a lamp is
+separated from its panel by its BEZEL, not its core"*. `--gold-edge` measures **4.57:1** against a
+panel. The check measures the plate's CORE against the ground — the wrong part of a rimmed plate.
+
+**Taste principle to carry forward:** when he says something reads too brown, check whether a
+contrast rule is measuring a FILL that is actually rimmed. Darkening a core until a check goes
+green is how the rail came out brown the first time, and he photographed that too. The fix is to
+move what is measured, never to move the bar.
+
+⚠️ Open, unanswered as of this note: whether he wants bright-amber plates with dark outlines
+instead of dark-brown plates with none. 68 fills ride on it.
