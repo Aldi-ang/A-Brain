@@ -1099,3 +1099,48 @@ against cream, and dark amber reads brown, which is the complaint he opened the 
 **So the fix for a brown button is to stop it being a fill at all** — transparent body, amber
 edge, amber word, fill only on press. `.kpm-btn.key` already does this and passes; the buttons he
 photographed are Tailwind ones that never adopted the house pattern.
+
+## 2026-08-24 — he chose the STEEL faceplate over the stencil, against the measurements
+
+Shown four button treatments on his real ground, with contrast numbers on each:
+
+> *"TBH A and B looks cool but B is more minimalistic and similar to our theme more, i think
+> we'll go with that one"*
+
+**A (near-black stencil plate) measured better on every single row** — 15.82 vs 13.97 for ink,
+10.65 vs 1.49 for separation, and it needed no rule changes at all. He picked B anyway, and the
+word that decided it was **"minimalistic"**, with "similar to our theme" right behind it.
+
+**This is the clearest datapoint yet on how he ranks the two.** A measurement gets a treatment
+onto the shortlist; it does not win the shortlist. Weight and quietness beat contrast margin when
+both options are legible. Do not re-run this argument by quoting numbers at him — offer the
+options that pass, then let taste choose. See [[He judges by measurement, not by vibe]], which is
+still true and is not the opposite of this: he uses numbers to catch things that are BROKEN, and
+taste to choose between things that WORK.
+
+### What his choice cost, and why it was still cheap
+
+B is the option that needed work. A pale plate is 1,11-1,68:1 against its grounds, so the rim
+became load-bearing and the four contrast pairs that graded the plate CORE were repointed to
+grade the RIM — **the 3:1 bar did not move, only what it measures.** That trade is only honest
+while the rim is really applied, which the pairs cannot see, so `G50` in `integration.audit.mjs`
+asserts it against the BUILT stylesheet.
+
+⚠️ **THE PART THAT WOULD HAVE SHIPPED BROKEN — MARKS DO NOT FOLLOW PLATES.** `--gold` also filled
+the toggle switch, the segmented switch and the EOD progress bar. Those sit on an `--inset` track,
+not on the page, and a pale fill measures **1,68:1** there: he would have flipped a switch in
+Settings and been unable to tell whether it was on. Plates went pale, marks kept amber. His own
+slab-versus-mark rule is what made the call obvious.
+
+⚠️ **`--sw-on` exists because one mark inverses.** The toggle's track is mid-tone in light and
+near-black in dark, so no single value works: bright amber on the light track is **1,12:1**. Deep
+amber `#6B3400` gives 5,32:1 in light; the bright value gives 9,32:1 in dark. `--lamp-on`
+deliberately does NOT inverse, because a lamp is a lamp — a filled track is not a lamp.
+
+### Two bugs found by checks rather than by looking
+
+A rim written as `box-shadow` — **Lite Mode deletes shadows**, so the segmented switch's ON state
+would have gone invisible on a cheap Android. Identical shape to the invisible-dot near-miss
+recorded above. And a contrast pair written this session graded a rim against its own fill instead
+of against the panel, failing at 2,33:1 on a control that is perfectly visible. **A pair that
+measures the wrong relationship is worse than no pair** — it spends trust on a false alarm.
