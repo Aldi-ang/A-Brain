@@ -1190,3 +1190,35 @@ button fill, an emerald glow on DATA SCRUB, and `ring-2 ring-emerald-500 bg-emer
 dark:bg-slate-700` on the card. **Deleting green would have deleted the meaning.** It is an amber
 EDGE now — legal under his law, and Lite Mode safe, which the ring never was: a ring is a
 box-shadow and Lite Mode deletes it, so on a cheap phone the edited card had no mark at all.
+
+## 2026-08-24 — Lite Mode was painting a dark scrim over every screen, and only looking found it
+
+> *"another thing that i see broke is actually sidebar on lite mode u may check it"*
+
+Reproduced in his Chrome and **measured, after three wrong theories** (a black `box-shadow`, a
+gradient, a specificity tie). `getComputedStyle` settled it in one call:
+the sidebar panel was painting **`rgba(46,38,26,.72)` across 351x688px** — `--duke-scrim` — over
+the whole left column of every screen in Lite Mode.
+
+**Cause: a blanket attribute selector.** `src/index.css` has
+`html.lite-mode [class*="backdrop-blur"] { background-color: var(--duke-scrim) !important }`.
+The desk panel carries `backdrop-blur-xl`, so it matched, and the `!important` beat the panel's
+own `lg:bg-transparent`. On a desk that element is an invisible **window** — it paints nothing,
+and the capsule inside it is the sidebar you see.
+
+⚠️ **The rule's own comment asserted the thing that was false:** *"every element this rule
+overrides is a scrim or an overlay"*. **A comment cannot check itself.** This is the same failure
+shape as a source guard scoped to a line instead of an element, and it is the third time that
+shape has cost a session — see [[scope a guard to the ELEMENT]].
+
+**Fix:** hand the background back at `>=1024px` only, since below that the rail really IS a drawer
+and the scrim is correct. **The blur stays stripped**, or Lite Mode would be paying for a blur on
+the exact phones it exists to protect. `G52` asserts both halves plus the media-query scoping,
+against the BUILT stylesheet.
+
+### The minified form is the form to assert against
+
+`G52` first went red against working CSS because it matched `[class*="backdrop-blur"]` while the
+minifier ships `[class*=backdrop-blur]` — **quotes dropped**. A check that reads the built output
+must be written against the built output, not against the source it came from. Look at `dist`
+first; do not predict the minifier.
