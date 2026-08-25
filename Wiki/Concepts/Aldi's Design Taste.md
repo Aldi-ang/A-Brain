@@ -1144,3 +1144,49 @@ would have gone invisible on a cheap Android. Identical shape to the invisible-d
 recorded above. And a contrast pair written this session graded a rim against its own fill instead
 of against the panel, failing at 2,33:1 on a control that is perfectly visible. **A pair that
 measures the wrong relationship is worse than no pair** — it spends trust on a false alarm.
+
+## 2026-08-24 — he reversed his own choice AFTER seeing it, and that is the whole lesson
+
+Two hours after choosing the steel faceplate he opened the running app:
+
+> *"wait i think it may look better with the stencil and an amber light tho, i look on the app
+> and i dont really like it"*
+
+**He is the only person who had seen either treatment render.** The measurements had favoured the
+stencil all along (15,82 vs 13,97 ink, 10,65 vs 1,49 separation); he chose steel from a study
+page, then unchose it from the app. Both calls are his and both were right at the time.
+
+⚠️ **THE RULE THIS SETS: a swatch is not a screen.** The study rendered real buttons at real size
+on the real ground and it STILL did not predict his reaction, because a button is judged among
+sixty other things, not in a row of four. Offer options as a study to narrow the field; expect the
+final call to move once it is in the app. **Budget for one reversal instead of arguing against it.**
+
+### What looking found that no check had been asked
+
+The stencil plate exposed a bug nothing was watching: the two buttons at the top of Sampling
+paired `bg-[var(--gold)]` with `text-[var(--ink)]` — **near-black on near-black, 1,04:1.** He saw
+it in the first screenshot ever taken of this project.
+
+**21 ink references across 5 files** were pointing at `--ink`, `--accent-ink` or `--ink-dim`
+instead of the plate's own `--gold-ink`. Most had never been readable: `--accent-ink` on the OLD
+brown plate measured **1,54:1**, so those notes and badges were broken long before today.
+
+**A token PAIR is a contract, and nothing was enforcing it.** `G51` does now.
+
+### The guard that had to be rewritten before it was worth having
+
+`G51` v1 scanned source LINES and fired 30 times — about 26 wrong. A ternary's other branch, a
+`group-hover:` pair that switches bg and ink together, and two elements sharing one line all look
+identical to a line scan. v2 reads one `className` value at a time and only complains when the bad
+ink is in the STATIC part while the plate can actually apply. **This is the third time the
+element-vs-line mistake has cost a session** — see [[scope a guard to the ELEMENT]].
+
+⚠️ **A guard that cries wolf gets switched off, which is worse than no guard.**
+
+### Green was carrying meaning in Customer Directory, and it had to be replaced not deleted
+
+Three violations on one screen, all meaning *"this is the record you are editing"*: an emerald
+button fill, an emerald glow on DATA SCRUB, and `ring-2 ring-emerald-500 bg-emerald-50
+dark:bg-slate-700` on the card. **Deleting green would have deleted the meaning.** It is an amber
+EDGE now — legal under his law, and Lite Mode safe, which the ring never was: a ring is a
+box-shadow and Lite Mode deletes it, so on a cheap phone the edited card had no mark at all.
