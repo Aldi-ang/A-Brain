@@ -67,6 +67,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 ## Summaries (one per ingested source, newest ingest pass first)
 
 - [[n8n Automation Templates Archive]] — 347 ready-made automation workflows, saved locally
+- [[Skill Repos Evaluated 2026-08-25]] — 19 skill repos judged; why 18 were declined on catalog cost
   so they survive upstream deletion; the full index lists every one
 
 - [[Stock Count Trust Chain]] — the afternoon the gap between "a different number was found" and

@@ -37,6 +37,7 @@ How KPM decides who can read or write what, and where that's gone wrong.
 ## 🧭 Process & Discipline
 
 - [[n8n Automation Templates Archive]] — a parts bin of 347 prebuilt automations, archived
+- [[Skill Repos Evaluated 2026-08-25]] — the verdict table, so the same 19 links are not re-read
   locally. Read before building any integration by hand.
 
 The house rules this project follows so mistakes don't repeat.
