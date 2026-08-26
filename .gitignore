@@ -12,7 +12,7 @@
 .obsidian/plugins/*/data.json
 
 # graphify: regenerable per-file extraction cache, not meaningful to version control
-graphify-out/cache/
+**/graphify-out/cache/
 
 # Archive/awesome-n8n-templates/ was ignored here until 2026-08-23 as "a cloned repo someone
 # dropped in the archive - not ours to track". Aldi reversed that deliberately: "make sure that we
