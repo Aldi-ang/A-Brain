@@ -29,7 +29,7 @@ attention in every unrelated session.
 | Repo | Licence | What it is | Verdict |
 |---|---|---|---|
 | `coleam00/excalidraw-diagram-skill` | **none** | 1 skill, no hooks, diagram JSON | **INSTALLED** — fills a real gap, costs ~40 tokens |
-| `garrytan/gstack` | MIT | 23 slash commands (CEO / eng / design / QA reviews) | **Worth a look** — `/office-hours`, `/spec`, `/investigate` are additive |
+| `garrytan/gstack` | MIT | **59** skills (CEO / eng / design / QA / iOS / deploy) | **4 INSTALLED MANUAL-ONLY** — see below |
 | `obra/superpowers` | MIT | 14 skills, spec→plan→subagent TDD methodology | Overlaps ponytail + karpathy + alucard §4; hooks fire automatically |
 | `mukul975/anthropic-cybersecurity-skills` | Apache-2.0 | **818** skills, MITRE/NIST mapped | NO — 90k tokens/session. Reference it if a security job comes up |
 | `affaan-m/ECC` | MIT | **286** skills; memory, instincts, security | NO — duplicates what §8a–8c and A-Brain already do, at ~30k/session |
@@ -46,6 +46,34 @@ attention in every unrelated session.
 | `cline.bot/cli` | — | a competing coding agent CLI | Not a skill |
 | `anythingllm.com` | — | desktop LLM app | Not a skill |
 | `anthropics/.../frontend-design` | official | frontend design skill | Already covered by the design stack in alucard §1a |
+
+## gstack — installed 2026-08-26, and the second cost nobody measures
+
+Aldi said *"add it we might need that in the future right"*, then, mid-install:
+*"we have limited token so make sure that inefficient token usage skills are stores instead of
+auto use"*. Both were satisfied by installing four skills with their descriptions rewritten to
+`MANUAL ONLY`.
+
+**Catalog cost is not the only cost.** gstack's 59 skills are cheap to have listed (~1,413
+tokens) but expensive to RUN — the bodies load in full on invocation:
+
+| installed | invocation cost |
+|---|---|
+| `gstack-office-hours` — six forcing questions that reframe an idea before code | ~26k |
+| `gstack-spec` — vague intent → executable spec, five phases | ~22k |
+| `gstack-design-shotgun` — several design variants + comparison board | ~19k |
+| `gstack-investigate` — root-cause debugging, no fix without evidence | ~16k |
+
+For scale, alucard's entire `SKILL.md` is ~10k. `gstack review` was declined at **28k** — he
+already has `/code-review` and 813 audit checks. So were all 55 others: iOS, Supabase, deploy,
+benchmarks, and the three `plan-*` reviews that restate alucard §4.
+
+**The trap that nearly shipped:** all four arrived with `triggers:` blocks in their frontmatter —
+22 lines of them, including *"show me design options"*. A rewritten description does NOT disable
+those. They were stripped after install; the lesson is in `lessons.md` (2026-08-26).
+
+`bun` is not installed, so gstack's `browse` / voice / slop-scan extras stay dead. None of the
+four needs them, but `office-hours` will offer to build one — decline it.
 
 ## Licence notes that matter because the app is for sale
 
