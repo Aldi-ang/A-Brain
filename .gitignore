@@ -28,3 +28,9 @@ runs/.lessons-state/
 Wiki/graphify-out/graph.html
 Wiki/graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
 graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+
+# The ROOT graph is retired. Wiki/graphify-out/ is the memory now, and the code lives in
+# kpm-inventory's own graph — so nothing reads this one. It is kept on disk but untracked because
+# `graphify update Wiki` rewrites the root manifest.json as a side effect, which meant the Stop
+# hook dirtied ~2,200 lines of a stale graph on every single session.
+graphify-out/

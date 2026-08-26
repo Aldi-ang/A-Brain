@@ -2028,6 +2028,72 @@
       "norm_label": "open"
     },
     {
+      "label": "The 2026-08-26 audit \u2014 what to add, what is broken, what to redesign",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "the 2026-08-26 audit \u2014 what to add, what is broken, what to redesign"
+    },
+    {
+      "label": "Missing from the regional warehouse, worst first",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_missing_from_the_regional_warehouse_worst_first",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "missing from the regional warehouse, worst first"
+    },
+    {
+      "label": "Broken today",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_broken_today",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "broken today"
+    },
+    {
+      "label": "\u26a0\ufe0f Correction to the options section above",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_correction_to_the_options_section_above",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "\u26a0\ufe0f correction to the options section above"
+    },
+    {
+      "label": "Do we need more workflow? No.",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_do_we_need_more_workflow_no",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "do we need more workflow? no."
+    },
+    {
+      "label": "The redesign: one waybill, two directions",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L94",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_the_redesign_one_waybill_two_directions",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "the redesign: one waybill, two directions"
+    },
+    {
       "label": "Looking at the App.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Looking at the App.md",
@@ -6412,8 +6478,8 @@
       "source_location": "L928",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_the_trophy_room_profile_ui",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4. the trophy room / profile ui"
     },
     {
@@ -6423,8 +6489,8 @@
       "source_location": "L930",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_first_the_3d_question_with_actual_numbers",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "first: the 3d question, with actual numbers"
     },
     {
@@ -6434,8 +6500,8 @@
       "source_location": "L956",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_mobile_legends_actually_does_and_how_to_get_it_for_free",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "what mobile legends actually does, and how to get it for free"
     },
     {
@@ -6445,8 +6511,8 @@
       "source_location": "L992",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_screen_mobile_first_one_thumb_readable_in_midday_sun",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "the screen \u2014 mobile first, one thumb, readable in midday sun"
     },
     {
@@ -6456,8 +6522,8 @@
       "source_location": "L994",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_1_hero",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.1 hero"
     },
     {
@@ -6467,8 +6533,8 @@
       "source_location": "L1039",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_2_etalase_three_slots_the_employee_chooses",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.2 etalase \u2014 three slots the employee chooses"
     },
     {
@@ -6478,8 +6544,8 @@
       "source_location": "L1082",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_3_rekor_karir_four_permanent_tiles",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.3 rekor karir \u2014 four permanent tiles"
     },
     {
@@ -6489,8 +6555,8 @@
       "source_location": "L1098",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_4_dinding_prestasi_the_badge_wall",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.4 dinding prestasi \u2014 the badge wall"
     },
     {
@@ -6500,8 +6566,8 @@
       "source_location": "L1109",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_5_penghargaan_the_shelf_you_fill_by_hand",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.5 penghargaan \u2014 the shelf you fill by hand"
     },
     {
@@ -6511,8 +6577,8 @@
       "source_location": "L1126",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_6_hari_ini_operational_visually_separated",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.6 hari ini \u2014 operational, visually separated"
     },
     {
@@ -6522,8 +6588,8 @@
       "source_location": "L1154",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_7_the_locker_room_how_peers_see_each_other",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.7 the locker room \u2014 how peers see each other"
     },
     {
@@ -6533,8 +6599,8 @@
       "source_location": "L1205",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_8_one_shared_component",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.8 one shared component"
     },
     {
@@ -8237,7 +8303,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L52",
+      "source_location": "L111",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement",
@@ -9447,7 +9513,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L52",
+      "source_location": "L75",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement",
@@ -9524,11 +9590,77 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_logistics_and_stock_movement",
+      "target": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_logistics_and_stock_movement",
       "target": "concepts_logistics_and_stock_movement_the_chain",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
+      "target": "concepts_logistics_and_stock_movement_broken_today",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
+      "target": "concepts_logistics_and_stock_movement_correction_to_the_options_section_above",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L88",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
+      "target": "concepts_logistics_and_stock_movement_do_we_need_more_workflow_no",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
+      "target": "concepts_logistics_and_stock_movement_missing_from_the_regional_warehouse_worst_first",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L94",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
+      "target": "concepts_logistics_and_stock_movement_the_redesign_one_waybill_two_directions",
       "confidence_score": 1.0
     },
     {
@@ -14989,5 +15121,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ad3eec84c546b8823c403dc8841a7e36552ecd84"
+  "built_at_commit": "8f72f6f61f9863f460a64eacd39c51c94f11e708"
 }
