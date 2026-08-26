@@ -1057,3 +1057,37 @@ was used, so the list must be settled **before** agents count with it. New card:
 The crash that blanked the tab for the afternoon, and the two decorative checks caught the same
 day, were already written up in [[Concepts/Anti-Recurrence Check]] by the session itself
 (`b05e841`) — not repeated here.
+
+## 2026-08-26 — the research WAS saved; retrieving it was the thing that failed
+
+Aldi: *"every research, thinking, brainstorm should all be take notes, the problem, solution, the
+options, the decision, everything should go to A brain ... make sure that token wasted on research
+is not just gone like that"*.
+
+**His premise was half wrong, and the real flaw is worse.** The big-logistics research he
+remembered asking for (2026-08-23, *"tokopedia and indomaret level"*) **was written** —
+[[The Eight Warehouse Gaps]], with an artifact, ranked gaps, build order and a rejected list. It
+was linked from `Wiki/Index.md` only, 1 of the required 3 places.
+
+What actually broke: this session answered a **logistics design question from cold domain
+knowledge** while that note sat unread, because `SKILL.md` §1's load table had **no row for
+warehouse / shipping / stock movement**. Research is not lost by failing to write it. It is lost
+by failing to route back to it.
+
+**Fixed, both directions:**
+- `SKILL.md` §1 — new mandatory load row: warehouse / shipping / stock movement / restock /
+  logistics design -> [[The Eight Warehouse Gaps]], **before proposing anything**.
+- `SKILL.md` §11a — the four A-Brain triggers became **five**. The new one is *research or a
+  brainstorm that produced options, **even with no decision yet***. The other four all fire on
+  something being FINISHED, so an open brainstorm fired none of them and died at the next
+  `/clear`. A brainstorm note must carry: problem in his words · options table · costs · decision
+  or `OPEN` · **rejected on purpose**.
+
+**Written:** [[HQ-Initiated Stock Push]] — this session's own brainstorm, saved while still OPEN,
+which is the first exercise of the new rule.
+
+**Both notes now linked in all three places.** [[The Eight Warehouse Gaps]] was missing from
+`MOC.md` and `Concepts/index.md`; added.
+
+⚠️ **This log itself went stale.** Nothing between 2026-08-21 and today, across the warehouse
+research, the dashboard rebuild and two skill installs.

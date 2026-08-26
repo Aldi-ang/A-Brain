@@ -47,3 +47,6 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 - [[The Named Path Was Already Shut]] — a brief named one submit button; the two it did not name were the actual double-submit.
 - [[A Network Is Not The Internet]] — navigator.onLine says a network exists, not that packets arrive; it froze a completed sale.
 - [[Concepts/Where KPM Is Going]] — START HERE: the theme, every locked decision, and the direction.
+
+- [[The Eight Warehouse Gaps]] — what big warehouse operations do that KPM does not, ranked, with the build order. **Read before proposing anything about stock movement.**
+- [[HQ-Initiated Stock Push]] — how HQ could send stock to a branch on purpose instead of waiting for a request: the verified PENDING→IN_TRANSIT→DELIVERED lifecycle, four options, the courier-vs-consignee trap, and the in-transit hole. **Decision OPEN.**
