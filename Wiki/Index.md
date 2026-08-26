@@ -62,6 +62,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   whole collection; found chasing the phone freeze after registering an outlet
 - [[Aldi's Design Taste]] — what he actually likes and rejects, built only from screens he judged
 - [[The Eight Warehouse Gaps]] — what big warehouse operations do that KPM does not, ranked, with the build order and the excise question that blocks one of them
+- [[Logistics and Stock Movement]] — **topic hub**: the factory→HQ→branch→van→store chain, which note answers which question, and the locked rules. Start here for anything about shipping, restock, transfers or stock levels.
 - [[HQ-Initiated Stock Push]] — how HQ could send stock to a branch on purpose instead of waiting for a request: the verified PENDING→IN_TRANSIT→DELIVERED lifecycle, four options, the courier-vs-consignee trap, and the in-transit hole. **Decision OPEN.**
 - [[Design Inspiration Sources]] — the 5 sites his component and animation ideas come from, and the 4 rules an idea must clear to survive in KPM
 

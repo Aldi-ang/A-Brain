@@ -62,6 +62,7 @@ The shape of the app everything else sits on top of.
 - [[Multi-Tenant Architecture]] — one shared database, every company's data kept apart via the `bossUid` pattern.
 - [[Tier System]] — the six role levels, from Developer down to Rookie, and how delegation works.
 - [[KPM Project Facts Reference]] — the one-page cheat sheet covering both of the above, plus reusable patterns worth knowing.
+- [[Logistics and Stock Movement]] — **topic hub**: the factory→HQ→branch→van→store chain, which note answers which question, and the locked rules. Start here for anything about shipping, restock, transfers or stock levels.
 - [[The Eight Warehouse Gaps]] — what big warehouse operations do that KPM does not, ranked, with the build order. **Read before proposing anything about stock movement.**
 - [[HQ-Initiated Stock Push]] — how HQ could send stock to a branch on purpose instead of waiting for a request: the verified PENDING→IN_TRANSIT→DELIVERED lifecycle, four options, the courier-vs-consignee trap, and the in-transit hole. **Decision OPEN.**
 

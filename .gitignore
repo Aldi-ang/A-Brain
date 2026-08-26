@@ -21,3 +21,10 @@ graphify-out/cache/
 
 # per-session state for the lessons flush hook; junk after the session ends
 runs/.lessons-state/
+
+# graphify: the Wiki recall graph is rebuilt by a Stop hook whenever a note changes. graph.json IS
+# the memory and stays tracked; the viewer and the dated backups are regenerable, and committing
+# ~1MB of them every session would bloat the vault for nothing.
+Wiki/graphify-out/graph.html
+Wiki/graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
