@@ -3,9 +3,9 @@ title: Logistics and Stock Movement
 description: Topic hub — every note about how goods move between factory, HQ vault, branch warehouses, vans and stores. Read this first when the question is about logistics, shipping, restock, transfers or stock levels.
 type: concept
 created: 2026-08-26
-updated: 2026-08-26
+updated: 2026-08-27
 confidence: high
-checked: 2026-08-26
+checked: 2026-08-27
 tags: [logistics, shipping, warehouse, inventory, stock, transfer, restock, hub]
 aliases: [Logistics, Shipping, Stock Movement, Warehouse, Restock, Transfer, Supply Chain]
 ---
@@ -28,7 +28,9 @@ party in the chain.
 | Question | Note |
 |---|---|
 | What do big operations do that KPM does not? What should we build next? | [[The Eight Warehouse Gaps]] — ranked gaps, build order, **rejected on purpose** list |
-| How does HQ send stock to a branch on purpose? | [[HQ-Initiated Stock Push]] — lifecycle, 4 options, **decision OPEN** |
+| How does HQ send stock to a branch on purpose? | [[HQ-Initiated Stock Push]] — lifecycle, 4 options, **built 2026-08-27** |
+| What does the surat jalan desk do, and where is every pack? | [[../Summaries/Surat Jalan Desk and Sebaran Stok]] — the build |
+| Why can a warehouse not have a "days left"? | [[A Ratio of Sums Is Not a Rate]] |
 | Why is a count trusted over a claim? | [[Stock Count Trust Chain]] |
 | Where is the whole app heading? | [[Where KPM Is Going]] |
 | How do the screens connect? | [[The KPM Control System]] |
@@ -42,12 +44,21 @@ party in the chain.
   courier lost it.
 - **Old stock is a money and reputation problem, not a legal one** — the excise band year is a
   freshness label the customer reads. See [[The Eight Warehouse Gaps]] G2.
+- **Headquarters is the master vault, not a cabang you can ship to.** One exported `NON_BRANCH`
+  constant in `utils/supply.js` owns that rule; a second local list on the Tujuan picker is what
+  briefly re-offered it as a destination on 2026-08-27.
+- **"Where is every pack" has exactly one implementation** — `supplyByProduct` in `utils/supply.js`.
+  Dashboard and Sebaran Stok both call it. A second copy would drift, and the screen nobody edits is
+  the one that keeps being believed.
+- **A warehouse has no days-of-cover**, only a product does. See [[A Ratio of Sums Is Not a Rate]].
 
 ## Open
 
-- Which push option (D recommended), whether to build **"Dalam Perjalanan"** in-transit visibility,
-  and link-vs-Cloud-Function for resi tracking — all in [[HQ-Initiated Stock Push]].
+- The **address gap** (HQ has no copy of a branch's `deliveryAddress`) and **auto resi tracking**
+  (link + aging flag shipped; Cloud Function not built) — both still open in
+  [[HQ-Initiated Stock Push]].
 - Split Stok Kritis per warehouse with a per-warehouse minimum. Not started.
+- **Siapkan Pengiriman is untested** since it moved to the desk's Request tab (2026-08-27).
 
 ## The 2026-08-26 audit — what to add, what is broken, what to redesign
 
@@ -166,4 +177,18 @@ light mode, the Kirim tab. Chrome's renderer froze on `Page.captureScreenshot` t
 tabs, exactly as it did the session before. That is a machine problem, not a page problem, but it
 means the interactions are unproven.
 
-See also: [[Anti-Recurrence Check]] · [[Silent Failure Disease]]
+## 2026-08-26/27 — the desk was BUILT, and Sebaran Stok answers the hub question
+
+The two sections above are design. What shipped is
+[[../Summaries/Surat Jalan Desk and Sebaran Stok]]: one surat jalan desk with four tabs (Masuk,
+Kirim, Request, Buku), Tujuan sourced from the roster, and **Sebaran Stok** — one row per warehouse
+with In stock / Shipping / Agent inventory / Sold (7d), each opening a per-product drawer.
+
+Three items this hub listed as missing are now closed: **an HQ send entry point**, **the
+company-wide in-transit figure**, and **an age flag on uncollected IN_TRANSIT** (3 days, red).
+`Isi Gudang Cabang` was deleted, superseded by the drawer, with him told first.
+
+Still missing from this page's own list: **a cause on every damaged unit**, **a per-warehouse
+minimum and its own Stok Kritis**, and **the batch carried across** to the branch screen.
+
+See also: [[Anti-Recurrence Check]] · [[Silent Failure Disease]] · [[A Ratio of Sums Is Not a Rate]]

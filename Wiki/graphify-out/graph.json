@@ -2094,6 +2094,72 @@
       "norm_label": "the redesign: one waybill, two directions"
     },
     {
+      "label": "2026-08-26 \u2014 Restock Vault redesign v2: one form, two directions",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L111",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "2026-08-26 \u2014 restock vault redesign v2: one form, two directions"
+    },
+    {
+      "label": "What the code actually holds (read out of the tree, file:line)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_what_the_code_actually_holds_read_out_of_the_tree_file_line",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "what the code actually holds (read out of the tree, file:line)"
+    },
+    {
+      "label": "Decisions taken",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L130",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_decisions_taken",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "decisions taken"
+    },
+    {
+      "label": "Two laws that decided the motion list",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L148",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_two_laws_that_decided_the_motion_list",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "two laws that decided the motion list"
+    },
+    {
+      "label": "Ranked additions for this screen",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L155",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_ranked_additions_for_this_screen",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "ranked additions for this screen"
+    },
+    {
+      "label": "Verification, honestly",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L161",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_verification_honestly",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "verification, honestly"
+    },
+    {
       "label": "Looking at the App.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Looking at the App.md",
@@ -6478,8 +6544,8 @@
       "source_location": "L928",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_the_trophy_room_profile_ui",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "4. the trophy room / profile ui"
     },
     {
@@ -6489,8 +6555,8 @@
       "source_location": "L930",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_first_the_3d_question_with_actual_numbers",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "first: the 3d question, with actual numbers"
     },
     {
@@ -6500,8 +6566,8 @@
       "source_location": "L956",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_mobile_legends_actually_does_and_how_to_get_it_for_free",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "what mobile legends actually does, and how to get it for free"
     },
     {
@@ -6511,8 +6577,8 @@
       "source_location": "L992",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_screen_mobile_first_one_thumb_readable_in_midday_sun",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "the screen \u2014 mobile first, one thumb, readable in midday sun"
     },
     {
@@ -6522,8 +6588,8 @@
       "source_location": "L994",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_1_hero",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "4.1 hero"
     },
     {
@@ -6533,8 +6599,8 @@
       "source_location": "L1039",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_2_etalase_three_slots_the_employee_chooses",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "4.2 etalase \u2014 three slots the employee chooses"
     },
     {
@@ -6544,8 +6610,8 @@
       "source_location": "L1082",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_3_rekor_karir_four_permanent_tiles",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "4.3 rekor karir \u2014 four permanent tiles"
     },
     {
@@ -6555,8 +6621,8 @@
       "source_location": "L1098",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_4_dinding_prestasi_the_badge_wall",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "4.4 dinding prestasi \u2014 the badge wall"
     },
     {
@@ -6566,8 +6632,8 @@
       "source_location": "L1109",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_5_penghargaan_the_shelf_you_fill_by_hand",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "4.5 penghargaan \u2014 the shelf you fill by hand"
     },
     {
@@ -6577,8 +6643,8 @@
       "source_location": "L1126",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_6_hari_ini_operational_visually_separated",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "4.6 hari ini \u2014 operational, visually separated"
     },
     {
@@ -6588,8 +6654,8 @@
       "source_location": "L1154",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_7_the_locker_room_how_peers_see_each_other",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "4.7 the locker room \u2014 how peers see each other"
     },
     {
@@ -6599,8 +6665,8 @@
       "source_location": "L1205",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_8_one_shared_component",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "4.8 one shared component"
     },
     {
@@ -8303,7 +8369,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L111",
+      "source_location": "L169",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement",
@@ -9557,6 +9623,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L111",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_logistics_and_stock_movement",
+      "target": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
       "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
@@ -9661,6 +9738,61 @@
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
       "target": "concepts_logistics_and_stock_movement_the_redesign_one_waybill_two_directions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
+      "target": "concepts_logistics_and_stock_movement_decisions_taken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L155",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
+      "target": "concepts_logistics_and_stock_movement_ranked_additions_for_this_screen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L148",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
+      "target": "concepts_logistics_and_stock_movement_two_laws_that_decided_the_motion_list",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L161",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
+      "target": "concepts_logistics_and_stock_movement_verification_honestly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L116",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
+      "target": "concepts_logistics_and_stock_movement_what_the_code_actually_holds_read_out_of_the_tree_file_line",
       "confidence_score": 1.0
     },
     {
@@ -15121,5 +15253,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8f72f6f61f9863f460a64eacd39c51c94f11e708"
+  "built_at_commit": "66c5f30e8700b1982341f33569486348aa4f5148"
 }

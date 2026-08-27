@@ -1091,3 +1091,59 @@ which is the first exercise of the new rule.
 
 ⚠️ **This log itself went stale.** Nothing between 2026-08-21 and today, across the warehouse
 research, the dashboard rebuild and two skill installs.
+
+## 2026-08-27 — the desk was built, and a green suite shipped a 17x wrong number
+
+Ingested [[../Raw/2026-08-27_source_surat-jalan-desk-and-sebaran-stok|commits aea7de4 → ce313f9]]
+(2026-08-26 19:59 → 2026-08-27 08:56 WIB) as
+[[Summaries/Surat Jalan Desk and Sebaran Stok]]. The vault's own history stopped at the **design**
+of Restock Vault v2 (vault commit `66c5f30`, 19:06); everything after it is the **build**.
+
+**The design decisions this closes.** [[Concepts/HQ-Initiated Stock Push]] had three open
+questions and all three were answered by shipping rather than by a reply — and **not the way the
+page recommended**: option **A** shipped, not D, writing `stock_requests` straight to `IN_TRANSIT`.
+The reason D was preferred (not re-implementing courier/resi/photo validation) was absorbed by
+rebuilding the whole surat jalan as one form with the route reversed, so the validation is shared
+**by construction**. The in-transit hole is closed at HQ (a *Shipping* column), and the aging flag
+shipped at three days, red. Marked as built rather than rewritten; the OPEN block is struck
+through, not deleted.
+
+**The finding that generalises, and it is the sharpest one this project has produced:**
+[[Concepts/A Ratio of Sums Is Not a Rate]]. A warehouse "Est. days left" divided **total shelf by
+total sales rate**. Master Vault printed **348 days**; the whole rate was one product, Cello
+Chocolate, whose own cover was **20 days**, one row down inside the same drawer. **17x too
+comfortable, on the one panel whose job is "which warehouse do I restock first"** — with the build
+green, **632/632 checks passing**, and the arithmetic verified on screen twice. Aldi caught it by
+reading it.
+
+> **A check tests whether a number computes, not whether it means anything.**
+
+Rippled into [[Concepts/Anti-Recurrence Check]], which now also carries the four checks that fired
+**correctly** that session and what re-anchoring each one taught — anchor on what the check proves,
+not on incidental syntax; a trap paid for once must be paid forward into every group written after
+it; migrating a check is not deleting one — plus **two JSX shapes that compile clean and fail
+silently**: a duplicate `style` prop where the last one wins, and a `<button>` inside a `<button>`
+that kills the inner click.
+
+**One list is one rule.** *Headquarters* was briefly offered as a shipping destination because the
+Tujuan picker filtered on its own short list while `supply.js` already owned `NON_BRANCH`. Fixed by
+**exporting the constant, not lengthening the copy**. Same shape as "where is every pack" having
+exactly one implementation (`supplyByProduct`), which is why Sebaran Stok calls the dashboard's
+function instead of re-deriving it. Both written into [[Concepts/Logistics and Stock Movement]] as
+locked rules.
+
+**Taste.** [[Concepts/Aldi's Design Taste]] gains three sections: **hierarchy is made of space, not
+more lines** (the fix removed a border rather than adding weight — *"psychology of the expensive
+wears store shelf ... LV or PRADA"*); **plain words and a number that shows its working** (*"dont
+make vague terms"*, and **he owns the company and could not read "No. SJ" on his own intake form**);
+and **a banner that names the screen you just clicked is chrome** — deleted for HQ, kept for a
+branch user where it actually says something.
+
+**Written open, on purpose:** [[Concepts/Ponder Tutorial System]] — the plan he asked for and
+explicitly chose not to build, with two decisions locked (scripted scenes not video; fixed demo
+data not a live spotlight) and **three questions left unanswered rather than assumed**, top of them
+whether teaching sentences are Indonesian or English. This is the second exercise of the 2026-08-26
+rule that a brainstorm gets saved even with no decision yet.
+
+⚠️ **Still untested, and worth carrying:** *Siapkan Pengiriman* since it moved to the Request tab.
+Kirim itself was left unpressed in the live app on purpose — it moves real stock.

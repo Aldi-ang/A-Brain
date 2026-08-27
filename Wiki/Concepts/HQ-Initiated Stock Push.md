@@ -1,12 +1,12 @@
 ---
 title: HQ-Initiated Stock Push
-description: How HQ could send stock to a regional warehouse on purpose instead of waiting for a request — the verified current lifecycle, four options with costs, the courier-vs-consignee trap, and the in-transit hole. Decision OPEN.
+description: How HQ sends stock to a regional warehouse on purpose instead of waiting for a request — the verified lifecycle, four options with costs, the courier-vs-consignee trap, and the in-transit hole. BUILT 2026-08-27, as option A rather than the recommended D.
 type: concept
 created: 2026-08-26
-updated: 2026-08-26
+updated: 2026-08-27
 confidence: high
-checked: 2026-08-26
-tags: [inventory, warehouse, logistics, shipping, branches, brainstorm, open]
+checked: 2026-08-27
+tags: [inventory, warehouse, logistics, shipping, branches, brainstorm, shipped]
 ---
 
 # HQ-Initiated Stock Push
@@ -96,11 +96,39 @@ browser-only Firebase app, so an API key cannot live in the client.** Auto-track
 already stored, so make it a tappable link to the courier's own tracker and flag orders older
 than N days.
 
-## DECISION: OPEN — waiting on Aldi
+## DECISION: ~~OPEN~~ — CLOSED BY THE BUILD, 2026-08-26/27
 
-1. Confirm option **D**.
-2. Build **"Dalam Perjalanan"** now, yes/no?
-3. Resi: **link + aging flag** now, or **Cloud Function auto-track**?
+All three questions below were answered by shipping, not by a reply. Kept verbatim for history;
+what actually landed is in the section after it.
+
+1. ~~Confirm option **D**.~~ → **Option A shipped instead.**
+2. ~~Build **"Dalam Perjalanan"** now, yes/no?~~ → **Yes, shipped** as the *Shipping* column.
+3. ~~Resi: **link + aging flag** now, or **Cloud Function auto-track**?~~ → **Aging flag shipped**;
+   no Cloud Function.
+
+## What actually shipped (2026-08-26 → 2026-08-27)
+
+Full write-up: [[../Summaries/Surat Jalan Desk and Sebaran Stok]].
+
+- **Option A, not D.** The Kirim tab writes the `stock_requests` document **straight to
+  `IN_TRANSIT`** rather than writing `PENDING` and reopening the fulfilment modal. The reason D was
+  recommended — not re-implementing courier/resi/photo validation — was absorbed by rebuilding the
+  whole surat jalan as **one form with the route reversed**, so the validation is shared by
+  construction rather than by reuse of a modal. It deducts HQ stock with `increment()`, and writes
+  **both** `requestedItems` and `fulfilledItems` because the receive screen reads one and falls back
+  to the other, and a push has no request to fall back to. No rules change was needed, exactly as
+  predicted.
+- **The in-transit hole is closed at HQ.** Sebaran Stok prints a *Shipping* figure per warehouse —
+  the company-wide number this page called the cheapest thing worth building. Master Vault prints an
+  em-dash there, never 0, because `stock_requests` only run HQ → branch.
+- **The aging flag shipped**: an `IN_TRANSIT` shipment older than **three days** is named in red in
+  Buku, and the Request tab keeps PENDING, IN_TRANSIT and DISPUTED all visible, with DISPUTED first.
+- **The address gap and auto resi tracking are still open** — neither was built.
+- **Still untested:** *Siapkan Pengiriman*. Kirim itself was deliberately left unpressed in the live
+  app because it moves real stock.
+
+**The count-on-arrival rule survived**, as required: the branch is credited what it counted, never
+what the push claimed to send.
 
 ## Rejected on purpose — do not re-propose
 

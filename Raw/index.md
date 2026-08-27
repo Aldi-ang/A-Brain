@@ -16,6 +16,10 @@ edited after creation** except for display-only frontmatter (title/description/t
 
 ## Files here (as of 2026-07-27)
 
+- `2026-08-27_source_surat-jalan-desk-and-sebaran-stok.md` — the twenty commit messages from
+  `aea7de4` to `ce313f9`, verbatim: the Restock Vault becoming one surat jalan desk, the Request
+  tab moved off the branch screen, Tujuan from the roster, Sebaran Stok, the ratio-of-sums
+  correction that shipped 17x wrong past 632 green checks, and the Ponder tutorial plan.
 - `2026-08-21_source_stock-count-trust-chain.md` — the five `StockOpnameView` commit messages from
   the 2026-08-21 afternoon, verbatim: leak detection, the recount rule, the variance cause picker
   (with its unapproved five words), the one-pack tolerance and the batang-fraction bug under it,

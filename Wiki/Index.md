@@ -63,7 +63,9 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Aldi's Design Taste]] — what he actually likes and rejects, built only from screens he judged
 - [[The Eight Warehouse Gaps]] — what big warehouse operations do that KPM does not, ranked, with the build order and the excise question that blocks one of them
 - [[Logistics and Stock Movement]] — **topic hub**: the factory→HQ→branch→van→store chain, which note answers which question, and the locked rules. Start here for anything about shipping, restock, transfers or stock levels.
-- [[HQ-Initiated Stock Push]] — how HQ could send stock to a branch on purpose instead of waiting for a request: the verified PENDING→IN_TRANSIT→DELIVERED lifecycle, four options, the courier-vs-consignee trap, and the in-transit hole. **Decision OPEN.**
+- [[HQ-Initiated Stock Push]] — how HQ could send stock to a branch on purpose instead of waiting for a request: the verified PENDING→IN_TRANSIT→DELIVERED lifecycle, four options, the courier-vs-consignee trap, and the in-transit hole. **BUILT 2026-08-27 as option A** (see the summary below).
+- [[A Ratio of Sums Is Not a Rate]] — a total divided by a total is only a rate if the things are interchangeable. Sebaran Stok shipped a warehouse "348 days left" whose real cover was 20, past 632 green checks.
+- [[Ponder Tutorial System]] — an in-app tutorial per component, modelled on Create mod's Ponder: scripted scenes over fixed demo data, never video and never a live spotlight. **Plan only, three questions OPEN.**
 - [[Design Inspiration Sources]] — the 5 sites his component and animation ideas come from, and the 4 rules an idea must clear to survive in KPM
 
 ## Summaries (one per ingested source, newest ingest pass first)
@@ -72,6 +74,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Skill Repos Evaluated 2026-08-25]] — 19 skill repos judged; why 18 were declined on catalog cost
   so they survive upstream deletion; the full index lists every one
 
+- [[Surat Jalan Desk and Sebaran Stok]] — the Restock Vault becomes one surat jalan desk with four tabs, HQ gets a push and a request queue, and Sebaran Stok answers "where is every pack" per warehouse.
 - [[Stock Count Trust Chain]] — the afternoon the gap between "a different number was found" and
   "stock changed" was closed: recount, cause, tolerance, leak detection. Plus the five shortage
   words Aldi has not approved

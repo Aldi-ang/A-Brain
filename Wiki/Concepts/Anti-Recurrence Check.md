@@ -3,9 +3,9 @@ title: Anti-Recurrence Check
 description: The rule born from 3 "it's committed" lies — never claim a save happened without checking git yourself.
 type: concept
 created: 2026-07-27
-updated: 2026-08-15
+updated: 2026-08-27
 confidence: high
-checked: 2026-08-15
+checked: 2026-08-27
 tags: [pattern, discipline, git]
 ---
 
@@ -303,3 +303,54 @@ were testing the check file's own copy.
 > **PROVE A CHECK FAILS BEFORE TRUSTING IT. DELETE IT WHEN IT CANNOT.**
 > Lift every constant and every rule from the source; never retype one.
 > And there is no static check for *"it renders"* — [[Looking at the App]] is not optional.
+
+---
+
+## 🔴 A CHECK TESTS WHETHER A NUMBER COMPUTES, NOT WHETHER IT MEANS ANYTHING (2026-08-27)
+
+The strongest version of this file's own lesson yet. Sebaran Stok shipped a warehouse "days left"
+figure that was **17x too comfortable**, with **632/632 checks green**, a green build, and the
+arithmetic verified on screen twice — because the arithmetic *was* right and the statistic was
+meaningless. **No check that could have been written would have caught it.** Aldi caught it by
+reading the screen. Full write-up: [[A Ratio of Sums Is Not a Rate]].
+
+## The 2026-08-27 checks that behaved correctly — and what re-anchoring them taught
+
+Four checks fired that session, every one of them right to fire, and each fix says something:
+
+- **Anchor on what the check is actually proving, not on incidental syntax.** The drawer check
+  pinned `r.detail.map(p =>` and broke when the callback became `(p, i) =>` for row separators.
+  Re-anchored on the **array**, which is what proves the drawer renders the list the totals are
+  summed from. A signature change cannot affect that.
+- **A label check that fires on a rename is doing its job.** The seven-day *terjual* check ties the
+  printed window claim to the listener that supplies it, so changing the words without changing the
+  data trips it. Re-anchored to the new wording, not loosened.
+- **Strip comments before scanning for raw colours.** The palette check failed against the *comment
+  explaining* a fix — the sentence *"the original was `text-white` on `bg-black/50`"* is prose about
+  a raw colour, not a raw colour. Group 48 had already paid for that trap and carried `noCmt`;
+  group 53 was written without it. **A trap paid for once must be paid forward into every group
+  written after it.**
+- **Migrating a check is not the same as deleting one.** Two counts moved deliberately (the
+  icon-only delete count, the camera rule) and each move is documented in place beside the check.
+  And the [[Ponder Tutorial System]] plan records the rule explicitly: check 631 **moves** into the
+  first scene file, it is not removed. *A check deleted to make a change pass is how the thing it
+  protected comes back.*
+
+## Two JSX shapes that fail silently and compile clean (2026-08-27)
+
+Neither produces a warning. Both were found by looking, not by tooling.
+
+1. **A duplicate `style` prop: the LAST one silently wins.** The nav rail carried `touchAction`
+   above a long comment block and a `--cap` variable below it, so `touchAction:'none'` **never
+   ran** — and the paragraph above it was describing a fix that was not there. Merged into one.
+   Its check is anchored on the **class name**, not on `/<nav[\s\S]*?>/`: the tag contains arrow
+   functions, so a non-greedy scan stops at the `>` in `(e) => {` and reported zero style props.
+   **The wrong needle would have passed forever.**
+2. **A `<button>` inside a `<button>`** renders without complaint and silently kills the inner
+   click. The Siapkan control had to become a **sibling** of the row button.
+
+And one build break worth naming: **a JSX comment placed after `&& (` does not parse** — it is a
+second expression inside those parentheses. It cost a session twice in one evening, and the rule it
+bought was *run the build before writing the claim that it is green*.
+
+See also: [[A Ratio of Sums Is Not a Rate]] · [[../Summaries/Surat Jalan Desk and Sebaran Stok]]

@@ -3,9 +3,9 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-08-16
+updated: 2026-08-27
 confidence: medium
-checked: 2026-08-16
+checked: 2026-08-27
 tags: [pattern, design, taste, ux, aldi]
 ---
 
@@ -1222,3 +1222,67 @@ against the BUILT stylesheet.
 minifier ships `[class*=backdrop-blur]` — **quotes dropped**. A check that reads the built output
 must be written against the built output, not against the source it came from. Look at `dist`
 first; do not predict the minifier.
+
+## 2026-08-27 — hierarchy is made of space, not of more lines
+
+> *"there should be personal space between the location line and the product lines just to show
+> that they are different ... psychology of the expensive wears store shelf and product display
+> format used by LV or PRADA"*
+
+He is describing a **real hierarchy failure, not a taste preference**. The Sebaran Stok drawer sat
+flush against its warehouse row behind a hairline, and every product carried another hairline of
+the same weight — so a reader scanning down saw **one unbroken stack of six rows** instead of one
+warehouse containing five products.
+
+The fix removed rather than added: the `border-t` between the warehouse row and its drawer is
+**gone** (the inset background tone already says *nested*; a rule on top of that says it twice and
+reads as "another row"), padding grew inside the drawer and per product, and the between-product
+rules faded to `/30` so they align the number columns without competing with the gap doing the
+actual separating.
+
+> **Nothing was added to say "these are different". Something was removed, and the space left
+> behind said it.**
+
+**Generalises:** when two levels read as one list, look for a rule to delete before reaching for a
+stronger one. Weight competes; space does not.
+
+## 2026-08-27 — plain words, and a number must show its working
+
+Four rules stated in his own voice on one screen:
+
+- *"dont make vague terms"* and *"use english terms if its shorter and direct"* — Di gudang → **In
+  stock**, Di jalan → **Shipping**, Di tangan agen → **Agent inventory**, Terjual → **Sold (7d)**.
+- **An abbreviation nobody can expand is a bug.** *"change nomor SJ because i dont know what is
+  that"* — SJ is *surat jalan*, and **he owns the company and could not read the label on his own
+  intake form**. Now "Delivery note (app) / (factory) / (paper)". If the owner cannot read it, no
+  agent can.
+- **An estimate must say it is one.** He asked for wording meaning *potential* time left, so the
+  column is **Est. days left** — a bare "Days left" reads as something the system measured.
+- *"i want where u got that calculation"* — **printing a quotient without its divisor asks him to
+  trust a number he cannot check.** An *Avg / month* column now sits beside the estimate and the
+  footnote writes both divisions out longhand, including what `≈` means and what an em-dash means
+  (no rate to divide by, **not** "lasts forever").
+
+⚠️ **Scope the rule to the audience.** `BranchWarehouseManager.jsx:1121` still says "Di jalan" on
+purpose: a different screen, a different reader, all-Indonesian by design. The English rule was
+about **HQ column labels**, and the same open question now sits on the
+[[Ponder Tutorial System]] — a teaching sentence for branch staff is not a table header for an
+HQ admin.
+
+## 2026-08-27 — a banner that names the screen you just clicked is chrome
+
+*"not cool and elegant"* about "GLOBAL LOGISTICS COMMAND / ALL BRANCHES NATIONWIDE" — two lines
+above the only thing on the page worth reading, saying what the click already said. Deleted for HQ,
+**kept for a branch user**, where it is not decoration: it names which hub they are looking at and
+who their admin is, and neither is obvious from anything else on the screen.
+
+The replacement title took its weight from **type and an accent rule, with the colour coming out**:
+`text-ink` reads at full contrast in both themes, where the gold it used to be is a mid-tone
+fighting the panel in each. **The gold survives as the icon chip and the rule — pointing at the
+title rather than being it.**
+
+And the edge: `shadow-xl` is a hard black slab under a near-black panel, which is what read as
+*cheap*. Replaced with a **1px contact line plus a wide heavily-offset ambient**, so the panel sits
+on the page instead of being stamped onto it.
+
+Source: [[../Summaries/Surat Jalan Desk and Sebaran Stok]].

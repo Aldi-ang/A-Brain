@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-08-26)
 
 ## Corpus Check
-- 59 files · ~128,314 words
+- 59 files · ~128,946 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 635 nodes · 739 edges · 61 communities
+- 641 nodes · 745 edges · 62 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8f72f6f6`
+- Built from commit: `66c5f30e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,6 +26,7 @@
 - 2026-08-16 — "animation and 3D more with gamification on all of this segment"
 - n8n Automation Templates Archive
 - Looking at the App
+- The screen — mobile first, one thumb, readable in midday sun
 - Where KPM Is Going
 - HQ-Initiated Stock Push
 - Firestore Rules
@@ -90,7 +91,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (61 total, 0 thin omitted)
+## Communities (62 total, 0 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.04
@@ -105,8 +106,8 @@ Cohesion: 0.05
 Nodes (41): A trap already in the data, Consequences — the build list, in order, Design decision — images are links, not embedded objects, Formatting is part of the job, Four bugs confirmed by hand, all mine, all in code that had passed 32 self-tests, How the business actually works — confirmed 2026-08-11, IN/OUT is now much smaller, Lancelot the Tobacco Ledger Agent (+33 more)
 
 ### Community 3 - "KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics"
-Cohesion: 0.04
-Nodes (45): 1. The thing you need to know first, 2. What's already good, 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated (+37 more)
+Cohesion: 0.06
+Nodes (33): 1. The thing you need to know first, 2. What's already good, 5. Making it fun (and the ways it could go badly wrong), 6. Performance work — making it light on a potato phone, 7. Ergonomics — one-handed field use, 8. The plan, 9. What I'd revisit later, and the signal that says it's time, A design document for the achievement/ranking system, the agent profile, and making the app light on cheap phones (+25 more)
 
 ### Community 5 - "3.2 How XP works, and why it can never decay again"
 Cohesion: 0.09
@@ -135,6 +136,10 @@ Nodes (11): Categories, Honest limits, How to use it, n8n Automation Templates A
 ### Community 11 - "Looking at the App"
 Cohesion: 0.17
 Nodes (12): Checks that freeze a value, Four ways the harness decayed on its second outing (2026-08-17), Looking at the App, Related, Rendering a React component without signing in (2026-08-16), THE FRAME, FINALLY — headless Chrome (2026-08-16, second session), The harness, The stylesheet is the only witness (2026-08-16) (+4 more)
+
+### Community 12 - "The screen — mobile first, one thumb, readable in midday sun"
+Cohesion: 0.17
+Nodes (12): 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated, 4.7 The Locker Room — how peers see each other, 4.8 One shared component (+4 more)
 
 ### Community 13 - "Where KPM Is Going"
 Cohesion: 0.18
@@ -325,24 +330,24 @@ Cohesion: 0.67
 Nodes (3): Adding a new entity, Pages here, Wiki/Entities
 
 ### Community 61 - "Logistics and Stock Movement"
-Cohesion: 0.18
-Nodes (11): Broken today, ⚠️ Correction to the options section above, Do we need more workflow? No., Locked rules — do not re-litigate, Logistics and Stock Movement, Missing from the regional warehouse, worst first, Open, Read by question (+3 more)
+Cohesion: 0.12
+Nodes (17): 2026-08-26 — Restock Vault redesign v2: one form, two directions, Broken today, ⚠️ Correction to the options section above, Decisions taken, Do we need more workflow? No., Locked rules — do not re-litigate, Logistics and Stock Movement, Missing from the regional warehouse, worst first (+9 more)
 
 ## Knowledge Gaps
-- **483 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+478 more)
+- **488 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+483 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Concepts/index.md`?**
-  _High betweenness centrality (0.150) - this node is a cross-community bridge._
+  _High betweenness centrality (0.149) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
   _High betweenness centrality (0.105) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
   _High betweenness centrality (0.100) - this node is a cross-community bridge._
 - **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _483 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _488 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.04081632653061224 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

@@ -3,7 +3,7 @@ title: "Session Ingest State"
 description: Tracking file for the a-brain-session-ingest scheduled task — which sessions/Inbox items have already been processed.
 type: state
 created: 2026-07-27
-updated: 2026-08-22
+updated: 2026-08-27
 tags: [runs, state]
 ---
 
@@ -35,3 +35,7 @@ not hand-edit unless correcting a mistake the task made.
 | local_81170313-e515-42d2-ac38-172ff72651e1 | Vault gap curator | 2026-08-22 | Skipped — vault-maintenance session, not user work; its writes ARE the vault (through commit `b05e841`). Confirmed it left no uncommitted changes |
 | local_cc95e308-504d-4b5a-a57d-67657074571b | WiFi performance on phone | 2026-08-22 | Skipped — continued to 2026-08-16 but already covered by [[../Wiki/Concepts/Secure Context Requirement]] and the Silent Failure Disease commits (`d830906`, `800b3d8`, `79b930e`), all self-ingested |
 | _(2026-08-16 -> 2026-08-20 KPM work)_ | - | 2026-08-22 | Verified covered, not re-read from transcripts. Wiki/Log.md carries dated entries for 08-16 (light ground), 08-16/17 (EOD Setoran), 08-17 (stamp ceiling), and thirteen 08-18 entries; 08-19/08-20 landed as Concept pages (Silent Failure Disease, A Network Is Not The Internet, The Named Path Was Already Shut) |
+| local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-08-27 | **Partially ingested (fourth pass).** Its 2026-08-22 -> 2026-08-26 19:06 work was self-ingested as it went (vault commits 08-23 to 08-26, incl. the warehouse research, the dashboard rebuild and the Restock Vault v2 DESIGN). The gap was the **BUILD**: 2026-08-26 19:59 -> 2026-08-27 08:56 (`aea7de4` -> `ce313f9`) — captured as [[../Wiki/Summaries/Surat Jalan Desk and Sebaran Stok]]. Session was still running at ingest time; later work needs a further pass |
+| local_5be01efb-8a9f-4a06-a6de-d7f51544be4c | Vault gap curator | 2026-08-27 | Skipped — vault-maintenance session, not user work; its writes ARE the vault (through commit `66c5f30`, 2026-08-26 19:06). Left no uncommitted changes |
+| local_022851ac-351f-42b6-be19-2d3a31fce1c4 | hermes x alucard | 2026-08-27 | Skipped as covered, **not read row-by-row**. Its output landed directly in `alucard/SKILL.md` (mtime 2026-08-26 14:02) and the vault's own 2026-08-26 Log entry documents the §1 and §11a changes. `Hermes-Agent-Research/` was NOT touched (still 2026-08-10), so if that session reached conclusions about Hermes itself they are unrecorded — flagged for Aldi rather than guessed at |
+| local_a55ef6f0 / fd0a73ac / cea0d304 / 2b9bb2ab | A brain session ingest (08-23 -> 08-26) | 2026-08-27 | Skipped — these ARE this task's own earlier runs |
