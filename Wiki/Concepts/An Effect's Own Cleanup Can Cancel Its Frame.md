@@ -74,7 +74,7 @@ cleanly and blanked the dashboard.
 See also: [[Looking at the App]] · [[Ponder Tutorial System]] · [[Anti-Recurrence Check]] ·
 [[Aldi's Design Taste]]
 
-## The family has five members now
+## The family has six members now
 
 All five share one shape: **work performed or undone by a mechanism nobody was watching, with
 nothing thrown and every check green.**
@@ -87,6 +87,13 @@ nothing thrown and every check green.**
    `transform` that positioned every caption. Found 2026-08-27 from a photograph Aldi took.
 5. [[A Rect Is Painted, Not Laid Out]] — a rect measured through the modal's own `scale(0.94)` open
    animation, so the first beat of every scene measured 6% small and healed itself four seconds later.
+
+6. **The same keyframe trap again, one file over, the same day.** The book chip's hover sparks
+   needed `translateZ` to sit in front of a cover that leans toward the viewer — `preserve-3d` sorts
+   children by DEPTH, not document order, so three of four sparks painted behind it and simply never
+   appeared. Put the `translateZ` on the element and the spark's own animation erases it on frame
+   one; it has to go in BOTH transform stops of the keyframe. Member 4 taught the law, and member 6
+   is the same law being needed again within hours — which is the argument for writing it down.
 
 **The generalisation, and it is worth more than any of the five:** none of these are visible in the
 source, in `git diff`, or in a screenshot. Each was found by asking the running browser a question —
