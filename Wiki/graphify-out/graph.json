@@ -191,6 +191,83 @@
       "norm_label": "related"
     },
     {
+      "label": "A Ratio of Sums Is Not a Rate.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_a_ratio_of_sums_is_not_a_rate",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "a ratio of sums is not a rate.md"
+    },
+    {
+      "label": "A Ratio of Sums Is Not a Rate",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "concepts_a_ratio_of_sums_is_not_a_rate_a_ratio_of_sums_is_not_a_rate",
+      "community": 34,
+      "community_name": "Git Worktrees",
+      "norm_label": "a ratio of sums is not a rate"
+    },
+    {
+      "label": "What happened (2026-08-27)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "concepts_a_ratio_of_sums_is_not_a_rate_what_happened_2026_08_27",
+      "community": 34,
+      "community_name": "Git Worktrees",
+      "norm_label": "what happened (2026-08-27)"
+    },
+    {
+      "label": "Why no check caught it",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "concepts_a_ratio_of_sums_is_not_a_rate_why_no_check_caught_it",
+      "community": 34,
+      "community_name": "Git Worktrees",
+      "norm_label": "why no check caught it"
+    },
+    {
+      "label": "The fix, and the part of it worth copying",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "concepts_a_ratio_of_sums_is_not_a_rate_the_fix_and_the_part_of_it_worth_copying",
+      "community": 34,
+      "community_name": "Git Worktrees",
+      "norm_label": "the fix, and the part of it worth copying"
+    },
+    {
+      "label": "Where else to look for this shape in KPM",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "concepts_a_ratio_of_sums_is_not_a_rate_where_else_to_look_for_this_shape_in_kpm",
+      "community": 34,
+      "community_name": "Git Worktrees",
+      "norm_label": "where else to look for this shape in kpm"
+    },
+    {
+      "label": "The generalised lesson",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "concepts_a_ratio_of_sums_is_not_a_rate_the_generalised_lesson",
+      "community": 34,
+      "community_name": "Git Worktrees",
+      "norm_label": "the generalised lesson"
+    },
+    {
       "label": "A Store Name Is Not a Store.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/A Store Name Is Not a Store.md",
@@ -527,8 +604,8 @@
       "source_location": "L398",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_three_complaints_in_one_message_and_the_single_fault_under_all_of_them_2026_08_16",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 33,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "three complaints in one message, and the single fault under all of them (2026-08-16)"
     },
     {
@@ -538,8 +615,8 @@
       "source_location": "L415",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_he_describes_mechanisms_not_preferences_read_them_literally",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 33,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "he describes mechanisms, not preferences \u2014 read them literally"
     },
     {
@@ -549,8 +626,8 @@
       "source_location": "L424",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_where_the_bug_actually_lived_hexes_in_the_jsx",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 33,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "where the bug actually lived: hexes in the jsx"
     },
     {
@@ -560,8 +637,8 @@
       "source_location": "L432",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_thickness_in_color_meant_weight_and_he_was_right_for_a_reason_he_did_not_have_to_state",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 33,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "\"thickness in color\" meant weight, and he was right for a reason he did not have to state"
     },
     {
@@ -571,8 +648,8 @@
       "source_location": "L439",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_nah_i_ll_just_let_u_think_about_that_is_delegation_not_indifference",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 33,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "*\"nah i'll just let u think about that\"* is delegation, not indifference"
     },
     {
@@ -582,8 +659,8 @@
       "source_location": "L444",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_the_verdict_and_what_it_settles_about_unrequested_changes",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 33,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "the verdict, and what it settles about unrequested changes"
     },
     {
@@ -593,8 +670,8 @@
       "source_location": "L459",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_he_removes_information_to_make_what_is_left_bigger_2026_08_16",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 33,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "he removes information to make what is left bigger (2026-08-16)"
     },
     {
@@ -791,8 +868,8 @@
       "source_location": "L980",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_amber_is_an_edge_and_an_ink_it_is_not_a_fill_2026_08_21",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 50,
+      "community_name": "Tier System",
       "norm_label": "\ud83d\udd34 amber is an edge and an ink. it is not a fill. (2026-08-21)"
     },
     {
@@ -802,8 +879,8 @@
       "source_location": "L994",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_he_judges_by_measurement_not_by_vibe_twice_in_one_session",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 50,
+      "community_name": "Tier System",
       "norm_label": "he judges by measurement, not by vibe \u2014 twice in one session"
     },
     {
@@ -813,8 +890,8 @@
       "source_location": "L1010",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_the_near_miss_worth_remembering",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 50,
+      "community_name": "Tier System",
       "norm_label": "the near-miss worth remembering"
     },
     {
@@ -857,8 +934,8 @@
       "source_location": "L1069",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_2026_08_24_the_grain_had_to_go_and_it_was_a_measurement_error_as_well_as_a_taste_one",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 62,
+      "community_name": "2026-08-24 \u2014 the grain had to go, and it was a measurement error as well as a taste one",
       "norm_label": "2026-08-24 \u2014 the grain had to go, and it was a measurement error as well as a taste one"
     },
     {
@@ -868,8 +945,8 @@
       "source_location": "L1088",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_refinement_to_amber_is_an_edge_and_an_ink_the_size_is_what_the_law_is_really_about",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 62,
+      "community_name": "2026-08-24 \u2014 the grain had to go, and it was a measurement error as well as a taste one",
       "norm_label": "refinement to [[amber is an edge and an ink]] \u2014 the size is what the law is really about"
     },
     {
@@ -879,8 +956,8 @@
       "source_location": "L1103",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_2026_08_24_he_chose_the_steel_faceplate_over_the_stencil_against_the_measurements",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 48,
+      "community_name": "Rank Config and Achievement Badges",
       "norm_label": "2026-08-24 \u2014 he chose the steel faceplate over the stencil, against the measurements"
     },
     {
@@ -890,8 +967,8 @@
       "source_location": "L1121",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_what_his_choice_cost_and_why_it_was_still_cheap",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 48,
+      "community_name": "Rank Config and Achievement Badges",
       "norm_label": "what his choice cost, and why it was still cheap"
     },
     {
@@ -901,8 +978,8 @@
       "source_location": "L1140",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_two_bugs_found_by_checks_rather_than_by_looking",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 48,
+      "community_name": "Rank Config and Achievement Badges",
       "norm_label": "two bugs found by checks rather than by looking"
     },
     {
@@ -912,8 +989,8 @@
       "source_location": "L1148",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_2026_08_24_he_reversed_his_own_choice_after_seeing_it_and_that_is_the_whole_lesson",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 47,
+      "community_name": "Multi-Tenant Architecture",
       "norm_label": "2026-08-24 \u2014 he reversed his own choice after seeing it, and that is the whole lesson"
     },
     {
@@ -923,8 +1000,8 @@
       "source_location": "L1164",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_what_looking_found_that_no_check_had_been_asked",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 47,
+      "community_name": "Multi-Tenant Architecture",
       "norm_label": "what looking found that no check had been asked"
     },
     {
@@ -934,8 +1011,8 @@
       "source_location": "L1176",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_the_guard_that_had_to_be_rewritten_before_it_was_worth_having",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 47,
+      "community_name": "Multi-Tenant Architecture",
       "norm_label": "the guard that had to be rewritten before it was worth having"
     },
     {
@@ -945,8 +1022,8 @@
       "source_location": "L1186",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_green_was_carrying_meaning_in_customer_directory_and_it_had_to_be_replaced_not_deleted",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 47,
+      "community_name": "Multi-Tenant Architecture",
       "norm_label": "green was carrying meaning in customer directory, and it had to be replaced not deleted"
     },
     {
@@ -956,8 +1033,8 @@
       "source_location": "L1194",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_2026_08_24_lite_mode_was_painting_a_dark_scrim_over_every_screen_and_only_looking_found_it",
-      "community": 0,
-      "community_name": "Aldi's Design Taste",
+      "community": 60,
+      "community_name": "Wiki/Entities",
       "norm_label": "2026-08-24 \u2014 lite mode was painting a dark scrim over every screen, and only looking found it"
     },
     {
@@ -967,9 +1044,42 @@
       "source_location": "L1219",
       "_origin": "ast",
       "id": "concepts_aldi_s_design_taste_the_minified_form_is_the_form_to_assert_against",
+      "community": 60,
+      "community_name": "Wiki/Entities",
+      "norm_label": "the minified form is the form to assert against"
+    },
+    {
+      "label": "2026-08-27 \u2014 hierarchy is made of space, not of more lines",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1226",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_2026_08_27_hierarchy_is_made_of_space_not_of_more_lines",
       "community": 0,
       "community_name": "Aldi's Design Taste",
-      "norm_label": "the minified form is the form to assert against"
+      "norm_label": "2026-08-27 \u2014 hierarchy is made of space, not of more lines"
+    },
+    {
+      "label": "2026-08-27 \u2014 plain words, and a number must show its working",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1249",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_2026_08_27_plain_words_and_a_number_must_show_its_working",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "2026-08-27 \u2014 plain words, and a number must show its working"
+    },
+    {
+      "label": "2026-08-27 \u2014 a banner that names the screen you just clicked is chrome",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1272",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_2026_08_27_a_banner_that_names_the_screen_you_just_clicked_is_chrome",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "2026-08-27 \u2014 a banner that names the screen you just clicked is chrome"
     },
     {
       "label": "Anti-Recurrence Check.md",
@@ -1157,6 +1267,39 @@
       "community": 7,
       "community_name": "Anti-Recurrence Check",
       "norm_label": "the second lesson, from the same day"
+    },
+    {
+      "label": "\ud83d\udd34 A CHECK TESTS WHETHER A NUMBER COMPUTES, NOT WHETHER IT MEANS ANYTHING (2026-08-27)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L309",
+      "_origin": "ast",
+      "id": "concepts_anti_recurrence_check_a_check_tests_whether_a_number_computes_not_whether_it_means_anything_2026_08_27",
+      "community": 7,
+      "community_name": "Anti-Recurrence Check",
+      "norm_label": "\ud83d\udd34 a check tests whether a number computes, not whether it means anything (2026-08-27)"
+    },
+    {
+      "label": "The 2026-08-27 checks that behaved correctly \u2014 and what re-anchoring them taught",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L317",
+      "_origin": "ast",
+      "id": "concepts_anti_recurrence_check_the_2026_08_27_checks_that_behaved_correctly_and_what_re_anchoring_them_taught",
+      "community": 7,
+      "community_name": "Anti-Recurrence Check",
+      "norm_label": "the 2026-08-27 checks that behaved correctly \u2014 and what re-anchoring them taught"
+    },
+    {
+      "label": "Two JSX shapes that fail silently and compile clean (2026-08-27)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L339",
+      "_origin": "ast",
+      "id": "concepts_anti_recurrence_check_two_jsx_shapes_that_fail_silently_and_compile_clean_2026_08_27",
+      "community": 7,
+      "community_name": "Anti-Recurrence Check",
+      "norm_label": "two jsx shapes that fail silently and compile clean (2026-08-27)"
     },
     {
       "label": "Design Inspiration Sources.md",
@@ -1478,21 +1621,32 @@
       "norm_label": "auto resi tracking, honestly priced"
     },
     {
-      "label": "DECISION: OPEN \u2014 waiting on Aldi",
+      "label": "DECISION: ~~OPEN~~ \u2014 CLOSED BY THE BUILD, 2026-08-26/27",
       "file_type": "document",
       "source_file": "Wiki/Concepts/HQ-Initiated Stock Push.md",
       "source_location": "L99",
       "_origin": "ast",
-      "id": "concepts_hq_initiated_stock_push_decision_open_waiting_on_aldi",
+      "id": "concepts_hq_initiated_stock_push_decision_open_closed_by_the_build_2026_08_26_27",
       "community": 14,
       "community_name": "HQ-Initiated Stock Push",
-      "norm_label": "decision: open \u2014 waiting on aldi"
+      "norm_label": "decision: ~~open~~ \u2014 closed by the build, 2026-08-26/27"
+    },
+    {
+      "label": "What actually shipped (2026-08-26 \u2192 2026-08-27)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/HQ-Initiated Stock Push.md",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "concepts_hq_initiated_stock_push_what_actually_shipped_2026_08_26_2026_08_27",
+      "community": 14,
+      "community_name": "HQ-Initiated Stock Push",
+      "norm_label": "what actually shipped (2026-08-26 \u2192 2026-08-27)"
     },
     {
       "label": "Rejected on purpose \u2014 do not re-propose",
       "file_type": "document",
       "source_file": "Wiki/Concepts/HQ-Initiated Stock Push.md",
-      "source_location": "L105",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "concepts_hq_initiated_stock_push_rejected_on_purpose_do_not_re_propose",
       "community": 14,
@@ -2009,7 +2163,7 @@
       "label": "Locked rules \u2014 do not re-litigate",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L36",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_locked_rules_do_not_re_litigate",
       "community": 61,
@@ -2020,7 +2174,7 @@
       "label": "Open",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L46",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_open",
       "community": 61,
@@ -2031,7 +2185,7 @@
       "label": "The 2026-08-26 audit \u2014 what to add, what is broken, what to redesign",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L52",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
       "community": 61,
@@ -2042,7 +2196,7 @@
       "label": "Missing from the regional warehouse, worst first",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L57",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_missing_from_the_regional_warehouse_worst_first",
       "community": 61,
@@ -2053,7 +2207,7 @@
       "label": "Broken today",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L67",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_broken_today",
       "community": 61,
@@ -2064,7 +2218,7 @@
       "label": "\u26a0\ufe0f Correction to the options section above",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L80",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_correction_to_the_options_section_above",
       "community": 61,
@@ -2075,7 +2229,7 @@
       "label": "Do we need more workflow? No.",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L88",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_do_we_need_more_workflow_no",
       "community": 61,
@@ -2086,7 +2240,7 @@
       "label": "The redesign: one waybill, two directions",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L94",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_the_redesign_one_waybill_two_directions",
       "community": 61,
@@ -2097,7 +2251,7 @@
       "label": "2026-08-26 \u2014 Restock Vault redesign v2: one form, two directions",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L111",
+      "source_location": "L122",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
       "community": 61,
@@ -2108,7 +2262,7 @@
       "label": "What the code actually holds (read out of the tree, file:line)",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L116",
+      "source_location": "L127",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_what_the_code_actually_holds_read_out_of_the_tree_file_line",
       "community": 61,
@@ -2119,7 +2273,7 @@
       "label": "Decisions taken",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L130",
+      "source_location": "L141",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_decisions_taken",
       "community": 61,
@@ -2130,7 +2284,7 @@
       "label": "Two laws that decided the motion list",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L148",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_two_laws_that_decided_the_motion_list",
       "community": 61,
@@ -2141,7 +2295,7 @@
       "label": "Ranked additions for this screen",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L155",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_ranked_additions_for_this_screen",
       "community": 61,
@@ -2152,12 +2306,23 @@
       "label": "Verification, honestly",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L161",
+      "source_location": "L172",
       "_origin": "ast",
       "id": "concepts_logistics_and_stock_movement_verification_honestly",
       "community": 61,
       "community_name": "Logistics and Stock Movement",
       "norm_label": "verification, honestly"
+    },
+    {
+      "label": "2026-08-26/27 \u2014 the desk was BUILT, and Sebaran Stok answers the hub question",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L180",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_2026_08_26_27_the_desk_was_built_and_sebaran_stok_answers_the_hub_question",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "2026-08-26/27 \u2014 the desk was built, and sebaran stok answers the hub question"
     },
     {
       "label": "Looking at the App.md",
@@ -2367,6 +2532,138 @@
       "community": 45,
       "community_name": "Off-Token Colour Migration Map",
       "norm_label": "\u26a0\ufe0f read this first when light mode starts (added 2026-08-15)"
+    },
+    {
+      "label": "Ponder Tutorial System.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "ponder tutorial system.md"
+    },
+    {
+      "label": "Ponder Tutorial System",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "ponder tutorial system"
+    },
+    {
+      "label": "The problem, his words",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_the_problem_his_words",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "the problem, his words"
+    },
+    {
+      "label": "Decision 1 \u2014 scripted scenes, not recorded video (LOCKED)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_decision_1_scripted_scenes_not_recorded_video_locked",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "decision 1 \u2014 scripted scenes, not recorded video (locked)"
+    },
+    {
+      "label": "Decision 2 \u2014 fixed demo data, not a live spotlight (LOCKED, and it shapes everything)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_decision_2_fixed_demo_data_not_a_live_spotlight_locked_and_it_shapes_everything",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "decision 2 \u2014 fixed demo data, not a live spotlight (locked, and it shapes everything)"
+    },
+    {
+      "label": "Scene format \u2014 data, never React",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_scene_format_data_never_react",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "scene format \u2014 data, never react"
+    },
+    {
+      "label": "The four audit checks the engine needs",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_the_four_audit_checks_the_engine_needs",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "the four audit checks the engine needs"
+    },
+    {
+      "label": "The footnote migration \u2014 recorded so it is not forgotten",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_the_footnote_migration_recorded_so_it_is_not_forgotten",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "the footnote migration \u2014 recorded so it is not forgotten"
+    },
+    {
+      "label": "Project traps written into the plan",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_project_traps_written_into_the_plan",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "project traps written into the plan"
+    },
+    {
+      "label": "Build order \u2014 ranked by where a mistake costs money",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_build_order_ranked_by_where_a_mistake_costs_money",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "build order \u2014 ranked by where a mistake costs money"
+    },
+    {
+      "label": "OPEN \u2014 three questions left for him rather than assumed",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_open_three_questions_left_for_him_rather_than_assumed",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "open \u2014 three questions left for him rather than assumed"
+    },
+    {
+      "label": "Rejected on purpose \u2014 do not re-propose",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_rejected_on_purpose_do_not_re_propose",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "rejected on purpose \u2014 do not re-propose"
     },
     {
       "label": "Ponytail Philosophy.md",
@@ -3519,8 +3816,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_firestore_rules",
-      "community": 21,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "firestore rules.md"
     },
     {
@@ -3640,8 +3937,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap",
-      "community": 21,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "fleet captain permission gap.md"
     },
     {
@@ -3651,8 +3948,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_fleet_captain_permission_gap",
-      "community": 33,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "fleet captain permission gap"
     },
     {
@@ -3662,8 +3959,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_confirmed_recurrences_independently_at_least_5_times",
-      "community": 33,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "confirmed recurrences (independently, at least 5 times)"
     },
     {
@@ -3673,8 +3970,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_why_it_keeps_happening",
-      "community": 33,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "why it keeps happening"
     },
     {
@@ -3684,8 +3981,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_the_standing_lesson",
-      "community": 33,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "the standing lesson"
     },
     {
@@ -3695,8 +3992,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_related",
-      "community": 33,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "related"
     },
     {
@@ -3706,8 +4003,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_verify_before_trusting",
-      "community": 33,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "verify before trusting"
     },
     {
@@ -3717,8 +4014,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_git_worktrees",
-      "community": 34,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "git worktrees.md"
     },
     {
@@ -3728,8 +4025,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_git_worktrees_git_worktrees",
-      "community": 34,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "git worktrees"
     },
     {
@@ -3739,8 +4036,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "entities_git_worktrees_confirmed_real_incidents_3_so_far",
-      "community": 34,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "confirmed real incidents (3, so far)"
     },
     {
@@ -3750,8 +4047,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "entities_git_worktrees_the_resulting_discipline",
-      "community": 34,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "the resulting discipline"
     },
     {
@@ -3761,8 +4058,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "entities_git_worktrees_related",
-      "community": 34,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "related"
     },
     {
@@ -3772,8 +4069,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "entities_git_worktrees_verify_before_trusting",
-      "community": 34,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "verify before trusting"
     },
     {
@@ -3893,8 +4190,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture",
-      "community": 21,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "multi-tenant architecture.md"
     },
     {
@@ -3904,8 +4201,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_multi_tenant_architecture",
-      "community": 47,
-      "community_name": "Multi-Tenant Architecture",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "multi-tenant architecture"
     },
     {
@@ -3915,8 +4212,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_the_bossuid_pattern",
-      "community": 47,
-      "community_name": "Multi-Tenant Architecture",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "the bossuid pattern"
     },
     {
@@ -3926,8 +4223,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_where_tenant_isolation_has_actually_failed",
-      "community": 47,
-      "community_name": "Multi-Tenant Architecture",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "where tenant isolation has actually failed"
     },
     {
@@ -3937,8 +4234,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_related",
-      "community": 47,
-      "community_name": "Multi-Tenant Architecture",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "related"
     },
     {
@@ -3948,8 +4245,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_verify_before_trusting",
-      "community": 47,
-      "community_name": "Multi-Tenant Architecture",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "verify before trusting"
     },
     {
@@ -3959,8 +4256,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges",
-      "community": 21,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "rank config and achievement badges.md"
     },
     {
@@ -3970,8 +4267,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_rank_config_and_achievement_badges",
-      "community": 48,
-      "community_name": "Rank Config and Achievement Badges",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "rank config and achievement badges"
     },
     {
@@ -3981,8 +4278,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_bug_1_fixed_zero_rule_coverage",
-      "community": 48,
-      "community_name": "Rank Config and Achievement Badges",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "bug 1 (fixed): zero rule coverage"
     },
     {
@@ -3992,8 +4289,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_bug_2_open_documented_not_fixed_cross_tenant_shared_document",
-      "community": 48,
-      "community_name": "Rank Config and Achievement Badges",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "bug 2 (open, documented not fixed): cross-tenant shared document"
     },
     {
@@ -4003,8 +4300,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_related",
-      "community": 48,
-      "community_name": "Rank Config and Achievement Badges",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "related"
     },
     {
@@ -4014,8 +4311,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_verify_before_trusting",
-      "community": 48,
-      "community_name": "Rank Config and Achievement Badges",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "verify before trusting"
     },
     {
@@ -4025,8 +4322,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_terminal_tenant_path_split",
-      "community": 21,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "terminal tenant path split.md"
     },
     {
@@ -4190,8 +4487,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_tier_system",
-      "community": 21,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "tier system.md"
     },
     {
@@ -4201,8 +4498,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_tier_system_tier_system",
-      "community": 50,
-      "community_name": "Tier System",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "tier system"
     },
     {
@@ -4212,8 +4509,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "entities_tier_system_sharp_edge_legacy_string_overlap",
-      "community": 50,
-      "community_name": "Tier System",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "sharp edge: legacy string overlap"
     },
     {
@@ -4223,8 +4520,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "entities_tier_system_delegation_caneditroster",
-      "community": 50,
-      "community_name": "Tier System",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "delegation: caneditroster"
     },
     {
@@ -4234,8 +4531,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "entities_tier_system_related",
-      "community": 50,
-      "community_name": "Tier System",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "related"
     },
     {
@@ -4245,8 +4542,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "entities_tier_system_verify_before_trusting",
-      "community": 50,
-      "community_name": "Tier System",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "verify before trusting"
     },
     {
@@ -4256,8 +4553,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_index",
-      "community": 21,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "entities/index.md"
     },
     {
@@ -4267,8 +4564,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "entities_index_wiki_entities",
-      "community": 60,
-      "community_name": "Wiki/Entities",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "wiki/entities"
     },
     {
@@ -4278,8 +4575,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "entities_index_pages_here",
-      "community": 60,
-      "community_name": "Wiki/Entities",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "pages here"
     },
     {
@@ -4289,8 +4586,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "entities_index_adding_a_new_entity",
-      "community": 60,
-      "community_name": "Wiki/Entities",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "adding a new entity"
     },
     {
@@ -4341,7 +4638,7 @@
       "label": "Summaries (one per ingested source, newest ingest pass first)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L69",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
       "community": 51,
@@ -4352,7 +4649,7 @@
       "label": "Known gaps (honest, not filled in yet)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L102",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
       "community": 51,
@@ -5009,6 +5306,17 @@
       "norm_label": "2026-08-26 \u2014 the research was saved; retrieving it was the thing that failed"
     },
     {
+      "label": "2026-08-27 \u2014 the desk was built, and a green suite shipped a 17x wrong number",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1095",
+      "_origin": "ast",
+      "id": "log_2026_08_27_the_desk_was_built_and_a_green_suite_shipped_a_17x_wrong_number",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-08-27 \u2014 the desk was built, and a green suite shipped a 17x wrong number"
+    },
+    {
       "label": "MOC.md",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
@@ -5067,7 +5375,7 @@
       "label": "\ud83c\udfa8 Design & Interface",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L69",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "moc_design_interface",
       "community": 23,
@@ -5078,7 +5386,7 @@
       "label": "\ud83d\udcf1 Phone & Device",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L80",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "moc_phone_device",
       "community": 23,
@@ -5089,7 +5397,7 @@
       "label": "\ud83d\udea8 Incidents",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L86",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "moc_incidents",
       "community": 23,
@@ -5100,7 +5408,7 @@
       "label": "Elsewhere in this vault",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L97",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "moc_elsewhere_in_this_vault",
       "community": 23,
@@ -6038,8 +6346,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 21,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -6184,6 +6492,138 @@
       "community": 59,
       "community_name": "Store Hand-off Name Collision",
       "norm_label": "verified"
+    },
+    {
+      "label": "Surat Jalan Desk and Sebaran Stok.md",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "surat jalan desk and sebaran stok.md"
+    },
+    {
+      "label": "Surat Jalan Desk and Sebaran Stok",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "surat jalan desk and sebaran stok"
+    },
+    {
+      "label": "1. One document cut in half (`aea7de4`)",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_1_one_document_cut_in_half_aea7de4",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "1. one document cut in half (`aea7de4`)"
+    },
+    {
+      "label": "2. What actually shipped for the HQ push \u2014 option A, not D",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_2_what_actually_shipped_for_the_hq_push_option_a_not_d",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "2. what actually shipped for the hq push \u2014 option a, not d"
+    },
+    {
+      "label": "3. The Request tab \u2014 a move, not a copy (`76de71a`)",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_3_the_request_tab_a_move_not_a_copy_76de71a",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "3. the request tab \u2014 a move, not a copy (`76de71a`)"
+    },
+    {
+      "label": "4. Tujuan from the roster, and Headquarters is not a cabang (`76de71a`, `20c4a0a`)",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_4_tujuan_from_the_roster_and_headquarters_is_not_a_cabang_76de71a_20c4a0a",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "4. tujuan from the roster, and headquarters is not a cabang (`76de71a`, `20c4a0a`)"
+    },
+    {
+      "label": "5. Sebaran Stok \u2014 where every pack actually is (`76de71a` to `76f1ef3`)",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_5_sebaran_stok_where_every_pack_actually_is_76de71a_to_76f1ef3",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "5. sebaran stok \u2014 where every pack actually is (`76de71a` to `76f1ef3`)"
+    },
+    {
+      "label": "6. The part worth remembering: a total over a total is not a rate (`f7800f5`)",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L103",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_6_the_part_worth_remembering_a_total_over_a_total_is_not_a_rate_f7800f5",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "6. the part worth remembering: a total over a total is not a rate (`f7800f5`)"
+    },
+    {
+      "label": "7. Plain words, and an estimate that shows its working (`b452264`, `792ca04`)",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_7_plain_words_and_an_estimate_that_shows_its_working_b452264_792ca04",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "7. plain words, and an estimate that shows its working (`b452264`, `792ca04`)"
+    },
+    {
+      "label": "8. Hierarchy made of space, not lines (`76f1ef3`, `d042520`)",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L137",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_8_hierarchy_made_of_space_not_lines_76f1ef3_d042520",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "8. hierarchy made of space, not lines (`76f1ef3`, `d042520`)"
+    },
+    {
+      "label": "9. The Ponder tutorial plan (`5d4f062`)",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_9_the_ponder_tutorial_plan_5d4f062",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "9. the ponder tutorial plan (`5d4f062`)"
+    },
+    {
+      "label": "Verification, honestly",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L156",
+      "_origin": "ast",
+      "id": "summaries_surat_jalan_desk_and_sebaran_stok_verification_honestly",
+      "community": 21,
+      "community_name": "Entities/index.md",
+      "norm_label": "verification, honestly"
     },
     {
       "label": "Trophy Room and Rank System Design.md",
@@ -6544,8 +6984,8 @@
       "source_location": "L928",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_the_trophy_room_profile_ui",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4. the trophy room / profile ui"
     },
     {
@@ -6555,8 +6995,8 @@
       "source_location": "L930",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_first_the_3d_question_with_actual_numbers",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "first: the 3d question, with actual numbers"
     },
     {
@@ -6566,8 +7006,8 @@
       "source_location": "L956",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_mobile_legends_actually_does_and_how_to_get_it_for_free",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "what mobile legends actually does, and how to get it for free"
     },
     {
@@ -6577,8 +7017,8 @@
       "source_location": "L992",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_screen_mobile_first_one_thumb_readable_in_midday_sun",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "the screen \u2014 mobile first, one thumb, readable in midday sun"
     },
     {
@@ -6588,8 +7028,8 @@
       "source_location": "L994",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_1_hero",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.1 hero"
     },
     {
@@ -6599,8 +7039,8 @@
       "source_location": "L1039",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_2_etalase_three_slots_the_employee_chooses",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.2 etalase \u2014 three slots the employee chooses"
     },
     {
@@ -6610,8 +7050,8 @@
       "source_location": "L1082",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_3_rekor_karir_four_permanent_tiles",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.3 rekor karir \u2014 four permanent tiles"
     },
     {
@@ -6621,8 +7061,8 @@
       "source_location": "L1098",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_4_dinding_prestasi_the_badge_wall",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.4 dinding prestasi \u2014 the badge wall"
     },
     {
@@ -6632,8 +7072,8 @@
       "source_location": "L1109",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_5_penghargaan_the_shelf_you_fill_by_hand",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.5 penghargaan \u2014 the shelf you fill by hand"
     },
     {
@@ -6643,8 +7083,8 @@
       "source_location": "L1126",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_6_hari_ini_operational_visually_separated",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.6 hari ini \u2014 operational, visually separated"
     },
     {
@@ -6654,8 +7094,8 @@
       "source_location": "L1154",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_7_the_locker_room_how_peers_see_each_other",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.7 the locker room \u2014 how peers see each other"
     },
     {
@@ -6665,8 +7105,8 @@
       "source_location": "L1205",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_4_8_one_shared_component",
-      "community": 12,
-      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "4.8 one shared component"
     },
     {
@@ -6970,7 +7410,7 @@
       "label": "Adding a new summary",
       "file_type": "document",
       "source_file": "Wiki/Summaries/index.md",
-      "source_location": "L32",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
       "community": 38,
@@ -7279,6 +7719,160 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate",
+      "target": "concepts_a_ratio_of_sums_is_not_a_rate_a_ratio_of_sums_is_not_a_rate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate",
+      "target": "concepts_anti_recurrence_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L82",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate",
+      "target": "concepts_logistics_and_stock_movement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate",
+      "target": "concepts_looking_at_the_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate",
+      "target": "concepts_silent_failure_disease",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_index",
+      "target": "concepts_a_ratio_of_sums_is_not_a_rate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system",
+      "target": "concepts_a_ratio_of_sums_is_not_a_rate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1112",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
+      "target": "concepts_a_ratio_of_sums_is_not_a_rate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate_a_ratio_of_sums_is_not_a_rate",
+      "target": "concepts_a_ratio_of_sums_is_not_a_rate_the_fix_and_the_part_of_it_worth_copying",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L72",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate_a_ratio_of_sums_is_not_a_rate",
+      "target": "concepts_a_ratio_of_sums_is_not_a_rate_the_generalised_lesson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate_a_ratio_of_sums_is_not_a_rate",
+      "target": "concepts_a_ratio_of_sums_is_not_a_rate_what_happened_2026_08_27",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate_a_ratio_of_sums_is_not_a_rate",
+      "target": "concepts_a_ratio_of_sums_is_not_a_rate_where_else_to_look_for_this_shape_in_kpm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Ratio of Sums Is Not a Rate.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_ratio_of_sums_is_not_a_rate_a_ratio_of_sums_is_not_a_rate",
+      "target": "concepts_a_ratio_of_sums_is_not_a_rate_why_no_check_caught_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Store Name Is Not a Store.md",
       "source_location": "L12",
       "weight": 1.0,
@@ -7346,7 +7940,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L97",
+      "source_location": "L100",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -7368,7 +7962,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L100",
+      "source_location": "L102",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -7489,6 +8083,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1269",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste",
+      "target": "concepts_ponder_tutorial_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L327",
       "weight": 1.0,
       "_origin": "ast",
@@ -7516,6 +8121,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste",
       "target": "summaries_light_ground_and_the_theme_lab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1288",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok",
       "confidence_score": 1.0
     },
     {
@@ -7681,6 +8297,39 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_2026_08_24_the_on_plate_is_brown_by_law_and_the_bezel_is_the_way_out_measured",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1272",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_2026_08_27_a_banner_that_names_the_screen_you_just_clicked_is_chrome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1226",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_2026_08_27_hierarchy_is_made_of_space_not_of_more_lines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1249",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_2026_08_27_plain_words_and_a_number_must_show_its_working",
       "confidence_score": 1.0
     },
     {
@@ -8325,6 +8974,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L335",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_anti_recurrence_check",
+      "target": "concepts_ponder_tutorial_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
       "source_location": "L103",
       "weight": 1.0,
       "_origin": "ast",
@@ -8341,6 +9001,17 @@
       "_origin": "ast",
       "source": "concepts_anti_recurrence_check",
       "target": "concepts_the_rule_that_never_applied",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L356",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_anti_recurrence_check",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok",
       "confidence_score": 1.0
     },
     {
@@ -8369,7 +9040,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L169",
+      "source_location": "L194",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement",
@@ -8473,6 +9144,17 @@
       "_origin": "ast",
       "source": "summaries_light_ground_and_the_theme_lab",
       "target": "concepts_anti_recurrence_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L309",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_anti_recurrence_check_anti_recurrence_check",
+      "target": "concepts_anti_recurrence_check_a_check_tests_whether_a_number_computes_not_whether_it_means_anything_2026_08_27",
       "confidence_score": 1.0
     },
     {
@@ -8600,6 +9282,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L317",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_anti_recurrence_check_anti_recurrence_check",
+      "target": "concepts_anti_recurrence_check_the_2026_08_27_checks_that_behaved_correctly_and_what_re_anchoring_them_taught",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
@@ -8616,6 +9309,17 @@
       "_origin": "ast",
       "source": "concepts_anti_recurrence_check_anti_recurrence_check",
       "target": "concepts_anti_recurrence_check_the_same_shape_in_the_checks_themselves_a_check_that_its_own_explanation_can_break_2026_08_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L339",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_anti_recurrence_check_anti_recurrence_check",
+      "target": "concepts_anti_recurrence_check_two_jsx_shapes_that_fail_silently_and_compile_clean_2026_08_27",
       "confidence_score": 1.0
     },
     {
@@ -8930,7 +9634,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/HQ-Initiated Stock Push.md",
-      "source_location": "L112",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_hq_initiated_stock_push",
@@ -8941,11 +9645,22 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/HQ-Initiated Stock Push.md",
-      "source_location": "L112",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_hq_initiated_stock_push",
       "target": "concepts_where_kpm_is_going",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/HQ-Initiated Stock Push.md",
+      "source_location": "L111",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_hq_initiated_stock_push",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok",
       "confidence_score": 1.0
     },
     {
@@ -8967,6 +9682,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement",
+      "target": "concepts_hq_initiated_stock_push",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1102",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
       "target": "concepts_hq_initiated_stock_push",
       "confidence_score": 1.0
     },
@@ -9000,7 +9726,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_hq_initiated_stock_push_hq_initiated_stock_push",
-      "target": "concepts_hq_initiated_stock_push_decision_open_waiting_on_aldi",
+      "target": "concepts_hq_initiated_stock_push_decision_open_closed_by_the_build_2026_08_26_27",
       "confidence_score": 1.0
     },
     {
@@ -9018,7 +9744,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/HQ-Initiated Stock Push.md",
-      "source_location": "L105",
+      "source_location": "L133",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_hq_initiated_stock_push_hq_initiated_stock_push",
@@ -9067,6 +9793,17 @@
       "_origin": "ast",
       "source": "concepts_hq_initiated_stock_push_hq_initiated_stock_push",
       "target": "concepts_hq_initiated_stock_push_verified_current_state",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/HQ-Initiated Stock Push.md",
+      "source_location": "L109",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_hq_initiated_stock_push_hq_initiated_stock_push",
+      "target": "concepts_hq_initiated_stock_push_what_actually_shipped_2026_08_26_2026_08_27",
       "confidence_score": 1.0
     },
     {
@@ -9557,7 +10294,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L54",
+      "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -9579,7 +10316,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L75",
+      "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement",
@@ -9601,7 +10338,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L34",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement",
@@ -9612,7 +10349,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement",
@@ -9620,10 +10357,43 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1132",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
+      "target": "concepts_logistics_and_stock_movement",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L111",
+      "source_location": "L180",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_logistics_and_stock_movement",
+      "target": "concepts_logistics_and_stock_movement_2026_08_26_27_the_desk_was_built_and_sebaran_stok_answers_the_hub_question",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_logistics_and_stock_movement",
@@ -9634,7 +10404,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L36",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_logistics_and_stock_movement",
@@ -9645,7 +10415,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L46",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_logistics_and_stock_movement",
@@ -9667,7 +10437,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L52",
+      "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_logistics_and_stock_movement",
@@ -9689,7 +10459,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L67",
+      "source_location": "L78",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
@@ -9700,7 +10470,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L80",
+      "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
@@ -9711,7 +10481,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L88",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
@@ -9722,7 +10492,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L57",
+      "source_location": "L68",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
@@ -9733,7 +10503,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L94",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_the_2026_08_26_audit_what_to_add_what_is_broken_what_to_redesign",
@@ -9744,7 +10514,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L130",
+      "source_location": "L141",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
@@ -9755,7 +10525,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L155",
+      "source_location": "L166",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
@@ -9766,7 +10536,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L148",
+      "source_location": "L159",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
@@ -9777,7 +10547,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L161",
+      "source_location": "L172",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
@@ -9788,7 +10558,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
-      "source_location": "L116",
+      "source_location": "L127",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
@@ -10101,6 +10871,182 @@
       "_origin": "ast",
       "source": "concepts_off_token_colour_migration_map_off_token_colour_migration_map",
       "target": "concepts_off_token_colour_migration_map_what_is_not_migrated",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_index",
+      "target": "concepts_ponder_tutorial_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system",
+      "target": "concepts_the_kpm_control_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system",
+      "target": "concepts_where_kpm_is_going",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L110",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1142",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
+      "target": "concepts_ponder_tutorial_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L89",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_build_order_ranked_by_where_a_mistake_costs_money",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_decision_1_scripted_scenes_not_recorded_video_locked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_decision_2_fixed_demo_data_not_a_live_spotlight_locked_and_it_shapes_everything",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_open_three_questions_left_for_him_rather_than_assumed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_project_traps_written_into_the_plan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_rejected_on_purpose_do_not_re_propose",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_scene_format_data_never_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_the_footnote_migration_recorded_so_it_is_not_forgotten",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_the_four_audit_checks_the_engine_needs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_the_problem_his_words",
       "confidence_score": 1.0
     },
     {
@@ -10618,6 +11564,17 @@
       "_origin": "ast",
       "source": "concepts_the_eight_warehouse_gaps",
       "target": "concepts_where_kpm_is_going",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L163",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "target": "concepts_the_eight_warehouse_gaps",
       "confidence_score": 1.0
     },
     {
@@ -11218,7 +12175,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L100",
+      "source_location": "L103",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -11240,7 +12197,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L103",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -11405,7 +12362,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/index.md",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "summaries_index",
@@ -12450,7 +13407,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/index.md",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "summaries_index",
@@ -12527,7 +13484,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L102",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -12538,7 +13495,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L69",
+      "source_location": "L71",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -12757,8 +13714,19 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1099",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L99",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -13220,6 +14188,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
+      "source_location": "L1095",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_08_27_the_desk_was_built_and_a_green_suite_shipped_a_17x_wrong_number",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
       "source_location": "L219",
       "weight": 1.0,
       "_origin": "ast",
@@ -13242,7 +14221,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L104",
+      "source_location": "L106",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -13264,7 +14243,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L69",
+      "source_location": "L71",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc_map_of_content",
@@ -13275,7 +14254,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L97",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc_map_of_content",
@@ -13286,7 +14265,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L86",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc_map_of_content",
@@ -13297,7 +14276,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L80",
+      "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc_map_of_content",
@@ -14284,6 +15263,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L162",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_stock_count_trust_chain",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/Stock Count Trust Chain.md",
@@ -14364,7 +15354,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/index.md",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "summaries_index",
@@ -14413,6 +15403,138 @@
       "_origin": "ast",
       "source": "summaries_store_hand_off_name_collision_store_hand_off_name_collision",
       "target": "summaries_store_hand_off_name_collision_what_shipped",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/index.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_index",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_1_one_document_cut_in_half_aea7de4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_2_what_actually_shipped_for_the_hq_push_option_a_not_d",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_3_the_request_tab_a_move_not_a_copy_76de71a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_4_tujuan_from_the_roster_and_headquarters_is_not_a_cabang_76de71a_20c4a0a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_5_sebaran_stok_where_every_pack_actually_is_76de71a_to_76f1ef3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L103",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_6_the_part_worth_remembering_a_total_over_a_total_is_not_a_rate_f7800f5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L116",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_7_plain_words_and_an_estimate_that_shows_its_working_b452264_792ca04",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L137",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_8_hierarchy_made_of_space_not_lines_76f1ef3_d042520",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L151",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_9_the_ponder_tutorial_plan_5d4f062",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/Surat Jalan Desk and Sebaran Stok.md",
+      "source_location": "L156",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_surat_jalan_desk_and_sebaran_stok_surat_jalan_desk_and_sebaran_stok",
+      "target": "summaries_surat_jalan_desk_and_sebaran_stok_verification_honestly",
       "confidence_score": 1.0
     },
     {
@@ -15167,7 +16289,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/index.md",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
       "source": "summaries_index_wiki_summaries",
@@ -15253,5 +16375,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "66c5f30e8700b1982341f33569486348aa4f5148"
+  "built_at_commit": "c2da5ed7fa2b66b056172c0a51ab2bc7c1d53e30"
 }

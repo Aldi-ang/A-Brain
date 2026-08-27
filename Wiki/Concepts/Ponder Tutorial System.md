@@ -6,14 +6,14 @@ created: 2026-08-27
 updated: 2026-08-27
 confidence: high
 checked: 2026-08-27
-status: OPEN — plan only, nothing built
+status: BUILDING — slice 1 shipped 2026-08-27 (`521b1d9`), slice 2 is the real table
 tags: [kpm, tutorial, onboarding, ux, design, plan, open, brainstorm]
 aliases: [Ponder, Tutorial System, In-App Tutorial, Onboarding Scenes]
 ---
 
 # Ponder Tutorial System
 
-**Status: plan only.** `.claude/PONDER-PLAN.md` in the kpm-inventory repo (commit `5d4f062`,
+**Status: slice 1 is built and was looked at.** `.claude/PONDER-PLAN.md` in the kpm-inventory repo (commit `5d4f062`,
 2026-08-27) is the whole deliverable. He asked for the plan and **explicitly chose to build
 nothing** that session, with ~23% of the quota left.
 
@@ -94,13 +94,42 @@ EOD Setoran → Stock Opname (why the number is hidden) → Restock Vault Reques
 stock immediately) → Receivables → Fleet & Canvas (loading a van *moves* stock, it does not copy it)
 → Dashboard/Map/Reports last, being read-only.
 
-## OPEN — three questions left for him rather than assumed
+## ANSWERED 2026-08-27 — all three, plus a fourth he added
 
-1. **Language.** Indonesian, English, or both? His *"english if shorter and direct"* rule was about
-   **column labels**, and branch staff reading a tutorial are not the same audience as an HQ admin
-   reading a table header. **Not assumed either way.**
-2. **Autoplay or manual** — auto-run a stage then wait, or press forward for every beat?
-3. **Does a first-time user get pushed into a scene**, or is `?` always opt-in?
+> 1. *"teaching just use indonesia, for terms for the features and components just use english"*
+> 2. *"scene play but itself but also add pause button or timeframe to restart the tutorial, just
+>    like the ponder system inside create mod, i want u to fully research how that works and also
+>    find example so u got the image to do this job"*
+> 3. *"nope dont push newcomer towards the scene let them figure out by pressing the tutorial button"*
+> 4. *"dont use sebaran stock, use proper elegant english terms for that"*
+
+**All four are checks now, not prose** — `integration.audit.mjs` group 56, fourteen of them. A
+paragraph recording a preference goes stale in silence; a check cannot.
+
+**On (1):** a teaching sentence is Indonesian and every column name stays in the English it is
+printed in on screen, marked `**like this**` so it renders in accent ink. That is what makes an
+English term visibly a term rather than a foreign word dropped into an Indonesian sentence — and it
+is what sends the reader looking for the same label on the real panel.
+
+**On (4), the name is `Stock by Warehouse`.** Two runners-up lost for stated reasons:
+*Stock Distribution* — that screen already has a **Shipping** column, and "distribution" reads as
+the shipping operation, so the title could be misread as naming one of its own columns.
+*Stock Across Warehouses* — 23 uppercase characters at `tracking-[0.14em]` wrap to two lines on a
+phone, and a two-line title is exactly what he deleted the old banner for
+([[Aldi's Design Taste]], *"not cool and elegant"*).
+
+## What slice 1 actually built (`521b1d9`, 645/645)
+
+`src/ponder/`: `useScenePlayer` (the clock), `PonderOverlay` (the player), `PonderButton` (the chip
+in the panel header), `registry.js`, one scene, one disposable stage. Autoplay, a real Pause,
+Restart, a 3px timeline with a notch per beat, Comfy Reading, arrow keys, Esc.
+
+**Slice 2 is the only queued job:** extract the real table into a presentational component, feed it
+`DEMO_WAREHOUSES`, delete the placeholder stage and the footnote, and **move** check 631 onto the
+scene file. See `.claude/NEXT-SESSION.md` in the repo.
+
+See [[What Create Mod's Ponder Actually Does]] for the mechanics this was built from, and
+[[Looking at the App]] for how a frame of it was obtained without the vault password.
 
 ## Rejected on purpose — do not re-propose
 

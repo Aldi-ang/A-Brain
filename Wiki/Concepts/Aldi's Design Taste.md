@@ -1286,3 +1286,52 @@ And the edge: `shadow-xl` is a hard black slab under a near-black panel, which i
 on the page instead of being stamped onto it.
 
 Source: [[../Summaries/Surat Jalan Desk and Sebaran Stok]].
+
+
+## 2026-08-27 — the tutorial's four answers, and how a panel got its English name
+
+Asked the three open Ponder questions, he answered all three and added a fourth, unprompted:
+
+> *"teaching just use indonesia, for terms for the features and components just use english"*
+
+> *"scene play but itself but also add pause button or timeframe to restart the tutorial, just like
+> the ponder system inside create mod, i want u to fully research how that works and also find
+> example so u got the image to do this job"*
+
+> *"nope dont push newcomer towards the scene let them figure out by pressing the tutorial button"*
+
+> *"dont use sebaran stock, use proper elegant english terms for that"*
+
+**Three things worth keeping from these.**
+
+**He splits the audience by SENTENCE versus LABEL, not by screen.** The 2026-08-27 English rule was
+about HQ column headers, and the open question was whether a teaching sentence for branch staff
+inherited it. His answer draws the line inside the sentence instead: Indonesian prose, English
+terms, because the term is the thing the reader has to go find on the real panel. A translated
+column name would teach a word that appears nowhere.
+
+**"Fully research how that works and also find example."** He asks for the mechanism before the
+build, and he means it literally — the result is
+[[What Create Mod's Ponder Actually Does]], read out of Create's own Java rather than described
+from memory. Compare *"i want where u got that calculation"*: the same instinct, applied to a
+reference instead of to a number. **He does not accept a resemblance where a source exists.**
+
+**He refuses to push anything at a new user.** Not a first-run tour, not a "have you seen this"
+flag. The button sits there and waits. That is consistent with *"i dont want to see the sidebar
+button on the login screen"* — a control that appears without being asked for is a bug to him.
+
+### The naming call, and the two that lost
+
+**`Stock by Warehouse`.** Rejected on stated grounds, so no later session re-proposes them:
+
+- **Stock Distribution** — the literal translation of *Sebaran Stok*, and wrong here. The panel
+  already has a **Shipping** column, and in logistics "distribution" is the shipping operation, so
+  the title could be read as naming one of its own columns. The [[UI-Says-Yes-Server-Says-No Pattern]]
+  cousin for words: an ambiguous label is a bug, not a style preference — the same rule that killed
+  *"nomor SJ"* when the owner could not expand his own abbreviation.
+- **Stock Across Warehouses** — precise, and 23 uppercase characters at `tracking-[0.14em]` wrap to
+  two lines on a phone. **A two-line title is the thing he deleted the banner for**, three hours
+  earlier, in this same file.
+
+The subtitle already reads *every warehouse · in Bks*, so the title never had to carry scope.
+**The slack belongs to the data, not the label** — his rule, applied to words.

@@ -251,3 +251,45 @@ state nobody had ever seen, because the old design only showed it at the end of 
 **The rule worth carrying:** when a component stops being an ENDING and starts being PRESENT, every
 one of its states becomes a layout that has to be looked at — including the ones that used to last
 400ms. Half the checks in this repo are about the final frame; none of them describe the waiting one.
+
+
+## A SECOND HARNESS — `tools/ponder-lab.*` renders a real React component (2026-08-27)
+
+The theme lab above renders **markup** against the built stylesheet. It cannot render a React
+component, so a component the showroom does not contain had to be hand-copied into a scratch file —
+which is note 3 of "the three ways it lied" waiting to happen.
+
+`tools/ponder-lab.config.mjs` is a second, tiny vite build: same repo, same postcss and Tailwind,
+`react()` only, output to `dist-ponderlab/` (gitignored). It imports the **real** component from
+`src/` and the **real** `src/index.css`, and it drops the app's HTTPS certificate and service
+worker, which is what puts the app itself behind a wall here.
+
+    npx vite build --config tools/ponder-lab.config.mjs
+    python -m http.server 4187 -d dist-ponderlab
+    http://localhost:4187/tools/ponder-lab.html?light&lite&step=N&scene=<id>&probe
+
+Then headless Chrome exactly as above. **This generalises** — any component that takes props can get
+its own lab entry, and nothing is copied, so nothing can drift.
+
+## 🔴 A HEADLESS SHOT NARROWER THAN ~518px ON WINDOWS IS A CROP, NOT A LAYOUT (2026-08-27)
+
+**Chrome on Windows will not open a window narrower than about 518 CSS pixels.** Ask headless for
+`--window-size=375,812` and it lays the page out at **518** and saves the left 375 pixels of it. The
+PNG is 375 wide and looks exactly like a component overflowing its viewport: the close button gone
+off the right edge, the caption clipped mid-word, the controls cut in half.
+
+**It cost three screenshots, a wrong diagnosis and a layout fix aimed at a bug that did not exist.**
+The same page measured **375px wide with zero overflow** in a real browser at a 375 viewport.
+`--force-device-scale-factor` does not help — it scales the output, not the CSS viewport.
+
+**The guard, and it is cheap:** the lab answers `?probe` by writing `window.innerWidth`, the panel's
+measured width and `overflowsViewport` into a `<pre>` that `--dump-dom` can read. Run the probe
+first; if `vw` is not the width you asked for, the frame is a crop and proves nothing. **518px is
+still a useful narrow frame** — it is below both the `sm:` (640) and `lg:` (1024) breakpoints, so it
+exercises the whole mobile branch.
+
+The general shape is the one this page keeps re-learning: **a harness that renders something other
+than what the app renders measures the harness.** Here it was not the markup or the stylesheet — it
+was the viewport, and the harness never said so.
+
+See also: [[Ponder Tutorial System]] · [[What Create Mod's Ponder Actually Does]]
