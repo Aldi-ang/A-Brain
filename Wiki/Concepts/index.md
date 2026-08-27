@@ -3,7 +3,7 @@ title: "Concepts — Index"
 description: Folder index for Wiki/Concepts — recurring patterns seen across the KPM app. Added as part of PLAN-A-Brain-agentic-OS task 2.3.
 type: index
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-08-27
 tags: [index, wiki, concepts]
 ---
 
@@ -17,6 +17,8 @@ For the authoritative flat catalog, always check [[../Index]] first.
 
 ## Pages here
 
+- [[A CSS Animation Outranks Your Inline Style]]
+- [[A Rect Is Painted, Not Laid Out]]
 - [[Aldi's Design Taste]]
 - [[Anti-Recurrence Check]]
 - [[Draft-Then-Deploy Discipline]]

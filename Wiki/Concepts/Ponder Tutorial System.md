@@ -149,8 +149,12 @@ none of its colours are, because that book is green.
 **Sounds** are the app's own audio re-pointed through `useSound`, which is already silent in Lite
 Mode. Real book audio is a four-line swap, written down in `sfx.js`.
 
-**The expensive bug: [[An Effect's Own Cleanup Can Cancel Its Frame]].** It silently deleted the
-whole spotlight, and later rendered the book invisible, with every check green both times.
+**The expensive bugs: [[An Effect's Own Cleanup Can Cancel Its Frame]], and it is now a family of
+five.** It silently deleted the whole spotlight, later rendered the book invisible, then replayed the
+book on every render — and on 2026-08-27 two more turned up in the same files:
+[[A CSS Animation Outranks Your Inline Style]] (every caption sat on top of its own subject) and
+[[A Rect Is Painted, Not Laid Out]] (the first beat of every scene measured 6% small). Every check
+was green for all five.
 
 ## What slice 1 actually built (`521b1d9`, 645/645)
 
@@ -173,3 +177,21 @@ format · long scenes (ours are 30-45s, 5-8 steps) · refactoring every componen
 Source: [[../Summaries/Surat Jalan Desk and Sebaran Stok]] §9.
 
 See also: [[Aldi's Design Taste]] · [[Where KPM Is Going]] · [[The KPM Control System]]
+
+## Goods Received, and his four faults (`8109559`, 663/663)
+
+Aldi's message of 2026-08-27 named four things, and the fix for each is now a check in group 56:
+
+1. **The caption covered its subject** — [[A CSS Animation Outranks Your Inline Style]]. Not the
+   height guess everyone assumed: `EST_H` was 150 against a real **109**, so the room test was
+   rejecting space that would have worked. Every placement branch returns a final `top` now.
+2. **Only one of three costs lit.** `focus` takes a **list** of keys; `measure()` already unioned the
+   rects of every hit, so the single-valued key test was the only thing in the way.
+3. **The stage scrolled under the caption** — it overflowed its window by 27px, enough to drift a
+   caption off its subject, too little to read as a scrollbar. **Sized to fit, not locked:**
+   `overflow-auto` stays as the phone's safety net, because locking it would have made everything
+   below the fold unreachable.
+4. **Click-to-jump built.** Press any part a beat explains and the scene seeks to the first beat
+   naming that key. Only parts some beat covers get a cursor — a pointer on a part nothing explains
+   promises a jump that cannot happen. This also makes the queued *Identify-on-hover* idea small,
+   since it is the same wiring.

@@ -73,3 +73,22 @@ cleanly and blanked the dashboard.
 
 See also: [[Looking at the App]] · [[Ponder Tutorial System]] · [[Anti-Recurrence Check]] ·
 [[Aldi's Design Taste]]
+
+## The family has five members now
+
+All five share one shape: **work performed or undone by a mechanism nobody was watching, with
+nothing thrown and every check green.**
+
+1. A `requestAnimationFrame` cancelled by its own effect cleanup — the spotlight silently did nothing.
+2. The same pattern rendering the book at `opacity: 0`.
+3. A `const T = {...}` inside the component putting an unstable object in a dependency array,
+   replaying the whole book on every render.
+4. [[A CSS Animation Outranks Your Inline Style]] — a keyframe's `transform: none` erasing the inline
+   `transform` that positioned every caption. Found 2026-08-27 from a photograph Aldi took.
+5. [[A Rect Is Painted, Not Laid Out]] — a rect measured through the modal's own `scale(0.94)` open
+   animation, so the first beat of every scene measured 6% small and healed itself four seconds later.
+
+**The generalisation, and it is worth more than any of the five:** none of these are visible in the
+source, in `git diff`, or in a screenshot. Each was found by asking the running browser a question —
+`getComputedStyle()` against the inline style, `rect.width` against `offsetWidth`. When a visual
+change is claimed fixed, **measure the DOM**; see [[Looking at the App]].
