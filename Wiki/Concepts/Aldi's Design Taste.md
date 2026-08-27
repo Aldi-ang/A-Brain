@@ -1335,3 +1335,50 @@ button on the login screen"* — a control that appears without being asked for 
 
 The subtitle already reads *every warehouse · in Bks*, so the title never had to carry scope.
 **The slack belongs to the data, not the label** — his rule, applied to words.
+
+
+## 2026-08-27 — six asks in one message, and what they say about how he reviews
+
+> *"we can delete this"* … then, unprompted, a correction: *"i mean the instruction below company
+> total btw"*
+
+> *"make the explanation more easier to understand and more descriptive with easy indonesian
+> language"*
+
+> *"more variative textbox and animation not just static textbox on the bottom just like what create
+> mod have"* · *"improve the higlights animation on each timeframe as well"*
+
+> *"i want the tutorial book on the very top of the screen for every components, since we have a lot
+> of space there maybe we can put it the book animation around there?"*
+
+> *"make sure the book animation also open when hovered with all the effect and cool gaming
+> animation then book open animation and zoom in to view the tutorial to choose from"*
+
+> *"book open and closed animation on exit must be smooth, for lite mode then snap the book and
+> close it right back thats fine"* · *"book SFX also needed here"*
+
+**He deletes explanation and replaces it with demonstration.** The footnote he killed was correct,
+complete and his own request from four hours earlier. What changed is that a tutorial now exists, so
+the small print became the worse copy of a thing that already had a better home. **The instinct is
+not "less documentation" — it is "documentation where someone is actually looking".**
+
+**He specifies MOTION as precisely as he specifies numbers.** Not "make it nicer": *variative*
+textbox rather than static, highlight animation per timeframe, hover then open then zoom, smooth on
+exit. Compare *"i want where u got that calculation"* — the same demand for the mechanism to be
+visible, applied to movement instead of arithmetic.
+
+**He names the Lite Mode carve-out himself, every time.** *"for lite mode then snap the book and
+close it right back thats fine"*. He has now done this on three separate features. **Lite Mode is
+not something to protect him from; he budgets for it out loud.** The rule that keeps falling out of
+it is the same one: the END state must be the readable one, because Lite Mode delivers only that.
+
+**He points at empty space and asks what belongs there.** *"since we have a lot of space there
+maybe we can put it the book animation around there?"* — the top bar, three status chips and a
+clock. He reads unused space as an unanswered question, not as breathing room. Contrast the banner
+he deleted the same morning for saying nothing: **space is for something that does a job, and
+nothing is better than something that does not.**
+
+**And a Minecraft mod screenshot is a spec.** He sent a dictionary book — tabs down the left edge, a
+two-page spread, page arrows in the corners — and every one of those three made it in. What did not
+was its palette; that book is green on parchment. [[Design Inspiration Sources]] rule 1 held:
+**take the shape and the motion, never the colours.**

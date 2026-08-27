@@ -6,7 +6,7 @@ created: 2026-08-27
 updated: 2026-08-27
 confidence: high
 checked: 2026-08-27
-status: BUILDING — slice 1 shipped 2026-08-27 (`521b1d9`), slice 2 is the real table
+status: BUILDING — slices 1 and 2 shipped 2026-08-27 (`521b1d9`, `df5c98b`); next is the Kasir scene
 tags: [kpm, tutorial, onboarding, ux, design, plan, open, brainstorm]
 aliases: [Ponder, Tutorial System, In-App Tutorial, Onboarding Scenes]
 ---
@@ -117,6 +117,40 @@ the shipping operation, so the title could be misread as naming one of its own c
 *Stock Across Warehouses* — 23 uppercase characters at `tracking-[0.14em]` wrap to two lines on a
 phone, and a two-line title is exactly what he deleted the old banner for
 ([[Aldi's Design Taste]], *"not cool and elegant"*).
+
+## Slice 2 — six more asks in one message, all shipped (`df5c98b`, 651/651)
+
+> *"we can delete this"* … *"i mean the instruction below company total"* · *"make the explanation
+> more easier to understand and more descriptive with easy indonesian language"* · *"more variative
+> textbox and animation not just static textbox on the bottom just like what create mod have"* ·
+> *"improve the higlights animation on each timeframe as well"* · *"i want the tutorial book on the
+> very top of the screen for every components"* · *"book SFX also needed here"*
+
+**The footnote is deleted and check 631 MOVED.** Five paragraphs of small print under a table is
+where an explanation goes to be skipped; they are sixteen Indonesian beats now, each standing beside
+the column it explains. See [[Anti-Recurrence Check]] for why the check moved rather than went.
+
+**The table was extracted** into `ponder/stages/StockByWarehouseTable.jsx`, leaving only the maths in
+`BranchWarehouseManager`. The tutorial renders that same component against a fixed demo world.
+**Splitting a component splits its checks** — five group-55 checks had to be repointed at the file
+the markup moved to, and finding that out was the audit going red, not a guess.
+
+**Captions move now.** `at: 'near'` pins one beside its subject with a pointer; `at: 'bottom'` uses
+the wide bar; the pointer aims four ways, because a caption beside a full-height column points
+sideways. The two-direction version put the box on top of the table header, over the very numbers it
+was describing.
+
+**The book** lives in the shared top bar, so every screen has it. Cover hinged on the spine, lifting
+on hover; opens into a two-page spread with tabs down the left edge, a chapter opener on the left and
+entry cards on the right. All seven sections are listed, and an unwritten one says **belum ditulis**
+on its own face rather than being absent. The shape is from the Minecraft dictionary book he sent;
+none of its colours are, because that book is green.
+
+**Sounds** are the app's own audio re-pointed through `useSound`, which is already silent in Lite
+Mode. Real book audio is a four-line swap, written down in `sfx.js`.
+
+**The expensive bug: [[An Effect's Own Cleanup Can Cancel Its Frame]].** It silently deleted the
+whole spotlight, and later rendered the book invisible, with every check green both times.
 
 ## What slice 1 actually built (`521b1d9`, 645/645)
 

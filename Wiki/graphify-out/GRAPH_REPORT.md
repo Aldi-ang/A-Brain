@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-08-27)
 
 ## Corpus Check
-- 62 files · ~135,103 words
+- 63 files · ~137,308 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 681 nodes · 807 edges · 63 communities (61 shown, 2 thin omitted)
+- 694 nodes · 825 edges · 72 communities (69 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c2da5ed7`
+- Built from commit: `eac853c3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -77,23 +77,31 @@
 - Wiki/Entities
 - Logistics and Stock Movement
 - 2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one
+- What Create Mod's Ponder Actually Does
+- Fleet Captain Permission Gap
+- Git Worktrees
+- Multi-Tenant Architecture
+- Rank Config and Achievement Badges
+- Tier System
+- Wiki/Entities
+- 2026-08-27 — the tutorial's four answers, and how a panel got its English name
 
 ## God Nodes (most connected - your core abstractions)
 1. `Operation Log` - 43 edges
-2. `Aldi's Design Taste` - 38 edges
+2. `Aldi's Design Taste` - 39 edges
 3. `Anti-Recurrence Check` - 18 edges
 4. `Lancelot the Tobacco Ledger Agent` - 18 edges
-5. `The KPM Control System` - 14 edges
-6. `2026-08-16 — "animation and 3D more with gamification on all of this segment"` - 13 edges
-7. `Looking at the App` - 12 edges
-8. `KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics` - 12 edges
-9. `HQ-Initiated Stock Push` - 11 edges
-10. `Ponder Tutorial System` - 11 edges
+5. `Looking at the App` - 14 edges
+6. `The KPM Control System` - 14 edges
+7. `2026-08-16 — "animation and 3D more with gamification on all of this segment"` - 13 edges
+8. `Ponder Tutorial System` - 12 edges
+9. `KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics` - 12 edges
+10. `HQ-Initiated Stock Push` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (63 total, 2 thin omitted)
+## Communities (72 total, 3 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.06
@@ -136,12 +144,12 @@ Cohesion: 0.15
 Nodes (11): Categories, Honest limits, How to use it, n8n Automation Templates Archive, Related, What is saved, and where, gstack — installed 2026-08-26, and the second cost nobody measures, Licence notes that matter because the app is for sale (+3 more)
 
 ### Community 11 - "Looking at the App"
-Cohesion: 0.17
-Nodes (12): Checks that freeze a value, Four ways the harness decayed on its second outing (2026-08-17), Looking at the App, Related, Rendering a React component without signing in (2026-08-16), THE FRAME, FINALLY — headless Chrome (2026-08-16, second session), The harness, The stylesheet is the only witness (2026-08-16) (+4 more)
+Cohesion: 0.14
+Nodes (14): 🔴 A HEADLESS SHOT NARROWER THAN ~518px ON WINDOWS IS A CROP, NOT A LAYOUT (2026-08-27), A SECOND HARNESS — `tools/ponder-lab.*` renders a real React component (2026-08-27), Checks that freeze a value, Four ways the harness decayed on its second outing (2026-08-17), Looking at the App, Related, Rendering a React component without signing in (2026-08-16), THE FRAME, FINALLY — headless Chrome (2026-08-16, second session) (+6 more)
 
 ### Community 12 - "The screen — mobile first, one thumb, readable in midday sun"
-Cohesion: 0.18
-Nodes (11): Build order — ranked by where a mistake costs money, Decision 1 — scripted scenes, not recorded video (LOCKED), Decision 2 — fixed demo data, not a live spotlight (LOCKED, and it shapes everything), OPEN — three questions left for him rather than assumed, Ponder Tutorial System, Project traps written into the plan, Rejected on purpose — do not re-propose, Scene format — data, never React (+3 more)
+Cohesion: 0.17
+Nodes (12): ANSWERED 2026-08-27 — all three, plus a fourth he added, Build order — ranked by where a mistake costs money, Decision 1 — scripted scenes, not recorded video (LOCKED), Decision 2 — fixed demo data, not a live spotlight (LOCKED, and it shapes everything), Ponder Tutorial System, Project traps written into the plan, Rejected on purpose — do not re-propose, Scene format — data, never React (+4 more)
 
 ### Community 13 - "Where KPM Is Going"
 Cohesion: 0.18
@@ -156,8 +164,8 @@ Cohesion: 0.20
 Nodes (10): 🔴 DO NOT DELETE THAT LINE — it is load-bearing, Firestore Rules, It's a draft, not the live rules, Re-confirmed still-undeployed, 2026-07-27, Related, Superseded, 2026-07-29 — most of the ruleset deployed 2026-07-28, The one confirmed tenant-isolation failure, The owner's email is a hardcoded master key — found 2026-08-10 (+2 more)
 
 ### Community 16 - "Master Vault Gate"
-Cohesion: 0.05
-Nodes (38): Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening, Confirmed real incidents (3, so far), Git Worktrees (+30 more)
+Cohesion: 0.20
+Nodes (9): Biometric is Vercel-only, by design (2026-08-15), Decisions that are CLOSED — do not reopen, Five modes, Master Vault Gate, Open against this screen, Phone history, Related, The numbers Aldi locked — hard-coded, pinned by audit checks (+1 more)
 
 ### Community 17 - "9Router Subordinate AI Delegation"
 Cohesion: 0.22
@@ -244,7 +252,7 @@ Cohesion: 0.33
 Nodes (6): Dead Weight Cleanup and Rules-Deploy Gap, Related, Update 2026-07-28 — the cleanup broke the production build, Verify before trusting, What happened, Why it's worth remembering
 
 ### Community 38 - "Summaries/index.md"
-Cohesion: 0.40
+Cohesion: 0.67
 Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
 
 ### Community 39 - "Summary: Fleet Captain Rule Gaps — Batch 1 and 2"
@@ -256,7 +264,7 @@ Cohesion: 0.33
 Nodes (5): Ripple — pages this touches, Summary: Offline Login Lockout Fix, The bug, The fix, Why this belongs in the wiki
 
 ### Community 41 - "Summary: Rank Config Cross-Tenant Gap"
-Cohesion: 0.33
+Cohesion: 0.40
 Nodes (5): Framing note, Ripple — pages this touches, Summary: Rank Config Cross-Tenant Gap, The gap, Two layers, two different fixes
 
 ### Community 42 - "Six Days — Gate, Phone Access, Quota Meter"
@@ -335,22 +343,50 @@ Nodes (4): Store Hand-off Name Collision, The fix that could not be built, Verif
 Cohesion: 0.11
 Nodes (18): 2026-08-26/27 — the desk was BUILT, and Sebaran Stok answers the hub question, 2026-08-26 — Restock Vault redesign v2: one form, two directions, Broken today, ⚠️ Correction to the options section above, Decisions taken, Do we need more workflow? No., Locked rules — do not re-litigate, Logistics and Stock Movement (+10 more)
 
+### Community 63 - "What Create Mod's Ponder Actually Does"
+Cohesion: 0.29
+Nodes (7): Every control, and what it really is, Getting the source at all, The architectural difference that made KPM's engine short, The one place a scene script is worth reading, The three mechanics worth stealing, What Create Mod's Ponder Actually Does, What KPM dropped on purpose
+
+### Community 65 - "Fleet Captain Permission Gap"
+Cohesion: 0.33
+Nodes (6): Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening
+
+### Community 66 - "Git Worktrees"
+Cohesion: 0.33
+Nodes (5): Confirmed real incidents (3, so far), Git Worktrees, Related, The resulting discipline, Verify before trusting
+
+### Community 67 - "Multi-Tenant Architecture"
+Cohesion: 0.40
+Nodes (5): Multi-Tenant Architecture, Related, The bossUid pattern, Verify before trusting, Where tenant isolation has actually failed
+
+### Community 68 - "Rank Config and Achievement Badges"
+Cohesion: 0.40
+Nodes (5): Bug 1 (fixed): zero rule coverage, Bug 2 (open, documented not fixed): cross-tenant shared document, Rank Config and Achievement Badges, Related, Verify before trusting
+
+### Community 69 - "Tier System"
+Cohesion: 0.40
+Nodes (5): Delegation: canEditRoster, Related, Sharp edge: legacy string overlap, Tier System, Verify before trusting
+
+### Community 70 - "Wiki/Entities"
+Cohesion: 0.67
+Nodes (3): Adding a new entity, Pages here, Wiki/Entities
+
 ## Knowledge Gaps
-- **522 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+517 more)
+- **532 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+527 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.149) - this node is a cross-community bridge._
+- **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
+  _High betweenness centrality (0.151) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.102) - this node is a cross-community bridge._
+  _High betweenness centrality (0.101) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.095) - this node is a cross-community bridge._
+  _High betweenness centrality (0.094) - this node is a cross-community bridge._
 - **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _522 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _532 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
