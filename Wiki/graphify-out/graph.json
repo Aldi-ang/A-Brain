@@ -1357,15 +1357,15 @@
       "norm_label": "the general lesson, which is not about raf"
     },
     {
-      "label": "The family has five members now",
+      "label": "The family has six members now",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
       "source_location": "L77",
       "_origin": "ast",
-      "id": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_the_family_has_five_members_now",
+      "id": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_the_family_has_six_members_now",
       "community": 64,
       "community_name": "Entities/index.md",
-      "norm_label": "the family has five members now"
+      "norm_label": "the family has six members now"
     },
     {
       "label": "Anti-Recurrence Check.md",
@@ -9803,7 +9803,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_an_effect_s_own_cleanup_can_cancel_its_frame",
-      "target": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_the_family_has_five_members_now",
+      "target": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_the_family_has_six_members_now",
       "confidence_score": 1.0
     },
     {
@@ -17475,5 +17475,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "cf9599815e4ebf836796d32487417c4b82c118d1"
+  "built_at_commit": "d3ddff7bb7ff4520861917dd8f15d2e8e3a5039e"
 }

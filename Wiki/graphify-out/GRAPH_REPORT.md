@@ -1,7 +1,7 @@
-# Graph Report - Wiki  (2026-08-27)
+# Graph Report - Wiki  (2026-08-28)
 
 ## Corpus Check
-- 66 files · ~140,906 words
+- 66 files · ~141,011 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cf959981`
+- Built from commit: `d3ddff7b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -346,7 +346,7 @@ Nodes (7): Every control, and what it really is, Getting the source at all, The 
 
 ### Community 64 - "Entities/index.md"
 Cohesion: 0.29
-Nodes (7): An Effect's Own Cleanup Can Cancel Its Frame, The family has five members now, The general lesson, which is not about rAF, The shape, What it actually did, twice, What to do instead, Why the checks did not catch it
+Nodes (7): An Effect's Own Cleanup Can Cancel Its Frame, The family has six members now, The general lesson, which is not about rAF, The shape, What it actually did, twice, What to do instead, Why the checks did not catch it
 
 ### Community 65 - "A Rect Is Painted, Not Laid Out"
 Cohesion: 0.29
