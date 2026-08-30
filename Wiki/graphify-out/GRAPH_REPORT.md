@@ -1,16 +1,16 @@
-# Graph Report - Wiki  (2026-08-28)
+# Graph Report - Wiki  (2026-08-30)
 
 ## Corpus Check
-- 66 files · ~141,011 words
+- 68 files · ~142,339 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 720 nodes · 868 edges · 68 communities (65 shown, 3 thin omitted)
+- 731 nodes · 887 edges · 70 communities (67 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d3ddff7b`
+- Built from commit: `079491e3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -81,6 +81,8 @@
 - Entities/index.md
 - A Rect Is Painted, Not Laid Out
 - A CSS Animation Outranks Your Inline Style
+- A Check Points at a File, Not at a Behaviour
+- Headquarters Is Not a Cabang
 - 2026-08-27 — the tutorial's four answers, and how a panel got its English name
 
 ## God Nodes (most connected - your core abstractions)
@@ -98,7 +100,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (68 total, 3 thin omitted)
+## Communities (70 total, 3 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.06
@@ -356,8 +358,16 @@ Nodes (7): A Rect Is Painted, Not Laid Out, Family, The law, The shape, The wide
 Cohesion: 0.33
 Nodes (6): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot
 
+### Community 67 - "A Check Points at a File, Not at a Behaviour"
+Cohesion: 0.40
+Nodes (5): A Check Points at a File, Not at a Behaviour, The recurrence — this is the second time, What happened, 2026-08-30, What to do instead, Why nobody noticed — the part worth fixing
+
+### Community 68 - "Headquarters Is Not a Cabang"
+Cohesion: 0.50
+Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang, It has now bitten twice, in two different shapes, The trap underneath both
+
 ## Knowledge Gaps
-- **552 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+547 more)
+- **559 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+554 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -365,13 +375,13 @@ Nodes (6): A CSS Animation Outranks Your Inline Style, Family, The law, The shap
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.149) - this node is a cross-community bridge._
+  _High betweenness centrality (0.147) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.098) - this node is a cross-community bridge._
+  _High betweenness centrality (0.097) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.091) - this node is a cross-community bridge._
+  _High betweenness centrality (0.090) - this node is a cross-community bridge._
 - **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _552 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _559 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

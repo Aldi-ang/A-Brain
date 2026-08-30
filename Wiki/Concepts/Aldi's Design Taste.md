@@ -1382,3 +1382,31 @@ nothing is better than something that does not.**
 two-page spread, page arrows in the corners — and every one of those three made it in. What did not
 was its palette; that book is green on parchment. [[Design Inspiration Sources]] rule 1 held:
 **take the shape and the motion, never the colours.**
+
+## 2026-08-30 — "its so fague": a label that never says less THAN WHAT
+
+He shipped-tested a panel an hour after it landed and went straight at one word:
+
+> *"btw what is showed on the 'kurang' here can u use better english words from now on and change
+> that, its so fague"*
+
+**`Kurang` means "less". It never says less than what.** The column was the master vault's stock
+measured against every branch's need; `Short by` names the gap, and the explainer under the panel
+names the two numbers that made it.
+
+Three things worth keeping from this:
+
+1. **He had already settled the rule and I drifted off it.** 2026-08-27: *"dont make vague terms"*
+   and *"use english terms if its shorter and direct"*. The table directly above this panel has
+   been English since that day. Putting an Indonesian panel underneath it was the inconsistency —
+   he was not asking for something new, he was asking why one screen contradicted its neighbour.
+2. **A number needs a noun.** In the same message: *"what is this mean the oldest sentence?"*, about
+   `oldest here 116 days`. It never said 116 days of WHAT. It reads `oldest pack 116 days old`
+   now. He reads a screen literally, and a phrase that only makes sense to whoever wrote it will
+   be caught.
+3. **The rule is now a check, not a memory.** Two guards scan the HQ desk files for Indonesian
+   labels. His preferences keep coming back as things I forget; a preference that has been stated
+   twice should stop being prose. See [[A Check Points at a File, Not at a Behaviour]].
+
+⚠️ **Scope: HQ desk only.** The branch-side screens are all-Indonesian on purpose — different
+reader, settled separately. This is not a rule about the app; it is a rule about the desk HE reads.

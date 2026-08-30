@@ -67,3 +67,36 @@ Eighth instance of [[Anti-Recurrence Check]]'s core shape: **the documentation a
 
 See also: [[Anti-Recurrence Check]] · [[Silent Failure Disease]] · [[Looking at the App]] ·
 [[The Eight Warehouse Gaps]]
+
+## The sibling failure: a check that pins an exact LITERAL
+
+Same day, three more times. A check froze the exact spelling of something instead of the property
+it existed to protect, and went red on a change it should not have cared about:
+
+| Check | Pinned | Broke because |
+|---|---|---|
+| G54 Tujuan | `import { NON_BRANCH } from './utils/supply.js'` | one more name was imported beside it |
+| G55 warehouse row | the whole return literal `{ name, shelf, ..., detail }` | the row gained a `minimum` field |
+| "calls it a minimum" | the Indonesian display string | the label was reworded to English on his instruction |
+
+**In all three the guarded behaviour was intact.** `NON_BRANCH` still came from `supply.js`; the
+warehouse row still had no `daysLeft`; the number was still a floor and not a suggestion.
+
+**Assert the guarantee, not the spelling:**
+- `import \{[^}]*\bNON_BRANCH\b[^}]*\} from '...'` — the name comes from that module, list free to grow
+- `!/return \{ name,[^}]*\bdaysLeft\b/` — the ABSENCE, which is what the check is about
+- the wording check now bans the softer word rather than freezing the harder one
+
+**A check that fires when nothing it guards has changed is worse than no check**, because the cost
+is paid every time and the signal is spent. People stop reading a suite that cries wolf, and that
+is precisely how the two stale checks above survived four days.
+
+## And a third shape: a mangled pattern that cannot fail
+
+A heredoc wrote raw **backspace characters** into a regex where `\b` was meant. The check passed —
+and would have passed against anything, because the pattern no longer matched what it was written
+to match. **It was caught only by mutation-testing it.** A guard that has never been watched go red
+is a guard with no evidence behind it, whatever its name says.
+
+See also: [[Anti-Recurrence Check]] · [[Silent Failure Disease]] · [[Looking at the App]] ·
+[[The Eight Warehouse Gaps]] · [[A Feature Is Not Done Until the Book Knows]]
