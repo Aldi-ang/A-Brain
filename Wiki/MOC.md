@@ -109,5 +109,5 @@ Real things that went wrong (or nearly did), and what was learned.
 - `PLAN-second-brain-integration.md` — why this vault exists and how it's meant to be maintained.
 - [[Concepts/Where KPM Is Going]] — START HERE: the theme, every locked decision, and the direction.
 - [[Concepts/A Meter That Exits Silently Is Not a Meter]] — why nothing stopped the session at 95%, and the Stop hook that now guards both notes.
-- [[Concepts/The Caption Clamp Guards One Branch Out of Two]] — the phone-only tutorial caption bug, its six frames, and the open A/B.
+- [[Concepts/A Smooth Scroll That Never Runs]] — the phone-only tutorial caption bug: the wrong diagnosis, the measurement that separated them, and why the bottom bar IS the phone layout.
 - [[Summaries/Stock Count Trust Chain]] — how a count becomes trustworthy: tolerance, recount, cause, leak detection. The one open decision is naming the five shortage causes.

@@ -60,6 +60,6 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 - [[What Create Mod's Ponder Actually Does]] — the mechanics read out of Create's own source: every control, why its pause is really "Identify", why scrubbing only stops at authored keyframes, and the mutable-world constraint KPM does not have.
 - [[An Effect's Own Cleanup Can Cancel Its Frame]] — a requestAnimationFrame scheduled in a React effect and killed by that effect's own cleanup. Twice in one session it deleted a whole feature with every check green and nothing thrown.
 - [[A Meter That Exits Silently Is Not a Meter]] — the 5-hour plan-quota hook warns at 70/85/95 and has **never run**: two config files it needs have never existed, so it exits on its second line. Why the 2026-08-30 session hit 95% with nobody saying anything.
-- [[The Caption Clamp Guards One Branch Out of Two]] — on a phone, Ponder captions sit on the row they explain or fall off the bottom edge. 36 beats exposed, one unclamped line suspected, **decision A/B open with Aldi**.
+- [[A Smooth Scroll That Never Runs]] — six Ponder beats covered the row they explained at 375px. It looked like a missing clamp for a whole session; `scrollIntoView` with `behavior:'smooth'` was moving the stage by zero. **Fixed 2026-08-31, 78 beat renders clean.**
 
 - [[Logistics and Stock Movement]] — **topic hub**: the factory→HQ→branch→van→store chain, which note answers which question, and the locked rules. Start here for anything about shipping, restock, transfers or stock levels.
