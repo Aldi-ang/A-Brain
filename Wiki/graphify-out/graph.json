@@ -1709,6 +1709,17 @@
       "norm_label": "the surat jalan: \"looks awful\" was two faults and a wrong lead (2026-08-31)"
     },
     {
+      "label": "Given three options, he designed a fourth and it was better (2026-08-31)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1479",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_given_three_options_he_designed_a_fourth_and_it_was_better_2026_08_31",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "given three options, he designed a fourth and it was better (2026-08-31)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -2089,8 +2100,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "draft-then-deploy discipline.md"
     },
     {
@@ -3596,8 +3607,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_sale_is_final_no_refund_no_credit",
-      "community": 30,
-      "community_name": "Sale Is Final \u2014 no refund, no credit",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "sale is final - no refund, no credit.md"
     },
     {
@@ -4987,6 +4998,17 @@
       "norm_label": "verify before trusting"
     },
     {
+      "label": "Caught in time, 2026-08-31 \u2014 the first one that did NOT ship",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Fleet Captain Permission Gap.md",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "entities_fleet_captain_permission_gap_caught_in_time_2026_08_31_the_first_one_that_did_not_ship",
+      "community": 74,
+      "community_name": "Fleet Captain Permission Gap",
+      "norm_label": "caught in time, 2026-08-31 \u2014 the first one that did not ship"
+    },
+    {
       "label": "Git Worktrees.md",
       "file_type": "document",
       "source_file": "Wiki/Entities/Git Worktrees.md",
@@ -5059,8 +5081,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_gudang_pusat_master_vault",
-      "community": 77,
-      "community_name": "Gudang Pusat (Master Vault)",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "gudang pusat (master vault).md"
     },
     {
@@ -5070,7 +5092,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_gudang_pusat_master_vault_gudang_pusat_master_vault",
-      "community": 77,
+      "community": 83,
       "community_name": "Gudang Pusat (Master Vault)",
       "norm_label": "gudang pusat (master vault)"
     },
@@ -5081,7 +5103,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "entities_gudang_pusat_master_vault_the_name_and_who_decided_it",
-      "community": 77,
+      "community": 83,
       "community_name": "Gudang Pusat (Master Vault)",
       "norm_label": "the name, and who decided it"
     },
@@ -5092,7 +5114,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "entities_gudang_pusat_master_vault_it_was_spelled_four_ways_not_three",
-      "community": 77,
+      "community": 83,
       "community_name": "Gudang Pusat (Master Vault)",
       "norm_label": "it was spelled four ways, not three"
     },
@@ -5103,7 +5125,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "entities_gudang_pusat_master_vault_the_trap_master_is_also_a_routing_value",
-      "community": 77,
+      "community": 83,
       "community_name": "Gudang Pusat (Master Vault)",
       "norm_label": "\u26a0\ufe0f the trap \u2014 `'master'` is also a routing value"
     },
@@ -5114,7 +5136,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "entities_gudang_pusat_master_vault_what_this_does_not_settle",
-      "community": 77,
+      "community": 83,
       "community_name": "Gudang Pusat (Master Vault)",
       "norm_label": "what this does not settle"
     },
@@ -5532,8 +5554,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_the_place_registry",
-      "community": 77,
-      "community_name": "Gudang Pusat (Master Vault)",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "the place registry.md"
     },
     {
@@ -5601,6 +5623,28 @@
       "community": 77,
       "community_name": "Gudang Pusat (Master Vault)",
       "norm_label": "what it does not do"
+    },
+    {
+      "label": "It holds PEOPLE too, as of the same day",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/The Place Registry.md",
+      "source_location": "L94",
+      "_origin": "ast",
+      "id": "entities_the_place_registry_it_holds_people_too_as_of_the_same_day",
+      "community": 77,
+      "community_name": "Gudang Pusat (Master Vault)",
+      "norm_label": "it holds people too, as of the same day"
+    },
+    {
+      "label": "The fault this replaced",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/The Place Registry.md",
+      "source_location": "L117",
+      "_origin": "ast",
+      "id": "entities_the_place_registry_the_fault_this_replaced",
+      "community": 77,
+      "community_name": "Gudang Pusat (Master Vault)",
+      "norm_label": "the fault this replaced"
     },
     {
       "label": "Tier System.md",
@@ -6676,8 +6720,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -10585,6 +10629,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_fault_follows_the_goods_not_the_money_2026_08_17",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1479",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_given_three_options_he_designed_a_fourth_and_it_was_better_2026_08_31",
       "confidence_score": 1.0
     },
     {
@@ -15365,6 +15420,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/Fleet Captain Permission Gap.md",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_fleet_captain_permission_gap",
+      "target": "entities_the_place_registry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Fleet Captain Permission Gap.md",
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
@@ -15403,6 +15469,17 @@
       "_origin": "ast",
       "source": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
       "target": "entities_fleet_captain_permission_gap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Fleet Captain Permission Gap.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_fleet_captain_permission_gap_fleet_captain_permission_gap",
+      "target": "entities_fleet_captain_permission_gap_caught_in_time_2026_08_31_the_first_one_that_did_not_ship",
       "confidence_score": 1.0
     },
     {
@@ -16085,6 +16162,39 @@
       "_origin": "ast",
       "source": "entities_the_place_registry",
       "target": "entities_the_place_registry_the_place_registry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/The Place Registry.md",
+      "source_location": "L141",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_the_place_registry",
+      "target": "entities_tier_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/The Place Registry.md",
+      "source_location": "L94",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_the_place_registry_the_place_registry",
+      "target": "entities_the_place_registry_it_holds_people_too_as_of_the_same_day",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/The Place Registry.md",
+      "source_location": "L117",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_the_place_registry_the_place_registry",
+      "target": "entities_the_place_registry_the_fault_this_replaced",
       "confidence_score": 1.0
     },
     {
@@ -19224,5 +19334,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "885a5077f8f7640e5ac086fad57b41e531ca235c"
+  "built_at_commit": "ca73951d859e7368638463042f8c456a02bc18f4"
 }

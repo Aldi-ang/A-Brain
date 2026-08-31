@@ -1505,3 +1505,28 @@ each one implies about *permission and responsibility* too, or he has to supply 
 which he will, and it will make the offered options look small.
 
 Related: [[The Place Registry]] · [[Fleet Captain Permission Gap]]
+
+## "Tempat" was too vague, and so was my fix (2026-08-31)
+
+> *"i want u to change 'tempat' into better wording than that, it is so fague"*
+
+He was right twice. `Tempat` (place) does not say which places or why, and the replacement I had
+already shipped — `Daftar` — only means "list", which is no clearer. **A word that names the
+container rather than the contents is the failure mode both of them share.**
+
+Four options were offered rather than one chosen: **Relasi** (the word Indonesian trading and
+accounting software uses for the parties you deal with), **Pihak** (the parties to a transaction),
+**Data Induk** (master data), **Alamat** (addresses). He picked **Data Induk**.
+
+**Why offering, not choosing:** this is the locked law about naming categories in his own trade,
+and it earned its keep here — `Relasi` was my own favourite on domain grounds and he did not want
+it. His pick is the one that says *what the records are for*: the fixed reference data everything
+else points at. Anyone who has used business software in Indonesia knows the term on sight.
+
+**Applied lesson, worth repeating:** the checks that went in do NOT pin the words. A guard anchored
+on display copy goes red every time he renames something, which trains everyone to ignore it. They
+pin **consistency** instead — whatever the tab is called, every message telling him to go register
+something there must name that same label. A rename that misses one leaves an instruction pointing
+at a tab that no longer exists, and that is the failure worth catching.
+
+Related: [[The Place Registry]]

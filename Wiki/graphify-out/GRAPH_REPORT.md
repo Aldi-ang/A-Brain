@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-08-31)
 
 ## Corpus Check
-- 75 files · ~149,421 words
+- 75 files · ~150,551 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 783 nodes · 964 edges · 83 communities (80 shown, 3 thin omitted)
+- 787 nodes · 970 edges · 84 communities (81 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `885a5077`
+- Built from commit: `ca73951d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -96,9 +96,10 @@
 - Tier System
 - Wiki/Entities
 - A CSS Animation Outranks Your Inline Style
+- Gudang Pusat (Master Vault)
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 43 edges
+1. `Aldi's Design Taste` - 44 edges
 2. `Operation Log` - 43 edges
 3. `Anti-Recurrence Check` - 18 edges
 4. `Lancelot the Tobacco Ledger Agent` - 18 edges
@@ -112,11 +113,11 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (83 total, 3 thin omitted)
+## Communities (84 total, 3 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.06
-Nodes (35): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, A screen can be exempt from the theme entirely (2026-08-16) (+27 more)
+Nodes (36): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, A screen can be exempt from the theme entirely (2026-08-16) (+28 more)
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.05
@@ -231,7 +232,7 @@ Cohesion: 0.29
 Nodes (6): confidence / checked frontmatter, Maintenance, The case that proved it was needed, What NOT to retrofit, Why this exists, Wiki Conventions
 
 ### Community 30 - "Sale Is Final — no refund, no credit"
-Cohesion: 0.29
+Cohesion: 0.33
 Nodes (6): Sale Is Final — no refund, no credit, The consequence nobody should forget, What survives, and why, What the rule is, What this kills, Why this is recorded
 
 ### Community 31 - "Secure Context Requirement"
@@ -287,7 +288,7 @@ Cohesion: 0.40
 Nodes (5): 21st.dev is not a browsing job, Design Inspiration Sources, Four house rules before anything lands in KPM, Licensing, one line, The five
 
 ### Community 44 - "Draft-Then-Deploy Discipline"
-Cohesion: 0.29
+Cohesion: 0.40
 Nodes (5): Draft-Then-Deploy Discipline, Related, Related process: the deploy checklist, The "document, don't silently half-fix" convention, Why
 
 ### Community 45 - "Off-Token Colour Migration Map"
@@ -391,8 +392,8 @@ Cohesion: 0.29
 Nodes (7): An Effect's Own Cleanup Can Cancel Its Frame, The family has six members now, The general lesson, which is not about rAF, The shape, What it actually did, twice, What to do instead, Why the checks did not catch it
 
 ### Community 74 - "Fleet Captain Permission Gap"
-Cohesion: 0.33
-Nodes (6): Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening
+Cohesion: 0.29
+Nodes (7): Caught in time, 2026-08-31 — the first one that did NOT ship, Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening
 
 ### Community 75 - "Git Worktrees"
 Cohesion: 0.33
@@ -403,8 +404,8 @@ Cohesion: 0.50
 Nodes (4): A Feature Is Not Done Until the Book Knows, And one thing only a rendered frame catches, The rule, split, Two mechanical traps the first one hit
 
 ### Community 77 - "Gudang Pusat (Master Vault)"
-Cohesion: 0.15
-Nodes (11): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The name, and who decided it, ⚠️ The trap — `'MASTER'` is also a routing value, What this does NOT settle, The job was half the size it looked, and reading the code is what showed that, The picker rule, The Place Registry (+3 more)
+Cohesion: 0.25
+Nodes (8): It holds PEOPLE too, as of the same day, The fault this replaced, The job was half the size it looked, and reading the code is what showed that, The picker rule, The Place Registry, The shape, Two consequences worth remembering, What it does not do
 
 ### Community 78 - "Multi-Tenant Architecture"
 Cohesion: 0.40
@@ -426,8 +427,12 @@ Nodes (3): Adding a new entity, Pages here, Wiki/Entities
 Cohesion: 0.33
 Nodes (6): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot
 
+### Community 83 - "Gudang Pusat (Master Vault)"
+Cohesion: 0.40
+Nodes (5): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The name, and who decided it, ⚠️ The trap — `'MASTER'` is also a routing value, What this does NOT settle
+
 ## Knowledge Gaps
-- **597 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+592 more)
+- **601 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+596 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -435,15 +440,15 @@ Nodes (6): A CSS Animation Outranks Your Inline Style, Family, The law, The shap
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.146) - this node is a cross-community bridge._
+  _High betweenness centrality (0.147) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.092) - this node is a cross-community bridge._
+  _High betweenness centrality (0.091) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
   _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _597 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _601 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
-  _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
   _Cohesion score 0.045454545454545456 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**
