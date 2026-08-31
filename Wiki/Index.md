@@ -18,6 +18,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 
 - [[Multi-Tenant Architecture]] — the `bossUid` per-company data pattern
 - [[Tier System]] — the six-tier role hierarchy (`DEVELOPER` → `ROOKIE`)
+- [[Gudang Pusat (Master Vault)]] — the main warehouse's ONE name, and why the `'MASTER'` beside it
+  is a Firestore routing value that must never follow the rename
 - [[Firestore Rules]] — the server-side enforcement layer, and its draft-vs-live split
 - [[Fleet Captain Permission Gap]] — the #1 most recurring bug class (`isAreaAdmin()` never
   covering `FLEET_CAPTAIN`)
@@ -108,7 +110,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   backfill pass that closed a six-day vault gap
 
 - [[Concepts/Where KPM Is Going]] — START HERE: the theme, every locked decision, and the direction.
-- [[Concepts/A Meter That Exits Silently Is Not a Meter]] — the plan-quota hook has never run; a silent monitor and a healthy one look identical from inside.
+- [[Concepts/A Meter That Exits Silently Is Not a Meter]] — a silent monitor and a healthy one look identical from inside. Fixed 2026-08-31: a decoy config file, and a count reported as a percentage.
 - [[Concepts/A Smooth Scroll That Never Runs]] — a smooth scroll that moved nothing put every phone caption on top of its own subject; the source-visible asymmetry beside it was not the bug.
 
 ## Known gaps (honest, not filled in yet)

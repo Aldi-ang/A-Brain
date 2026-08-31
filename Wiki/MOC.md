@@ -62,6 +62,7 @@ The shape of the app everything else sits on top of.
 - [[Multi-Tenant Architecture]] — one shared database, every company's data kept apart via the `bossUid` pattern.
 - [[Tier System]] — the six role levels, from Developer down to Rookie, and how delegation works.
 - [[KPM Project Facts Reference]] — the one-page cheat sheet covering both of the above, plus reusable patterns worth knowing.
+- [[Gudang Pusat (Master Vault)]] — the main warehouse. One name on screen and on paper, and the identically-spelled routing value that must not follow it.
 - [[Logistics and Stock Movement]] — **topic hub**: the factory→HQ→branch→van→store chain, which note answers which question, and the locked rules. Start here for anything about shipping, restock, transfers or stock levels.
 - [[The Eight Warehouse Gaps]] — what big warehouse operations do that KPM does not, ranked, with the build order. **Read before proposing anything about stock movement.**
 - [[HQ-Initiated Stock Push]] — how HQ could send stock to a branch on purpose instead of waiting for a request: the verified PENDING→IN_TRANSIT→DELIVERED lifecycle, four options, the courier-vs-consignee trap, and the in-transit hole. **BUILT 2026-08-27 as option A** (see the summary below).
@@ -108,6 +109,6 @@ Real things that went wrong (or nearly did), and what was learned.
 - `Backlog/` and `Brainstorm/` — a separate to-do board and scratch space for open work. Not part of this knowledge graph by design (see `CLAUDE.md`) — open `Backlog/` directly to see what's next.
 - `PLAN-second-brain-integration.md` — why this vault exists and how it's meant to be maintained.
 - [[Concepts/Where KPM Is Going]] — START HERE: the theme, every locked decision, and the direction.
-- [[Concepts/A Meter That Exits Silently Is Not a Meter]] — why nothing stopped the session at 95%, and the Stop hook that now guards both notes.
+- [[Concepts/A Meter That Exits Silently Is Not a Meter]] — why nothing stopped the session at 95%, the Stop hook that now guards both notes, and the decoy config file that hid the real fault until 2026-08-31.
 - [[Concepts/A Smooth Scroll That Never Runs]] — the phone-only tutorial caption bug: the wrong diagnosis, the measurement that separated them, and why the bottom bar IS the phone layout.
 - [[Summaries/Stock Count Trust Chain]] — how a count becomes trustworthy: tolerance, recount, cause, leak detection. The one open decision is naming the five shortage causes.

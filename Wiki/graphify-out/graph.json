@@ -1687,6 +1687,17 @@
       "norm_label": "2026-08-30 \u2014 \"its so fague\": a label that never says less than what"
     },
     {
+      "label": "2026-08-31 \u2014 one door for the tutorial, and the reason is SPACE",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1414",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_2026_08_31_one_door_for_the_tutorial_and_the_reason_is_space",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "2026-08-31 \u2014 one door for the tutorial, and the reason is space"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -6445,8 +6456,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -6984,8 +6995,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 41,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -10266,6 +10277,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_2026_08_30_its_so_fague_a_label_that_never_says_less_than_what",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1414",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_2026_08_31_one_door_for_the_tutorial_and_the_reason_is_space",
       "confidence_score": 1.0
     },
     {
@@ -18707,5 +18729,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8cfa7ac3148383ddc682cf31232ac8853cb9179d"
+  "built_at_commit": "420367bcbd880364a05ef942234f86db02088ef9"
 }

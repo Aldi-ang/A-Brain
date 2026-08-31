@@ -23,6 +23,7 @@ folder-level map, not a replacement for it.
 - [[Git Worktrees]]
 - [[Master Vault Gate]]
 - [[Multi-Tenant Architecture]]
+- [[Gudang Pusat (Master Vault)]]
 - [[Rank Config and Achievement Badges]]
 - [[Terminal Tenant Path Split]]
 - [[The Admin Agent Profile Id]]

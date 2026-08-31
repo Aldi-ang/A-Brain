@@ -1,6 +1,6 @@
 ---
 title: A Meter That Exits Silently Is Not a Meter
-description: The 5-hour plan-quota hook has warned at 70/85/95 since the day it was written, and has never once run — two config files it needs have never existed.
+description: The 5-hour plan-quota hook warned at 70/85/95 and said nothing for weeks. Fixed 2026-08-31 — the sessions were editing a decoy file one folder away from the one the hook reads, and the meter under-reported a spent bucket as 1%.
 type: concept
 created: 2026-08-31
 updated: 2026-08-31
@@ -42,9 +42,11 @@ The 95% branch already contains, word for word, the behaviour Aldi asked for.
 if (!connId) process.exit(0);
 ```
 
-`connId` is read from `C:/Users/ASUS/9router-claude-id.txt`. That file does not exist, and neither
-does `9router-cookie.txt` beside it — checked with `fs.existsSync` on both, 2026-08-31. So the hook
-exits on its second line on every message Aldi types, at every percentage, and always has.
+`connId` is read from an id file beside the cookie. **The path written here on 2026-08-31 morning
+was wrong, and that error is the whole story — see the Resolution below.** The hook reads
+`C:/Users/ASUS/.claude/9router-claude-id.txt`, with `.claude/` in it. Every session that "checked
+whether the file exists" checked `C:/Users/ASUS/9router-claude-id.txt`, one folder up, which the
+program never opens.
 
 The silence was deliberate — its own comment says nagging about unconfigured tooling "would cost
 tokens forever." That reasoning is sound for a feature nobody asked for. It is wrong for the one
@@ -71,15 +73,41 @@ first re-blocks the next turn. Mutation-tested in both directions on 2026-08-31,
 That closes the notes half without depending on the meter at all. **This is the part that matters:**
 the discipline was made structural rather than promised again.
 
-## Still open — only Aldi can close it
+## Resolution — 2026-08-31 evening, commit `7ca7b03`
 
-The two files must be created by hand from the Quota Tracker at `localhost:20128`. The cookie is a
-credential and is never pasted into the repo, never into chat, and never into a file Claude writes.
+**Nobody was ever guessing the right thing.** Four connection uuids were tried across several
+sessions, each one written into `C:/Users/ASUS/9router-claude-id.txt` — a file the program does not
+read. The hook loads `C:/Users/ASUS/.claude/9router-claude-id.txt`. The decoy still exists; it is
+harmless and it is inert, and the next-session brief now names the real path so this cannot repeat.
+
+Working connection: `76c7cf4f-4c24-4984-aada-3aa91f53a148`. The other three answer 200 as well and
+are the wrong accounts — one exposes only `On-demand`, one only `credit`, one an empty `quotas`
+object. **A 200 is not the same as the right connection.**
+
+Two further bugs surfaced the moment it could answer at all:
+
+1. **The route returns TWO buckets** — `session (5h)` and `weekly (7d)` — and only the session was
+   read. A 7-day lockout would have arrived in total silence. The worse of the two now drives the
+   thresholds.
+2. **`used` was read as a percentage when it is a count.** An `On-demand` connection answers
+   `used:1 total:1` — completely spent — and the meter reported **1% used**, which is under every
+   threshold and therefore printed nothing. `remainingPercentage` is now read first, and a raw
+   count is divided by its own total. Proved by pointing the hook at that exact connection and
+   watching the same input print 100%.
+
+Pinned by checks D12 in `logicFixes.selfcheck.mjs`, including a positive case so the guard is known
+to be able to fail.
 
 ## The general rule
 
 **A check that cannot fail is not a check, and a check that exits silently when unconfigured
 cannot fail.** Any monitor whose whole job is to interrupt must be loud about being blind — the one
 message it can never skip is "I am not measuring anything."
+
+**And two corollaries this incident added.** Before iterating on a config file's *contents*, read
+the program and confirm which path it opens — days were spent editing the right kind of file in the
+wrong place, and every failure looked like a wrong value. Then: a monitor that reports a number is
+making a claim about units. A count and a percentage look identical when the total happens to be
+100, and the first bucket where it is not is where the meter quietly lies in the safe direction.
 
 Related: [[Anti-Recurrence Check]] · [[A Check Points at a File, Not at a Behaviour]]
