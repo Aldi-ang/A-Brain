@@ -1,6 +1,6 @@
 ---
 title: The Place Registry
-description: Factories and warehouses are records with fixed addresses, and the Asal/Tujuan boxes search them instead of creating places by being typed into. Built 2026-08-31.
+description: Factories, warehouses AND the people who may send or receive a package are records now. All four boxes on the delivery form search this registry instead of creating entries by being typed into. Built 2026-08-31.
 type: entity
 created: 2026-08-31
 updated: 2026-08-31
@@ -89,4 +89,54 @@ Shipped in `bdbd5cf`, pinned by twelve checks (D15) in `src/config/logicFixes.se
 scoped to RouteCombo's own body because `onChange(` appears on ordinary inputs all over that file.
 
 Related: [[Gudang Pusat (Master Vault)]] · [[The Shell Repaints Any White It Can Reach]] ·
+[[Logistics and Stock Movement]]
+
+## It holds PEOPLE too, as of the same day
+
+Aldi, hours later, reading the signature block on his own nota: *"why is that aldi kurniawan tho,
+what is that format? how do u get the input for the recipient and sender?"* The answer was that
+neither name was an input at all — see the fault below — and his fix extended this registry rather
+than starting another one:
+
+> *"the only person who are be able to send and receive the package is company employees right, so
+> make sure that there is new textbox to fill the recipient/penerima and sender/pengirim and then i
+> want it to work like the factory and warehouse textbox, tier 4/ regional admin and above is
+> automatically registered to have power to send or receive package, while lower tier cant do that,
+> and if there is other employees outside of the sales team who will send that package then just
+> add register button for the sender and receiver"*
+
+**Two sources, and only one of them is a record.** Staff carrying the `handle_delivery` clearance
+are in the list *because of their tier* — nobody registers them, and demoting someone removes them
+from tomorrow's deliveries without anybody remembering to. Everyone else (a factory's driver, say)
+is a deliberate record with `kind: 'orang'` in this same collection. A name appearing in both is
+shown once; two identical rows in a dropdown on a document that says who handled goods is a coin
+toss, not a choice.
+
+The tab is called **Daftar** now — pabrik, gudang, orang.
+
+## The fault this replaced
+
+| Line on the nota | What it actually was |
+|---|---|
+| Dikirim oleh | the literal words `Factory Logistics`, hardcoded, on every nota ever printed |
+| Diterima & diperiksa oleh | `getAdminName()` evaluated **at print time** |
+
+The second one is the dangerous shape. His Settings "Signed by" box is empty, so the name fell
+through to his **Google account's display name** — a name KPM never asked for, printed on a
+commercial document. And because it was read when the paper was opened rather than when the goods
+arrived, a second admin opening an old delivery would have printed their own name over someone
+else's work.
+
+**Both names come from the record now, and an unknown one prints a blank line to sign on.** A blank
+line is obviously unsigned; a guessed name looks authorised. That rule generalises past this screen.
+
+⚠️ **The tier boundary is a [[Fleet Captain Permission Gap]] waiting to happen** — his "tier 4 /
+regional admin" is the string `FLEET_CAPTAIN`, and `isAreaAdmin()` covers only `AREA_ADMIN`. The
+clearance is the permission key `handle_delivery` (T1–T4 by default, FLEET_CAPTAIN named
+explicitly, absence-means-tier-default so his saved Firebase matrix does not read as "no"), and
+check D16 runs the real function on both sides of the line.
+
+Extended in `83f48a0`.
+
+Related: [[Gudang Pusat (Master Vault)]] · [[Fleet Captain Permission Gap]] · [[Tier System]] ·
 [[Logistics and Stock Movement]]

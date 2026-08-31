@@ -65,11 +65,13 @@
   "63": "What Create Mod's Ponder Actually Does",
   "64": "Entities/index.md",
   "65": "A Rect Is Painted, Not Laid Out",
+  "66": "A Smooth Scroll That Never Runs",
   "67": "A Check Points at a File, Not at a Behaviour",
   "68": "Headquarters Is Not a Cabang",
   "69": "Entities/index.md",
   "70": "A Meter That Exits Silently Is Not a Meter",
   "71": "2026-08-27 — the tutorial's four answers, and how a panel got its English name",
+  "72": "An Effect's Own Cleanup Can Cancel Its Frame",
   "73": "Entities/index.md",
   "74": "Fleet Captain Permission Gap",
   "75": "Git Worktrees",
@@ -78,5 +80,6 @@
   "78": "Multi-Tenant Architecture",
   "79": "Rank Config and Achievement Badges",
   "80": "Tier System",
-  "81": "Wiki/Entities"
+  "81": "Wiki/Entities",
+  "82": "A CSS Animation Outranks Your Inline Style"
 }

@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-08-31)
 
 ## Corpus Check
-- 74 files · ~148,628 words
+- 75 files · ~149,421 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 776 nodes · 956 edges · 80 communities (77 shown, 3 thin omitted)
+- 783 nodes · 964 edges · 83 communities (80 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9d03b1f0`
+- Built from commit: `885a5077`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -80,11 +80,13 @@
 - What Create Mod's Ponder Actually Does
 - Entities/index.md
 - A Rect Is Painted, Not Laid Out
+- A Smooth Scroll That Never Runs
 - A Check Points at a File, Not at a Behaviour
 - Headquarters Is Not a Cabang
 - Entities/index.md
 - A Meter That Exits Silently Is Not a Meter
 - 2026-08-27 — the tutorial's four answers, and how a panel got its English name
+- An Effect's Own Cleanup Can Cancel Its Frame
 - Fleet Captain Permission Gap
 - Git Worktrees
 - A Feature Is Not Done Until the Book Knows
@@ -93,6 +95,7 @@
 - Rank Config and Achievement Badges
 - Tier System
 - Wiki/Entities
+- A CSS Animation Outranks Your Inline Style
 
 ## God Nodes (most connected - your core abstractions)
 1. `Aldi's Design Taste` - 43 edges
@@ -109,7 +112,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (80 total, 3 thin omitted)
+## Communities (83 total, 3 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.06
@@ -228,7 +231,7 @@ Cohesion: 0.29
 Nodes (6): confidence / checked frontmatter, Maintenance, The case that proved it was needed, What NOT to retrofit, Why this exists, Wiki Conventions
 
 ### Community 30 - "Sale Is Final — no refund, no credit"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (6): Sale Is Final — no refund, no credit, The consequence nobody should forget, What survives, and why, What the rule is, What this kills, Why this is recorded
 
 ### Community 31 - "Secure Context Requirement"
@@ -284,7 +287,7 @@ Cohesion: 0.40
 Nodes (5): 21st.dev is not a browsing job, Design Inspiration Sources, Four house rules before anything lands in KPM, Licensing, one line, The five
 
 ### Community 44 - "Draft-Then-Deploy Discipline"
-Cohesion: 0.40
+Cohesion: 0.29
 Nodes (5): Draft-Then-Deploy Discipline, Related, Related process: the deploy checklist, The "document, don't silently half-fix" convention, Why
 
 ### Community 45 - "Off-Token Colour Migration Map"
@@ -356,12 +359,16 @@ Cohesion: 0.29
 Nodes (7): Every control, and what it really is, Getting the source at all, The architectural difference that made KPM's engine short, The one place a scene script is worth reading, The three mechanics worth stealing, What Create Mod's Ponder Actually Does, What KPM dropped on purpose
 
 ### Community 64 - "Entities/index.md"
-Cohesion: 0.07
-Nodes (27): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot, A Rect Is Painted, Not Laid Out, Family (+19 more)
+Cohesion: 0.29
+Nodes (7): A Rect Is Painted, Not Laid Out, Family, The law, The shape, The wider lesson, and it is the expensive one, Where it happened, Why it survived every check and every screenshot
 
 ### Community 65 - "A Rect Is Painted, Not Laid Out"
 Cohesion: 0.40
 Nodes (5): The rule, The second cause of the same appearance, The Shell Repaints Any White It Can Reach, ⚠️ The two harness traps, which cost more than the bug, What changed in the look
+
+### Community 66 - "A Smooth Scroll That Never Runs"
+Cohesion: 0.29
+Nodes (7): A Smooth Scroll That Never Runs, The lesson worth keeping, The second half — a phone has no "beside", The wrong diagnosis, and why it was believable, Verification, What it actually was, What it looked like
 
 ### Community 67 - "A Check Points at a File, Not at a Behaviour"
 Cohesion: 0.29
@@ -379,6 +386,10 @@ Nodes (6): A Rollup Is a Cache, Not a Ledger, Four details that would each have 
 Cohesion: 0.29
 Nodes (7): A Meter That Exits Silently Is Not a Meter, Resolution — 2026-08-31 evening, commit `7ca7b03`, The general rule, The root cause, What changed, What happened, Why it was never noticed
 
+### Community 72 - "An Effect's Own Cleanup Can Cancel Its Frame"
+Cohesion: 0.29
+Nodes (7): An Effect's Own Cleanup Can Cancel Its Frame, The family has six members now, The general lesson, which is not about rAF, The shape, What it actually did, twice, What to do instead, Why the checks did not catch it
+
 ### Community 74 - "Fleet Captain Permission Gap"
 Cohesion: 0.33
 Nodes (6): Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening
@@ -392,8 +403,8 @@ Cohesion: 0.50
 Nodes (4): A Feature Is Not Done Until the Book Knows, And one thing only a rendered frame catches, The rule, split, Two mechanical traps the first one hit
 
 ### Community 77 - "Gudang Pusat (Master Vault)"
-Cohesion: 0.33
-Nodes (5): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The name, and who decided it, ⚠️ The trap — `'MASTER'` is also a routing value, What this does NOT settle
+Cohesion: 0.15
+Nodes (11): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The name, and who decided it, ⚠️ The trap — `'MASTER'` is also a routing value, What this does NOT settle, The job was half the size it looked, and reading the code is what showed that, The picker rule, The Place Registry (+3 more)
 
 ### Community 78 - "Multi-Tenant Architecture"
 Cohesion: 0.40
@@ -411,8 +422,12 @@ Nodes (5): Delegation: canEditRoster, Related, Sharp edge: legacy string overlap
 Cohesion: 0.67
 Nodes (3): Adding a new entity, Pages here, Wiki/Entities
 
+### Community 82 - "A CSS Animation Outranks Your Inline Style"
+Cohesion: 0.33
+Nodes (6): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot
+
 ## Knowledge Gaps
-- **592 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+587 more)
+- **597 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+592 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -420,13 +435,13 @@ Nodes (3): Adding a new entity, Pages here, Wiki/Entities
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.147) - this node is a cross-community bridge._
+  _High betweenness centrality (0.146) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
   _High betweenness centrality (0.092) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.086) - this node is a cross-community bridge._
+  _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _592 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _597 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

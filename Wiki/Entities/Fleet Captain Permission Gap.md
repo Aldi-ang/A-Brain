@@ -58,3 +58,27 @@ function covers what its name suggests it should.
 This page describes a *pattern* that has recurred historically — it does not mean every
 instance is currently fixed or currently broken. Check current `firestore.rules` for the
 specific collection in question.
+
+## Caught in time, 2026-08-31 — the first one that did NOT ship
+
+Worth recording precisely because nothing broke. Aldi specified a new rule in his own words:
+*"tier 4/ regional admin and above is automatically registered to have power to send or receive
+package, while lower tier cant do that"*.
+
+**In his vocabulary T4 is "Regional Admin". In `permissions.js` T4's id is the string
+`FLEET_CAPTAIN`.** So the rule he stated is, literally, "Fleet Captain and above" — and
+`isAreaAdmin()`, whose name reads like exactly this check, covers only `AREA_ADMIN` and would have
+silently dropped the one tier he actually named. Reaching for the obvious helper would have shipped
+recurrence number seven, with the UI offering the feature and the boundary quietly wrong.
+
+**What was done instead:** a permission key, `handle_delivery`, defaulting to T1–T4 with
+`CORPORATE_TIERS.TIER_4` named explicitly in the fallback, and absence-means-tier-default so a key
+his saved Firebase matrix has never seen does not read as "no". Check D16 in
+`logicFixes.selfcheck.mjs` runs the real function from **both** sides — T1–T4 true, T5 and T6 false,
+unknown role false — because a boundary is only proved by the side that must be refused.
+
+**The transferable part:** the danger is not the role string, it is that *his* tier vocabulary and
+*the code's* tier ids disagree at exactly T4. Whenever he specifies a rule by tier NUMBER, map the
+number to the id before writing the check, and never trust a helper whose name matches his word.
+
+Related: [[The Place Registry]]

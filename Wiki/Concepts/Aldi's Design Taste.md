@@ -1475,3 +1475,33 @@ animation must never own an element's visibility, and a printed document should 
 entrance at all.
 
 Related: [[The Shell Repaints Any White It Can Reach]] · [[Gudang Pusat (Master Vault)]]
+
+## Given three options, he designed a fourth and it was better (2026-08-31)
+
+Asked how the two signature lines on the surat jalan should be filled — type the driver / type both
+/ print blank lines and sign by hand — he took none of them and specified a system instead:
+
+> *"the only person who are be able to send and receive the package is company employees right, so
+> make sure that there is new textbox to fill the recipient/penerima and sender/pengirim and then i
+> want it to work like the factory and warehouse textbox, tier 4/ regional admin and above is
+> automatically registered to have power to send or receive package, while lower tier cant do that,
+> and if there is other employees outside of the sales team who will send that package then just
+> add register button for the sender and receiver"*
+
+**What all three of my options missed and he did not:** the question is not *how to fill two boxes*,
+it is *who is allowed to be named on a document at all*. His answer reuses the pattern built four
+hours earlier for places, so the delivery form ends up with one interaction rule across all four
+fields instead of two. He also solved the bootstrap problem in the same sentence — staff qualify by
+tier, so the list is never empty and nobody maintains it — and the escape hatch (a register button
+for an outsider) is the smallest possible addition rather than a second system.
+
+**This is the third time a design he wrote himself beat the options he was given** — see the
+Sheriff's Desk flow and the tutorial-chip reversal above. The pattern in all three: he reasons from
+**who the people are and what they are allowed to do**, where my options reason from what the screen
+should look like.
+
+**Practical rule for offering him choices:** when the options differ only in *interaction*, say what
+each one implies about *permission and responsibility* too, or he has to supply that half himself —
+which he will, and it will make the offered options look small.
+
+Related: [[The Place Registry]] · [[Fleet Captain Permission Gap]]
