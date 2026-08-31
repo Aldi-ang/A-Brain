@@ -63,6 +63,7 @@ The shape of the app everything else sits on top of.
 - [[Tier System]] — the six role levels, from Developer down to Rookie, and how delegation works.
 - [[KPM Project Facts Reference]] — the one-page cheat sheet covering both of the above, plus reusable patterns worth knowing.
 - [[Gudang Pusat (Master Vault)]] — the main warehouse. One name on screen and on paper, and the identically-spelled routing value that must not follow it.
+- [[The Place Registry]] — every factory and warehouse is a record with a fixed address, and a delivery form that can no longer invent a place by being typed into.
 - [[Logistics and Stock Movement]] — **topic hub**: the factory→HQ→branch→van→store chain, which note answers which question, and the locked rules. Start here for anything about shipping, restock, transfers or stock levels.
 - [[The Eight Warehouse Gaps]] — what big warehouse operations do that KPM does not, ranked, with the build order. **Read before proposing anything about stock movement.**
 - [[HQ-Initiated Stock Push]] — how HQ could send stock to a branch on purpose instead of waiting for a request: the verified PENDING→IN_TRANSIT→DELIVERED lifecycle, four options, the courier-vs-consignee trap, and the in-transit hole. **BUILT 2026-08-27 as option A** (see the summary below).

@@ -120,8 +120,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_a_css_animation_outranks_your_inline_style",
-      "community": 66,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "a css animation outranks your inline style"
     },
     {
@@ -131,8 +131,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_the_shape",
-      "community": 66,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "the shape"
     },
     {
@@ -142,8 +142,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_why_it_survived_every_check_and_every_screenshot",
-      "community": 66,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "why it survived every check and every screenshot"
     },
     {
@@ -153,8 +153,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_the_law",
-      "community": 66,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "the law"
     },
     {
@@ -164,8 +164,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_family",
-      "community": 66,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "family"
     },
     {
@@ -175,8 +175,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_where_it_happened",
-      "community": 66,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "where it happened"
     },
     {
@@ -593,8 +593,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_a_rect_is_painted_not_laid_out",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "a rect is painted, not laid out"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_shape",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "the shape"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_why_it_survived_every_check_and_every_screenshot",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "why it survived every check and every screenshot"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_law",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "the law"
     },
     {
@@ -637,8 +637,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_wider_lesson_and_it_is_the_expensive_one",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "the wider lesson, and it is the expensive one"
     },
     {
@@ -648,8 +648,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_family",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "family"
     },
     {
@@ -659,8 +659,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_where_it_happened",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 64,
+      "community_name": "Entities/index.md",
       "norm_label": "where it happened"
     },
     {
@@ -758,7 +758,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
-      "community": 72,
+      "community": 64,
       "community_name": "Entities/index.md",
       "norm_label": "a smooth scroll that never runs"
     },
@@ -769,7 +769,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_what_it_looked_like",
-      "community": 72,
+      "community": 64,
       "community_name": "Entities/index.md",
       "norm_label": "what it looked like"
     },
@@ -780,7 +780,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_the_wrong_diagnosis_and_why_it_was_believable",
-      "community": 72,
+      "community": 64,
       "community_name": "Entities/index.md",
       "norm_label": "the wrong diagnosis, and why it was believable"
     },
@@ -791,7 +791,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_what_it_actually_was",
-      "community": 72,
+      "community": 64,
       "community_name": "Entities/index.md",
       "norm_label": "what it actually was"
     },
@@ -802,7 +802,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_the_second_half_a_phone_has_no_beside",
-      "community": 72,
+      "community": 64,
       "community_name": "Entities/index.md",
       "norm_label": "the second half \u2014 a phone has no \"beside\""
     },
@@ -813,7 +813,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_verification",
-      "community": 72,
+      "community": 64,
       "community_name": "Entities/index.md",
       "norm_label": "verification"
     },
@@ -824,7 +824,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_the_lesson_worth_keeping",
-      "community": 72,
+      "community": 64,
       "community_name": "Entities/index.md",
       "norm_label": "the lesson worth keeping"
     },
@@ -1696,6 +1696,17 @@
       "community": 0,
       "community_name": "Aldi's Design Taste",
       "norm_label": "2026-08-31 \u2014 one door for the tutorial, and the reason is space"
+    },
+    {
+      "label": "The surat jalan: \"looks awful\" was two faults and a wrong lead (2026-08-31)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1449",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_the_surat_jalan_looks_awful_was_two_faults_and_a_wrong_lead_2026_08_31",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "the surat jalan: \"looks awful\" was two faults and a wrong lead (2026-08-31)"
     },
     {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -4294,6 +4305,72 @@
       "norm_label": "a neighbouring trap: two coordinate systems in one scene"
     },
     {
+      "label": "The Shell Repaints Any White It Can Reach.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_the_shell_repaints_any_white_it_can_reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "the shell repaints any white it can reach.md"
+    },
+    {
+      "label": "The Shell Repaints Any White It Can Reach",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
+      "norm_label": "the shell repaints any white it can reach"
+    },
+    {
+      "label": "The rule",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_rule",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
+      "norm_label": "the rule"
+    },
+    {
+      "label": "The second cause of the same appearance",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_second_cause_of_the_same_appearance",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
+      "norm_label": "the second cause of the same appearance"
+    },
+    {
+      "label": "\u26a0\ufe0f The two harness traps, which cost more than the bug",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_two_harness_traps_which_cost_more_than_the_bug",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
+      "norm_label": "\u26a0\ufe0f the two harness traps, which cost more than the bug"
+    },
+    {
+      "label": "What changed in the look",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "concepts_the_shell_repaints_any_white_it_can_reach_what_changed_in_the_look",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
+      "norm_label": "what changed in the look"
+    },
+    {
       "label": "UI-Says-Yes-Server-Says-No Pattern.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md",
@@ -5617,7 +5694,7 @@
       "label": "Known gaps (honest, not filled in yet)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L116",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
       "community": 51,
@@ -9061,6 +9138,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L89",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_shell_repaints_any_white_it_can_reach",
+      "target": "concepts_a_meter_that_exits_silently_is_not_a_meter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
       "source_location": "L113",
       "weight": 1.0,
@@ -9722,7 +9810,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L63",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -9733,7 +9821,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L114",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -9744,7 +9832,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L113",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -10057,6 +10145,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste",
       "target": "concepts_silent_failure_disease",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1456",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach",
       "confidence_score": 1.0
     },
     {
@@ -10585,6 +10684,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_the_light_palette_is_approved_locked_2026_08_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1449",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_the_surat_jalan_looks_awful_was_two_faults_and_a_wrong_lead_2026_08_31",
       "confidence_score": 1.0
     },
     {
@@ -12538,7 +12648,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -14408,6 +14518,94 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_index",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_shell_repaints_any_white_it_can_reach",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Index.md",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/MOC.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "moc",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach_the_rule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach_the_second_cause_of_the_same_appearance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach_the_two_harness_traps_which_cost_more_than_the_bug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Shell Repaints Any White It Can Reach.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach_what_changed_in_the_look",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/index.md",
       "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
@@ -15970,7 +16168,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L116",
+      "source_location": "L117",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -16707,7 +16905,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L114",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -18861,5 +19059,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d574cad888bd2c24aaecb93662a510f74c54d667"
+  "built_at_commit": "9d03b1f0d6b543e66eb9599ed506d84998cc72af"
 }

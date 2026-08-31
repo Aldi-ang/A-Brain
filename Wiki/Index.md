@@ -20,6 +20,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Tier System]] — the six-tier role hierarchy (`DEVELOPER` → `ROOKIE`)
 - [[Gudang Pusat (Master Vault)]] — the main warehouse's ONE name, and why the `'MASTER'` beside it
   is a Firestore routing value that must never follow the rename
+- [[The Place Registry]] — factories and warehouses as records with fixed addresses; why the
+  warehouse half already existed, and why the route boxes now search instead of create
 - [[Firestore Rules]] — the server-side enforcement layer, and its draft-vs-live split
 - [[Fleet Captain Permission Gap]] — the #1 most recurring bug class (`isAreaAdmin()` never
   covering `FLEET_CAPTAIN`)

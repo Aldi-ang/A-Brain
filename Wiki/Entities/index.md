@@ -24,6 +24,7 @@ folder-level map, not a replacement for it.
 - [[Master Vault Gate]]
 - [[Multi-Tenant Architecture]]
 - [[Gudang Pusat (Master Vault)]]
+- [[The Place Registry]]
 - [[Rank Config and Achievement Badges]]
 - [[Terminal Tenant Path Split]]
 - [[The Admin Agent Profile Id]]
