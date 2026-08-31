@@ -108,4 +108,6 @@ Real things that went wrong (or nearly did), and what was learned.
 - `Backlog/` and `Brainstorm/` — a separate to-do board and scratch space for open work. Not part of this knowledge graph by design (see `CLAUDE.md`) — open `Backlog/` directly to see what's next.
 - `PLAN-second-brain-integration.md` — why this vault exists and how it's meant to be maintained.
 - [[Concepts/Where KPM Is Going]] — START HERE: the theme, every locked decision, and the direction.
+- [[Concepts/A Meter That Exits Silently Is Not a Meter]] — why nothing stopped the session at 95%, and the Stop hook that now guards both notes.
+- [[Concepts/The Caption Clamp Guards One Branch Out of Two]] — the phone-only tutorial caption bug, its six frames, and the open A/B.
 - [[Summaries/Stock Count Trust Chain]] — how a count becomes trustworthy: tolerance, recount, cause, leak detection. The one open decision is naming the five shortage causes.

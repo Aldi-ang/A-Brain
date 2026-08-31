@@ -108,6 +108,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   backfill pass that closed a six-day vault gap
 
 - [[Concepts/Where KPM Is Going]] — START HERE: the theme, every locked decision, and the direction.
+- [[Concepts/A Meter That Exits Silently Is Not a Meter]] — the plan-quota hook has never run; a silent monitor and a healthy one look identical from inside.
+- [[Concepts/The Caption Clamp Guards One Branch Out of Two]] — Ponder captions cover what they explain at 375px; 36 beats, one suspected line, decision open.
 
 ## Known gaps (honest, not filled in yet)
 
