@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-08-31)
 
 ## Corpus Check
-- 72 files · ~146,004 words
+- 72 files · ~146,119 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 761 nodes · 937 edges · 81 communities (78 shown, 3 thin omitted)
+- 762 nodes · 938 edges · 74 communities (71 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1750e456`
+- Built from commit: `8cfa7ac3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -86,14 +86,8 @@
 - Entities/index.md
 - A Meter That Exits Silently Is Not a Meter
 - 2026-08-27 — the tutorial's four answers, and how a panel got its English name
-- The Caption Clamp Guards One Branch Out of Two
-- Fleet Captain Permission Gap
-- Git Worktrees
+- Entities/index.md
 - A Feature Is Not Done Until the Book Knows
-- Multi-Tenant Architecture
-- Rank Config and Achievement Badges
-- Tier System
-- Wiki/Entities
 
 ## God Nodes (most connected - your core abstractions)
 1. `Operation Log` - 43 edges
@@ -110,7 +104,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (81 total, 3 thin omitted)
+## Communities (74 total, 3 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.06
@@ -173,8 +167,8 @@ Cohesion: 0.20
 Nodes (10): 🔴 DO NOT DELETE THAT LINE — it is load-bearing, Firestore Rules, It's a draft, not the live rules, Re-confirmed still-undeployed, 2026-07-27, Related, Superseded, 2026-07-29 — most of the ruleset deployed 2026-07-28, The one confirmed tenant-isolation failure, The owner's email is a hardcoded master key — found 2026-08-10 (+2 more)
 
 ### Community 16 - "Master Vault Gate"
-Cohesion: 0.25
-Nodes (8): CLOSED 2026-08-11 08:45 — the rules are deployed, so the fix works, Related, Terminal Tenant Path Split, The fix, and what was deliberately left alone, The lesson worth carrying, The mechanism, The open risk — narrowed 2026-08-11 08:35, not closed, Why it survived
+Cohesion: 0.05
+Nodes (37): Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening, Confirmed real incidents (3, so far), Git Worktrees (+29 more)
 
 ### Community 17 - "9Router Subordinate AI Delegation"
 Cohesion: 0.22
@@ -384,40 +378,16 @@ Nodes (6): A Rollup Is a Cache, Not a Ledger, Four details that would each have 
 Cohesion: 0.29
 Nodes (7): A Meter That Exits Silently Is Not a Meter, Still open — only Aldi can close it, The general rule, The root cause, What changed, What happened, Why it was never noticed
 
-### Community 73 - "The Caption Clamp Guards One Branch Out of Two"
-Cohesion: 0.33
-Nodes (6): Also found, and it is the more general lesson, Options put to Aldi — DECISION OPEN, The Caption Clamp Guards One Branch Out of Two, The problem, The suspect, The trap in the obvious fix
-
-### Community 74 - "Fleet Captain Permission Gap"
-Cohesion: 0.33
-Nodes (6): Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening
-
-### Community 75 - "Git Worktrees"
-Cohesion: 0.33
-Nodes (5): Confirmed real incidents (3, so far), Git Worktrees, Related, The resulting discipline, Verify before trusting
+### Community 72 - "Entities/index.md"
+Cohesion: 0.29
+Nodes (7): A Smooth Scroll That Never Runs, The lesson worth keeping, The second half — a phone has no "beside", The wrong diagnosis, and why it was believable, Verification, What it actually was, What it looked like
 
 ### Community 76 - "A Feature Is Not Done Until the Book Knows"
 Cohesion: 0.50
 Nodes (4): A Feature Is Not Done Until the Book Knows, And one thing only a rendered frame catches, The rule, split, Two mechanical traps the first one hit
 
-### Community 77 - "Multi-Tenant Architecture"
-Cohesion: 0.40
-Nodes (5): Multi-Tenant Architecture, Related, The bossUid pattern, Verify before trusting, Where tenant isolation has actually failed
-
-### Community 78 - "Rank Config and Achievement Badges"
-Cohesion: 0.40
-Nodes (5): Bug 1 (fixed): zero rule coverage, Bug 2 (open, documented not fixed): cross-tenant shared document, Rank Config and Achievement Badges, Related, Verify before trusting
-
-### Community 79 - "Tier System"
-Cohesion: 0.40
-Nodes (5): Delegation: canEditRoster, Related, Sharp edge: legacy string overlap, Tier System, Verify before trusting
-
-### Community 80 - "Wiki/Entities"
-Cohesion: 0.67
-Nodes (3): Adding a new entity, Pages here, Wiki/Entities
-
 ## Knowledge Gaps
-- **581 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+576 more)
+- **582 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+577 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -431,7 +401,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
   _High betweenness centrality (0.087) - this node is a cross-community bridge._
 - **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _581 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _582 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

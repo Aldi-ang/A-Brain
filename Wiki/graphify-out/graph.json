@@ -741,6 +741,94 @@
       "norm_label": "what made this checkable"
     },
     {
+      "label": "A Smooth Scroll That Never Runs.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_a_smooth_scroll_that_never_runs",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "a smooth scroll that never runs.md"
+    },
+    {
+      "label": "A Smooth Scroll That Never Runs",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
+      "community": 72,
+      "community_name": "Entities/index.md",
+      "norm_label": "a smooth scroll that never runs"
+    },
+    {
+      "label": "What it looked like",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "concepts_a_smooth_scroll_that_never_runs_what_it_looked_like",
+      "community": 72,
+      "community_name": "Entities/index.md",
+      "norm_label": "what it looked like"
+    },
+    {
+      "label": "The wrong diagnosis, and why it was believable",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "concepts_a_smooth_scroll_that_never_runs_the_wrong_diagnosis_and_why_it_was_believable",
+      "community": 72,
+      "community_name": "Entities/index.md",
+      "norm_label": "the wrong diagnosis, and why it was believable"
+    },
+    {
+      "label": "What it actually was",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "concepts_a_smooth_scroll_that_never_runs_what_it_actually_was",
+      "community": 72,
+      "community_name": "Entities/index.md",
+      "norm_label": "what it actually was"
+    },
+    {
+      "label": "The second half \u2014 a phone has no \"beside\"",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "concepts_a_smooth_scroll_that_never_runs_the_second_half_a_phone_has_no_beside",
+      "community": 72,
+      "community_name": "Entities/index.md",
+      "norm_label": "the second half \u2014 a phone has no \"beside\""
+    },
+    {
+      "label": "Verification",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "concepts_a_smooth_scroll_that_never_runs_verification",
+      "community": 72,
+      "community_name": "Entities/index.md",
+      "norm_label": "verification"
+    },
+    {
+      "label": "The lesson worth keeping",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "concepts_a_smooth_scroll_that_never_runs_the_lesson_worth_keeping",
+      "community": 72,
+      "community_name": "Entities/index.md",
+      "norm_label": "the lesson worth keeping"
+    },
+    {
       "label": "A Store Name Is Not a Store.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/A Store Name Is Not a Store.md",
@@ -3744,83 +3832,6 @@
       "norm_label": "the sharper version of the same case: the animation ran and was invisible (2026-08-16)"
     },
     {
-      "label": "The Caption Clamp Guards One Branch Out of Two.md",
-      "file_type": "document",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "concepts_the_caption_clamp_guards_one_branch_out_of_two",
-      "community": 4,
-      "community_name": "Concepts/index.md",
-      "norm_label": "the caption clamp guards one branch out of two.md"
-    },
-    {
-      "label": "The Caption Clamp Guards One Branch Out of Two",
-      "file_type": "document",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_caption_clamp_guards_one_branch_out_of_two",
-      "community": 73,
-      "community_name": "The Caption Clamp Guards One Branch Out of Two",
-      "norm_label": "the caption clamp guards one branch out of two"
-    },
-    {
-      "label": "The problem",
-      "file_type": "document",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_problem",
-      "community": 73,
-      "community_name": "The Caption Clamp Guards One Branch Out of Two",
-      "norm_label": "the problem"
-    },
-    {
-      "label": "The suspect",
-      "file_type": "document",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_suspect",
-      "community": 73,
-      "community_name": "The Caption Clamp Guards One Branch Out of Two",
-      "norm_label": "the suspect"
-    },
-    {
-      "label": "The trap in the obvious fix",
-      "file_type": "document",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L45",
-      "_origin": "ast",
-      "id": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_trap_in_the_obvious_fix",
-      "community": 73,
-      "community_name": "The Caption Clamp Guards One Branch Out of Two",
-      "norm_label": "the trap in the obvious fix"
-    },
-    {
-      "label": "Options put to Aldi \u2014 DECISION OPEN",
-      "file_type": "document",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L54",
-      "_origin": "ast",
-      "id": "concepts_the_caption_clamp_guards_one_branch_out_of_two_options_put_to_aldi_decision_open",
-      "community": 73,
-      "community_name": "The Caption Clamp Guards One Branch Out of Two",
-      "norm_label": "options put to aldi \u2014 decision open"
-    },
-    {
-      "label": "Also found, and it is the more general lesson",
-      "file_type": "document",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L70",
-      "_origin": "ast",
-      "id": "concepts_the_caption_clamp_guards_one_branch_out_of_two_also_found_and_it_is_the_more_general_lesson",
-      "community": 73,
-      "community_name": "The Caption Clamp Guards One Branch Out of Two",
-      "norm_label": "also found, and it is the more general lesson"
-    },
-    {
       "label": "The Eight Warehouse Gaps.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Eight Warehouse Gaps.md",
@@ -4696,8 +4707,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_firestore_rules",
-      "community": 72,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "firestore rules.md"
     },
     {
@@ -4817,8 +4828,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap",
-      "community": 72,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "fleet captain permission gap.md"
     },
     {
@@ -4828,8 +4839,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_fleet_captain_permission_gap",
-      "community": 74,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "fleet captain permission gap"
     },
     {
@@ -4839,8 +4850,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_confirmed_recurrences_independently_at_least_5_times",
-      "community": 74,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "confirmed recurrences (independently, at least 5 times)"
     },
     {
@@ -4850,8 +4861,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_why_it_keeps_happening",
-      "community": 74,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "why it keeps happening"
     },
     {
@@ -4861,8 +4872,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_the_standing_lesson",
-      "community": 74,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "the standing lesson"
     },
     {
@@ -4872,8 +4883,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_related",
-      "community": 74,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "related"
     },
     {
@@ -4883,8 +4894,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_verify_before_trusting",
-      "community": 74,
-      "community_name": "Fleet Captain Permission Gap",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "verify before trusting"
     },
     {
@@ -4894,8 +4905,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_git_worktrees",
-      "community": 75,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "git worktrees.md"
     },
     {
@@ -4905,8 +4916,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_git_worktrees_git_worktrees",
-      "community": 75,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "git worktrees"
     },
     {
@@ -4916,8 +4927,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "entities_git_worktrees_confirmed_real_incidents_3_so_far",
-      "community": 75,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "confirmed real incidents (3, so far)"
     },
     {
@@ -4927,8 +4938,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "entities_git_worktrees_the_resulting_discipline",
-      "community": 75,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "the resulting discipline"
     },
     {
@@ -4938,8 +4949,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "entities_git_worktrees_related",
-      "community": 75,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "related"
     },
     {
@@ -4949,8 +4960,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "entities_git_worktrees_verify_before_trusting",
-      "community": 75,
-      "community_name": "Git Worktrees",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "verify before trusting"
     },
     {
@@ -5070,8 +5081,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture",
-      "community": 72,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "multi-tenant architecture.md"
     },
     {
@@ -5081,8 +5092,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_multi_tenant_architecture",
-      "community": 77,
-      "community_name": "Multi-Tenant Architecture",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "multi-tenant architecture"
     },
     {
@@ -5092,8 +5103,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_the_bossuid_pattern",
-      "community": 77,
-      "community_name": "Multi-Tenant Architecture",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "the bossuid pattern"
     },
     {
@@ -5103,8 +5114,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_where_tenant_isolation_has_actually_failed",
-      "community": 77,
-      "community_name": "Multi-Tenant Architecture",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "where tenant isolation has actually failed"
     },
     {
@@ -5114,8 +5125,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_related",
-      "community": 77,
-      "community_name": "Multi-Tenant Architecture",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "related"
     },
     {
@@ -5125,8 +5136,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_verify_before_trusting",
-      "community": 77,
-      "community_name": "Multi-Tenant Architecture",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "verify before trusting"
     },
     {
@@ -5136,8 +5147,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges",
-      "community": 72,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "rank config and achievement badges.md"
     },
     {
@@ -5147,8 +5158,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_rank_config_and_achievement_badges",
-      "community": 78,
-      "community_name": "Rank Config and Achievement Badges",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "rank config and achievement badges"
     },
     {
@@ -5158,8 +5169,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_bug_1_fixed_zero_rule_coverage",
-      "community": 78,
-      "community_name": "Rank Config and Achievement Badges",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "bug 1 (fixed): zero rule coverage"
     },
     {
@@ -5169,8 +5180,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_bug_2_open_documented_not_fixed_cross_tenant_shared_document",
-      "community": 78,
-      "community_name": "Rank Config and Achievement Badges",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "bug 2 (open, documented not fixed): cross-tenant shared document"
     },
     {
@@ -5180,8 +5191,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_related",
-      "community": 78,
-      "community_name": "Rank Config and Achievement Badges",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "related"
     },
     {
@@ -5191,8 +5202,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_verify_before_trusting",
-      "community": 78,
-      "community_name": "Rank Config and Achievement Badges",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "verify before trusting"
     },
     {
@@ -5202,8 +5213,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_terminal_tenant_path_split",
-      "community": 72,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "terminal tenant path split.md"
     },
     {
@@ -5367,8 +5378,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_tier_system",
-      "community": 72,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "tier system.md"
     },
     {
@@ -5378,8 +5389,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_tier_system_tier_system",
-      "community": 79,
-      "community_name": "Tier System",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "tier system"
     },
     {
@@ -5389,8 +5400,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "entities_tier_system_sharp_edge_legacy_string_overlap",
-      "community": 79,
-      "community_name": "Tier System",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "sharp edge: legacy string overlap"
     },
     {
@@ -5400,8 +5411,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "entities_tier_system_delegation_caneditroster",
-      "community": 79,
-      "community_name": "Tier System",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "delegation: caneditroster"
     },
     {
@@ -5411,8 +5422,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "entities_tier_system_related",
-      "community": 79,
-      "community_name": "Tier System",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "related"
     },
     {
@@ -5422,8 +5433,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "entities_tier_system_verify_before_trusting",
-      "community": 79,
-      "community_name": "Tier System",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "verify before trusting"
     },
     {
@@ -5433,8 +5444,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_index",
-      "community": 72,
-      "community_name": "Entities/index.md",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "entities/index.md"
     },
     {
@@ -5444,8 +5455,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "entities_index_wiki_entities",
-      "community": 80,
-      "community_name": "Wiki/Entities",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "wiki/entities"
     },
     {
@@ -5455,8 +5466,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "entities_index_pages_here",
-      "community": 80,
-      "community_name": "Wiki/Entities",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "pages here"
     },
     {
@@ -5466,8 +5477,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "entities_index_adding_a_new_entity",
-      "community": 80,
-      "community_name": "Wiki/Entities",
+      "community": 16,
+      "community_name": "Master Vault Gate",
       "norm_label": "adding a new entity"
     },
     {
@@ -8566,22 +8577,22 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L20",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L87",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "concepts_index",
+      "source": "concepts_a_smooth_scroll_that_never_runs",
       "target": "concepts_a_css_animation_outranks_your_inline_style",
       "confidence_score": 1.0
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L63",
+      "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "concepts_the_caption_clamp_guards_one_branch_out_of_two",
+      "source": "concepts_index",
       "target": "concepts_a_css_animation_outranks_your_inline_style",
       "confidence_score": 1.0
     },
@@ -9424,22 +9435,22 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L21",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L87",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "concepts_index",
+      "source": "concepts_a_smooth_scroll_that_never_runs",
       "target": "concepts_a_rect_is_painted_not_laid_out",
       "confidence_score": 1.0
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L77",
+      "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "concepts_the_caption_clamp_guards_one_branch_out_of_two",
+      "source": "concepts_index",
       "target": "concepts_a_rect_is_painted_not_laid_out",
       "confidence_score": 1.0
     },
@@ -9595,6 +9606,138 @@
       "_origin": "ast",
       "source": "concepts_a_rollup_is_a_cache_not_a_ledger_a_rollup_is_a_cache_not_a_ledger",
       "target": "concepts_a_rollup_is_a_cache_not_a_ledger_what_shipped",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs",
+      "target": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs",
+      "target": "concepts_looking_at_the_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs",
+      "target": "concepts_ponder_tutorial_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_index",
+      "target": "concepts_a_smooth_scroll_that_never_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Index.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "concepts_a_smooth_scroll_that_never_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/MOC.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "moc",
+      "target": "concepts_a_smooth_scroll_that_never_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
+      "target": "concepts_a_smooth_scroll_that_never_runs_the_lesson_worth_keeping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
+      "target": "concepts_a_smooth_scroll_that_never_runs_the_second_half_a_phone_has_no_beside",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
+      "target": "concepts_a_smooth_scroll_that_never_runs_the_wrong_diagnosis_and_why_it_was_believable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
+      "target": "concepts_a_smooth_scroll_that_never_runs_verification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
+      "target": "concepts_a_smooth_scroll_that_never_runs_what_it_actually_was",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
+      "target": "concepts_a_smooth_scroll_that_never_runs_what_it_looked_like",
       "confidence_score": 1.0
     },
     {
@@ -12647,17 +12790,6 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L77",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_the_caption_clamp_guards_one_branch_out_of_two",
-      "target": "concepts_looking_at_the_app",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
       "source_location": "L42",
       "weight": 1.0,
@@ -13005,17 +13137,6 @@
       "_origin": "ast",
       "source": "concepts_ponder_tutorial_system",
       "target": "summaries_surat_jalan_desk_and_sebaran_stok",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L77",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_the_caption_clamp_guards_one_branch_out_of_two",
-      "target": "concepts_ponder_tutorial_system",
       "confidence_score": 1.0
     },
     {
@@ -13654,105 +13775,6 @@
       "_origin": "ast",
       "source": "concepts_silent_failure_disease_case_a_transition_on_an_element_that_was_just_created_2026_08_16",
       "target": "concepts_silent_failure_disease_the_sharper_version_of_the_same_case_the_animation_ran_and_was_invisible_2026_08_16",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L63",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_index",
-      "target": "concepts_the_caption_clamp_guards_one_branch_out_of_two",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_the_caption_clamp_guards_one_branch_out_of_two",
-      "target": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_caption_clamp_guards_one_branch_out_of_two",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Index.md",
-      "source_location": "L112",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "index",
-      "target": "concepts_the_caption_clamp_guards_one_branch_out_of_two",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/MOC.md",
-      "source_location": "L112",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "moc",
-      "target": "concepts_the_caption_clamp_guards_one_branch_out_of_two",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L70",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_caption_clamp_guards_one_branch_out_of_two",
-      "target": "concepts_the_caption_clamp_guards_one_branch_out_of_two_also_found_and_it_is_the_more_general_lesson",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L54",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_caption_clamp_guards_one_branch_out_of_two",
-      "target": "concepts_the_caption_clamp_guards_one_branch_out_of_two_options_put_to_aldi_decision_open",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L14",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_caption_clamp_guards_one_branch_out_of_two",
-      "target": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_problem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L33",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_caption_clamp_guards_one_branch_out_of_two",
-      "target": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_suspect",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The Caption Clamp Guards One Branch Out of Two.md",
-      "source_location": "L45",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_caption_clamp_guards_one_branch_out_of_two",
-      "target": "concepts_the_caption_clamp_guards_one_branch_out_of_two_the_trap_in_the_obvious_fix",
       "confidence_score": 1.0
     },
     {
@@ -18685,5 +18707,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1750e456194da81a11a6b4d2b6d0bc4d734788d1"
+  "built_at_commit": "8cfa7ac3148383ddc682cf31232ac8853cb9179d"
 }

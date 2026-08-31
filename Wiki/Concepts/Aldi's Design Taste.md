@@ -1410,3 +1410,38 @@ Three things worth keeping from this:
 
 ⚠️ **Scope: HQ desk only.** The branch-side screens are all-Indonesian on purpose — different
 reader, settled separately. This is not a rule about the app; it is a rule about the desk HE reads.
+
+## 2026-08-31 — one door for the tutorial, and the reason is SPACE
+
+He removed a feature that worked, and the reason he gave is the part worth keeping.
+
+Three panels carried a small `? TUTORIAL` chip in their header — Product Performance, Stock by
+Warehouse, Goods Received — which opened that panel's tutorial directly, without going through the
+book on the top bar. Two doors into the same room.
+
+> *"book is good we dont need any of the tutorial chip, all should be inside the tutorial book on
+> top"*, then, when asked to confirm: *"okay yea remove the tutorial chip, all tutorials should be
+> on book only to save space also"*.
+
+**"To save space" is the rule, not "I dislike chips".** A panel header is the most contested strip
+in the app: it already holds a title, a rule, a subtitle line, and on Product Performance four range
+buttons. The chip was the least important thing there and it was competing with the controls people
+actually press. He is not against entry points — he is against a permanent one costing header width
+forever for something opened rarely.
+
+**What this predicts for the next such decision.** A second way to reach something already reachable
+must justify the space it occupies on every render, not on the render where it is used. If a feature
+has a home, it does not also get a shortcut in a header — the shortcut is what gets cut.
+
+**The original argument it overturned, which was also his.** 2026-08-27: *"nope dont push newcomer
+towards the scene let them figure out by pressing the tutorial button"*, and the chip was built
+because Create mod's Ponder opens by holding a key over the ITEM you are confused by, never from an
+index. That reasoning was sound and he still overruled it once he saw the header. **Seeing it beats
+reasoning about it** — the same pattern as 2026-08-24, when he reversed his own faceplate choice
+after seeing it rendered.
+
+One consequence he accepted implicitly: a scene missing from `sections.js` is now unreachable by
+anyone, because the chips were its second door. That is pinned by an audit check rather than left
+to memory.
+
+Related: [[Ponder Tutorial System]] · [[A Feature Is Not Done Until the Book Knows]]
