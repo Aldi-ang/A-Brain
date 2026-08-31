@@ -1720,6 +1720,17 @@
       "norm_label": "given three options, he designed a fourth and it was better (2026-08-31)"
     },
     {
+      "label": "\"Tempat\" was too vague, and so was my fix (2026-08-31)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1509",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_tempat_was_too_vague_and_so_was_my_fix_2026_08_31",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "\"tempat\" was too vague, and so was my fix (2026-08-31)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -10789,6 +10800,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1509",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_tempat_was_too_vague_and_so_was_my_fix_2026_08_31",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L498",
       "weight": 1.0,
       "_origin": "ast",
@@ -19334,5 +19356,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ca73951d859e7368638463042f8c456a02bc18f4"
+  "built_at_commit": "bf42189114a5b35238ac66dbefb05bd9e3a3e960"
 }
