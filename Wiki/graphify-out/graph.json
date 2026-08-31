@@ -370,7 +370,7 @@
       "label": "Why it was never noticed",
       "file_type": "document",
       "source_file": "Wiki/Concepts/A Meter That Exits Silently Is Not a Meter.md",
-      "source_location": "L53",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_why_it_was_never_noticed",
       "community": 70,
@@ -381,7 +381,7 @@
       "label": "What changed",
       "file_type": "document",
       "source_file": "Wiki/Concepts/A Meter That Exits Silently Is Not a Meter.md",
-      "source_location": "L63",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_what_changed",
       "community": 70,
@@ -389,21 +389,21 @@
       "norm_label": "what changed"
     },
     {
-      "label": "Still open \u2014 only Aldi can close it",
+      "label": "Resolution \u2014 2026-08-31 evening, commit `7ca7b03`",
       "file_type": "document",
       "source_file": "Wiki/Concepts/A Meter That Exits Silently Is Not a Meter.md",
-      "source_location": "L74",
+      "source_location": "L76",
       "_origin": "ast",
-      "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_still_open_only_aldi_can_close_it",
+      "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_resolution_2026_08_31_evening_commit_7ca7b03",
       "community": 70,
       "community_name": "A Meter That Exits Silently Is Not a Meter",
-      "norm_label": "still open \u2014 only aldi can close it"
+      "norm_label": "resolution \u2014 2026-08-31 evening, commit `7ca7b03`"
     },
     {
       "label": "The general rule",
       "file_type": "document",
       "source_file": "Wiki/Concepts/A Meter That Exits Silently Is Not a Meter.md",
-      "source_location": "L79",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_the_general_rule",
       "community": 70,
@@ -4718,8 +4718,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_firestore_rules",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "firestore rules.md"
     },
     {
@@ -4839,8 +4839,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "fleet captain permission gap.md"
     },
     {
@@ -4850,8 +4850,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_fleet_captain_permission_gap",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 74,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "fleet captain permission gap"
     },
     {
@@ -4861,8 +4861,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_confirmed_recurrences_independently_at_least_5_times",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 74,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "confirmed recurrences (independently, at least 5 times)"
     },
     {
@@ -4872,8 +4872,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_why_it_keeps_happening",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 74,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "why it keeps happening"
     },
     {
@@ -4883,8 +4883,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_the_standing_lesson",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 74,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "the standing lesson"
     },
     {
@@ -4894,8 +4894,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_related",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 74,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "related"
     },
     {
@@ -4905,8 +4905,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap_verify_before_trusting",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 74,
+      "community_name": "Fleet Captain Permission Gap",
       "norm_label": "verify before trusting"
     },
     {
@@ -4916,8 +4916,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_git_worktrees",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 75,
+      "community_name": "Git Worktrees",
       "norm_label": "git worktrees.md"
     },
     {
@@ -4927,8 +4927,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_git_worktrees_git_worktrees",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 75,
+      "community_name": "Git Worktrees",
       "norm_label": "git worktrees"
     },
     {
@@ -4938,8 +4938,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "entities_git_worktrees_confirmed_real_incidents_3_so_far",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 75,
+      "community_name": "Git Worktrees",
       "norm_label": "confirmed real incidents (3, so far)"
     },
     {
@@ -4949,8 +4949,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "entities_git_worktrees_the_resulting_discipline",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 75,
+      "community_name": "Git Worktrees",
       "norm_label": "the resulting discipline"
     },
     {
@@ -4960,8 +4960,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "entities_git_worktrees_related",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 75,
+      "community_name": "Git Worktrees",
       "norm_label": "related"
     },
     {
@@ -4971,9 +4971,75 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "entities_git_worktrees_verify_before_trusting",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 75,
+      "community_name": "Git Worktrees",
       "norm_label": "verify before trusting"
+    },
+    {
+      "label": "Gudang Pusat (Master Vault).md",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "entities_gudang_pusat_master_vault",
+      "community": 77,
+      "community_name": "Gudang Pusat (Master Vault)",
+      "norm_label": "gudang pusat (master vault).md"
+    },
+    {
+      "label": "Gudang Pusat (Master Vault)",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "entities_gudang_pusat_master_vault_gudang_pusat_master_vault",
+      "community": 77,
+      "community_name": "Gudang Pusat (Master Vault)",
+      "norm_label": "gudang pusat (master vault)"
+    },
+    {
+      "label": "The name, and who decided it",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "entities_gudang_pusat_master_vault_the_name_and_who_decided_it",
+      "community": 77,
+      "community_name": "Gudang Pusat (Master Vault)",
+      "norm_label": "the name, and who decided it"
+    },
+    {
+      "label": "It was spelled FOUR ways, not three",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "entities_gudang_pusat_master_vault_it_was_spelled_four_ways_not_three",
+      "community": 77,
+      "community_name": "Gudang Pusat (Master Vault)",
+      "norm_label": "it was spelled four ways, not three"
+    },
+    {
+      "label": "\u26a0\ufe0f The trap \u2014 `'MASTER'` is also a routing value",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "entities_gudang_pusat_master_vault_the_trap_master_is_also_a_routing_value",
+      "community": 77,
+      "community_name": "Gudang Pusat (Master Vault)",
+      "norm_label": "\u26a0\ufe0f the trap \u2014 `'master'` is also a routing value"
+    },
+    {
+      "label": "What this does NOT settle",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "entities_gudang_pusat_master_vault_what_this_does_not_settle",
+      "community": 77,
+      "community_name": "Gudang Pusat (Master Vault)",
+      "norm_label": "what this does not settle"
     },
     {
       "label": "Master Vault Gate.md",
@@ -5092,8 +5158,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "multi-tenant architecture.md"
     },
     {
@@ -5103,8 +5169,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_multi_tenant_architecture",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 78,
+      "community_name": "Multi-Tenant Architecture",
       "norm_label": "multi-tenant architecture"
     },
     {
@@ -5114,8 +5180,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_the_bossuid_pattern",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 78,
+      "community_name": "Multi-Tenant Architecture",
       "norm_label": "the bossuid pattern"
     },
     {
@@ -5125,8 +5191,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_where_tenant_isolation_has_actually_failed",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 78,
+      "community_name": "Multi-Tenant Architecture",
       "norm_label": "where tenant isolation has actually failed"
     },
     {
@@ -5136,8 +5202,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_related",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 78,
+      "community_name": "Multi-Tenant Architecture",
       "norm_label": "related"
     },
     {
@@ -5147,8 +5213,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture_verify_before_trusting",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 78,
+      "community_name": "Multi-Tenant Architecture",
       "norm_label": "verify before trusting"
     },
     {
@@ -5158,8 +5224,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "rank config and achievement badges.md"
     },
     {
@@ -5169,8 +5235,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_rank_config_and_achievement_badges",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 79,
+      "community_name": "Rank Config and Achievement Badges",
       "norm_label": "rank config and achievement badges"
     },
     {
@@ -5180,8 +5246,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_bug_1_fixed_zero_rule_coverage",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 79,
+      "community_name": "Rank Config and Achievement Badges",
       "norm_label": "bug 1 (fixed): zero rule coverage"
     },
     {
@@ -5191,8 +5257,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_bug_2_open_documented_not_fixed_cross_tenant_shared_document",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 79,
+      "community_name": "Rank Config and Achievement Badges",
       "norm_label": "bug 2 (open, documented not fixed): cross-tenant shared document"
     },
     {
@@ -5202,8 +5268,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_related",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 79,
+      "community_name": "Rank Config and Achievement Badges",
       "norm_label": "related"
     },
     {
@@ -5213,8 +5279,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges_verify_before_trusting",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 79,
+      "community_name": "Rank Config and Achievement Badges",
       "norm_label": "verify before trusting"
     },
     {
@@ -5224,8 +5290,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_terminal_tenant_path_split",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "terminal tenant path split.md"
     },
     {
@@ -5389,8 +5455,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_tier_system",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "tier system.md"
     },
     {
@@ -5400,8 +5466,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_tier_system_tier_system",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 80,
+      "community_name": "Tier System",
       "norm_label": "tier system"
     },
     {
@@ -5411,8 +5477,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "entities_tier_system_sharp_edge_legacy_string_overlap",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 80,
+      "community_name": "Tier System",
       "norm_label": "sharp edge: legacy string overlap"
     },
     {
@@ -5422,8 +5488,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "entities_tier_system_delegation_caneditroster",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 80,
+      "community_name": "Tier System",
       "norm_label": "delegation: caneditroster"
     },
     {
@@ -5433,8 +5499,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "entities_tier_system_related",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 80,
+      "community_name": "Tier System",
       "norm_label": "related"
     },
     {
@@ -5444,8 +5510,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "entities_tier_system_verify_before_trusting",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 80,
+      "community_name": "Tier System",
       "norm_label": "verify before trusting"
     },
     {
@@ -5455,8 +5521,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_index",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "entities/index.md"
     },
     {
@@ -5466,8 +5532,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "entities_index_wiki_entities",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 81,
+      "community_name": "Wiki/Entities",
       "norm_label": "wiki/entities"
     },
     {
@@ -5477,19 +5543,19 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "entities_index_pages_here",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 81,
+      "community_name": "Wiki/Entities",
       "norm_label": "pages here"
     },
     {
       "label": "Adding a new entity",
       "file_type": "document",
       "source_file": "Wiki/Entities/index.md",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "entities_index_adding_a_new_entity",
-      "community": 16,
-      "community_name": "Master Vault Gate",
+      "community": 81,
+      "community_name": "Wiki/Entities",
       "norm_label": "adding a new entity"
     },
     {
@@ -5529,7 +5595,7 @@
       "label": "Concepts (recurring patterns)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L33",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "index_concepts_recurring_patterns",
       "community": 51,
@@ -5540,7 +5606,7 @@
       "label": "Summaries (one per ingested source, newest ingest pass first)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L78",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
       "community": 51,
@@ -5551,7 +5617,7 @@
       "label": "Known gaps (honest, not filled in yet)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L114",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
       "community": 51,
@@ -6277,7 +6343,7 @@
       "label": "\ud83c\udfa8 Design & Interface",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L76",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "moc_design_interface",
       "community": 23,
@@ -6288,7 +6354,7 @@
       "label": "\ud83d\udcf1 Phone & Device",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L87",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "moc_phone_device",
       "community": 23,
@@ -6299,7 +6365,7 @@
       "label": "\ud83d\udea8 Incidents",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L93",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "moc_incidents",
       "community": 23,
@@ -6310,7 +6376,7 @@
       "label": "Elsewhere in this vault",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L104",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "moc_elsewhere_in_this_vault",
       "community": 23,
@@ -6456,8 +6522,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -6995,8 +7061,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 41,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -8732,7 +8798,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Meter That Exits Silently Is Not a Meter.md",
-      "source_location": "L85",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_meter_that_exits_silently_is_not_a_meter",
@@ -8974,7 +9040,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Meter That Exits Silently Is Not a Meter.md",
-      "source_location": "L85",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_meter_that_exits_silently_is_not_a_meter",
@@ -8996,7 +9062,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L111",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -9007,7 +9073,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L111",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -9018,18 +9084,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Meter That Exits Silently Is Not a Meter.md",
-      "source_location": "L74",
+      "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_meter_that_exits_silently_is_not_a_meter_a_meter_that_exits_silently_is_not_a_meter",
-      "target": "concepts_a_meter_that_exits_silently_is_not_a_meter_still_open_only_aldi_can_close_it",
+      "target": "concepts_a_meter_that_exits_silently_is_not_a_meter_resolution_2026_08_31_evening_commit_7ca7b03",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Meter That Exits Silently Is Not a Meter.md",
-      "source_location": "L79",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_meter_that_exits_silently_is_not_a_meter_a_meter_that_exits_silently_is_not_a_meter",
@@ -9051,7 +9117,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Meter That Exits Silently Is Not a Meter.md",
-      "source_location": "L63",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_meter_that_exits_silently_is_not_a_meter_a_meter_that_exits_silently_is_not_a_meter",
@@ -9073,7 +9139,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Meter That Exits Silently Is Not a Meter.md",
-      "source_location": "L53",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_meter_that_exits_silently_is_not_a_meter_a_meter_that_exits_silently_is_not_a_meter",
@@ -9667,7 +9733,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L112",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -9678,7 +9744,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L112",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -9821,7 +9887,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L107",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -9843,7 +9909,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L107",
+      "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -14529,7 +14595,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L110",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -14551,7 +14617,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L110",
+      "source_location": "L111",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -15186,6 +15252,72 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_gudang_pusat_master_vault",
+      "target": "entities_gudang_pusat_master_vault_gudang_pusat_master_vault",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/index.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_index",
+      "target": "entities_gudang_pusat_master_vault",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_gudang_pusat_master_vault_gudang_pusat_master_vault",
+      "target": "entities_gudang_pusat_master_vault_it_was_spelled_four_ways_not_three",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_gudang_pusat_master_vault_gudang_pusat_master_vault",
+      "target": "entities_gudang_pusat_master_vault_the_name_and_who_decided_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_gudang_pusat_master_vault_gudang_pusat_master_vault",
+      "target": "entities_gudang_pusat_master_vault_the_trap_master_is_also_a_routing_value",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Gudang Pusat (Master Vault).md",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_gudang_pusat_master_vault_gudang_pusat_master_vault",
+      "target": "entities_gudang_pusat_master_vault_what_this_does_not_settle",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/index.md",
@@ -15409,7 +15541,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/index.md",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_index",
@@ -15475,7 +15607,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/index.md",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_index",
@@ -15574,7 +15706,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/index.md",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_index",
@@ -15651,7 +15783,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/index.md",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_index",
@@ -15750,7 +15882,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/index.md",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_index",
@@ -15772,7 +15904,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/index.md",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_index_wiki_entities",
@@ -15816,7 +15948,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -15838,7 +15970,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L114",
+      "source_location": "L116",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -15849,7 +15981,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L78",
+      "source_location": "L80",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -16080,7 +16212,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L106",
+      "source_location": "L107",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -16575,7 +16707,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L113",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -16597,7 +16729,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L76",
+      "source_location": "L77",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc_map_of_content",
@@ -16608,7 +16740,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L104",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc_map_of_content",
@@ -16619,7 +16751,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L93",
+      "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc_map_of_content",
@@ -16630,7 +16762,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc_map_of_content",
@@ -18729,5 +18861,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "420367bcbd880364a05ef942234f86db02088ef9"
+  "built_at_commit": "d574cad888bd2c24aaecb93662a510f74c54d667"
 }

@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-08-31)
 
 ## Corpus Check
-- 72 files · ~146,503 words
+- 73 files · ~147,452 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 763 nodes · 939 edges · 74 communities (71 shown, 3 thin omitted)
+- 769 nodes · 945 edges · 82 communities (79 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `420367bc`
+- Built from commit: `d574cad8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -87,7 +87,14 @@
 - A Meter That Exits Silently Is Not a Meter
 - 2026-08-27 — the tutorial's four answers, and how a panel got its English name
 - Entities/index.md
+- Fleet Captain Permission Gap
+- Git Worktrees
 - A Feature Is Not Done Until the Book Knows
+- Gudang Pusat (Master Vault)
+- Multi-Tenant Architecture
+- Rank Config and Achievement Badges
+- Tier System
+- Wiki/Entities
 
 ## God Nodes (most connected - your core abstractions)
 1. `Operation Log` - 43 edges
@@ -104,7 +111,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (74 total, 3 thin omitted)
+## Communities (82 total, 3 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.06
@@ -167,8 +174,8 @@ Cohesion: 0.20
 Nodes (10): 🔴 DO NOT DELETE THAT LINE — it is load-bearing, Firestore Rules, It's a draft, not the live rules, Re-confirmed still-undeployed, 2026-07-27, Related, Superseded, 2026-07-29 — most of the ruleset deployed 2026-07-28, The one confirmed tenant-isolation failure, The owner's email is a hardcoded master key — found 2026-08-10 (+2 more)
 
 ### Community 16 - "Master Vault Gate"
-Cohesion: 0.05
-Nodes (37): Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening, Confirmed real incidents (3, so far), Git Worktrees (+29 more)
+Cohesion: 0.25
+Nodes (8): CLOSED 2026-08-11 08:45 — the rules are deployed, so the fix works, Related, Terminal Tenant Path Split, The fix, and what was deliberately left alone, The lesson worth carrying, The mechanism, The open risk — narrowed 2026-08-11 08:35, not closed, Why it survived
 
 ### Community 17 - "9Router Subordinate AI Delegation"
 Cohesion: 0.22
@@ -255,7 +262,7 @@ Cohesion: 0.33
 Nodes (6): Dead Weight Cleanup and Rules-Deploy Gap, Related, Update 2026-07-28 — the cleanup broke the production build, Verify before trusting, What happened, Why it's worth remembering
 
 ### Community 38 - "Summaries/index.md"
-Cohesion: 0.32
+Cohesion: 0.40
 Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
 
 ### Community 39 - "Summary: Fleet Captain Rule Gaps — Batch 1 and 2"
@@ -267,7 +274,7 @@ Cohesion: 0.33
 Nodes (5): Ripple — pages this touches, Summary: Offline Login Lockout Fix, The bug, The fix, Why this belongs in the wiki
 
 ### Community 41 - "Summary: Rank Config Cross-Tenant Gap"
-Cohesion: 0.40
+Cohesion: 0.33
 Nodes (5): Framing note, Ripple — pages this touches, Summary: Rank Config Cross-Tenant Gap, The gap, Two layers, two different fixes
 
 ### Community 42 - "Six Days — Gate, Phone Access, Quota Meter"
@@ -376,18 +383,46 @@ Nodes (6): A Rollup Is a Cache, Not a Ledger, Four details that would each have 
 
 ### Community 70 - "A Meter That Exits Silently Is Not a Meter"
 Cohesion: 0.29
-Nodes (7): A Meter That Exits Silently Is Not a Meter, Still open — only Aldi can close it, The general rule, The root cause, What changed, What happened, Why it was never noticed
+Nodes (7): A Meter That Exits Silently Is Not a Meter, Resolution — 2026-08-31 evening, commit `7ca7b03`, The general rule, The root cause, What changed, What happened, Why it was never noticed
 
 ### Community 72 - "Entities/index.md"
 Cohesion: 0.29
 Nodes (7): A Smooth Scroll That Never Runs, The lesson worth keeping, The second half — a phone has no "beside", The wrong diagnosis, and why it was believable, Verification, What it actually was, What it looked like
 
+### Community 74 - "Fleet Captain Permission Gap"
+Cohesion: 0.33
+Nodes (6): Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening
+
+### Community 75 - "Git Worktrees"
+Cohesion: 0.33
+Nodes (5): Confirmed real incidents (3, so far), Git Worktrees, Related, The resulting discipline, Verify before trusting
+
 ### Community 76 - "A Feature Is Not Done Until the Book Knows"
 Cohesion: 0.50
 Nodes (4): A Feature Is Not Done Until the Book Knows, And one thing only a rendered frame catches, The rule, split, Two mechanical traps the first one hit
 
+### Community 77 - "Gudang Pusat (Master Vault)"
+Cohesion: 0.33
+Nodes (5): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The name, and who decided it, ⚠️ The trap — `'MASTER'` is also a routing value, What this does NOT settle
+
+### Community 78 - "Multi-Tenant Architecture"
+Cohesion: 0.40
+Nodes (5): Multi-Tenant Architecture, Related, The bossUid pattern, Verify before trusting, Where tenant isolation has actually failed
+
+### Community 79 - "Rank Config and Achievement Badges"
+Cohesion: 0.40
+Nodes (5): Bug 1 (fixed): zero rule coverage, Bug 2 (open, documented not fixed): cross-tenant shared document, Rank Config and Achievement Badges, Related, Verify before trusting
+
+### Community 80 - "Tier System"
+Cohesion: 0.40
+Nodes (5): Delegation: canEditRoster, Related, Sharp edge: legacy string overlap, Tier System, Verify before trusting
+
+### Community 81 - "Wiki/Entities"
+Cohesion: 0.67
+Nodes (3): Adding a new entity, Pages here, Wiki/Entities
+
 ## Knowledge Gaps
-- **583 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+578 more)
+- **587 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+582 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -395,13 +430,13 @@ Nodes (4): A Feature Is Not Done Until the Book Knows, And one thing only a rend
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.147) - this node is a cross-community bridge._
+  _High betweenness centrality (0.146) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.094) - this node is a cross-community bridge._
+  _High betweenness centrality (0.093) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.087) - this node is a cross-community bridge._
+  _High betweenness centrality (0.086) - this node is a cross-community bridge._
 - **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _583 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _587 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

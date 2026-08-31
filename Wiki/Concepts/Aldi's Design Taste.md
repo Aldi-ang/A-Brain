@@ -1445,3 +1445,33 @@ anyone, because the chips were its second door. That is pinned by an audit check
 to memory.
 
 Related: [[Ponder Tutorial System]] · [[A Feature Is Not Done Until the Book Knows]]
+
+## The surat jalan: "looks awful" was two faults and a wrong lead (2026-08-31)
+
+> *"we need to redesign the receipt for this because it looks awful and i dont know why is it
+> transparant look at the SC"*
+
+He named the transparency and left the rest as "awful". Both halves were real, and the transparency
+had a mechanism he could not have guessed — see
+[[The Shell Repaints Any White It Can Reach]].
+
+**What "awful" turned out to be, once it could be looked at:**
+
+| Fault | Why it read badly | Now |
+|---|---|---|
+| The **supplier's factory name** was the largest type on the page | his own delivery note looked like it belonged to the supplier | KPM leads; the factory is a field, `Asal` |
+| The whole document was **monospace** | a delivery note that reads like a till slip | mono only for codes, quantities and money |
+| Two grey panels holding four fields | the same four facts wearing furniture; eight stacked lines on a phone | one four-field row, hairline rules |
+| `TOTAL LANDED VALUE` and its figure **broke across lines** | the most important number on the page was the one that wrapped | fixed grid, `whitespace-nowrap`, tabular figures |
+| `mb-12` + `mt-12 pt-8` on the signatures | both names pushed off the first view on a laptop | room to sign, not a screenful |
+
+**The reusable part is the type rule, not the layout.** Monospace is for things read digit by digit
+or compared down a column — SJ numbers, batch codes, quantities, money. Setting a whole document in
+it is monospace as a costume for "technical", and it is what made this one look cheap.
+
+**And it confirmed the locked corollary rather than testing it.** `animate-fade-in` is opacity-only,
+so the paper spent half a second semi-transparent — visually identical to the actual bug. An
+animation must never own an element's visibility, and a printed document should not have an
+entrance at all.
+
+Related: [[The Shell Repaints Any White It Can Reach]] · [[Gudang Pusat (Master Vault)]]
