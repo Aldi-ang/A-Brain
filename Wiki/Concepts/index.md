@@ -64,3 +64,4 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 - [[A Smooth Scroll That Never Runs]] — six Ponder beats covered the row they explained at 375px. It looked like a missing clamp for a whole session; `scrollIntoView` with `behavior:'smooth'` was moving the stage by zero. **Fixed 2026-08-31, 78 beat renders clean.**
 
 - [[Logistics and Stock Movement]] — **topic hub**: the factory→HQ→branch→van→store chain, which note answers which question, and the locked rules. Start here for anything about shipping, restock, transfers or stock levels.
+- [[One Pack Count, Many Screens]] — karton, bal, slop and bks: the one converter every screen must use, why the boxes are a calculator rather than a second unit on the line, and the two screens that still hardcode the rate and miscount today.
