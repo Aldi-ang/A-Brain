@@ -3,9 +3,9 @@ title: Logistics and Stock Movement
 description: Topic hub — every note about how goods move between factory, HQ vault, branch warehouses, vans and stores. Read this first when the question is about logistics, shipping, restock, transfers or stock levels.
 type: concept
 created: 2026-08-26
-updated: 2026-08-27
+updated: 2026-09-01
 confidence: high
-checked: 2026-08-27
+checked: 2026-09-01
 tags: [logistics, shipping, warehouse, inventory, stock, transfer, restock, hub]
 aliases: [Logistics, Shipping, Stock Movement, Warehouse, Restock, Transfer, Supply Chain]
 ---
@@ -192,3 +192,53 @@ Still missing from this page's own list: **a cause on every damaged unit**, **a 
 minimum and its own Stok Kritis**, and **the batch carried across** to the branch screen.
 
 See also: [[Anti-Recurrence Check]] · [[Silent Failure Disease]] · [[A Ratio of Sums Is Not a Rate]]
+
+## 2026-09-01 — the barcode shipped, and the "rejected" note was about something else
+
+Aldi asked for *"barcode to scan and print for restock vault so that when it scanned it can auto
+confirm that the shipment is arrived"*. Two notes in this vault appeared to disagree:
+
+- [[The Eight Warehouse Gaps]] · *Rejected on purpose*: **barcode scanning (no barcodes on the
+  products, settled)**
+- this page, 2026-08-26 · *Decisions taken*: **Scanner: barcode only… native, offline, Rp 0**
+
+**They are about different objects, and the distinction is worth keeping.** The rejected idea was
+reading codes that are ALREADY PRINTED on kretek packs — his products carry none, so there is
+nothing to read. The approved one is a code **the app prints itself**, where existence is
+guaranteed by construction. A "settled" rejection is scoped to the thing it rejected; check what
+that thing actually was before citing it against a new request.
+
+### What shipped
+
+**Outbound shipments had no printable paper at all** until this. `Cetak` existed only on inbound
+factory rows; a branch had nothing in its hands to scan. `ShipmentLabel` prints route, date, number
+of KINDS, product names, and a Code 128 of the delivery id.
+
+🔴 **The label prints no quantities and never will.** The arrival check is partially blind so the
+counter files what is physically in the box. A total printed on the slip they are holding is the
+anchor the whole check exists to remove. Names stay: a name is what makes a missing product
+countable as 0 rather than invisible.
+
+### The decision he made, and why it was the harder one
+
+Offered two meanings of "arrived", he chose:
+
+> *"the scan said that the shipment is arrived but the blind counting on the shipment should still
+> be exist"*
+
+So the scan writes `arrivedAt`, `arrivedBy` and a timeline line — **no status, no increment, no
+receipt**. The status stays `IN_TRANSIT`, the box stays in Incoming, and stock moves only on the
+count. The cheap alternative is four fewer lines and destroys the OS&D record *silently*, because
+every figure in the app still adds up afterwards.
+
+**Two things fell out of holding a fact instead of a guess.** HQ can now read **"Sampai — belum
+dihitung"** apart from **"Di jalan"**, which the status alone never distinguished. And the 3-day
+*"Belum diambil"* flag stops firing on a box already standing in the warehouse — it is the only
+alert on that screen, and an alert that cries wolf is one people learn to ignore.
+
+### Still open, deliberately
+
+**Nothing warns that a box has sat ARRIVED and uncounted for days.** That is a different alert from
+the one that existed, and it was not invented on the way past.
+
+See also: [[../Entities/The Place Registry]] · [[Anti-Recurrence Check]]

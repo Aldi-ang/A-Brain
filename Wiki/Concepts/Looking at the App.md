@@ -326,3 +326,32 @@ number nobody can see. It was the probe, not the frame, that found the two fault
 where it is installed locally; everywhere else the stack falls to "Arial Narrow". So the lab's
 text metrics are representative rather than distorted — but check `document.fonts` before trusting
 any width claim, because the older warning on this page assumed the opposite.
+
+## Proving a barcode without a scanner (2026-09-01)
+
+`BarcodeDetector` — the API that would decode a generated symbol — is an **Android Chrome**
+feature. Measured in the desktop browser available here on 2026-09-01: `'BarcodeDetector' in
+window` is **false**. So the one artifact on this project that is purely pass/fail in the physical
+world could not be tested by the usual route.
+
+**Two things followed, and the second is the reusable one.**
+
+1. **The encoder is a library, not 107 hand-written patterns.** A single wrong digit in a Code 128
+   table prints a symbol that renders perfectly and refuses to scan — discovered at the warehouse
+   door, by someone holding goods. Where correctness cannot be tested locally, a battle-tested
+   dependency beats a clever local implementation, and that is not the usual answer on this project.
+
+2. **Assert the INVARIANT, not the output.** Every valid Code 128 symbol satisfies
+   `total modules = 11·S + 2` and `black bars = 3·S + 1` for the same S, whatever the pattern table
+   says. `?label&probe` measures both from the rendered SVG. Measured: 167 modules, S = 15, 46 bars,
+   human-readable text equal to the payload — and 15 symbols is exactly right for an optimally mixed
+   B/C encoding of a 17-character string with a long digit run.
+
+⚠️ **Say which kind of proof it is.** This is proof of SHAPE. It cannot distinguish a correct table
+from a wrong one, because a wrong table produces the same module count. Only a phone pointed at
+printed paper settles scannability, and that test belongs to Aldi.
+
+⚠️ **The first version of that probe was wrong and looked like a failure.** It expected
+`11·(len+3)+2 = 222` on the assumption of pure Code128-B, and measured 167. JsBarcode encodes in
+optimal MIXED mode, dropping into Code C for the digit run. **A red check is a claim about the
+code that has to be checked too** — here the check was wrong and the artifact was right.
