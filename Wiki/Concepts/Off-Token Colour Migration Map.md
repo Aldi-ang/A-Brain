@@ -3,9 +3,9 @@ title: Off-Token Colour Migration Map
 description: The substitution table for moving a KPM screen off hardcoded Tailwind colours onto the theme tokens, and the two checks that prove it landed.
 type: concept
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-01
 confidence: high
-checked: 2026-08-13
+checked: 2026-09-01
 tags: [pattern, design, tokens, palette, kpm]
 ---
 
@@ -73,3 +73,34 @@ So the light-mode sweep is not mainly "pick light colours". It is:
    assumed "inset is darker" reads inverted rather than broken — the quietest failure of the three.
 
 The printed nota is **out of scope**: it keeps KPM company blue and prints on white either way.
+
+## 2026-09-01 — two fault classes this map never covered, and both are app-wide
+
+Found on `BranchWarehouseManager.jsx` **after every check on that screen was already green**, by
+mounting it and sweeping every leaf text node against the first ancestor that paints an opaque
+background. Neither is a raw hex, which is why this map's table never caught them: one is a
+*token used in the wrong role*, and the other is *no colour at all*.
+
+| Fault | Sites | Measured on the light well | Why it happens |
+|---|---|---|---|
+| `placeholder=` with no placeholder colour | **90, in 18 files** | **1,36:1** | nothing sets it, so the browser's own `rgb(156,163,175)` renders — and that is **slate**, the one hue the palette law bans by name |
+| bare `text-orange` used as reading ink | **~107, in 15 files** | **1,08:1** | `--orange` is `#FF8C1A` in BOTH themes on purpose: it is the EDGE half of the amber law. As an edge it is correct; as ink it is invisible on cream |
+
+**The fix is shipped once already, in `BranchWarehouseManager.jsx` (`a4bc1ca`):**
+
+- placeholders → `placeholder:text-ink-dim placeholder:opacity-100 placeholder:italic`. All three
+  parts are load-bearing and `theme.css:3231` says why: `opacity: 1` because **Firefox dims
+  placeholders by .54 on top of whatever colour is set**, and italic because in light mode
+  `--ink-dim` and `--ink` are close enough on that well that an EMPTY field reads as a filled one.
+- `text-orange` → `text-accent-ink`. **`border-orange` and `bg-orange` stay.** Those are edges,
+  and a 3px rule whose length is the data is the legal form of amber.
+
+⚠️ **A blind regex over the 15 files is wrong.** A `text-orange` sitting on a scrim is CORRECT — a
+scrim is dark in both themes by law — and repainting it breaks nothing visibly, which is exactly
+why nobody would notice. Measure each ground before swapping.
+
+**The general lesson, and it is the reason this section exists:** a colour audit that greps for
+hexes finds only the fault it was written for. Both of these are *legal tokens in an illegal role*
+or *the absence of a decision*, and only a rendered frame plus a computed ratio found them.
+
+See also: [[Looking at the App]] · [[Aldi's Design Taste]] · [[Anti-Recurrence Check]]

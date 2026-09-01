@@ -3,9 +3,9 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-08-27
+updated: 2026-09-01
 confidence: medium
-checked: 2026-08-27
+checked: 2026-09-01
 tags: [pattern, design, taste, ux, aldi]
 ---
 
@@ -1530,3 +1530,37 @@ something there must name that same label. A rename that misses one leaves an in
 at a tab that no longer exists, and that is the failure worth catching.
 
 Related: [[The Place Registry]]
+
+## 2026-09-01 — he refused a staged delivery, and the reason generalises
+
+Offered the regional-warehouse job as two — repaint the colours first, then redesign the layout,
+with the argument that he could not fairly review a design half of which was invisible in light
+mode — he rejected the split in one line:
+
+> *"well redesign and repaint should go together isnt"*
+
+**He is right, and the reason is mechanical, not aesthetic.** A redesign rewrites the same
+`className` strings the repaint would touch. Staging them means editing every line twice, and
+handing him the same screen to look at twice. My argument had it backwards: the repaint was not a
+prerequisite to be shipped separately, it was *part of the same edit*.
+
+**What this says about how he takes delivery, and it has now happened twice:** he treats one
+screen as one unit of work. On 2026-08-16 he closed a design round himself — *"i dont want to
+waste anymore time to design this, lets move on with other work"* — and here he refused to open
+two rounds where one would do. **Offering him a phased plan reads as offering him more review
+sessions, which is a cost he pays and I do not.** Propose the whole pass; if it is too big, that
+is his call to make after seeing the scope, not mine to make by pre-splitting it.
+
+**It also cost nothing to be wrong here, because he answered in nine words.** The failure mode
+worth avoiding is the opposite one — silently choosing the split and delivering half a screen.
+
+### What the single pass then found, which the split would have buried
+
+Doing both at once meant looking at the finished screen rather than at a half-repainted one, and
+**two faults surfaced that every check had already passed**: amber used as reading ink (1,08:1 on
+the light well) and six inputs with no placeholder colour, falling back to the browser's slate
+(1,36:1). Both are recorded in [[Off-Token Colour Migration Map]]; both are app-wide. Neither
+would have been visible in the repaint-only pass, because at that point the layout it sat in was
+still the old one and I would have been looking for something else.
+
+See also: [[Looking at the App]] · [[Off-Token Colour Migration Map]]

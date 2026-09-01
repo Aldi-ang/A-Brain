@@ -1147,3 +1147,26 @@ rule that a brainstorm gets saved even with no decision yet.
 
 ⚠️ **Still untested, and worth carrying:** *Siapkan Pengiriman* since it moved to the Request tab.
 Kirim itself was left unpressed in the live app on purpose — it moves real stock.
+
+## 2026-09-01 — the branch warehouse got the ledger, and two app-wide faults fell out of looking
+
+Commit `a4bc1ca` on `phase0-solid-ground`, **680/680 audit** (group 57 is new and was seen to FAIL
+on all four of its first checks before the fix), 957/957 self-check.
+
+**Rippled:**
+
+- [[Concepts/Aldi's Design Taste]] — he refused a staged delivery: *"well redesign and repaint
+  should go together isnt"*. One screen is one unit of work, and offering a phased plan offers him
+  extra review sessions, which is a cost he pays and I do not.
+- [[Concepts/Off-Token Colour Migration Map]] — two fault classes the map never covered, because
+  neither is a raw hex: **90 uncoloured `placeholder=` in 18 files** (falling back to the browser's
+  slate, 1,36:1) and **~107 bare `text-orange` used as ink in 15** (1,08:1 on the light well).
+  Both measured, both app-wide, neither pinned by anything.
+- [[Concepts/Looking at the App]] — `tools/lab-firestore-stub.js`, aliased over
+  `firebase/firestore` for the lab build only, so a screen needing live data renders against
+  fixtures through its own real listener. `?gudang` is the first user.
+
+**The thing worth carrying:** every check on that screen was green before the last two faults were
+found, and they were found by mounting it and reading computed contrast. A colour audit that greps
+for hexes finds only the fault it was written for — a legal token in an illegal role, and the
+absence of a decision, both survive it.

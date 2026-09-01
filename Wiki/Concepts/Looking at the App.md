@@ -3,9 +3,9 @@ title: Looking at the App
 description: How to actually see a KPM screen before claiming a visual fix — the theme lab harness, why the dev server cannot be opened directly, and the three ways the harness lied before it told the truth.
 type: concept
 created: 2026-08-16
-updated: 2026-08-16
+updated: 2026-09-01
 confidence: high
-checked: 2026-08-16
+checked: 2026-09-01
 tags: [pattern, verification, design, tooling, kpm]
 ---
 
@@ -293,3 +293,36 @@ than what the app renders measures the harness.** Here it was not the markup or 
 was the viewport, and the harness never said so.
 
 See also: [[Ponder Tutorial System]] · [[What Create Mod's Ponder Actually Does]]
+
+## A screen that needs LIVE DATA can now be looked at too (2026-09-01)
+
+The `?places` mount worked because `RestockVaultView`'s one listener bails out when there is no
+signed-in user, so `db={null}` renders the whole desk against fixtures. **That was luck, not a
+technique.** `BranchWarehouseManager`'s listener returns early on a missing `masterUserId` and
+then never sets `isLoading` false — so with no database the branch screen renders *"Loading
+Logistics Logs..."* forever, and an empty shelf under it. A harness that can only show empty
+states measures the harness.
+
+**`tools/lab-firestore-stub.js` is aliased over `firebase/firestore` in
+`tools/ponder-lab.config.mjs`, and in nothing else.** `collection()` returns `{ path }`,
+`onSnapshot()` matches the tail of that path against a `FIXTURES` map and calls back
+asynchronously, and every write is a no-op that resolves. The component's OWN listener runs
+unmodified, so what appears on screen is what a branch admin sees. `dist/` is built by
+`vite.config.js` and never sees the alias.
+
+Adding a screen is now two edits and no component change: a `FIXTURES['<path tail>']` entry and a
+mount beside `?places` / `?nota` / `?gudang`.
+
+**The callback is deliberately asynchronous.** A synchronous first callback would set state during
+render and hide exactly the effect-ordering bugs this harness exists to be able to show.
+
+**And the probe matters more than the screenshot.** `?gudang&probe` walks up from each title to
+the first ancestor that paints an opaque background and prints the contrast ratio, because a
+heading's own background is `rgba(0, 0, 0, 0)` and comparing ink against transparency reports a
+number nobody can see. It was the probe, not the frame, that found the two faults in
+[[Off-Token Colour Migration Map]] — the frame only made me suspicious enough to measure.
+
+⚠️ **`--font-display` has no `@font-face` and no webfont link.** "Barlow Condensed" renders only
+where it is installed locally; everywhere else the stack falls to "Arial Narrow". So the lab's
+text metrics are representative rather than distorted — but check `document.fonts` before trusting
+any width claim, because the older warning on this page assumed the opposite.
