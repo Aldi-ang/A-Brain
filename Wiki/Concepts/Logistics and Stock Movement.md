@@ -241,4 +241,45 @@ alert on that screen, and an alert that cries wolf is one people learn to ignore
 **Nothing warns that a box has sat ARRIVED and uncounted for days.** That is a different alert from
 the one that existed, and it was not invented on the way past.
 
+## 2026-09-01 — the scan became a GATE, and that is what he had been describing
+
+Shown the shipped barcode, he corrected the shape of it in one sentence:
+
+> *"after confirming with barcodes there will be blind count panel that will appear to fill. so
+> this barcode is just as a gate to confirm and make sure that all the package is arrived and
+> opening a blind count panel to be fill to make sure that there is no missing item when shipment"*
+
+**What had shipped was one step short.** The scan wrote `arrivedAt`; the count panel opened from
+its own separate button. Independent controls, so a shipment could be counted by someone who never
+confirmed the box was in the building — the receipt signed off HQ's paperwork rather than off the
+goods, which is the exact failure the partially blind count exists to prevent.
+
+**His split, which is cleaner than the one offered to him:** the scan answers *did the delivery
+show up*; the count answers *is anything missing inside it*. One label per delivery, so a delivery
+arriving as three cartons with one missing still scans as arrived, and the blind count is what
+catches that. The barcode was never asked to count boxes.
+
+Shipped in `03955c4`: `HITUNG & TERIMA BARANG` now also requires `order.arrivedAt`; an unscanned
+shipment shows a line naming **Scan barang sampai** where the button used to be; and a successful
+scan calls `setReceivingOrder(match)` so the panel OPENS rather than merely becoming available.
+
+⚠️ **The gate is what made the typed fallback load-bearing.** With a hard gate, anything that stops
+a scan stops goods being received at all — a cracked lens, a rained-on label, an already-opened
+box, an iPhone, a desktop. `ArrivalScanner` offers the typed shipment number ALWAYS rather than
+after a camera failure. Before the gate that was a nicety; now it is a safety property, and
+tidying it into a post-failure fallback would break receiving.
+
+**Group 58 now runs in both directions.** It already banned the scan from crediting stock; three
+new checks assert the count cannot open without an arrival, that an unscanned shipment says why,
+and that the scan opens the panel.
+
+**Verified by rendering, not by reading source** — the ponder lab gained `REQ-185211`, a scanned
+twin of `REQ-185204`, because the gate is only visible with both states on one screen.
+
+### Still open, unchanged
+
+**Nothing warns that a box has sat ARRIVED and uncounted for days**, and the gate makes that gap
+slightly sharper: a scan is now the thing that starts the clock. 🔴 And the one physical test is
+still owed — print a label, scan it on the Android phone. Nothing in the repo can settle that.
+
 See also: [[../Entities/The Place Registry]] · [[Anti-Recurrence Check]]
