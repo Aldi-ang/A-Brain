@@ -1170,3 +1170,25 @@ on all four of its first checks before the fix), 957/957 self-check.
 found, and they were found by mounting it and reading computed contrast. A colour audit that greps
 for hexes finds only the fault it was written for — a legal token in an illegal role, and the
 absence of a decision, both survive it.
+
+## 2026-09-01 — the regional warehouse became a desk, and two checks earned their keep
+
+Commit `dc05d61` on `phase0-solid-ground`, **680/680 audit** and **970/970 self-check** (D17 is new
+and its tier assertions distinguish the two clearances rather than merely existing).
+
+**Rippled:**
+
+- [[Concepts/Aldi's Design Taste]] — *"not just recolor but redesign"*. When he names another screen
+  as the model, the thing to copy is its LAYOUT GRAMMAR, not its palette; and his feature requests
+  arrive bundled inside the design request. Also his approval shape: *"stock only is enough then u
+  can continue"* — four names approved by silence, one edited, permission granted, in five words.
+- [[Entities/Fleet Captain Permission Gap]] — the gap on purpose this time. `canHandleDelivery`
+  T1–T4, `canManageRegistry` T1–T3, one tier apart deliberately. And the trap under it: `isAdmin` is
+  `vaultUnlocked`, a password and not a rank.
+- [[Concepts/Anti-Recurrence Check]] — a check can enforce a narrower rule than its own label
+  claims. The second-person ban held only the informal words for two days while the rule was being
+  followed by hand.
+
+**The thing worth carrying:** both faults this session were caught by guards on the guards — the
+`ok()` that asserts an anchor was FOUND before slicing, and the widened word list. Neither was found
+by reading the diff.

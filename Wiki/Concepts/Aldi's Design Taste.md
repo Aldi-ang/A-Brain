@@ -1600,3 +1600,44 @@ and it survives in an English tab set.
 
 See also: [[Off-Token Colour Migration Map]] · [[Looking at the App]]
 
+## 2026-09-01 — "not just recolor but redesign", and what he meant by it
+
+A pass that repainted the regional warehouse onto the tokens, restyled its four panel headers and
+fixed three measured contrast failures came back marked incomplete:
+
+> *"regional warehouse is not complete, i want u to redesign the whole panel, similar to the main
+> restock vault i said not just recolor but redesign, i want the design to be somewhat similar and
+> of course include all the new product data and everything and also there should be different
+> ponder regional warehouse as well. all the logic remains, there should be fixed location for the
+> gudang as well and tier 4 and below cannot access the editing and registering of employees,
+> gudang warehouse and factory as well"*
+
+**"I said" is the tell again**, the same marker as [[AMBER IS AN EDGE AND AN INK]]. He had already
+named the Restock Vault as the model; the pass took that as a palette reference and he meant the
+STRUCTURE.
+
+**What "similar to the main restock vault" actually means, now that it has been paid for twice:**
+the other screen's SHELL — one nav strip, a lamp, a title on the left, tabs on the right, one body
+below. Not its colours; those were already shared. When he names another screen as a model, the
+thing to copy is its **layout grammar**, and the cheapest way to prove it was copied rather than
+imitated is to make both screens render the same component — `WarehouseDeskNav` now does.
+
+**Three separate asks arrived inside one sentence and only one of them was visual.** A fixed
+warehouse address, a tier boundary on master data, and its own tutorial. His feature requests
+routinely arrive bundled into the design request; reading the sentence as "make it look like the
+other one" would have shipped a third of it.
+
+### He settles a rule and then immediately shortens it
+
+Asked English or Indonesian, he answered with a rule rather than a preference — *"if the restock
+vault is in english then this regional warehouse should be in english as well if indo then indo"* —
+and then, handed five proposed tab names, replied only:
+
+> *"stock only is enough then u can continue"*
+
+**Four of five names approved by silence, one shortened, and permission to continue in the same
+five words.** That is the shape of his approvals: he edits the one thing that is wrong and does not
+restate the rest. Waiting for a name-by-name confirmation after a message like that is waiting for
+something already given.
+
+See also: [[Off-Token Colour Migration Map]] · [[../Entities/Fleet Captain Permission Gap]]

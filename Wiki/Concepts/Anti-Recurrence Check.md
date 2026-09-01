@@ -3,9 +3,9 @@ title: Anti-Recurrence Check
 description: The rule born from 3 "it's committed" lies — never claim a save happened without checking git yourself.
 type: concept
 created: 2026-07-27
-updated: 2026-08-27
+updated: 2026-09-01
 confidence: high
-checked: 2026-08-27
+checked: 2026-09-01
 tags: [pattern, discipline, git]
 ---
 
@@ -354,3 +354,33 @@ second expression inside those parentheses. It cost a session twice in one eveni
 bought was *run the build before writing the claim that it is green*.
 
 See also: [[A Ratio of Sums Is Not a Rate]] · [[../Summaries/Surat Jalan Desk and Sebaran Stok]]
+
+## 2026-09-01 — a check can enforce a narrower rule than the one it is named after
+
+The Ponder audit has a check called *"the book never addresses the reader, because its subject is
+the warehouse"*. His instruction behind it, 2026-08-30, was *"we are talking about the factory,
+subject is factory, employees, manager and all of these subject no u and me"*.
+
+The check banned `kamu · aku · kalian · gue · lo` — **the informal second person only**. So the
+polite `Anda`, and the first-person `saya` and `kita`, were legal to a check whose own label says
+"never addresses the reader".
+
+**It went unnoticed for two days because the rule was being followed by hand.** All four scenes
+written before this had zero occurrences. The first scene written afterwards used `Anda` five times
+and passed green, and widening the list then immediately surfaced an older breach nobody had seen —
+*"Nomor ini punya kita"* in `goods-received`.
+
+**Three things to carry:**
+
+- **A check's LABEL is a claim about its coverage, and the two drift apart silently.** This one read
+  as though it enforced the whole rule. Nothing goes red when a word list is narrower than the
+  sentence it came from.
+- **A green check plus a hand-followed rule is indistinguishable from a green check that works** —
+  until the first person who did not read the rule writes something. Here that person was me.
+- **Widen the list at the moment you notice, and expect it to find something old.** It did, on the
+  first run.
+
+The general form: when a rule is written in prose and enforced by an enumeration, the enumeration is
+the rule that actually ships. Read them against each other whenever the prose is quoted.
+
+See also: [[A Check Points at a File, Not at a Behaviour]] · [[Silent Failure Disease]]

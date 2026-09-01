@@ -3,9 +3,9 @@ title: Fleet Captain Permission Gap
 description: The #1 most recurring bug in KPM — a permission check that covers Area Admin but keeps forgetting Fleet Captain.
 type: entity
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-09-01
 confidence: high
-checked: 2026-07-27
+checked: 2026-09-01
 tags: [bug-pattern, firestore, permissions, fleet-captain]
 ---
 
@@ -82,3 +82,36 @@ unknown role false — because a boundary is only proved by the side that must b
 number to the id before writing the check, and never trust a helper whose name matches his word.
 
 Related: [[The Place Registry]]
+
+## 2026-09-01 — the gap, on purpose this time, and one tier the other way
+
+Every earlier entry on this page is about T4 being **dropped** from a rule he meant it to have. This
+one is the opposite and it must not be "fixed" by a later reader who only remembers the pattern.
+
+> *"tier 4 and below cannot access the editing and registering of employees, gudang warehouse and
+> factory as well"*
+
+**Two clearances now sit one tier apart, and both are deliberate:**
+
+| Function | Tiers | What it governs |
+|---|---|---|
+| `canHandleDelivery` | T1–T4 | may be NAMED as sending or receiving a package |
+| `canManageRegistry` | T1–T3 | may REGISTER or EDIT factories, warehouses, people |
+
+**T4 is the tier that lives on the regional warehouse screen**, so its everyday user reads Data
+Induk and can never write to it. That is the design, not an oversight: a branch admin who can rename
+the factory their own goods came from can rewrite where a shipment says it went.
+
+**The trap for the next reader:** `isAdmin` in `App.jsx` is literally `vaultUnlocked` — the Master
+Vault password, not a rank. The HQ desk was already behind it and that felt like a permission, so
+the registry was reachable by anyone holding the password at any tier. A password is not a tier, and
+a screen sitting behind one is not gated by rank.
+
+**Gated at the handlers, not only the buttons.** `savePlace` and `removePlace` refuse before they
+run. The 2026-08-24 fleet-edit bug he found himself was exactly a hidden control whose handler still
+worked.
+
+D17 in `logicFixes.selfcheck.mjs` runs the real functions on both sides of both boundaries, so the
+day someone merges the two clearances the check names which one moved.
+
+See also: [[Tier System]] · [[The Place Registry]] · [[../Concepts/Anti-Recurrence Check]]

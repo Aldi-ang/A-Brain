@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-01)
 
 ## Corpus Check
-- 75 files · ~152,154 words
+- 75 files · ~152,514 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 793 nodes · 977 edges · 83 communities (79 shown, 4 thin omitted)
+- 794 nodes · 978 edges · 85 communities (81 shown, 4 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `eb41e9f7`
+- Built from commit: `dc3b6236`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -80,6 +80,7 @@
 - What Create Mod's Ponder Actually Does
 - Entities/index.md
 - A Rect Is Painted, Not Laid Out
+- A Smooth Scroll That Never Runs
 - A Check Points at a File, Not at a Behaviour
 - Headquarters Is Not a Cabang
 - Entities/index.md
@@ -96,9 +97,10 @@
 - Wiki/Entities
 - A CSS Animation Outranks Your Inline Style
 - Gudang Pusat (Master Vault)
+- What Create Mod's Ponder Actually Does
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 46 edges
+1. `Aldi's Design Taste` - 47 edges
 2. `Operation Log` - 44 edges
 3. `Anti-Recurrence Check` - 18 edges
 4. `Lancelot the Tobacco Ledger Agent` - 18 edges
@@ -112,11 +114,11 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (83 total, 4 thin omitted)
+## Communities (85 total, 4 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.05
-Nodes (37): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, A screen can be exempt from the theme entirely (2026-08-16) (+29 more)
+Nodes (38): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+30 more)
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.04
@@ -355,12 +357,16 @@ Cohesion: 0.11
 Nodes (18): 2026-08-26/27 — the desk was BUILT, and Sebaran Stok answers the hub question, 2026-08-26 — Restock Vault redesign v2: one form, two directions, Broken today, ⚠️ Correction to the options section above, Decisions taken, Do we need more workflow? No., Locked rules — do not re-litigate, Logistics and Stock Movement (+10 more)
 
 ### Community 63 - "What Create Mod's Ponder Actually Does"
-Cohesion: 0.09
-Nodes (21): A Rect Is Painted, Not Laid Out, Family, The law, The shape, The wider lesson, and it is the expensive one, Where it happened, Why it survived every check and every screenshot, A Smooth Scroll That Never Runs (+13 more)
+Cohesion: 0.29
+Nodes (7): A Rect Is Painted, Not Laid Out, Family, The law, The shape, The wider lesson, and it is the expensive one, Where it happened, Why it survived every check and every screenshot
 
 ### Community 65 - "A Rect Is Painted, Not Laid Out"
 Cohesion: 0.40
 Nodes (5): The rule, The second cause of the same appearance, The Shell Repaints Any White It Can Reach, ⚠️ The two harness traps, which cost more than the bug, What changed in the look
+
+### Community 66 - "A Smooth Scroll That Never Runs"
+Cohesion: 0.29
+Nodes (7): A Smooth Scroll That Never Runs, The lesson worth keeping, The second half — a phone has no "beside", The wrong diagnosis, and why it was believable, Verification, What it actually was, What it looked like
 
 ### Community 67 - "A Check Points at a File, Not at a Behaviour"
 Cohesion: 0.29
@@ -422,8 +428,12 @@ Nodes (6): A CSS Animation Outranks Your Inline Style, Family, The law, The shap
 Cohesion: 0.40
 Nodes (5): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The name, and who decided it, ⚠️ The trap — `'MASTER'` is also a routing value, What this does NOT settle
 
+### Community 84 - "What Create Mod's Ponder Actually Does"
+Cohesion: 0.29
+Nodes (7): Every control, and what it really is, Getting the source at all, The architectural difference that made KPM's engine short, The one place a scene script is worth reading, The three mechanics worth stealing, What Create Mod's Ponder Actually Does, What KPM dropped on purpose
+
 ## Knowledge Gaps
-- **606 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+601 more)
+- **607 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+602 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -431,15 +441,15 @@ Nodes (5): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.152) - this node is a cross-community bridge._
+  _High betweenness centrality (0.154) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
   _High betweenness centrality (0.093) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
   _High betweenness centrality (0.084) - this node is a cross-community bridge._
 - **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _606 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _607 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
-  _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
   _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**
