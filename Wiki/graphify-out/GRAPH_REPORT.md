@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-01)
 
 ## Corpus Check
-- 75 files · ~153,787 words
+- 75 files · ~154,577 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 799 nodes · 987 edges · 86 communities (81 shown, 5 thin omitted)
+- 804 nodes · 993 edges · 86 communities (81 shown, 5 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d860aa3f`
+- Built from commit: `94aea391`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -105,7 +105,7 @@
 2. `Operation Log` - 45 edges
 3. `Anti-Recurrence Check` - 19 edges
 4. `Lancelot the Tobacco Ledger Agent` - 18 edges
-5. `Looking at the App` - 15 edges
+5. `Looking at the App` - 16 edges
 6. `Ponder Tutorial System` - 14 edges
 7. `The KPM Control System` - 14 edges
 8. `2026-08-16 — "animation and 3D more with gamification on all of this segment"` - 13 edges
@@ -158,8 +158,8 @@ Cohesion: 0.15
 Nodes (11): Categories, Honest limits, How to use it, n8n Automation Templates Archive, Related, What is saved, and where, gstack — installed 2026-08-26, and the second cost nobody measures, Licence notes that matter because the app is for sale (+3 more)
 
 ### Community 11 - "Looking at the App"
-Cohesion: 0.13
-Nodes (15): 🔴 A HEADLESS SHOT NARROWER THAN ~518px ON WINDOWS IS A CROP, NOT A LAYOUT (2026-08-27), A screen that needs LIVE DATA can now be looked at too (2026-09-01), A SECOND HARNESS — `tools/ponder-lab.*` renders a real React component (2026-08-27), Checks that freeze a value, Four ways the harness decayed on its second outing (2026-08-17), Looking at the App, Related, Rendering a React component without signing in (2026-08-16) (+7 more)
+Cohesion: 0.12
+Nodes (16): 🔴 A HEADLESS SHOT NARROWER THAN ~518px ON WINDOWS IS A CROP, NOT A LAYOUT (2026-08-27), A screen that needs LIVE DATA can now be looked at too (2026-09-01), A SECOND HARNESS — `tools/ponder-lab.*` renders a real React component (2026-08-27), Checks that freeze a value, Four ways the harness decayed on its second outing (2026-08-17), Looking at the App, Proving a barcode without a scanner (2026-09-01), Related (+8 more)
 
 ### Community 12 - "The screen — mobile first, one thumb, readable in midday sun"
 Cohesion: 0.14
@@ -354,8 +354,8 @@ Cohesion: 0.50
 Nodes (4): Store Hand-off Name Collision, The fix that could not be built, Verified, What shipped
 
 ### Community 61 - "Logistics and Stock Movement"
-Cohesion: 0.11
-Nodes (18): 2026-08-26/27 — the desk was BUILT, and Sebaran Stok answers the hub question, 2026-08-26 — Restock Vault redesign v2: one form, two directions, Broken today, ⚠️ Correction to the options section above, Decisions taken, Do we need more workflow? No., Locked rules — do not re-litigate, Logistics and Stock Movement (+10 more)
+Cohesion: 0.09
+Nodes (22): 2026-08-26/27 — the desk was BUILT, and Sebaran Stok answers the hub question, 2026-08-26 — Restock Vault redesign v2: one form, two directions, 2026-09-01 — the barcode shipped, and the "rejected" note was about something else, Broken today, ⚠️ Correction to the options section above, Decisions taken, Do we need more workflow? No., Locked rules — do not re-litigate (+14 more)
 
 ### Community 63 - "What Create Mod's Ponder Actually Does"
 Cohesion: 0.29
@@ -434,7 +434,7 @@ Cohesion: 0.29
 Nodes (7): Every control, and what it really is, Getting the source at all, The architectural difference that made KPM's engine short, The one place a scene script is worth reading, The three mechanics worth stealing, What Create Mod's Ponder Actually Does, What KPM dropped on purpose
 
 ## Knowledge Gaps
-- **611 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+606 more)
+- **615 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+610 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -442,13 +442,13 @@ Nodes (7): Every control, and what it really is, Getting the source at all, The 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.157) - this node is a cross-community bridge._
+  _High betweenness centrality (0.156) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
   _High betweenness centrality (0.094) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.084) - this node is a cross-community bridge._
+  _High betweenness centrality (0.083) - this node is a cross-community bridge._
 - **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _611 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _615 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

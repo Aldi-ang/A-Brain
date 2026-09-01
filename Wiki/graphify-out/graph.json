@@ -3183,6 +3183,50 @@
       "norm_label": "2026-08-26/27 \u2014 the desk was built, and sebaran stok answers the hub question"
     },
     {
+      "label": "2026-09-01 \u2014 the barcode shipped, and the \"rejected\" note was about something else",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L196",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_2026_09_01_the_barcode_shipped_and_the_rejected_note_was_about_something_else",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "2026-09-01 \u2014 the barcode shipped, and the \"rejected\" note was about something else"
+    },
+    {
+      "label": "What shipped",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L211",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_what_shipped",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "what shipped"
+    },
+    {
+      "label": "The decision he made, and why it was the harder one",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L222",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_the_decision_he_made_and_why_it_was_the_harder_one",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "the decision he made, and why it was the harder one"
+    },
+    {
+      "label": "Still open, deliberately",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L239",
+      "_origin": "ast",
+      "id": "concepts_logistics_and_stock_movement_still_open_deliberately",
+      "community": 61,
+      "community_name": "Logistics and Stock Movement",
+      "norm_label": "still open, deliberately"
+    },
+    {
       "label": "Looking at the App.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Looking at the App.md",
@@ -3357,6 +3401,17 @@
       "community": 11,
       "community_name": "Looking at the App",
       "norm_label": "a screen that needs live data can now be looked at too (2026-09-01)"
+    },
+    {
+      "label": "Proving a barcode without a scanner (2026-09-01)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L330",
+      "_origin": "ast",
+      "id": "concepts_looking_at_the_app_proving_a_barcode_without_a_scanner_2026_09_01",
+      "community": 11,
+      "community_name": "Looking at the App",
+      "norm_label": "proving a barcode without a scanner (2026-09-01)"
     },
     {
       "label": "Off-Token Colour Migration Map.md",
@@ -7644,8 +7699,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -13088,6 +13143,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L244",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement",
+      "target": "entities_the_place_registry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
@@ -13126,6 +13192,17 @@
       "_origin": "ast",
       "source": "concepts_logistics_and_stock_movement_logistics_and_stock_movement",
       "target": "concepts_logistics_and_stock_movement_2026_08_26_restock_vault_redesign_v2_one_form_two_directions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L196",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_logistics_and_stock_movement",
+      "target": "concepts_logistics_and_stock_movement_2026_09_01_the_barcode_shipped_and_the_rejected_note_was_about_something_else",
       "confidence_score": 1.0
     },
     {
@@ -13294,6 +13371,39 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L239",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_2026_09_01_the_barcode_shipped_and_the_rejected_note_was_about_something_else",
+      "target": "concepts_logistics_and_stock_movement_still_open_deliberately",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L222",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_2026_09_01_the_barcode_shipped_and_the_rejected_note_was_about_something_else",
+      "target": "concepts_logistics_and_stock_movement_the_decision_he_made_and_why_it_was_the_harder_one",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Logistics and Stock Movement.md",
+      "source_location": "L211",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_logistics_and_stock_movement_2026_09_01_the_barcode_shipped_and_the_rejected_note_was_about_something_else",
+      "target": "concepts_logistics_and_stock_movement_what_shipped",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
@@ -13445,6 +13555,17 @@
       "_origin": "ast",
       "source": "concepts_looking_at_the_app_looking_at_the_app",
       "target": "concepts_looking_at_the_app_four_ways_the_harness_decayed_on_its_second_outing_2026_08_17",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L330",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_looking_at_the_app_looking_at_the_app",
+      "target": "concepts_looking_at_the_app_proving_a_barcode_without_a_scanner_2026_09_01",
       "confidence_score": 1.0
     },
     {
@@ -19653,5 +19774,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d860aa3f9b7d8585d96648cf51ad16ad98e1c0e2"
+  "built_at_commit": "94aea391c7ca9cd43d7737246aa607db5492129f"
 }
