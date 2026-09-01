@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-01)
 
 ## Corpus Check
-- 75 files · ~152,514 words
+- 75 files · ~153,787 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 794 nodes · 978 edges · 85 communities (81 shown, 4 thin omitted)
+- 799 nodes · 987 edges · 86 communities (81 shown, 5 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `dc3b6236`
+- Built from commit: `d860aa3f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -98,11 +98,12 @@
 - A CSS Animation Outranks Your Inline Style
 - Gudang Pusat (Master Vault)
 - What Create Mod's Ponder Actually Does
+- 2026-09-01 — "not just recolor but redesign", and what he meant by it
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 47 edges
-2. `Operation Log` - 44 edges
-3. `Anti-Recurrence Check` - 18 edges
+1. `Aldi's Design Taste` - 48 edges
+2. `Operation Log` - 45 edges
+3. `Anti-Recurrence Check` - 19 edges
 4. `Lancelot the Tobacco Ledger Agent` - 18 edges
 5. `Looking at the App` - 15 edges
 6. `Ponder Tutorial System` - 14 edges
@@ -114,7 +115,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (85 total, 4 thin omitted)
+## Communities (86 total, 5 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.05
@@ -122,7 +123,7 @@ Nodes (38): 2026-08-24 — the ON plate is brown by law, and the bezel is the wa
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.04
-Nodes (45): 2026-07-27 — First ingest pass (structure build + seed content), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run), 2026-07-27 — Tidy pass (frontmatter, titles, MOC), 2026-07-28 — dependency-removal regression, fixed and rippled, 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard, 2026-08-10 — Six-day backfill, on Aldi's emergency instruction, 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent (+37 more)
+Nodes (46): 2026-07-27 — First ingest pass (structure build + seed content), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run), 2026-07-27 — Tidy pass (frontmatter, titles, MOC), 2026-07-28 — dependency-removal regression, fixed and rippled, 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard, 2026-08-10 — Six-day backfill, on Aldi's emergency instruction, 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent (+38 more)
 
 ### Community 2 - "Lancelot the Tobacco Ledger Agent"
 Cohesion: 0.05
@@ -141,8 +142,8 @@ Cohesion: 0.11
 Nodes (18): Biometric / passkeys are Vercel-only, by design — not a Firebase problem, Four CSS facts this phase paid for, Hold to confirm — `HoldButton.jsx`, the gate that is not a dialog, Phase 6 closed — `SettingsView.jsx` is fully on the system (2026-08-15), Shell state as of 2026-08-15 — the desk header and dock SHIPPED and Aldi approved, The app shell: two layouts in one file — name the WIDTH before saying a screen is done, The authority picker — why a dropdown had to become a component, The contract, checked by audit group 30 (+10 more)
 
 ### Community 7 - "Anti-Recurrence Check"
-Cohesion: 0.11
-Nodes (19): 🔴 A CHECK TESTS WHETHER A NUMBER COMPUTES, NOT WHETHER IT MEANS ANYTHING (2026-08-27), A fifth shape: measuring numbers instead of LOOKING at the page (2026-08-14), A fourth shape: the check greps the source instead of measuring the result (2026-08-14), 🔴 A GREEN SUITE IS NOT A WORKING SCREEN (2026-08-21), A ninth shape: a dead verifier scored as a successful refutation (2026-08-17, second occurrence), A second shape of the same mistake: local checks that don't match real conditions, A seventh shape: the check freezes a value the measurement later moves (3x in one day, 2026-08-16), A sixth shape: a regex anchor that matches the wrong occurrence (recurred 4x in one week, 2026-08-15) (+11 more)
+Cohesion: 0.10
+Nodes (20): 2026-09-01 — a check can enforce a narrower rule than the one it is named after, 🔴 A CHECK TESTS WHETHER A NUMBER COMPUTES, NOT WHETHER IT MEANS ANYTHING (2026-08-27), A fifth shape: measuring numbers instead of LOOKING at the page (2026-08-14), A fourth shape: the check greps the source instead of measuring the result (2026-08-14), 🔴 A GREEN SUITE IS NOT A WORKING SCREEN (2026-08-21), A ninth shape: a dead verifier scored as a successful refutation (2026-08-17, second occurrence), A second shape of the same mistake: local checks that don't match real conditions, A seventh shape: the check freezes a value the measurement later moves (3x in one day, 2026-08-16) (+12 more)
 
 ### Community 8 - "Archived 2026-08-18 (2nd today) — chosen by oldest last-fire"
 Cohesion: 0.13
@@ -389,8 +390,8 @@ Cohesion: 0.29
 Nodes (7): An Effect's Own Cleanup Can Cancel Its Frame, The family has six members now, The general lesson, which is not about rAF, The shape, What it actually did, twice, What to do instead, Why the checks did not catch it
 
 ### Community 74 - "Fleet Captain Permission Gap"
-Cohesion: 0.29
-Nodes (7): Caught in time, 2026-08-31 — the first one that did NOT ship, Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening
+Cohesion: 0.25
+Nodes (8): 2026-09-01 — the gap, on purpose this time, and one tier the other way, Caught in time, 2026-08-31 — the first one that did NOT ship, Confirmed recurrences (independently, at least 5 times), Fleet Captain Permission Gap, Related, The standing lesson, Verify before trusting, Why it keeps happening
 
 ### Community 75 - "Git Worktrees"
 Cohesion: 0.33
@@ -433,24 +434,24 @@ Cohesion: 0.29
 Nodes (7): Every control, and what it really is, Getting the source at all, The architectural difference that made KPM's engine short, The one place a scene script is worth reading, The three mechanics worth stealing, What Create Mod's Ponder Actually Does, What KPM dropped on purpose
 
 ## Knowledge Gaps
-- **607 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+602 more)
+- **611 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+606 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.154) - this node is a cross-community bridge._
+- **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
+  _High betweenness centrality (0.157) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.093) - this node is a cross-community bridge._
+  _High betweenness centrality (0.094) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
   _High betweenness centrality (0.084) - this node is a cross-community bridge._
 - **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _607 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _611 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
-  _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.043478260869565216 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**
   _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._

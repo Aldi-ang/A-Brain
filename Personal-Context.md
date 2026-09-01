@@ -152,6 +152,27 @@ the chat is the interface.
 tally, which he has now banned twice. §5 was updated with his approved wording on 2026-09-01; §11b
 was not, because he approved specific text and not a general rewrite. **Ask before changing it.**
 
+## He corrects names in passing, he does not sit down to name things — 2026-09-01
+
+Offered a full label list for one screen so he could approve or strike each English name in one go:
+
+> *"leave it for now, i can just strike words that i dont like"*
+
+**He declined the WORKFLOW, not the goal.** The rule he had stated an hour earlier — that two
+sibling screens must be in one language — still stands. What he refused was a dedicated naming
+session for it.
+
+**Why this matters for how work gets offered to him:** a batched approval list looks efficient from
+this side and reads as homework from his. He corrects a name the moment he meets it on a real
+screen, which costs him one sentence and no context switch. The same instinct is already on file in
+[[Wiki/Concepts/Aldi's Design Taste]] — *"i dont want to waste anymore time to design this, lets
+move on with other work"* — and in his reply *"stock only is enough then u can continue"*, where
+four of five names were approved by silence.
+
+**So: ship the thing, let him strike what he dislikes.** Reserve the explicit name question for
+cases where guessing wrong means writing the wrong data — a category in his trade, a tab that other
+messages point at — not for cosmetic labels he will read anyway.
+
 ## Open questions this interview did NOT resolve
 
 - Exact folder taxonomy for non-KPM domains (tobacco business, crypto, personal reflection) —

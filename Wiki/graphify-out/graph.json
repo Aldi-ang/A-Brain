@@ -1764,6 +1764,28 @@
       "norm_label": "2026-09-01 \u2014 clear terms, and two sibling screens share one language"
     },
     {
+      "label": "2026-09-01 \u2014 \"not just recolor but redesign\", and what he meant by it",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1603",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_2026_09_01_not_just_recolor_but_redesign_and_what_he_meant_by_it",
+      "community": 85,
+      "community_name": "2026-09-01 \u2014 \"not just recolor but redesign\", and what he meant by it",
+      "norm_label": "2026-09-01 \u2014 \"not just recolor but redesign\", and what he meant by it"
+    },
+    {
+      "label": "He settles a rule and then immediately shortens it",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1630",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_he_settles_a_rule_and_then_immediately_shortens_it",
+      "community": 85,
+      "community_name": "2026-09-01 \u2014 \"not just recolor but redesign\", and what he meant by it",
+      "norm_label": "he settles a rule and then immediately shortens it"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -2070,6 +2092,17 @@
       "community": 7,
       "community_name": "Anti-Recurrence Check",
       "norm_label": "two jsx shapes that fail silently and compile clean (2026-08-27)"
+    },
+    {
+      "label": "2026-09-01 \u2014 a check can enforce a narrower rule than the one it is named after",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L358",
+      "_origin": "ast",
+      "id": "concepts_anti_recurrence_check_2026_09_01_a_check_can_enforce_a_narrower_rule_than_the_one_it_is_named_after",
+      "community": 7,
+      "community_name": "Anti-Recurrence Check",
+      "norm_label": "2026-09-01 \u2014 a check can enforce a narrower rule than the one it is named after"
     },
     {
       "label": "Design Inspiration Sources.md",
@@ -5075,6 +5108,17 @@
       "norm_label": "caught in time, 2026-08-31 \u2014 the first one that did not ship"
     },
     {
+      "label": "2026-09-01 \u2014 the gap, on purpose this time, and one tier the other way",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Fleet Captain Permission Gap.md",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "entities_fleet_captain_permission_gap_2026_09_01_the_gap_on_purpose_this_time_and_one_tier_the_other_way",
+      "community": 74,
+      "community_name": "Fleet Captain Permission Gap",
+      "norm_label": "2026-09-01 \u2014 the gap, on purpose this time, and one tier the other way"
+    },
+    {
       "label": "Git Worktrees.md",
       "file_type": "document",
       "source_file": "Wiki/Entities/Git Worktrees.md",
@@ -6558,6 +6602,17 @@
       "community": 1,
       "community_name": "Operation Log",
       "norm_label": "2026-09-01 \u2014 the branch warehouse got the ledger, and two app-wide faults fell out of looking"
+    },
+    {
+      "label": "2026-09-01 \u2014 the regional warehouse became a desk, and two checks earned their keep",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1174",
+      "_origin": "ast",
+      "id": "log_2026_09_01_the_regional_warehouse_became_a_desk_and_two_checks_earned_their_keep",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-01 \u2014 the regional warehouse became a desk, and two checks earned their keep"
     },
     {
       "label": "MOC.md",
@@ -10393,6 +10448,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1643",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste",
+      "target": "entities_fleet_captain_permission_gap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L95",
       "weight": 1.0,
       "_origin": "ast",
@@ -10673,6 +10739,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_2026_09_01_he_refused_a_staged_delivery_and_the_reason_generalises",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1603",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_2026_09_01_not_just_recolor_but_redesign_and_what_he_meant_by_it",
       "confidence_score": 1.0
     },
     {
@@ -11338,6 +11415,17 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1630",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_2026_09_01_not_just_recolor_but_redesign_and_what_he_meant_by_it",
+      "target": "concepts_aldi_s_design_taste_he_settles_a_rule_and_then_immediately_shortens_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
       "source_location": "L13",
       "weight": 1.0,
@@ -11504,6 +11592,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L386",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_anti_recurrence_check",
+      "target": "concepts_silent_failure_disease",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
       "source_location": "L103",
       "weight": 1.0,
       "_origin": "ast",
@@ -11624,6 +11723,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Fleet Captain Permission Gap.md",
+      "source_location": "L117",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_fleet_captain_permission_gap",
+      "target": "concepts_anti_recurrence_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/The Admin Agent Profile Id.md",
       "source_location": "L61",
       "weight": 1.0,
@@ -11663,6 +11773,17 @@
       "_origin": "ast",
       "source": "summaries_light_ground_and_the_theme_lab",
       "target": "concepts_anti_recurrence_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L358",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_anti_recurrence_check_anti_recurrence_check",
+      "target": "concepts_anti_recurrence_check_2026_09_01_a_check_can_enforce_a_narrower_rule_than_the_one_it_is_named_after",
       "confidence_score": 1.0
     },
     {
@@ -15617,12 +15738,34 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1185",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
+      "target": "entities_fleet_captain_permission_gap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/Dead Weight Cleanup and Rules-Deploy Gap.md",
       "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
       "source": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
       "target": "entities_fleet_captain_permission_gap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Fleet Captain Permission Gap.md",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_fleet_captain_permission_gap_fleet_captain_permission_gap",
+      "target": "entities_fleet_captain_permission_gap_2026_09_01_the_gap_on_purpose_this_time_and_one_tier_the_other_way",
       "confidence_score": 1.0
     },
     {
@@ -17317,6 +17460,17 @@
       "_origin": "ast",
       "source": "log_operation_log",
       "target": "log_2026_09_01_the_branch_warehouse_got_the_ledger_and_two_app_wide_faults_fell_out_of_looking",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1174",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_01_the_regional_warehouse_became_a_desk_and_two_checks_earned_their_keep",
       "confidence_score": 1.0
     },
     {
@@ -19499,5 +19653,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "dc3b6236cb1d4fe23c05735f2f26edd35143faf1"
+  "built_at_commit": "d860aa3f9b7d8585d96648cf51ad16ad98e1c0e2"
 }
