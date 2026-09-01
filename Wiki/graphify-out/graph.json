@@ -593,8 +593,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_a_rect_is_painted_not_laid_out",
-      "community": 64,
-      "community_name": "Entities/index.md",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "a rect is painted, not laid out"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_shape",
-      "community": 64,
-      "community_name": "Entities/index.md",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "the shape"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_why_it_survived_every_check_and_every_screenshot",
-      "community": 64,
-      "community_name": "Entities/index.md",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "why it survived every check and every screenshot"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_law",
-      "community": 64,
-      "community_name": "Entities/index.md",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "the law"
     },
     {
@@ -637,8 +637,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_wider_lesson_and_it_is_the_expensive_one",
-      "community": 64,
-      "community_name": "Entities/index.md",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "the wider lesson, and it is the expensive one"
     },
     {
@@ -648,8 +648,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_family",
-      "community": 64,
-      "community_name": "Entities/index.md",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "family"
     },
     {
@@ -659,8 +659,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_where_it_happened",
-      "community": 64,
-      "community_name": "Entities/index.md",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "where it happened"
     },
     {
@@ -758,8 +758,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "a smooth scroll that never runs"
     },
     {
@@ -769,8 +769,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_what_it_looked_like",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "what it looked like"
     },
     {
@@ -780,8 +780,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_the_wrong_diagnosis_and_why_it_was_believable",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "the wrong diagnosis, and why it was believable"
     },
     {
@@ -791,8 +791,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_what_it_actually_was",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "what it actually was"
     },
     {
@@ -802,8 +802,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_the_second_half_a_phone_has_no_beside",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "the second half \u2014 a phone has no \"beside\""
     },
     {
@@ -813,8 +813,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_verification",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "verification"
     },
     {
@@ -824,8 +824,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_the_lesson_worth_keeping",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 63,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "the lesson worth keeping"
     },
     {
@@ -1729,6 +1729,28 @@
       "community": 0,
       "community_name": "Aldi's Design Taste",
       "norm_label": "\"tempat\" was too vague, and so was my fix (2026-08-31)"
+    },
+    {
+      "label": "2026-09-01 \u2014 he refused a staged delivery, and the reason generalises",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1534",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_2026_09_01_he_refused_a_staged_delivery_and_the_reason_generalises",
+      "community": 64,
+      "community_name": "Entities/index.md",
+      "norm_label": "2026-09-01 \u2014 he refused a staged delivery, and the reason generalises"
+    },
+    {
+      "label": "What the single pass then found, which the split would have buried",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1557",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_what_the_single_pass_then_found_which_the_split_would_have_buried",
+      "community": 64,
+      "community_name": "Entities/index.md",
+      "norm_label": "what the single pass then found, which the split would have buried"
     },
     {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -3282,6 +3304,17 @@
       "norm_label": "\ud83d\udd34 a headless shot narrower than ~518px on windows is a crop, not a layout (2026-08-27)"
     },
     {
+      "label": "A screen that needs LIVE DATA can now be looked at too (2026-09-01)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L297",
+      "_origin": "ast",
+      "id": "concepts_looking_at_the_app_a_screen_that_needs_live_data_can_now_be_looked_at_too_2026_09_01",
+      "community": 11,
+      "community_name": "Looking at the App",
+      "norm_label": "a screen that needs live data can now be looked at too (2026-09-01)"
+    },
+    {
       "label": "Off-Token Colour Migration Map.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Off-Token Colour Migration Map.md",
@@ -3346,6 +3379,17 @@
       "community": 45,
       "community_name": "Off-Token Colour Migration Map",
       "norm_label": "\u26a0\ufe0f read this first when light mode starts (added 2026-08-15)"
+    },
+    {
+      "label": "2026-09-01 \u2014 two fault classes this map never covered, and both are app-wide",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Off-Token Colour Migration Map.md",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "concepts_off_token_colour_migration_map_2026_09_01_two_fault_classes_this_map_never_covered_and_both_are_app_wide",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
+      "norm_label": "2026-09-01 \u2014 two fault classes this map never covered, and both are app-wide"
     },
     {
       "label": "Ponder Tutorial System.md",
@@ -6494,6 +6538,17 @@
       "norm_label": "2026-08-27 \u2014 the desk was built, and a green suite shipped a 17x wrong number"
     },
     {
+      "label": "2026-09-01 \u2014 the branch warehouse got the ledger, and two app-wide faults fell out of looking",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1151",
+      "_origin": "ast",
+      "id": "log_2026_09_01_the_branch_warehouse_got_the_ledger_and_two_app_wide_faults_fell_out_of_looking",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-01 \u2014 the branch warehouse got the ledger, and two app-wide faults fell out of looking"
+    },
+    {
       "label": "MOC.md",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
@@ -7523,8 +7578,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -10250,6 +10305,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1562",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste",
+      "target": "concepts_off_token_colour_migration_map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L1269",
       "weight": 1.0,
       "_origin": "ast",
@@ -10375,17 +10441,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_lancelot_the_tobacco_ledger_agent",
-      "target": "concepts_aldi_s_design_taste",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/Off-Token Colour Migration Map.md",
-      "source_location": "L26",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_off_token_colour_migration_map",
       "target": "concepts_aldi_s_design_taste",
       "confidence_score": 1.0
     },
@@ -10585,6 +10640,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_2026_08_31_one_door_for_the_tutorial_and_the_reason_is_space",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1534",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_2026_09_01_he_refused_a_staged_delivery_and_the_reason_generalises",
       "confidence_score": 1.0
     },
     {
@@ -11234,6 +11300,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_2026_08_27_the_tutorial_s_four_answers_and_how_a_panel_got_its_english_name",
       "target": "concepts_aldi_s_design_taste_the_naming_call_and_the_two_that_lost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1557",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_2026_09_01_he_refused_a_staged_delivery_and_the_reason_generalises",
+      "target": "concepts_aldi_s_design_taste_what_the_single_pass_then_found_which_the_split_would_have_buried",
       "confidence_score": 1.0
     },
     {
@@ -13099,6 +13176,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L323",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_looking_at_the_app",
+      "target": "concepts_off_token_colour_migration_map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
       "source_location": "L295",
       "weight": 1.0,
       "_origin": "ast",
@@ -13170,6 +13258,17 @@
       "_origin": "ast",
       "source": "concepts_looking_at_the_app_looking_at_the_app",
       "target": "concepts_looking_at_the_app_a_headless_shot_narrower_than_518px_on_windows_is_a_crop_not_a_layout_2026_08_27",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L297",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_looking_at_the_app_looking_at_the_app",
+      "target": "concepts_looking_at_the_app_a_screen_that_needs_live_data_can_now_be_looked_at_too_2026_09_01",
       "confidence_score": 1.0
     },
     {
@@ -13379,6 +13478,17 @@
       "_origin": "ast",
       "source": "summaries_light_ground_and_the_theme_lab",
       "target": "concepts_off_token_colour_migration_map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Off-Token Colour Migration Map.md",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_off_token_colour_migration_map_off_token_colour_migration_map",
+      "target": "concepts_off_token_colour_migration_map_2026_09_01_two_fault_classes_this_map_never_covered_and_both_are_app_wide",
       "confidence_score": 1.0
     },
     {
@@ -17180,6 +17290,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
+      "source_location": "L1151",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_01_the_branch_warehouse_got_the_ledger_and_two_app_wide_faults_fell_out_of_looking",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
       "source_location": "L219",
       "weight": 1.0,
       "_origin": "ast",
@@ -19356,5 +19477,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "bf42189114a5b35238ac66dbefb05bd9e3a3e960"
+  "built_at_commit": "eb41e9f7f1dabe2f0e32f54d7d125d55b5e2a44b"
 }

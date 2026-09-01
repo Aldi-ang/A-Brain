@@ -121,6 +121,37 @@ whole-life, not the final taxonomy.
 
 ---
 
+## He does not review process — locked 2026-09-01
+
+> *"stop giving me too much explanation and talk to me like a caveman, put that in alucard mind,
+> explanation only needed for the question description and the input that i need only not the work
+> that u do i only accept job thats done not the process"*
+
+And immediately after, on where the explanation should have gone:
+
+> *"yes all of that info put it on your A brain and dont give me that info, just explain something
+> that u want me to understand thats the point"*
+
+**The rule, in his own frame:** a reply carries two things and nothing else — **what shipped**, and
+**what he must decide**. The first is one line. The second gets as many plain sentences as it needs.
+Everything between them is deleted.
+
+**Why this kept leaking, and it is worth naming because writing the rule down did not stop it:**
+findings feel like they need defending. Having measured something, the instinct is to show the
+measurement — the ratio, the count, the how-it-was-found. None of that is a question. He has told
+me the same thing three times now (2026-08-21 *"just tell me the critical point"*, 2026-08-24
+*"why this chat still so much talking"*, and this), each time after a reply that was terse in style
+and long in substance. **Caveman prose was never the ask. Deleting the justification is.**
+
+Where it goes instead: the commit message and this vault. He reads neither by default, and that is
+the correct arrangement — [[Wiki/Concepts/Aldi's Design Taste]] and the commit log are the record;
+the chat is the interface.
+
+⚠️ **One live conflict left in `alucard/SKILL.md`.** §11b still ends every reply with
+`checks: N run, N pass. adversarial: yes/no. edits: … lessons: … vault: …`. That is a process
+tally, which he has now banned twice. §5 was updated with his approved wording on 2026-09-01; §11b
+was not, because he approved specific text and not a general rewrite. **Ask before changing it.**
+
 ## Open questions this interview did NOT resolve
 
 - Exact folder taxonomy for non-KPM domains (tobacco business, crypto, personal reflection) —
