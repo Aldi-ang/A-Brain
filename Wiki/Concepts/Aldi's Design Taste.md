@@ -168,6 +168,20 @@ that misreading. **Ask which part before designing.**
 - **Controls that appear where they do not belong.** *"i dont want to see the sidebar button on
   the login screen"*; the dimensions editor should exist in Master Vault only, not in the sales
   preview. **A control shown in the wrong context is a design bug to him, not a minor one.**
+- **The phone is not a narrow desk, and he checks it.** 2026-09-01, from his iPhone: *"it look
+  really bad on phone, i mean the restock vault feels like there is too much going on vertically in
+  that small space"*, *"the ponder panel is cutted in half"*, *"even the book cutted in half as well
+  that i cant see the left book with all the section ribbons"*. Four faults, all measured at
+  375x812 and all the same shape — a desk layout carried onto a phone unchanged: a 780px table in a
+  291px window, a 160px pinned footer on an 812px screen, a content-height sheet leaving 283px of
+  empty scrim, and a four-card page running 30px past the bottom. **The lesson is not any one of
+  them: it is that "it fits at 1280" is not a phone check.** He also asks for proof now — *"as long
+  as u checked everything and make sure that all of it worked"* — so a phone change is measured
+  before, measured after, and the desk is re-measured to show it did not move.
+- **Hiding a control on the phone can be a functional bug, not a smaller layout.** The book's
+  section ribbons were `hidden lg:flex`. The page arrows only turn pages inside a section, so on a
+  phone there was no way to reach another section at all. Ask what the hidden thing was the only
+  route to before hiding it.
 - **Fixed elements on a phone.** He rejects pinned toolbars that shrink the content area. His
   choice on the manifest sheet, 2026-08-10: one slim bar with SIGN only, everything else scrolls.
   **But he will BUY fixed height when the thing pinned answers the first question of the task.**
