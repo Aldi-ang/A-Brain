@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-01)
 
 ## Corpus Check
-- 75 files · ~155,003 words
+- 76 files · ~155,398 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 806 nodes · 996 edges · 87 communities (81 shown, 6 thin omitted)
+- 814 nodes · 1003 edges · 88 communities (82 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e48f8ec7`
+- Built from commit: `d1cf7c93`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -100,6 +100,7 @@
 - What Create Mod's Ponder Actually Does
 - 2026-09-01 — "not just recolor but redesign", and what he meant by it
 - 2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design
+- 7 Days to Die — mod load order and the infinite loading screen
 
 ## God Nodes (most connected - your core abstractions)
 1. `Aldi's Design Taste` - 49 edges
@@ -116,7 +117,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (87 total, 6 thin omitted)
+## Communities (88 total, 6 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.05
@@ -434,8 +435,12 @@ Nodes (5): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The
 Cohesion: 0.29
 Nodes (7): Every control, and what it really is, Getting the source at all, The architectural difference that made KPM's engine short, The one place a scene script is worth reading, The three mechanics worth stealing, What Create Mod's Ponder Actually Does, What KPM dropped on purpose
 
+### Community 87 - "7 Days to Die — mod load order and the infinite loading screen"
+Cohesion: 0.25
+Nodes (7): 7 Days to Die — mod load order and the infinite loading screen, Also seen, not fatal, How to find it in 30 seconds, The 2026-09-01 case, The real cause, The symptom, The trap — Vortex's load order screen lies
+
 ## Knowledge Gaps
-- **616 isolated node(s):** `The actual mechanism`, `What this is NOT`, `Why this page exists`, `Confirmed free tiers (2026-07-31)`, `Delegation log` (+611 more)
+- **622 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+617 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -443,13 +448,13 @@ Nodes (7): Every control, and what it really is, Getting the source at all, The 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.160) - this node is a cross-community bridge._
+  _High betweenness centrality (0.157) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.094) - this node is a cross-community bridge._
+  _High betweenness centrality (0.092) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.083) - this node is a cross-community bridge._
-- **What connects `The actual mechanism`, `What this is NOT`, `Why this page exists` to the rest of the system?**
-  _616 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.082) - this node is a cross-community bridge._
+- **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
+  _622 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

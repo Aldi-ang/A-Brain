@@ -63,3 +63,24 @@ prefixes and brings the hang back**. That is a when, not an if.
 - `WRN XML patch ... did not apply` — a mod patching something that isn't there.
   Usually a hotfix paired with the wrong base mod. Ignorable; the mod just misbehaves.
 - Loose `.zip` / `.rar` / `.7z` files inside `Mods/` — the game ignores them. Clutter only.
+
+## OPEN as of 2026-09-01 11:53 WIB — world will not load
+
+Second, different failure. Not XML this time.
+
+- `output_log_client__2026-09-01__11-41-06.txt:300` — `EXC blob heap index 65535 out of bounds`
+  in `AAR-SmartAnimatedLoot2.0.0 SmartCore2.0.0 For3.X`. Broken/mismatched DLL.
+  `CustomParticleLoader` then failed to init, and Harmony failed to patch `GameManager::explode`.
+- In that run the world DID load (`Ply: 1`, `Chunks: 40`, 93 FPS) behind a stuck loading screen.
+- Aldi was told to disable SmartAnimatedLoot in Vortex and redeploy.
+
+**Not yet read:** `output_log_client__2026-09-01__11-53-21.txt`. He says it stops partway and the
+world never loads. Start there next session — same two greps:
+
+```bash
+grep -n " EXC \| ERR " <log> | grep -v TileEntityComposite | head
+grep -n "INF \|WRN \|ERR " <log> | tail -20
+```
+
+Also pending: `Mods/zzzz-NoHygieneStress` (the hygiene/stress off switch) was created outside
+Vortex, so any Purge or Deploy deletes it. Check it still exists before assuming hygiene is off.

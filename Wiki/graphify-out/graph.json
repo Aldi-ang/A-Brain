@@ -4,6 +4,94 @@
   "graph": {},
   "nodes": [
     {
+      "label": "7 Days to Die Mod Load Order.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_7_days_to_die_mod_load_order",
+      "community": 87,
+      "community_name": "7 Days to Die \u2014 mod load order and the infinite loading screen",
+      "norm_label": "7 days to die mod load order.md"
+    },
+    {
+      "label": "7 Days to Die \u2014 mod load order and the infinite loading screen",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "concepts_7_days_to_die_mod_load_order_7_days_to_die_mod_load_order_and_the_infinite_loading_screen",
+      "community": 87,
+      "community_name": "7 Days to Die \u2014 mod load order and the infinite loading screen",
+      "norm_label": "7 days to die \u2014 mod load order and the infinite loading screen"
+    },
+    {
+      "label": "The symptom",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "concepts_7_days_to_die_mod_load_order_the_symptom",
+      "community": 87,
+      "community_name": "7 Days to Die \u2014 mod load order and the infinite loading screen",
+      "norm_label": "the symptom"
+    },
+    {
+      "label": "The real cause",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "concepts_7_days_to_die_mod_load_order_the_real_cause",
+      "community": 87,
+      "community_name": "7 Days to Die \u2014 mod load order and the infinite loading screen",
+      "norm_label": "the real cause"
+    },
+    {
+      "label": "How to find it in 30 seconds",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "concepts_7_days_to_die_mod_load_order_how_to_find_it_in_30_seconds",
+      "community": 87,
+      "community_name": "7 Days to Die \u2014 mod load order and the infinite loading screen",
+      "norm_label": "how to find it in 30 seconds"
+    },
+    {
+      "label": "The 2026-09-01 case",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "concepts_7_days_to_die_mod_load_order_the_2026_09_01_case",
+      "community": 87,
+      "community_name": "7 Days to Die \u2014 mod load order and the infinite loading screen",
+      "norm_label": "the 2026-09-01 case"
+    },
+    {
+      "label": "The trap \u2014 Vortex's load order screen lies",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "concepts_7_days_to_die_mod_load_order_the_trap_vortex_s_load_order_screen_lies",
+      "community": 87,
+      "community_name": "7 Days to Die \u2014 mod load order and the infinite loading screen",
+      "norm_label": "the trap \u2014 vortex's load order screen lies"
+    },
+    {
+      "label": "Also seen, not fatal",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "concepts_7_days_to_die_mod_load_order_also_seen_not_fatal",
+      "community": 87,
+      "community_name": "7 Days to Die \u2014 mod load order and the infinite loading screen",
+      "norm_label": "also seen, not fatal"
+    },
+    {
       "label": "9Router Subordinate AI Delegation.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/9Router Subordinate AI Delegation.md",
@@ -8871,6 +8959,83 @@
     }
   ],
   "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_7_days_to_die_mod_load_order",
+      "target": "concepts_7_days_to_die_mod_load_order_7_days_to_die_mod_load_order_and_the_infinite_loading_screen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_7_days_to_die_mod_load_order_7_days_to_die_mod_load_order_and_the_infinite_loading_screen",
+      "target": "concepts_7_days_to_die_mod_load_order_also_seen_not_fatal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_7_days_to_die_mod_load_order_7_days_to_die_mod_load_order_and_the_infinite_loading_screen",
+      "target": "concepts_7_days_to_die_mod_load_order_how_to_find_it_in_30_seconds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_7_days_to_die_mod_load_order_7_days_to_die_mod_load_order_and_the_infinite_loading_screen",
+      "target": "concepts_7_days_to_die_mod_load_order_the_2026_09_01_case",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_7_days_to_die_mod_load_order_7_days_to_die_mod_load_order_and_the_infinite_loading_screen",
+      "target": "concepts_7_days_to_die_mod_load_order_the_real_cause",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_7_days_to_die_mod_load_order_7_days_to_die_mod_load_order_and_the_infinite_loading_screen",
+      "target": "concepts_7_days_to_die_mod_load_order_the_symptom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/7 Days to Die Mod Load Order.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_7_days_to_die_mod_load_order_7_days_to_die_mod_load_order_and_the_infinite_loading_screen",
+      "target": "concepts_7_days_to_die_mod_load_order_the_trap_vortex_s_load_order_screen_lies",
+      "confidence_score": 1.0
+    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -19829,5 +19994,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e48f8ec773c74e23e58b2a26033791fe71c0b0f1"
+  "built_at_commit": "d1cf7c93752000a14af86e9fca10be7cb308523f"
 }
