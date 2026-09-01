@@ -125,3 +125,5 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   incident history is richest) and the worktree/process incidents. Feature-level knowledge
   (how Fleet & Canvas, Stock Opname, EOD Reconciliation etc. actually work end-to-end) isn't
   covered yet — a good candidate for the next ingest pass.
+
+- [7 Days to Die — mod load order](Concepts/7%20Days%20to%20Die%20Mod%20Load%20Order.md) — infinite loading screen = one mod extending a block from a mod that loads after it; Vortex's load-order list does not match the disk
