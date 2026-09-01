@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-01)
 
 ## Corpus Check
-- 76 files · ~155,398 words
+- 78 files · ~157,773 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 814 nodes · 1003 edges · 88 communities (82 shown, 6 thin omitted)
+- 830 nodes · 1023 edges · 88 communities (82 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d1cf7c93`
+- Built from commit: `47eacb49`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,6 +19,7 @@
 - Operation Log
 - Lancelot the Tobacco Ledger Agent
 - KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
+- Concepts/index.md
 - 3.2 How XP works, and why it can never decay again
 - The KPM Control System
 - Anti-Recurrence Check
@@ -84,7 +85,6 @@
 - A Check Points at a File, Not at a Behaviour
 - Headquarters Is Not a Cabang
 - Entities/index.md
-- A Meter That Exits Silently Is Not a Meter
 - 2026-08-27 — the tutorial's four answers, and how a panel got its English name
 - An Effect's Own Cleanup Can Cancel Its Frame
 - Fleet Captain Permission Gap
@@ -101,6 +101,7 @@
 - 2026-09-01 — "not just recolor but redesign", and what he meant by it
 - 2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design
 - 7 Days to Die — mod load order and the infinite loading screen
+- One Pack Count, Many Screens
 
 ## God Nodes (most connected - your core abstractions)
 1. `Aldi's Design Taste` - 49 edges
@@ -134,6 +135,10 @@ Nodes (41): A trap already in the data, Consequences — the build list, in orde
 ### Community 3 - "KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics"
 Cohesion: 0.04
 Nodes (45): 1. The thing you need to know first, 2. What's already good, 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated (+37 more)
+
+### Community 4 - "Concepts/index.md"
+Cohesion: 0.13
+Nodes (12): A Meter That Exits Silently Is Not a Meter, Resolution — 2026-08-31 evening, commit `7ca7b03`, The general rule, The root cause, What changed, What happened, Why it was never noticed, The rule (+4 more)
 
 ### Community 5 - "3.2 How XP works, and why it can never decay again"
 Cohesion: 0.09
@@ -356,8 +361,8 @@ Cohesion: 0.50
 Nodes (4): Store Hand-off Name Collision, The fix that could not be built, Verified, What shipped
 
 ### Community 61 - "Logistics and Stock Movement"
-Cohesion: 0.09
-Nodes (22): 2026-08-26/27 — the desk was BUILT, and Sebaran Stok answers the hub question, 2026-08-26 — Restock Vault redesign v2: one form, two directions, 2026-09-01 — the barcode shipped, and the "rejected" note was about something else, Broken today, ⚠️ Correction to the options section above, Decisions taken, Do we need more workflow? No., Locked rules — do not re-litigate (+14 more)
+Cohesion: 0.08
+Nodes (24): 2026-08-26/27 — the desk was BUILT, and Sebaran Stok answers the hub question, 2026-08-26 — Restock Vault redesign v2: one form, two directions, 2026-09-01 — the barcode shipped, and the "rejected" note was about something else, 2026-09-01 — the scan became a GATE, and that is what he had been describing, Broken today, ⚠️ Correction to the options section above, Decisions taken, Do we need more workflow? No. (+16 more)
 
 ### Community 63 - "What Create Mod's Ponder Actually Does"
 Cohesion: 0.29
@@ -365,7 +370,7 @@ Nodes (7): A Rect Is Painted, Not Laid Out, Family, The law, The shape, The wide
 
 ### Community 65 - "A Rect Is Painted, Not Laid Out"
 Cohesion: 0.40
-Nodes (5): The rule, The second cause of the same appearance, The Shell Repaints Any White It Can Reach, ⚠️ The two harness traps, which cost more than the bug, What changed in the look
+Nodes (5): A Cache Saying No, Pinned, The cause, and why the first reading was wrong, The rule this leaves behind, What he saw
 
 ### Community 66 - "A Smooth Scroll That Never Runs"
 Cohesion: 0.29
@@ -382,10 +387,6 @@ Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang
 ### Community 69 - "Entities/index.md"
 Cohesion: 0.33
 Nodes (6): A Rollup Is a Cache, Not a Ledger, Four details that would each have been a silent wrong number, The counter was the easy half, The property that makes it safe, What made this checkable, What shipped
-
-### Community 70 - "A Meter That Exits Silently Is Not a Meter"
-Cohesion: 0.29
-Nodes (7): A Meter That Exits Silently Is Not a Meter, Resolution — 2026-08-31 evening, commit `7ca7b03`, The general rule, The root cause, What changed, What happened, Why it was never noticed
 
 ### Community 72 - "An Effect's Own Cleanup Can Cancel Its Frame"
 Cohesion: 0.29
@@ -436,11 +437,15 @@ Cohesion: 0.29
 Nodes (7): Every control, and what it really is, Getting the source at all, The architectural difference that made KPM's engine short, The one place a scene script is worth reading, The three mechanics worth stealing, What Create Mod's Ponder Actually Does, What KPM dropped on purpose
 
 ### Community 87 - "7 Days to Die — mod load order and the infinite loading screen"
-Cohesion: 0.25
-Nodes (7): 7 Days to Die — mod load order and the infinite loading screen, Also seen, not fatal, How to find it in 30 seconds, The 2026-09-01 case, The real cause, The symptom, The trap — Vortex's load order screen lies
+Cohesion: 0.22
+Nodes (8): 7 Days to Die — mod load order and the infinite loading screen, Also seen, not fatal, How to find it in 30 seconds, OPEN as of 2026-09-01 11:53 WIB — world will not load, The 2026-09-01 case, The real cause, The symptom, The trap — Vortex's load order screen lies
+
+### Community 88 - "One Pack Count, Many Screens"
+Cohesion: 0.33
+Nodes (6): One Pack Count, Many Screens, Pinned, The decision — the boxes are a calculator, not a second unit, The one source, The part that is still broken, The problem, in his words
 
 ## Knowledge Gaps
-- **622 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+617 more)
+- **633 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+628 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -448,13 +453,13 @@ Nodes (7): 7 Days to Die — mod load order and the infinite loading screen, Als
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.157) - this node is a cross-community bridge._
+  _High betweenness centrality (0.154) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.092) - this node is a cross-community bridge._
+  _High betweenness centrality (0.090) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.082) - this node is a cross-community bridge._
+  _High betweenness centrality (0.080) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _622 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _633 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

@@ -115,4 +115,6 @@ Real things that went wrong (or nearly did), and what was learned.
 - [[Concepts/A Meter That Exits Silently Is Not a Meter]] — why nothing stopped the session at 95%, the Stop hook that now guards both notes, and the decoy config file that hid the real fault until 2026-08-31.
 - [[Concepts/The Shell Repaints Any White It Can Reach]] — a shell rule painted the printed nota fifteen per cent see-through; the harness that could not reproduce it was missing the ancestor.
 - [[Concepts/A Smooth Scroll That Never Runs]] — the phone-only tutorial caption bug: the wrong diagnosis, the measurement that separated them, and why the bottom bar IS the phone layout.
+- [[Concepts/The Book as a Stack of Sheets]] — the Framer-model rebuild of the tutorial book, the arithmetic that put the chapters on the leaves, and the two width-specific faults a render caught.
+- [[Concepts/A Named Import Can Shadow a Global]] — module scope beats the global object, and the failure is a blank screen rather than a red build.
 - [[Summaries/Stock Count Trust Chain]] — how a count becomes trustworthy: tolerance, recount, cause, leak detection. The one open decision is naming the five shortage causes.
