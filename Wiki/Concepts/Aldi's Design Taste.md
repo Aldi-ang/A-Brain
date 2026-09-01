@@ -1564,3 +1564,39 @@ would have been visible in the repaint-only pass, because at that point the layo
 still the old one and I would have been looking for something else.
 
 See also: [[Looking at the App]] · [[Off-Token Colour Migration Map]]
+
+## 2026-09-01 — clear terms, and two sibling screens share one language
+
+> *"use better language like before also add this learning into your memory, always use clear
+> terms, not fague one and if the restock vault is in english then this regional warehouse should
+> be in english as well if indo then indo"*
+
+Third strike on vagueness, after *"its so fague"* (2026-08-30) and *"i want u to change tempat into
+better wording than that, it is so fague"* (2026-08-31, which became **Data Induk**). He was
+rejecting a proposed tab set — Terima / Minta / Isi Gudang — which was both vaguer and in a
+different language from the panels he had already approved on the same screen.
+
+**Two rules, and the second one is new:**
+
+1. **A name must say what it is in full.** No word that only reads correctly to someone who already
+   knows what the panel does.
+2. **Match the SIBLING screen, and go and look at it rather than deciding from a rule.** The
+   Restock Vault and the regional warehouse are the same job at two ends of one shipment; two
+   languages across them reads as two products.
+
+⚠️ **Rule 2 had no clean answer, and that is the finding.** Measured across
+`RestockVaultView.jsx` on 2026-09-01, the Restock Vault is **mixed**: English for Batch No, Date,
+Extra Costs, Qty Received, Select Product, Metadata, Shipping / Labor / Tax (Rp), Target Month;
+Indonesian for Barang, Jenis, Jumlah, Nama, Nota, Kirim, Hapus, Proses, Tanggal, Ongkos kirim,
+Pita cukai; and three fields carry both at once — *"Nama Pengirim (Sender Name)"*, *"Nomor Resi /
+Tracking No"*, *"Surat Jalan / Delivery No"*.
+
+So the instruction pointed at a screen that could not answer it, and the mixture went back to him
+as the decision rather than being resolved by guessing. **This is also a standing cleanup item: one
+of the two screens is going to have to be re-labelled whichever way he answers.**
+
+**Unchanged either way: names he picked himself.** *Data Induk* is his, chosen from four options,
+and it survives in an English tab set.
+
+See also: [[Off-Token Colour Migration Map]] · [[Looking at the App]]
+
