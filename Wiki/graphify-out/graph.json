@@ -1786,6 +1786,28 @@
       "norm_label": "he settles a rule and then immediately shortens it"
     },
     {
+      "label": "2026-09-01 \u2014 he turned a feature into a SEQUENCE, and it was the better design",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1645",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_2026_09_01_he_turned_a_feature_into_a_sequence_and_it_was_the_better_design",
+      "community": 86,
+      "community_name": "2026-09-01 \u2014 he turned a feature into a SEQUENCE, and it was the better design",
+      "norm_label": "2026-09-01 \u2014 he turned a feature into a sequence, and it was the better design"
+    },
+    {
+      "label": "He asks \"is this good enough?\" and means it as a real question",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1667",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_he_asks_is_this_good_enough_and_means_it_as_a_real_question",
+      "community": 86,
+      "community_name": "2026-09-01 \u2014 he turned a feature into a SEQUENCE, and it was the better design",
+      "norm_label": "he asks \"is this good enough?\" and means it as a real question"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -10415,6 +10437,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1678",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste",
+      "target": "concepts_logistics_and_stock_movement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L286",
       "weight": 1.0,
       "_origin": "ast",
@@ -10794,6 +10827,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_2026_09_01_he_refused_a_staged_delivery_and_the_reason_generalises",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1645",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_2026_09_01_he_turned_a_feature_into_a_sequence_and_it_was_the_better_design",
       "confidence_score": 1.0
     },
     {
@@ -11476,6 +11520,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_2026_09_01_not_just_recolor_but_redesign_and_what_he_meant_by_it",
       "target": "concepts_aldi_s_design_taste_he_settles_a_rule_and_then_immediately_shortens_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1667",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_2026_09_01_he_turned_a_feature_into_a_sequence_and_it_was_the_better_design",
+      "target": "concepts_aldi_s_design_taste_he_asks_is_this_good_enough_and_means_it_as_a_real_question",
       "confidence_score": 1.0
     },
     {
@@ -19774,5 +19829,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "94aea391c7ca9cd43d7737246aa607db5492129f"
+  "built_at_commit": "e48f8ec773c74e23e58b2a26033791fe71c0b0f1"
 }
