@@ -1,0 +1,495 @@
+<title>Ponder Field Terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --housing-top:#252A2E; --housing-hi:#1C1F22; --housing-lo:#0E1012;
+  --display:#121014;
+  --ink:#E8E3DA; --dim:#8E8779;
+  --accent:#FF8C1A; --foil:#FFD9A0;
+  --hair:rgba(232,227,218,.09);
+  --hair-2:rgba(232,227,218,.16);
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --sans:"IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  --tx:0; --ty:0;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:#08090A; color:var(--ink);
+  font-family:var(--sans); -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(120% 70% at 50% -10%, #14171A 0%, #08090A 62%);
+}
+
+/* the bench the pad sits on */
+.frame{
+  min-height:100dvh; display:grid; place-items:center;
+  padding:clamp(6px,2.2vw,30px); perspective:1400px;
+}
+
+/* HOUSING - milled slate, gold anodised rim */
+.pad{
+  position:relative;
+  width:min(424px,100%);
+  height:min(880px, calc(100dvh - 2*clamp(6px,2.2vw,30px)));
+  min-height:540px;
+  padding:11px 9px;
+  display:grid; grid-template-columns:15px minmax(0,1fr) 80px; column-gap:8px;
+  border-radius:24px;
+  background:linear-gradient(158deg, var(--housing-top) 0%, var(--housing-hi) 32%, #15181B 68%, var(--housing-lo) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,217,160,.13),
+    inset 0 -1px 0 rgba(0,0,0,.7),
+    0 44px 90px -34px #000,
+    0 4px 14px -6px rgba(0,0,0,.9);
+  transform-style:preserve-3d;
+  transform:rotateY(calc(var(--tx) * 5.5deg)) rotateX(calc(var(--ty) * -4.5deg));
+  transition:transform .18s cubic-bezier(.22,.61,.36,1);
+}
+.pad::before{
+  content:""; position:absolute; inset:0; border-radius:inherit; padding:1px; pointer-events:none;
+  background:linear-gradient(calc(148deg + var(--tx) * 30deg),
+    rgba(255,217,160,.60) 0%, rgba(255,140,26,.30) 26%,
+    rgba(255,217,160,.05) 52%, rgba(255,140,26,.22) 74%, rgba(255,217,160,.48) 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite:exclude;
+}
+/* Milled grain only. The sweeping light band that used to cross the face is GONE -
+   Aldi, 2026-09-02: "the backlight is too much ... i dont think its convenience to look
+   at in the long term". Tilt still reads through the housing rotation, the parallax
+   between rail and display, and the anodised rim's shifting gradient. The grain sits at
+   Z 0 and FIRST in the DOM, so the display and the rail paint over it - the milling is on
+   the housing, never across the words. */
+.sheen{
+  position:absolute; inset:0; border-radius:inherit; pointer-events:none; overflow:hidden;
+  background:repeating-linear-gradient(90deg, rgba(255,255,255,.016) 0 1px, transparent 1px 3px);
+}
+.bolt{
+  position:absolute; width:5px; height:5px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #33383C, #0B0D0E 70%);
+  box-shadow:inset 0 .5px 0 rgba(255,217,160,.22), 0 .5px 0 rgba(0,0,0,.8);
+}
+.bolt.tl{top:7px;left:6px} .bolt.tr{top:7px;right:6px}
+.bolt.bl{bottom:7px;left:6px} .bolt.br{bottom:7px;right:6px}
+
+/* LEFT EDGE - the one progress meter */
+.meter{
+  display:flex; flex-direction:column; gap:2px; padding:14px 3px;
+  transform:translateZ(5px);
+}
+.seg{
+  flex:1 1 0; border-radius:2px;
+  background:rgba(232,227,218,.10);
+  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.55);
+  transition:background .25s linear;
+}
+.seg.read{background:linear-gradient(90deg, rgba(255,140,26,.30), rgba(255,217,160,.72))}
+.seg.cur{background:var(--accent); box-shadow:0 0 5px rgba(255,140,26,.45), inset 0 0 0 .5px rgba(0,0,0,.4)}
+
+/* DISPLAY - inset, near-black warm */
+.display{
+  position:relative; border-radius:12px; background:var(--display);
+  display:flex; flex-direction:column; overflow:hidden;
+  box-shadow:
+    inset 0 2px 7px rgba(0,0,0,.95),
+    inset 0 0 0 1px rgba(0,0,0,.85),
+    0 0 0 1px rgba(232,227,218,.055);
+}
+.display::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(180deg, rgba(232,227,218,.016) 0 1px, transparent 1px 24px);
+}
+.status{
+  flex:0 0 auto; display:flex; align-items:center; gap:8px;
+  padding:7px 10px; border-bottom:1px solid var(--hair);
+  font-family:var(--mono); font-size:9px; font-weight:500; letter-spacing:.14em;
+  color:var(--dim); text-transform:uppercase; font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg, rgba(232,227,218,.035), transparent);
+}
+.status .live{width:5px; height:5px; border-radius:50%; background:var(--accent); flex:0 0 auto}
+.status .sp{flex:1 1 auto}
+.status b, .foot b{color:var(--ink); font-weight:600}
+
+.stage{flex:1 1 auto; position:relative; perspective:820px; overflow:hidden}
+.panel{
+  position:absolute; inset:0; overflow-y:auto; -webkit-overflow-scrolling:touch;
+  padding:16px 14px 20px;
+  opacity:1; transform:none;
+  transition:opacity .16s linear, transform .30s cubic-bezier(.16,.84,.30,1);
+}
+.panel::-webkit-scrollbar{width:3px}
+.panel::-webkit-scrollbar-track{background:transparent}
+.panel::-webkit-scrollbar-thumb{background:rgba(232,227,218,.18); border-radius:2px}
+.panel.out{opacity:0; transform:translateZ(-110px) scale(.97)}
+.panel.in{opacity:0; transform:translateZ(-150px) scale(.94)}
+
+.eyebrow{
+  display:flex; align-items:center; gap:8px; margin-bottom:12px;
+  font-family:var(--mono); font-size:9px; letter-spacing:.16em; color:var(--dim);
+  text-transform:uppercase; font-variant-numeric:tabular-nums;
+}
+.plate{
+  flex:0 0 auto; height:24px; padding:0 10px; border-radius:6px;
+  display:grid; place-items:center;
+  font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.01em;
+  text-transform:none; color:var(--foil);
+  background:linear-gradient(180deg,#22262A,#141719);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.16), inset 0 0 0 1px rgba(0,0,0,.6);
+}
+h1{
+  margin:0 0 6px; font-family:var(--sans); font-weight:600; font-size:23px; line-height:1.14;
+  letter-spacing:-.014em; color:var(--ink); text-wrap:balance;
+}
+.blurb{margin:0 0 16px; font-size:13.5px; line-height:1.55; color:#B8B2A6; max-width:34ch}
+.rule-lab{
+  display:flex; align-items:baseline; gap:8px; margin:0 0 9px;
+  font-family:var(--mono); font-size:9px; letter-spacing:.16em; color:var(--dim);
+  text-transform:uppercase; font-variant-numeric:tabular-nums;
+}
+.rule-lab .line,
+.eyebrow .line{flex:1 1 auto; height:1px; background:var(--hair)}
+
+.entry{
+  display:grid; grid-template-columns:22px minmax(0,1fr) auto; gap:0 10px;
+  padding:10px 0; border-bottom:1px solid var(--hair);
+}
+.entry:last-child{border-bottom:0}
+.idx{
+  font-family:var(--mono); font-size:10px; color:var(--dim); padding-top:2px;
+  font-variant-numeric:tabular-nums; letter-spacing:.04em;
+}
+.etitle{font-size:14px; font-weight:600; line-height:1.3; color:var(--ink)}
+.edesc{grid-column:2/4; margin-top:3px; font-size:12.5px; line-height:1.5; color:#9A948A}
+.chip{
+  align-self:start; font-family:var(--mono); font-size:8.5px; letter-spacing:.12em;
+  padding:3px 6px; border-radius:3px; text-transform:uppercase; white-space:nowrap;
+}
+.chip.ready{color:#0E1012; background:var(--foil); font-weight:600}
+.chip.soon{color:var(--dim); box-shadow:inset 0 0 0 1px var(--hair-2)}
+
+.foot{
+  flex:0 0 auto; display:flex; align-items:center; gap:8px;
+  padding:6px 10px; border-top:1px solid var(--hair);
+  font-family:var(--mono); font-size:8.5px; letter-spacing:.14em; color:var(--dim);
+  text-transform:uppercase; font-variant-numeric:tabular-nums;
+}
+.ticks{flex:1 1 auto; height:6px; background:repeating-linear-gradient(90deg, var(--hair-2) 0 1px, transparent 1px 6px)}
+
+/* RIGHT EDGE - the section rail (the hero) */
+.rail{
+  display:flex; flex-direction:column; gap:2px; padding:2px 0;
+  transform:translateZ(15px); transform-style:preserve-3d;
+}
+.key{
+  flex:1 1 0; min-height:22px;
+  display:flex; align-items:center; justify-content:space-between; gap:4px;
+  padding:0 7px; border:0; border-radius:6px; cursor:pointer;
+  font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:.01em;
+  color:var(--dim); text-align:left; white-space:nowrap;
+  background:linear-gradient(180deg,#23272B,#15181B);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.10), inset 0 0 0 1px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.55);
+  transition:transform .16s cubic-bezier(.22,.61,.36,1), color .16s linear, background .16s linear;
+}
+.key .lamp{flex:0 0 auto; width:4px; height:4px; border-radius:50%; background:rgba(232,227,218,.13)}
+.key.read{color:#A9A296}
+.key.read .lamp{background:rgba(232,227,218,.55)}
+.key.on{
+  color:#0E1012; font-weight:600;
+  background:linear-gradient(180deg, var(--foil), var(--accent));
+  transform:translateX(-4px) translateZ(10px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 2px 6px rgba(0,0,0,.55);
+}
+.key.on .lamp{background:rgba(14,16,18,.62)}
+.key:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
+
+.fnpad{flex:0 0 auto; display:flex; flex-direction:column; gap:2px; margin-top:6px}
+.fn{
+  flex:0 0 25px;
+  display:flex; align-items:center; justify-content:space-between; gap:3px;
+  padding:0 6px; border:0; border-radius:6px; cursor:pointer;
+  font-family:var(--mono); font-size:8.5px; font-weight:500; letter-spacing:.08em;
+  color:var(--dim); background:linear-gradient(180deg,#1E2225,#121517);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.07), inset 0 0 0 1px rgba(0,0,0,.55);
+  transition:color .16s linear, box-shadow .16s linear;
+}
+.fn .st{font-size:8px; color:#6E685C}
+.fn[aria-pressed="true"]{color:var(--foil); box-shadow:inset 0 0 0 1px rgba(255,140,26,.55)}
+.fn[aria-pressed="true"] .st{color:var(--accent)}
+.fn:disabled{opacity:.45; cursor:default}
+.fn:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
+
+/* LITE MODE - motion and parallax go. Every colour and every word stays. */
+body.lite .pad{transform:none; transition:none}
+body.lite .panel,
+body.lite .key,
+body.lite .seg,
+body.lite .fn{transition:none}
+body.lite .panel.in,
+body.lite .panel.out{opacity:1; transform:none}
+body.lite .key.on{transform:none}
+body.lite .seg.cur{box-shadow:inset 0 0 0 .5px rgba(0,0,0,.4)}
+body.lite .display,
+body.lite .rail,
+body.lite .meter{transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .pad,.panel,.key{transition:none !important}
+}
+/* a caption for a desk viewer only — on a phone the pad fills the screen and
+   a fixed line would lie across the housing */
+.legend{display:none}
+@media (min-width:900px){
+  .legend{
+    display:block; position:fixed; left:0; right:0; bottom:10px; text-align:center;
+    font-family:var(--mono); font-size:9px; letter-spacing:.18em; color:#4A463F;
+    text-transform:uppercase; pointer-events:none;
+  }
+}
+</style>
+
+<div class="frame">
+  <div class="pad" id="pad">
+    <div class="sheen"></div>
+    <span class="bolt tl"></span><span class="bolt tr"></span>
+    <span class="bolt bl"></span><span class="bolt br"></span>
+
+    <div class="meter" id="meter" aria-hidden="true"></div>
+
+    <div class="display">
+      <div class="status">
+        <span class="live"></span>
+        <span>Ponder</span>
+        <span class="sp"></span>
+        <span>Seksi <b id="stIdx">01</b>/17</span>
+        <span>Dibaca <b id="stRead">00</b>/17</span>
+      </div>
+      <div class="stage" id="stage">
+        <article class="panel" id="panel" tabindex="-1"></article>
+      </div>
+      <div class="foot">
+        <span>KPM</span><span class="ticks"></span>
+        <span>Modul siap <b id="stReady">00</b>/<span id="stTotal">00</span></span>
+      </div>
+    </div>
+
+    <nav class="rail" id="rail" aria-label="Daftar seksi">
+      <div class="fnpad">
+        <button class="fn" id="btnLite" aria-pressed="false" type="button">LITE <span class="st">OFF</span></button>
+        <button class="fn" id="btnTilt" aria-pressed="false" type="button">TILT <span class="st">OFF</span></button>
+      </div>
+    </nav>
+  </div>
+</div>
+<p class="legend">Draf tech pad &mdash; geser layar atau tekan tombol seksi di kanan</p>
+
+<script>
+/* Data verbatim from src/ponder/sections.js. Order is sidebar order; entries inside a
+   section are top-to-bottom order on the screen. `short` is verbatim from sections.js: the one-word tab label, and what a rail key-cap reads. */
+var SECTIONS = [
+ {id:'dashboard',short:'Command',label:'Command Center',blurb:'Angka ringkasan seluruh perusahaan. Cuma dibaca, tidak mengubah apa pun.',
+  entries:[{title:'Membaca Command Center',desc:'Jendela 7 hari, dan mana yang bukan tren.',soon:true}]},
+ {id:'restock_vault',short:'Restock',label:'Restock Vault',blurb:'Barang masuk dari pabrik, kirim ke cabang, dan di mana semua barang berada.',
+  entries:[
+   {title:'Goods Received',desc:'Panel paling atas: mencatat barang yang baru datang, dan biaya yang menempel padanya.'},
+   {title:'Stock by Warehouse',desc:'Baca tabel gudang, dan kenapa tidak ada sisa hari untuk satu gudang penuh.'},
+   {title:'Shipment Plan',desc:'Kalau barangnya tidak cukup untuk semua cabang, siapa yang dikirim duluan.'},
+   {title:'Regional Warehouse',desc:'Panel gudang cabang: lima tab, scan barang sampai, alamat yang diatur HQ, dan data induk yang hanya bisa dibaca.'}]},
+ {id:'sales',short:'Sales',label:'Sales Terminal',blurb:'Menjual, mencetak nota, dan apa yang tidak bisa ditarik lagi.',
+  entries:[{title:'Titip vs Lunas',desc:'Beda barang titipan dan barang yang sudah dibayar.',soon:true}]},
+ {id:'inventory',short:'Vault',label:'Master Vault',blurb:'Daftar barang, harga, dan siapa yang boleh mengubahnya.',
+  entries:[{title:'Mengubah barang',desc:'Apa yang ikut berubah waktu harga diubah.',soon:true}]},
+ {id:'agent_inventory',short:'Agent',label:'Agent Inventory',blurb:'Barang yang sedang dibawa salesman.',
+  entries:[{title:'Stok di tangan agen',desc:'Sudah sampai, sudah bisa dijual, belum di rak.',soon:true}]},
+ {id:'stock_opname',short:'Opname',label:'Stock Opname',blurb:'Hitung fisik, dan membandingkannya dengan catatan.',
+  entries:[{title:'Hitung buta',desc:'Kenapa angka sistem sengaja disembunyikan saat menghitung.',soon:true}]},
+ {id:'eod',short:'Setoran',label:'EOD Setoran',blurb:'Tutup hari: uang yang dihitung dibandingkan dengan apa.',
+  entries:[{title:'Setoran harian',desc:'Angka kamu dibandingkan dengan penjualan hari itu, dan kenapa tidak bisa diubah.',soon:true}]},
+ {id:'receivables',short:'Piutang',label:'Receivables & Consignment',blurb:'Utang yang nyata, dan barang yang cuma dititipkan.',
+  entries:[{title:'Piutang vs titipan',desc:'Mana yang uang kamu, mana yang barang kamu.',soon:true}]},
+ {id:'fleet',short:'Fleet',label:'Fleet & Canvas',blurb:'Memuat motor, dan stok yang ikut jalan.',
+  entries:[{title:'Memuat armada',desc:'Memuat motor MEMINDAHKAN stok, bukan menyalinnya.',soon:true}]},
+ {id:'journey',short:'Journey',label:'Journey Plan',blurb:'Rute kunjungan, dan siapa yang dikunjungi hari ini.',
+  entries:[{title:'Menyusun rute',desc:'Urutan kunjungan dan apa yang dicatat di tiap titik.',soon:true}]},
+ {id:'map_war_room',short:'Map',label:'Map System',blurb:'Semua titik pelanggan di satu peta.',
+  entries:[{title:'Membaca peta',desc:'Apa arti tiap warna titik.',soon:true}]},
+ {id:'customers',short:'Customer',label:'Customers',blurb:'Daftar pelanggan, dan siapa yang boleh melihat siapa.',
+  entries:[{title:'Menambah pelanggan',desc:'Data yang wajib, dan kenapa.',soon:true}]},
+ {id:'sampling',short:'Sampling',label:'Sampling',blurb:'Barang yang keluar tanpa dibayar, dan siapa yang menanggungnya.',
+  entries:[{title:'Mencatat sampling',desc:'Stok tetap berkurang walau tidak ada uang masuk.',soon:true}]},
+ {id:'transactions',short:'Reports',label:'Reports',blurb:'Riwayat transaksi dan laporan. Cuma dibaca.',
+  entries:[
+   {title:'Product Performance',desc:'Barang mana yang benar-benar laku, dalam sehari, seminggu, sebulan atau setahun.'},
+   {title:'Membaca laporan',desc:'Rentang tanggal, dan apa yang tidak masuk hitungan.',soon:true}]},
+ {id:'agent_profile',short:'Profile',label:'Agent Profile',blurb:'Profil, tier, dan pencapaian.',
+  entries:[{title:'Membaca profil',desc:'Apa yang menaikkan tier.',soon:true}]},
+ {id:'audit',short:'Audit',label:'Audit Logs',blurb:'Catatan siapa melakukan apa. Tidak bisa dihapus.',
+  entries:[{title:'Membaca audit log',desc:'Apa yang tercatat otomatis, dan apa yang tidak.',soon:true}]},
+ {id:'settings',short:'Settings',label:'Settings',blurb:'Izin, tier, tema, dan Lite Mode.',
+  entries:[{title:'Izin dan tier',desc:'Siapa boleh melihat dan mengubah apa.',soon:true}]}
+];
+
+var pad=document.getElementById('pad'), rail=document.getElementById('rail'),
+    meter=document.getElementById('meter'), panel=document.getElementById('panel'),
+    stage=document.getElementById('stage'), fnpad=rail.querySelector('.fnpad'),
+    stIdx=document.getElementById('stIdx'), stRead=document.getElementById('stRead'),
+    stReady=document.getElementById('stReady'), stTotal=document.getElementById('stTotal');
+
+var cur=0, read={}, lite=false, dwell=null;
+try{ read=JSON.parse(localStorage.getItem('ponderPadRead')||'{}')||{}; }catch(e){ read={}; }
+function save(){ try{ localStorage.setItem('ponderPadRead',JSON.stringify(read)); }catch(e){} }
+
+function pad2(n){ return (n<10?'0':'')+n; }
+function esc(s){ return String(s).replace(/[&<>]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+
+var totalEntries=0, readyEntries=0;
+SECTIONS.forEach(function(s){ s.entries.forEach(function(e){ totalEntries++; if(!e.soon){ readyEntries++; } }); });
+stReady.textContent=pad2(readyEntries);
+stTotal.textContent=pad2(totalEntries);
+
+var keys=[], segs=[];
+SECTIONS.forEach(function(s,i){
+  var b=document.createElement('button');
+  b.className='key'; b.type='button';
+  b.innerHTML='<span>'+s.short+'</span><span class="lamp"></span>';
+  b.title=s.label;
+  b.setAttribute('aria-label',s.label);
+  b.addEventListener('click',function(){ go(i); });
+  rail.insertBefore(b,fnpad); keys.push(b);
+  var g=document.createElement('div'); g.className='seg'; meter.appendChild(g); segs.push(g);
+});
+
+function paint(){
+  var n=0;
+  SECTIONS.forEach(function(s,i){
+    var r=!!read[s.id];
+    if(r){ n++; }
+    keys[i].className='key'+(r?' read':'')+(i===cur?' on':'');
+    keys[i].setAttribute('aria-current', i===cur?'true':'false');
+    segs[i].className='seg'+(r?' read':'')+(i===cur?' cur':'');
+  });
+  stIdx.textContent=pad2(cur+1);
+  stRead.textContent=pad2(n);
+}
+
+function render(){
+  var s=SECTIONS[cur], h='';
+  /* no index here - the status strip already prints SEKSI n/17, and one fact gets one
+     indicator. Same reasoning that killed the hanging ribbon. */
+  h+='<div class="eyebrow"><span class="plate">'+s.short+'</span><span class="line"></span></div>';
+  h+='<h1>'+esc(s.label)+'</h1>';
+  h+='<p class="blurb">'+esc(s.blurb)+'</p>';
+  h+='<div class="rule-lab"><span>Isi</span><span class="line"></span><span>'+pad2(s.entries.length)+'</span></div>';
+  s.entries.forEach(function(e,j){
+    h+='<div class="entry">'
+     + '<span class="idx">'+pad2(j+1)+'</span>'
+     + '<span class="etitle">'+esc(e.title)+'</span>'
+     + '<span class="chip '+(e.soon?'soon':'ready')+'">'+(e.soon?'Segera':'Siap')+'</span>'
+     + '<span class="edesc">'+esc(e.desc)+'</span>'
+     + '</div>';
+  });
+  panel.innerHTML=h;
+  panel.scrollTop=0;
+}
+
+function go(i){
+  if(i<0 || i>=SECTIONS.length || i===cur){ return; }
+  clearTimeout(dwell);
+  if(lite){ cur=i; render(); paint(); markSoon(); return; }
+  panel.classList.add('out');
+  setTimeout(function(){
+    cur=i; render(); paint();
+    panel.classList.remove('out'); panel.classList.add('in');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ panel.classList.remove('in'); }); });
+    markSoon();
+  },150);
+}
+function markSoon(){
+  dwell=setTimeout(function(){
+    if(!read[SECTIONS[cur].id]){ read[SECTIONS[cur].id]=1; save(); paint(); }
+  },1100);
+}
+
+/* swipe across the display - horizontal only, so the panel can still scroll */
+var sx=0, sy=0, tracking=false;
+stage.addEventListener('touchstart',function(e){
+  if(e.touches.length!==1){ return; }
+  sx=e.touches[0].clientX; sy=e.touches[0].clientY; tracking=true;
+},{passive:true});
+stage.addEventListener('touchend',function(e){
+  if(!tracking){ return; }
+  tracking=false;
+  var t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+  if(Math.abs(dx)>44 && Math.abs(dx)>Math.abs(dy)*1.4){ go(cur + (dx<0?1:-1)); }
+},{passive:true});
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'){ go(cur+1); }
+  if(e.key==='ArrowUp'||e.key==='ArrowLeft'){ go(cur-1); }
+});
+
+/* LITE MODE */
+var btnLite=document.getElementById('btnLite');
+function setLite(on){
+  lite=on;
+  document.body.classList.toggle('lite',on);
+  btnLite.setAttribute('aria-pressed',on?'true':'false');
+  btnLite.querySelector('.st').textContent=on?'ON':'OFF';
+  if(on){ pad.style.setProperty('--tx',0); pad.style.setProperty('--ty',0); }
+}
+btnLite.addEventListener('click',function(){ setLite(!lite); });
+if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){ setLite(true); }
+
+/* TILT */
+var btnTilt=document.getElementById('btnTilt'), tiltOn=false, raf=null,
+    want={x:0,y:0}, have={x:0,y:0};
+function loop(){
+  have.x += (want.x-have.x)*.14; have.y += (want.y-have.y)*.14;
+  pad.style.setProperty('--tx',have.x.toFixed(3));
+  pad.style.setProperty('--ty',have.y.toFixed(3));
+  raf=requestAnimationFrame(loop);
+}
+function clamp(v){ return v<-1?-1:(v>1?1:v); }
+function onOrient(e){
+  if(lite || e.gamma==null){ return; }
+  want.x=clamp(e.gamma/26);
+  want.y=clamp(((e.beta==null?45:e.beta)-45)/30);
+}
+function startTilt(){
+  window.addEventListener('deviceorientation',onOrient);
+  if(!raf){ loop(); }
+  tiltOn=true;
+  btnTilt.setAttribute('aria-pressed','true');
+  btnTilt.querySelector('.st').textContent='ON';
+}
+function stopTilt(){
+  window.removeEventListener('deviceorientation',onOrient);
+  want.x=0; want.y=0; tiltOn=false;
+  btnTilt.setAttribute('aria-pressed','false');
+  btnTilt.querySelector('.st').textContent='OFF';
+}
+btnTilt.addEventListener('click',function(){
+  if(tiltOn){ stopTilt(); return; }
+  var D=window.DeviceOrientationEvent;
+  if(D && typeof D.requestPermission==='function'){
+    D.requestPermission().then(function(r){
+      if(r==='granted'){ startTilt(); }
+      else { btnTilt.querySelector('.st').textContent='NO'; }
+    })['catch'](function(){ btnTilt.querySelector('.st').textContent='NO'; });
+  } else if(D){ startTilt(); }
+  else { btnTilt.querySelector('.st').textContent='N/A'; btnTilt.disabled=true; }
+});
+
+/* pointer parallax on a desk, where there is no gyro */
+if(window.matchMedia && matchMedia('(hover:hover)').matches){
+  if(!raf){ loop(); }
+  window.addEventListener('pointermove',function(e){
+    if(lite||tiltOn){ return; }
+    want.x=clamp((e.clientX/innerWidth - .5)*2);
+    want.y=clamp((e.clientY/innerHeight - .5)*2);
+  });
+}
+
+render(); paint(); markSoon();
+</script>
