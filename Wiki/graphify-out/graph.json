@@ -593,8 +593,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "a named import can shadow a global"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_happened",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "what happened"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "what it cost, and what did not catch it"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the fix, and the rule"
     },
     {
@@ -4451,7 +4451,7 @@
       "label": "What was kept, deliberately",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
-      "source_location": "L87",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "concepts_the_book_as_a_stack_of_sheets_what_was_kept_deliberately",
       "community": 70,
@@ -4462,12 +4462,67 @@
       "label": "Where it is checked",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
-      "source_location": "L94",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "concepts_the_book_as_a_stack_of_sheets_where_it_is_checked",
       "community": 70,
       "community_name": "The Book as a Stack of Sheets",
       "norm_label": "where it is checked"
+    },
+    {
+      "label": "He watched it, and named two faults (2026-09-02)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_he_watched_it_and_named_two_faults_2026_09_02",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "he watched it, and named two faults (2026-09-02)"
+    },
+    {
+      "label": "The snap was one cause with three faces",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L127",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_snap_was_one_cause_with_three_faces",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the snap was one cause with three faces"
+    },
+    {
+      "label": "A flick is a speed, not a distance",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_a_flick_is_a_speed_not_a_distance",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "a flick is a speed, not a distance"
+    },
+    {
+      "label": "The riffle",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L156",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_riffle",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the riffle"
+    },
+    {
+      "label": "The harness trap this pass paid for",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L166",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_harness_trap_this_pass_paid_for",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the harness trap this pass paid for"
     },
     {
       "label": "The Eight Warehouse Gaps.md",
@@ -6390,8 +6445,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "index_wiki_index",
-      "community": 51,
-      "community_name": "Wiki Index",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "wiki index"
     },
     {
@@ -6401,8 +6456,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "index_entities_specific_things",
-      "community": 51,
-      "community_name": "Wiki Index",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "entities (specific things)"
     },
     {
@@ -6412,8 +6467,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "index_concepts_recurring_patterns",
-      "community": 51,
-      "community_name": "Wiki Index",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "concepts (recurring patterns)"
     },
     {
@@ -6423,8 +6478,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
-      "community": 51,
-      "community_name": "Wiki Index",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "summaries (one per ingested source, newest ingest pass first)"
     },
     {
@@ -6434,8 +6489,8 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
-      "community": 51,
-      "community_name": "Wiki Index",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "known gaps (honest, not filled in yet)"
     },
     {
@@ -8150,8 +8205,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -10008,7 +10063,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
-      "source_location": "L108",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets",
@@ -11383,7 +11438,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
-      "source_location": "L107",
+      "source_location": "L111",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets",
@@ -14364,7 +14419,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
-      "source_location": "L108",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets",
@@ -14837,7 +14892,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
-      "source_location": "L107",
+      "source_location": "L111",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets",
@@ -15507,6 +15562,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L171",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
       "source_location": "L120",
       "weight": 1.0,
@@ -15535,6 +15601,17 @@
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
       "target": "concepts_the_book_as_a_stack_of_sheets_flip_is_the_one_number_that_differs_between_the_widths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L116",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_he_watched_it_and_named_two_faults_2026_09_02",
       "confidence_score": 1.0
     },
     {
@@ -15585,7 +15662,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
-      "source_location": "L87",
+      "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
@@ -15596,7 +15673,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
-      "source_location": "L94",
+      "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
@@ -15612,6 +15689,50 @@
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
       "target": "concepts_the_book_as_a_stack_of_sheets_why_not_framer_motion_which_he_approved_and_which_is_installed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L149",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_he_watched_it_and_named_two_faults_2026_09_02",
+      "target": "concepts_the_book_as_a_stack_of_sheets_a_flick_is_a_speed_not_a_distance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L166",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_he_watched_it_and_named_two_faults_2026_09_02",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_harness_trap_this_pass_paid_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L156",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_he_watched_it_and_named_two_faults_2026_09_02",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_riffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_he_watched_it_and_named_two_faults_2026_09_02",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_snap_was_one_cause_with_three_faces",
       "confidence_score": 1.0
     },
     {
@@ -20885,5 +21006,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a55b9a6ce13e96fe4473c7033a7be286186b455d"
+  "built_at_commit": "4fc9f4b2977221cc722a39b8d648f45245ab3079"
 }

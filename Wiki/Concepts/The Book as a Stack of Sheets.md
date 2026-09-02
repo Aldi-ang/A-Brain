@@ -1,6 +1,6 @@
 ---
 title: The Book as a Stack of Sheets
-description: The tutorial book rebuilt on the Framer interactive-book technique — the four things that make a page a sheet, why the leaves had to become the chapters, why a phone turns to -90, and the commit-on-gesture rule that stopped a fast swipe snapping.
+description: The tutorial book rebuilt on the Framer interactive-book technique — what makes a page a sheet, why the leaves became the chapters, the commit-on-gesture rule that stopped a fast swipe snapping, why a tap on the close button armed a page drag, and the Z trap that folded the cover behind its own pages.
 type: concept
 created: 2026-09-01
 updated: 2026-09-02
@@ -18,7 +18,7 @@ Aldi, 2026-09-01, after three failed passes at the phone close:
 > version with this one also, i want this 3D style and also i want the page to be drag able to
 > change the page left and right with smooth motion"*
 
-Built as `9a9cb62`; the two faults he named on watching it are fixed in `c0ce49f` (see the bottom of this page). **He has not judged the second pass yet** — a still frame cannot
+Built as `9a9cb62`, then `c0ce49f` (fast swipe, riffle) and `bedf40b` (closeable, and the close as a real fold) — all three recorded further down this page. **He has not judged the latest pass yet** — a still frame cannot
 prove one, and three of the previous day's passes cleared every check here and were still wrong.
 
 ## The licence line
@@ -170,3 +170,90 @@ sits at `currentTime: 0` in state `running` forever, so a perfectly working turn
 Pump frames with repeated screenshots. This cost a round of misdiagnosis before it was noticed, and
 it is the same shape as the note already in [[The Shell Repaints Any White It Can Reach]]: the
 harness, not the code, was the thing that was wrong.
+
+---
+
+## The close, done as a fold — and why he could not close it at all (2026-09-02)
+
+Commit `bedf40b`. Two asks in one afternoon: *"make sure that i can close the book right now i
+cant"*, and then *"make sure book close the right way, imagine its 3D use all the design skill to
+do this"*.
+
+### The reason he could not close it, and why looking would never have found it
+
+A tap on the close button that drifts **twelve pixels** — which is every tap a finger ever makes —
+cleared the ten-pixel drag threshold. The stage called `setPointerCapture`, the pointer stopped
+belonging to the button, and **on a touch device that suppresses the click outright**. So the X did
+nothing, the tap turned the page instead, and on a phone the book had no other reliable way out.
+
+⚠️ **The button was a correct 44×44 the whole time and the finger was on it.** Nothing about the
+geometry, the z-order or the styling was wrong. This is the shape of bug that a screenshot can
+never show, and the only reason it was found is that the failing gesture was replayed as real
+pointer events and `setPointerCapture` was instrumented to report when it fired.
+
+**The rule:** a gesture must decide by **what was touched**, not by how far it moved. A press that
+lands on a control never arms a drag, whatever it does afterwards. Two supports underneath it: a
+drag needs real intent (14px **and** more sideways than up-and-down), and the scrim closes on
+`pointerdown` — which a phone gets for certain — not only on the `mousedown` it merely synthesizes.
+
+### Closing a book is one motion, not a fade
+
+The close before this faded every sheet to `opacity: 0` while a cover swung across on its own. The
+pages evaporated and a cover arrived from nowhere, and **nothing in the real world disappears and
+reappears** (Emil Kowalski's rule, and it is the whole diagnosis here).
+
+Closing a book open at page N is one motion: the **entire right-hand block** — every sheet you have
+not turned yet, plus the cover beneath them — folds about the spine onto the left half. The sheets
+already lying on the left never move, because on a desk they do not. No opacity anywhere in it.
+
+The one liberty is a **14ms stagger from the outside in**, so the cover leads and the page you were
+reading settles last. That is what makes it read as paper falling rather than as a board swinging.
+
+### 🔴 The Z trap, which cost a render to find
+
+**A parent's `translateZ` is applied AFTER the child's rotation, so the rotation never negates it.**
+
+- Cover depth on the **wrapper** at `-24`: the child rotates, then the parent offsets → the cover
+  folds over and ends up at −24, *behind its own pages*. The frame showed a page lying face-up
+  where the leather should be.
+- Cover depth on the **rotating element** as `translateZ(24px) rotateY(...)`: it rotates first and
+  offsets second → +24, which is in front of a sheet stack spanning about 7. In front while it
+  swings open, in front again once it has folded shut, which is where the outside of a book goes.
+
+`SHUT` and `OPEN` stay rotation-only because the **sheets** use them too; a sheet that borrowed the
+cover's offset would fold up in front of the cover.
+
+### The riffle lost its cap, and everything got faster
+
+*"yes, full realism needed"* closed the cap question: every page between here and there is turned,
+at any distance. Chapter one to chapter seventeen is sixteen real turns. The run stays under a
+second by getting **faster** rather than by skipping.
+
+| | before | after |
+|---|---|---|
+| a single deliberate turn | 520ms | **340ms** |
+| the riffle's whole budget | 900ms | **700ms** |
+| the close | 980ms | **820ms** |
+
+An exit should be faster than an entrance: the arrival is the book being carried to you and may
+take its time, the departure is the system answering and must not keep you waiting.
+
+### The bug only running it could find
+
+`play()` floored every step at a **literal 90ms**, silently overriding the 60 the riffle had
+planned. The longest run took 1260ms while every check in the file read 840 and passed — the
+arithmetic said one thing and the screen did another, and the checks agreed with the arithmetic
+because that is the number they read. One constant now (`RIFFLE_MIN_MS`), used on both sides, plus
+a check that no planned step is below the floor the book will actually use.
+
+**The general shape:** a second literal for a value that already has a name is not a duplicate, it
+is a silent override — and it will beat the named one wherever it happens to sit later in the
+pipeline. Same family as [[A Check Points at a File, Not at a Behaviour]].
+
+### Two harness notes, both paid for
+
+- **Never call `requestAnimationFrame` in a Browser-pane probe.** The pane does not paint between
+  tool calls, so rAF never fires and the call times out at 45 seconds.
+- **To inspect a motion, freeze it rather than race it.** Start it, `setTimeout(30)`, then
+  `document.getAnimations().forEach(a => { a.pause(); a.currentTime = N })` and screenshot. That is
+  what produced the frame proving the cover folds in front of its pages.
