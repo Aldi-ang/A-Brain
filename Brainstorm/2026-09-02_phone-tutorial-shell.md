@@ -174,12 +174,13 @@ the screen, because that is what a screen is. It is also closer to the app's own
 warehouse system read on a phone in a gudang, and a field terminal fits that better than a leather
 manual.
 
-### ⚠️ The constraint that must survive into round 3
+### ✅ ANSWERED — futuristic in form, not in colour
 
-**"Futuristic" normally arrives as glow, scanlines and CYAN — and cyan is blue, which the palette
-law forbids.** So the pad has to be futuristic in **form** (depth, precision, mechanism, exact
-alignment, real 3D panel movement) and never in **colour**. Slate, gold, amber. A field instrument,
-not a sci-fi prop. This was put to him directly and he has not yet answered.
+*"well be creative just as long as we use futuristic theme for this u made and i can adjust later"*
+(2026-09-02). He confirmed the theme and handed over the execution. **The palette law is not
+negotiable and was never in question** — so the pad is futuristic in **form** (depth, precision,
+mechanism, exact alignment, real 3D panel movement) and never in **colour**. Slate, gold, amber. A
+field instrument, not a sci-fi prop.
 
 ### Carried forward from the manual
 
@@ -189,3 +190,54 @@ panels in depth without owing anyone a hinge.
 Drop: the hanging ribbon · the cover · the spine · the fold.
 
 **Status: OPEN.** Nothing built. Round-3 artifact not yet made — the session ended on plan quota.
+
+---
+
+## THE SPEC — build this (2026-09-02, his approval given)
+
+*"well be creative just as long as we use futuristic theme for this u made and i can adjust later"*.
+Design locked below so the next session builds once instead of exploring again.
+
+### The object: **a field terminal, not a screen pretending to be paper**
+
+A hardened handheld a gudang worker would actually carry — milled slate housing, an inset display,
+gold anodised edges. Nothing skeuomorphic: **no paper, no leather, no cover, no spine, no fold.**
+Those obligations are exactly what kept breaking. The pad is honest about being a screen.
+
+### The five moves, in priority order
+
+| # | Move | Why it earns its place |
+|---|---|---|
+| 1 | **The section rail is the hero** — the fore-edge index reborn as a channel of milled key-caps down the RIGHT edge, thumb-reachable, each with its code and a state light | The only navigation idea he has praised on sight, three rounds running. It stops being a compromise and becomes what a handheld terminal *should* look like |
+| 2 | **Panels move in real depth** — sections arrive by sliding forward on Z and settling, not by rotating. Perspective and parallax between the rail, the panel and the housing | Keeps the 3D he explicitly refuses to give up, without a hinge to owe |
+| 3 | **Tilt-reactive** — the housing's milled edges catch light, the display gets a faint sheen, the rail's key-caps highlight as the phone moves | Still the one thing a desk monitor cannot do. Carried straight over from the manual |
+| 4 | **Progress as an edge meter** — a thin illuminated track down the LEFT housing edge, filling as sections are read | Replaces both the page block and the deleted ribbon. **One meter, one fact** — the mistake that killed the ribbon |
+| 5 | **Readout chrome** — mono labels, tabular numbers, a fine baseline grid, hairline rules, a status strip | Futurism carried by precision and information density rather than by glow |
+
+### 🔴 Palette — non-negotiable
+
+- **Housing** slate, cool but never blue-cast: `#1C1F22` → `#0E1012`
+- **Display ground** near-black warm `#121014`
+- **Ink** bone `#E8E3DA`, dim `#8E8779`
+- **Accent** the KPM gold/amber `#FF8C1A`, with foil `#FFD9A0` for the tilt highlight
+- **State** amber = current, dim bone = read, faint = unwritten
+- **BANNED: cyan, teal, electric blue, green.** No exceptions, including "just for the glow".
+
+### ⚠️ Rules the draft must obey
+
+1. **Lite Mode toggle in the artifact.** Motion, sheen and parallax go; every colour and every word
+   stays. Judged, not promised.
+2. **No glow-as-crutch.** If a shape only reads because it is glowing, the shape is wrong.
+3. **17 sections, real data**, from `src/ponder/sections.js`. Never filler.
+4. **Thumb reach.** Every control on the right edge, lower two-thirds.
+5. **It must survive a still frame** — he judges on a phone, often paused.
+
+### Rejected on purpose, round 3
+
+- **Scanlines, CRT bloom, holographic sheen, cyan grids.** Cyan is blue. And a warehouse terminal
+  used in daylight would not glow.
+- **Any paper or leather texture.** The whole point of dropping the book is dropping its obligations.
+- **A reward/unlock layer.** Unchanged from round 2: a tutorial is opened mid-task, in a hurry.
+- **Keeping the hanging ribbon in any form.** Deleted, and the edge meter replaces it.
+
+**Status: SPEC LOCKED, NOT BUILT.** Session ended on plan quota with none of the app touched.
