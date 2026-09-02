@@ -241,3 +241,46 @@ Those obligations are exactly what kept breaking. The pad is honest about being 
 - **Keeping the hanging ribbon in any form.** Deleted, and the edge meter replaces it.
 
 **Status: SPEC LOCKED, NOT BUILT.** Session ended on plan quota with none of the app touched.
+
+---
+
+## Round 4 — THE TECH PAD IS BUILT (2026-09-02, ~21:10 WIB)
+
+**Artifact:** <https://claude.ai/code/artifact/ad98ec70-ede4-4866-95f6-aa553c9f0ef0> — "Ponder Field
+Terminal". Built straight from THE SPEC above, no fourth exploration, no menu. **No KPM app file
+was touched.**
+
+### What shipped in the draft, against the five moves
+
+| # | Move | How it was built |
+|---|---|---|
+| 1 | Section rail is the hero | 17 milled key-caps down the RIGHT edge, three-letter code + a state lamp each. Flex-sized, so all 17 fit any phone height without scrolling. Active cap fills gold and steps out toward the reader |
+| 2 | Panels move in real depth | leaving panel goes back to `translateZ(-110px)`, the arriving one comes forward from `-150px` and settles. Rail sits at `+15px`, meter `+5px`, display at `0` — real parallax under tilt. **Nothing rotates** |
+| 3 | Tilt-reactive | `deviceorientation` drives `--tx/--ty`; the housing rotates ±5.5°, the gold rim's gradient angle shifts, and a light band sweeps the face. iOS needs a tap for permission, so there is a **TILT** cap — without it the gyro would silently do nothing and read as dead |
+| 4 | One progress meter | a 17-segment illuminated track down the LEFT housing edge. Read = foil, current = amber. **No second indicator anywhere** |
+| 5 | Readout chrome | IBM Plex Mono labels, tabular numbers, hairline rules, a status strip (`SEKSI 02/17 · DIBACA 02/17`) and a footer (`MODUL SIAP 05/21`, counted from the real data) |
+
+### Two deliberate deviations from the written spec — both need his eye
+
+1. **No lucide icons.** `sections.js` carries an `icon` string per section, and the book uses them.
+   The pad uses a **milled code plate** (`RST`) instead, matching the rail cap. An instrument reads
+   in codes, not pictograms — and it removes a CDN dependency that fails silently. Reversible.
+2. **Single theme.** The pad is a dark object; the spec's palette has no light values. So it does
+   not follow the app's light/dark switch. If the tutorial must invert with the app, that is a
+   second palette he has not been asked for.
+
+### Verified by rendering, not by claim
+
+Both states were rendered and screenshotted at phone width: normal, and **Lite Mode ON** — the
+sheen and the depth offsets go, every colour and every word stays. Section 02 was opened by
+pressing its rail cap; the panel, the status counts, the meter and the caps all followed.
+
+⚠️ **One bug was caught only because it was rendered.** `.display` was placed at `translateZ(-9px)`
+inside the `preserve-3d` housing, and a child at negative Z **paints behind its own parent's
+background** — the whole readout was invisible while the rail and the meter drew perfectly. A
+still-frame check is what found it; the DOM was correct the entire time.
+
+### Status
+
+🔴 **OPEN — waiting on his verdict.** The riffle removal from the PC book is queued behind it and
+ships in the same pass, unchanged from the round-3 decision.
