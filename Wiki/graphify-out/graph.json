@@ -505,8 +505,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_a_meter_that_exits_silently_is_not_a_meter",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 89,
+      "community_name": "A Meter That Exits Silently Is Not a Meter",
       "norm_label": "a meter that exits silently is not a meter"
     },
     {
@@ -516,8 +516,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_what_happened",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 89,
+      "community_name": "A Meter That Exits Silently Is Not a Meter",
       "norm_label": "what happened"
     },
     {
@@ -527,8 +527,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_the_root_cause",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 89,
+      "community_name": "A Meter That Exits Silently Is Not a Meter",
       "norm_label": "the root cause"
     },
     {
@@ -538,8 +538,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_why_it_was_never_noticed",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 89,
+      "community_name": "A Meter That Exits Silently Is Not a Meter",
       "norm_label": "why it was never noticed"
     },
     {
@@ -549,8 +549,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_what_changed",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 89,
+      "community_name": "A Meter That Exits Silently Is Not a Meter",
       "norm_label": "what changed"
     },
     {
@@ -560,8 +560,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_resolution_2026_08_31_evening_commit_7ca7b03",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 89,
+      "community_name": "A Meter That Exits Silently Is Not a Meter",
       "norm_label": "resolution \u2014 2026-08-31 evening, commit `7ca7b03`"
     },
     {
@@ -571,9 +571,64 @@
       "source_location": "L101",
       "_origin": "ast",
       "id": "concepts_a_meter_that_exits_silently_is_not_a_meter_the_general_rule",
+      "community": 89,
+      "community_name": "A Meter That Exits Silently Is Not a Meter",
+      "norm_label": "the general rule"
+    },
+    {
+      "label": "A Named Import Can Shadow a Global.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_a_named_import_can_shadow_a_global",
       "community": 4,
       "community_name": "Concepts/index.md",
-      "norm_label": "the general rule"
+      "norm_label": "a named import can shadow a global.md"
+    },
+    {
+      "label": "A Named Import Can Shadow a Global",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
+      "norm_label": "a named import can shadow a global"
+    },
+    {
+      "label": "What happened",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "concepts_a_named_import_can_shadow_a_global_what_happened",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
+      "norm_label": "what happened"
+    },
+    {
+      "label": "What it cost, and what did NOT catch it",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
+      "norm_label": "what it cost, and what did not catch it"
+    },
+    {
+      "label": "The fix, and the rule",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
+      "norm_label": "the fix, and the rule"
     },
     {
       "label": "A Network Is Not The Internet.md",
@@ -4305,6 +4360,116 @@
       "norm_label": "the sharper version of the same case: the animation ran and was invisible (2026-08-16)"
     },
     {
+      "label": "The Book as a Stack of Sheets.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "the book as a stack of sheets.md"
+    },
+    {
+      "label": "The Book as a Stack of Sheets",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the book as a stack of sheets"
+    },
+    {
+      "label": "The licence line",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_licence_line",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the licence line"
+    },
+    {
+      "label": "The technique, which is four things",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_technique_which_is_four_things",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the technique, which is four things"
+    },
+    {
+      "label": "The leaves had to become the chapters, and the data forced it",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_leaves_had_to_become_the_chapters_and_the_data_forced_it",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the leaves had to become the chapters, and the data forced it"
+    },
+    {
+      "label": "FLIP is the one number that differs between the widths",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_flip_is_the_one_number_that_differs_between_the_widths",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "flip is the one number that differs between the widths"
+    },
+    {
+      "label": "Why not framer-motion, which he approved and which is installed",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_why_not_framer_motion_which_he_approved_and_which_is_installed",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "why not framer-motion, which he approved and which is installed"
+    },
+    {
+      "label": "The rule the drag must keep",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_rule_the_drag_must_keep",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the rule the drag must keep"
+    },
+    {
+      "label": "What was kept, deliberately",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_what_was_kept_deliberately",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "what was kept, deliberately"
+    },
+    {
+      "label": "Where it is checked",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L94",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_where_it_is_checked",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "where it is checked"
+    },
+    {
       "label": "The Eight Warehouse Gaps.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Eight Warehouse Gaps.md",
@@ -4773,8 +4938,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the shell repaints any white it can reach"
     },
     {
@@ -4784,8 +4949,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_rule",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the rule"
     },
     {
@@ -4795,8 +4960,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_second_cause_of_the_same_appearance",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the second cause of the same appearance"
     },
     {
@@ -4806,8 +4971,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_two_harness_traps_which_cost_more_than_the_bug",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "\u26a0\ufe0f the two harness traps, which cost more than the bug"
     },
     {
@@ -4817,8 +4982,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_what_changed_in_the_look",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "what changed in the look"
     },
     {
@@ -6266,7 +6431,7 @@
       "label": "Known gaps (honest, not filled in yet)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L121",
+      "source_location": "L123",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
       "community": 51,
@@ -7985,8 +8150,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -9840,6 +10005,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets",
+      "target": "concepts_a_feature_is_not_done_until_the_book_knows",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Feature Is Not Done Until the Book Knows.md",
@@ -10002,6 +10178,149 @@
       "_origin": "ast",
       "source": "concepts_a_meter_that_exits_silently_is_not_a_meter_a_meter_that_exits_silently_is_not_a_meter",
       "target": "concepts_a_meter_that_exits_silently_is_not_a_meter_why_it_was_never_noticed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_named_import_can_shadow_a_global",
+      "target": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_named_import_can_shadow_a_global",
+      "target": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_named_import_can_shadow_a_global",
+      "target": "concepts_anti_recurrence_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_named_import_can_shadow_a_global",
+      "target": "concepts_looking_at_the_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_named_import_can_shadow_a_global",
+      "target": "concepts_ponder_tutorial_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_named_import_can_shadow_a_global",
+      "target": "concepts_the_book_as_a_stack_of_sheets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_named_import_can_shadow_a_global",
+      "target": "concepts_the_shell_repaints_any_white_it_can_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_index",
+      "target": "concepts_a_named_import_can_shadow_a_global",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Index.md",
+      "source_location": "L121",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "concepts_a_named_import_can_shadow_a_global",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/MOC.md",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "moc",
+      "target": "concepts_a_named_import_can_shadow_a_global",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
+      "target": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
+      "target": "concepts_a_named_import_can_shadow_a_global_what_happened",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Named Import Can Shadow a Global.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
+      "target": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
       "confidence_score": 1.0
     },
     {
@@ -11057,6 +11376,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_sale_is_final_no_refund_no_credit",
+      "target": "concepts_aldi_s_design_taste",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets",
       "target": "concepts_aldi_s_design_taste",
       "confidence_score": 1.0
     },
@@ -12579,6 +12909,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets",
+      "target": "concepts_design_inspiration_sources",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Design Inspiration Sources.md",
@@ -14022,6 +14363,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets",
+      "target": "concepts_looking_at_the_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
       "source_location": "L42",
       "weight": 1.0,
@@ -14479,6 +14831,17 @@
       "_origin": "ast",
       "source": "concepts_ponder_tutorial_system",
       "target": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets",
+      "target": "concepts_ponder_tutorial_system",
       "confidence_score": 1.0
     },
     {
@@ -15117,6 +15480,138 @@
       "_origin": "ast",
       "source": "concepts_silent_failure_disease_case_a_transition_on_an_element_that_was_just_created_2026_08_16",
       "target": "concepts_silent_failure_disease_the_sharper_version_of_the_same_case_the_animation_ran_and_was_invisible_2026_08_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_index",
+      "target": "concepts_the_book_as_a_stack_of_sheets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Index.md",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "concepts_the_book_as_a_stack_of_sheets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/MOC.md",
+      "source_location": "L118",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "moc",
+      "target": "concepts_the_book_as_a_stack_of_sheets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_flip_is_the_one_number_that_differs_between_the_widths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_leaves_had_to_become_the_chapters_and_the_data_forced_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_licence_line",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_rule_the_drag_must_keep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_technique_which_is_four_things",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_what_was_kept_deliberately",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L94",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_where_it_is_checked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_why_not_framer_motion_which_he_approved_and_which_is_installed",
       "confidence_score": 1.0
     },
     {
@@ -17477,7 +17972,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L121",
+      "source_location": "L123",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -18236,7 +18731,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L118",
+      "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -20390,5 +20885,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "47eacb492c1afbf39e1bb742d8d16ed1f47bb9ad"
+  "built_at_commit": "a55b9a6ce13e96fe4473c7033a7be286186b455d"
 }

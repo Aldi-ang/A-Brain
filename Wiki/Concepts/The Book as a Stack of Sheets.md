@@ -1,11 +1,11 @@
 ---
 title: The Book as a Stack of Sheets
-description: The tutorial book rebuilt on the Framer interactive-book technique — the four things that make a page a sheet, why the leaves had to become the chapters, and why a phone turns to -90 instead of -180.
+description: The tutorial book rebuilt on the Framer interactive-book technique — the four things that make a page a sheet, why the leaves had to become the chapters, why a phone turns to -90, and the commit-on-gesture rule that stopped a fast swipe snapping.
 type: concept
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-02
 confidence: high
-checked: 2026-09-01
+checked: 2026-09-02
 tags: [design, ponder, animation, 3d, aldi, framer]
 ---
 
@@ -18,7 +18,7 @@ Aldi, 2026-09-01, after three failed passes at the phone close:
 > version with this one also, i want this 3D style and also i want the page to be drag able to
 > change the page left and right with smooth motion"*
 
-Built and committed as `9a9cb62`. **He has not judged the motion yet** — a still frame cannot
+Built as `9a9cb62`; the two faults he named on watching it are fixed in `c0ce49f` (see the bottom of this page). **He has not judged the second pass yet** — a still frame cannot
 prove one, and three of the previous day's passes cleared every check here and were still wrong.
 
 ## The licence line
@@ -106,3 +106,63 @@ Found while building: [[A Named Import Can Shadow a Global]].
 
 See also: [[Ponder Tutorial System]] · [[Aldi's Design Taste]] · [[Design Inspiration Sources]] ·
 [[Looking at the App]] · [[A Feature Is Not Done Until the Book Knows]]
+
+---
+
+## He watched it, and named two faults (2026-09-02)
+
+Both fixed the same day, commit `c0ce49f` in kpm-inventory. His words:
+
+> *"when i slide it too quickly, animation broke and the book snapped itself into next page
+> instead"*
+>
+> *"i want to put full realism of this book, for example if i change the ribbon section by 4 ribbons
+> far then the book will turn 4 times to reach that page so instead of page 1 to page 5 in one swipe
+> i want the animation to be 4 quick page swipe, this way it will make it realistic"*
+
+### The snap was one cause with three faces
+
+The first version committed the position **only** from `anim.onfinish`. So for the whole 520ms of a
+settle, the book still believed it stood on the old sheet — and three separate symptoms fell out of
+that single fact:
+
+| What you saw | Why |
+|---|---|
+| the second swipe did nothing | it grabbed the sheet that was already flying away |
+| the page ignored the finger | a WAAPI animation under `fill: 'both'` **outranks an inline style**, so the drag's writes had no effect for the rest of that arc |
+| the book jumped on its own | the first animation finished and applied ITS target — this is the snap |
+
+**The rule worth keeping: commit state when the GESTURE decides, and let the animation be
+decoration.** React re-renders the sheet at the same transform the animation is already holding, so
+nothing moves on screen, and the next gesture reads the new position immediately. A `posRef` carries
+it synchronously, because two flicks can land inside one React batch.
+
+Two more, from the same family:
+- a drag **cancels whatever animation owns that sheet** before touching it;
+- a finished animation **only cleans up if it still owns the sheet** — a faster gesture may have
+  taken it over, and cancelling that one drops the page mid-turn.
+
+### A flick is a speed, not a distance
+
+A decisive swipe covering a fifth of the page snapped back under a distance-only threshold. Release
+speed now decides it too — `0.45 px/ms`, about a page's width in half a second. And only the arc
+that is **left** gets played, so a page released at 90% finishes in a blink rather than restarting a
+full-length turn from where it already is.
+
+### The riffle
+
+`riffle(from, to)` in `pageModel.js` plans the run and the self-check runs it on the real seventeen
+chapters. Four apart is four turns at 225ms; every distance up to eight is turned page for page.
+Past eight the book opens most of the way at once and riffles the last eight — chapter one to
+chapter seventeen is sixteen sheets, and that is a thumb on a bookmark, not a teleport.
+
+⚠️ **One step per RENDER, driven by an effect, never a loop.** A loop starts all four turns in the
+same tick and they land as one, which is exactly the teleport being removed.
+
+### The harness trap this pass paid for
+
+**The Browser pane's animation clock only advances when it PAINTS.** Between tool calls an animation
+sits at `currentTime: 0` in state `running` forever, so a perfectly working turn reads as frozen.
+Pump frames with repeated screenshots. This cost a round of misdiagnosis before it was noticed, and
+it is the same shape as the note already in [[The Shell Repaints Any White It Can Reach]]: the
+harness, not the code, was the thing that was wrong.
