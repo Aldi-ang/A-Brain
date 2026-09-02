@@ -18,7 +18,7 @@ Aldi, 2026-09-01, after three failed passes at the phone close:
 > version with this one also, i want this 3D style and also i want the page to be drag able to
 > change the page left and right with smooth motion"*
 
-Built as `9a9cb62`, then `c0ce49f` (fast swipe, riffle) and `bedf40b` (closeable, and the close as a real fold) — all three recorded further down this page. **He has not judged the latest pass yet** — a still frame cannot
+Built as `9a9cb62`, then `c0ce49f` (fast swipe, riffle), `bedf40b` (the close as a real fold) and `0bab85f` (the X button's SECOND cause, and a closed arrival) — all recorded further down this page. **He has not judged the latest pass yet** — a still frame cannot
 prove one, and three of the previous day's passes cleared every check here and were still wrong.
 
 ## The licence line
@@ -257,3 +257,78 @@ pipeline. Same family as [[A Check Points at a File, Not at a Behaviour]].
 - **To inspect a motion, freeze it rather than race it.** Start it, `setTimeout(30)`, then
   `document.getAnimations().forEach(a => { a.pause(); a.currentTime = N })` and screenshot. That is
   what produced the frame proving the cover folds in front of its pages.
+
+---
+
+## The X button, the second cause — and why the first fix was right (2026-09-02)
+
+Commit `0bab85f`. He reported it twice: *"make sure that i can close the book right now i cant"*,
+then after the fix, *"x button is still not working"*.
+
+**Both reports were true, and they were different bugs.** The first was the drifting tap arming a
+page drag (above). The second is this:
+
+> Press close **while the book is still flying in**. `getBoundingClientRect()` reports PAINTED
+> geometry, so the book measured **17×36 instead of 351×731** — its own `scale(0.049)` read back as
+> if it were the book's real size. `flightFrom()` computed a departure of
+> `translate(-53px) scale(1.005)`: the book shuffled sideways and stayed exactly where it was.
+
+And `closingRef` was already `true` by then, so **every later press was a no-op**. One mistimed tap
+kills the button for the life of the panel. That is why it looked like the fix had done nothing.
+
+⚠️ **This repo had already paid for this exact fault once.** Audit group 56 carries
+*"the highlight is measured in layout space, not through an ancestor animation scale"* for the
+Ponder spotlight, which was measured through `animate-ponder-open`'s `scale(0.94)` and came back 6%
+small. **A painted rect is not a layout rect.** Second file, same lesson.
+
+**The fix:** finish the book's own animations before measuring anything, so `flightFrom()` always
+sees resting geometry. Verified by pressing X mid-flight — the departure became
+`translate(147px, -364px) scale(0.049)`, an exact mirror of the arrival.
+
+**The general rule worth carrying:** a "still broken" report after a fix is not evidence the fix was
+wrong. Reproduce again from scratch before touching the fix you already made — two causes with one
+symptom is common, and reverting a correct fix to chase the second cause loses both.
+
+## The book arrives closed, and what "intersection between model and animation" meant
+
+His words: *"i want the starting book to be closed before its fly towards the screen and open ...
+right now book already open on screen when pressed and there is intersection between model and
+animation, model static but animation working"*.
+
+He diagnosed it precisely. The cover animated shut → open while the **sheets sat at their resting
+spread the whole time**. So what flew in was an *open* book with a cover swinging over it: a static
+model disagreeing with the animation drawn on top of it. That disagreement is the intersection.
+
+**The fix is symmetry.** The same block that folds on the way out unfolds on the way in.
+`fill: 'both'` under a delay is what holds the sheets folded for the whole flight — they are pinned
+at their FROM keyframe until their turn comes, so nothing has to be *rendered* folded and nothing
+flickers when the animation takes over.
+
+Verified by freezing the arrival at 430ms: on a desk it is the leather cover, its gold spine and the
+ribbons, with no spread visible at all.
+
+## The white outline was the paper block's own edges
+
+*"when closed, the white outline and book background is still there not close with the book"*.
+
+The cream strips that **are** the stack's thickness — the fore-edge and the tail — lived inside the
+stack and were never animated. The pages folded away and left their own edges hanging in the air on
+the right half. They carry `data-fold` now, hinge at the spine like the sheets they are the edge of,
+and `foldables()` returns them alongside the unturned sheets, edges first since they are the outside
+of the block.
+
+**The shape to remember:** when something becomes a moving body, every decoration that describes its
+geometry has to join it. An edge, a shadow, a highlight drawn as a sibling will stay behind, and it
+will read as the thing not having moved at all.
+
+## 🔴 STILL OPEN — the phone's closed pose
+
+On a phone the cover shuts to **-90** (edge-on, therefore invisible) while the desk's shuts to -180
+(face-on). So the phone's *closed* book shows the bare leather board rather than the cover's face
+with its icon and TUTORIAL. The desk arrival is correct; the phone's is not.
+
+**Why it is not a one-line change:** the cover hinges at the spine, and on a phone the spine is the
+stage's LEFT edge — so any rotation toward -180 swings the cover a whole page-width to the left, off
+the book entirely. That was the original phone-close fault. Showing its face while keeping it over
+the page needs a different anchor (hinging at the RIGHT edge is the likely shape, since a -180 about
+that edge maps the element back onto itself).

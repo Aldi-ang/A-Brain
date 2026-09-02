@@ -593,8 +593,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "a named import can shadow a global"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_happened",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "what happened"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "what it cost, and what did not catch it"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "the fix, and the rule"
     },
     {
@@ -4525,6 +4525,83 @@
       "norm_label": "the harness trap this pass paid for"
     },
     {
+      "label": "The close, done as a fold \u2014 and why he could not close it at all (2026-09-02)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L176",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_close_done_as_a_fold_and_why_he_could_not_close_it_at_all_2026_09_02",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the close, done as a fold \u2014 and why he could not close it at all (2026-09-02)"
+    },
+    {
+      "label": "The reason he could not close it, and why looking would never have found it",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L182",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_reason_he_could_not_close_it_and_why_looking_would_never_have_found_it",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the reason he could not close it, and why looking would never have found it"
+    },
+    {
+      "label": "Closing a book is one motion, not a fade",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L199",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_closing_a_book_is_one_motion_not_a_fade",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "closing a book is one motion, not a fade"
+    },
+    {
+      "label": "\ud83d\udd34 The Z trap, which cost a render to find",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L212",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_z_trap_which_cost_a_render_to_find",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "\ud83d\udd34 the z trap, which cost a render to find"
+    },
+    {
+      "label": "The riffle lost its cap, and everything got faster",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L226",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_riffle_lost_its_cap_and_everything_got_faster",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the riffle lost its cap, and everything got faster"
+    },
+    {
+      "label": "The bug only running it could find",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L241",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_bug_only_running_it_could_find",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the bug only running it could find"
+    },
+    {
+      "label": "Two harness notes, both paid for",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L253",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_two_harness_notes_both_paid_for",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "two harness notes, both paid for"
+    },
+    {
       "label": "The Eight Warehouse Gaps.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Eight Warehouse Gaps.md",
@@ -6445,8 +6522,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "index_wiki_index",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 51,
+      "community_name": "Wiki Index",
       "norm_label": "wiki index"
     },
     {
@@ -6456,8 +6533,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "index_entities_specific_things",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 51,
+      "community_name": "Wiki Index",
       "norm_label": "entities (specific things)"
     },
     {
@@ -6467,8 +6544,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "index_concepts_recurring_patterns",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 51,
+      "community_name": "Wiki Index",
       "norm_label": "concepts (recurring patterns)"
     },
     {
@@ -6478,8 +6555,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 51,
+      "community_name": "Wiki Index",
       "norm_label": "summaries (one per ingested source, newest ingest pass first)"
     },
     {
@@ -6489,8 +6566,8 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 51,
+      "community_name": "Wiki Index",
       "norm_label": "known gaps (honest, not filled in yet)"
     },
     {
@@ -8205,8 +8282,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -9913,6 +9990,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
+      "target": "concepts_a_check_points_at_a_file_not_at_a_behaviour",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L251",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets",
       "target": "concepts_a_check_points_at_a_file_not_at_a_behaviour",
       "confidence_score": 1.0
     },
@@ -15618,6 +15706,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L176",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_close_done_as_a_fold_and_why_he_could_not_close_it_at_all_2026_09_02",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
       "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
@@ -15733,6 +15832,72 @@
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets_he_watched_it_and_named_two_faults_2026_09_02",
       "target": "concepts_the_book_as_a_stack_of_sheets_the_snap_was_one_cause_with_three_faces",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L199",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_close_done_as_a_fold_and_why_he_could_not_close_it_at_all_2026_09_02",
+      "target": "concepts_the_book_as_a_stack_of_sheets_closing_a_book_is_one_motion_not_a_fade",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L241",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_close_done_as_a_fold_and_why_he_could_not_close_it_at_all_2026_09_02",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_bug_only_running_it_could_find",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L182",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_close_done_as_a_fold_and_why_he_could_not_close_it_at_all_2026_09_02",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_reason_he_could_not_close_it_and_why_looking_would_never_have_found_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L226",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_close_done_as_a_fold_and_why_he_could_not_close_it_at_all_2026_09_02",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_riffle_lost_its_cap_and_everything_got_faster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L212",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_close_done_as_a_fold_and_why_he_could_not_close_it_at_all_2026_09_02",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_z_trap_which_cost_a_render_to_find",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L253",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_close_done_as_a_fold_and_why_he_could_not_close_it_at_all_2026_09_02",
+      "target": "concepts_the_book_as_a_stack_of_sheets_two_harness_notes_both_paid_for",
       "confidence_score": 1.0
     },
     {
@@ -21006,5 +21171,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4fc9f4b2977221cc722a39b8d648f45245ab3079"
+  "built_at_commit": "ecc4938352e50e466a520948dd0d7253bbc168bf"
 }
