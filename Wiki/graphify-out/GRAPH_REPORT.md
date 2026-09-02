@@ -1,16 +1,16 @@
-# Graph Report - Wiki  (2026-09-02)
+# Graph Report - Wiki  (2026-09-03)
 
 ## Corpus Check
-- 80 files · ~161,921 words
+- 80 files · ~162,370 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 861 nodes · 1071 edges · 92 communities (86 shown, 6 thin omitted)
+- 865 nodes · 1075 edges · 88 communities (82 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `62d07442`
+- Built from commit: `dd0674f5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -68,11 +68,9 @@
 - Wiki Index
 - Summary: Lost Work in Worktrees — Three Incidents
 - Summary: Option B Region Lock
-- Summary: Ponytail Philosophy Ingest
 - Summary: Rules Draft Process
 - Wiki/Concepts
 - The Named Path Was Already Shut
-- Summary: KPM Project Facts Reference
 - Store Hand-off Name Collision
 - Wiki/Entities
 - Logistics and Stock Movement
@@ -103,11 +101,9 @@
 - 7 Days to Die — mod load order and the infinite loading screen
 - One Pack Count, Many Screens
 - A Meter That Exits Silently Is Not a Meter
-- The Shell Repaints Any White It Can Reach
-- A Named Import Can Shadow a Global
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 49 edges
+1. `Aldi's Design Taste` - 50 edges
 2. `Operation Log` - 45 edges
 3. `Anti-Recurrence Check` - 19 edges
 4. `Lancelot the Tobacco Ledger Agent` - 18 edges
@@ -121,7 +117,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (92 total, 6 thin omitted)
+## Communities (88 total, 6 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.05
@@ -272,8 +268,8 @@ Cohesion: 0.33
 Nodes (6): Dead Weight Cleanup and Rules-Deploy Gap, Related, Update 2026-07-28 — the cleanup broke the production build, Verify before trusting, What happened, Why it's worth remembering
 
 ### Community 38 - "Summaries/index.md"
-Cohesion: 0.40
-Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
+Cohesion: 0.14
+Nodes (10): Adding a new summary, Pages here, Wiki/Summaries, Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes, Ripple — pages this touches, Summary: Ponytail Philosophy Ingest (+2 more)
 
 ### Community 39 - "Summary: Fleet Captain Rule Gaps — Batch 1 and 2"
 Cohesion: 0.33
@@ -292,8 +288,8 @@ Cohesion: 0.33
 Nodes (5): Honest gaps, Related, Six Days — Gate, Phone Access, Quota Meter, The five threads, What this pass added to the wiki
 
 ### Community 43 - "Design Inspiration Sources"
-Cohesion: 0.40
-Nodes (5): 21st.dev is not a browsing job, Design Inspiration Sources, Four house rules before anything lands in KPM, Licensing, one line, The five
+Cohesion: 0.50
+Nodes (4): 1. He judges a surface by how it feels after an hour, not in a screenshot, 2. Navigation labels are words, not codes, 3. Depth is confirmed, and quiet is why, Backlight out, full words in, and the lowkey 3D stays (2026-09-02)
 
 ### Community 44 - "Draft-Then-Deploy Discipline"
 Cohesion: 0.40
@@ -335,10 +331,6 @@ Nodes (4): Ripple — pages this touches, Summary: Lost Work in Worktrees — Th
 Cohesion: 0.40
 Nodes (5): Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches, Summary: Option B Region Lock, The blocking question, resolved, What it fixed
 
-### Community 54 - "Summary: Ponytail Philosophy Ingest"
-Cohesion: 0.40
-Nodes (4): Ripple — pages this touches, Summary: Ponytail Philosophy Ingest, Where it went, Why this was ingested
-
 ### Community 55 - "Summary: Rules Draft Process"
 Cohesion: 0.40
 Nodes (4): Ripple — pages this touches, Summary: Rules Draft Process, The documentation convention, What it establishes
@@ -350,10 +342,6 @@ Nodes (4): Adding a new concept, Pages here, Why these matter beyond KPM, Wiki/C
 ### Community 57 - "The Named Path Was Already Shut"
 Cohesion: 0.50
 Nodes (4): Still open, found while here, The Named Path Was Already Shut, The rule this leaves behind, Where the money actually leaked
-
-### Community 58 - "Summary: KPM Project Facts Reference"
-Cohesion: 0.50
-Nodes (3): Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes
 
 ### Community 59 - "Store Hand-off Name Collision"
 Cohesion: 0.50
@@ -428,8 +416,8 @@ Cohesion: 0.67
 Nodes (3): Adding a new entity, Pages here, Wiki/Entities
 
 ### Community 82 - "A CSS Animation Outranks Your Inline Style"
-Cohesion: 0.33
-Nodes (6): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot
+Cohesion: 0.08
+Nodes (20): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot, A Named Import Can Shadow a Global, The fix, and the rule (+12 more)
 
 ### Community 83 - "Gudang Pusat (Master Vault)"
 Cohesion: 0.40
@@ -451,30 +439,22 @@ Nodes (6): One Pack Count, Many Screens, Pinned, The decision — the boxes are 
 Cohesion: 0.29
 Nodes (7): A Meter That Exits Silently Is Not a Meter, Resolution — 2026-08-31 evening, commit `7ca7b03`, The general rule, The root cause, What changed, What happened, Why it was never noticed
 
-### Community 90 - "The Shell Repaints Any White It Can Reach"
-Cohesion: 0.40
-Nodes (5): The rule, The second cause of the same appearance, The Shell Repaints Any White It Can Reach, ⚠️ The two harness traps, which cost more than the bug, What changed in the look
-
-### Community 91 - "A Named Import Can Shadow a Global"
-Cohesion: 0.50
-Nodes (4): A Named Import Can Shadow a Global, The fix, and the rule, What happened, What it cost, and what did NOT catch it
-
 ## Knowledge Gaps
-- **658 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+653 more)
+- **661 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+656 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.150) - this node is a cross-community bridge._
+- **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
+  _High betweenness centrality (0.156) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.088) - this node is a cross-community bridge._
+  _High betweenness centrality (0.087) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
   _High betweenness centrality (0.078) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _658 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _661 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

@@ -303,3 +303,63 @@ prints it — **one fact, one indicator**, the rule that killed the hanging ribb
 
 **Still open:** the two deviations from round 4 (code plate vs lucide icon — now moot, the plate
 carries the word; and the single dark theme). And his verdict on whether the pad ships.
+
+---
+
+## Round 5 review — four asks, held for tomorrow at his request (2026-09-02, ~21:55 WIB)
+
+> *"and i want u to do this tomorrow for now just make notes first, so i want the light on the left
+> and dot light on the right to go along together, if press that section then both left and right
+> lights will turn on then change seksi into section and i dont think we need dibaca here so just
+> delete it. and i want to see the animation when u press this panel because there should be
+> futuristic animation for intro and outro when we press the ponder panel right? save this for
+> tomorrow prepare notes and prompt i want to sleep"*
+
+**Nothing was built. No file changed.** He asked for notes and a prompt only.
+
+### The four asks
+
+| # | Ask | Status |
+|---|---|---|
+| 1 | The left edge light and the right key-cap dot must turn on together when a section is pressed | **cause already found — see below** |
+| 2 | `SEKSI` → `SECTION` | one string, plus a language question it opens |
+| 3 | Delete `DIBACA nn/17` from the status strip | one string |
+| 4 | He wants to SEE an intro and outro animation when a panel is pressed | **cause already found — see below** |
+
+### 🔴 Ask 1 — the two lights are already wired, and one of them inverts
+
+`.key.on .lamp{background:rgba(14,16,18,.62)}`. When a key-cap becomes current it fills gold, so
+its dot is repainted near-black to stay legible on gold. **At the exact moment the left edge lights
+up, the right dot goes dark.** He read that as the two indicators disagreeing, and he is right —
+they do. The fix is a state colour for the dot that reads as ON against the gold cap, not against
+the slate one. Two lines, no restructure.
+
+### 🔴 Ask 4 — the depth move exists, and the fade hides it
+
+`.panel.out` is `opacity 0 / translateZ(-110px)`; `.panel.in` comes from `translateZ(-150px)`. But
+the transitions are `opacity .16s linear, transform .30s`. **The opacity finishes in roughly half
+the time the transform takes, so the panel is invisible for most of its flight.** What he sees is a
+crossfade with a hint of scale — not an arrival. The 3D is real and is being thrown away by its own
+fade curve. Fix is the timing, not more effect: hold opacity longer than the transform, or drive
+both off one keyframe set.
+
+⚠️ Worth keeping as a general shape: **an animation can be present, correct, and completely
+invisible because a second property outruns it.** Nothing was broken; nothing was missing; the
+motion simply never had a lit frame to be seen in.
+
+### ❓ The one question ask 2 opens, and he is asleep
+
+`SEKSI` is not the only Indonesian word in the chrome. Also on screen: `ISI`, `SIAP`, `SEGERA`,
+`MODUL SIAP`, `DIBACA` (being deleted anyway), and the caption line. **Changing one word makes the
+strip bilingual**, which is the exact thing [[Clear terms, one language]] exists to stop.
+
+**Recommendation to put to him first thing:** change every chrome label to English —
+`SECTION · CONTENT · READY · SOON · MODULES READY` — and leave the section blurbs and entry text
+in Indonesian, because those come from `sections.js` and are the app's own words. The chrome is
+instrument legend; the content is the manual. Two registers is defensible; two languages inside
+one strip is not.
+
+**Rejected on purpose:** translating the `sections.js` copy. That file is shipped app data and its
+wording is his; a tutorial shell does not get to rewrite it.
+
+**Status: OPEN — queued for 2026-09-03.** Prompt written to `.claude/NEXT-SESSION.md`.

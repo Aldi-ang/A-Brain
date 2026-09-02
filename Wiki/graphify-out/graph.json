@@ -593,8 +593,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "a named import can shadow a global"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_happened",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "what happened"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "what it cost, and what did not catch it"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the fix, and the rule"
     },
     {
@@ -2028,6 +2028,50 @@
       "norm_label": "he asks \"is this good enough?\" and means it as a real question"
     },
     {
+      "label": "Backlight out, full words in, and the lowkey 3D stays (2026-09-02)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1696",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_backlight_out_full_words_in_and_the_lowkey_3d_stays_2026_09_02",
+      "community": 43,
+      "community_name": "Design Inspiration Sources",
+      "norm_label": "backlight out, full words in, and the lowkey 3d stays (2026-09-02)"
+    },
+    {
+      "label": "1. He judges a surface by how it feels after an hour, not in a screenshot",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1706",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_1_he_judges_a_surface_by_how_it_feels_after_an_hour_not_in_a_screenshot",
+      "community": 43,
+      "community_name": "Design Inspiration Sources",
+      "norm_label": "1. he judges a surface by how it feels after an hour, not in a screenshot"
+    },
+    {
+      "label": "2. Navigation labels are words, not codes",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1718",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_2_navigation_labels_are_words_not_codes",
+      "community": 43,
+      "community_name": "Design Inspiration Sources",
+      "norm_label": "2. navigation labels are words, not codes"
+    },
+    {
+      "label": "3. Depth is confirmed, and quiet is why",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1731",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_3_depth_is_confirmed_and_quiet_is_why",
+      "community": 43,
+      "community_name": "Design Inspiration Sources",
+      "norm_label": "3. depth is confirmed, and quiet is why"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -2364,8 +2408,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_design_inspiration_sources",
-      "community": 43,
-      "community_name": "Design Inspiration Sources",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "design inspiration sources"
     },
     {
@@ -2375,8 +2419,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_the_five",
-      "community": 43,
-      "community_name": "Design Inspiration Sources",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the five"
     },
     {
@@ -2386,8 +2430,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_21st_dev_is_not_a_browsing_job",
-      "community": 43,
-      "community_name": "Design Inspiration Sources",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "21st.dev is not a browsing job"
     },
     {
@@ -2397,8 +2441,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_four_house_rules_before_anything_lands_in_kpm",
-      "community": 43,
-      "community_name": "Design Inspiration Sources",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "four house rules before anything lands in kpm"
     },
     {
@@ -2408,8 +2452,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_licensing_one_line",
-      "community": 43,
-      "community_name": "Design Inspiration Sources",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "licensing, one line"
     },
     {
@@ -5114,8 +5158,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
-      "community": 90,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the shell repaints any white it can reach"
     },
     {
@@ -5125,8 +5169,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_rule",
-      "community": 90,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the rule"
     },
     {
@@ -5136,8 +5180,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_second_cause_of_the_same_appearance",
-      "community": 90,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the second cause of the same appearance"
     },
     {
@@ -5147,8 +5191,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_two_harness_traps_which_cost_more_than_the_bug",
-      "community": 90,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "\u26a0\ufe0f the two harness traps, which cost more than the bug"
     },
     {
@@ -5158,8 +5202,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_what_changed_in_the_look",
-      "community": 90,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "what changed in the look"
     },
     {
@@ -7688,8 +7732,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 58,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -7699,8 +7743,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 58,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -7710,8 +7754,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 58,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "what it establishes"
     },
     {
@@ -7721,8 +7765,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 58,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -8018,8 +8062,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest",
-      "community": 54,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "ponytail philosophy ingest.md"
     },
     {
@@ -8029,8 +8073,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_summary_ponytail_philosophy_ingest",
-      "community": 54,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "summary: ponytail philosophy ingest"
     },
     {
@@ -8040,8 +8084,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_why_this_was_ingested",
-      "community": 54,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "why this was ingested"
     },
     {
@@ -8051,8 +8095,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_where_it_went",
-      "community": 54,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "where it went"
     },
     {
@@ -8062,8 +8106,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_ripple_pages_this_touches",
-      "community": 54,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -8326,8 +8370,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -11856,6 +11900,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1696",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_backlight_out_full_words_in_and_the_lowkey_3d_stays_2026_09_02",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L962",
       "weight": 1.0,
       "_origin": "ast",
@@ -12488,6 +12543,39 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_2026_09_01_he_turned_a_feature_into_a_sequence_and_it_was_the_better_design",
       "target": "concepts_aldi_s_design_taste_he_asks_is_this_good_enough_and_means_it_as_a_real_question",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1706",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_backlight_out_full_words_in_and_the_lowkey_3d_stays_2026_09_02",
+      "target": "concepts_aldi_s_design_taste_1_he_judges_a_surface_by_how_it_feels_after_an_hour_not_in_a_screenshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1718",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_backlight_out_full_words_in_and_the_lowkey_3d_stays_2026_09_02",
+      "target": "concepts_aldi_s_design_taste_2_navigation_labels_are_words_not_codes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1731",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_backlight_out_full_words_in_and_the_lowkey_3d_stays_2026_09_02",
+      "target": "concepts_aldi_s_design_taste_3_depth_is_confirmed_and_quiet_is_why",
       "confidence_score": 1.0
     },
     {
@@ -21259,5 +21347,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "62d07442d4850ff08b03bf5a35bf88e8e187414a"
+  "built_at_commit": "dd0674f5c83233a108d60533734ffe9a443b023c"
 }
