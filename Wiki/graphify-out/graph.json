@@ -4602,6 +4602,50 @@
       "norm_label": "two harness notes, both paid for"
     },
     {
+      "label": "The X button, the second cause \u2014 and why the first fix was right (2026-09-02)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L263",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_x_button_the_second_cause_and_why_the_first_fix_was_right_2026_09_02",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the x button, the second cause \u2014 and why the first fix was right (2026-09-02)"
+    },
+    {
+      "label": "The book arrives closed, and what \"intersection between model and animation\" meant",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L292",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_book_arrives_closed_and_what_intersection_between_model_and_animation_meant",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the book arrives closed, and what \"intersection between model and animation\" meant"
+    },
+    {
+      "label": "The white outline was the paper block's own edges",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L310",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_the_white_outline_was_the_paper_block_s_own_edges",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "the white outline was the paper block's own edges"
+    },
+    {
+      "label": "\ud83d\udd34 STILL OPEN \u2014 the phone's closed pose",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L324",
+      "_origin": "ast",
+      "id": "concepts_the_book_as_a_stack_of_sheets_still_open_the_phone_s_closed_pose",
+      "community": 70,
+      "community_name": "The Book as a Stack of Sheets",
+      "norm_label": "\ud83d\udd34 still open \u2014 the phone's closed pose"
+    },
+    {
       "label": "The Eight Warehouse Gaps.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Eight Warehouse Gaps.md",
@@ -15706,6 +15750,28 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L324",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_still_open_the_phone_s_closed_pose",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L292",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_book_arrives_closed_and_what_intersection_between_model_and_animation_meant",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
       "source_location": "L176",
       "weight": 1.0,
       "_origin": "ast",
@@ -15755,6 +15821,28 @@
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
       "target": "concepts_the_book_as_a_stack_of_sheets_the_technique_which_is_four_things",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L310",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_white_outline_was_the_paper_block_s_own_edges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
+      "source_location": "L263",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_book_as_a_stack_of_sheets_the_book_as_a_stack_of_sheets",
+      "target": "concepts_the_book_as_a_stack_of_sheets_the_x_button_the_second_cause_and_why_the_first_fix_was_right_2026_09_02",
       "confidence_score": 1.0
     },
     {
@@ -21171,5 +21259,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ecc4938352e50e466a520948dd0d7253bbc168bf"
+  "built_at_commit": "b3fab83dedeed9093f1dd36d362f0a27d9a61b73"
 }

@@ -118,6 +118,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Concepts/The Shell Repaints Any White It Can Reach]] — why the printed nota was see-through, and why a frame is not evidence for anything an animation touches.
 - [[Concepts/A Smooth Scroll That Never Runs]] — a smooth scroll that moved nothing put every phone caption on top of its own subject; the source-visible asymmetry beside it was not the bug.
 - [[Concepts/The Book as a Stack of Sheets]] — the tutorial book rebuilt on the Framer interactive-book model: the sheet technique, why the chapters had to become the leaves, and the drag that never goes through React state.
+- [[Brainstorm/2026-09-02_phone-tutorial-shell]] — 🔴 OPEN: four candidate phone shells for the tutorial, drafted for him to operate. The PC half is decided — keep the book, drop the riffle.
 - [[Concepts/A Named Import Can Shadow a Global]] — an imported icon called `Map` beat the global; `new Map()` threw and the book went black with every check green.
 
 ## Known gaps (honest, not filled in yet)

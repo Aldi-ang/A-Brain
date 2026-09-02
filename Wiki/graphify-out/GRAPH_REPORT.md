@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-02)
 
 ## Corpus Check
-- 80 files · ~161,078 words
+- 80 files · ~161,863 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 857 nodes · 1067 edges · 92 communities (86 shown, 6 thin omitted)
+- 861 nodes · 1071 edges · 92 communities (86 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ecc49383`
+- Built from commit: `b3fab83d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -112,11 +112,11 @@
 3. `Anti-Recurrence Check` - 19 edges
 4. `Lancelot the Tobacco Ledger Agent` - 18 edges
 5. `Looking at the App` - 16 edges
-6. `Ponder Tutorial System` - 14 edges
-7. `The KPM Control System` - 14 edges
-8. `2026-08-16 — "animation and 3D more with gamification on all of this segment"` - 13 edges
-9. `KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics` - 12 edges
-10. `HQ-Initiated Stock Push` - 11 edges
+6. `The Book as a Stack of Sheets` - 15 edges
+7. `Ponder Tutorial System` - 14 edges
+8. `The KPM Control System` - 14 edges
+9. `2026-08-16 — "animation and 3D more with gamification on all of this segment"` - 13 edges
+10. `KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -388,8 +388,8 @@ Cohesion: 0.33
 Nodes (6): A Rollup Is a Cache, Not a Ledger, Four details that would each have been a silent wrong number, The counter was the easy half, The property that makes it safe, What made this checkable, What shipped
 
 ### Community 70 - "The Book as a Stack of Sheets"
-Cohesion: 0.10
-Nodes (21): A flick is a speed, not a distance, Closing a book is one motion, not a fade, FLIP is the one number that differs between the widths, He watched it, and named two faults (2026-09-02), The Book as a Stack of Sheets, The bug only running it could find, The close, done as a fold — and why he could not close it at all (2026-09-02), The harness trap this pass paid for (+13 more)
+Cohesion: 0.08
+Nodes (25): A flick is a speed, not a distance, Closing a book is one motion, not a fade, FLIP is the one number that differs between the widths, He watched it, and named two faults (2026-09-02), 🔴 STILL OPEN — the phone's closed pose, The book arrives closed, and what "intersection between model and animation" meant, The Book as a Stack of Sheets, The bug only running it could find (+17 more)
 
 ### Community 72 - "An Effect's Own Cleanup Can Cancel Its Frame"
 Cohesion: 0.29
@@ -460,7 +460,7 @@ Cohesion: 0.50
 Nodes (4): A Named Import Can Shadow a Global, The fix, and the rule, What happened, What it cost, and what did NOT catch it
 
 ## Knowledge Gaps
-- **654 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+649 more)
+- **658 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+653 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -474,7 +474,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
   _High betweenness centrality (0.078) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _654 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _658 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
