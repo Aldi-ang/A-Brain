@@ -284,3 +284,22 @@ still-frame check is what found it; the DOM was correct the entire time.
 
 🔴 **OPEN — waiting on his verdict.** The riffle removal from the PC book is queued behind it and
 ships in the same pass, unchanged from the round-3 decision.
+
+### Round 4 review — his three rulings, all applied same session (2026-09-02)
+
+> *"the backlight is too much i think, i dont think its convenience to look at in the long term
+> maybe just remove the backlight. and i want the section button to be 1 full word instead so its
+> easier to read right, the lowkey 3D looks kinda cool tbh"*
+
+| Ruling | Applied |
+|---|---|
+| Backlight out | the sweeping light band is deleted, not dimmed. The milled grain moved to Z 0 and first in the DOM, so it stays on the housing and never crosses the words. Tilt still reads through the housing rotation, the rail/display parallax and the rim gradient |
+| One full word per key-cap | the rail now prints `short` from `sections.js` verbatim — Command, Restock, Setoran, Piutang. The invented three-letter codes are gone. Rail 58px → 80px |
+| Lowkey 3D approved | unchanged, and now the only motion left. Recorded in [[Aldi's Design Taste]] |
+
+Two things went with it, unasked and worth naming: the readout's scrollbar is themed instead of
+the OS grey bar, and the panel's `SEKSI n / 17` eyebrow is gone because the status strip already
+prints it — **one fact, one indicator**, the rule that killed the hanging ribbon.
+
+**Still open:** the two deviations from round 4 (code plate vs lucide icon — now moot, the plate
+carries the word; and the single dark theme). And his verdict on whether the pad ships.

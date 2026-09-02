@@ -1690,3 +1690,50 @@ working"* — which is itself the pattern: he tends to close the hole in his own
 sentence after he opens it.
 
 See also: [[Logistics and Stock Movement]] · [[Every action must report]]
+
+---
+
+## Backlight out, full words in, and the lowkey 3D stays (2026-09-02)
+
+His verdict on the tech-pad draft, verbatim:
+
+> *"the backlight is too much i think, i dont think its convenience to look at in the long term
+> maybe just remove the backlight. and i want the section button to be 1 full word instead so its
+> easier to read right, the lowkey 3D looks kinda cool tbh"*
+
+Three separate rulings in one sentence, and they do not generalise to each other.
+
+### 1. He judges a surface by how it feels after an hour, not in a screenshot
+
+*"i dont think its convenience to look at in the long term"*. The light band sweeping the pad's
+face looked good in a still frame and read as fatigue in use. **A moving highlight over text is a
+cost he pays every time he reads, and the payoff is one moment of "nice".** This sharpens the
+spec's existing *no glow-as-crutch* rule, which only banned a glow that a shape DEPENDS on: he
+also refuses a glow the shape does not need. The test to apply before adding any sheen, bloom or
+sweep is **"would this still be welcome on the tenth read?"**
+
+Carried out in the fix: the grain texture moved to the housing only. **Texture may sit on the
+object; it may not sit across the words.**
+
+### 2. Navigation labels are words, not codes
+
+Three-letter key-caps (`CMD`, `RST`, `PTG`) were built for instrument flavour. He replaced them
+on sight: *"1 full word instead so its easier to read"*. **Readability outranks theme.** The
+theme survives in the housing, the mono type, the tabular numbers and the hairlines — none of
+which cost him a word.
+
+⚠️ **And the words already existed.** `short` in `src/ponder/sections.js` is one word per section
+and its comment says it is the tab label for a page edge. Inventing codes meant inventing a
+second naming system beside one his own file already held. **Look for the label the data already
+carries before naming anything** — the same rule as [[Law: only Aldi names the categories in his
+own trade]], one layer down.
+
+### 3. Depth is confirmed, and quiet is why
+
+*"the lowkey 3D looks kinda cool tbh"* — the first unprompted praise for motion in this project,
+and the word doing the work is **lowkey**. Three rounds of a book with a full 3D fold got
+"clunky"; a 5.5-degree housing tilt with parallax between the rail and the display got "cool".
+**The depth he likes is the depth he notices only when he moves the phone.**
+
+See also: [[The phone tutorial shell]] · [[Lite Mode gives up motion, never colour]]
+
