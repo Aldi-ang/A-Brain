@@ -1,6 +1,6 @@
 ---
 title: The phone tutorial shell — four options
-description: The book is clunky on a phone because a phone cannot show a spread. Four candidate shells drafted as a live artifact for Aldi to operate; PC decided to keep the book without the riffle. OPEN.
+description: Three rounds of phone-shell drafts. Round 3 direction: a tech pad, not a book — a book's obligations (cover, spine, two halves) are what kept breaking on a phone. Ribbon killed, thumb index kept. OPEN.
 type: brainstorm
 created: 2026-09-02
 updated: 2026-09-02
@@ -131,3 +131,61 @@ sheen and curl go; every colour and every word stays.
 - **A full game layer** — unlock sequencing, reward flourishes, completion states. See above.
 - **Progress that survives reinstall.** Kept in `localStorage` for the draft. Whether it should
   reach Firestore is a real question and has not been asked yet.
+
+---
+
+## Round 3 — the ribbon dies, and the direction turns to a tech pad (2026-09-02)
+
+His verdict on the foreman's manual: *"tbh that ribbon going longer and shorter is weird so erase,
+but maybe this small book model with little section on the right will work well. basically change
+the size and model of the section will work, maybe it look better when it is a tech pad instead of
+book, like futuristic style way to read what do you think?"*
+
+### 🔴 DECIDED — the hanging ribbon is removed
+
+He is right and the reason is worth keeping: **the page block already IS the progress meter, so the
+ribbon was a second meter reporting the same fact in a worse way.** A bookmark whose length changes
+is not a bookmark. Two indicators for one quantity is always the wrong answer, and the one that
+looked physical was the one that lied.
+
+### 🔴 THE THUMB INDEX IS THE PART THAT WORKED
+
+*"this small book model with little section on the right will work well ... basically change the
+size and model of the section will work"*. The fore-edge index is the only navigation idea across
+three rounds that he has praised unprompted. **Whatever gets built keeps it** — and on a pad it
+stops being a compromise and becomes correct: a channel of section keys down the right edge, inside
+thumb reach, is what a handheld terminal should look like.
+
+### The case for the pad, which is stronger than "futuristic looks cool"
+
+**A book is a physical metaphor, and physical metaphors carry obligations.** A book must have a
+cover, a spine, two halves and a closing motion. Every one of those has cost a bug on the phone,
+because a 375px screen cannot afford them:
+
+| The obligation | What it cost |
+|---|---|
+| a cover | swung out past the spine onto nothing |
+| two halves | a folded sheet with nowhere to lie — the cream wedge over the ribbons |
+| a closing motion | the closed pose showing a bare leather board |
+| a spine | the 84px ribbon column eating a quarter of the screen |
+
+**A pad owes none of it.** No cover, no spine, no missing second half. It can be exactly the size of
+the screen, because that is what a screen is. It is also closer to the app's own world: KPM is a
+warehouse system read on a phone in a gudang, and a field terminal fits that better than a leather
+manual.
+
+### ⚠️ The constraint that must survive into round 3
+
+**"Futuristic" normally arrives as glow, scanlines and CYAN — and cyan is blue, which the palette
+law forbids.** So the pad has to be futuristic in **form** (depth, precision, mechanism, exact
+alignment, real 3D panel movement) and never in **colour**. Slate, gold, amber. A field instrument,
+not a sci-fi prop. This was put to him directly and he has not yet answered.
+
+### Carried forward from the manual
+
+Keep: the tilt-reactive light (the one thing a desk monitor cannot do) · the fore-edge index ·
+progress as an edge meter rather than a widget · a real 3D transition, which a pad can do by sliding
+panels in depth without owing anyone a hinge.
+Drop: the hanging ribbon · the cover · the spine · the fold.
+
+**Status: OPEN.** Nothing built. Round-3 artifact not yet made — the session ended on plan quota.
