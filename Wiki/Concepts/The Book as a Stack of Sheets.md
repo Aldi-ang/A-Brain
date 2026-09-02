@@ -81,8 +81,12 @@ spring is the upgrade; nothing imports it yet.
 
 **The transform is written straight onto the element, never through React state.** A `pointermove`
 that calls `setState` re-renders four sheets and every card on them on each frame of the gesture,
-which is how a drag stutters on a cheap phone. State changes **once**, when the sheet has settled —
-the same rule the scene player's progress bar already follows.
+which is how a drag stutters on a cheap phone. State changes **once** per gesture — the same rule
+the scene player's progress bar already follows.
+
+⚠️ **Superseded in one detail on 2026-09-02:** that single state change happens when the gesture
+DECIDES, not when its animation ends. See *He watched it, and named two faults* at the bottom —
+committing at the end of the animation is what made a fast swipe snap.
 
 ## What was kept, deliberately
 
