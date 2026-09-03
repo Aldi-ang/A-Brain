@@ -567,3 +567,45 @@ title mid-scramble and look exactly like a bug. The pane throttles `setInterval`
 900ms — but it does not stop it, so the decode still completes.
 
 **Status: CLOSED.** Same artifact URL.
+
+---
+
+## Round 10 — 2026-09-03. **ASK RECORDED, NOTHING BUILT.** Quota at 80%, his call
+
+**His words, verbatim:** *"i like the design but remove the zoom out and zoom in for intro and
+outro of that text too much animation make it norak and not elegant"* — then, when told the quota
+stood at 80%: *"make notes first and do later if quota not enough"*.
+
+No file was changed except these notes. The pad on the artifact is still round 9.
+
+### The diagnosis, so the next session does not repeat it
+
+**Round 9 left two entrance animations playing over each other.** The panel flies in from depth
+(`translateZ(-175px) translateY(18px) rotateX(7deg) scale(.935)` plus a 3px blur) at the same
+moment the text writes itself on with the raster sweep. He likes the write-on — he said so in the
+same sentence — so the write-on is the intro, and the panel's flight is the part that goes.
+
+This is a cost of the last four rounds being additive. Each one added a mechanism that was right
+on its own: the panel flight (round 6), the depth on the rail (round 7), the latch (round 8), the
+write-on (round 9). Nothing was ever taken away, and the panel flight and the write-on are now
+both claiming the same moment. **"Norak" is what he calls the sum, not any one part.**
+
+### The edit, already worked out
+
+| What | From | To |
+|---|---|---|
+| `@keyframes panelIn` / `panelOut` | translateZ + translateY + rotateX + scale + blur | `opacity` only |
+| `.panel.out` | `.30s cubic-bezier(.32,.06,.55,1)` | `.17s var(--ease-out)` |
+| `.panel.in` | `.46s cubic-bezier(.25,.46,.45,.94)` | `.14s var(--ease-out)` |
+| `var OUT_MS=300, IN_MS=460` | — | `var OUT_MS=170, IN_MS=140` — must match the CSS or the swap shows |
+| `.panel{will-change:opacity, transform}` | — | `will-change:opacity` |
+| the comment above `panelOut` | documents the depth flight and quotes "scale .961 of 1.0" | rewrite — it will describe code that no longer exists |
+
+**Do not touch** `lineIn`, `lineInLit`, the `--i` stagger, `titleIn` or `decode()`. He likes those.
+
+**Rejected on purpose:** keeping a small `translateY` or the blur "so the swap is not abrupt". He
+named the amount of motion as the problem, and the write-on already gives the panel a visible
+arrival. A crossfade under a raster sweep is not abrupt.
+
+**Status: OPEN — queued for the next session.** Prompt written to `.claude/NEXT-SESSION.md`; the
+riffle removal moved down into the queue below it.

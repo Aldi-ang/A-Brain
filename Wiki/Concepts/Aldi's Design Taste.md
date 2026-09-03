@@ -1818,3 +1818,24 @@ He also said, same session: *"use all the design skills to make those"* — see
 [[Design Inspiration Sources]] and the §1a stack. Worth recording that it paid: the first draft
 broke four of the skills' rules, and the skills' own default curve then turned out to be the wrong
 one for this motion, which only a measurement caught.
+
+## "Norak" — two animations claiming the same moment (2026-09-03)
+
+> *"i like the design but remove the zoom out and zoom in for intro and outro of that text too
+> much animation make it norak and not elegant"*
+
+**Norak** is Indonesian for tacky, gaudy, trying too hard. It is his strongest negative word for a
+look so far, and it is worth reading precisely: he aimed it at the *quantity* of motion, not at any
+single animation. He had just approved the text write-on. What he rejected was the panel zooming in
+from depth **at the same time** as the text swept itself on.
+
+**The rule this gives:** one moment gets one animation. When a new mechanism is added to a screen,
+check what the old one was already saying at that instant — two things introducing the same content
+read as fussy even when each is well made on its own.
+
+**And the process failure behind it:** four rounds in a row were additive. Every round added a
+mechanism that was correct in isolation and nothing was ever removed, so the motion budget crept up
+until he named it. **On any round that adds motion, ask what should come OUT.** He should not have
+to be the one who notices.
+
+Related: [["More 3D" means LATCHED, not floating]] · [["Technological" means the machine shows its work]]
