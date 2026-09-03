@@ -363,3 +363,44 @@ one strip is not.
 wording is his; a tutorial shell does not get to rewrite it.
 
 **Status: OPEN — queued for 2026-09-03.** Prompt written to `.claude/NEXT-SESSION.md`.
+
+---
+
+## Round 6 — 2026-09-03. ALL FOUR SHIPPED, AND THE ANIMATION FIX WAS WRONG THE FIRST TIME
+
+**His answer to the open question, verbatim:** *"only english the label, all the explanation should
+be in indonesia"*. Accepted as recommended. Chrome is now `SECTION / CONTENT / READY / SOON /
+MODULES READY / Section list`; every title, blurb and entry description stays Indonesian, and the
+desk caption stays Indonesian while naming the English control (`tekan tombol section di kanan`).
+
+| Ask | What shipped |
+|---|---|
+| 1 | `.key.on .lamp` is now `#6B2800` in a `rgba(255,250,240,.92)` socket ring — dense core, bright bezel, reads lit against gold. `paint()` also moved to fire ON THE PRESS instead of 150ms later, so both indicators are written in one synchronous loop |
+| 2 | `SEKSI` → `SECTION`, plus the rest of the chrome |
+| 3 | `DIBACA nn/17` and `stRead` deleted. The left edge meter is the only read-progress indicator |
+| 4 | `.panel` moved from two racing transitions to one `@keyframes` set per direction, plus a staggered `entryIn` on the rows |
+
+### ⚠️ The second cause, which the first fix did not touch
+
+Holding the opacity across the transform was necessary and **not sufficient**. Measured on the real
+page after that fix: the panel reached `opacity 1` at `scale .993` of `1.0` — 99% of its travel was
+already spent. The old easing `cubic-bezier(.16,.84,.30,1)` is a hard ease-out that puts ~80% of
+the distance into the first 30% of the time, so the panel **finished moving before it finished
+lighting**. Invisible for a second, independent reason.
+
+Fixed by spreading the travel: `cubic-bezier(.25,.46,.45,.94)` in, `cubic-bezier(.32,.06,.55,1)`
+out, opacity to 1 at 22%. Re-measured: `opacity 1` now lands at `scale .961` — 40% travelled, 60%
+of the journey still to run while fully lit. Outro: at `scale .960` (89% gone) it is still at
+`opacity .51`, so the departure is seen.
+
+**The general shape, sharper than the round-5 version:** an animation has TWO ways to be invisible
+— a second property that outruns it, and an easing curve that spends the distance before the
+element is lit. Fixing one and declaring victory is how the bug survives a fix. **A duration is not
+a schedule; sample the real page.**
+
+**Verified by frame, not by reasoning:** rendered at `http://localhost:4180/ponder-pad.html` off a
+gitignored `dist/` copy (the artifact URL will not open in the in-app browser, and a local `file://`
+loads as a script-less snapshot). Lite Mode re-checked in the same render: `animationName` reads
+`none` on both `.panel` and `.entry`, every colour and every word intact.
+
+**Status: CLOSED.** Published to the same artifact URL.

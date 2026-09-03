@@ -1737,3 +1737,18 @@ and the word doing the work is **lowkey**. Three rounds of a book with a full 3D
 
 See also: [[The phone tutorial shell]] · [[Lite Mode gives up motion, never colour]]
 
+
+## Chrome speaks English, the app speaks Indonesian (2026-09-03)
+
+Asked whether renaming `SEKSI` to `SECTION` should drag the rest of the strip with it, he ruled:
+
+> *"only english the label, all the explanation should be in indonesia"*
+
+**The line he drew is register, not vocabulary.** Instrument labels — the words printed ON the
+housing, that name a control or a count — are English. Everything that EXPLAINS something to the
+reader is Indonesian. So `SECTION 14/17` and `MODULES READY 05/21` sit above a panel whose title,
+blurb and every entry description are Indonesian, and the caption under the pad stays Indonesian
+while naming the English control it points at.
+
+This settles the tension in [[Clear terms, one language]] for chrome specifically: one language per
+LAYER, not one language per screen. A strip that mixes both inside itself is still wrong.

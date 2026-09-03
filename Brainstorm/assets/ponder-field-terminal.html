@@ -118,13 +118,40 @@ body{
   position:absolute; inset:0; overflow-y:auto; -webkit-overflow-scrolling:touch;
   padding:16px 14px 20px;
   opacity:1; transform:none;
-  transition:opacity .16s linear, transform .30s cubic-bezier(.16,.84,.30,1);
+  will-change:opacity, transform;
 }
 .panel::-webkit-scrollbar{width:3px}
 .panel::-webkit-scrollbar-track{background:transparent}
 .panel::-webkit-scrollbar-thumb{background:rgba(232,227,218,.18); border-radius:2px}
-.panel.out{opacity:0; transform:translateZ(-110px) scale(.97)}
-.panel.in{opacity:0; transform:translateZ(-150px) scale(.94)}
+/* INTRO / OUTRO - one keyframe set per direction. The old rule faded the panel out in
+   .16s while the depth move took .30s, so the flight had no lit frame to be seen in.
+   Here the opacity is HELD across the transform: the outro stays legible until it is
+   nearly gone, and the intro is at full opacity by 22%, with 60% of its travel still to run.
+   Measured on the real page: at the first frame where opacity reads 1.00 the panel is at
+   scale .961 of 1.0 - 40% travelled, 60% left. Before this fix it was .993, i.e. done. */
+@keyframes panelOut{
+  0%  {opacity:1; transform:none;                                            filter:blur(0)}
+  35% {opacity:.92}
+  70% {opacity:.55}
+  100%{opacity:0; transform:translateZ(-130px) translateY(-14px) scale(.955); filter:blur(2.5px)}
+}
+@keyframes panelIn{
+  0%  {opacity:0; transform:translateZ(-175px) translateY(18px) scale(.935); filter:blur(3px)}
+  22% {opacity:1;                                                           filter:blur(1.2px)}
+  100%{opacity:1; transform:none;                                           filter:blur(0)}
+}
+/* The easing matters as much as the opacity. A hard ease-out curve spends 80% of its
+   travel in the first 30% of its time, so the panel finished MOVING before it finished
+   LIGHTING and the flight was invisible for a second reason. These curves spread the
+   travel out: the panel is at full opacity with about 60% of its journey still to go. */
+.panel.out{animation:panelOut .30s cubic-bezier(.32,.06,.55,1) forwards}
+.panel.in {animation:panelIn  .46s cubic-bezier(.25,.46,.45,.94) forwards}
+
+/* the rows land after the panel does, so the arrival has a direction */
+@keyframes entryIn{
+  from{opacity:0; transform:translateY(9px)}
+  to  {opacity:1; transform:none}
+}
 
 .eyebrow{
   display:flex; align-items:center; gap:8px; margin-bottom:12px;
@@ -153,6 +180,8 @@ h1{
 .eyebrow .line{flex:1 1 auto; height:1px; background:var(--hair)}
 
 .entry{
+  animation:entryIn .32s cubic-bezier(.16,.84,.30,1) backwards;
+  animation-delay:calc(var(--i,0) * 34ms + 70ms);
   display:grid; grid-template-columns:22px minmax(0,1fr) auto; gap:0 10px;
   padding:10px 0; border-bottom:1px solid var(--hair);
 }
@@ -202,7 +231,10 @@ h1{
   transform:translateX(-4px) translateZ(10px);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 2px 6px rgba(0,0,0,.55);
 }
-.key.on .lamp{background:rgba(14,16,18,.62)}
+.key.on .lamp{
+  background:#6B2800;
+  box-shadow:0 0 0 1.5px rgba(255,250,240,.92), 0 0 4px rgba(107,40,0,.55);
+}
 .key:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
 
 .fnpad{flex:0 0 auto; display:flex; flex-direction:column; gap:2px; margin-top:6px}
@@ -228,7 +260,8 @@ body.lite .key,
 body.lite .seg,
 body.lite .fn{transition:none}
 body.lite .panel.in,
-body.lite .panel.out{opacity:1; transform:none}
+body.lite .panel.out{animation:none; opacity:1; transform:none; filter:none}
+body.lite .entry{animation:none}
 body.lite .key.on{transform:none}
 body.lite .seg.cur{box-shadow:inset 0 0 0 .5px rgba(0,0,0,.4)}
 body.lite .display,
@@ -237,6 +270,7 @@ body.lite .meter{transform:none}
 
 @media (prefers-reduced-motion:reduce){
   .pad,.panel,.key{transition:none !important}
+  .panel.in,.panel.out,.entry{animation:none !important; opacity:1 !important; transform:none !important; filter:none !important}
 }
 /* a caption for a desk viewer only — on a phone the pad fills the screen and
    a fixed line would lie across the housing */
@@ -263,19 +297,18 @@ body.lite .meter{transform:none}
         <span class="live"></span>
         <span>Ponder</span>
         <span class="sp"></span>
-        <span>Seksi <b id="stIdx">01</b>/17</span>
-        <span>Dibaca <b id="stRead">00</b>/17</span>
+        <span>Section <b id="stIdx">01</b>/17</span>
       </div>
       <div class="stage" id="stage">
         <article class="panel" id="panel" tabindex="-1"></article>
       </div>
       <div class="foot">
         <span>KPM</span><span class="ticks"></span>
-        <span>Modul siap <b id="stReady">00</b>/<span id="stTotal">00</span></span>
+        <span>Modules ready <b id="stReady">00</b>/<span id="stTotal">00</span></span>
       </div>
     </div>
 
-    <nav class="rail" id="rail" aria-label="Daftar seksi">
+    <nav class="rail" id="rail" aria-label="Section list">
       <div class="fnpad">
         <button class="fn" id="btnLite" aria-pressed="false" type="button">LITE <span class="st">OFF</span></button>
         <button class="fn" id="btnTilt" aria-pressed="false" type="button">TILT <span class="st">OFF</span></button>
@@ -283,7 +316,7 @@ body.lite .meter{transform:none}
     </nav>
   </div>
 </div>
-<p class="legend">Draf tech pad &mdash; geser layar atau tekan tombol seksi di kanan</p>
+<p class="legend">Draf tech pad &mdash; geser layar atau tekan tombol section di kanan</p>
 
 <script>
 /* Data verbatim from src/ponder/sections.js. Order is sidebar order; entries inside a
@@ -334,10 +367,10 @@ var SECTIONS = [
 var pad=document.getElementById('pad'), rail=document.getElementById('rail'),
     meter=document.getElementById('meter'), panel=document.getElementById('panel'),
     stage=document.getElementById('stage'), fnpad=rail.querySelector('.fnpad'),
-    stIdx=document.getElementById('stIdx'), stRead=document.getElementById('stRead'),
+    stIdx=document.getElementById('stIdx'),
     stReady=document.getElementById('stReady'), stTotal=document.getElementById('stTotal');
 
-var cur=0, read={}, lite=false, dwell=null;
+var cur=0, read={}, lite=false, dwell=null, flight=null;
 try{ read=JSON.parse(localStorage.getItem('ponderPadRead')||'{}')||{}; }catch(e){ read={}; }
 function save(){ try{ localStorage.setItem('ponderPadRead',JSON.stringify(read)); }catch(e){} }
 
@@ -361,32 +394,32 @@ SECTIONS.forEach(function(s,i){
   var g=document.createElement('div'); g.className='seg'; meter.appendChild(g); segs.push(g);
 });
 
+/* ONE pass, ONE frame. The right key-cap lamp and the left edge segment are written in
+   the same synchronous loop, so the two lights cannot disagree. */
 function paint(){
-  var n=0;
   SECTIONS.forEach(function(s,i){
     var r=!!read[s.id];
-    if(r){ n++; }
     keys[i].className='key'+(r?' read':'')+(i===cur?' on':'');
     keys[i].setAttribute('aria-current', i===cur?'true':'false');
     segs[i].className='seg'+(r?' read':'')+(i===cur?' cur':'');
   });
   stIdx.textContent=pad2(cur+1);
-  stRead.textContent=pad2(n);
 }
 
 function render(){
   var s=SECTIONS[cur], h='';
-  /* no index here - the status strip already prints SEKSI n/17, and one fact gets one
-     indicator. Same reasoning that killed the hanging ribbon. */
+  /* no index here - the status strip already prints SECTION n/17, and one fact gets one
+     indicator. Same reasoning that killed the hanging ribbon, and that killed DIBACA:
+     the left edge meter is now the only thing reporting how much has been read. */
   h+='<div class="eyebrow"><span class="plate">'+s.short+'</span><span class="line"></span></div>';
   h+='<h1>'+esc(s.label)+'</h1>';
   h+='<p class="blurb">'+esc(s.blurb)+'</p>';
-  h+='<div class="rule-lab"><span>Isi</span><span class="line"></span><span>'+pad2(s.entries.length)+'</span></div>';
+  h+='<div class="rule-lab"><span>Content</span><span class="line"></span><span>'+pad2(s.entries.length)+'</span></div>';
   s.entries.forEach(function(e,j){
-    h+='<div class="entry">'
+    h+='<div class="entry" style="--i:'+j+'">'
      + '<span class="idx">'+pad2(j+1)+'</span>'
      + '<span class="etitle">'+esc(e.title)+'</span>'
-     + '<span class="chip '+(e.soon?'soon':'ready')+'">'+(e.soon?'Segera':'Siap')+'</span>'
+     + '<span class="chip '+(e.soon?'soon':'ready')+'">'+(e.soon?'Soon':'Ready')+'</span>'
      + '<span class="edesc">'+esc(e.desc)+'</span>'
      + '</div>';
   });
@@ -394,17 +427,21 @@ function render(){
   panel.scrollTop=0;
 }
 
+var OUT_MS=300, IN_MS=460;
 function go(i){
   if(i<0 || i>=SECTIONS.length || i===cur){ return; }
-  clearTimeout(dwell);
-  if(lite){ cur=i; render(); paint(); markSoon(); return; }
+  clearTimeout(dwell); clearTimeout(flight);
+  cur=i; paint();                 /* both lights, on the press itself, in one frame */
+  if(lite){ render(); markSoon(); return; }
+  panel.classList.remove('in');
   panel.classList.add('out');
-  setTimeout(function(){
-    cur=i; render(); paint();
-    panel.classList.remove('out'); panel.classList.add('in');
-    requestAnimationFrame(function(){ requestAnimationFrame(function(){ panel.classList.remove('in'); }); });
+  flight=setTimeout(function(){
+    render();
+    panel.classList.remove('out');
+    panel.classList.add('in');
+    flight=setTimeout(function(){ panel.classList.remove('in'); }, IN_MS);
     markSoon();
-  },150);
+  }, OUT_MS);
 }
 function markSoon(){
   dwell=setTimeout(function(){
