@@ -136,6 +136,31 @@ nothing else has to change.
 
 **The design phase is closed** — *"then now we can move on"*. What is left is implementation.
 
+### SHIPPED 2026-09-03 — `37cbfd5`, 718/718 + 1000/1000
+
+> *"cinematic look the best and now u can integrate it"*
+
+Pace 2,5. A phone (≤767px) opens `src/ponder/PonderPad.jsx`; anything wider keeps the book,
+untouched. `src/ponder/pad.css` carries the whole motion system, every class `pp-` prefixed.
+
+**The icon follows what it opens** — display glyph on a phone, leather book on a desk. A display
+icon that opened a book would point at the wrong thing. That call was mine, not his; it is the
+cheapest self-consistent reading and it is one line to reverse.
+
+**Two bugs that only rendering could find**, both invisible in the source:
+
+- the panel's own write-on was declared unscoped, so it also matched during the ARRIVAL, where the
+  arrival's write-on already applies. Different animation names — so dropping the arrive class
+  swapped the name and RESTARTED the write from its `backwards` 0% frame. The pad settled with the
+  title on screen and every other line clipped to zero width for another ~600ms, which reads as a
+  panel that failed to load. Scoped to the section swap now. **One moment, one animation, again.**
+- the ponder lab had no launch entry, so the harness that exists precisely to view Ponder without
+  the vault gate could not be started. Added as `ponder-lab` on 4190. **A harness with no way to
+  run it is a harness nobody uses.**
+
+Four checks added to group 56, none removed; the book's shut-and-fly check was UPDATED to carry
+the `!phone` guard rather than deleted.
+
 ## Rejected on purpose
 
 - **A book-like flight for the phone.** He said *"different kind"* explicitly. Something that flies

@@ -219,8 +219,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_a_css_animation_outranks_your_inline_style",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "a css animation outranks your inline style"
     },
     {
@@ -230,8 +230,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_the_shape",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the shape"
     },
     {
@@ -241,8 +241,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_why_it_survived_every_check_and_every_screenshot",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "why it survived every check and every screenshot"
     },
     {
@@ -252,8 +252,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_the_law",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the law"
     },
     {
@@ -263,8 +263,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_family",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "family"
     },
     {
@@ -274,8 +274,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_where_it_happened",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "where it happened"
     },
     {
@@ -2147,6 +2147,17 @@
       "community": 0,
       "community_name": "Aldi's Design Taste",
       "norm_label": "he specifies by analogy, and the analogy is the whole spec (2026-09-03)"
+    },
+    {
+      "label": "\"So that user eyes can enjoy\" \u2014 he buys the watchable one, twice (2026-09-03)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1903",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_so_that_user_eyes_can_enjoy_he_buys_the_watchable_one_twice_2026_09_03",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "\"so that user eyes can enjoy\" \u2014 he buys the watchable one, twice (2026-09-03)"
     },
     {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -5235,8 +5246,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
-      "community": 58,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the shell repaints any white it can reach"
     },
     {
@@ -5246,8 +5257,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_rule",
-      "community": 58,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the rule"
     },
     {
@@ -5257,8 +5268,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_second_cause_of_the_same_appearance",
-      "community": 58,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the second cause of the same appearance"
     },
     {
@@ -5268,8 +5279,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_two_harness_traps_which_cost_more_than_the_bug",
-      "community": 58,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "\u26a0\ufe0f the two harness traps, which cost more than the bug"
     },
     {
@@ -5279,8 +5290,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_what_changed_in_the_look",
-      "community": 58,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what changed in the look"
     },
     {
@@ -7677,8 +7688,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -7754,8 +7765,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -7831,8 +7842,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 52,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -7842,8 +7853,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 52,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -7853,8 +7864,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 52,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "what it establishes"
     },
     {
@@ -7864,8 +7875,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 52,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -8095,8 +8106,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "option b region lock.md"
     },
     {
@@ -8216,8 +8227,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 41,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -9503,8 +9514,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "summaries/index.md"
     },
     {
@@ -9514,8 +9525,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_index_wiki_summaries",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "wiki/summaries"
     },
     {
@@ -9525,8 +9536,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "summaries_index_pages_here",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "pages here"
     },
     {
@@ -9536,8 +9547,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "adding a new summary"
     },
     {
@@ -12224,6 +12235,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_similar_format_is_a_separate_ask_from_same_colours_2026_08_14",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1903",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_so_that_user_eyes_can_enjoy_he_buys_the_watchable_one_twice_2026_09_03",
       "confidence_score": 1.0
     },
     {
@@ -21545,5 +21567,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6d8254ee5522dc7464d52fa612bd9a976d8fd2ff"
+  "built_at_commit": "f0fd46d78a1fffe4816f6d669b14cf556fd73506"
 }

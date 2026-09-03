@@ -12,7 +12,7 @@
   /* THE LIT COLOUR. Every indicator on this pad is black until it is lit, and then it is this
      one light amber - the edge meter cell, the key-cap lamp, and the latched cap's own face.
      One lit colour means "lit" is never ambiguous. */
-  --lit:#FFCE8F; --lit-dim:rgba(255,206,143,.40); --lit-hot:#FFE7C4;
+  --lit:#F59E0B; --lit-dim:rgba(245,158,11,.38); --lit-hot:#FFC24D;
   /* The one entrance curve. Built-in ease-out is too weak to read as intentional, and a curve
      invented per animation is how a file ends up with six of them that nearly match. */
   --ease-out:cubic-bezier(.23, 1, .32, 1);
@@ -100,13 +100,13 @@ body{
 }
 /* the current cell ENERGISES - overbright for a moment, then settles to its burn level */
 @keyframes segOn{
-  0%  {background:var(--lit-hot); box-shadow:0 0 12px rgba(255,206,143,.85), inset 0 0 0 .5px rgba(0,0,0,.4)}
-  55% {background:var(--lit);     box-shadow:0 0 7px  rgba(255,206,143,.55), inset 0 0 0 .5px rgba(0,0,0,.4)}
-  100%{background:var(--lit);     box-shadow:0 0 4px  rgba(255,206,143,.40), inset 0 0 0 .5px rgba(0,0,0,.4)}
+  0%  {background:var(--lit-hot); box-shadow:0 0 12px rgba(245,158,11,.85), inset 0 0 0 .5px rgba(0,0,0,.4)}
+  55% {background:var(--lit);     box-shadow:0 0 7px  rgba(245,158,11,.55), inset 0 0 0 .5px rgba(0,0,0,.4)}
+  100%{background:var(--lit);     box-shadow:0 0 4px  rgba(245,158,11,.40), inset 0 0 0 .5px rgba(0,0,0,.4)}
 }
 .seg.cur{
   background:var(--lit);
-  box-shadow:0 0 4px rgba(255,206,143,.40), inset 0 0 0 .5px rgba(0,0,0,.4);
+  box-shadow:0 0 4px rgba(245,158,11,.40), inset 0 0 0 .5px rgba(0,0,0,.4);
   animation:segOn .40s cubic-bezier(.2,.7,.3,1);
 }
 
@@ -168,8 +168,8 @@ body{
   to  {clip-path:inset(0 0 0 0)}
 }
 @keyframes lineInLit{
-  0%  {clip-path:inset(0 100% 0 0); text-shadow:0 0 7px rgba(255,206,143,.95)}
-  100%{clip-path:inset(0 0 0 0);    text-shadow:0 0 0 rgba(255,206,143,0)}
+  0%  {clip-path:inset(0 100% 0 0); text-shadow:0 0 7px rgba(245,158,11,.95)}
+  100%{clip-path:inset(0 0 0 0);    text-shadow:0 0 0 rgba(245,158,11,0)}
 }
 .eyebrow, .rule-lab{
   animation:lineInLit .3s linear backwards;
@@ -182,8 +182,8 @@ body{
 /* the title resolves out of scrambled glyphs rather than sweeping - see decode() below. It keeps
    the cooling glow so the two reveals read as one machine writing one screen. */
 @keyframes titleIn{
-  0%  {text-shadow:0 0 9px rgba(255,206,143,.95)}
-  100%{text-shadow:0 0 0 rgba(255,206,143,0)}
+  0%  {text-shadow:0 0 9px rgba(245,158,11,.95)}
+  100%{text-shadow:0 0 0 rgba(245,158,11,0)}
 }
 h1.writing{animation:titleIn .42s var(--ease-out)}
 
@@ -273,7 +273,7 @@ h1{
   transition:background .2s linear, box-shadow .2s linear;
 }
 .key.read{color:#A9A296}
-.key.read .lamp{background:var(--lit-dim); box-shadow:0 0 3px rgba(255,206,143,.28)}
+.key.read .lamp{background:var(--lit-dim); box-shadow:0 0 3px rgba(245,158,11,.28)}
 
 /* THE LATCH. A pressed cap goes DOWN and STAYS down until another one is pressed - it never
    floats above the rail. Down means: pushed back in Z, no drop shadow of its own (a sunken
@@ -282,24 +282,24 @@ h1{
    glance without lifting it off the panel. */
 .key.on{
   color:#2A1A08; font-weight:600;
-  background:linear-gradient(180deg, var(--lit) 0%, #E9B473 100%);
+  background:linear-gradient(180deg, var(--lit) 0%, #D4870A 100%);
   transform:translateZ(-7px) scale(.984);
   box-shadow:
     inset 0 2px 5px rgba(74,38,2,.5),
-    inset 0 -1px 0 rgba(255,231,196,.45),
+    inset 0 -1px 0 rgba(255,194,77,.45),
     inset 0 0 0 1px rgba(0,0,0,.55),
-    0 0 7px rgba(255,206,143,.22);
+    0 0 7px rgba(245,158,11,.22);
 }
 /* the lamp BLOOMS as it energises, then settles. Its dark socket ring is what keeps it legible
    against the lit face - the lamp is lighter than the cap, the ring is darker than both. */
 @keyframes lampOn{
-  0%  {box-shadow:0 0 0 0    rgba(255,231,196,0),   0 0 0  rgba(255,206,143,0)}
-  40% {box-shadow:0 0 0 2.6px rgba(58,30,2,.85), 0 0 10px rgba(255,231,196,.95)}
-  100%{box-shadow:0 0 0 1.4px rgba(58,30,2,.75), 0 0 4px  rgba(255,231,196,.6)}
+  0%  {box-shadow:0 0 0 0    rgba(255,194,77,0),   0 0 0  rgba(245,158,11,0)}
+  40% {box-shadow:0 0 0 2.6px rgba(58,30,2,.85), 0 0 10px rgba(255,194,77,.95)}
+  100%{box-shadow:0 0 0 1.4px rgba(58,30,2,.75), 0 0 4px  rgba(255,194,77,.6)}
 }
 .key.on .lamp{
   background:var(--lit-hot);
-  box-shadow:0 0 0 1.4px rgba(58,30,2,.75), 0 0 4px rgba(255,231,196,.6);
+  box-shadow:0 0 0 1.4px rgba(58,30,2,.75), 0 0 4px rgba(255,194,77,.6);
   animation:lampOn .42s cubic-bezier(.2,.7,.3,1);
 }
 /* THE PRESS: straight down, a touch past the resting depth, then settle AT the bottom and stay
