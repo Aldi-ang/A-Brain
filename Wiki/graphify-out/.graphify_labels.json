@@ -50,10 +50,8 @@
   "48": "Rank Config and Achievement Badges",
   "49": "The Admin Agent Profile Id",
   "50": "Tier System",
-  "51": "Wiki Index",
   "52": "Summary: KPM Project Facts Reference",
   "53": "Summary: Option B Region Lock",
-  "54": "Design Inspiration Sources",
   "55": "Summary: Rules Draft Process",
   "56": "Wiki/Concepts",
   "57": "The Named Path Was Already Shut",
@@ -75,12 +73,12 @@
   "73": "Entities/index.md",
   "74": "Fleet Captain Permission Gap",
   "75": "Git Worktrees",
-  "76": "A Feature Is Not Done Until the Book Knows",
   "77": "Gudang Pusat (Master Vault)",
   "78": "Multi-Tenant Architecture",
   "79": "Rank Config and Achievement Badges",
   "80": "Tier System",
   "81": "Wiki/Entities",
+  "82": "A CSS Animation Outranks Your Inline Style",
   "83": "Gudang Pusat (Master Vault)",
   "84": "What Create Mod's Ponder Actually Does",
   "85": "2026-09-01 — \"not just recolor but redesign\", and what he meant by it",
@@ -89,5 +87,5 @@
   "88": "One Pack Count, Many Screens",
   "89": "A Meter That Exits Silently Is Not a Meter",
   "90": "Summary: Ponytail Philosophy Ingest",
-  "91": "A Named Import Can Shadow a Global"
+  "93": "The Camera Was Aimed at the Wrong Scroller"
 }

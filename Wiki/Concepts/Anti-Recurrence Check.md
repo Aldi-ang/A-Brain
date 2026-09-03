@@ -3,7 +3,7 @@ title: Anti-Recurrence Check
 description: The rule born from 3 "it's committed" lies — never claim a save happened without checking git yourself.
 type: concept
 created: 2026-07-27
-updated: 2026-09-01
+updated: 2026-09-03
 confidence: high
 checked: 2026-09-01
 tags: [pattern, discipline, git]
@@ -384,3 +384,20 @@ The general form: when a rule is written in prose and enforced by an enumeration
 the rule that actually ships. Read them against each other whenever the prose is quoted.
 
 See also: [[A Check Points at a File, Not at a Behaviour]] · [[Silent Failure Disease]]
+
+## A guard pinned by name enforces the name, not the rule (2026-09-01)
+
+Two existing guards went red when the Ponder ring moved from `TONE_EDGE` to its own `TONE_RING` map,
+and **both were right to**. But the audit check had pinned the ring *by the map's name*, which is
+not the rule — the rule is that neither map carries a `bg-`. It now asserts that as well. The
+selfcheck had pinned the Stock by Warehouse grid's first track and now pins the widened one.
+
+**A check that names an implementation goes red on every rename and green on every real violation
+that keeps the name.** When a guard fires on a rename, that is the moment to ask what it was
+actually meant to protect.
+
+⚠️ **CRLF, twice in one day.** A needle containing a literal `\n` matches nothing in files checked
+out with CRLF endings. On 2026-09-01 it made a selfcheck **pass while testing nothing** in the
+morning and made an audit check **fail** in the evening. Anchor the lift, or write `\s*`.
+
+Source: [[../Summaries/The Camera Was Aimed at the Wrong Scroller]] · [[A Cache Saying No]]

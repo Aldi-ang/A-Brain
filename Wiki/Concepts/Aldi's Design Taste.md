@@ -3,7 +3,7 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-09-01
+updated: 2026-09-03
 confidence: medium
 checked: 2026-09-01
 tags: [pattern, design, taste, ux, aldi]
@@ -1954,3 +1954,19 @@ Shipped as `37cbfd5` in kpm-inventory, 718/718 + 1000/1000.
 
 Related: [[2026-09-03_panel-arrival-animation]] &middot; [[2026-09-03_tutorial-icon-candidates]] &middot;
 [["Norak" — two animations claiming the same moment]]
+
+## He will pay width for legibility on a table that already scrolls (2026-09-01)
+
+*"take more space its okay"* — the Stock by Warehouse name column was `minmax(0,1fr)` with
+`truncate`, so a narrow desk cut the part that tells two products apart. He did not ask for a
+smaller font or a tooltip; he granted the width. The column is `minmax(260px,max-content)` now and
+the table's own side slider pays for it.
+
+This is the same instinct as the 2026-08-17 truncation ban: **on a screen that already has a
+scrollbar, horizontal space is cheap and a cut name is not.** Ask whether the container can pay
+before compressing the content.
+
+*"i want the highlight to be clearer to see"* — the Ponder ring was a divider grey. A spotlight
+shadow was tried first, did not read, and was **deleted rather than left in as a dead class**.
+
+Source: [[../Summaries/The Camera Was Aimed at the Wrong Scroller]]

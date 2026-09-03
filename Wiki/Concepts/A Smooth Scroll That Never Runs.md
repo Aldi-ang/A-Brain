@@ -3,9 +3,9 @@ title: A Smooth Scroll That Never Runs
 description: Six Ponder beats put their caption on top of the row they explained. It looked like a placement bug for a whole session and it was scrollIntoView with behavior 'smooth' moving nothing at all.
 type: concept
 created: 2026-08-31
-updated: 2026-08-31
+updated: 2026-09-03
 confidence: high
-checked: 2026-08-31
+checked: 2026-09-03
 tags: [ponder, layout, mobile, scroll, root-cause]
 ---
 
@@ -83,5 +83,19 @@ full-width subjects. Unrelated to this change, untouched, and not yet diagnosed.
 real, sat one branch away from the fault, and explained every symptom. What separated them was
 asking the browser a question neither hypothesis could answer from source: *does this scroll at all?*
 
+## The sequel — the same call, a second way to be wrong (2026-09-01)
+
+The `behavior` argument was not the only thing wrong with this call. On 2026-09-01 the same camera
+was found to be aimed wrong on the other axis: `block: 'nearest'` is satisfied the moment **one cell
+of a tall column touches the edge**, and it was moving the **stage** when Stock by Warehouse's own
+`overflow-x-auto` div owned sideways movement. Vertically perfect, **0% horizontally in view on five
+of fourteen phone beats**. Fixed by centring the union in every scroller between subject and stage.
+Full write-up: [[../Summaries/The Camera Was Aimed at the Wrong Scroller]].
+
+**Two lessons stack here.** This page's is *does it scroll at all*. The sequel's is *which element
+scrolled, and on which axis* — a camera can be provably working on one axis and blind on the other,
+and the working axis is the one you check first.
+
 Related: [[An Inherited Explanation Is a Hypothesis]] · [[Ponder Tutorial System]] ·
+[[../Summaries/The Camera Was Aimed at the Wrong Scroller]] ·
 [[A Rect Is Painted, Not Laid Out]] · [[Looking at the App]] · [[A CSS Animation Outranks Your Inline Style]]

@@ -1192,3 +1192,34 @@ and its tier assertions distinguish the two clearances rather than merely existi
 **The thing worth carrying:** both faults this session were caught by guards on the guards — the
 `ok()` that asserts an anchor was FOUND before slicing, and the widened word list. Neither was found
 by reading the diff.
+
+## 2026-09-03 — ingest: the follow camera, the one gap the self-ingest left on 2026-09-01
+
+Scheduled `a-brain-session-ingest` run. The 2026-09-01 18:11 → 18:40 WIB block (KPM commits
+`7d3d350`, `87b0939`, `832e465`, `96f2474`, audit 702 → **705/705**) had no vault coverage at all —
+"follow camera" returned zero hits across `Wiki/`. Everything else since the 2026-09-01 run was
+verified already self-ingested, commit-for-commit.
+
+**Added:** [[Summaries/The Camera Was Aimed at the Wrong Scroller]], from
+[[../Raw/2026-09-03_source_kpm-follow-camera-2026-09-01]].
+
+**Rippled:**
+
+- [[Concepts/A Smooth Scroll That Never Runs]] — a sequel section. Same `scrollIntoView` call, a
+  second way to be wrong: `block:'nearest'` is satisfied by one cell touching the edge, and the
+  stage is not the scroller that owns sideways movement in Stock by Warehouse.
+- [[Concepts/Ponder Tutorial System]] — **one tutorial, both widths**. He chose the follow-camera
+  over a separate phone Ponder, and the argument that won was maintenance: a second tutorial is a
+  second thing to keep in step with every UI change.
+- [[Concepts/Anti-Recurrence Check]] — a guard pinned by an implementation's *name* enforces the
+  name, not the rule; when it fires on a rename, that is the moment to ask what it was protecting.
+- [[Concepts/Aldi's Design Taste]] — *"take more space its okay"*: on a screen that already has a
+  scrollbar, horizontal space is cheap and a cut name is not.
+
+**The thing worth carrying:** the camera was **provably correct on the vertical axis on every beat
+and 0% in view on the horizontal axis on five of them**. A measurement that covers one axis reads
+exactly like a measurement that covers the feature.
+
+**Skill-file edit (named, not buried):** `kpm-inventory-facts.md` in the `delegate-coding-task`
+skill gained the CRLF-needle rule. Second real occurrence — see [[Concepts/A Cache Saying No]] for
+the first, on the same day.

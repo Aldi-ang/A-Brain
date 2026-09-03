@@ -3,7 +3,7 @@ title: Ponder Tutorial System
 description: An in-app tutorial on every component, modelled on Create mod's Ponder. Scripted scenes over fixed demo data, never recorded video and never a live spotlight. Two decisions locked, three questions still open, nothing built.
 type: concept
 created: 2026-08-27
-updated: 2026-08-27
+updated: 2026-09-03
 confidence: high
 checked: 2026-08-27
 status: BUILDING — slices 1 and 2 shipped 2026-08-27 (`521b1d9`, `df5c98b`); next is the Kasir scene
@@ -195,3 +195,16 @@ Aldi's message of 2026-08-27 named four things, and the fix for each is now a ch
    naming that key. Only parts some beat covers get a cursor — a pointer on a part nothing explains
    promises a jump that cannot happen. This also makes the queued *Identify-on-hover* idea small,
    since it is the same wiring.
+
+## One tutorial, both widths — the follow-camera decision (2026-09-01)
+
+Aldi's open question was whether the phone gets its own Ponder. It does not. He chose the
+**follow-camera** — *"do follow camera then"* — and the argument that won was maintenance, not
+motion: **a second phone tutorial is a second thing to keep in step with every UI change**, while
+the highlight's rect is already measured, so following it costs a few lines.
+
+The camera it replaced was aimed wrong on the horizontal axis at every phone width. See
+[[../Summaries/The Camera Was Aimed at the Wrong Scroller]].
+
+Also from that block: the highlight ring got its own `TONE_RING` map and reads orange at 2px,
+because `border-line-3` — the grey used for table rules — was not legible as a highlight.

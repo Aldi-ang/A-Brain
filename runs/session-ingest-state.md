@@ -3,7 +3,7 @@ title: "Session Ingest State"
 description: Tracking file for the a-brain-session-ingest scheduled task — which sessions/Inbox items have already been processed.
 type: state
 created: 2026-07-27
-updated: 2026-09-01
+updated: 2026-09-03
 tags: [runs, state]
 ---
 
@@ -42,3 +42,5 @@ not hand-edit unless correcting a mistake the task made.
 | local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-09-01 | **Nothing to add.** Verified via git log, not re-read from transcripts: KPM repo's last commit (`5d71a3f`, "Brief: what today left behind for the regional warehouse redesign") landed 2026-08-31 19:48:48; the vault's own last commit (`e80aa11`, "Vault graph refresh after the day's notes") landed 19:48:55 — 7 seconds later, same self-ingest pattern as every prior day. Both repos are clean with no commits or uncommitted changes since |
 | local_8970b322-6b3e-4adf-9699-06aa5949e4fe | Vault gap curator | 2026-09-01 | Skipped — ran 2026-09-01 00:12, made zero vault commits (git log confirms), consistent with there being nothing left to fix |
 | local_93d335ca / f24d1038 / fc549650 / 379fdbd9 / ed6d83fe / 9983bb3f / 84d3ec89 / 5be01efb / a55ef6f0 (repeat) | Vault gap curator / A brain session ingest, 2026-08-27 -> 2026-08-31 | 2026-09-01 | Not re-read row-by-row — verified covered by the vault's own git log (continuous self-ingest commits through `e80aa11`, matching KPM commits through `5d71a3f`) |
+| local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-09-03 | **Partially ingested (sixth pass).** Its 2026-09-01 -> 2026-09-03 18:09 work was almost entirely self-ingested as it went (vault commits `eb41e9f` -> `cc97b66`, matching KPM `a4bc1ca` -> `87f7138` within seconds each time). The one real gap was the **2026-09-01 18:11 -> 18:40 WIB** block (`7d3d350`, `87b0939`, `832e465`, `96f2474`) - `"follow camera"` returned zero hits across `Wiki/`. Captured as [[../Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller]] |
+| local_8970b322 / and the 2026-09-02 -> 2026-09-03 curator+ingest sessions | Vault gap curator / A brain session ingest | 2026-09-03 | Skipped - these ARE this task's own runs and the vault-maintenance sessions; their writes ARE the vault |

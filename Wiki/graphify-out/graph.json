@@ -219,8 +219,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_a_css_animation_outranks_your_inline_style",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "a css animation outranks your inline style"
     },
     {
@@ -230,8 +230,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_the_shape",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the shape"
     },
     {
@@ -241,8 +241,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_why_it_survived_every_check_and_every_screenshot",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "why it survived every check and every screenshot"
     },
     {
@@ -252,8 +252,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_the_law",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the law"
     },
     {
@@ -263,8 +263,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_family",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "family"
     },
     {
@@ -274,8 +274,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_where_it_happened",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "where it happened"
     },
     {
@@ -450,8 +450,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_a_feature_is_not_done_until_the_book_knows",
-      "community": 76,
-      "community_name": "A Feature Is Not Done Until the Book Knows",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "a feature is not done until the book knows"
     },
     {
@@ -461,8 +461,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_the_rule_split",
-      "community": 76,
-      "community_name": "A Feature Is Not Done Until the Book Knows",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the rule, split"
     },
     {
@@ -472,8 +472,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_two_mechanical_traps_the_first_one_hit",
-      "community": 76,
-      "community_name": "A Feature Is Not Done Until the Book Knows",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "two mechanical traps the first one hit"
     },
     {
@@ -483,8 +483,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_and_one_thing_only_a_rendered_frame_catches",
-      "community": 76,
-      "community_name": "A Feature Is Not Done Until the Book Knows",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "and one thing only a rendered frame catches"
     },
     {
@@ -593,8 +593,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "a named import can shadow a global"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_happened",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "what happened"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "what it cost, and what did not catch it"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
-      "community": 91,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the fix, and the rule"
     },
     {
@@ -1047,6 +1047,17 @@
       "community": 66,
       "community_name": "A Smooth Scroll That Never Runs",
       "norm_label": "the lesson worth keeping"
+    },
+    {
+      "label": "The sequel \u2014 the same call, a second way to be wrong (2026-09-01)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "concepts_a_smooth_scroll_that_never_runs_the_sequel_the_same_call_a_second_way_to_be_wrong_2026_09_01",
+      "community": 66,
+      "community_name": "A Smooth Scroll That Never Runs",
+      "norm_label": "the sequel \u2014 the same call, a second way to be wrong (2026-09-01)"
     },
     {
       "label": "A Store Name Is Not a Store.md",
@@ -2160,6 +2171,28 @@
       "norm_label": "\"so that user eyes can enjoy\" \u2014 he buys the watchable one, twice (2026-09-03)"
     },
     {
+      "label": "The tutorial pad: twelve rounds, and what actually closed it (2026-09-03)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1928",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_the_tutorial_pad_twelve_rounds_and_what_actually_closed_it_2026_09_03",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "the tutorial pad: twelve rounds, and what actually closed it (2026-09-03)"
+    },
+    {
+      "label": "He will pay width for legibility on a table that already scrolls (2026-09-01)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1958",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_he_will_pay_width_for_legibility_on_a_table_that_already_scrolls_2026_09_01",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "he will pay width for legibility on a table that already scrolls (2026-09-01)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -2479,6 +2512,17 @@
       "norm_label": "2026-09-01 \u2014 a check can enforce a narrower rule than the one it is named after"
     },
     {
+      "label": "A guard pinned by name enforces the name, not the rule (2026-09-01)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L388",
+      "_origin": "ast",
+      "id": "concepts_anti_recurrence_check_a_guard_pinned_by_name_enforces_the_name_not_the_rule_2026_09_01",
+      "community": 7,
+      "community_name": "Anti-Recurrence Check",
+      "norm_label": "a guard pinned by name enforces the name, not the rule (2026-09-01)"
+    },
+    {
       "label": "Design Inspiration Sources.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Design Inspiration Sources.md",
@@ -2496,8 +2540,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_design_inspiration_sources",
-      "community": 54,
-      "community_name": "Design Inspiration Sources",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "design inspiration sources"
     },
     {
@@ -2507,8 +2551,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_the_five",
-      "community": 54,
-      "community_name": "Design Inspiration Sources",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the five"
     },
     {
@@ -2518,8 +2562,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_21st_dev_is_not_a_browsing_job",
-      "community": 54,
-      "community_name": "Design Inspiration Sources",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "21st.dev is not a browsing job"
     },
     {
@@ -2529,8 +2573,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_four_house_rules_before_anything_lands_in_kpm",
-      "community": 54,
-      "community_name": "Design Inspiration Sources",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "four house rules before anything lands in kpm"
     },
     {
@@ -2540,8 +2584,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_licensing_one_line",
-      "community": 54,
-      "community_name": "Design Inspiration Sources",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "licensing, one line"
     },
     {
@@ -4129,6 +4173,17 @@
       "norm_label": "goods received, and his four faults (`8109559`, 663/663)"
     },
     {
+      "label": "One tutorial, both widths \u2014 the follow-camera decision (2026-09-01)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L199",
+      "_origin": "ast",
+      "id": "concepts_ponder_tutorial_system_one_tutorial_both_widths_the_follow_camera_decision_2026_09_01",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
+      "norm_label": "one tutorial, both widths \u2014 the follow-camera decision (2026-09-01)"
+    },
+    {
       "label": "Ponytail Philosophy.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Ponytail Philosophy.md",
@@ -5246,8 +5301,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the shell repaints any white it can reach"
     },
     {
@@ -5257,8 +5312,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_rule",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the rule"
     },
     {
@@ -5268,8 +5323,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_second_cause_of_the_same_appearance",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the second cause of the same appearance"
     },
     {
@@ -5279,8 +5334,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_two_harness_traps_which_cost_more_than_the_bug",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "\u26a0\ufe0f the two harness traps, which cost more than the bug"
     },
     {
@@ -5290,8 +5345,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_what_changed_in_the_look",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "what changed in the look"
     },
     {
@@ -6698,8 +6753,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "index_wiki_index",
-      "community": 51,
-      "community_name": "Wiki Index",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "wiki index"
     },
     {
@@ -6709,8 +6764,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "index_entities_specific_things",
-      "community": 51,
-      "community_name": "Wiki Index",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "entities (specific things)"
     },
     {
@@ -6720,8 +6775,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "index_concepts_recurring_patterns",
-      "community": 51,
-      "community_name": "Wiki Index",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "concepts (recurring patterns)"
     },
     {
@@ -6731,19 +6786,19 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
-      "community": 51,
-      "community_name": "Wiki Index",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "summaries (one per ingested source, newest ingest pass first)"
     },
     {
       "label": "Known gaps (honest, not filled in yet)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L124",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
-      "community": 51,
-      "community_name": "Wiki Index",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "known gaps (honest, not filled in yet)"
     },
     {
@@ -7451,6 +7506,17 @@
       "norm_label": "2026-09-01 \u2014 the regional warehouse became a desk, and two checks earned their keep"
     },
     {
+      "label": "2026-09-03 \u2014 ingest: the follow camera, the one gap the self-ingest left on 2026-09-01",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1196",
+      "_origin": "ast",
+      "id": "log_2026_09_03_ingest_the_follow_camera_the_one_gap_the_self_ingest_left_on_2026_09_01",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-03 \u2014 ingest: the follow camera, the one gap the self-ingest left on 2026-09-01"
+    },
+    {
       "label": "MOC.md",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
@@ -7765,8 +7831,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -8106,8 +8172,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "option b region lock.md"
     },
     {
@@ -8227,8 +8293,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 41,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -8480,8 +8546,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -8758,6 +8824,94 @@
       "community": 21,
       "community_name": "Entities/index.md",
       "norm_label": "verification, honestly"
+    },
+    {
+      "label": "The Camera Was Aimed at the Wrong Scroller.md",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "the camera was aimed at the wrong scroller.md"
+    },
+    {
+      "label": "The Camera Was Aimed at the Wrong Scroller",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_was_aimed_at_the_wrong_scroller",
+      "community": 93,
+      "community_name": "The Camera Was Aimed at the Wrong Scroller",
+      "norm_label": "the camera was aimed at the wrong scroller"
+    },
+    {
+      "label": "The decision that came first",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_decision_that_came_first",
+      "community": 93,
+      "community_name": "The Camera Was Aimed at the Wrong Scroller",
+      "norm_label": "the decision that came first"
+    },
+    {
+      "label": "The camera already existed, and was aimed wrong twice",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_already_existed_and_was_aimed_wrong_twice",
+      "community": 93,
+      "community_name": "The Camera Was Aimed at the Wrong Scroller",
+      "norm_label": "the camera already existed, and was aimed wrong twice"
+    },
+    {
+      "label": "The fix",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_fix",
+      "community": 93,
+      "community_name": "The Camera Was Aimed at the Wrong Scroller",
+      "norm_label": "the fix"
+    },
+    {
+      "label": "Verification \u2014 beat by beat, not by eye",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_verification_beat_by_beat_not_by_eye",
+      "community": 93,
+      "community_name": "The Camera Was Aimed at the Wrong Scroller",
+      "norm_label": "verification \u2014 beat by beat, not by eye"
+    },
+    {
+      "label": "Two smaller things in the same block",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_two_smaller_things_in_the_same_block",
+      "community": 93,
+      "community_name": "The Camera Was Aimed at the Wrong Scroller",
+      "norm_label": "two smaller things in the same block"
+    },
+    {
+      "label": "The trap worth carrying",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_trap_worth_carrying",
+      "community": 93,
+      "community_name": "The Camera Was Aimed at the Wrong Scroller",
+      "norm_label": "the trap worth carrying"
     },
     {
       "label": "Trophy Room and Rank System Design.md",
@@ -9514,8 +9668,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "summaries/index.md"
     },
     {
@@ -9909,7 +10063,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
-      "source_location": "L87",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_smooth_scroll_that_never_runs",
@@ -10023,6 +10177,28 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
+      "target": "concepts_a_cache_saying_no",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1224",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
+      "target": "concepts_a_cache_saying_no",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
       "target": "concepts_a_cache_saying_no",
       "confidence_score": 1.0
     },
@@ -10613,7 +10789,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L122",
+      "source_location": "L123",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -10624,7 +10800,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L120",
+      "source_location": "L121",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -11031,7 +11207,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
-      "source_location": "L87",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_smooth_scroll_that_never_runs",
@@ -11046,6 +11222,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
+      "target": "concepts_a_rect_is_painted_not_laid_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
       "target": "concepts_a_rect_is_painted_not_laid_out",
       "confidence_score": 1.0
     },
@@ -11218,7 +11405,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
-      "source_location": "L87",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_smooth_scroll_that_never_runs",
@@ -11229,11 +11416,22 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
-      "source_location": "L86",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_smooth_scroll_that_never_runs",
       "target": "concepts_ponder_tutorial_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
       "confidence_score": 1.0
     },
     {
@@ -11255,6 +11453,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
+      "target": "concepts_a_smooth_scroll_that_never_runs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1208",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
       "target": "concepts_a_smooth_scroll_that_never_runs",
       "confidence_score": 1.0
     },
@@ -11289,6 +11498,17 @@
       "_origin": "ast",
       "source": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
       "target": "concepts_a_smooth_scroll_that_never_runs_the_second_half_a_phone_has_no_beside",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
+      "target": "concepts_a_smooth_scroll_that_never_runs_the_sequel_the_same_call_a_second_way_to_be_wrong_2026_09_01",
       "confidence_score": 1.0
     },
     {
@@ -11663,6 +11883,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste",
       "target": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1972",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
       "confidence_score": 1.0
     },
     {
@@ -12109,6 +12340,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1958",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_he_will_pay_width_for_legibility_on_a_table_that_already_scrolls_2026_09_01",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L199",
       "weight": 1.0,
       "_origin": "ast",
@@ -12334,6 +12576,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_the_theme_has_a_name_now_re9_ark_lab_2026_08_13",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1928",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_the_tutorial_pad_twelve_rounds_and_what_actually_closed_it_2026_09_03",
       "confidence_score": 1.0
     },
     {
@@ -12988,6 +13241,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L403",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_anti_recurrence_check",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Fat Documents in a Live Listener.md",
       "source_location": "L90",
       "weight": 1.0,
@@ -13192,6 +13456,17 @@
       "_origin": "ast",
       "source": "concepts_anti_recurrence_check_anti_recurrence_check",
       "target": "concepts_anti_recurrence_check_a_green_suite_is_not_a_working_screen_2026_08_21",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Anti-Recurrence Check.md",
+      "source_location": "L388",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_anti_recurrence_check_anti_recurrence_check",
+      "target": "concepts_anti_recurrence_check_a_guard_pinned_by_name_enforces_the_name_not_the_rule_2026_09_01",
       "confidence_score": 1.0
     },
     {
@@ -15309,6 +15584,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L207",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
       "source_location": "L111",
       "weight": 1.0,
@@ -15381,6 +15667,17 @@
       "_origin": "ast",
       "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
       "target": "concepts_ponder_tutorial_system_goods_received_and_his_four_faults_8109559_663_663",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
+      "source_location": "L199",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ponder_tutorial_system_ponder_tutorial_system",
+      "target": "concepts_ponder_tutorial_system_one_tutorial_both_widths_the_follow_camera_decision_2026_09_01",
       "confidence_score": 1.0
     },
     {
@@ -15992,7 +16289,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L120",
+      "source_location": "L121",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -16003,7 +16300,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L118",
+      "source_location": "L119",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -18607,6 +18904,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Index.md",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
@@ -18632,7 +18940,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L124",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -18890,6 +19198,17 @@
       "_origin": "ast",
       "source": "log",
       "target": "summaries_surat_jalan_desk_and_sebaran_stok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1203",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
       "confidence_score": 1.0
     },
     {
@@ -19391,6 +19710,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
+      "source_location": "L1196",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_03_ingest_the_follow_camera_the_one_gap_the_self_ingest_left_on_2026_09_01",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
       "source_location": "L219",
       "weight": 1.0,
       "_origin": "ast",
@@ -19413,11 +19743,22 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L121",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
       "target": "summaries_stock_count_trust_chain",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/MOC.md",
+      "source_location": "L118",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "moc",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
       "confidence_score": 1.0
     },
     {
@@ -20732,6 +21073,83 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_was_aimed_at_the_wrong_scroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_was_aimed_at_the_wrong_scroller",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_already_existed_and_was_aimed_wrong_twice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_was_aimed_at_the_wrong_scroller",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_decision_that_came_first",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_was_aimed_at_the_wrong_scroller",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_fix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_was_aimed_at_the_wrong_scroller",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_trap_worth_carrying",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_was_aimed_at_the_wrong_scroller",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller_two_smaller_things_in_the_same_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_was_aimed_at_the_wrong_scroller",
+      "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller_verification_beat_by_beat_not_by_eye",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/Trophy Room and Rank System Design.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -21567,5 +21985,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f0fd46d78a1fffe4816f6d669b14cf556fd73506"
+  "built_at_commit": "cc97b664ae9005ff1154ad1154918417ea45e70d"
 }
