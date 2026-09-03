@@ -404,3 +404,65 @@ loads as a script-less snapshot). Lite Mode re-checked in the same render: `anim
 `none` on both `.panel` and `.entry`, every colour and every word intact.
 
 **Status: CLOSED.** Published to the same artifact URL.
+
+---
+
+## Round 7 — 2026-09-03. OFF MEANS OFF, AND THE RAIL BECAME A KEYPAD
+
+**His words, verbatim:** *"this light should be off by default and only turn on when the section in
+their line is accessed, and also should be off in default until choose for the dot ligjht sc2 then
+, make the animation and buttons more 3D and smoother if possible make it cooler more gamelike
+features"* — sent with two crops, the left edge meter and the right key rail.
+
+### The ambiguity, and why it was resolved without asking
+
+"Off by default, on when accessed" has two readings:
+
+| | Reading | Verdict |
+|---|---|---|
+| A | The UNLIT state is drawn too brightly, so cells that were never visited already look lit | **taken** |
+| B | Drop the visited/read memory entirely — only the current section lights | rejected |
+
+B loses on his own locked decision from round 6: DIBACA was deleted specifically so *"the left edge
+meter is then the only thing reporting how much has been read"*. Reading B would delete the very
+thing he kept. A is also just true on inspection — the unlit cell was `rgba(232,227,218,.10)` and
+the unlit lamp `rgba(232,227,218,.13)`, both pale grey pips visible on every row, so seventeen
+sections read as seventeen lights already on.
+
+### What shipped
+
+| Part | Before | After |
+|---|---|---|
+| Unlit meter cell | `rgba(232,227,218,.10)` pale bar | `rgba(5,6,7,.66)` dark well, inset shadow |
+| Unlit key lamp | `rgba(232,227,218,.13)` grey pip | `rgba(5,6,7,.8)` dark bezel |
+| Read lamp | pale cream | amber `rgba(255,140,26,.62)`, so it matches the meter's read colour |
+| Current cap | `translateX(-4px) translateZ(10px)` | `translateX(-6px) translateZ(18px) rotateY(-5deg)`, rail given `perspective:620px` |
+| Press | none — a colour change | `keyHit` — depress to `translateZ(-13px) scale(.965)`, then ride out with overshoot |
+| Lamp turn-on | instant | `lampOn` bloom, ring expands to 3.2px then settles |
+| Meter cell turn-on | instant | `segOn` — overbright flash, then settles to burn level |
+| Panel flight | straight back | gained `rotateX(7deg)` in / `-5deg` out, so it swings on an axis |
+
+**Measured, not assumed:** the active cap's bounding box is 220.7 x 107.0 against an inactive
+210.2 x 88.4 — it is genuinely nearer the viewer under the rail's perspective, not just recoloured.
+
+**Three lamp states now legible in a single frame** (verified): dark = never opened, amber = read,
+gold cap with a bright ring = current.
+
+Lite Mode re-checked by computed style: `animationName` is `none` on key, lamp, segment, entry and
+panel, key transform is `none`, and every colour and word survives.
+
+### ⚠️ Environment trap, worth more than the feature
+
+Mid-verification every animation on the page reported `playState: "running"` with
+`currentTime: 0` — thirteen of them, frozen, while `document.visibilityState` said `"visible"`.
+**The preview pane's document timeline stalls**, and a stalled timeline makes `getComputedStyle`
+return each animation's FIRST keyframe forever. That looks exactly like "the animation is broken",
+and it is not. Two symptoms to recognise: a `requestAnimationFrame` loop that never resolves, and a
+transitioned property reading its start value permanently.
+
+**The reliable capture when it stalls:** add the class, then pin the animation with
+`style.animationDelay = '-76ms'` and `style.animationPlayState = 'paused'`. That is a static
+computed position, so it renders without needing the clock, and the screenshot is real.
+`document.getAnimations()` is what tells the two apart — check `currentTime`, not the rendered look.
+
+**Status: CLOSED.** Same artifact URL.

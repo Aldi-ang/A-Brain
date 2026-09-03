@@ -593,8 +593,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "a named import can shadow a global"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_happened",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "what happened"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "what it cost, and what did not catch it"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "the fix, and the rule"
     },
     {
@@ -2072,6 +2072,17 @@
       "norm_label": "3. depth is confirmed, and quiet is why"
     },
     {
+      "label": "Chrome speaks English, the app speaks Indonesian (2026-09-03)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1741",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_chrome_speaks_english_the_app_speaks_indonesian_2026_09_03",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "chrome speaks english, the app speaks indonesian (2026-09-03)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -2408,8 +2419,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_design_inspiration_sources",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 54,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "design inspiration sources"
     },
     {
@@ -2419,8 +2430,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_the_five",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 54,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "the five"
     },
     {
@@ -2430,8 +2441,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_21st_dev_is_not_a_browsing_job",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 54,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "21st.dev is not a browsing job"
     },
     {
@@ -2441,8 +2452,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_four_house_rules_before_anything_lands_in_kpm",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 54,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "four house rules before anything lands in kpm"
     },
     {
@@ -2452,8 +2463,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_licensing_one_line",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 54,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "licensing, one line"
     },
     {
@@ -5158,8 +5169,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the shell repaints any white it can reach"
     },
     {
@@ -5169,8 +5180,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_rule",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the rule"
     },
     {
@@ -5180,8 +5191,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_second_cause_of_the_same_appearance",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the second cause of the same appearance"
     },
     {
@@ -5191,8 +5202,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_two_harness_traps_which_cost_more_than_the_bug",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "\u26a0\ufe0f the two harness traps, which cost more than the bug"
     },
     {
@@ -5202,8 +5213,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_what_changed_in_the_look",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 58,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "what changed in the look"
     },
     {
@@ -6824,6 +6835,28 @@
       "norm_label": "2026-08-18 \u2014 read the hash, never write one from memory"
     },
     {
+      "label": "2026-08-20 \u2014 fanning out is the cost lever, and the agents inherit Opus",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L223",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_08_20_fanning_out_is_the_cost_lever_and_the_agents_inherit_opus",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-08-20 \u2014 fanning out is the cost lever, and the agents inherit opus"
+    },
+    {
+      "label": "2026-08-20 \u2014 test the primitive before tracing the path",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L237",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_08_20_test_the_primitive_before_tracing_the_path",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-08-20 \u2014 test the primitive before tracing the path"
+    },
+    {
       "label": "Log.md",
       "file_type": "document",
       "source_file": "Wiki/Log.md",
@@ -7732,8 +7765,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 92,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -7743,8 +7776,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 92,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -7754,8 +7787,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 92,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "what it establishes"
     },
     {
@@ -7765,8 +7798,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 92,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -8062,8 +8095,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "ponytail philosophy ingest.md"
     },
     {
@@ -8073,8 +8106,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_summary_ponytail_philosophy_ingest",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "summary: ponytail philosophy ingest"
     },
     {
@@ -8084,8 +8117,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_why_this_was_ingested",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "why this was ingested"
     },
     {
@@ -8095,8 +8128,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_where_it_went",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "where it went"
     },
     {
@@ -8106,8 +8139,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_ripple_pages_this_touches",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -8370,8 +8403,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -11905,6 +11938,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_backlight_out_full_words_in_and_the_lowkey_3d_stays_2026_09_02",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1741",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_chrome_speaks_english_the_app_speaks_indonesian_2026_09_03",
       "confidence_score": 1.0
     },
     {
@@ -18609,6 +18653,28 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L223",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_08_18_2nd_today_chosen_by_oldest_last_fire",
+      "target": "lessons_archive_2026_08_20_fanning_out_is_the_cost_lever_and_the_agents_inherit_opus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L237",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_08_18_2nd_today_chosen_by_oldest_last_fire",
+      "target": "lessons_archive_2026_08_20_test_the_primitive_before_tracing_the_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
       "source_location": "L10",
       "weight": 1.0,
@@ -21347,5 +21413,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "dd0674f5c83233a108d60533734ffe9a443b023c"
+  "built_at_commit": "5d4a5f7a51f6aea02cc8e1f1d18d27e35cf74521"
 }

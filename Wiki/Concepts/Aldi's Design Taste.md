@@ -1752,3 +1752,25 @@ while naming the English control it points at.
 
 This settles the tension in [[Clear terms, one language]] for chrome specifically: one language per
 LAYER, not one language per screen. A strip that mixes both inside itself is still wrong.
+
+## An OFF state has to look OFF (2026-09-03)
+
+On the tech pad's edge meter and key-cap lamps:
+
+> *"this light should be off by default and only turn on when the section in their line is
+> accessed, and also should be off in default until choose for the dot"*
+
+Both unlit states were pale grey — `rgba(232,227,218,.10)` and `.13` — chosen so the shape of the
+control would still be readable. He read the whole rail as already switched on.
+
+**The rule:** an indicator's resting state is a DARK WELL, not a dim version of its lit state. On
+this dark housing that means near-black with an inset shadow; the eye should have to look for it.
+Anything bright enough to be comfortably visible is reporting something. Note this is the same
+instinct as [[Light mode gets its own MATERIAL]] pointing the other way: a lamp reads as lit by
+standing OFF its surround, so on a dark plate it goes brighter and on a pale plate it goes darker
+and denser — and its OFF state always retreats toward the plate.
+
+He also asked, same message, for *"more 3D and smoother ... cooler more gamelike features"*. What
+satisfied it was physicality, not effects: caps that actually depress before they rise, a lamp that
+blooms then settles, a meter cell that flashes overbright as it energises. No new colours were
+added — the palette law held, and the removed backlight stayed removed.

@@ -80,14 +80,30 @@ body{
   display:flex; flex-direction:column; gap:2px; padding:14px 3px;
   transform:translateZ(5px);
 }
+/* OFF IS OFF. The old unlit cell was rgba(232,227,218,.10) - a pale grey bar that read as a
+   LIT segment at a glance, so a meter with three sections read looked almost full. An unlit
+   cell in a real bar meter is a dark well you can only just make out. */
 .seg{
   flex:1 1 0; border-radius:2px;
-  background:rgba(232,227,218,.10);
-  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.55);
-  transition:background .25s linear;
+  background:rgba(5,6,7,.66);
+  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.75), inset 0 1px 1px rgba(0,0,0,.55);
+  transition:background .25s linear, box-shadow .25s linear;
 }
-.seg.read{background:linear-gradient(90deg, rgba(255,140,26,.30), rgba(255,217,160,.72))}
-.seg.cur{background:var(--accent); box-shadow:0 0 5px rgba(255,140,26,.45), inset 0 0 0 .5px rgba(0,0,0,.4)}
+.seg.read{
+  background:linear-gradient(90deg, rgba(255,140,26,.30), rgba(255,217,160,.72));
+  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.45);
+}
+/* the current cell ENERGISES - overbright for a moment, then settles to its burn level */
+@keyframes segOn{
+  0%  {background:rgba(255,232,196,.98); box-shadow:0 0 13px rgba(255,140,26,.9),  inset 0 0 0 .5px rgba(0,0,0,.4)}
+  55% {background:var(--accent);         box-shadow:0 0 8px  rgba(255,140,26,.62), inset 0 0 0 .5px rgba(0,0,0,.4)}
+  100%{background:var(--accent);         box-shadow:0 0 5px  rgba(255,140,26,.45), inset 0 0 0 .5px rgba(0,0,0,.4)}
+}
+.seg.cur{
+  background:var(--accent);
+  box-shadow:0 0 5px rgba(255,140,26,.45), inset 0 0 0 .5px rgba(0,0,0,.4);
+  animation:segOn .40s cubic-bezier(.2,.7,.3,1);
+}
 
 /* DISPLAY - inset, near-black warm */
 .display{
@@ -133,10 +149,10 @@ body{
   0%  {opacity:1; transform:none;                                            filter:blur(0)}
   35% {opacity:.92}
   70% {opacity:.55}
-  100%{opacity:0; transform:translateZ(-130px) translateY(-14px) scale(.955); filter:blur(2.5px)}
+  100%{opacity:0; transform:translateZ(-130px) translateY(-14px) rotateX(-5deg) scale(.955); filter:blur(2.5px)}
 }
 @keyframes panelIn{
-  0%  {opacity:0; transform:translateZ(-175px) translateY(18px) scale(.935); filter:blur(3px)}
+  0%  {opacity:0; transform:translateZ(-175px) translateY(18px) rotateX(7deg) scale(.935); filter:blur(3px)}
   22% {opacity:1;                                                           filter:blur(1.2px)}
   100%{opacity:1; transform:none;                                           filter:blur(0)}
 }
@@ -211,6 +227,7 @@ h1{
 .rail{
   display:flex; flex-direction:column; gap:2px; padding:2px 0;
   transform:translateZ(15px); transform-style:preserve-3d;
+  perspective:620px;            /* each cap now has its own vanishing point, so Z reads as depth */
 }
 .key{
   flex:1 1 0; min-height:22px;
@@ -219,21 +236,59 @@ h1{
   font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:.01em;
   color:var(--dim); text-align:left; white-space:nowrap;
   background:linear-gradient(180deg,#23272B,#15181B);
-  box-shadow:inset 0 1px 0 rgba(255,217,160,.10), inset 0 0 0 1px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.55);
-  transition:transform .16s cubic-bezier(.22,.61,.36,1), color .16s linear, background .16s linear;
+  box-shadow:
+    inset 0 1px 0 rgba(255,217,160,.10),
+    inset 0 -1px 0 rgba(0,0,0,.75),
+    inset 0 0 0 1px rgba(0,0,0,.55),
+    0 1px 2px rgba(0,0,0,.55),
+    0 3px 5px -3px rgba(0,0,0,.8);
+  transform:translateZ(0);
+  transform-style:preserve-3d;
+  transition:transform .24s cubic-bezier(.34,1.32,.64,1), color .16s linear,
+             background .16s linear, box-shadow .24s ease;
 }
-.key .lamp{flex:0 0 auto; width:4px; height:4px; border-radius:50%; background:rgba(232,227,218,.13)}
+/* AN UNLIT LAMP IS A DARK BEZEL. The old one was rgba(232,227,218,.13) - a visible grey pip on
+   every single cap, so the rail read as seventeen lights that were already on. */
+.key .lamp{
+  flex:0 0 auto; width:4px; height:4px; border-radius:50%;
+  background:rgba(5,6,7,.8);
+  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.7), 0 0 0 .5px rgba(232,227,218,.05);
+  transition:background .2s linear, box-shadow .2s linear;
+}
 .key.read{color:#A9A296}
-.key.read .lamp{background:rgba(232,227,218,.55)}
+.key.read .lamp{background:rgba(255,140,26,.62); box-shadow:0 0 3px rgba(255,140,26,.35)}
 .key.on{
   color:#0E1012; font-weight:600;
   background:linear-gradient(180deg, var(--foil), var(--accent));
-  transform:translateX(-4px) translateZ(10px);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 2px 6px rgba(0,0,0,.55);
+  transform:translateX(-6px) translateZ(18px) rotateY(-5deg);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.45),
+    inset 0 -1px 0 rgba(122,52,4,.55),
+    -4px 3px 11px rgba(0,0,0,.62),
+    0 2px 4px rgba(0,0,0,.5);
+}
+/* the lamp BLOOMS when it comes on, then settles - an LED being energised, not a colour swap */
+@keyframes lampOn{
+  0%  {box-shadow:0 0 0 0    rgba(255,250,240,0),   0 0 0  rgba(255,140,26,0)}
+  40% {box-shadow:0 0 0 3.2px rgba(255,250,240,.98), 0 0 11px rgba(255,140,26,.85)}
+  100%{box-shadow:0 0 0 1.5px rgba(255,250,240,.92), 0 0 4px  rgba(107,40,0,.55)}
 }
 .key.on .lamp{
   background:#6B2800;
   box-shadow:0 0 0 1.5px rgba(255,250,240,.92), 0 0 4px rgba(107,40,0,.55);
+  animation:lampOn .42s cubic-bezier(.2,.7,.3,1);
+}
+/* THE PRESS IS PHYSICAL: the cap goes IN first, then rides out to the raised gold state with a
+   little overshoot. Without the depress it was a colour change; with it, it is a button. */
+@keyframes keyHit{
+  0%  {transform:translateX(0)     translateZ(0)     rotateY(0)      scale(1)}
+  20% {transform:translateX(3px)   translateZ(-13px) rotateY(1.5deg) scale(.965)}
+  100%{transform:translateX(-6px)  translateZ(18px)  rotateY(-5deg)  scale(1)}
+}
+.key.hit{animation:keyHit .38s cubic-bezier(.3,1.45,.55,1) forwards}
+@media (hover:hover){
+  .key:hover{transform:translateX(-2px) translateZ(8px)}
+  .key.on:hover{transform:translateX(-6px) translateZ(20px) rotateY(-5deg)}
 }
 .key:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
 
@@ -262,7 +317,12 @@ body.lite .fn{transition:none}
 body.lite .panel.in,
 body.lite .panel.out{animation:none; opacity:1; transform:none; filter:none}
 body.lite .entry{animation:none}
-body.lite .key.on{transform:none}
+body.lite .key.on,
+body.lite .key:hover,
+body.lite .key.on:hover{transform:none}
+body.lite .key.hit,
+body.lite .key.on .lamp,
+body.lite .seg.cur{animation:none}
 body.lite .seg.cur{box-shadow:inset 0 0 0 .5px rgba(0,0,0,.4)}
 body.lite .display,
 body.lite .rail,
@@ -271,6 +331,8 @@ body.lite .meter{transform:none}
 @media (prefers-reduced-motion:reduce){
   .pad,.panel,.key{transition:none !important}
   .panel.in,.panel.out,.entry{animation:none !important; opacity:1 !important; transform:none !important; filter:none !important}
+  .key.hit,.key.on .lamp,.seg.cur{animation:none !important}
+  .key.on,.key:hover{transform:none !important}
 }
 /* a caption for a desk viewer only — on a phone the pad fills the screen and
    a fixed line would lie across the housing */
@@ -432,6 +494,7 @@ function go(i){
   if(i<0 || i>=SECTIONS.length || i===cur){ return; }
   clearTimeout(dwell); clearTimeout(flight);
   cur=i; paint();                 /* both lights, on the press itself, in one frame */
+  hit(keys[i]);
   if(lite){ render(); markSoon(); return; }
   panel.classList.remove('in');
   panel.classList.add('out');
@@ -442,6 +505,13 @@ function go(i){
     flight=setTimeout(function(){ panel.classList.remove('in'); }, IN_MS);
     markSoon();
   }, OUT_MS);
+}
+/* restart the depress even when the same cap is hammered - removing the class and reading
+   offsetWidth forces the reflow that lets the animation play again */
+function hit(el){
+  if(lite){ return; }
+  el.classList.remove('hit'); void el.offsetWidth; el.classList.add('hit');
+  setTimeout(function(){ el.classList.remove('hit'); },400);
 }
 function markSoon(){
   dwell=setTimeout(function(){
