@@ -1870,3 +1870,32 @@ that a correctly drawn, completely still screen reads as unfinished. Expect "wha
 entrance" on anything handed over as a still object.
 
 Related: [["Norak" — two animations claiming the same moment]] &middot; [[Design Inspiration Sources]]
+
+## He specifies by analogy, and the analogy is the whole spec (2026-09-03)
+
+Asked for "the intro and outro" of the tutorial icon, I built the icon's own appearance and
+disappearance. He meant the PANEL's:
+
+> *"this is not what i mean, what i meant is the animation when u press that icon. there will be an
+> intro to open the ponder panel and also outro when we press the X button right, thats what i want
+> u to make, not the intro and outro of the icon bruh. like for example we have book icon for pc,
+> we press the icon and the book come flying towards the screen and open up, while closing it
+> trigger close book and fly back to the original position right, i also want the ponder panel to
+> have animation but different kind, should be align with the technology high tech theme of course
+> and its for phone only."*
+
+**Both readings were live and the request did not separate them.** "Intro and outro" of a thing you
+press can mean the button's own motion or the thing it opens. The rule that would have caught it is
+already written down &mdash; present both readings rather than pick one silently &mdash; and it was
+not applied. It cost a full round.
+
+**The reusable part is how he specifies.** He does not describe motion in motion vocabulary; he
+points at something already shipped and says *do that, but different kind*. The book flying out of
+its slot, opening, then shutting and flying back IS the spec: an object travels from where you
+pressed, and does something mechanical when it arrives. Everything else &mdash; "different kind",
+"high tech", "phone only" &mdash; is the delta from that reference.
+
+**So when he names an existing behaviour, go read that behaviour before designing.** The answer is
+usually a translation of it into the new object's material, not an invention.
+
+Related: [[2026-09-03_panel-arrival-animation]] &middot; [["Cleanest" won over "most impressive"]]
