@@ -1839,3 +1839,7 @@ until he named it. **On any round that adds motion, ask what should come OUT.** 
 to be the one who notices.
 
 Related: [["More 3D" means LATCHED, not floating]] · [["Technological" means the machine shows its work]]
+
+**Applied 2026-09-03 (round 10, same artifact `ad98ec70`).** Both panel keyframe sets became
+opacity-only, .17s out / .14s in, with the script's `OUT_MS`/`IN_MS` moved to match. The depth
+flight, the blur and the scale are gone; the text write-on was left untouched.

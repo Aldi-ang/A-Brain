@@ -139,34 +139,18 @@ body{
   position:absolute; inset:0; overflow-y:auto; -webkit-overflow-scrolling:touch;
   padding:16px 14px 20px;
   opacity:1; transform:none;
-  will-change:opacity, transform;
+  will-change:opacity;
 }
 .panel::-webkit-scrollbar{width:3px}
 .panel::-webkit-scrollbar-track{background:transparent}
 .panel::-webkit-scrollbar-thumb{background:rgba(232,227,218,.18); border-radius:2px}
-/* INTRO / OUTRO - one keyframe set per direction. The old rule faded the panel out in
-   .16s while the depth move took .30s, so the flight had no lit frame to be seen in.
-   Here the opacity is HELD across the transform: the outro stays legible until it is
-   nearly gone, and the intro is at full opacity by 22%, with 60% of its travel still to run.
-   Measured on the real page: at the first frame where opacity reads 1.00 the panel is at
-   scale .961 of 1.0 - 40% travelled, 60% left. Before this fix it was .993, i.e. done. */
-@keyframes panelOut{
-  0%  {opacity:1; transform:none;                                            filter:blur(0)}
-  35% {opacity:.92}
-  70% {opacity:.55}
-  100%{opacity:0; transform:translateZ(-130px) translateY(-14px) rotateX(-5deg) scale(.955); filter:blur(2.5px)}
-}
-@keyframes panelIn{
-  0%  {opacity:0; transform:translateZ(-175px) translateY(18px) rotateX(7deg) scale(.935); filter:blur(3px)}
-  22% {opacity:1;                                                           filter:blur(1.2px)}
-  100%{opacity:1; transform:none;                                           filter:blur(0)}
-}
-/* The easing matters as much as the opacity. A hard ease-out curve spends 80% of its
-   travel in the first 30% of its time, so the panel finished MOVING before it finished
-   LIGHTING and the flight was invisible for a second reason. These curves spread the
-   travel out: the panel is at full opacity with about 60% of its journey still to go. */
-.panel.out{animation:panelOut .30s cubic-bezier(.32,.06,.55,1) forwards}
-.panel.in {animation:panelIn  .46s cubic-bezier(.25,.46,.45,.94) forwards}
+/* INTRO / OUTRO - a plain crossfade, nothing else. The panel used to fly in from depth while
+   the text wrote itself on, so one moment carried two entrances and read as overdone. The text
+   write-on below is the intro now; the panel only hands the stage over. */
+@keyframes panelOut{ from{opacity:1} to{opacity:0} }
+@keyframes panelIn { from{opacity:0} to{opacity:1} }
+.panel.out{animation:panelOut .17s var(--ease-out) forwards}
+.panel.in {animation:panelIn  .14s var(--ease-out) forwards}
 
 /* THE TEXT IS WRITTEN, NOT FADED IN. Each block is revealed left to right by a clip edge - a
    raster sweep, the way a terminal actually puts characters on a screen. The curve is LINEAR,
@@ -572,7 +556,7 @@ function decode(el, text, ms){
   decodeTimer=setInterval(tick,32);
 }
 
-var OUT_MS=300, IN_MS=460;
+var OUT_MS=170, IN_MS=140;
 function go(i){
   if(i<0 || i>=SECTIONS.length || i===cur){ return; }
   clearTimeout(dwell); clearTimeout(flight);
