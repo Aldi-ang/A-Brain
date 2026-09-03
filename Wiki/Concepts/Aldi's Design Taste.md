@@ -1843,3 +1843,30 @@ Related: [["More 3D" means LATCHED, not floating]] · [["Technological" means th
 **Applied 2026-09-03 (round 10, same artifact `ad98ec70`).** Both panel keyframe sets became
 opacity-only, .17s out / .14s in, with the script's `OUT_MS`/`IN_MS` moved to match. The depth
 flight, the blur and the scale are gone; the text write-on was left untouched.
+
+## "Cleanest" won over "most impressive" (2026-09-03)
+
+Shown four launcher icons for the tutorial button, each built from the tech pad's parts, he
+answered:
+
+> *"display look the cleanest so choose that, now what about the intro and outro make sure our
+> technological high tech theme stays intact with the animation also and i want u to make it i
+> want to see it, keep it elegant and cool and gamified"*
+
+**He picked the quietest one, and he named quietness as the reason.** The recommendation was a key
+cap that sinks and latches; it is more physical and more obviously a button. He took the screen
+with four thin lines instead. The candidate carrying the most going on (a micropad with four caps
+and a screen) placed last without being mentioned.
+
+**This is the same instinct as [["Norak" — two animations claiming the same moment]], eight hours
+later, and it is worth reading as one rule: he wants a small number of things done well, not a
+large number of things done at all.** "Gamified and cool" in the same sentence as "clean" is not a
+contradiction to him — the motion is allowed to be a performance, the resting object is not.
+
+**And the follow-up is the tell about how he reviews.** He accepted the icon and immediately asked
+what it does on the way in and on the way out. A static icon is only half an answer to him;
+[[2026-08-16 — "animation and 3D more with gamification on all of this segment"]] already recorded
+that a correctly drawn, completely still screen reads as unfinished. Expect "what about the
+entrance" on anything handed over as a still object.
+
+Related: [["Norak" — two animations claiming the same moment]] &middot; [[Design Inspiration Sources]]

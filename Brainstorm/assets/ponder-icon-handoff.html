@@ -1,0 +1,610 @@
+<title>Display Icon Handoff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Same world as the panel and the bench: the field terminal's own materials, dark only, every
+   colour painted explicitly so the page holds on either host ground. */
+:root{
+  color-scheme: dark;
+  --housing-top:#252A2E; --housing-hi:#1C1F22; --housing-lo:#0E1012;
+  --display:#121014;
+  --ground:#08090A;
+  --ink:#E8E3DA; --dim:#8E8779; --dimmer:#6E685C;
+  --foil:#FFD9A0;
+
+  --lit:#F59E0B;              /* the app's amber, as picked */
+  --lit-hot:#FFC24D;
+  --lit-dim:rgba(245,158,11,.38);
+  --lit-ink:#2A1A08;
+
+  --hair:rgba(232,227,218,.09);
+  --hair-2:rgba(232,227,218,.16);
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --sans:"IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  --ease-out:cubic-bezier(.23, 1, .32, 1);
+  --t:1;                      /* global speed dial; SLOW MO multiplies it */
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(120% 60% at 50% -8%, #14171A 0%, var(--ground) 60%);
+}
+.wrap{max-width:900px; margin:0 auto; padding:22px 16px 60px}
+
+.head{
+  display:flex; align-items:center; gap:9px; flex-wrap:wrap;
+  padding:8px 11px; border-radius:9px; border:1px solid var(--hair);
+  background:linear-gradient(180deg, rgba(232,227,218,.04), transparent), var(--housing-hi);
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--dim); font-variant-numeric:tabular-nums;
+}
+.head .live{width:5px; height:5px; border-radius:50%; background:var(--lit); flex:0 0 auto}
+.head .sp{flex:1 1 auto}
+.head b{color:var(--ink); font-weight:600}
+
+h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
+   line-height:1.12; text-wrap:balance}
+.lede{margin:0 0 20px; max-width:62ch; font-size:14px; line-height:1.6; color:#B8B2A6}
+.lede b{color:var(--ink); font-weight:600}
+
+.ctrls{
+  display:flex; gap:6px; flex-wrap:wrap; align-items:center;
+  padding:9px; border-radius:9px; border:1px solid var(--hair);
+  background:var(--housing-lo); margin-bottom:20px;
+}
+.btn{
+  appearance:none; border:0; cursor:pointer;
+  height:30px; padding:0 11px; border-radius:6px;
+  font-family:var(--mono); font-size:9.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--dim);
+  background:linear-gradient(180deg,#23272B,#15181B);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.09), inset 0 0 0 1px rgba(0,0,0,.55),
+             0 1px 2px rgba(0,0,0,.5);
+  transition:color .16s linear, box-shadow .16s linear, transform .16s var(--ease-out);
+}
+.btn:active{transform:scale(.97)}
+.btn[aria-pressed="true"]{color:var(--foil); box-shadow:inset 0 0 0 1px rgba(245,158,11,.6)}
+.btn.go{color:var(--lit-ink); background:linear-gradient(180deg, var(--lit) 0%, #D4870A 100%); font-weight:600}
+.btn:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
+.ctrl-lab{font-family:var(--mono); font-size:9px; letter-spacing:.14em; color:var(--dimmer);
+          text-transform:uppercase; margin-left:4px}
+
+/* ══ THE LOOP — icon and panel in one frame, because the handoff is the thing being judged ══ */
+.loop{
+  display:grid; gap:16px; align-items:start;
+  grid-template-columns:minmax(0,1fr);
+  margin-bottom:26px;
+}
+@media (min-width:760px){ .loop{grid-template-columns:302px minmax(0,1fr)} }
+
+.device{
+  width:100%; max-width:302px; margin:0 auto;
+  border-radius:18px; padding:9px 8px;
+  background:linear-gradient(158deg, var(--housing-top) 0%, var(--housing-hi) 34%, #15181B 70%, var(--housing-lo) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.12), inset 0 -1px 0 rgba(0,0,0,.7),
+             0 30px 60px -28px #000;
+  position:relative;
+}
+.device::before{
+  content:""; position:absolute; inset:0; border-radius:inherit; padding:1px; pointer-events:none;
+  background:linear-gradient(148deg, rgba(255,217,160,.5) 0%, rgba(245,158,11,.22) 30%,
+             rgba(255,217,160,.04) 55%, rgba(245,158,11,.18) 78%, rgba(255,217,160,.4) 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite:exclude;
+}
+
+/* the top bar the icon actually lives in */
+.bar{
+  display:flex; align-items:center; gap:7px; height:40px; padding:0 8px;
+  border-radius:10px; border:1px solid var(--hair);
+  background:linear-gradient(180deg, rgba(232,227,218,.05), rgba(0,0,0,.2));
+}
+.bar .brand{font-family:var(--mono); font-size:8.5px; letter-spacing:.16em; color:var(--dimmer);
+            text-transform:uppercase}
+.bar .sp{flex:1 1 auto}
+.chip{
+  appearance:none; cursor:pointer;
+  height:36px; padding:0 9px; border-radius:8px;
+  display:inline-flex; align-items:center; gap:7px;
+  border:1px solid var(--hair-2); background:rgba(232,227,218,.03); color:var(--dim);
+  transition:border-color .2s linear, color .2s linear, transform .2s var(--ease-out);
+}
+.chip .lab{font-family:var(--mono); font-size:9px; letter-spacing:.15em; text-transform:uppercase}
+.chip:active{transform:scale(.97)}
+.chip:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
+@media (hover:hover) and (pointer:fine){
+  .chip:hover{border-color:rgba(245,158,11,.5); color:var(--foil)}
+}
+/* while the panel is out, the chip stays put and stays pressable. Only the GLYPH leaves.
+   Same contract the book had: one object moves, nothing cross-fades into nothing. */
+.chip.away{color:var(--dimmer)}
+
+/* the stand-in panel, so the handoff can be judged as one system rather than as a lone icon */
+.screen{
+  margin-top:8px; height:212px; border-radius:12px; position:relative; overflow:hidden;
+  background:var(--display);
+  box-shadow:inset 0 2px 7px rgba(0,0,0,.95), inset 0 0 0 1px rgba(0,0,0,.85),
+             0 0 0 1px rgba(232,227,218,.055);
+}
+.screen::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(180deg, rgba(232,227,218,.016) 0 1px, transparent 1px 24px);
+}
+.idle-note{
+  position:absolute; inset:0; display:grid; place-items:center; padding:0 20px;
+  font-family:var(--mono); font-size:8.5px; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--dimmer); text-align:center; line-height:1.9;
+}
+.panel{
+  position:absolute; inset:0; padding:13px 12px; opacity:0; pointer-events:none;
+  display:flex; flex-direction:column; gap:7px;
+}
+.panel.on{opacity:1; pointer-events:auto}
+/* the panel's own crossfade, unchanged from what shipped this morning: .17s out, .14s in,
+   opacity only. The icon's handoff is built to hand over TO this, not to compete with it. */
+.panel.in {animation:pIn  calc(140ms * var(--t)) var(--ease-out) forwards}
+.panel.out{animation:pOut calc(170ms * var(--t)) var(--ease-out) forwards}
+@keyframes pIn { from{opacity:0} to{opacity:1} }
+@keyframes pOut{ from{opacity:1} to{opacity:0} }
+
+.p-eye{
+  display:flex; align-items:center; gap:7px;
+  font-family:var(--mono); font-size:8px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--dimmer);
+}
+.p-eye .plate{
+  height:20px; padding:0 8px; border-radius:5px; display:grid; place-items:center;
+  color:var(--foil); font-size:9.5px; letter-spacing:.02em; text-transform:none; font-weight:600;
+  background:linear-gradient(180deg,#22262A,#141719);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.16), inset 0 0 0 1px rgba(0,0,0,.6);
+}
+.p-eye .line{flex:1 1 auto; height:1px; background:var(--hair)}
+.p-title{margin:1px 0 0; font-size:15px; font-weight:600; letter-spacing:-.012em; color:var(--ink)}
+.p-body{margin:0; font-size:11px; line-height:1.5; color:#9A948A; max-width:32ch}
+.p-row{
+  display:flex; align-items:baseline; gap:8px; padding:6px 0;
+  border-top:1px solid var(--hair);
+  font-size:11px; color:#9A948A;
+}
+.p-row .n{font-family:var(--mono); font-size:9px; color:var(--dimmer)}
+.p-row .t{color:var(--ink); font-weight:600; flex:1 1 auto}
+.p-close{
+  margin-top:auto; align-self:flex-start;
+  appearance:none; border:0; cursor:pointer; height:26px; padding:0 10px; border-radius:6px;
+  font-family:var(--mono); font-size:8.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--dim); background:linear-gradient(180deg,#22262A,#141719);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.08), inset 0 0 0 1px rgba(0,0,0,.55);
+  transition:color .16s linear, transform .16s var(--ease-out);
+}
+.p-close:active{transform:scale(.97)}
+.p-close:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
+
+/* ══ THE GLYPH ════════════════════════════════════════════════════════════════════════════════
+   The display, unchanged from the bench: a bezel, an inset screen, four phosphor lines written
+   by a clip edge. What is NEW here is that the screen itself now has a CRT state - it can be
+   collapsed to a hairline and to a point, which is what the intro and the outro are made of. */
+.g-dsp{position:relative; display:block; flex:0 0 auto; width:22px; height:22px}
+.g-dsp .bez{
+  position:absolute; inset:0; border-radius:4.5px;
+  background:linear-gradient(158deg,#262A2E,#101315);
+  box-shadow:inset 0 .5px 0 rgba(255,217,160,.15), inset 0 0 0 .5px rgba(0,0,0,.7);
+}
+/* .tube is the CRT itself. Everything the intro and outro do happens to THIS element, so the
+   bezel never moves - the housing stays, the picture is what comes and goes. */
+.g-dsp .tube{
+  position:absolute; inset:2.5px; border-radius:2px; overflow:hidden;
+  background:#0A090B; box-shadow:inset 0 .5px 2px rgba(0,0,0,.95);
+  transform-origin:center center;
+}
+.g-dsp .tube::after{
+  content:""; position:absolute; inset:0;
+  background:repeating-linear-gradient(180deg, rgba(232,227,218,.05) 0 .5px, transparent .5px 2px);
+}
+/* the collapse beam: the bright hairline a CRT leaves behind on the way out and arrives on
+   the way in. It lives inside the tube so it cannot spill onto the bezel. */
+.g-dsp .beam{
+  position:absolute; left:2.5px; right:2.5px; top:50%; height:1px; margin-top:-.5px;
+  background:var(--lit-hot); opacity:0; transform-origin:center center;
+  box-shadow:0 0 4px rgba(255,194,77,.9);
+}
+.g-dsp .ln{
+  position:absolute; left:1.5px; height:1.5px; border-radius:.75px;
+  background:var(--lit); clip-path:inset(0 100% 0 0);
+}
+.g-dsp .l1{top:2px;  right:3px}
+.g-dsp .l2{top:6px;  right:6px}
+.g-dsp .l3{top:10px; right:2px}
+.g-dsp .l4{top:14px; right:8px}
+
+/* REST: the screen is on and holding, all four lines burned in at their dim level. This is
+   exactly where the boot below lands, so the icon never pops when the animation ends. */
+.g-dsp.rest .ln{clip-path:inset(0 0 0 0); background:var(--lit-dim)}
+
+/* ── HOVER: the write-on he already approved, unchanged ────────────────────────────────────── */
+.g-dsp.hv .l1{animation:write calc(260ms * var(--t)) linear calc(0ms * var(--t))   both}
+.g-dsp.hv .l2{animation:write calc(260ms * var(--t)) linear calc(55ms * var(--t))  both}
+.g-dsp.hv .l3{animation:write calc(260ms * var(--t)) linear calc(110ms * var(--t)) both}
+.g-dsp.hv .l4{animation:write calc(260ms * var(--t)) linear calc(165ms * var(--t)) both}
+@keyframes write{
+  0%  {clip-path:inset(0 100% 0 0); background:var(--lit-hot)}
+  55% {                             background:var(--lit)}
+  100%{clip-path:inset(0 0 0 0);    background:var(--lit-dim)}
+}
+@media (hover:hover) and (pointer:fine){
+  .chip:hover .g-dsp.rest .l1{animation:write calc(260ms * var(--t)) linear calc(0ms * var(--t))   both}
+  .chip:hover .g-dsp.rest .l2{animation:write calc(260ms * var(--t)) linear calc(55ms * var(--t))  both}
+  .chip:hover .g-dsp.rest .l3{animation:write calc(260ms * var(--t)) linear calc(110ms * var(--t)) both}
+  .chip:hover .g-dsp.rest .l4{animation:write calc(260ms * var(--t)) linear calc(165ms * var(--t)) both}
+}
+
+/* ── OUTRO · HANDOFF. The picture collapses into the panel it is opening. ───────────────────
+   Two beats and no more, in sequence: the whole image squeezes vertically into one bright
+   scanline, then that scanline snaps horizontally to a point and blinks out. It is the CRT
+   power-off, which is the most literally "the screen went somewhere else" motion there is.
+   190ms total - the exit is the fastest thing on the page, because the panel is what the
+   reader is waiting for. Never to scale 0: the beam ends at .07 of its width and fades, the
+   way a real tube keeps a dot for a moment. */
+.g-dsp.out .tube{animation:crtOut calc(190ms * var(--t)) var(--ease-out) forwards}
+.g-dsp.out .ln  {animation:crtInk calc(90ms  * var(--t)) var(--ease-out) forwards}
+.g-dsp.out .beam{animation:crtBeamOut calc(190ms * var(--t)) var(--ease-out) forwards}
+@keyframes crtOut{
+  0%  {transform:scaleY(1)    scaleX(1)}
+  47% {transform:scaleY(.045) scaleX(1)}
+  100%{transform:scaleY(.045) scaleX(.07)}
+}
+@keyframes crtInk{  /* the written lines go out first, so the beam is the only thing left to squeeze */
+  0%  {opacity:1}
+  100%{opacity:0}
+}
+@keyframes crtBeamOut{
+  0%  {opacity:0; transform:scaleX(1)}
+  40% {opacity:1; transform:scaleX(1)}
+  47% {opacity:1; transform:scaleX(1)}
+  100%{opacity:0; transform:scaleX(.07)}
+}
+/* the empty slot: bezel only, dark. The chip does not resize, so nothing in the bar shifts. */
+.g-dsp.gone .tube{transform:scaleY(.045) scaleX(.07)}
+.g-dsp.gone .ln{opacity:0}
+
+/* ── INTRO · BOOT. The picture comes back, then writes itself. ──────────────────────────────
+   Three beats, strictly one after another, because two of them at once is what he called norak:
+     1  the point opens horizontally into a hairline      100ms
+     2  the hairline opens vertically into the screen     140ms
+     3  the four lines write in, linear, 45ms apart       ~335ms
+   The write-on is the same animation the panel's text uses. Nothing new is invented for the
+   boot - it reuses the two ideas the terminal already has, in an order. */
+.g-dsp.boot .tube{animation:crtIn calc(240ms * var(--t)) var(--ease-out) both}
+.g-dsp.boot .beam{animation:crtBeamIn calc(240ms * var(--t)) var(--ease-out) both}
+@keyframes crtIn{
+  0%  {transform:scaleY(.045) scaleX(.07)}
+  42% {transform:scaleY(.045) scaleX(1)}
+  100%{transform:scaleY(1)    scaleX(1)}
+}
+@keyframes crtBeamIn{
+  0%  {opacity:0; transform:scaleX(.07)}
+  16% {opacity:1; transform:scaleX(.07)}
+  42% {opacity:1; transform:scaleX(1)}
+  100%{opacity:0; transform:scaleX(1)}
+}
+.g-dsp.boot .l1{animation:write calc(200ms * var(--t)) linear calc(240ms * var(--t)) both}
+.g-dsp.boot .l2{animation:write calc(200ms * var(--t)) linear calc(285ms * var(--t)) both}
+.g-dsp.boot .l3{animation:write calc(200ms * var(--t)) linear calc(330ms * var(--t)) both}
+.g-dsp.boot .l4{animation:write calc(200ms * var(--t)) linear calc(375ms * var(--t)) both}
+
+/* ══ the beat strip ═══════════════════════════════════════════════════════════════════════ */
+.beats{display:grid; gap:12px; grid-template-columns:minmax(0,1fr)}
+@media (min-width:620px){ .beats{grid-template-columns:repeat(3, minmax(0,1fr))} }
+.beat{
+  border:1px solid var(--hair); border-radius:12px; overflow:hidden;
+  background:linear-gradient(158deg, var(--housing-top) 0%, var(--housing-hi) 40%, var(--housing-lo) 100%);
+  display:flex; flex-direction:column;
+}
+.beat-head{
+  display:flex; align-items:baseline; gap:8px;
+  padding:9px 11px; border-bottom:1px solid var(--hair);
+  font-family:var(--mono); font-size:9px; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--dim); font-variant-numeric:tabular-nums;
+}
+.beat-head .nm{color:var(--ink); font-weight:600}
+.beat-head .ms{margin-left:auto; color:var(--lit)}
+.beat-stage{
+  background:var(--display); padding:16px 10px 12px; position:relative;
+  display:flex; flex-direction:column; align-items:center; gap:9px;
+}
+.beat-stage::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(180deg, rgba(232,227,218,.014) 0 1px, transparent 1px 22px);
+}
+.mag{width:88px; height:88px; display:grid; place-items:center}
+.mag > .g-dsp{transform:scale(4); transform-origin:center}
+.beat p{margin:0; padding:11px 11px 13px; font-size:12.5px; line-height:1.5; color:#9A948A}
+.beat p b{color:var(--ink); font-weight:600}
+.beat .replay{margin:0 11px 12px; align-self:flex-start}
+
+.tbl{
+  margin:24px 0 0; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
+  background:var(--housing-lo);
+}
+.tbl h2{
+  margin:0; padding:10px 12px; border-bottom:1px solid var(--hair);
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--dim); font-weight:500;
+}
+.tbl-scroll{overflow-x:auto}
+table{border-collapse:collapse; width:100%; min-width:440px}
+th, td{
+  text-align:left; padding:8px 12px; border-bottom:1px solid var(--hair);
+  font-size:12px; color:#9A948A; font-variant-numeric:tabular-nums;
+}
+th{
+  font-family:var(--mono); font-size:8.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--dimmer); font-weight:500;
+}
+tr:last-child td{border-bottom:0}
+td.k{color:var(--ink); font-weight:600}
+td.v{font-family:var(--mono); font-size:11px; color:var(--lit)}
+
+.foot{
+  margin-top:24px; padding-top:13px; border-top:1px solid var(--hair);
+  font-family:var(--mono); font-size:9px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--dimmer); line-height:1.9;
+}
+
+/* ══ LITE MODE - motion goes, the picture never does ══════════════════════════════════════
+   The tube is scaled by the animations, and the write-on fills `both`, so Lite has to reset
+   BOTH transform and clip-path or the icon boots to an invisible slit with no words in it. */
+body.lite .chip, body.lite .btn, body.lite .p-close{transition:none}
+body.lite .g-dsp .tube,
+body.lite .g-dsp .beam,
+body.lite .g-dsp .ln,
+body.lite .panel{animation:none !important}
+body.lite .g-dsp .tube{transform:none !important}
+body.lite .g-dsp .beam{opacity:0 !important}
+body.lite .g-dsp .ln{clip-path:inset(0 0 0 0) !important; opacity:1 !important}
+body.lite .chip:active, body.lite .btn:active, body.lite .p-close:active{transform:none}
+body.lite .mag > .g-dsp{transform:scale(4) !important}
+
+@media (prefers-reduced-motion:reduce){
+  .chip, .btn, .p-close{transition:none !important}
+  .g-dsp .tube, .g-dsp .beam, .g-dsp .ln{animation:none !important}
+  .g-dsp .tube{transform:none !important}
+  .g-dsp .beam{opacity:0 !important}
+  .g-dsp .ln{clip-path:inset(0 0 0 0) !important; opacity:1 !important}
+  .mag > .g-dsp{transform:scale(4) !important}
+  .panel{animation:none !important}
+}
+</style>
+
+<div class="wrap">
+
+  <div class="head">
+    <span class="live"></span>
+    <span>KPM &middot; Tutorial icon</span>
+    <span class="sp"></span>
+    <span>Picked <b>02 Display</b></span>
+    <span>Lit <b>#F59E0B</b></span>
+  </div>
+
+  <h1>The screen goes somewhere, and it comes back</h1>
+  <p class="lede">
+    The icon you picked is a screen, so its intro and outro are a screen's:
+    <b>a CRT power-off on the way out, a power-on and a write-on on the way back</b>. Press the
+    chip in the bar below. The glyph collapses into a scanline and blinks out, the panel takes
+    over, and closing it hands the picture back. The bezel never moves &mdash; the housing stays
+    put and only the picture travels, so nothing in the top bar shifts.
+  </p>
+
+  <div class="ctrls">
+    <button class="btn go" type="button" id="playLoop">&#9654; Play the whole loop</button>
+    <span class="ctrl-lab">Speed</span>
+    <button class="btn" type="button" data-speed="1" aria-pressed="true">1&times;</button>
+    <button class="btn" type="button" data-speed="3" aria-pressed="false">Slow 3&times;</button>
+    <button class="btn" type="button" data-speed="6" aria-pressed="false">Slow 6&times;</button>
+    <span class="sp" style="flex:1 1 auto"></span>
+    <button class="btn" type="button" id="btnLite" aria-pressed="false">Lite mode</button>
+  </div>
+
+  <div class="loop">
+    <div class="device">
+      <div class="bar">
+        <span class="brand">KPM</span>
+        <span class="sp"></span>
+        <button class="chip" type="button" id="chip" aria-label="Tutorial">
+          <span class="g-dsp rest" id="glyph">
+            <span class="bez"></span>
+            <span class="tube">
+              <span class="ln l1"></span><span class="ln l2"></span>
+              <span class="ln l3"></span><span class="ln l4"></span>
+            </span>
+            <span class="beam"></span>
+          </span>
+          <span class="lab">Tutorial</span>
+        </button>
+      </div>
+
+      <div class="screen">
+        <div class="idle-note" id="idleNote">Press the tutorial chip<br>in the bar above</div>
+        <div class="panel" id="panel">
+          <div class="p-eye"><span class="plate">Restock</span><span class="line"></span><span>02 / 17</span></div>
+          <h2 class="p-title">Restock Vault</h2>
+          <p class="p-body">Barang masuk dari pabrik, kirim ke cabang, dan di mana semua barang berada.</p>
+          <div class="p-row"><span class="n">01</span><span class="t">Goods Received</span></div>
+          <div class="p-row"><span class="n">02</span><span class="t">Stock by Warehouse</span></div>
+          <button class="p-close" type="button" id="pClose">Close panel</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="beats" id="beats"></div>
+
+      <div class="tbl">
+        <h2>The timings</h2>
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr><th>Moment</th><th>What moves</th><th>Time</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="k">Outro &mdash; squeeze</td><td>picture collapses to one scanline</td><td class="v">90 ms</td></tr>
+              <tr><td class="k">Outro &mdash; blink</td><td>scanline snaps to a point, fades</td><td class="v">100 ms</td></tr>
+              <tr><td class="k">Panel in</td><td>crossfade, opacity only</td><td class="v">140 ms</td></tr>
+              <tr><td class="k">Panel out</td><td>crossfade, opacity only</td><td class="v">170 ms</td></tr>
+              <tr><td class="k">Intro &mdash; open</td><td>point to scanline, scanline to screen</td><td class="v">240 ms</td></tr>
+              <tr><td class="k">Intro &mdash; write</td><td>four lines, linear, 45 ms apart</td><td class="v">335 ms</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">
+    Out is faster than in &mdash; the panel is what you are waiting for<br>
+    The boot is three beats in a row, never two at once<br>
+    Lite mode keeps the picture, drops the motion
+  </p>
+</div>
+
+<script>
+/* One definition of the glyph, rendered into each beat card, so the strip and the live chip
+   cannot drift apart. */
+var GLYPH =
+  '<span class="bez"></span>'
++ '<span class="tube">'
++ '<span class="ln l1"></span><span class="ln l2"></span>'
++ '<span class="ln l3"></span><span class="ln l4"></span></span>'
++ '<span class="beam"></span>';
+
+var BEATS = [
+  { id:'out',  n:'01', nm:'Handoff', ms:'190 ms',
+    body:'Press the chip and the picture <b>squeezes into one bright scanline</b>, then that '
+       + 'line snaps to a point and blinks out. The written lines go dark first, so the beam is '
+       + 'the only thing left to collapse. The bezel stays.' },
+  { id:'gone', n:'02', nm:'Away', ms:'held',
+    body:'While the panel is out, the slot holds an <b>empty bezel</b>. The chip does not resize '
+       + 'and stays pressable, so nothing in the top bar moves. Same contract the book had: one '
+       + 'object travels, nothing fades into nothing.' },
+  { id:'boot', n:'03', nm:'Boot', ms:'575 ms',
+    body:'Closing the panel gives the picture back. A point opens sideways into a scanline, the '
+       + 'scanline opens into the screen, and <b>then</b> the four lines write themselves in. '
+       + 'Three beats in a row \u2014 never two at once.' }
+];
+
+var beatsEl = document.getElementById('beats');
+BEATS.forEach(function(b){
+  var el = document.createElement('div');
+  el.className = 'beat';
+  el.innerHTML =
+    '<div class="beat-head"><span>' + b.n + '</span><span class="nm">' + b.nm + '</span>'
+  +   '<span class="ms">' + b.ms + '</span></div>'
+  + '<div class="beat-stage">'
+  +   '<div class="mag"><span class="g-dsp rest" data-beat="' + b.id + '">' + GLYPH + '</span></div>'
+  + '</div>'
+  + '<p>' + b.body + '</p>'
+  + '<button class="btn replay" type="button" data-replay="' + b.id + '">&#9654; Replay</button>';
+  beatsEl.appendChild(el);
+});
+
+/* \u2500\u2500 the driver \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+   Every timeout is multiplied by the speed dial, so SLOW MO slows the SCRIPT as well as the CSS.
+   Without that the script would strip a class while the animation it started was a third of the
+   way through, and the sequence would read as broken rather than as slow. */
+var speed = 1, timers = [];
+function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+function later(fn, ms){ timers.push(setTimeout(fn, ms * speed)); }
+
+var glyph   = document.getElementById('glyph');
+var chip    = document.getElementById('chip');
+var panel   = document.getElementById('panel');
+var idleNote= document.getElementById('idleNote');
+var open    = false, busy = false;
+
+function set(el, cls){ el.className = 'g-dsp ' + cls; void el.offsetWidth; }
+
+/* OPEN: the icon hands off, then the panel arrives. Sequential on purpose - the panel starts
+   its crossfade as the beam blinks out, not while the picture is still squeezing. */
+function openPanel(){
+  if(busy || open) return;
+  busy = true; open = true;
+  set(glyph, 'out');
+  chip.classList.add('away');
+  later(function(){
+    set(glyph, 'gone');
+    idleNote.style.display = 'none';
+    panel.classList.add('on');
+    panel.classList.remove('out'); panel.classList.add('in');
+    later(function(){ panel.classList.remove('in'); busy = false; }, 140);
+  }, 190);
+}
+
+/* CLOSE: the panel leaves first, then the picture boots back into the empty bezel. */
+function closePanel(){
+  if(busy || !open) return;
+  busy = true;
+  panel.classList.remove('in'); panel.classList.add('out');
+  later(function(){
+    panel.classList.remove('on','out');
+    idleNote.style.display = '';
+    chip.classList.remove('away');
+    set(glyph, 'boot');
+    later(function(){ set(glyph, 'rest'); open = false; busy = false; }, 575);
+  }, 170);
+}
+
+chip.addEventListener('click', function(){ clearTimers(); busy = false; openPanel(); });
+document.getElementById('pClose').addEventListener('click', function(){
+  clearTimers(); busy = false; closePanel();
+});
+
+document.getElementById('playLoop').addEventListener('click', function(){
+  clearTimers(); busy = false;
+  if(open){ closePanel(); later(openPanel, 900); later(closePanel, 2100); }
+  else { openPanel(); later(closePanel, 1300); }
+});
+
+/* the beat strip: each card replays its own state on the magnified copy */
+document.addEventListener('click', function(e){
+  var r = e.target.closest && e.target.closest('[data-replay]');
+  if(r){
+    var id = r.getAttribute('data-replay');
+    var el = document.querySelector('.g-dsp[data-beat="' + id + '"]');
+    if(!el) return;
+    set(el, 'rest');
+    setTimeout(function(){
+      set(el, id);
+      if(id !== 'gone'){
+        setTimeout(function(){ set(el, 'rest'); }, (id === 'out' ? 700 : 900) * speed);
+      }
+    }, 40);
+    return;
+  }
+  var sp = e.target.closest && e.target.closest('[data-speed]');
+  if(sp){
+    speed = parseFloat(sp.getAttribute('data-speed'));
+    document.documentElement.style.setProperty('--t', speed);
+    document.querySelectorAll('[data-speed]').forEach(function(b){
+      b.setAttribute('aria-pressed', b === sp ? 'true' : 'false');
+    });
+  }
+});
+
+var btnLite = document.getElementById('btnLite');
+btnLite.addEventListener('click', function(){
+  var on = !document.body.classList.contains('lite');
+  document.body.classList.toggle('lite', on);
+  btnLite.setAttribute('aria-pressed', on ? 'true' : 'false');
+  if(on){
+    clearTimers(); busy = false;
+    set(glyph, 'rest'); chip.classList.remove('away');
+    document.querySelectorAll('.g-dsp[data-beat]').forEach(function(el){ set(el, 'rest'); });
+  }
+});
+
+/* the icon boots once on load, which is exactly what it will do in the app */
+later(function(){ set(glyph, 'boot'); later(function(){ set(glyph, 'rest'); }, 575); }, 260);
+</script>

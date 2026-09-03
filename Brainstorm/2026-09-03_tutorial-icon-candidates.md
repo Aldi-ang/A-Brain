@@ -37,7 +37,7 @@ magnification has nothing rasterised in it to fall apart.
 | # | Candidate | Idle state | Hover | Press | What it costs |
 |---|---|---|---|---|---|
 | 1 | **The cap** *(recommended)* | one dark key in its well, black lamp | lamp blooms overbright then settles; label lines go amber | cap sinks and STAYS sunk, face lit, lamp white-hot | nothing structural — it is the pad's own latch |
-| 2 | **The display** | one line written and holding | four lines write left-to-right, linear, 55ms apart | all lines snap full, screen takes an inner glow | at 22px the lines are 1,5px — delicate, not punchy |
+| 2 | **The display** *(chosen)* | four lines burned in at their dim level | four lines re-write left-to-right, linear, 55ms apart | all lines snap full, screen takes an inner glow | at 22px the lines are 1,5px — delicate, not punchy |
 | 3 | **The meter** | two cells burned in | cells energise bottom-to-top, 55ms apart | all five go hot | **carries information at rest, so it must be true** — the cells would have to track sections actually read |
 | 4 | **The micropad** | one cap latched amber | the latch walks down the rail, 70ms apart | a phosphor line writes across the little screen | four caps at 3px each is texture, not four readable keys — busy at true size |
 
@@ -65,8 +65,48 @@ more saturated, not less. He asked for it explicitly and the contrast holds.
 
 ## Decision
 
-**OPEN — waiting on Aldi.** He picks one of the four. Then, in his order: swap the pad's amber
-tokens, build the picked icon into `PonderBookButton`, and size the pad for the phone.
+**DECIDED 2026-09-03 — candidate 02, the display.** His words: *"display look the cleanest so
+choose that"*. **"Cleanest" is the word to keep** — of the four he took the one with the least
+going on, not the one with the most. The cap was the recommendation and it lost on busyness, which
+is the same instinct behind *norak* earlier the same day.
+
+He asked for its intro and outro in the same breath: *"now what about the intro and outro make
+sure our technological high tech theme stays intact with the animation also and i want u to make
+it i want to see it, keep it elegant and cool and gamified"*.
+
+### The intro and outro, built and shown
+
+Artifact: https://claude.ai/code/artifact/d39f91fd-c2b2-4677-acda-3cdaebc2c34b · source
+`Brainstorm/assets/ponder-icon-handoff.html`
+
+The icon is a screen, so its entrance and exit are a screen's. **The bezel never moves** — the
+housing stays in the top bar and only the picture travels, so nothing in the bar shifts and the
+chip stays pressable throughout. That is the book's old contract kept: one object travels, nothing
+cross-fades into nothing.
+
+| Moment | What happens | Time |
+|---|---|---|
+| Outro — squeeze | the picture collapses into one bright scanline | 90 ms |
+| Outro — blink | the scanline snaps to a point and fades | 100 ms |
+| Panel in | the panel's own crossfade, opacity only | 140 ms |
+| Panel out | same, the other way | 170 ms |
+| Intro — open | point to scanline, scanline to screen | 240 ms |
+| Intro — write | four lines, linear, 45 ms apart | 335 ms |
+
+**Out is faster than in** because the panel is what the reader is waiting for. **The boot is three
+beats in a row, never two at once** — the direct application of the norak rule from the same
+morning. Nothing new was invented for it: the CRT collapse and the raster write-on are the two
+ideas the terminal already had, put in an order.
+
+Two defects were caught before publishing and both were invisible in the source:
+- the collapse beam was drawn INSIDE the tube, so the tube's `scaleY(.045)` squashed the 1 px beam
+  to 0.045 px and the one thing the whole outro is about never rendered. It is a sibling now.
+- rest showed one lit line while the boot wrote four, so three lines popped out of existence the
+  instant the boot finished. The write now cools to the dim burn level, the way the panel's own
+  labels do, and rest is exactly where the boot lands.
+
+Still queued behind this, in his order: the amber swap on the panel, the icon into
+`PonderBookButton`, and phone sizing.
 
 ## Rejected on purpose
 
