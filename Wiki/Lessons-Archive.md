@@ -219,3 +219,31 @@ occurrences. Had it not been caught, the vault would permanently point at a comm
 exist — in the one file whose whole job is to be trusted later without re-checking.
 Seen: 2026-08-18
 Fired: 2026-08-18 (this session, twice — read git log -1 before writing f1e3b28 and 4b63118 into A-Brain; the first vault write of the day is the one that had to be corrected)
+
+### 2026-08-20 — fanning out is the cost lever, and the agents inherit Opus
+**Status:** RETIRED (2026-09-02) — converted to structure. SKILL.md §9a is a hard gate that runs before any agent() call, and Aldi banned fan-out outright on 2026-08-20; a prose reminder cannot beat a gate.
+**Trigger:** before launching a workflow or any multi-agent fan-out on Aldi's plan — the moment
+more than one agent is about to be spawned.
+**Lesson:** subagents inherit the session model, and `model` cannot be lowered here (see the
+model-tier memory: setting it kills the agent). So the ONLY lever is agent COUNT. If the question
+is "what does this file do", read it yourself — two greps beat four Opus tracers.
+**Would have prevented:** 2026-08-20, quota at 91%, launched a 4-lens workflow with per-finding
+refuters to trace one frozen sale. He asked "why did u use all the agent in opus". The answer that
+actually located the bug was one grep for `onProcessSale` — it is a two-line wrapper. The run was
+stopped unread.
+Seen: 2026-08-20
+Fired:
+
+### 2026-08-20 — test the primitive before tracing the path
+**Status:** RETIRED (2026-09-02) — never fired in 13 days of real work. The two-grep test in SKILL.md §9a already carries it.
+**Trigger:** the moment a code path "should work" and the user reports it does not — before
+reading the path a second time, and before any fan-out.
+**Lesson:** name the one assumption the whole trace stands on, and run a ten-line experiment on
+THAT. `disableNetwork()`, a stub, a node one-liner. Reading the path again only re-confirms your
+own model of it.
+**Would have prevented:** 2026-08-20, the frozen offline sale. Three rounds of tracing, two real
+but irrelevant fixes shipped, ~1.05M subagent tokens, and he reported it broken three times. The
+answer was that a Firestore write promise never settles offline — proved in 10 lines, in one turn,
+once it was finally asked. The bug was one un-awaited call away the whole time.
+Seen: 2026-08-20
+Fired:
