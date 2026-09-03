@@ -1924,3 +1924,33 @@ still be nice on the hundredth time, not whether it is fast.
 
 Related: [[2026-09-03_panel-arrival-animation]] &middot; [["Cleanest" won over "most impressive"]] &middot;
 [["Norak" — two animations claiming the same moment]]
+
+## The tutorial pad: twelve rounds, and what actually closed it (2026-09-03)
+
+> *"its good now"*
+
+His sign-off on the phone field terminal, after a single day that ran twelve review rounds — the
+panel zoom removal, four icon candidates, an icon intro/outro that answered the wrong question,
+three panel arrivals, four entrances, a pace dial, and the build.
+
+**What the arc is worth remembering for:**
+
+1. **Every round that converged ended in something he could press.** Not one decision came from
+   prose. The rounds that cost the most were the two where I guessed what he meant instead of
+   showing both readings — the icon-vs-panel misread, and Deploy's entrance being offered as
+   half of a package he only wanted half of.
+2. **He never once picked my recommendation.** Cap over display, Surge over Scan in, brisk over
+   cinematic — he took the other one every time, and the reasons were consistent: cleaner,
+   nicer to watch, slower. See [["Cleanest" won over "most impressive"]] and
+   [["So that user eyes can enjoy" — he buys the watchable one, twice]].
+3. **"Now we can move on" is a real boundary.** He closed the design phase explicitly and then
+   said *"now u can integrate it"*. After that sentence, questions about the look are re-opening
+   something he shut. The integration turned up two genuine bugs and neither needed him.
+4. **The approval came on the REAL app, not the prototype.** Ten rounds of artifacts got the
+   design right; *"its good now"* only arrived once it was running in KPM on his phone. Budget for
+   that last step — a prototype he likes is not a thing he has approved.
+
+Shipped as `37cbfd5` in kpm-inventory, 718/718 + 1000/1000.
+
+Related: [[2026-09-03_panel-arrival-animation]] &middot; [[2026-09-03_tutorial-icon-candidates]] &middot;
+[["Norak" — two animations claiming the same moment]]
