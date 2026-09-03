@@ -13,6 +13,9 @@
      one light amber - the edge meter cell, the key-cap lamp, and the latched cap's own face.
      One lit colour means "lit" is never ambiguous. */
   --lit:#FFCE8F; --lit-dim:rgba(255,206,143,.40); --lit-hot:#FFE7C4;
+  /* The one entrance curve. Built-in ease-out is too weak to read as intentional, and a curve
+     invented per animation is how a file ends up with six of them that nearly match. */
+  --ease-out:cubic-bezier(.23, 1, .32, 1);
   --hair:rgba(232,227,218,.09);
   --hair-2:rgba(232,227,218,.16);
   --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
@@ -165,11 +168,40 @@ body{
 .panel.out{animation:panelOut .30s cubic-bezier(.32,.06,.55,1) forwards}
 .panel.in {animation:panelIn  .46s cubic-bezier(.25,.46,.45,.94) forwards}
 
-/* the rows land after the panel does, so the arrival has a direction */
-@keyframes entryIn{
-  from{opacity:0; transform:translateY(9px)}
-  to  {opacity:1; transform:none}
+/* THE TEXT IS WRITTEN, NOT FADED IN. Each block is revealed left to right by a clip edge - a
+   raster sweep, the way a terminal actually puts characters on a screen. The curve is LINEAR,
+   not the ease-out every other entrance here uses: a print head travels at a constant rate, and
+   a strong ease-out put the sweep 96.6%% of the way across at half its duration - measured - so
+   there was nothing left to watch. clip-path is the one
+   non-transform property that is safe to animate here; it does not trigger layout.
+
+   TWO variants on purpose. The machine's own labels glow as they are written and cool behind
+   the sweep, which is what sells the phosphor idea. The prose does NOT glow: text-shadow
+   repaints every frame, and the blurb and the entry rows carry by far the most glyphs and the
+   largest paint area on the panel. The look survives where it reads; the cost does not. */
+@keyframes lineIn{
+  from{clip-path:inset(0 100% 0 0)}
+  to  {clip-path:inset(0 0 0 0)}
 }
+@keyframes lineInLit{
+  0%  {clip-path:inset(0 100% 0 0); text-shadow:0 0 7px rgba(255,206,143,.95)}
+  100%{clip-path:inset(0 0 0 0);    text-shadow:0 0 0 rgba(255,206,143,0)}
+}
+.eyebrow, .rule-lab{
+  animation:lineInLit .3s linear backwards;
+  animation-delay:calc(var(--i,0) * 40ms + 80ms);
+}
+.blurb, .entry{
+  animation:lineIn .3s linear backwards;
+  animation-delay:calc(var(--i,0) * 40ms + 80ms);
+}
+/* the title resolves out of scrambled glyphs rather than sweeping - see decode() below. It keeps
+   the cooling glow so the two reveals read as one machine writing one screen. */
+@keyframes titleIn{
+  0%  {text-shadow:0 0 9px rgba(255,206,143,.95)}
+  100%{text-shadow:0 0 0 rgba(255,206,143,0)}
+}
+h1.writing{animation:titleIn .42s var(--ease-out)}
 
 .eyebrow{
   display:flex; align-items:center; gap:8px; margin-bottom:12px;
@@ -198,8 +230,6 @@ h1{
 .eyebrow .line{flex:1 1 auto; height:1px; background:var(--hair)}
 
 .entry{
-  animation:entryIn .32s cubic-bezier(.16,.84,.30,1) backwards;
-  animation-delay:calc(var(--i,0) * 34ms + 70ms);
   display:grid; grid-template-columns:22px minmax(0,1fr) auto; gap:0 10px;
   padding:10px 0; border-bottom:1px solid var(--hair);
 }
@@ -332,7 +362,11 @@ body.lite .seg,
 body.lite .fn{transition:none}
 body.lite .panel.in,
 body.lite .panel.out{animation:none; opacity:1; transform:none; filter:none}
-body.lite .entry{animation:none}
+body.lite .eyebrow,
+body.lite .blurb,
+body.lite .rule-lab,
+body.lite .entry,
+body.lite h1.writing{animation:none; clip-path:none; text-shadow:none}
 body.lite .key.on{transform:none}
 body.lite .key.hit,
 body.lite .key.on .lamp,
@@ -342,9 +376,14 @@ body.lite .display,
 body.lite .rail,
 body.lite .meter{transform:none}
 
+@keyframes rmFade{from{opacity:0} to{opacity:1}}
 @media (prefers-reduced-motion:reduce){
   .pad,.panel,.key{transition:none !important}
-  .panel.in,.panel.out,.entry{animation:none !important; opacity:1 !important; transform:none !important; filter:none !important}
+  .panel.in,.panel.out{animation:none !important; opacity:1 !important; transform:none !important; filter:none !important}
+  h1.writing{animation:none !important; text-shadow:none !important}
+  .eyebrow,.blurb,.rule-lab,.entry{
+    animation:rmFade .2s ease backwards !important;
+    clip-path:none !important; text-shadow:none !important; transform:none !important}
   .key.hit,.key.on .lamp,.seg.cur{animation:none !important}
   .key.on{transform:none !important}
 }
@@ -487,12 +526,12 @@ function render(){
   /* no index here - the status strip already prints SECTION n/17, and one fact gets one
      indicator. Same reasoning that killed the hanging ribbon, and that killed DIBACA:
      the left edge meter is now the only thing reporting how much has been read. */
-  h+='<div class="eyebrow"><span class="plate">'+s.short+'</span><span class="line"></span></div>';
+  h+='<div class="eyebrow" style="--i:0"><span class="plate">'+s.short+'</span><span class="line"></span></div>';
   h+='<h1>'+esc(s.label)+'</h1>';
-  h+='<p class="blurb">'+esc(s.blurb)+'</p>';
-  h+='<div class="rule-lab"><span>Content</span><span class="line"></span><span>'+pad2(s.entries.length)+'</span></div>';
+  h+='<p class="blurb" style="--i:1">'+esc(s.blurb)+'</p>';
+  h+='<div class="rule-lab" style="--i:2"><span>Content</span><span class="line"></span><span>'+pad2(s.entries.length)+'</span></div>';
   s.entries.forEach(function(e,j){
-    h+='<div class="entry" style="--i:'+j+'">'
+    h+='<div class="entry" style="--i:'+(j+3)+'">'
      + '<span class="idx">'+pad2(j+1)+'</span>'
      + '<span class="etitle">'+esc(e.title)+'</span>'
      + '<span class="chip '+(e.soon?'soon':'ready')+'">'+(e.soon?'Soon':'Ready')+'</span>'
@@ -501,6 +540,36 @@ function render(){
   });
   panel.innerHTML=h;
   panel.scrollTop=0;
+  decode(panel.querySelector('h1'), s.label, 420);
+}
+
+/* THE TITLE DECODES. Characters resolve left to right out of a technical glyph set - what a
+   machine looks like while it is still working out what it is about to print. Spaces are never
+   scrambled, so the shape of the words holds the whole way through and it reads as text
+   resolving rather than as noise.
+   Driven by setInterval, NOT requestAnimationFrame. rAF does not fire while the preview pane's
+   document timeline is stalled, which would strand the title mid-scramble and look like a bug;
+   setInterval keeps running, and discrete 32ms steps suit a decode anyway. */
+var GLYPHS='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*+=/<>[]{}';
+var decodeTimer=null;
+function decode(el, text, ms){
+  clearInterval(decodeTimer);
+  if(!el){ return; }
+  if(lite){ el.textContent=text; el.classList.remove('writing'); return; }
+  el.classList.add('writing');
+  var t0=Date.now(), len=text.length;
+  function tick(){
+    var p=Math.min(1,(Date.now()-t0)/ms), settled=Math.floor(p*len), out='';
+    for(var i=0;i<len;i++){
+      var c=text.charAt(i);
+      if(i<settled || c===' '){ out+=c; }
+      else { out+=GLYPHS.charAt((Math.random()*GLYPHS.length)|0); }
+    }
+    el.textContent=out;
+    if(p>=1){ clearInterval(decodeTimer); el.textContent=text; el.classList.remove('writing'); }
+  }
+  tick();
+  decodeTimer=setInterval(tick,32);
 }
 
 var OUT_MS=300, IN_MS=460;

@@ -1798,3 +1798,23 @@ Shown a rail whose active key rose off the panel with a tilt, he rejected it:
 could not be read because it sat on a gold cap. Three rounds tuned the lamp; changing the CAP
 solved it at once. When a foreground element keeps failing against its background, the background
 is the thing to question.
+
+## "Technological" means the machine shows its work (2026-09-03)
+
+> *"can u make the animation when text appearing to be more technological rather than just that
+> simple animation"*
+
+A fade-and-slide is what every framework hands you, and he reads it as *nothing was designed*. What
+satisfied him was motion that imitates a **mechanism**: text swept on left to right like a raster
+scan, and a title resolving out of scrambled glyphs. Both say "a machine is putting this on the
+screen"; a fade says only "this appeared".
+
+**The pattern across rounds 7, 8 and 9 is one instinct.** He wants interface elements to behave
+like *parts*: a key that latches down, a lamp that energises and settles, text that is written
+rather than revealed. Effects layered on top of a control do not satisfy him; behaviour that the
+control would have if it were physical does. Reach for the mechanism, not the effect.
+
+He also said, same session: *"use all the design skills to make those"* — see
+[[Design Inspiration Sources]] and the §1a stack. Worth recording that it paid: the first draft
+broke four of the skills' rules, and the skills' own default curve then turned out to be the wrong
+one for this motion, which only a measurement caught.

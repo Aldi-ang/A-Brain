@@ -510,3 +510,60 @@ pinning an animation via a negative `animationDelay` plus `animationPlayState:'p
 keyframe end states. Both are static computed positions and neither needs the timeline to advance.
 
 **Status: CLOSED.** Same artifact URL.
+
+---
+
+## Round 9 — 2026-09-03. THE TEXT IS WRITTEN, NOT FADED IN
+
+**His ask:** *"can u make the animation when text appearing to be more technological rather than
+just that simple animation"*, followed by *"use all the design skills to make those"*.
+
+The old reveal was `opacity 0 + translateY(9px)` — the default any framework gives you. Replaced
+with two things a machine does and a fade does not:
+
+1. **A raster sweep.** Each block is revealed left to right by `clip-path:inset(0 100% 0 0)` →
+   `inset(0 0 0 0)`. The machine's own labels (`.eyebrow`, `.rule-lab`) glow in `--lit` as they
+   are written and cool behind the sweep; the prose does not.
+2. **A decoding title.** `decode()` resolves the `h1` left to right out of a technical glyph set.
+   Spaces are never scrambled, so the shape of the words holds and it reads as text resolving
+   rather than as noise.
+
+### What the design skills actually changed
+
+The first draft was written before the skills were loaded, and **it failed three of their rules.**
+Loading them was not ceremony:
+
+| Draft | Shipped | Rule |
+|---|---|---|
+| `cubic-bezier(.25,.7,.3,1)`, invented | `--ease-out:cubic-bezier(.23,1,.32,1)` as a token | never hand-roll a curve; the file had no easing token, so every curve in it was a one-off |
+| `.44s` line, `.62s` title, 560ms decode | `.30s`, `.42s`, 420ms | 440ms on a 46ms stagger put the last row at 852ms |
+| `text-shadow` on every block | glow on the title and the two mono labels only | `text-shadow` repaints every frame, and the prose carries the most glyphs and the largest paint area |
+| stagger 46ms | 40ms | the 30–80ms band |
+
+### ⚠️ And then the skills' own default was wrong for this animation
+
+Entrances take `ease-out` — that is the rule, and it is right for position and opacity. It is
+**wrong for a sweep**, and the measurement proved it: pinned at half its duration, the blurb was
+already `inset(0 3.4% 0 0)` — **96.6% swept**. The strong ease-out spends its distance in the
+first third, so there was nothing left to watch, which is the round-6 failure in a new costume.
+
+A raster sweep is **constant motion**, and the same table says constant motion takes `linear`.
+Re-pinned at four offsets after the change: 70%/50%/30%/15% of duration gave 30%/50%/70%/85%
+remaining — exactly proportional. **Take the rule that matches the motion, not the one that
+matches the word "entrance".**
+
+### The Lite Mode trap this animation creates
+
+The reveal fills `backwards`, so its first keyframe holds during the delay. A Lite Mode that only
+killed `animation` would leave every block clipped to zero width — **the text would be gone**,
+which is the worst version of "a stopped animation looks like a bug". Lite must reset `clip-path`
+too, and reduced-motion gets a plain `rmFade` opacity keyframe rather than nothing. Verified: all
+five blocks report `animation:none`, `clip-path:none`, `text-shadow:none`, `opacity:1`, with every
+word present and the title unscrambled.
+
+**Also:** `decode()` runs on `setInterval`, not `requestAnimationFrame`, precisely because of the
+stalled-timeline trap. rAF never fires while the pane's clock is stopped, which would strand the
+title mid-scramble and look exactly like a bug. The pane throttles `setInterval` too — 2 samples in
+900ms — but it does not stop it, so the decode still completes.
+
+**Status: CLOSED.** Same artifact URL.

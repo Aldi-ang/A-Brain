@@ -2094,6 +2094,17 @@
       "norm_label": "an off state has to look off (2026-09-03)"
     },
     {
+      "label": "\"More 3D\" means LATCHED, not floating (2026-09-03)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1778",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_more_3d_means_latched_not_floating_2026_09_03",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "\"more 3d\" means latched, not floating (2026-09-03)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -12076,6 +12087,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1778",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_more_3d_means_latched_not_floating_2026_09_03",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L495",
       "weight": 1.0,
       "_origin": "ast",
@@ -21435,5 +21457,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d5f19034b5bf9a9626ef1d0aec575f3be8781f68"
+  "built_at_commit": "bb2b3326ca9c97aa588ba868946a5a10800c05ba"
 }
