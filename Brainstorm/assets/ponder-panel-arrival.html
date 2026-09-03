@@ -16,7 +16,10 @@
   --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   --sans:"IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
   --ease-out:cubic-bezier(.23, 1, .32, 1);
-  --t:1;
+
+  /* THE PACE DIAL. Every duration and every stagger below is written at its base value and
+     multiplied by this, so the number you land on IS the shipped number. Nothing else changes. */
+  --t:1.9;
 }
 *{box-sizing:border-box}
 body{
@@ -24,7 +27,7 @@ body{
   font-family:var(--sans); -webkit-font-smoothing:antialiased;
   background-image:radial-gradient(120% 55% at 50% -8%, #14171A 0%, var(--ground) 58%);
 }
-.wrap{max-width:1080px; margin:0 auto; padding:22px 16px 60px}
+.wrap{max-width:900px; margin:0 auto; padding:22px 16px 60px}
 
 .head{
   display:flex; align-items:center; gap:9px; flex-wrap:wrap;
@@ -39,14 +42,12 @@ body{
 
 h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
    line-height:1.12; text-wrap:balance}
-.lede{margin:0 0 8px; max-width:64ch; font-size:14px; line-height:1.6; color:#B8B2A6}
+.lede{margin:0 0 16px; max-width:62ch; font-size:14px; line-height:1.6; color:#B8B2A6}
 .lede b{color:var(--ink); font-weight:600}
-.lede:last-of-type{margin-bottom:18px}
 
-/* the settled decision, stated as a fact rather than as another option */
 .locked{
   display:flex; gap:10px; align-items:flex-start;
-  padding:11px 13px; border-radius:10px; margin-bottom:18px;
+  padding:11px 13px; border-radius:10px; margin-bottom:20px;
   border:1px solid rgba(245,158,11,.3); background:rgba(245,158,11,.05);
 }
 .locked .tag{
@@ -56,127 +57,86 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
 .locked p{margin:0; font-size:13px; line-height:1.55; color:#C6C0B4}
 .locked b{color:var(--ink); font-weight:600}
 
-.ctrls{
-  display:flex; gap:6px; flex-wrap:wrap; align-items:center;
-  padding:9px; border-radius:9px; border:1px solid var(--hair);
-  background:var(--housing-lo); margin-bottom:22px;
-}
-.btn{
-  appearance:none; border:0; cursor:pointer;
-  height:30px; padding:0 11px; border-radius:6px;
-  font-family:var(--mono); font-size:9.5px; font-weight:500; letter-spacing:.11em;
-  text-transform:uppercase; color:var(--dim);
-  background:linear-gradient(180deg,#23272B,#15181B);
-  box-shadow:inset 0 1px 0 rgba(255,217,160,.09), inset 0 0 0 1px rgba(0,0,0,.55),
-             0 1px 2px rgba(0,0,0,.5);
-  transition:color .16s linear, box-shadow .16s linear, transform .16s var(--ease-out);
-}
-.btn:active{transform:scale(.97)}
-.btn[aria-pressed="true"]{color:var(--foil); box-shadow:inset 0 0 0 1px rgba(245,158,11,.6)}
-.btn.go{color:var(--lit-ink); background:linear-gradient(180deg, var(--lit) 0%, #D4870A 100%); font-weight:600}
-.btn:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
-.ctrl-lab{font-family:var(--mono); font-size:9px; letter-spacing:.14em; color:var(--dimmer);
-          text-transform:uppercase; margin-left:4px}
+/* ══ the stage: phone on the left, the dial on the right ═════════════════════════════════════ */
+.stage{display:grid; gap:18px; grid-template-columns:minmax(0,1fr); align-items:start}
+@media (min-width:760px){ .stage{grid-template-columns:318px minmax(0,1fr)} }
 
-.studies{display:grid; gap:16px; grid-template-columns:minmax(0,1fr)}
-@media (min-width:700px){ .studies{grid-template-columns:repeat(2, minmax(0,1fr))} }
-@media (min-width:1100px){ .studies{grid-template-columns:repeat(4, minmax(0,1fr))} }
-
-.study{
-  border:1px solid var(--hair); border-radius:14px; overflow:hidden;
-  background:linear-gradient(158deg, var(--housing-top) 0%, var(--housing-hi) 34%, var(--housing-lo) 100%);
-  display:flex; flex-direction:column;
-}
-.study.pick{border-color:rgba(245,158,11,.42)}
-.study.base{opacity:.9}
-.study-head{
-  display:flex; align-items:baseline; gap:8px;
-  padding:10px 12px; border-bottom:1px solid var(--hair);
-  font-family:var(--mono); font-size:9px; letter-spacing:.15em; text-transform:uppercase;
-  color:var(--dim); font-variant-numeric:tabular-nums;
-}
-.study-head .nm{color:var(--ink); font-weight:600}
-.study-head .ms{margin-left:auto; color:var(--lit)}
-.study p{margin:0; padding:11px 12px 0; font-size:12.5px; line-height:1.5; color:#9A948A}
-.study p b{color:var(--ink); font-weight:600}
-.study .acts{display:flex; gap:6px; padding:11px 12px 13px; margin-top:auto}
-
-/* ══ THE PHONE ═══════════════════════════════════════════════════════════════════════════════ */
 .phone{
-  margin:0 11px 11px; border-radius:16px; padding:7px 6px;
-  background:#050506;
-  box-shadow:inset 0 0 0 1px rgba(232,227,218,.06), inset 0 1px 0 rgba(255,255,255,.04);
+  width:100%; max-width:318px; margin:0 auto;
+  border-radius:20px; padding:9px 8px; background:#050506;
+  box-shadow:inset 0 0 0 1px rgba(232,227,218,.07), inset 0 1px 0 rgba(255,255,255,.05),
+             0 30px 60px -30px #000;
   position:relative; overflow:hidden;
 }
 .topbar{
-  display:flex; align-items:center; gap:6px; height:30px; padding:0 6px;
-  border-radius:8px; border:1px solid var(--hair);
+  display:flex; align-items:center; gap:7px; height:36px; padding:0 8px;
+  border-radius:9px; border:1px solid var(--hair);
   background:linear-gradient(180deg, rgba(232,227,218,.05), rgba(0,0,0,.2));
   position:relative; z-index:3;
 }
-.topbar .brand{font-family:var(--mono); font-size:7px; letter-spacing:.16em; color:var(--dimmer);
+.topbar .brand{font-family:var(--mono); font-size:8px; letter-spacing:.16em; color:var(--dimmer);
                text-transform:uppercase}
 .topbar .sp{flex:1 1 auto}
 .chip{
-  appearance:none; cursor:pointer; height:24px; padding:0 6px; border-radius:7px;
-  display:inline-flex; align-items:center; gap:5px;
+  appearance:none; cursor:pointer; height:28px; padding:0 8px; border-radius:8px;
+  display:inline-flex; align-items:center; gap:6px;
   border:1px solid var(--hair-2); background:rgba(232,227,218,.03); color:var(--dim);
   transition:border-color .2s linear, color .2s linear, transform .2s var(--ease-out);
 }
 .chip:active{transform:scale(.97)}
 .chip:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
-.chip .lab{font-family:var(--mono); font-size:7px; letter-spacing:.14em; text-transform:uppercase}
+.chip .lab{font-family:var(--mono); font-size:8px; letter-spacing:.14em; text-transform:uppercase}
+@media (hover:hover) and (pointer:fine){
+  .chip:hover{border-color:rgba(245,158,11,.5); color:var(--foil)}
+}
 
-/* the chosen icon, at its shipping size */
-.g-dsp{position:relative; display:block; flex:0 0 auto; width:16px; height:16px}
+.g-dsp{position:relative; display:block; flex:0 0 auto; width:18px; height:18px}
 .g-dsp .bez{
-  position:absolute; inset:0; border-radius:3.5px;
+  position:absolute; inset:0; border-radius:4px;
   background:linear-gradient(158deg,#262A2E,#101315);
   box-shadow:inset 0 .5px 0 rgba(255,217,160,.15), inset 0 0 0 .5px rgba(0,0,0,.7);
 }
 .g-dsp .pic{
   position:absolute; inset:2px; border-radius:1.5px; overflow:hidden;
   background:#0A090B; transform-origin:center center;
-  transition:transform .19s var(--ease-out);
+  transition:transform calc(190ms * var(--t)) var(--ease-out);
 }
 .g-dsp .ln{
-  position:absolute; left:1px; height:1.1px; border-radius:.55px;
+  position:absolute; left:1px; height:1.2px; border-radius:.6px;
   background:var(--lit-dim); clip-path:inset(0 0 0 0);
 }
-.g-dsp .l1{top:1.2px; right:2px} .g-dsp .l2{top:4px; right:3.8px}
-.g-dsp .l3{top:6.8px; right:1.2px} .g-dsp .l4{top:9.6px; right:5px}
+.g-dsp .l1{top:1.5px; right:2.5px} .g-dsp .l2{top:4.6px; right:4.5px}
+.g-dsp .l3{top:7.7px; right:1.5px} .g-dsp .l4{top:10.8px; right:6px}
 .chip.away .g-dsp .pic{transform:scaleY(.05) scaleX(.07)}
 .chip.away .g-dsp .ln{opacity:0}
 .chip.away{color:var(--dimmer)}
 
 .viewport{
-  position:relative; height:430px; margin-top:6px; border-radius:12px; overflow:hidden;
-  background:#0A0B0C;
-  box-shadow:inset 0 0 0 1px rgba(232,227,218,.04);
+  position:relative; height:472px; margin-top:8px; border-radius:13px; overflow:hidden;
+  background:#0A0B0C; box-shadow:inset 0 0 0 1px rgba(232,227,218,.04);
 }
 .hint{
-  position:absolute; inset:0; display:grid; place-items:center; padding:0 20px; text-align:center;
-  font-family:var(--mono); font-size:7.5px; letter-spacing:.15em; text-transform:uppercase;
+  position:absolute; inset:0; display:grid; place-items:center; padding:0 22px; text-align:center;
+  font-family:var(--mono); font-size:8px; letter-spacing:.15em; text-transform:uppercase;
   color:var(--dimmer); line-height:1.9;
 }
-/* THE SCAN BAR lives in the VIEWPORT, never inside the pad. Study 03 reveals the pad with a
-   clip-path, and anything drawn inside a clipped element is clipped away with it - the exact
-   fault that made the icon's collapse beam invisible. */
+/* THE SCAN BAR lives in the VIEWPORT, never inside the pad. The pad is revealed by a clip-path,
+   and a light drawn inside a clipped element is clipped away by the very reveal it is leading. */
 .scanbar{
   position:absolute; left:0; right:0; top:0; height:2px; opacity:0; pointer-events:none; z-index:2;
-  background:linear-gradient(90deg, rgba(245,158,11,0), var(--lit-hot) 22%, var(--lit-hot) 78%, rgba(245,158,11,0));
-  box-shadow:0 0 10px rgba(255,194,77,.8);
+  background:linear-gradient(90deg, rgba(245,158,11,0), var(--lit-hot) 20%, var(--lit-hot) 80%, rgba(245,158,11,0));
+  box-shadow:0 0 12px rgba(255,194,77,.85);
 }
 
 /* ══ THE PAD ═════════════════════════════════════════════════════════════════════════════════ */
 .pad{
-  position:absolute; inset:0; padding:6px 5px;
-  display:grid; grid-template-columns:10px minmax(0,1fr) 54px; column-gap:5px;
-  border-radius:12px; opacity:0; pointer-events:none;
+  position:absolute; inset:0; padding:7px 6px;
+  display:grid; grid-template-columns:11px minmax(0,1fr) 58px; column-gap:6px;
+  border-radius:13px; opacity:0; pointer-events:none;
   background:linear-gradient(158deg, var(--housing-top) 0%, var(--housing-hi) 32%, #15181B 68%, var(--housing-lo) 100%);
   box-shadow:inset 0 1px 0 rgba(255,217,160,.13), inset 0 -1px 0 rgba(0,0,0,.7),
              0 24px 50px -26px #000;
-  transform-origin:88% 0%;   /* the chip's corner */
+  transform-origin:88% 0%;   /* the chip's corner - the exit goes home to where you pressed */
 }
 .pad.live{opacity:1; pointer-events:auto}
 .sheen{
@@ -197,10 +157,10 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
   background:radial-gradient(circle at 35% 30%, #33383C, #0B0D0E 70%);
   box-shadow:inset 0 .5px 0 rgba(255,217,160,.22);
 }
-.bolt.tl{top:4px;left:3px} .bolt.tr{top:4px;right:3px}
-.bolt.bl{bottom:4px;left:3px} .bolt.br{bottom:4px;right:3px}
+.bolt.tl{top:5px;left:4px} .bolt.tr{top:5px;right:4px}
+.bolt.bl{bottom:5px;left:4px} .bolt.br{bottom:5px;right:4px}
 
-.meter{display:flex; flex-direction:column; gap:2px; padding:9px 1px}
+.meter{display:flex; flex-direction:column; gap:2px; padding:10px 2px}
 .seg{
   flex:1 1 0; border-radius:2px; background:#000;
   box-shadow:inset 0 0 0 .5px rgba(0,0,0,.9), inset 0 1px 1px rgba(0,0,0,.7);
@@ -214,8 +174,7 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
   box-shadow:inset 0 2px 7px rgba(0,0,0,.95), inset 0 0 0 1px rgba(0,0,0,.85),
              0 0 0 1px rgba(232,227,218,.055);
 }
-/* the pad's picture is `.crt`, NOT `.tube` - the top-bar icon already owns `.tube`, and a bare
-   rule on that name reaches straight inside it */
+/* the pad's picture is `.crt`, NOT `.tube` - the top-bar icon already owns `.tube` */
 .crt{
   position:absolute; inset:0; display:flex; flex-direction:column; overflow:hidden;
   transform-origin:center center; border-radius:inherit;
@@ -225,9 +184,9 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
   background:repeating-linear-gradient(180deg, rgba(232,227,218,.016) 0 1px, transparent 1px 20px);
 }
 .status{
-  flex:0 0 auto; display:flex; align-items:center; gap:5px;
-  padding:5px 7px; border-bottom:1px solid var(--hair);
-  font-family:var(--mono); font-size:7px; font-weight:500; letter-spacing:.12em;
+  flex:0 0 auto; display:flex; align-items:center; gap:6px;
+  padding:6px 8px; border-bottom:1px solid var(--hair);
+  font-family:var(--mono); font-size:7.5px; font-weight:500; letter-spacing:.13em;
   color:var(--dim); text-transform:uppercase; font-variant-numeric:tabular-nums;
 }
 .status .live{width:4px; height:4px; border-radius:50%; background:var(--lit); flex:0 0 auto}
@@ -235,8 +194,8 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
 .status b{color:var(--ink); font-weight:600}
 .xbtn{
   appearance:none; border:0; cursor:pointer; flex:0 0 auto;
-  width:16px; height:16px; border-radius:4px; display:grid; place-items:center;
-  font-family:var(--mono); font-size:9px; line-height:1; color:var(--dim);
+  width:18px; height:18px; border-radius:4px; display:grid; place-items:center;
+  font-family:var(--mono); font-size:10px; line-height:1; color:var(--dim);
   background:linear-gradient(180deg,#22262A,#141719);
   box-shadow:inset 0 .5px 0 rgba(255,217,160,.1), inset 0 0 0 .5px rgba(0,0,0,.6);
   transition:color .16s linear, transform .16s var(--ease-out);
@@ -245,43 +204,43 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
 .xbtn:focus-visible{outline:2px solid var(--foil); outline-offset:1px}
 @media (hover:hover) and (pointer:fine){ .xbtn:hover{color:var(--foil)} }
 
-.body{flex:1 1 auto; padding:10px 9px; overflow:hidden}
-.eyebrow{display:flex; align-items:center; gap:5px; margin-bottom:8px}
+.body{flex:1 1 auto; padding:11px 10px; overflow:hidden}
+.eyebrow{display:flex; align-items:center; gap:6px; margin-bottom:9px}
 .plate{
-  flex:0 0 auto; height:17px; padding:0 6px; border-radius:5px; display:grid; place-items:center;
-  font-family:var(--mono); font-size:8px; font-weight:600; color:var(--foil);
+  flex:0 0 auto; height:18px; padding:0 7px; border-radius:5px; display:grid; place-items:center;
+  font-family:var(--mono); font-size:8.5px; font-weight:600; color:var(--foil);
   background:linear-gradient(180deg,#22262A,#141719);
   box-shadow:inset 0 1px 0 rgba(255,217,160,.16), inset 0 0 0 1px rgba(0,0,0,.6);
 }
 .eyebrow .line{flex:1 1 auto; height:1px; background:var(--hair)}
-.ttl{margin:0 0 4px; font-size:14.5px; font-weight:600; line-height:1.15; letter-spacing:-.014em; color:var(--ink)}
-.blurb{margin:0 0 10px; font-size:10.5px; line-height:1.5; color:#B8B2A6}
+.ttl{margin:0 0 5px; font-size:16px; font-weight:600; line-height:1.15; letter-spacing:-.014em; color:var(--ink)}
+.blurb{margin:0 0 11px; font-size:11px; line-height:1.5; color:#B8B2A6}
 .rule-lab{
-  display:flex; align-items:baseline; gap:5px; margin:0 0 6px;
-  font-family:var(--mono); font-size:7px; letter-spacing:.15em; text-transform:uppercase; color:var(--dim);
+  display:flex; align-items:baseline; gap:6px; margin:0 0 7px;
+  font-family:var(--mono); font-size:7.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--dim);
 }
 .rule-lab .line{flex:1 1 auto; height:1px; background:var(--hair)}
 .entry{
-  display:grid; grid-template-columns:15px minmax(0,1fr); gap:0 6px;
-  padding:6px 0; border-bottom:1px solid var(--hair);
+  display:grid; grid-template-columns:16px minmax(0,1fr); gap:0 7px;
+  padding:7px 0; border-bottom:1px solid var(--hair);
 }
 .entry:last-child{border-bottom:0}
-.entry .idx{font-family:var(--mono); font-size:7.5px; color:var(--dim); padding-top:1px}
-.entry .et{font-size:11px; font-weight:600; color:var(--ink); line-height:1.25}
-.entry .ed{grid-column:2/3; margin-top:2px; font-size:9.5px; line-height:1.45; color:#9A948A}
+.entry .idx{font-family:var(--mono); font-size:8px; color:var(--dim); padding-top:1px}
+.entry .et{font-size:11.5px; font-weight:600; color:var(--ink); line-height:1.25}
+.entry .ed{grid-column:2/3; margin-top:2px; font-size:10px; line-height:1.45; color:#9A948A}
 .foot{
-  flex:0 0 auto; display:flex; align-items:center; gap:5px;
-  padding:4px 7px; border-top:1px solid var(--hair);
-  font-family:var(--mono); font-size:6.5px; letter-spacing:.12em; color:var(--dimmer); text-transform:uppercase;
+  flex:0 0 auto; display:flex; align-items:center; gap:6px;
+  padding:5px 8px; border-top:1px solid var(--hair);
+  font-family:var(--mono); font-size:7px; letter-spacing:.13em; color:var(--dimmer); text-transform:uppercase;
 }
 .ticks{flex:1 1 auto; height:5px; background:repeating-linear-gradient(90deg, var(--hair-2) 0 1px, transparent 1px 6px)}
 
 .rail{display:flex; flex-direction:column; gap:2px; padding:2px 0}
 .key{
-  flex:1 1 0; min-height:13px;
+  flex:1 1 0; min-height:14px;
   display:flex; align-items:center; justify-content:space-between; gap:3px;
-  padding:0 4px; border:0; border-radius:5px;
-  font-family:var(--mono); font-size:7px; font-weight:500; color:var(--dim);
+  padding:0 5px; border:0; border-radius:5px;
+  font-family:var(--mono); font-size:7.5px; font-weight:500; color:var(--dim);
   text-align:left; white-space:nowrap; overflow:hidden;
   background:linear-gradient(180deg,#23272B,#15181B);
   box-shadow:inset 0 1px 0 rgba(255,217,160,.10), inset 0 -1px 0 rgba(0,0,0,.75),
@@ -300,22 +259,29 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
 .key.on .lamp{background:#FFF4DE; box-shadow:0 0 0 1px rgba(58,30,2,.75), 0 0 4px rgba(255,244,222,.7)}
 
 /* ══════════════════════════════════════════════════════════════════════════════════════════════
-   THE PARTS EVERY INTRO USES
+   SCAN IN, and the exit that was already locked.
 
-   Four intros, one shared exit. What changes between them is WHICH part carries the arrival and
-   in WHAT ORDER; the parts themselves are identical, so the comparison is honest.
+   Every duration and every stagger is written at its BASE value and multiplied by var(--t).
+   That is the whole pacing model: one number scales the entire sequence and its internal
+   rhythm together, so slowing it down never turns a cascade into a set of separate blinks.
    ══════════════════════════════════════════════════════════════════════════════════════════ */
+
+/* ── THE WAY IN. A bar crosses the screen and leaves the terminal behind it. ──────────────────
+   The reveal is a clip edge travelling down, and the parts light while the bar is still
+   travelling - so the terminal is never a finished picture waiting to be switched on, it is
+   being written into existence one band at a time. */
+@keyframes scanReveal{ 0%{opacity:1; clip-path:inset(0 0 100% 0)} 100%{opacity:1; clip-path:inset(0 0 0 0)} }
+@keyframes scanBar{
+  0%  {opacity:0; transform:translateY(0)}
+  8%  {opacity:1}
+  90% {opacity:1}
+  100%{opacity:0; transform:translateY(472px)}
+}
 @keyframes rimTrace{
   0%  {opacity:0; clip-path:inset(0 100% 100% 0)}
   45% {opacity:1; clip-path:inset(0 0 100% 0)}
   100%{opacity:1; clip-path:inset(0 0 0 0)}
 }
-@keyframes rimFlash{
-  0%  {opacity:0}
-  35% {opacity:1; filter:brightness(2.1)}
-  100%{opacity:1; filter:brightness(1)}
-}
-@keyframes rimOut{ from{opacity:1} to{opacity:0} }
 @keyframes segRun{
   0%  {background:#000; box-shadow:inset 0 0 0 .5px rgba(0,0,0,.9)}
   35% {background:var(--lit-hot); box-shadow:0 0 6px rgba(255,194,77,.8), inset 0 0 0 .5px rgba(0,0,0,.4)}
@@ -331,121 +297,136 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
   40% {transform:scaleY(.04) scaleX(1)}
   100%{transform:scaleY(1)   scaleX(1)}
 }
-@keyframes crtFlash{
-  0%  {transform:scaleY(.05) scaleX(1); filter:brightness(2.6)}
-  46% {transform:scaleY(1)   scaleX(1); filter:brightness(1.7)}
-  100%{transform:scaleY(1)   scaleX(1); filter:brightness(1)}
-}
-@keyframes crtOff{
-  0%  {transform:scaleY(1)   scaleX(1)}
-  52% {transform:scaleY(.04) scaleX(1)}
-  100%{transform:scaleY(.04) scaleX(.08)}
-}
 @keyframes textWrite{
   0%  {clip-path:inset(0 100% 0 0)}
   100%{clip-path:inset(0 0 0 0)}
 }
 
-/* ══ THE ONE EXIT — Deploy's, approved. Every study closes this way. ═════════════════════════ */
+.pad.in       {animation:scanReveal calc(300ms * var(--t)) linear both}
+.pad.in .rim  {animation:rimTrace   calc(240ms * var(--t)) var(--ease-out) calc(230ms * var(--t)) both}
+.pad.in .crt  {animation:crtOn      calc(210ms * var(--t)) var(--ease-out) calc(290ms * var(--t)) both}
+.pad.in .seg  {animation:segRun     calc(250ms * var(--t)) linear calc(var(--i) * 16ms * var(--t) + 60ms  * var(--t)) both}
+.pad.in .lamp {animation:lampRun    calc(250ms * var(--t)) linear calc(var(--i) * 15ms * var(--t) + 80ms  * var(--t)) both}
+.pad.in .wr   {animation:textWrite  calc(190ms * var(--t)) linear calc(var(--i) * 42ms * var(--t) + 490ms * var(--t)) both}
+.scanbar.run  {animation:scanBar    calc(300ms * var(--t)) linear both}
+
+/* ── THE WAY OUT, approved. The picture squeezes to a scanline, the slab folds to a bar, the
+   bar snaps back to the chip. Still proportionally faster than the entrance at every pace,
+   because by then the reader has already decided to go. ─────────────────────────────────── */
+@keyframes crtOff{
+  0%  {transform:scaleY(1)   scaleX(1)}
+  52% {transform:scaleY(.04) scaleX(1)}
+  100%{transform:scaleY(.04) scaleX(.08)}
+}
 @keyframes podShut{
   0%  {opacity:1; transform:scaleX(1)   scaleY(1)}
   55% {opacity:1; transform:scaleX(1)   scaleY(.02)}
   100%{opacity:0; transform:scaleX(.06) scaleY(.02)}
 }
+@keyframes rimOut{ from{opacity:1} to{opacity:0} }
 .pad.out      {animation:podShut calc(300ms * var(--t)) var(--ease-out) calc(80ms * var(--t)) both}
 .pad.out .crt {animation:crtOff  calc(160ms * var(--t)) var(--ease-out) both}
 .pad.out .rim {animation:rimOut  calc(120ms * var(--t)) linear both}
 
-/* ══ 01 · UNFOLD — the baseline, the intro you already saw ═══════════════════════════════════ */
-@keyframes podOpen{
-  0%  {opacity:1; transform:scaleX(.06) scaleY(.02)}
-  38% {opacity:1; transform:scaleX(1)   scaleY(.02)}
-  100%{opacity:1; transform:scaleX(1)   scaleY(1)}
-}
-.pad.in-a          {animation:podOpen  calc(280ms * var(--t)) var(--ease-out) both}
-.pad.in-a .rim     {animation:rimTrace calc(200ms * var(--t)) var(--ease-out) calc(280ms * var(--t)) both}
-.pad.in-a .crt     {animation:crtOn    calc(210ms * var(--t)) var(--ease-out) calc(300ms * var(--t)) both}
-.pad.in-a .seg     {animation:segRun   calc(260ms * var(--t)) linear calc(var(--i) * 22ms * var(--t) + 300ms * var(--t)) both}
-.pad.in-a .lamp    {animation:lampRun  calc(260ms * var(--t)) linear calc(var(--i) * 20ms * var(--t) + 340ms * var(--t)) both}
-.pad.in-a .wr      {animation:textWrite calc(200ms * var(--t)) linear calc(var(--i) * 45ms * var(--t) + 510ms * var(--t)) both}
-
-/* ══ 02 · ASSEMBLE — the machine builds itself out of its three columns ══════════════════════
-   The rail comes in from the right edge, the meter from the left, and the display lands between
-   them. Two directions at once is ONE arrival, not two competing ones - they converge. The rim
-   then flashes as the thing locks together, which is the beat that says "assembled". */
-@keyframes slabHold{ 0%{opacity:0} 18%{opacity:1} 100%{opacity:1} }
-@keyframes fromRight{ 0%{opacity:0; transform:translateX(125%)} 100%{opacity:1; transform:translateX(0)} }
-@keyframes fromLeft { 0%{opacity:0; transform:translateX(-140%)} 100%{opacity:1; transform:translateX(0)} }
-@keyframes dropIn   { 0%{opacity:0; transform:translateY(-9%) scaleY(.9)} 100%{opacity:1; transform:none} }
-.pad.in-b          {animation:slabHold calc(240ms * var(--t)) var(--ease-out) both}
-.pad.in-b .rail    {animation:fromRight calc(260ms * var(--t)) var(--ease-out) both}
-.pad.in-b .meter   {animation:fromLeft  calc(260ms * var(--t)) var(--ease-out) both}
-.pad.in-b .display {animation:dropIn    calc(240ms * var(--t)) var(--ease-out) calc(130ms * var(--t)) both}
-.pad.in-b .rim     {animation:rimFlash  calc(260ms * var(--t)) var(--ease-out) calc(300ms * var(--t)) both}
-.pad.in-b .crt     {animation:crtOn     calc(200ms * var(--t)) var(--ease-out) calc(340ms * var(--t)) both}
-.pad.in-b .seg     {animation:segRun    calc(240ms * var(--t)) linear calc(var(--i) * 18ms * var(--t) + 330ms * var(--t)) both}
-.pad.in-b .lamp    {animation:lampRun   calc(240ms * var(--t)) linear calc(var(--i) * 16ms * var(--t) + 350ms * var(--t)) both}
-.pad.in-b .wr      {animation:textWrite calc(190ms * var(--t)) linear calc(var(--i) * 42ms * var(--t) + 540ms * var(--t)) both}
-
-/* ══ 03 · SCAN IN — a beam crosses the screen and leaves the terminal behind it ══════════════
-   The pad is revealed by a clip edge travelling downward, with a bright bar riding that edge.
-   The bar lives in the VIEWPORT, not in the pad: a light drawn inside the clipped element would
-   be clipped away by the very reveal it is supposed to be leading. */
-@keyframes scanReveal{ 0%{opacity:1; clip-path:inset(0 0 100% 0)} 100%{opacity:1; clip-path:inset(0 0 0 0)} }
-@keyframes scanBar{
-  0%  {opacity:0; transform:translateY(0)}
-  10% {opacity:1}
-  88% {opacity:1}
-  100%{opacity:0; transform:translateY(430px)}
-}
-.pad.in-c          {animation:scanReveal calc(300ms * var(--t)) linear both}
-.pad.in-c .rim     {animation:rimTrace  calc(240ms * var(--t)) var(--ease-out) calc(230ms * var(--t)) both}
-.pad.in-c .crt     {animation:crtOn     calc(210ms * var(--t)) var(--ease-out) calc(290ms * var(--t)) both}
-.pad.in-c .seg     {animation:segRun    calc(250ms * var(--t)) linear calc(var(--i) * 16ms * var(--t) + 60ms * var(--t)) both}
-.pad.in-c .lamp    {animation:lampRun   calc(250ms * var(--t)) linear calc(var(--i) * 15ms * var(--t) + 80ms * var(--t)) both}
-.pad.in-c .wr      {animation:textWrite calc(190ms * var(--t)) linear calc(var(--i) * 42ms * var(--t) + 490ms * var(--t)) both}
-.scanbar.run       {animation:scanBar   calc(300ms * var(--t)) linear both}
-
-/* ══ 04 · SURGE — the slab lands dark and fast, then the LIGHT is the animation ══════════════
-   The panel is readable in 130 ms, which is faster than any other intro here gets a word on
-   screen. Everything after that is one wave of light travelling from the chip's corner: rim,
-   then the edge meter, then the rail lamps, then the picture snapping on overbright and cooling.
-   Nothing moves after the first 130 ms - the geometry is settled and only the lighting performs. */
-@keyframes slabLand{ 0%{opacity:0; transform:scale(.972)} 100%{opacity:1; transform:scale(1)} }
-.pad.in-d          {animation:slabLand  calc(130ms * var(--t)) var(--ease-out) both}
-.pad.in-d .rim     {animation:rimTrace  calc(230ms * var(--t)) var(--ease-out) calc(90ms * var(--t)) both}
-.pad.in-d .seg     {animation:segRun    calc(230ms * var(--t)) linear calc(var(--i) * 20ms * var(--t) + 130ms * var(--t)) both}
-.pad.in-d .lamp    {animation:lampRun   calc(230ms * var(--t)) linear calc(var(--i) * 18ms * var(--t) + 165ms * var(--t)) both}
-.pad.in-d .crt     {animation:crtFlash  calc(260ms * var(--t)) var(--ease-out) calc(215ms * var(--t)) both}
-.pad.in-d .wr      {animation:textWrite calc(190ms * var(--t)) linear calc(var(--i) * 40ms * var(--t) + 400ms * var(--t)) both}
-
-/* where every intro lands */
+/* where the entrance lands */
 .pad.settled .rim{opacity:1}
 .pad.settled .wr{clip-path:inset(0 0 0 0)}
 .pad.settled .crt{transform:none}
-.pad.settled .rail, .pad.settled .meter, .pad.settled .display{transform:none; opacity:1}
 
-/* ══ LITE MODE — the panel still opens, it just opens instantly ══════════════════════════════
-   The write-on, the crt and the three columns all fill `both`, so Lite has to reset clip-path
-   AND transform or the panel opens to an invisible slit with no words in it. */
+/* ══ the dial ════════════════════════════════════════════════════════════════════════════════ */
+.dial{
+  border:1px solid var(--hair); border-radius:13px; overflow:hidden; background:var(--housing-lo);
+}
+.dial h2{
+  margin:0; padding:11px 13px; border-bottom:1px solid var(--hair);
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--dim); font-weight:500;
+}
+.dial .in{padding:13px}
+.readout{
+  display:flex; align-items:baseline; gap:9px; flex-wrap:wrap; margin-bottom:11px;
+  font-family:var(--mono); font-variant-numeric:tabular-nums;
+}
+.readout .big{font-size:30px; font-weight:600; color:var(--lit); letter-spacing:-.02em; line-height:1}
+.readout .unit{font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--dimmer)}
+.readout .sp{flex:1 1 auto}
+.readout .pair{font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim)}
+.readout .pair b{color:var(--ink); font-weight:600}
+
+input[type=range]{
+  -webkit-appearance:none; appearance:none; width:100%; height:26px; background:transparent;
+  cursor:pointer; margin:0 0 12px;
+}
+input[type=range]::-webkit-slider-runnable-track{
+  height:6px; border-radius:3px;
+  background:linear-gradient(90deg, var(--lit) 0%, var(--lit) var(--fill,50%), #16191C var(--fill,50%), #16191C 100%);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.6);
+}
+input[type=range]::-moz-range-track{
+  height:6px; border-radius:3px; background:#16191C; box-shadow:inset 0 0 0 1px rgba(0,0,0,.6);
+}
+input[type=range]::-moz-range-progress{height:6px; border-radius:3px; background:var(--lit)}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none; width:16px; height:16px; border-radius:4px; margin-top:-5px;
+  background:linear-gradient(180deg,#2C3034,#16191C);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.2), inset 0 0 0 1px rgba(0,0,0,.7), 0 1px 3px rgba(0,0,0,.7);
+}
+input[type=range]::-moz-range-thumb{
+  width:16px; height:16px; border:0; border-radius:4px;
+  background:linear-gradient(180deg,#2C3034,#16191C);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.2), inset 0 0 0 1px rgba(0,0,0,.7);
+}
+input[type=range]:focus-visible{outline:2px solid var(--foil); outline-offset:3px}
+
+.presets{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:13px}
+.btn{
+  appearance:none; border:0; cursor:pointer;
+  height:30px; padding:0 11px; border-radius:6px;
+  font-family:var(--mono); font-size:9.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--dim);
+  background:linear-gradient(180deg,#23272B,#15181B);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.09), inset 0 0 0 1px rgba(0,0,0,.55),
+             0 1px 2px rgba(0,0,0,.5);
+  transition:color .16s linear, box-shadow .16s linear, transform .16s var(--ease-out);
+}
+.btn:active{transform:scale(.97)}
+.btn[aria-pressed="true"]{color:var(--foil); box-shadow:inset 0 0 0 1px rgba(245,158,11,.65)}
+.btn.go{color:var(--lit-ink); background:linear-gradient(180deg, var(--lit) 0%, #D4870A 100%); font-weight:600}
+.btn:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
+.acts{display:flex; gap:6px; flex-wrap:wrap}
+
+table{border-collapse:collapse; width:100%; margin-top:14px}
+th, td{
+  text-align:left; padding:6px 0; border-bottom:1px solid var(--hair);
+  font-size:11.5px; color:#9A948A; font-variant-numeric:tabular-nums;
+}
+th{
+  font-family:var(--mono); font-size:8px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--dimmer); font-weight:500;
+}
+tr:last-child td{border-bottom:0}
+td.k{color:var(--ink); font-weight:600}
+td.v{font-family:var(--mono); font-size:11px; color:var(--lit); text-align:right; white-space:nowrap}
+
+/* ══ LITE MODE - the panel still opens, it just opens instantly ══════════════════════════════ */
 body.lite .pad, body.lite .pad *, body.lite .scanbar{animation:none !important}
 body.lite .pad{opacity:0; transform:none !important; clip-path:none !important}
 body.lite .pad.live{opacity:1}
-body.lite .pad .rim{opacity:1; filter:none}
-body.lite .pad .crt{transform:none !important; filter:none}
+body.lite .pad .rim{opacity:1}
+body.lite .pad .crt{transform:none !important}
 body.lite .pad .wr{clip-path:inset(0 0 0 0) !important}
-body.lite .pad .rail, body.lite .pad .meter, body.lite .pad .display{transform:none !important; opacity:1}
 body.lite .scanbar{opacity:0 !important}
+body.lite .g-dsp .pic{transition:none}
 body.lite .chip:active, body.lite .btn:active, body.lite .xbtn:active{transform:none}
 
 @media (prefers-reduced-motion:reduce){
   .pad, .pad *, .scanbar{animation:none !important}
   .pad{transform:none !important; clip-path:none !important}
-  .pad .rim{opacity:1; filter:none}
-  .pad .crt{transform:none !important; filter:none}
+  .pad .rim{opacity:1}
+  .pad .crt{transform:none !important}
   .pad .wr{clip-path:inset(0 0 0 0) !important}
-  .pad .rail, .pad .meter, .pad .display{transform:none !important; opacity:1}
   .scanbar{opacity:0 !important}
+  .g-dsp .pic{transition:none}
 }
 
 .foot-note{
@@ -461,82 +442,98 @@ body.lite .chip:active, body.lite .btn:active, body.lite .xbtn:active{transform:
     <span class="live"></span>
     <span>KPM &middot; Phone panel</span>
     <span class="sp"></span>
-    <span>Intros <b>04</b></span>
-    <span>Exit <b>Locked</b></span>
+    <span>Entrance <b>Scan in</b></span>
+    <span>Pace <b id="hPace">1,90&times;</b></span>
   </div>
 
-  <h1>Four ways in. One way out.</h1>
+  <h1>Scan in, at the pace you set</h1>
   <p class="lede">
-    You took Deploy's closing, so the exit is settled and every study below uses it: the picture
-    squeezes to a scanline, the slab folds to a bar, and the bar snaps back to the chip. <b>What
-    changes between the four is only the way in.</b>
+    A bright bar crosses the screen and leaves the terminal behind it. The rim, the edge meter, the
+    rail lamps and the picture all light <b>while the bar is still travelling</b>, so the pad is
+    written into existence one band at a time rather than switched on when it is already there.
   </p>
 
   <div class="locked">
-    <span class="tag">Locked</span>
+    <span class="tag">Set this</span>
     <p>
-      <b>The exit is Deploy's, unchanged.</b> Press the <b>&times;</b> on any pad's status strip and
-      all four leave the same way &mdash; 380&nbsp;ms, faster than any of the entrances, because by
-      then you have already decided to go.
+      You asked for both halves slower. <b>Drag the dial until it feels right and tell me the
+      number</b> &mdash; it multiplies every duration and every gap together, so the rhythm holds
+      at any speed. Starting at <b>1,90&times;</b>, which is my read of "slow, not too fast".
     </p>
   </div>
 
-  <p class="lede">
-    All four move the same six parts &mdash; the housing, the gold rim, the edge meter, the rail
-    lamps, the picture, the text. What differs is which part carries the arrival, and in what
-    order. The two numbers under each name are <b>when the slab is on screen</b> and when the last
-    word has finished writing.
-  </p>
+  <div class="stage">
+    <div class="phone">
+      <div class="topbar">
+        <span class="brand">KPM</span><span class="sp"></span>
+        <button class="chip" type="button" id="chip" aria-label="Tutorial">
+          <span class="g-dsp"><span class="bez"></span><span class="pic">
+            <span class="ln l1"></span><span class="ln l2"></span>
+            <span class="ln l3"></span><span class="ln l4"></span></span></span>
+          <span class="lab">Tutorial</span>
+        </button>
+      </div>
+      <div class="viewport">
+        <div class="hint" id="hint">Press the tutorial chip<br>above</div>
+        <div class="pad" id="pad"></div>
+        <div class="scanbar" id="scanbar"></div>
+      </div>
+    </div>
 
-  <div class="ctrls">
-    <button class="btn go" type="button" id="playAll">&#9654; Open all four</button>
-    <button class="btn" type="button" id="closeAll">&times; Close all four</button>
-    <span class="ctrl-lab">Speed</span>
-    <button class="btn" type="button" data-speed="1" aria-pressed="true">1&times;</button>
-    <button class="btn" type="button" data-speed="3" aria-pressed="false">Slow 3&times;</button>
-    <button class="btn" type="button" data-speed="6" aria-pressed="false">Slow 6&times;</button>
-    <span class="sp" style="flex:1 1 auto"></span>
-    <button class="btn" type="button" id="btnLite" aria-pressed="false">Lite mode</button>
+    <div class="dial">
+      <h2>Pace</h2>
+      <div class="in">
+        <div class="readout">
+          <span class="big" id="rPace">1,90</span><span class="unit">&times;</span>
+          <span class="sp"></span>
+          <span class="pair">In <b id="rIn">1786</b> ms &middot; Out <b id="rOut">722</b> ms</span>
+        </div>
+
+        <input type="range" id="slider" min="1" max="3.2" step="0.05" value="1.9"
+               aria-label="Animation pace">
+
+        <div class="presets">
+          <button class="btn" type="button" data-pace="1">1,00&times; brisk</button>
+          <button class="btn" type="button" data-pace="1.5">1,50&times; easy</button>
+          <button class="btn" type="button" data-pace="1.9" aria-pressed="true">1,90&times; slow</button>
+          <button class="btn" type="button" data-pace="2.5">2,50&times; cinematic</button>
+        </div>
+
+        <div class="acts">
+          <button class="btn go" type="button" id="playOnce">&#9654; Open, then close</button>
+          <button class="btn" type="button" id="btnLoop" aria-pressed="false">Loop</button>
+          <button class="btn" type="button" id="btnLite" aria-pressed="false">Lite mode</button>
+        </div>
+
+        <table>
+          <thead><tr><th>Beat</th><th style="text-align:right">At this pace</th></tr></thead>
+          <tbody>
+            <tr><td class="k">Bar crosses the screen</td><td class="v" data-ms="300">570 ms</td></tr>
+            <tr><td class="k">Edge meter done</td><td class="v" data-ms="486">923 ms</td></tr>
+            <tr><td class="k">Rim traced</td><td class="v" data-ms="470">893 ms</td></tr>
+            <tr><td class="k">Picture on</td><td class="v" data-ms="500">950 ms</td></tr>
+            <tr><td class="k">Last word written</td><td class="v" data-ms="932">1771 ms</td></tr>
+            <tr><td class="k">Exit, start to gone</td><td class="v" data-ms="380">722 ms</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-
-  <div class="studies" id="studies"></div>
 
   <p class="foot-note">
     Every part fires once and holds &mdash; nothing loops while the panel is open<br>
-    The exit is identical in all four, so only the entrance is being compared<br>
+    One number scales the durations and the gaps together, so the rhythm survives any pace<br>
     Lite mode still opens the panel, it just arrives instantly
   </p>
 </div>
 
 <script>
-var STUDIES = [
-  { id:'a', n:'01', nm:'Unfold', ms:'slab 280 / done 990', base:true,
-    body:'<b>The one you already saw.</b> A point, a bar across, then the slab drops open from '
-       + 'the chip\'s corner, and the parts light after it lands. It is the exit played backwards, '
-       + 'which is why it reads as undoing a close rather than as arriving.' },
-  { id:'d', n:'02', nm:'Surge', ms:'slab 130 / done 840', pick:true,
-    body:'The slab <b>lands dark and almost instantly</b>, then a wave of light runs through it '
-       + 'from the chip\'s corner: rim, edge meter, rail lamps, and the picture snapping on '
-       + 'overbright before it cools. <b>Nothing moves after the first 130 ms</b> \u2014 the geometry is '
-       + 'settled and only the lighting performs.' },
-  { id:'b', n:'03', nm:'Assemble', ms:'slab 370 / done 990',
-    body:'The machine <b>builds itself out of its three columns</b>: the rail slides in from the '
-       + 'right, the meter from the left, the display lands between them, and the rim flashes as '
-       + 'it all locks. The most gamified of the four, and the one that keeps you waiting longest '
-       + 'before there is anything to read.' },
-  { id:'c', n:'04', nm:'Scan in', ms:'slab 300 / done 940',
-    body:'A bright bar <b>crosses the screen and leaves the terminal behind it</b>, top to bottom, '
-       + 'and the parts light while it is still travelling. The most literally high-tech of the '
-       + 'four \u2014 but a beam that materialises hardware is a sci-fi idea, not a machine idea.' }
-];
-
 var SEGS = 12, KEYS = 14;
 var RAIL = ['Command','Restock','Sales','Vault','Agent','Opname','Setoran','Piutang',
             'Fleet','Journey','Map','Customer','Reports','Audit'];
 
-/* ONE pad, defined once and stamped into each phone. --i is written onto each staggered part
-   here rather than as a :nth-child chain in CSS: 12 cells plus 14 lamps would be 26 rules that
-   go stale the moment either count changes. */
+/* --i is written onto each staggered part here rather than as a :nth-child chain in CSS:
+   12 cells plus 14 lamps would be 26 rules that go stale the moment either count changes. */
 function padHTML(){
   var h = '<span class="sheen"></span><span class="rim"></span>'
         + '<span class="bolt tl"></span><span class="bolt tr"></span>'
@@ -548,8 +545,8 @@ function padHTML(){
   }
   h += '</div><div class="display"><div class="crt">'
     +    '<div class="status"><span class="live"></span><span>Ponder</span>'
-    +      '<span class="sp"></span><span>Sec <b>02</b>/17</span>'
-    +      '<button class="xbtn" type="button" data-close aria-label="Close panel">&times;</button>'
+    +      '<span class="sp"></span><span>Section <b>02</b>/17</span>'
+    +      '<button class="xbtn" type="button" id="xbtn" aria-label="Close panel">&times;</button>'
     +    '</div>'
     +    '<div class="body">'
     +      '<div class="eyebrow wr" style="--i:0"><span class="plate">Restock</span><span class="line"></span></div>'
@@ -563,7 +560,7 @@ function padHTML(){
     +      '<div class="entry wr" style="--i:6"><span class="idx">03</span><span class="et">Shipment Plan</span>'
     +        '<span class="ed">Siapa yang dikirim duluan kalau barang kurang.</span></div>'
     +    '</div>'
-    +    '<div class="foot"><span>KPM</span><span class="ticks"></span><span>04/17</span></div>'
+    +    '<div class="foot"><span>KPM</span><span class="ticks"></span><span>Ready 04/17</span></div>'
     +  '</div></div><nav class="rail">';
   for(var k = 0; k < KEYS; k++){
     h += '<button class="key' + (k === 1 ? ' on' : '') + '" type="button" style="--i:' + k + '">'
@@ -572,123 +569,106 @@ function padHTML(){
   return h + '</nav>';
 }
 
-var GLYPH = '<span class="g-dsp"><span class="bez"></span><span class="pic">'
-          + '<span class="ln l1"></span><span class="ln l2"></span>'
-          + '<span class="ln l3"></span><span class="ln l4"></span></span></span>';
+var pad = document.getElementById('pad');
+var bar = document.getElementById('scanbar');
+var chip = document.getElementById('chip');
+var hint = document.getElementById('hint');
+pad.innerHTML = padHTML();
 
-var host = document.getElementById('studies');
-STUDIES.forEach(function(s){
-  var el = document.createElement('section');
-  el.className = 'study' + (s.pick ? ' pick' : '') + (s.base ? ' base' : '');
-  el.setAttribute('data-study', s.id);
-  el.innerHTML =
-    '<div class="study-head"><span>' + s.n + '</span><span class="nm">' + s.nm + '</span>'
-  +   '<span class="ms">' + s.ms + '</span></div>'
-  + '<div class="phone">'
-  +   '<div class="topbar"><span class="brand">KPM</span><span class="sp"></span>'
-  +     '<button class="chip" type="button" data-open aria-label="Tutorial">' + GLYPH
-  +       '<span class="lab">Tutorial</span></button></div>'
-  +   '<div class="viewport">'
-  +     '<div class="hint">Press the tutorial chip<br>above</div>'
-  +     '<div class="pad">' + padHTML() + '</div>'
-  +     '<div class="scanbar"></div>'
-  +   '</div>'
-  + '</div>'
-  + '<p>' + s.body + '</p>'
-  + '<div class="acts">'
-  +   '<button class="btn" type="button" data-act="open">&#9654; Open</button>'
-  +   '<button class="btn" type="button" data-act="close">&times; Close</button>'
-  + '</div>';
-  host.appendChild(el);
-});
+/* BASE timings, in ms at pace 1. Everything on the page - the CSS durations, the readout, the
+   table and the driver's own timers - is derived from these, so a change here cannot leave one
+   of them stale. IN_BASE is the last write-on's delay plus its duration: 6*42 + 490 + 190. */
+var IN_BASE  = 932;
+var OUT_BASE = 380;
 
-/* \u2500\u2500 the driver \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-   Timeouts scale with the speed dial, so SLOW MO slows the script as well as the CSS. Without
-   that the script strips a class part-way through the animation it started, and the sequence
-   reads as broken rather than as slow. */
-var speed = 1;
-var IN_MS = { a:990, d:840, b:990, c:940 };
-var OUT   = 380;
-var state = {};
+var pace = 1.9, looping = false, open = false, busy = false, timers = [];
+function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+function later(fn, ms){ timers.push(setTimeout(fn, ms)); }   /* callers pass real ms already */
+function fmt(n){ return String(Math.round(n)); }
+function paceStr(p){ return p.toFixed(2).replace('.', ','); }
 
-function parts(id){
-  var root = document.querySelector('[data-study="' + id + '"]');
-  return { root:root, pad:root.querySelector('.pad'), chip:root.querySelector('.chip'),
-           hint:root.querySelector('.hint'), bar:root.querySelector('.scanbar') };
-}
-function reset(p){
-  p.pad.className = 'pad';
-  p.bar.className = 'scanbar';
-  void p.pad.offsetWidth;   /* the reflow that lets an animation play again */
-}
-
-function openPad(id){
-  var p = parts(id), st = state[id] || (state[id] = {});
-  if(st.open) return;
-  clearTimeout(st.timer);
-  st.open = true;
-  p.hint.style.visibility = 'hidden';
-  p.chip.classList.add('away');
-  reset(p);
-  p.pad.classList.add('live', 'in-' + id);
-  if(id === 'c'){ p.bar.classList.add('run'); }
-  st.timer = setTimeout(function(){
-    p.pad.classList.remove('in-' + id);
-    p.pad.classList.add('settled');
-    p.bar.classList.remove('run');
-  }, IN_MS[id] * speed);
-}
-
-function closePad(id){
-  var p = parts(id), st = state[id] || (state[id] = {});
-  if(!st.open) return;
-  clearTimeout(st.timer);
-  st.open = false;
-  p.pad.classList.remove('in-' + id, 'settled');
-  p.bar.classList.remove('run');
-  void p.pad.offsetWidth;
-  p.pad.classList.add('out');
-  st.timer = setTimeout(function(){
-    reset(p);
-    p.chip.classList.remove('away');
-    p.hint.style.visibility = '';
-  }, OUT * speed);
-}
-
-document.addEventListener('click', function(e){
-  var t = e.target;
-  var study = t.closest && t.closest('[data-study]');
-  if(study){
-    var id = study.getAttribute('data-study');
-    if(t.closest('[data-open]'))  { openPad(id);  return; }
-    if(t.closest('[data-close]')) { closePad(id); return; }
-    var act = t.closest('[data-act]');
-    if(act){
-      if(act.getAttribute('data-act') === 'open'){ openPad(id); } else { closePad(id); }
-      return;
-    }
-  }
-  var sp = t.closest && t.closest('[data-speed]');
-  if(sp){
-    speed = parseFloat(sp.getAttribute('data-speed'));
-    document.documentElement.style.setProperty('--t', speed);
-    document.querySelectorAll('[data-speed]').forEach(function(b){
-      b.setAttribute('aria-pressed', b === sp ? 'true' : 'false');
-    });
-  }
-});
-
-document.getElementById('playAll').addEventListener('click', function(){
-  STUDIES.forEach(function(s){
-    var st = state[s.id] || (state[s.id] = {});
-    clearTimeout(st.timer); st.open = false;
-    var p = parts(s.id);
-    reset(p); p.chip.classList.remove('away'); p.hint.style.visibility = '';
+function applyPace(p){
+  pace = p;
+  document.documentElement.style.setProperty('--t', p);
+  document.getElementById('rPace').textContent = paceStr(p);
+  document.getElementById('hPace').textContent = paceStr(p) + '\u00d7';
+  document.getElementById('rIn').textContent  = fmt(IN_BASE  * p);
+  document.getElementById('rOut').textContent = fmt(OUT_BASE * p);
+  document.querySelectorAll('td.v[data-ms]').forEach(function(td){
+    td.textContent = fmt(parseFloat(td.getAttribute('data-ms')) * p) + ' ms';
   });
-  setTimeout(function(){ STUDIES.forEach(function(s){ openPad(s.id); }); }, 60);
+  var s = document.getElementById('slider');
+  s.value = p;
+  s.style.setProperty('--fill', ((p - 1) / (3.2 - 1) * 100) + '%');
+  document.querySelectorAll('[data-pace]').forEach(function(b){
+    b.setAttribute('aria-pressed', Math.abs(parseFloat(b.getAttribute('data-pace')) - p) < 0.001
+                                   ? 'true' : 'false');
+  });
+}
+
+function reset(){
+  pad.className = 'pad';
+  bar.className = 'scanbar';
+  void pad.offsetWidth;
+}
+
+function openPad(){
+  if(busy || open) return;
+  busy = true; open = true;
+  hint.style.visibility = 'hidden';
+  chip.classList.add('away');
+  reset();
+  pad.classList.add('live', 'in');
+  bar.classList.add('run');
+  later(function(){
+    pad.classList.remove('in');
+    pad.classList.add('settled');
+    bar.classList.remove('run');
+    busy = false;
+    if(looping){ later(closePad, 1100); }
+  }, IN_BASE * pace);
+}
+
+function closePad(){
+  if(busy || !open) return;
+  busy = true;
+  pad.classList.remove('in', 'settled');
+  bar.classList.remove('run');
+  void pad.offsetWidth;
+  pad.classList.add('out');
+  later(function(){
+    reset();
+    chip.classList.remove('away');
+    hint.style.visibility = '';
+    open = false; busy = false;
+    if(looping){ later(openPad, 700); }
+  }, OUT_BASE * pace);
+}
+
+chip.addEventListener('click', function(){ clearTimers(); busy = false; openPad(); });
+document.getElementById('xbtn').addEventListener('click', function(){
+  clearTimers(); busy = false; closePad();
 });
-document.getElementById('closeAll').addEventListener('click', function(){
-  STUDIES.forEach(function(s){ closePad(s.id); });
+
+document.getElementById('playOnce').addEventListener('click', function(){
+  clearTimers(); busy = false;
+  if(open){ closePad(); later(openPad, OUT_BASE * pace + 260); }
+  else { openPad(); later(closePad, IN_BASE * pace + 900); }
+});
+
+document.getElementById('slider').addEventListener('input', function(e){
+  applyPace(parseFloat(e.target.value));
+});
+document.querySelectorAll('[data-pace]').forEach(function(b){
+  b.addEventListener('click', function(){ applyPace(parseFloat(b.getAttribute('data-pace'))); });
+});
+
+var btnLoop = document.getElementById('btnLoop');
+btnLoop.addEventListener('click', function(){
+  looping = !looping;
+  btnLoop.setAttribute('aria-pressed', looping ? 'true' : 'false');
+  clearTimers(); busy = false;
+  if(looping && !open){ openPad(); }
 });
 
 var btnLite = document.getElementById('btnLite');
@@ -697,4 +677,9 @@ btnLite.addEventListener('click', function(){
   document.body.classList.toggle('lite', on);
   btnLite.setAttribute('aria-pressed', on ? 'true' : 'false');
 });
+
+applyPace(1.9);
+/* it opens itself once on load, at the starting pace, so the first thing on screen is the thing
+   being judged rather than an empty slot */
+later(openPad, 420);
 </script>

@@ -29,4 +29,4 @@ knowledge worth keeping) or move into [[../Backlog/index|Backlog]] as an actiona
 sit here indefinitely once it's actually decided.
 - [[2026-09-02_phone-tutorial-shell]] — the book is clunky on a phone because a phone cannot show a spread; four candidate shells drafted as a live artifact. **OPEN — waiting on Aldi.** PC already decided: keep the book, drop the riffle.
 - [[2026-09-03_tutorial-icon-candidates]] — the top bar still shows a leather book for a panel that is now a field terminal. **DECIDED: the display**, plus its CRT intro and outro, both built. Three jobs still queued: the amber swap on the panel, the icon into the app, and phone sizing.
-- [[2026-09-03_panel-arrival-animation]] — how the phone tech pad opens when you press the tutorial icon and closes when you press the X. **The EXIT is settled (Deploy's).** Four entrances now on the same page, still open. Recommended: Surge.
+- [[2026-09-03_panel-arrival-animation]] — how the phone tech pad opens when you press the tutorial icon and closes when you press the X. **DECIDED: Scan in + Deploy's exit, both slowed, pace dial at 1,90×.** Design phase closed; implementation is next.

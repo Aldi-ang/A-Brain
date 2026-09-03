@@ -1899,3 +1899,28 @@ pressed, and does something mechanical when it arrives. Everything else &mdash; 
 usually a translation of it into the new object's material, not an invention.
 
 Related: [[2026-09-03_panel-arrival-animation]] &middot; [["Cleanest" won over "most impressive"]]
+
+## "So that user eyes can enjoy" — he buys the watchable one, twice (2026-09-03)
+
+> *"scan in looks cool tbh but make both intro and outro of the animation slow, not too fast so
+> that user eyes can enjoy the animation then now we can move on"*
+
+**He took the option I had argued against, for the second time in one day.** The panel entrance was
+recommended as Surge on the grounds that it got a readable screen up in 130 ms and had no travel to
+get tired of. He chose Scan in — the one whose write-up said *"a beam that materialises hardware is
+a film idea, not a machine idea"* — and then asked for it **slower**.
+
+Earlier the same day he took the display icon over the key cap for being *"the cleanest"*, against
+a recommendation argued on physicality.
+
+**The rule that reconciles both:** he optimises for **watchability at rest and on arrival**, not
+for time-to-useful. A screen he looks at should be calm; a moment he was going to watch anyway
+should be worth watching. Speed arguments do not move him on rare, deliberate transitions — and a
+tutorial panel is exactly that.
+
+**So stop pricing entrances in milliseconds-to-readable.** For anything opened rarely, the question
+he is actually answering is "is this nice to watch", and the honest cost to raise is whether it will
+still be nice on the hundredth time, not whether it is fast.
+
+Related: [[2026-09-03_panel-arrival-animation]] &middot; [["Cleanest" won over "most impressive"]] &middot;
+[["Norak" — two animations claiming the same moment]]

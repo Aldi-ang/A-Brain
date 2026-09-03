@@ -101,7 +101,40 @@ you waiting 370 ms before there is anything to read. **Scan in** is the most lit
 that is the argument against it: a beam that materialises hardware is a film idea, not a machine
 idea.
 
-**Still OPEN — waiting on Aldi's entrance pick.**
+### DECIDED 2026-09-03 — Scan in, slowed
+
+> *"scan in looks cool tbh but make both intro and outro of the animation slow, not too fast so
+> that user eyes can enjoy the animation then now we can move on"*
+
+**Entrance: Scan in. Exit: Deploy's. Both slowed.** He rejected the recommendation again — Surge
+lost to the one described as "most literally sci-fi", which was the argument I had made against
+it. Twice today he has taken the option I argued down, and both times on the same grounds: he wants
+the thing that is *nice to watch*, not the thing that is fastest to useful.
+
+**"So that user eyes can enjoy the animation" is the design rule underneath it**, and it directly
+contradicts the speed reasoning used to recommend Surge. A tutorial panel is opened rarely; the
+arrival is allowed to be an event. Do not optimise it for time-to-readable again.
+
+**Pace is a single multiplier.** Every duration and every stagger is written at a base value and
+multiplied by `--t`, so one number scales the sequence and its internal rhythm together — slowing
+it never turns a cascade into a set of separate blinks. The artifact ships a dial (slider plus four
+presets) so the exact figure is his to set; it opens at **1,90×**.
+
+| Beat | Base | At 1,90× |
+|---|---|---|
+| Bar crosses the screen | 300 ms | 570 ms |
+| Edge meter done | 486 ms | 923 ms |
+| Rim traced | 470 ms | 893 ms |
+| Picture on | 500 ms | 950 ms |
+| Last word written | 932 ms | 1771 ms |
+| Exit, start to gone | 380 ms | 722 ms |
+
+⚠️ **Flagged once, not argued:** at 1,90× the panel takes 1,8 s before the last word is on
+screen. That is long for a UI. He asked for it explicitly and a tutorial is opened rarely, so it
+ships — but if it ever reads as sluggish in daily use, the pace number is the one dial to turn and
+nothing else has to change.
+
+**The design phase is closed** — *"then now we can move on"*. What is left is implementation.
 
 ## Rejected on purpose
 
