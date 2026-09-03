@@ -2083,6 +2083,17 @@
       "norm_label": "chrome speaks english, the app speaks indonesian (2026-09-03)"
     },
     {
+      "label": "An OFF state has to look OFF (2026-09-03)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1756",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_an_off_state_has_to_look_off_2026_09_03",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "an off state has to look off (2026-09-03)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -11933,6 +11944,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1756",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_an_off_state_has_to_look_off_2026_09_03",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L1696",
       "weight": 1.0,
       "_origin": "ast",
@@ -21413,5 +21435,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5d4a5f7a51f6aea02cc8e1f1d18d27e35cf74521"
+  "built_at_commit": "d5f19034b5bf9a9626ef1d0aec575f3be8781f68"
 }

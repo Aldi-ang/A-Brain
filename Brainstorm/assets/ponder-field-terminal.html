@@ -9,6 +9,10 @@
   --display:#121014;
   --ink:#E8E3DA; --dim:#8E8779;
   --accent:#FF8C1A; --foil:#FFD9A0;
+  /* THE LIT COLOUR. Every indicator on this pad is black until it is lit, and then it is this
+     one light amber - the edge meter cell, the key-cap lamp, and the latched cap's own face.
+     One lit colour means "lit" is never ambiguous. */
+  --lit:#FFCE8F; --lit-dim:rgba(255,206,143,.40); --lit-hot:#FFE7C4;
   --hair:rgba(232,227,218,.09);
   --hair-2:rgba(232,227,218,.16);
   --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
@@ -80,28 +84,26 @@ body{
   display:flex; flex-direction:column; gap:2px; padding:14px 3px;
   transform:translateZ(5px);
 }
-/* OFF IS OFF. The old unlit cell was rgba(232,227,218,.10) - a pale grey bar that read as a
-   LIT segment at a glance, so a meter with three sections read looked almost full. An unlit
-   cell in a real bar meter is a dark well you can only just make out. */
+/* BLACK UNTIL LIT. An unlit cell is a black well, not a dim version of the lit one. */
 .seg{
   flex:1 1 0; border-radius:2px;
-  background:rgba(5,6,7,.66);
-  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.75), inset 0 1px 1px rgba(0,0,0,.55);
+  background:#000;
+  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.9), inset 0 1px 1px rgba(0,0,0,.7);
   transition:background .25s linear, box-shadow .25s linear;
 }
 .seg.read{
-  background:linear-gradient(90deg, rgba(255,140,26,.30), rgba(255,217,160,.72));
-  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.45);
+  background:var(--lit-dim);
+  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.5);
 }
 /* the current cell ENERGISES - overbright for a moment, then settles to its burn level */
 @keyframes segOn{
-  0%  {background:rgba(255,232,196,.98); box-shadow:0 0 13px rgba(255,140,26,.9),  inset 0 0 0 .5px rgba(0,0,0,.4)}
-  55% {background:var(--accent);         box-shadow:0 0 8px  rgba(255,140,26,.62), inset 0 0 0 .5px rgba(0,0,0,.4)}
-  100%{background:var(--accent);         box-shadow:0 0 5px  rgba(255,140,26,.45), inset 0 0 0 .5px rgba(0,0,0,.4)}
+  0%  {background:var(--lit-hot); box-shadow:0 0 12px rgba(255,206,143,.85), inset 0 0 0 .5px rgba(0,0,0,.4)}
+  55% {background:var(--lit);     box-shadow:0 0 7px  rgba(255,206,143,.55), inset 0 0 0 .5px rgba(0,0,0,.4)}
+  100%{background:var(--lit);     box-shadow:0 0 4px  rgba(255,206,143,.40), inset 0 0 0 .5px rgba(0,0,0,.4)}
 }
 .seg.cur{
-  background:var(--accent);
-  box-shadow:0 0 5px rgba(255,140,26,.45), inset 0 0 0 .5px rgba(0,0,0,.4);
+  background:var(--lit);
+  box-shadow:0 0 4px rgba(255,206,143,.40), inset 0 0 0 .5px rgba(0,0,0,.4);
   animation:segOn .40s cubic-bezier(.2,.7,.3,1);
 }
 
@@ -125,7 +127,7 @@ body{
   color:var(--dim); text-transform:uppercase; font-variant-numeric:tabular-nums;
   background:linear-gradient(180deg, rgba(232,227,218,.035), transparent);
 }
-.status .live{width:5px; height:5px; border-radius:50%; background:var(--accent); flex:0 0 auto}
+.status .live{width:5px; height:5px; border-radius:50%; background:var(--lit); flex:0 0 auto}
 .status .sp{flex:1 1 auto}
 .status b, .foot b{color:var(--ink); font-weight:600}
 
@@ -244,51 +246,65 @@ h1{
     0 3px 5px -3px rgba(0,0,0,.8);
   transform:translateZ(0);
   transform-style:preserve-3d;
-  transition:transform .24s cubic-bezier(.34,1.32,.64,1), color .16s linear,
-             background .16s linear, box-shadow .24s ease;
+  transition:transform .18s cubic-bezier(.3,.7,.3,1), color .16s linear,
+             background .16s linear, box-shadow .18s ease;
 }
 /* AN UNLIT LAMP IS A DARK BEZEL. The old one was rgba(232,227,218,.13) - a visible grey pip on
    every single cap, so the rail read as seventeen lights that were already on. */
+/* A LAMP IS BLACK UNTIL IT IS LIT. No grey pip, no dim preview of the lit state. */
 .key .lamp{
   flex:0 0 auto; width:4px; height:4px; border-radius:50%;
-  background:rgba(5,6,7,.8);
-  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.7), 0 0 0 .5px rgba(232,227,218,.05);
+  background:#000;
+  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.9), 0 0 0 .5px rgba(232,227,218,.055);
   transition:background .2s linear, box-shadow .2s linear;
 }
 .key.read{color:#A9A296}
-.key.read .lamp{background:rgba(255,140,26,.62); box-shadow:0 0 3px rgba(255,140,26,.35)}
+.key.read .lamp{background:var(--lit-dim); box-shadow:0 0 3px rgba(255,206,143,.28)}
+
+/* THE LATCH. A pressed cap goes DOWN and STAYS down until another one is pressed - it never
+   floats above the rail. Down means: pushed back in Z, no drop shadow of its own (a sunken
+   key casts none), and a hard inset shadow across its top edge where the housing overhangs it.
+   The face ILLUMINATES to the one lit amber, which is what makes a latched key readable at a
+   glance without lifting it off the panel. */
 .key.on{
-  color:#0E1012; font-weight:600;
-  background:linear-gradient(180deg, var(--foil), var(--accent));
-  transform:translateX(-6px) translateZ(18px) rotateY(-5deg);
+  color:#2A1A08; font-weight:600;
+  background:linear-gradient(180deg, var(--lit) 0%, #E9B473 100%);
+  transform:translateZ(-7px) scale(.984);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.45),
-    inset 0 -1px 0 rgba(122,52,4,.55),
-    -4px 3px 11px rgba(0,0,0,.62),
-    0 2px 4px rgba(0,0,0,.5);
+    inset 0 2px 5px rgba(74,38,2,.5),
+    inset 0 -1px 0 rgba(255,231,196,.45),
+    inset 0 0 0 1px rgba(0,0,0,.55),
+    0 0 7px rgba(255,206,143,.22);
 }
-/* the lamp BLOOMS when it comes on, then settles - an LED being energised, not a colour swap */
+/* the lamp BLOOMS as it energises, then settles. Its dark socket ring is what keeps it legible
+   against the lit face - the lamp is lighter than the cap, the ring is darker than both. */
 @keyframes lampOn{
-  0%  {box-shadow:0 0 0 0    rgba(255,250,240,0),   0 0 0  rgba(255,140,26,0)}
-  40% {box-shadow:0 0 0 3.2px rgba(255,250,240,.98), 0 0 11px rgba(255,140,26,.85)}
-  100%{box-shadow:0 0 0 1.5px rgba(255,250,240,.92), 0 0 4px  rgba(107,40,0,.55)}
+  0%  {box-shadow:0 0 0 0    rgba(255,231,196,0),   0 0 0  rgba(255,206,143,0)}
+  40% {box-shadow:0 0 0 2.6px rgba(58,30,2,.85), 0 0 10px rgba(255,231,196,.95)}
+  100%{box-shadow:0 0 0 1.4px rgba(58,30,2,.75), 0 0 4px  rgba(255,231,196,.6)}
 }
 .key.on .lamp{
-  background:#6B2800;
-  box-shadow:0 0 0 1.5px rgba(255,250,240,.92), 0 0 4px rgba(107,40,0,.55);
+  background:var(--lit-hot);
+  box-shadow:0 0 0 1.4px rgba(58,30,2,.75), 0 0 4px rgba(255,231,196,.6);
   animation:lampOn .42s cubic-bezier(.2,.7,.3,1);
 }
-/* THE PRESS IS PHYSICAL: the cap goes IN first, then rides out to the raised gold state with a
-   little overshoot. Without the depress it was a colour change; with it, it is a button. */
+/* THE PRESS: straight down, a touch past the resting depth, then settle AT the bottom and stay
+   there. It ends exactly where .key.on holds it, so nothing moves when the class is removed. */
 @keyframes keyHit{
-  0%  {transform:translateX(0)     translateZ(0)     rotateY(0)      scale(1)}
-  20% {transform:translateX(3px)   translateZ(-13px) rotateY(1.5deg) scale(.965)}
-  100%{transform:translateX(-6px)  translateZ(18px)  rotateY(-5deg)  scale(1)}
+  0%  {transform:translateZ(0)     scale(1)}
+  55% {transform:translateZ(-11px) scale(.976)}
+  100%{transform:translateZ(-7px)  scale(.984)}
 }
-.key.hit{animation:keyHit .38s cubic-bezier(.3,1.45,.55,1) forwards}
+.key.hit{animation:keyHit .26s cubic-bezier(.3,.75,.35,1) forwards}
+/* hover does NOT lift - a key that rises under the pointer is the floating look he rejected.
+   It brightens its own edge instead, so the pad still answers the pointer. */
 @media (hover:hover){
-  .key:hover{transform:translateX(-2px) translateZ(8px)}
-  .key.on:hover{transform:translateX(-6px) translateZ(20px) rotateY(-5deg)}
+  .key:not(.on):hover{box-shadow:
+    inset 0 1px 0 rgba(255,217,160,.20),
+    inset 0 -1px 0 rgba(0,0,0,.75),
+    inset 0 0 0 1px rgba(0,0,0,.55),
+    0 1px 2px rgba(0,0,0,.55),
+    0 3px 5px -3px rgba(0,0,0,.8);}
 }
 .key:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
 
@@ -317,9 +333,7 @@ body.lite .fn{transition:none}
 body.lite .panel.in,
 body.lite .panel.out{animation:none; opacity:1; transform:none; filter:none}
 body.lite .entry{animation:none}
-body.lite .key.on,
-body.lite .key:hover,
-body.lite .key.on:hover{transform:none}
+body.lite .key.on{transform:none}
 body.lite .key.hit,
 body.lite .key.on .lamp,
 body.lite .seg.cur{animation:none}
@@ -332,7 +346,7 @@ body.lite .meter{transform:none}
   .pad,.panel,.key{transition:none !important}
   .panel.in,.panel.out,.entry{animation:none !important; opacity:1 !important; transform:none !important; filter:none !important}
   .key.hit,.key.on .lamp,.seg.cur{animation:none !important}
-  .key.on,.key:hover{transform:none !important}
+  .key.on{transform:none !important}
 }
 /* a caption for a desk viewer only — on a phone the pad fills the screen and
    a fixed line would lie across the housing */

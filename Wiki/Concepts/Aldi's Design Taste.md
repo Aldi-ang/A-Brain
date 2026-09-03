@@ -1774,3 +1774,27 @@ He also asked, same message, for *"more 3D and smoother ... cooler more gamelike
 satisfied it was physicality, not effects: caps that actually depress before they rise, a lamp that
 blooms then settles, a meter cell that flashes overbright as it energises. No new colours were
 added — the palette law held, and the removed backlight stayed removed.
+
+## "More 3D" means LATCHED, not floating (2026-09-03)
+
+Shown a rail whose active key rose off the panel with a tilt, he rejected it:
+
+> *"dont make the button floating like that, u know just make the button that pressed and stays
+> down until other button is press. and when not turning on all the light should stays black on
+> default and lights up light amber when section pressed"*
+
+**Two things to carry forward.**
+
+1. **His depth is physical state, not visual flourish.** A raised control reads as *available*; a
+   sunk one reads as *chosen*. He asked for 3D and got lift, and lift was the wrong direction —
+   the selected thing should be the one pushed IN, held down like a latching push-button, until
+   another takes its place. Hover must not lift either, for the same reason.
+2. **He wants ONE lit colour, and black when unlit.** Not a palette of lit states tuned per
+   surface — one amber that means "on" wherever it appears, and true black when off. This is the
+   third round in a row where the same indicator was retuned; the reason it kept failing is that
+   each surface got its own answer. See also [[An OFF state has to look OFF]].
+
+**The lesson underneath both:** the fix for an illegible indicator was not the indicator. The lamp
+could not be read because it sat on a gold cap. Three rounds tuned the lamp; changing the CAP
+solved it at once. When a foreground element keeps failing against its background, the background
+is the thing to question.

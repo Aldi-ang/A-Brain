@@ -466,3 +466,47 @@ computed position, so it renders without needing the clock, and the screenshot i
 `document.getAnimations()` is what tells the two apart — check `currentTime`, not the rendered look.
 
 **Status: CLOSED.** Same artifact URL.
+
+---
+
+## Round 8 — 2026-09-03. THE KEYS LATCH, AND THERE IS NOW ONE LIT COLOUR
+
+**His words, verbatim:** *"dont make the button floating like that, u know just make the button
+that pressed and stays down until other button is press. and when not turning on all the light
+should stays black on default and lights up light amber when section pressed"*
+
+Round 7 read "more 3D" as *lift*, and that was the wrong direction. A raised cap is a cap that is
+about to be pressed; a **latched** cap is one that HAS been pressed. He wanted the second.
+
+| | Round 7 | Round 8 |
+|---|---|---|
+| Active cap | `translateX(-6px) translateZ(18px) rotateY(-5deg)` — floats above the rail | `translateZ(-7px) scale(.984)` — sunk into it, stays down |
+| Measured against a neighbour | 220.7 x 107.0 vs 210.2 x 88.4 — **bigger**, i.e. nearer | 78.3 x 27.6 vs 80.9 x 28.5 — **smaller**, i.e. pushed in |
+| Cap shadow | outer drop shadow, as a raised object casts | inset shadow across the top edge, as a recess receives |
+| `keyHit` end state | rides out to the raised position | settles at the bottom, identical to `.key.on`, so nothing jumps |
+| Hover | lifted the cap 8px | brightens the edge only — a cap that rises under the pointer is the same floating look |
+| Unlit lamp / cell | `rgba(5,6,7,.66)` and `.8` — very dark, but still not black | `#000` |
+| Lit colour | strong orange `#FF8C1A` on the meter, rust-and-cream on the lamp | one `--lit:#FFCE8F` light amber everywhere |
+
+**One lit colour is the real change.** The pad previously lit three different ways — orange meter
+cells, an amber-to-gold read gradient, a rust lamp inside a cream ring — because each was solved
+separately against its own background. `--lit`, `--lit-dim` and `--lit-hot` now cover every
+indicator, including the PONDER strip's live dot, which was still orange and would have been the
+only thing on the pad lighting a different colour.
+
+**And it dissolved the problem three rounds could not fix.** The lamp was illegible because it sat
+on a gold cap; the cap is no longer gold, so a light amber lamp in a dark socket ring reads
+immediately. The right fix was to the CAP, not to the lamp — every previous attempt tuned the lamp.
+
+⚠️ **The stalled-timeline trap from round 7 fired again and cost a wrong conclusion.** The latch
+transform measured as `matrix(1,0,0,1,0,0)` on a clean load, with the active cap's rect identical
+to its neighbours' — which reads exactly like "the rule is not applying". It was applying. `.key`
+carries `transition:transform`, the class flips from `key` to `key on` after the element is already
+styled, and a stalled clock parks that transition at its START value forever.
+
+**The check that works regardless of the clock:** set `style.transition='none'`, force a reflow with
+`void el.offsetWidth`, then read `getComputedStyle`. That returns the declared value. Pair it with
+pinning an animation via a negative `animationDelay` plus `animationPlayState:'paused'` for the
+keyframe end states. Both are static computed positions and neither needs the timeline to advance.
+
+**Status: CLOSED.** Same artifact URL.
