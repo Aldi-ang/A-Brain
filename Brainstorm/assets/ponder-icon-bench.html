@@ -1,0 +1,684 @@
+<title>Field Terminal Icon Bench</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* ONE VISUAL WORLD, COMMITTED: this bench is built out of the field terminal's own materials, so
+   the icons are judged inside the world they have to live in. Dark only, on purpose - the pad is
+   dark only, and whether it gets a light material is still an open question. Every colour is
+   painted explicitly so the page holds on either host ground. */
+:root{
+  color-scheme: dark;
+
+  --housing-top:#252A2E; --housing-hi:#1C1F22; --housing-lo:#0E1012;
+  --display:#121014;
+  --ground:#08090A;
+  --ink:#E8E3DA; --dim:#8E8779; --dimmer:#6E685C;
+  --foil:#FFD9A0;
+
+  /* 🔴 THE CHANGE HE ASKED FOR. The pad shipped with --lit:#FFCE8F, a pale amber invented for it.
+     This is the app's own amber, --amber:#F59E0B from src/styles/theme.css, the one he picked by
+     measurement in August. Everything lit on this page is that colour. */
+  --lit:#F59E0B;
+  --lit-hot:#FFC24D;
+  --lit-dim:rgba(245,158,11,.38);
+  --lit-ink:#2A1A08;          /* ink placed ON a lit face - measured 7,82:1 against #F59E0B */
+  --lit-old:#FFCE8F;          /* kept only for the side-by-side below */
+
+  --hair:rgba(232,227,218,.09);
+  --hair-2:rgba(232,227,218,.16);
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --sans:"IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+
+  /* The pad's one entrance curve, unchanged. */
+  --ease-out:cubic-bezier(.23, 1, .32, 1);
+  /* global speed dial - SLOW MO multiplies this. Emil's rule: review motion at reduced speed. */
+  --t:1;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(120% 60% at 50% -8%, #14171A 0%, var(--ground) 60%);
+}
+
+.wrap{max-width:920px; margin:0 auto; padding:22px 16px 60px}
+
+/* ── the bench header, built like the pad's status strip ───────────────────────────────────── */
+.head{
+  display:flex; align-items:center; gap:9px; flex-wrap:wrap;
+  padding:8px 11px; border-radius:9px;
+  border:1px solid var(--hair);
+  background:linear-gradient(180deg, rgba(232,227,218,.04), transparent), var(--housing-hi);
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--dim); font-variant-numeric:tabular-nums;
+}
+.head .live{width:5px; height:5px; border-radius:50%; background:var(--lit); flex:0 0 auto}
+.head .sp{flex:1 1 auto}
+.head b{color:var(--ink); font-weight:600}
+
+h1{
+  margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
+  line-height:1.12; text-wrap:balance;
+}
+.lede{margin:0 0 20px; max-width:62ch; font-size:14px; line-height:1.6; color:#B8B2A6}
+.lede b{color:var(--ink); font-weight:600}
+
+/* ── control strip ────────────────────────────────────────────────────────────────────────── */
+.ctrls{
+  display:flex; gap:6px; flex-wrap:wrap; align-items:center;
+  padding:9px; border-radius:9px; border:1px solid var(--hair);
+  background:var(--housing-lo); margin-bottom:22px;
+}
+.btn{
+  appearance:none; border:0; cursor:pointer;
+  height:30px; padding:0 11px; border-radius:6px;
+  font-family:var(--mono); font-size:9.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--dim);
+  background:linear-gradient(180deg,#23272B,#15181B);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.09), inset 0 0 0 1px rgba(0,0,0,.55),
+             0 1px 2px rgba(0,0,0,.5);
+  transition:color .16s linear, box-shadow .16s linear, transform .16s var(--ease-out);
+}
+.btn:active{transform:scale(.97)}
+.btn[aria-pressed="true"]{color:var(--foil); box-shadow:inset 0 0 0 1px rgba(245,158,11,.6)}
+.btn.go{color:var(--lit-ink); background:linear-gradient(180deg, var(--lit) 0%, #D4870A 100%); font-weight:600}
+.btn:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
+.ctrl-lab{font-family:var(--mono); font-size:9px; letter-spacing:.14em; color:var(--dimmer);
+          text-transform:uppercase; margin-left:4px}
+
+/* ── one candidate ────────────────────────────────────────────────────────────────────────── */
+.slot{
+  border:1px solid var(--hair); border-radius:12px; overflow:hidden;
+  background:linear-gradient(158deg, var(--housing-top) 0%, var(--housing-hi) 34%, #15181B 70%, var(--housing-lo) 100%);
+  margin-bottom:16px;
+}
+.slot.pick{border-color:rgba(245,158,11,.42)}
+.slot-head{
+  display:flex; align-items:baseline; gap:9px; flex-wrap:wrap;
+  padding:10px 13px; border-bottom:1px solid var(--hair);
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--dim); font-variant-numeric:tabular-nums;
+}
+.slot-head .nm{color:var(--ink); font-weight:600; letter-spacing:.1em}
+.slot-head .line{flex:1 1 auto; height:1px; background:var(--hair); align-self:center}
+/* the pick badge is the ONE amber fill on this page outside a lit icon, and it is 22px tall -
+   a plate, not a slab. Amber is an edge and an ink here; this is the exception a pick needs. */
+.tag{
+  font-family:var(--mono); font-size:8px; letter-spacing:.12em; padding:3px 6px; border-radius:3px;
+  color:var(--lit-ink); background:var(--lit); font-weight:600;
+}
+.tag.alt{color:var(--dim); background:transparent; box-shadow:inset 0 0 0 1px var(--hair-2)}
+
+.slot-body{display:grid; grid-template-columns:minmax(0,1fr); gap:0}
+@media (min-width:720px){ .slot-body{grid-template-columns:1fr 246px} }
+
+.note{padding:14px 13px 16px; min-width:0}
+.note p{margin:0 0 9px; font-size:13px; line-height:1.55; color:#B8B2A6; max-width:46ch}
+.note p:last-child{margin-bottom:0}
+.note b{color:var(--ink); font-weight:600}
+.beats{
+  list-style:none; margin:0 0 10px; padding:0;
+  display:grid; gap:5px;
+}
+.beats li{
+  display:grid; grid-template-columns:58px minmax(0,1fr); gap:9px; align-items:baseline;
+  font-size:12.5px; line-height:1.45; color:#9A948A;
+}
+.beats .k{
+  font-family:var(--mono); font-size:8.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--dimmer); padding-top:2px;
+}
+
+/* the two viewing stages: real size in a top-bar mock, and 4x magnified */
+.stages{
+  border-top:1px solid var(--hair);
+  display:grid; grid-template-columns:1fr 1fr;
+}
+@media (min-width:720px){
+  .stages{border-top:0; border-left:1px solid var(--hair); grid-template-columns:1fr; }
+}
+.stage{
+  padding:13px 10px; display:flex; flex-direction:column; align-items:center; gap:8px;
+  background:var(--display); position:relative;
+}
+.stage + .stage{border-left:1px solid var(--hair)}
+@media (min-width:720px){ .stage + .stage{border-left:0; border-top:1px solid var(--hair)} }
+.stage::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(180deg, rgba(232,227,218,.014) 0 1px, transparent 1px 22px);
+}
+.stage .cue{
+  font-family:var(--mono); font-size:8px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--dimmer); font-variant-numeric:tabular-nums;
+}
+/* 4x is a straight DOM scale, so what is magnified is the SHIPPING geometry, not a redraw */
+.mag{width:96px; height:96px; display:grid; place-items:center}
+.mag > .chip,
+.mag > .chip:active{transform:scale(4); transform-origin:center}
+
+/* ── the top-bar mock: the icon's real home, at its real size ─────────────────────────────── */
+.bar{
+  display:flex; align-items:center; gap:7px;
+  height:38px; padding:0 8px; border-radius:9px;
+  border:1px solid var(--hair);
+  background:linear-gradient(180deg, rgba(232,227,218,.05), rgba(0,0,0,.2));
+  backdrop-filter:blur(4px);
+}
+.bar .brand{font-family:var(--mono); font-size:8.5px; letter-spacing:.16em; color:var(--dimmer);
+             text-transform:uppercase}
+.bar .sp{flex:1 1 auto}
+
+/* the chip is the real control: h-9 / 36px, matching kpm-chip in the app */
+.chip{
+  appearance:none; cursor:pointer;
+  height:36px; padding:0 9px; border-radius:8px;
+  display:inline-flex; align-items:center; gap:7px;
+  border:1px solid var(--hair-2); background:rgba(232,227,218,.03);
+  color:var(--dim);
+  transition:border-color .2s linear, color .2s linear, transform .2s var(--ease-out);
+}
+.chip .lab{font-family:var(--mono); font-size:9px; letter-spacing:.15em; text-transform:uppercase}
+.chip:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
+.chip:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .chip:hover{border-color:rgba(245,158,11,.5); color:var(--foil)}
+}
+.chip.on{border-color:rgba(245,158,11,.5); color:var(--foil)}
+
+/* ══ THE GLYPHS ═══════════════════════════════════════════════════════════════════════════════
+   All four are built the way the pad is built: boxes, gradients and inset shadows, never SVG
+   paths. Same construction means the icon and the panel are provably the same object family, and
+   it survives a 4x magnification because there is nothing rasterised in it.
+
+   Every glyph is 22px tall. Idle state is a STILL frame that still reads - the icon sits in the
+   top bar all day, and an icon that fidgets in the corner of every screen is the thing he called
+   norak. The motion is spent on hover and on the press, which is where a button is allowed to
+   perform. Lite Mode strips the motion and keeps every colour. */
+.g{position:relative; display:block; flex:0 0 auto}
+
+/* ── A · MICROPAD - the whole terminal, shrunk ─────────────────────────────────────────────── */
+.g-pad{width:22px; height:22px}
+.g-pad .body{
+  position:absolute; inset:0; border-radius:4px;
+  background:linear-gradient(158deg,#272B2F,#111417);
+  box-shadow:inset 0 .5px 0 rgba(255,217,160,.16), inset 0 0 0 .5px rgba(0,0,0,.7);
+}
+.g-pad .scr{
+  position:absolute; left:2.5px; top:3px; bottom:3px; right:8.5px; border-radius:1.5px;
+  background:#0B0A0C; box-shadow:inset 0 0 0 .5px rgba(0,0,0,.9);
+  overflow:hidden;
+}
+/* the phosphor line that writes across the little screen on press */
+.g-pad .scan{
+  position:absolute; left:1px; right:1px; top:3.5px; height:1px; border-radius:1px;
+  background:var(--lit); opacity:0;
+  clip-path:inset(0 100% 0 0);
+}
+.g-pad .cap{
+  position:absolute; right:2.5px; width:5px; height:3.2px; border-radius:1px;
+  background:linear-gradient(180deg,#24282C,#14171A);
+  box-shadow:inset 0 .5px 0 rgba(255,217,160,.12), inset 0 0 0 .5px rgba(0,0,0,.6);
+  transition:background .18s linear, box-shadow .18s linear, transform .18s var(--ease-out);
+}
+.g-pad .c1{top:3px} .g-pad .c2{top:7.6px} .g-pad .c3{top:12.2px} .g-pad .c4{top:16.8px}
+/* idle: exactly ONE cap latched. The icon has a resting state that already says "this is a pad". */
+.g-pad .c2{background:linear-gradient(180deg, var(--lit), #C97D08); box-shadow:inset 0 0 0 .5px rgba(0,0,0,.5)}
+
+/* ── B · THE CAP - one key, latched ────────────────────────────────────────────────────────── */
+.g-cap{width:22px; height:22px}
+.g-cap .well{
+  position:absolute; inset:0; border-radius:5px;
+  background:#0C0E10; box-shadow:inset 0 1px 2px rgba(0,0,0,.9), inset 0 0 0 .5px rgba(0,0,0,.85);
+}
+.g-cap .key{
+  position:absolute; inset:1.5px; border-radius:4px;
+  display:flex; align-items:center; justify-content:flex-end; padding-right:2.5px;
+  background:linear-gradient(180deg,#262A2E,#15181B);
+  box-shadow:inset 0 1px 0 rgba(255,217,160,.14), inset 0 -1px 0 rgba(0,0,0,.8),
+             inset 0 0 0 .5px rgba(0,0,0,.6), 0 1.5px 0 rgba(0,0,0,.55);
+  transition:transform .2s var(--ease-out), background .2s linear, box-shadow .2s linear;
+}
+.g-cap .glyph{
+  position:absolute; left:3.5px; top:5.5px; width:9px; height:1.5px; border-radius:1px;
+  background:var(--dim);
+  box-shadow:0 3.5px 0 var(--dimmer), 0 7px 0 var(--dimmer);
+  transition:background .2s linear, box-shadow .2s linear;
+}
+.g-cap .lamp{
+  position:absolute; right:2.5px; top:9px; width:3px; height:3px; border-radius:50%;
+  background:#000;
+  box-shadow:inset 0 0 0 .5px rgba(0,0,0,.9), 0 0 0 .5px rgba(232,227,218,.07);
+  transition:background .2s linear, box-shadow .2s linear;
+}
+
+/* ── C · THE METER - the pad's left edge, which is its progress bar ────────────────────────── */
+.g-met{width:22px; height:22px}
+.g-met .frm{
+  position:absolute; inset:0; border-radius:4px;
+  background:linear-gradient(158deg,#23272B,#111417);
+  box-shadow:inset 0 .5px 0 rgba(255,217,160,.14), inset 0 0 0 .5px rgba(0,0,0,.7);
+}
+.g-met .seg{
+  position:absolute; left:5px; right:5px; height:2.6px; border-radius:1px;
+  background:#000; box-shadow:inset 0 0 0 .5px rgba(0,0,0,.9);
+  transition:background .2s linear, box-shadow .2s linear;
+}
+.g-met .s1{top:3px} .g-met .s2{top:7px} .g-met .s3{top:11px}
+.g-met .s4{top:15px} .g-met .s5{top:19px}
+/* idle: two burned in. The icon reports how much of the manual has been read, before it is touched. */
+.g-met .s1,.g-met .s2{background:var(--lit-dim)}
+
+/* ── D · THE DISPLAY - the raster write-on, which is the animation he approved ─────────────── */
+.g-dsp{width:22px; height:22px}
+.g-dsp .bez{
+  position:absolute; inset:0; border-radius:4.5px;
+  background:linear-gradient(158deg,#262A2E,#101315);
+  box-shadow:inset 0 .5px 0 rgba(255,217,160,.15), inset 0 0 0 .5px rgba(0,0,0,.7);
+}
+.g-dsp .scr{
+  position:absolute; inset:2.5px; border-radius:2px; overflow:hidden;
+  background:#0A090B; box-shadow:inset 0 .5px 2px rgba(0,0,0,.95);
+}
+.g-dsp .scr::after{
+  content:""; position:absolute; inset:0;
+  background:repeating-linear-gradient(180deg, rgba(232,227,218,.05) 0 .5px, transparent .5px 2px);
+}
+.g-dsp .ln{
+  position:absolute; left:1.5px; height:1.5px; border-radius:.75px;
+  background:var(--lit); clip-path:inset(0 100% 0 0);
+}
+.g-dsp .l1{top:2px;  right:3px}
+.g-dsp .l2{top:6px;  right:6px}
+.g-dsp .l3{top:10px; right:2px}
+.g-dsp .l4{top:14px; right:8px}
+/* idle: the top line already written, so the screen is ON and holding, never blank */
+.g-dsp .l1{clip-path:inset(0 0 0 0); background:var(--lit-dim)}
+
+/* ══ MOTION ═══════════════════════════════════════════════════════════════════════════════════
+   Two triggers, one animation each. `.hv` is what a pointer does; `.pr` is the press. Both are
+   put on by real :hover/:active on a pointer device AND by the PLAY buttons, so the whole bench
+   is judgeable on a phone where there is no hover at all. */
+
+/* --- A · MICROPAD: the latch WALKS down the rail, one cap at a time --- */
+.chip.hv .g-pad .cap{background:linear-gradient(180deg,#2C3034,#181B1E)}
+.chip.hv .g-pad .c1{animation:padWalk calc(560ms * var(--t)) var(--ease-out) calc(0ms * var(--t)) both}
+.chip.hv .g-pad .c2{animation:padWalk calc(560ms * var(--t)) var(--ease-out) calc(70ms * var(--t)) both}
+.chip.hv .g-pad .c3{animation:padWalk calc(560ms * var(--t)) var(--ease-out) calc(140ms * var(--t)) both}
+.chip.hv .g-pad .c4{animation:padWalk calc(560ms * var(--t)) var(--ease-out) calc(210ms * var(--t)) both}
+@keyframes padWalk{
+  0%  {background:linear-gradient(180deg,#2C3034,#181B1E); transform:translateX(0)}
+  22% {background:linear-gradient(180deg,var(--lit-hot),var(--lit)); transform:translateX(-1px)}
+  100%{background:linear-gradient(180deg,#2C3034,#181B1E); transform:translateX(0)}
+}
+.chip.pr .g-pad .scan{animation:padScan calc(300ms * var(--t)) linear both}
+@keyframes padScan{
+  0%  {opacity:1; clip-path:inset(0 100% 0 0)}
+  70% {opacity:1; clip-path:inset(0 0 0 0)}
+  100%{opacity:0; clip-path:inset(0 0 0 0)}
+}
+
+/* --- B · THE CAP: the lamp blooms, the face lights, and on press the cap SINKS and stays --- */
+.chip.hv .g-cap .lamp{
+  background:var(--lit-hot);
+  box-shadow:0 0 0 1.2px rgba(58,30,2,.75), 0 0 5px rgba(255,194,77,.75);
+  animation:lampBloom calc(380ms * var(--t)) cubic-bezier(.2,.7,.3,1) both;
+}
+@keyframes lampBloom{
+  0%  {box-shadow:0 0 0 0 rgba(255,194,77,0), 0 0 0 rgba(255,194,77,0)}
+  42% {box-shadow:0 0 0 2.4px rgba(58,30,2,.85), 0 0 9px rgba(255,194,77,.95)}
+  100%{box-shadow:0 0 0 1.2px rgba(58,30,2,.75), 0 0 5px rgba(255,194,77,.75)}
+}
+.chip.hv .g-cap .glyph{background:var(--lit); box-shadow:0 3.5px 0 var(--lit-dim), 0 7px 0 var(--lit-dim)}
+/* the press is the whole idea: it goes DOWN and it STAYS down, the latch he approved on the pad */
+.chip.pr .g-cap .key{
+  transform:translateY(1.5px) scale(.955);
+  background:linear-gradient(180deg, var(--lit) 0%, #D4870A 100%);
+  box-shadow:inset 0 1.5px 4px rgba(74,38,2,.5), inset 0 -.5px 0 rgba(255,231,196,.45),
+             inset 0 0 0 .5px rgba(0,0,0,.55), 0 0 6px rgba(245,158,11,.28);
+}
+.chip.pr .g-cap .glyph{background:var(--lit-ink); box-shadow:0 3.5px 0 rgba(42,26,8,.72), 0 7px 0 rgba(42,26,8,.72)}
+.chip.pr .g-cap .lamp{background:#FFF4DE; box-shadow:0 0 0 1.2px rgba(58,30,2,.8), 0 0 7px rgba(255,244,222,.9)}
+
+/* --- C · THE METER: the cells energise bottom to top, overbright then settling to burn level --- */
+.chip.hv .g-met .s5{animation:segOn calc(420ms * var(--t)) cubic-bezier(.2,.7,.3,1) calc(0ms * var(--t)) both}
+.chip.hv .g-met .s4{animation:segOn calc(420ms * var(--t)) cubic-bezier(.2,.7,.3,1) calc(55ms * var(--t)) both}
+.chip.hv .g-met .s3{animation:segOn calc(420ms * var(--t)) cubic-bezier(.2,.7,.3,1) calc(110ms * var(--t)) both}
+.chip.hv .g-met .s2{animation:segOn calc(420ms * var(--t)) cubic-bezier(.2,.7,.3,1) calc(165ms * var(--t)) both}
+.chip.hv .g-met .s1{animation:segOn calc(420ms * var(--t)) cubic-bezier(.2,.7,.3,1) calc(220ms * var(--t)) both}
+@keyframes segOn{
+  0%  {background:#000;            box-shadow:inset 0 0 0 .5px rgba(0,0,0,.9)}
+  30% {background:var(--lit-hot);  box-shadow:0 0 7px rgba(255,194,77,.85), inset 0 0 0 .5px rgba(0,0,0,.4)}
+  100%{background:var(--lit);      box-shadow:0 0 3px rgba(245,158,11,.4),  inset 0 0 0 .5px rgba(0,0,0,.4)}
+}
+.chip.pr .g-met .seg{background:var(--lit-hot); box-shadow:0 0 6px rgba(255,194,77,.7), inset 0 0 0 .5px rgba(0,0,0,.4)}
+
+/* --- D · THE DISPLAY: the raster sweep, LINEAR, exactly as on the panel --- */
+.chip.hv .g-dsp .l1{animation:write calc(260ms * var(--t)) linear calc(0ms * var(--t))   both}
+.chip.hv .g-dsp .l2{animation:write calc(260ms * var(--t)) linear calc(55ms * var(--t))  both}
+.chip.hv .g-dsp .l3{animation:write calc(260ms * var(--t)) linear calc(110ms * var(--t)) both}
+.chip.hv .g-dsp .l4{animation:write calc(260ms * var(--t)) linear calc(165ms * var(--t)) both}
+@keyframes write{
+  0%  {clip-path:inset(0 100% 0 0); background:var(--lit-hot)}
+  100%{clip-path:inset(0 0 0 0);    background:var(--lit)}
+}
+.chip.pr .g-dsp .scr{box-shadow:inset 0 0 0 .5px rgba(245,158,11,.5), inset 0 0 8px rgba(245,158,11,.28)}
+.chip.pr .g-dsp .ln{clip-path:inset(0 0 0 0); background:var(--lit-hot)}
+
+/* real pointer hover drives the same classes, so the demo and the truth cannot drift apart */
+@media (hover:hover) and (pointer:fine){
+  .chip:hover .g-pad .cap{background:linear-gradient(180deg,#2C3034,#181B1E)}
+  .chip:hover .g-pad .c1{animation:padWalk calc(560ms * var(--t)) var(--ease-out) calc(0ms * var(--t)) both}
+  .chip:hover .g-pad .c2{animation:padWalk calc(560ms * var(--t)) var(--ease-out) calc(70ms * var(--t)) both}
+  .chip:hover .g-pad .c3{animation:padWalk calc(560ms * var(--t)) var(--ease-out) calc(140ms * var(--t)) both}
+  .chip:hover .g-pad .c4{animation:padWalk calc(560ms * var(--t)) var(--ease-out) calc(210ms * var(--t)) both}
+
+  .chip:hover .g-cap .lamp{
+    background:var(--lit-hot);
+    box-shadow:0 0 0 1.2px rgba(58,30,2,.75), 0 0 5px rgba(255,194,77,.75);
+    animation:lampBloom calc(380ms * var(--t)) cubic-bezier(.2,.7,.3,1) both;
+  }
+  .chip:hover .g-cap .glyph{background:var(--lit); box-shadow:0 3.5px 0 var(--lit-dim), 0 7px 0 var(--lit-dim)}
+
+  .chip:hover .g-met .s5{animation:segOn calc(420ms * var(--t)) cubic-bezier(.2,.7,.3,1) calc(0ms * var(--t)) both}
+  .chip:hover .g-met .s4{animation:segOn calc(420ms * var(--t)) cubic-bezier(.2,.7,.3,1) calc(55ms * var(--t)) both}
+  .chip:hover .g-met .s3{animation:segOn calc(420ms * var(--t)) cubic-bezier(.2,.7,.3,1) calc(110ms * var(--t)) both}
+  .chip:hover .g-met .s2{animation:segOn calc(420ms * var(--t)) cubic-bezier(.2,.7,.3,1) calc(165ms * var(--t)) both}
+  .chip:hover .g-met .s1{animation:segOn calc(420ms * var(--t)) cubic-bezier(.2,.7,.3,1) calc(220ms * var(--t)) both}
+
+  .chip:hover .g-dsp .l1{animation:write calc(260ms * var(--t)) linear calc(0ms * var(--t))   both}
+  .chip:hover .g-dsp .l2{animation:write calc(260ms * var(--t)) linear calc(55ms * var(--t))  both}
+  .chip:hover .g-dsp .l3{animation:write calc(260ms * var(--t)) linear calc(110ms * var(--t)) both}
+  .chip:hover .g-dsp .l4{animation:write calc(260ms * var(--t)) linear calc(165ms * var(--t)) both}
+}
+
+/* ── the amber comparison ─────────────────────────────────────────────────────────────────── */
+.amber{
+  border:1px solid var(--hair); border-radius:12px; padding:14px 13px 16px;
+  background:var(--housing-lo); margin:26px 0 22px;
+}
+.amber h2, .slots h2{
+  margin:0 0 4px; font-family:var(--mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--dim); font-weight:500;
+}
+.amber p{margin:0 0 12px; font-size:13px; line-height:1.55; color:#B8B2A6; max-width:52ch}
+.swatches{display:flex; gap:10px; flex-wrap:wrap}
+.sw{
+  flex:1 1 150px; min-width:0; border-radius:8px; overflow:hidden;
+  border:1px solid var(--hair);
+}
+.sw .face{
+  height:52px; display:grid; place-items:center;
+  font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.02em;
+  color:var(--lit-ink);
+}
+.sw .old{background:linear-gradient(180deg, var(--lit-old), #E9B473)}
+.sw .new{background:linear-gradient(180deg, var(--lit), #D4870A)}
+.sw .meta{
+  padding:7px 9px; background:var(--housing-hi);
+  font-family:var(--mono); font-size:8.5px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--dim); font-variant-numeric:tabular-nums; line-height:1.7;
+}
+.sw .meta b{color:var(--ink); font-weight:600; display:block}
+
+.foot{
+  margin-top:26px; padding-top:13px; border-top:1px solid var(--hair);
+  font-family:var(--mono); font-size:9px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--dimmer); line-height:1.9;
+}
+
+/* ── LITE MODE - motion goes, every colour and every shape stays ───────────────────────────── */
+body.lite .chip,
+body.lite .btn,
+body.lite .g-cap .key,
+body.lite .g-cap .lamp,
+body.lite .g-cap .glyph,
+body.lite .g-met .seg,
+body.lite .g-pad .cap{transition:none}
+body.lite .g-pad .cap,
+body.lite .g-met .seg,
+body.lite .g-dsp .ln,
+body.lite .g-cap .lamp,
+body.lite .g-cap .key,
+body.lite .g-cap .glyph{animation:none !important}
+/* the reveal fills `both`, so Lite has to reset clip-path too or the written lines vanish */
+body.lite .g-dsp .ln{clip-path:inset(0 0 0 0) !important}
+body.lite .g-pad .scan{opacity:0 !important}
+body.lite .chip:active,
+body.lite .btn:active{transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .chip,.btn,.g-cap .key,.g-cap .lamp,.g-cap .glyph,.g-met .seg,.g-pad .cap{transition:none !important}
+  .g-pad .cap,.g-met .seg,.g-dsp .ln,.g-cap .lamp,.g-cap .key,.g-cap .glyph{animation:none !important}
+  .g-dsp .ln{clip-path:inset(0 0 0 0) !important}
+  .g-pad .scan{opacity:0 !important}
+}
+</style>
+
+<div class="wrap">
+
+  <div class="head">
+    <span class="live"></span>
+    <span>KPM &middot; Icon Bench</span>
+    <span class="sp"></span>
+    <span>Candidates <b>04</b></span>
+    <span>Lit <b>#F59E0B</b></span>
+  </div>
+
+  <h1>Four ways for the tutorial button to stop being a book</h1>
+  <p class="lede">
+    Every candidate is <b>22&nbsp;px</b>, built out of the field terminal's own parts &mdash; boxes,
+    inset shadows and one lit amber &mdash; so the icon and the panel are the same object at two sizes.
+    The lit colour here is the app's <b>#F59E0B</b>, not the pale amber the panel shipped with.
+    Left column is the icon in a real top bar at true size; right is the same DOM scaled 4&times;, so
+    what you are magnifying is the shipping geometry.
+  </p>
+
+  <div class="ctrls">
+    <button class="btn go" type="button" id="playAll">&#9654; Play all</button>
+    <span class="ctrl-lab">Speed</span>
+    <button class="btn" type="button" data-speed="1" aria-pressed="true">1&times;</button>
+    <button class="btn" type="button" data-speed="3" aria-pressed="false">Slow 3&times;</button>
+    <button class="btn" type="button" data-speed="6" aria-pressed="false">Slow 6&times;</button>
+    <span class="sp" style="flex:1 1 auto"></span>
+    <button class="btn" type="button" id="btnLite" aria-pressed="false">Lite mode</button>
+  </div>
+
+  <div class="slots" id="slots"></div>
+
+  <div class="amber">
+    <h2>The amber, side by side</h2>
+    <p>
+      Left is what the panel ships today &mdash; a pale amber invented for it. Right is
+      <b>--amber: #F59E0B</b> from the app's own theme, the one you picked in August. Dark ink on
+      the new face measures <b>7,82:1</b>, so a latched key stays readable.
+    </p>
+    <div class="swatches">
+      <div class="sw">
+        <div class="face old">RESTOCK</div>
+        <div class="meta"><b>#FFCE8F</b>Panel today &middot; pale</div>
+      </div>
+      <div class="sw">
+        <div class="face new">RESTOCK</div>
+        <div class="meta"><b>#F59E0B</b>App amber &middot; 7,82:1 ink</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">
+    Idle is a still frame on purpose &mdash; the icon sits in the top bar on every screen<br>
+    Motion is spent on hover and on the press, never at rest<br>
+    Lite mode keeps every colour and every shape
+  </p>
+</div>
+
+<script>
+/* Each candidate is data, so the top-bar copy, the magnified copy and the description cannot
+   drift apart - they are one definition rendered twice. */
+var ICONS = [
+  {
+    id:'cap', name:'The cap', tag:'Recommended', pick:true,
+    glyph:'<span class="g g-cap"><span class="well"></span><span class="key"></span>'
+        + '<span class="glyph"></span><span class="lamp"></span></span>',
+    lead:'One key cap out of the rail, in its own well. The thing the panel is actually made of.',
+    beats:[
+      ['Rest','A dark cap with a black lamp. Reads as a button before anything moves.'],
+      ['Hover','The lamp blooms overbright, then settles to its burn level. The three label lines go amber.'],
+      ['Press','The cap sinks and STAYS sunk, face lit, lamp white-hot \u2014 the latch you approved on the panel.']
+    ],
+    why:'This is the one that reads as a button at 22 px and as the panel at 4\u00d7. The press is the '
+       + 'panel\'s own latch, so pressing the icon and pressing a section key are the same gesture.'
+  },
+  {
+    id:'dsp', name:'The display', tag:'Runner-up',
+    glyph:'<span class="g g-dsp"><span class="bez"></span><span class="scr">'
+        + '<span class="ln l1"></span><span class="ln l2"></span><span class="ln l3"></span>'
+        + '<span class="ln l4"></span></span></span>',
+    lead:'The panel\'s screen, with the raster write-on you already said you liked.',
+    beats:[
+      ['Rest','One line already written and holding. The screen is ON, never blank.'],
+      ['Hover','Four lines write themselves left to right, linear, 55 ms apart \u2014 the panel\'s sweep.'],
+      ['Press','Every line snaps to full and the screen takes an amber inner glow.']
+    ],
+    why:'The prettiest of the four and the most literally "this opens the terminal". At 22 px the '
+       + 'sweeping lines are 1,5 px tall, so the motion is delicate rather than punchy.'
+  },
+  {
+    id:'met', name:'The meter', tag:'Says progress',
+    glyph:'<span class="g g-met"><span class="frm"></span><span class="seg s1"></span>'
+        + '<span class="seg s2"></span><span class="seg s3"></span><span class="seg s4"></span>'
+        + '<span class="seg s5"></span></span>',
+    lead:'The panel\'s left edge \u2014 the one thing on it that reports how much has been read.',
+    beats:[
+      ['Rest','Two cells burned in. The icon says "you have read two of these" before it is touched.'],
+      ['Hover','Cells energise bottom to top, 55 ms apart, each overbright then settling.'],
+      ['Press','All five go hot at once.']
+    ],
+    why:'The only candidate that carries information at rest. That is a real advantage and also a '
+       + 'promise \u2014 the cells would have to track sections actually read, or the icon lies.'
+  },
+  {
+    id:'pad', name:'The micropad', tag:'Most literal',
+    glyph:'<span class="g g-pad"><span class="body"></span><span class="scr">'
+        + '<span class="scan"></span></span><span class="cap c1"></span><span class="cap c2"></span>'
+        + '<span class="cap c3"></span><span class="cap c4"></span></span>',
+    lead:'The entire terminal shrunk to 22 px: screen on the left, four key caps on the right.',
+    beats:[
+      ['Rest','One cap latched amber. The whole shape says "field terminal" at a glance.'],
+      ['Hover','The latch walks down the rail, one cap at a time, 70 ms apart.'],
+      ['Press','A phosphor line writes across the little screen and fades.']
+    ],
+    why:'The most recognisable as the panel, and the most crowded. Four caps at 3 px each is '
+       + 'texture rather than four readable keys \u2014 it works, but it is busy at true size.'
+  }
+];
+
+var slots = document.getElementById('slots');
+
+function esc(s){ return String(s).replace(/[&<>]/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+
+ICONS.forEach(function(ic, n){
+  var el = document.createElement('section');
+  el.className = 'slot' + (ic.pick ? ' pick' : '');
+
+  var beats = ic.beats.map(function(b){
+    return '<li><span class="k">' + esc(b[0]) + '</span><span>' + esc(b[1]) + '</span></li>';
+  }).join('');
+
+  el.innerHTML =
+    '<div class="slot-head">'
+  +   '<span>' + ('0' + (n + 1)) + '</span>'
+  +   '<span class="nm">' + esc(ic.name) + '</span>'
+  +   '<span class="line"></span>'
+  +   '<span class="tag' + (ic.pick ? '' : ' alt') + '">' + esc(ic.tag) + '</span>'
+  + '</div>'
+  + '<div class="slot-body">'
+  +   '<div class="note">'
+  +     '<p>' + esc(ic.lead) + '</p>'
+  +     '<ul class="beats">' + beats + '</ul>'
+  +     '<p>' + esc(ic.why) + '</p>'
+  +     '<button class="btn" type="button" data-play="' + ic.id + '">\u25b6 Hover, then press</button>'
+  +   '</div>'
+  +   '<div class="stages">'
+  +     '<div class="stage">'
+  +       '<div class="bar">'
+  +         '<span class="brand">KPM</span><span class="sp"></span>'
+  +         '<button class="chip" type="button" data-icon="' + ic.id + '" aria-label="Tutorial">'
+  +            ic.glyph + '<span class="lab">Tutorial</span></button>'
+  +       '</div>'
+  +       '<span class="cue">In the top bar \u00b7 22 px</span>'
+  +     '</div>'
+  +     '<div class="stage">'
+  +       '<div class="mag">'
+  +         '<span class="chip" data-icon="' + ic.id + '" style="border:0;background:transparent;padding:0;height:auto">'
+  +            ic.glyph + '</span>'
+  +       '</div>'
+  +       '<span class="cue">Same DOM \u00b7 4\u00d7</span>'
+  +     '</div>'
+  +   '</div>'
+  + '</div>';
+
+  slots.appendChild(el);
+});
+
+/* \u2500\u2500 the demo driver \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+   A phone has no hover, so every state has to be reachable by pressing something. `run()` puts
+   `.hv` on, holds it, then adds `.pr` for the press, then clears both. Timings scale with the
+   speed dial so SLOW MO slows the SCRIPT as well as the CSS - otherwise the script would clear a
+   class while the animation it triggered was still a third of the way through. */
+var speed = 1;
+
+function chipsFor(id){
+  return Array.prototype.slice.call(document.querySelectorAll('.chip[data-icon="' + id + '"]'));
+}
+
+var timers = [];
+function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+function later(fn, ms){ timers.push(setTimeout(fn, ms * speed)); }
+
+function run(id, offset){
+  var els = chipsFor(id);
+  later(function(){ els.forEach(function(e){ e.classList.remove('hv','pr'); void e.offsetWidth;
+                                             e.classList.add('hv'); }); }, offset);
+  later(function(){ els.forEach(function(e){ e.classList.add('pr'); }); }, offset + 900);
+  later(function(){ els.forEach(function(e){ e.classList.remove('hv','pr'); }); }, offset + 1700);
+}
+
+document.addEventListener('click', function(e){
+  var play = e.target.closest && e.target.closest('[data-play]');
+  if(play){ clearTimers(); run(play.getAttribute('data-play'), 0); return; }
+
+  var sp = e.target.closest && e.target.closest('[data-speed]');
+  if(sp){
+    speed = parseFloat(sp.getAttribute('data-speed'));
+    document.documentElement.style.setProperty('--t', speed);
+    document.querySelectorAll('[data-speed]').forEach(function(b){
+      b.setAttribute('aria-pressed', b === sp ? 'true' : 'false');
+    });
+    return;
+  }
+
+  /* pressing the real chip drives the real class, so the top bar behaves like the app would */
+  var chip = e.target.closest && e.target.closest('.chip[data-icon]');
+  if(chip){
+    var id = chip.getAttribute('data-icon');
+    chipsFor(id).forEach(function(el){ el.classList.add('pr'); });
+    setTimeout(function(){ chipsFor(id).forEach(function(el){ el.classList.remove('pr'); }); }, 260 * speed);
+  }
+});
+
+document.getElementById('playAll').addEventListener('click', function(){
+  clearTimers();
+  ICONS.forEach(function(ic, i){ run(ic.id, i * 2000); });
+});
+
+var btnLite = document.getElementById('btnLite');
+btnLite.addEventListener('click', function(){
+  var on = !document.body.classList.contains('lite');
+  document.body.classList.toggle('lite', on);
+  btnLite.setAttribute('aria-pressed', on ? 'true' : 'false');
+  if(on){ clearTimers(); document.querySelectorAll('.chip').forEach(function(c){
+    c.classList.remove('hv','pr'); }); }
+});
+</script>
