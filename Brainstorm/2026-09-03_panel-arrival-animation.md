@@ -60,9 +60,48 @@ one motion rather than two.
 edge meter runs, rail lamps run, picture powers on, text writes. Each part fires once and holds.
 Nothing loops.
 
-## Decision
+## Decision — the EXIT is settled, the ENTRANCE is not
 
-**OPEN — waiting on Aldi.**
+> *"deploy looks the best for the closing but what about the intro? i mean the animation when the
+> ponder panel is opened"*
+
+**Deploy's exit is locked.** The picture squeezes to a scanline, the slab folds to a bar, the bar
+snaps back to the chip. 380 ms, faster than any entrance.
+
+**He split the two halves, and that is the useful part.** An entrance and an exit were offered as
+one package per study; he took one half of one study and asked the other half again. So the exit
+was never really three options — it was one good idea he recognised. The entrance is a separate
+decision and always was.
+
+**Why Deploy's own intro was the weak half, worked out after he said so:** it is the exit played
+backwards. Point, bar, slab. That reads as *undoing a close*, not as arriving, and it spends
+280 ms on geometry before a single part lights.
+
+### Four entrances, one exit
+
+Same artifact, rewritten: https://claude.ai/code/artifact/1df504b7-f3d9-412c-ae16-5924ec1cb80c
+
+All four use Deploy's exit unchanged, so only the way in is being compared. Two honest numbers per
+study: when the slab is on screen, and when the last word has finished writing.
+
+| # | Entrance | The idea | Slab / done |
+|---|---|---|---|
+| 01 | Unfold *(the baseline)* | point, bar, slab — the exit backwards | 280 / 990 |
+| 02 | **Surge** *(recommended)* | the slab lands dark almost instantly, then one wave of light runs through it from the chip's corner: rim, meter, lamps, picture snapping on overbright and cooling | **130** / 840 |
+| 03 | Assemble | the machine builds itself from its three columns — rail in from the right, meter from the left, display between them, rim flashes as it locks | 370 / 990 |
+| 04 | Scan in | a bright bar crosses the screen and leaves the terminal behind it, top to bottom | 300 / 940 |
+
+**Why Surge is the recommendation:** it is the only one where nothing moves after the first 130 ms.
+The geometry settles immediately and the *lighting* is the animation — which is the most
+machine-like reading of "high tech" available, and the fastest to something readable. It is also
+the least likely to age badly, because there is no travel to get tired of.
+
+**Assemble is the most gamified** and the one to pick if he wants the show over the speed; it keeps
+you waiting 370 ms before there is anything to read. **Scan in** is the most literally sci-fi, and
+that is the argument against it: a beam that materialises hardware is a film idea, not a machine
+idea.
+
+**Still OPEN — waiting on Aldi's entrance pick.**
 
 ## Rejected on purpose
 

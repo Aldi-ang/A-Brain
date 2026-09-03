@@ -2138,6 +2138,17 @@
       "norm_label": "\"cleanest\" won over \"most impressive\" (2026-09-03)"
     },
     {
+      "label": "He specifies by analogy, and the analogy is the whole spec (2026-09-03)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1874",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_he_specifies_by_analogy_and_the_analogy_is_the_whole_spec_2026_09_03",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "he specifies by analogy, and the analogy is the whole spec (2026-09-03)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -7666,8 +7677,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -7820,8 +7831,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 92,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -7831,8 +7842,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 92,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -7842,8 +7853,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 92,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "what it establishes"
     },
     {
@@ -7853,8 +7864,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 92,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -7963,8 +7974,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_lost_work_in_worktrees_three_incidents",
-      "community": 52,
-      "community_name": "Summary: Lost Work in Worktrees \u2014 Three Incidents",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "lost work in worktrees \u2014 three incidents.md"
     },
     {
@@ -7974,8 +7985,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_lost_work_in_worktrees_three_incidents_summary_lost_work_in_worktrees_three_incidents",
-      "community": 52,
-      "community_name": "Summary: Lost Work in Worktrees \u2014 Three Incidents",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "summary: lost work in worktrees \u2014 three incidents"
     },
     {
@@ -7985,8 +7996,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "summaries_lost_work_in_worktrees_three_incidents_the_three_incidents",
-      "community": 52,
-      "community_name": "Summary: Lost Work in Worktrees \u2014 Three Incidents",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "the three incidents"
     },
     {
@@ -7996,8 +8007,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_lost_work_in_worktrees_three_incidents_the_pattern_across_all_three",
-      "community": 52,
-      "community_name": "Summary: Lost Work in Worktrees \u2014 Three Incidents",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "the pattern across all three"
     },
     {
@@ -8007,8 +8018,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_lost_work_in_worktrees_three_incidents_ripple_pages_this_touches",
-      "community": 52,
-      "community_name": "Summary: Lost Work in Worktrees \u2014 Three Incidents",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -12070,6 +12081,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_he_hands_over_a_component_and_means_the_look_not_the_library_2026_08_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1874",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_he_specifies_by_analogy_and_the_analogy_is_the_whole_spec_2026_09_03",
       "confidence_score": 1.0
     },
     {
@@ -21523,5 +21545,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ac8c9cf4ebc8c0a1264ac0f7372393743efe1e4f"
+  "built_at_commit": "6d8254ee5522dc7464d52fa612bd9a976d8fd2ff"
 }

@@ -24,7 +24,7 @@ body{
   font-family:var(--sans); -webkit-font-smoothing:antialiased;
   background-image:radial-gradient(120% 55% at 50% -8%, #14171A 0%, var(--ground) 58%);
 }
-.wrap{max-width:1000px; margin:0 auto; padding:22px 16px 60px}
+.wrap{max-width:1080px; margin:0 auto; padding:22px 16px 60px}
 
 .head{
   display:flex; align-items:center; gap:9px; flex-wrap:wrap;
@@ -41,7 +41,20 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
    line-height:1.12; text-wrap:balance}
 .lede{margin:0 0 8px; max-width:64ch; font-size:14px; line-height:1.6; color:#B8B2A6}
 .lede b{color:var(--ink); font-weight:600}
-.lede:last-of-type{margin-bottom:20px}
+.lede:last-of-type{margin-bottom:18px}
+
+/* the settled decision, stated as a fact rather than as another option */
+.locked{
+  display:flex; gap:10px; align-items:flex-start;
+  padding:11px 13px; border-radius:10px; margin-bottom:18px;
+  border:1px solid rgba(245,158,11,.3); background:rgba(245,158,11,.05);
+}
+.locked .tag{
+  flex:0 0 auto; font-family:var(--mono); font-size:8px; letter-spacing:.12em; font-weight:600;
+  padding:3px 6px; border-radius:3px; color:var(--lit-ink); background:var(--lit); margin-top:1px;
+}
+.locked p{margin:0; font-size:13px; line-height:1.55; color:#C6C0B4}
+.locked b{color:var(--ink); font-weight:600}
 
 .ctrls{
   display:flex; gap:6px; flex-wrap:wrap; align-items:center;
@@ -65,10 +78,9 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
 .ctrl-lab{font-family:var(--mono); font-size:9px; letter-spacing:.14em; color:var(--dimmer);
           text-transform:uppercase; margin-left:4px}
 
-/* ══ three studies, side by side, same pad in each ═══════════════════════════════════════════ */
 .studies{display:grid; gap:16px; grid-template-columns:minmax(0,1fr)}
 @media (min-width:700px){ .studies{grid-template-columns:repeat(2, minmax(0,1fr))} }
-@media (min-width:1040px){ .studies{grid-template-columns:repeat(3, minmax(0,1fr))} }
+@media (min-width:1100px){ .studies{grid-template-columns:repeat(4, minmax(0,1fr))} }
 
 .study{
   border:1px solid var(--hair); border-radius:14px; overflow:hidden;
@@ -76,6 +88,7 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
   display:flex; flex-direction:column;
 }
 .study.pick{border-color:rgba(245,158,11,.42)}
+.study.base{opacity:.9}
 .study-head{
   display:flex; align-items:baseline; gap:8px;
   padding:10px 12px; border-bottom:1px solid var(--hair);
@@ -86,86 +99,90 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
 .study-head .ms{margin-left:auto; color:var(--lit)}
 .study p{margin:0; padding:11px 12px 0; font-size:12.5px; line-height:1.5; color:#9A948A}
 .study p b{color:var(--ink); font-weight:600}
-.study .acts{display:flex; gap:6px; padding:11px 12px 13px}
+.study .acts{display:flex; gap:6px; padding:11px 12px 13px; margin-top:auto}
 
 /* ══ THE PHONE ═══════════════════════════════════════════════════════════════════════════════ */
 .phone{
-  margin:0 12px 12px; border-radius:16px; padding:8px 7px;
+  margin:0 11px 11px; border-radius:16px; padding:7px 6px;
   background:#050506;
   box-shadow:inset 0 0 0 1px rgba(232,227,218,.06), inset 0 1px 0 rgba(255,255,255,.04);
   position:relative; overflow:hidden;
 }
 .topbar{
-  display:flex; align-items:center; gap:6px; height:32px; padding:0 7px;
+  display:flex; align-items:center; gap:6px; height:30px; padding:0 6px;
   border-radius:8px; border:1px solid var(--hair);
   background:linear-gradient(180deg, rgba(232,227,218,.05), rgba(0,0,0,.2));
   position:relative; z-index:3;
 }
-.topbar .brand{font-family:var(--mono); font-size:7.5px; letter-spacing:.16em; color:var(--dimmer);
+.topbar .brand{font-family:var(--mono); font-size:7px; letter-spacing:.16em; color:var(--dimmer);
                text-transform:uppercase}
 .topbar .sp{flex:1 1 auto}
 .chip{
-  appearance:none; cursor:pointer; height:26px; padding:0 7px; border-radius:7px;
+  appearance:none; cursor:pointer; height:24px; padding:0 6px; border-radius:7px;
   display:inline-flex; align-items:center; gap:5px;
   border:1px solid var(--hair-2); background:rgba(232,227,218,.03); color:var(--dim);
   transition:border-color .2s linear, color .2s linear, transform .2s var(--ease-out);
 }
 .chip:active{transform:scale(.97)}
 .chip:focus-visible{outline:2px solid var(--foil); outline-offset:2px}
-.chip .lab{font-family:var(--mono); font-size:7.5px; letter-spacing:.14em; text-transform:uppercase}
+.chip .lab{font-family:var(--mono); font-size:7px; letter-spacing:.14em; text-transform:uppercase}
 
-/* the picked icon, at its shipping size, so the study starts from the real thing */
-.g-dsp{position:relative; display:block; flex:0 0 auto; width:18px; height:18px}
+/* the chosen icon, at its shipping size */
+.g-dsp{position:relative; display:block; flex:0 0 auto; width:16px; height:16px}
 .g-dsp .bez{
-  position:absolute; inset:0; border-radius:4px;
+  position:absolute; inset:0; border-radius:3.5px;
   background:linear-gradient(158deg,#262A2E,#101315);
   box-shadow:inset 0 .5px 0 rgba(255,217,160,.15), inset 0 0 0 .5px rgba(0,0,0,.7);
 }
-.g-dsp .tube{
+.g-dsp .pic{
   position:absolute; inset:2px; border-radius:1.5px; overflow:hidden;
   background:#0A090B; transform-origin:center center;
+  transition:transform .19s var(--ease-out);
 }
 .g-dsp .ln{
-  position:absolute; left:1px; height:1.2px; border-radius:.6px;
+  position:absolute; left:1px; height:1.1px; border-radius:.55px;
   background:var(--lit-dim); clip-path:inset(0 0 0 0);
 }
-.g-dsp .l1{top:1.5px; right:2.5px} .g-dsp .l2{top:4.6px; right:4.5px}
-.g-dsp .l3{top:7.7px; right:1.5px} .g-dsp .l4{top:10.8px; right:6px}
-.chip.away .g-dsp .tube{transform:scaleY(.05) scaleX(.07)}
+.g-dsp .l1{top:1.2px; right:2px} .g-dsp .l2{top:4px; right:3.8px}
+.g-dsp .l3{top:6.8px; right:1.2px} .g-dsp .l4{top:9.6px; right:5px}
+.chip.away .g-dsp .pic{transform:scaleY(.05) scaleX(.07)}
 .chip.away .g-dsp .ln{opacity:0}
 .chip.away{color:var(--dimmer)}
 
-/* the space the panel arrives into */
 .viewport{
-  position:relative; height:452px; margin-top:7px; border-radius:12px; overflow:hidden;
+  position:relative; height:430px; margin-top:6px; border-radius:12px; overflow:hidden;
   background:#0A0B0C;
   box-shadow:inset 0 0 0 1px rgba(232,227,218,.04);
 }
 .hint{
-  position:absolute; inset:0; display:grid; place-items:center; padding:0 22px; text-align:center;
-  font-family:var(--mono); font-size:8px; letter-spacing:.15em; text-transform:uppercase;
+  position:absolute; inset:0; display:grid; place-items:center; padding:0 20px; text-align:center;
+  font-family:var(--mono); font-size:7.5px; letter-spacing:.15em; text-transform:uppercase;
   color:var(--dimmer); line-height:1.9;
 }
+/* THE SCAN BAR lives in the VIEWPORT, never inside the pad. Study 03 reveals the pad with a
+   clip-path, and anything drawn inside a clipped element is clipped away with it - the exact
+   fault that made the icon's collapse beam invisible. */
+.scanbar{
+  position:absolute; left:0; right:0; top:0; height:2px; opacity:0; pointer-events:none; z-index:2;
+  background:linear-gradient(90deg, rgba(245,158,11,0), var(--lit-hot) 22%, var(--lit-hot) 78%, rgba(245,158,11,0));
+  box-shadow:0 0 10px rgba(255,194,77,.8);
+}
 
-/* ══ THE PAD ═════════════════════════════════════════════════════════════════════════════════
-   The real field terminal, compacted to a phone viewport: milled housing, gold rim, the left
-   edge meter, the display, the section rail. Every arrival below animates THIS, so the three
-   studies are the same object being brought in three ways. */
+/* ══ THE PAD ═════════════════════════════════════════════════════════════════════════════════ */
 .pad{
-  position:absolute; inset:0; padding:7px 6px;
-  display:grid; grid-template-columns:11px minmax(0,1fr) 58px; column-gap:6px;
+  position:absolute; inset:0; padding:6px 5px;
+  display:grid; grid-template-columns:10px minmax(0,1fr) 54px; column-gap:5px;
   border-radius:12px; opacity:0; pointer-events:none;
   background:linear-gradient(158deg, var(--housing-top) 0%, var(--housing-hi) 32%, #15181B 68%, var(--housing-lo) 100%);
   box-shadow:inset 0 1px 0 rgba(255,217,160,.13), inset 0 -1px 0 rgba(0,0,0,.7),
              0 24px 50px -26px #000;
-  transform-origin:88% 0%;   /* the chip's corner - the panel comes from where you pressed */
+  transform-origin:88% 0%;   /* the chip's corner */
 }
 .pad.live{opacity:1; pointer-events:auto}
 .sheen{
   position:absolute; inset:0; border-radius:inherit; pointer-events:none; overflow:hidden;
   background:repeating-linear-gradient(90deg, rgba(255,255,255,.016) 0 1px, transparent 1px 3px);
 }
-/* the rim is its OWN element, not a ::before, so its light can be traced around the edge */
 .rim{
   position:absolute; inset:0; border-radius:inherit; padding:1px; pointer-events:none; opacity:0;
   background:linear-gradient(148deg, rgba(255,217,160,.62) 0%, rgba(245,158,11,.32) 26%,
@@ -180,10 +197,10 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
   background:radial-gradient(circle at 35% 30%, #33383C, #0B0D0E 70%);
   box-shadow:inset 0 .5px 0 rgba(255,217,160,.22);
 }
-.bolt.tl{top:5px;left:4px} .bolt.tr{top:5px;right:4px}
-.bolt.bl{bottom:5px;left:4px} .bolt.br{bottom:5px;right:4px}
+.bolt.tl{top:4px;left:3px} .bolt.tr{top:4px;right:3px}
+.bolt.bl{bottom:4px;left:3px} .bolt.br{bottom:4px;right:3px}
 
-.meter{display:flex; flex-direction:column; gap:2px; padding:10px 2px}
+.meter{display:flex; flex-direction:column; gap:2px; padding:9px 1px}
 .seg{
   flex:1 1 0; border-radius:2px; background:#000;
   box-shadow:inset 0 0 0 .5px rgba(0,0,0,.9), inset 0 1px 1px rgba(0,0,0,.7);
@@ -197,9 +214,8 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
   box-shadow:inset 0 2px 7px rgba(0,0,0,.95), inset 0 0 0 1px rgba(0,0,0,.85),
              0 0 0 1px rgba(232,227,218,.055);
 }
-/* everything inside the display lives in .crt, so the screen can power on as one picture.
-   Named .crt and NOT .tube on purpose - the icon in the top bar already has a .tube, and a bare
-   `.tube{}` rule reaches straight inside it. */
+/* the pad's picture is `.crt`, NOT `.tube` - the top-bar icon already owns `.tube`, and a bare
+   rule on that name reaches straight inside it */
 .crt{
   position:absolute; inset:0; display:flex; flex-direction:column; overflow:hidden;
   transform-origin:center center; border-radius:inherit;
@@ -209,19 +225,17 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
   background:repeating-linear-gradient(180deg, rgba(232,227,218,.016) 0 1px, transparent 1px 20px);
 }
 .status{
-  flex:0 0 auto; display:flex; align-items:center; gap:6px;
-  padding:6px 8px; border-bottom:1px solid var(--hair);
-  font-family:var(--mono); font-size:7.5px; font-weight:500; letter-spacing:.13em;
+  flex:0 0 auto; display:flex; align-items:center; gap:5px;
+  padding:5px 7px; border-bottom:1px solid var(--hair);
+  font-family:var(--mono); font-size:7px; font-weight:500; letter-spacing:.12em;
   color:var(--dim); text-transform:uppercase; font-variant-numeric:tabular-nums;
 }
 .status .live{width:4px; height:4px; border-radius:50%; background:var(--lit); flex:0 0 auto}
 .status .sp{flex:1 1 auto}
 .status b{color:var(--ink); font-weight:600}
-/* THE X. The pad had no close control - a phone panel needs one, and it belongs on the
-   machine's own status strip rather than floating over the display. */
 .xbtn{
   appearance:none; border:0; cursor:pointer; flex:0 0 auto;
-  width:17px; height:17px; border-radius:4px; display:grid; place-items:center;
+  width:16px; height:16px; border-radius:4px; display:grid; place-items:center;
   font-family:var(--mono); font-size:9px; line-height:1; color:var(--dim);
   background:linear-gradient(180deg,#22262A,#141719);
   box-shadow:inset 0 .5px 0 rgba(255,217,160,.1), inset 0 0 0 .5px rgba(0,0,0,.6);
@@ -231,43 +245,43 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
 .xbtn:focus-visible{outline:2px solid var(--foil); outline-offset:1px}
 @media (hover:hover) and (pointer:fine){ .xbtn:hover{color:var(--foil)} }
 
-.body{flex:1 1 auto; padding:11px 10px; overflow:hidden}
-.eyebrow{display:flex; align-items:center; gap:6px; margin-bottom:9px}
+.body{flex:1 1 auto; padding:10px 9px; overflow:hidden}
+.eyebrow{display:flex; align-items:center; gap:5px; margin-bottom:8px}
 .plate{
-  flex:0 0 auto; height:18px; padding:0 7px; border-radius:5px; display:grid; place-items:center;
-  font-family:var(--mono); font-size:8.5px; font-weight:600; color:var(--foil);
+  flex:0 0 auto; height:17px; padding:0 6px; border-radius:5px; display:grid; place-items:center;
+  font-family:var(--mono); font-size:8px; font-weight:600; color:var(--foil);
   background:linear-gradient(180deg,#22262A,#141719);
   box-shadow:inset 0 1px 0 rgba(255,217,160,.16), inset 0 0 0 1px rgba(0,0,0,.6);
 }
 .eyebrow .line{flex:1 1 auto; height:1px; background:var(--hair)}
-.ttl{margin:0 0 5px; font-size:16px; font-weight:600; line-height:1.15; letter-spacing:-.014em; color:var(--ink)}
-.blurb{margin:0 0 11px; font-size:11px; line-height:1.5; color:#B8B2A6}
+.ttl{margin:0 0 4px; font-size:14.5px; font-weight:600; line-height:1.15; letter-spacing:-.014em; color:var(--ink)}
+.blurb{margin:0 0 10px; font-size:10.5px; line-height:1.5; color:#B8B2A6}
 .rule-lab{
-  display:flex; align-items:baseline; gap:6px; margin:0 0 7px;
-  font-family:var(--mono); font-size:7.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--dim);
+  display:flex; align-items:baseline; gap:5px; margin:0 0 6px;
+  font-family:var(--mono); font-size:7px; letter-spacing:.15em; text-transform:uppercase; color:var(--dim);
 }
 .rule-lab .line{flex:1 1 auto; height:1px; background:var(--hair)}
 .entry{
-  display:grid; grid-template-columns:16px minmax(0,1fr); gap:0 7px;
-  padding:7px 0; border-bottom:1px solid var(--hair);
+  display:grid; grid-template-columns:15px minmax(0,1fr); gap:0 6px;
+  padding:6px 0; border-bottom:1px solid var(--hair);
 }
 .entry:last-child{border-bottom:0}
-.entry .idx{font-family:var(--mono); font-size:8px; color:var(--dim); padding-top:1px}
-.entry .et{font-size:11.5px; font-weight:600; color:var(--ink); line-height:1.25}
-.entry .ed{grid-column:2/3; margin-top:2px; font-size:10px; line-height:1.45; color:#9A948A}
+.entry .idx{font-family:var(--mono); font-size:7.5px; color:var(--dim); padding-top:1px}
+.entry .et{font-size:11px; font-weight:600; color:var(--ink); line-height:1.25}
+.entry .ed{grid-column:2/3; margin-top:2px; font-size:9.5px; line-height:1.45; color:#9A948A}
 .foot{
-  flex:0 0 auto; display:flex; align-items:center; gap:6px;
-  padding:5px 8px; border-top:1px solid var(--hair);
-  font-family:var(--mono); font-size:7px; letter-spacing:.13em; color:var(--dimmer); text-transform:uppercase;
+  flex:0 0 auto; display:flex; align-items:center; gap:5px;
+  padding:4px 7px; border-top:1px solid var(--hair);
+  font-family:var(--mono); font-size:6.5px; letter-spacing:.12em; color:var(--dimmer); text-transform:uppercase;
 }
 .ticks{flex:1 1 auto; height:5px; background:repeating-linear-gradient(90deg, var(--hair-2) 0 1px, transparent 1px 6px)}
 
 .rail{display:flex; flex-direction:column; gap:2px; padding:2px 0}
 .key{
-  flex:1 1 0; min-height:14px;
+  flex:1 1 0; min-height:13px;
   display:flex; align-items:center; justify-content:space-between; gap:3px;
-  padding:0 5px; border:0; border-radius:5px;
-  font-family:var(--mono); font-size:7.5px; font-weight:500; color:var(--dim);
+  padding:0 4px; border:0; border-radius:5px;
+  font-family:var(--mono); font-size:7px; font-weight:500; color:var(--dim);
   text-align:left; white-space:nowrap; overflow:hidden;
   background:linear-gradient(180deg,#23272B,#15181B);
   box-shadow:inset 0 1px 0 rgba(255,217,160,.10), inset 0 -1px 0 rgba(0,0,0,.75),
@@ -286,26 +300,20 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
 .key.on .lamp{background:#FFF4DE; box-shadow:0 0 0 1px rgba(58,30,2,.75), 0 0 4px rgba(255,244,222,.7)}
 
 /* ══════════════════════════════════════════════════════════════════════════════════════════════
-   THE THREE ARRIVALS
+   THE PARTS EVERY INTRO USES
 
-   All three animate the SAME pad and share the same parts list, so what is being compared is the
-   choreography and nothing else:
-
-     the housing   how the slab itself gets here
-     the rim       the gold edge lighting, traced with a clip
-     the meter     the left edge cells running
-     the lamps     the rail's key lamps running
-     the picture   the display powering on
-     the text      the raster write-on, unchanged from the panel
-
-   Exit is faster than entry in all three, because the reader has already decided to leave.
+   Four intros, one shared exit. What changes between them is WHICH part carries the arrival and
+   in WHAT ORDER; the parts themselves are identical, so the comparison is honest.
    ══════════════════════════════════════════════════════════════════════════════════════════ */
-
-/* shared parts ------------------------------------------------------------------------------ */
 @keyframes rimTrace{
   0%  {opacity:0; clip-path:inset(0 100% 100% 0)}
   45% {opacity:1; clip-path:inset(0 0 100% 0)}
   100%{opacity:1; clip-path:inset(0 0 0 0)}
+}
+@keyframes rimFlash{
+  0%  {opacity:0}
+  35% {opacity:1; filter:brightness(2.1)}
+  100%{opacity:1; filter:brightness(1)}
 }
 @keyframes rimOut{ from{opacity:1} to{opacity:0} }
 @keyframes segRun{
@@ -318,12 +326,17 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
   40% {background:var(--lit-hot); box-shadow:0 0 5px rgba(255,194,77,.85)}
   100%{background:#000;           box-shadow:inset 0 0 0 .5px rgba(0,0,0,.9)}
 }
-@keyframes tubeOn{
-  0%  {transform:scaleY(.04) scaleX(.08); opacity:1}
-  40% {transform:scaleY(.04) scaleX(1);   opacity:1}
-  100%{transform:scaleY(1)   scaleX(1);   opacity:1}
+@keyframes crtOn{
+  0%  {transform:scaleY(.04) scaleX(.08)}
+  40% {transform:scaleY(.04) scaleX(1)}
+  100%{transform:scaleY(1)   scaleX(1)}
 }
-@keyframes tubeOff{
+@keyframes crtFlash{
+  0%  {transform:scaleY(.05) scaleX(1); filter:brightness(2.6)}
+  46% {transform:scaleY(1)   scaleX(1); filter:brightness(1.7)}
+  100%{transform:scaleY(1)   scaleX(1); filter:brightness(1)}
+}
+@keyframes crtOff{
   0%  {transform:scaleY(1)   scaleX(1)}
   52% {transform:scaleY(.04) scaleX(1)}
   100%{transform:scaleY(.04) scaleX(.08)}
@@ -332,99 +345,107 @@ h1{margin:20px 0 5px; font-size:26px; font-weight:600; letter-spacing:-.016em;
   0%  {clip-path:inset(0 100% 0 0)}
   100%{clip-path:inset(0 0 0 0)}
 }
-@keyframes fadeOutFast{ from{opacity:1} to{opacity:0} }
 
-/* the housing, three ways ------------------------------------------------------------------- */
-/* 01 DEPLOY - the pad unfolds out of the icon: a point, a bar, then the slab */
-@keyframes podOpen{
-  0%  {opacity:1; transform:scaleX(.06) scaleY(.02)}
-  38% {opacity:1; transform:scaleX(1)   scaleY(.02)}
-  100%{opacity:1; transform:scaleX(1)   scaleY(1)}
-}
+/* ══ THE ONE EXIT — Deploy's, approved. Every study closes this way. ═════════════════════════ */
 @keyframes podShut{
   0%  {opacity:1; transform:scaleX(1)   scaleY(1)}
   55% {opacity:1; transform:scaleX(1)   scaleY(.02)}
   100%{opacity:0; transform:scaleX(.06) scaleY(.02)}
 }
-/* 02 POWER ON - the slab is already here and wakes in place */
-@keyframes slabWake{
-  0%  {opacity:0; transform:scale(.955)}
-  100%{opacity:1; transform:scale(1)}
-}
-@keyframes slabSleep{
-  0%  {opacity:1; transform:scale(1)}
-  100%{opacity:0; transform:scale(.975)}
-}
-/* 03 SLIDE AND LOCK - it comes up off the bottom edge, the way a phone sheet does */
-@keyframes slideUp{
-  0%  {opacity:0; transform:translateY(13%)}
-  100%{opacity:1; transform:translateY(0)}
-}
-@keyframes slideDown{
-  0%  {opacity:1; transform:translateY(0)}
-  100%{opacity:0; transform:translateY(9%)}
-}
+.pad.out      {animation:podShut calc(300ms * var(--t)) var(--ease-out) calc(80ms * var(--t)) both}
+.pad.out .crt {animation:crtOff  calc(160ms * var(--t)) var(--ease-out) both}
+.pad.out .rim {animation:rimOut  calc(120ms * var(--t)) linear both}
 
-/* ── 01 DEPLOY ─────────────────────────────────────────────────────────────────────────────── */
-.pad.in-deploy               {animation:podOpen  calc(280ms * var(--t)) var(--ease-out) both}
-.pad.in-deploy .rim          {animation:rimTrace calc(200ms * var(--t)) var(--ease-out) calc(280ms * var(--t)) both}
-.pad.in-deploy .crt          {animation:tubeOn   calc(210ms * var(--t)) var(--ease-out) calc(300ms * var(--t)) both}
-.pad.in-deploy .seg          {animation:segRun   calc(260ms * var(--t)) linear calc(var(--i) * 22ms * var(--t) + 300ms * var(--t)) both}
-.pad.in-deploy .lamp         {animation:lampRun  calc(260ms * var(--t)) linear calc(var(--i) * 20ms * var(--t) + 340ms * var(--t)) both}
-.pad.in-deploy .wr           {animation:textWrite calc(200ms * var(--t)) linear calc(var(--i) * 45ms * var(--t) + 510ms * var(--t)) both}
-.pad.out-deploy              {animation:podShut  calc(300ms * var(--t)) var(--ease-out) calc(80ms * var(--t)) both}
-.pad.out-deploy .crt         {animation:tubeOff  calc(160ms * var(--t)) var(--ease-out) both}
-.pad.out-deploy .rim         {animation:rimOut   calc(120ms * var(--t)) linear both}
+/* ══ 01 · UNFOLD — the baseline, the intro you already saw ═══════════════════════════════════ */
+@keyframes podOpen{
+  0%  {opacity:1; transform:scaleX(.06) scaleY(.02)}
+  38% {opacity:1; transform:scaleX(1)   scaleY(.02)}
+  100%{opacity:1; transform:scaleX(1)   scaleY(1)}
+}
+.pad.in-a          {animation:podOpen  calc(280ms * var(--t)) var(--ease-out) both}
+.pad.in-a .rim     {animation:rimTrace calc(200ms * var(--t)) var(--ease-out) calc(280ms * var(--t)) both}
+.pad.in-a .crt     {animation:crtOn    calc(210ms * var(--t)) var(--ease-out) calc(300ms * var(--t)) both}
+.pad.in-a .seg     {animation:segRun   calc(260ms * var(--t)) linear calc(var(--i) * 22ms * var(--t) + 300ms * var(--t)) both}
+.pad.in-a .lamp    {animation:lampRun  calc(260ms * var(--t)) linear calc(var(--i) * 20ms * var(--t) + 340ms * var(--t)) both}
+.pad.in-a .wr      {animation:textWrite calc(200ms * var(--t)) linear calc(var(--i) * 45ms * var(--t) + 510ms * var(--t)) both}
 
-/* ── 02 POWER ON ───────────────────────────────────────────────────────────────────────────── */
-.pad.in-power                {animation:slabWake calc(200ms * var(--t)) var(--ease-out) both}
-.pad.in-power .rim           {animation:rimTrace calc(260ms * var(--t)) var(--ease-out) calc(150ms * var(--t)) both}
-.pad.in-power .crt           {animation:tubeOn   calc(220ms * var(--t)) var(--ease-out) calc(300ms * var(--t)) both}
-.pad.in-power .seg           {animation:segRun   calc(280ms * var(--t)) linear calc(var(--i) * 26ms * var(--t) + 210ms * var(--t)) both}
-.pad.in-power .lamp          {animation:lampRun  calc(280ms * var(--t)) linear calc(var(--i) * 22ms * var(--t) + 250ms * var(--t)) both}
-.pad.in-power .wr            {animation:textWrite calc(200ms * var(--t)) linear calc(var(--i) * 45ms * var(--t) + 520ms * var(--t)) both}
-.pad.out-power               {animation:slabSleep calc(180ms * var(--t)) var(--ease-out) calc(90ms * var(--t)) both}
-.pad.out-power .crt          {animation:tubeOff  calc(150ms * var(--t)) var(--ease-out) both}
-.pad.out-power .rim          {animation:rimOut   calc(110ms * var(--t)) linear both}
+/* ══ 02 · ASSEMBLE — the machine builds itself out of its three columns ══════════════════════
+   The rail comes in from the right edge, the meter from the left, and the display lands between
+   them. Two directions at once is ONE arrival, not two competing ones - they converge. The rim
+   then flashes as the thing locks together, which is the beat that says "assembled". */
+@keyframes slabHold{ 0%{opacity:0} 18%{opacity:1} 100%{opacity:1} }
+@keyframes fromRight{ 0%{opacity:0; transform:translateX(125%)} 100%{opacity:1; transform:translateX(0)} }
+@keyframes fromLeft { 0%{opacity:0; transform:translateX(-140%)} 100%{opacity:1; transform:translateX(0)} }
+@keyframes dropIn   { 0%{opacity:0; transform:translateY(-9%) scaleY(.9)} 100%{opacity:1; transform:none} }
+.pad.in-b          {animation:slabHold calc(240ms * var(--t)) var(--ease-out) both}
+.pad.in-b .rail    {animation:fromRight calc(260ms * var(--t)) var(--ease-out) both}
+.pad.in-b .meter   {animation:fromLeft  calc(260ms * var(--t)) var(--ease-out) both}
+.pad.in-b .display {animation:dropIn    calc(240ms * var(--t)) var(--ease-out) calc(130ms * var(--t)) both}
+.pad.in-b .rim     {animation:rimFlash  calc(260ms * var(--t)) var(--ease-out) calc(300ms * var(--t)) both}
+.pad.in-b .crt     {animation:crtOn     calc(200ms * var(--t)) var(--ease-out) calc(340ms * var(--t)) both}
+.pad.in-b .seg     {animation:segRun    calc(240ms * var(--t)) linear calc(var(--i) * 18ms * var(--t) + 330ms * var(--t)) both}
+.pad.in-b .lamp    {animation:lampRun   calc(240ms * var(--t)) linear calc(var(--i) * 16ms * var(--t) + 350ms * var(--t)) both}
+.pad.in-b .wr      {animation:textWrite calc(190ms * var(--t)) linear calc(var(--i) * 42ms * var(--t) + 540ms * var(--t)) both}
 
-/* ── 03 SLIDE AND LOCK ─────────────────────────────────────────────────────────────────────── */
-.pad.in-slide                {animation:slideUp  calc(300ms * var(--t)) var(--ease-out) both}
-.pad.in-slide .rim           {animation:rimTrace calc(260ms * var(--t)) var(--ease-out) calc(90ms * var(--t)) both}
-.pad.in-slide .crt           {animation:tubeOn   calc(200ms * var(--t)) var(--ease-out) calc(170ms * var(--t)) both}
-.pad.in-slide .seg           {animation:segRun   calc(240ms * var(--t)) linear calc(var(--i) * 18ms * var(--t) + 150ms * var(--t)) both}
-.pad.in-slide .lamp          {animation:lampRun  calc(240ms * var(--t)) linear calc(var(--i) * 16ms * var(--t) + 170ms * var(--t)) both}
-.pad.in-slide .wr            {animation:textWrite calc(190ms * var(--t)) linear calc(var(--i) * 40ms * var(--t) + 370ms * var(--t)) both}
-.pad.out-slide               {animation:slideDown calc(200ms * var(--t)) var(--ease-out) calc(60ms * var(--t)) both}
-.pad.out-slide .crt          {animation:fadeOutFast calc(110ms * var(--t)) linear both}
-.pad.out-slide .rim          {animation:rimOut   calc(140ms * var(--t)) linear both}
+/* ══ 03 · SCAN IN — a beam crosses the screen and leaves the terminal behind it ══════════════
+   The pad is revealed by a clip edge travelling downward, with a bright bar riding that edge.
+   The bar lives in the VIEWPORT, not in the pad: a light drawn inside the clipped element would
+   be clipped away by the very reveal it is supposed to be leading. */
+@keyframes scanReveal{ 0%{opacity:1; clip-path:inset(0 0 100% 0)} 100%{opacity:1; clip-path:inset(0 0 0 0)} }
+@keyframes scanBar{
+  0%  {opacity:0; transform:translateY(0)}
+  10% {opacity:1}
+  88% {opacity:1}
+  100%{opacity:0; transform:translateY(430px)}
+}
+.pad.in-c          {animation:scanReveal calc(300ms * var(--t)) linear both}
+.pad.in-c .rim     {animation:rimTrace  calc(240ms * var(--t)) var(--ease-out) calc(230ms * var(--t)) both}
+.pad.in-c .crt     {animation:crtOn     calc(210ms * var(--t)) var(--ease-out) calc(290ms * var(--t)) both}
+.pad.in-c .seg     {animation:segRun    calc(250ms * var(--t)) linear calc(var(--i) * 16ms * var(--t) + 60ms * var(--t)) both}
+.pad.in-c .lamp    {animation:lampRun   calc(250ms * var(--t)) linear calc(var(--i) * 15ms * var(--t) + 80ms * var(--t)) both}
+.pad.in-c .wr      {animation:textWrite calc(190ms * var(--t)) linear calc(var(--i) * 42ms * var(--t) + 490ms * var(--t)) both}
+.scanbar.run       {animation:scanBar   calc(300ms * var(--t)) linear both}
 
-/* the rim and the written text at rest, once an arrival has finished */
+/* ══ 04 · SURGE — the slab lands dark and fast, then the LIGHT is the animation ══════════════
+   The panel is readable in 130 ms, which is faster than any other intro here gets a word on
+   screen. Everything after that is one wave of light travelling from the chip's corner: rim,
+   then the edge meter, then the rail lamps, then the picture snapping on overbright and cooling.
+   Nothing moves after the first 130 ms - the geometry is settled and only the lighting performs. */
+@keyframes slabLand{ 0%{opacity:0; transform:scale(.972)} 100%{opacity:1; transform:scale(1)} }
+.pad.in-d          {animation:slabLand  calc(130ms * var(--t)) var(--ease-out) both}
+.pad.in-d .rim     {animation:rimTrace  calc(230ms * var(--t)) var(--ease-out) calc(90ms * var(--t)) both}
+.pad.in-d .seg     {animation:segRun    calc(230ms * var(--t)) linear calc(var(--i) * 20ms * var(--t) + 130ms * var(--t)) both}
+.pad.in-d .lamp    {animation:lampRun   calc(230ms * var(--t)) linear calc(var(--i) * 18ms * var(--t) + 165ms * var(--t)) both}
+.pad.in-d .crt     {animation:crtFlash  calc(260ms * var(--t)) var(--ease-out) calc(215ms * var(--t)) both}
+.pad.in-d .wr      {animation:textWrite calc(190ms * var(--t)) linear calc(var(--i) * 40ms * var(--t) + 400ms * var(--t)) both}
+
+/* where every intro lands */
 .pad.settled .rim{opacity:1}
 .pad.settled .wr{clip-path:inset(0 0 0 0)}
 .pad.settled .crt{transform:none}
+.pad.settled .rail, .pad.settled .meter, .pad.settled .display{transform:none; opacity:1}
 
-/* ══ LITE MODE - the pad still arrives, it just arrives instantly ═════════════════════════════
-   The write-on and the tube both fill `both`, so Lite has to reset clip-path AND transform or
-   the panel opens to an invisible slit with no words in it. */
-body.lite .pad,
-body.lite .pad .rim,
-body.lite .pad .crt,
-body.lite .pad .seg,
-body.lite .pad .lamp,
-body.lite .pad .wr{animation:none !important}
-body.lite .pad{opacity:0; transform:none !important}
+/* ══ LITE MODE — the panel still opens, it just opens instantly ══════════════════════════════
+   The write-on, the crt and the three columns all fill `both`, so Lite has to reset clip-path
+   AND transform or the panel opens to an invisible slit with no words in it. */
+body.lite .pad, body.lite .pad *, body.lite .scanbar{animation:none !important}
+body.lite .pad{opacity:0; transform:none !important; clip-path:none !important}
 body.lite .pad.live{opacity:1}
-body.lite .pad .rim{opacity:1}
-body.lite .pad .crt{transform:none !important}
+body.lite .pad .rim{opacity:1; filter:none}
+body.lite .pad .crt{transform:none !important; filter:none}
 body.lite .pad .wr{clip-path:inset(0 0 0 0) !important}
+body.lite .pad .rail, body.lite .pad .meter, body.lite .pad .display{transform:none !important; opacity:1}
+body.lite .scanbar{opacity:0 !important}
 body.lite .chip:active, body.lite .btn:active, body.lite .xbtn:active{transform:none}
 
 @media (prefers-reduced-motion:reduce){
-  .pad, .pad .rim, .pad .crt, .pad .seg, .pad .lamp, .pad .wr{animation:none !important}
-  .pad{transform:none !important}
-  .pad .rim{opacity:1}
-  .pad .crt{transform:none !important}
+  .pad, .pad *, .scanbar{animation:none !important}
+  .pad{transform:none !important; clip-path:none !important}
+  .pad .rim{opacity:1; filter:none}
+  .pad .crt{transform:none !important; filter:none}
   .pad .wr{clip-path:inset(0 0 0 0) !important}
+  .pad .rail, .pad .meter, .pad .display{transform:none !important; opacity:1}
+  .scanbar{opacity:0 !important}
 }
 
 .foot-note{
@@ -440,26 +461,36 @@ body.lite .chip:active, body.lite .btn:active, body.lite .xbtn:active{transform:
     <span class="live"></span>
     <span>KPM &middot; Phone panel</span>
     <span class="sp"></span>
-    <span>Studies <b>03</b></span>
-    <span>Lit <b>#F59E0B</b></span>
+    <span>Intros <b>04</b></span>
+    <span>Exit <b>Locked</b></span>
   </div>
 
-  <h1>Three ways the terminal arrives</h1>
+  <h1>Four ways in. One way out.</h1>
   <p class="lede">
-    This is the <b>panel's</b> entrance and exit &mdash; the phone's answer to the PC book flying
-    out of its slot and opening. Press the tutorial chip in a phone below; press the
-    <b>&times;</b> on the pad's status strip to send it back.
+    You took Deploy's closing, so the exit is settled and every study below uses it: the picture
+    squeezes to a scanline, the slab folds to a bar, and the bar snaps back to the chip. <b>What
+    changes between the four is only the way in.</b>
   </p>
+
+  <div class="locked">
+    <span class="tag">Locked</span>
+    <p>
+      <b>The exit is Deploy's, unchanged.</b> Press the <b>&times;</b> on any pad's status strip and
+      all four leave the same way &mdash; 380&nbsp;ms, faster than any of the entrances, because by
+      then you have already decided to go.
+    </p>
+  </div>
+
   <p class="lede">
-    All three animate the same terminal out of the same parts list &mdash; the housing, the gold
-    rim, the edge meter, the rail lamps, the picture, the text &mdash; so what you are comparing is
-    the choreography and nothing else. <b>Exit is faster than entry in all three.</b> Phone only;
-    the PC keeps the book.
+    All four move the same six parts &mdash; the housing, the gold rim, the edge meter, the rail
+    lamps, the picture, the text. What differs is which part carries the arrival, and in what
+    order. The two numbers under each name are <b>when the slab is on screen</b> and when the last
+    word has finished writing.
   </p>
 
   <div class="ctrls">
-    <button class="btn go" type="button" id="playAll">&#9654; Open all three</button>
-    <button class="btn" type="button" id="closeAll">&times; Close all three</button>
+    <button class="btn go" type="button" id="playAll">&#9654; Open all four</button>
+    <button class="btn" type="button" id="closeAll">&times; Close all four</button>
     <span class="ctrl-lab">Speed</span>
     <button class="btn" type="button" data-speed="1" aria-pressed="true">1&times;</button>
     <button class="btn" type="button" data-speed="3" aria-pressed="false">Slow 3&times;</button>
@@ -471,38 +502,41 @@ body.lite .chip:active, body.lite .btn:active, body.lite .xbtn:active{transform:
   <div class="studies" id="studies"></div>
 
   <p class="foot-note">
-    The rim, the meter and the lamps run once on arrival, then hold &mdash; nothing loops<br>
-    The text write-on is the panel's own, unchanged<br>
+    Every part fires once and holds &mdash; nothing loops while the panel is open<br>
+    The exit is identical in all four, so only the entrance is being compared<br>
     Lite mode still opens the panel, it just arrives instantly
   </p>
 </div>
 
 <script>
 var STUDIES = [
-  { id:'deploy', n:'01', nm:'Deploy', ms:'710 ms in / 380 out', pick:true,
-    body:'The pad <b>unfolds out of the icon you pressed</b>: a point, then a bar across, then '
-       + 'the slab drops open from the chip\'s corner. The rim traces, the edge meter and the '
-       + 'rail lamps run, the picture powers on, the text writes. Closest to what the book does '
-       + 'on PC \u2014 one object travels from where you pressed \u2014 but it is a machine '
-       + 'deploying, not a book opening.' },
-  { id:'power', n:'02', nm:'Power on', ms:'720 ms in / 270 out',
-    body:'The slab is <b>already there and wakes in place</b>, coming up from 95,5% with no '
-       + 'travel at all. The rim lights around the edge, the meter and lamps run, then the '
-       + 'picture. Quietest of the three, and the only one that does not point back at the chip.' },
-  { id:'slide', n:'03', nm:'Slide and lock', ms:'560 ms in / 260 out',
-    body:'It <b>comes up off the bottom edge</b>, the way a phone sheet does, and the rim lights '
-       + 'as it is still rising so the landing and the power-on read as one arrival. Fastest, and '
-       + 'the most native to a phone \u2014 but it borrows a gesture every app already uses.' }
+  { id:'a', n:'01', nm:'Unfold', ms:'slab 280 / done 990', base:true,
+    body:'<b>The one you already saw.</b> A point, a bar across, then the slab drops open from '
+       + 'the chip\'s corner, and the parts light after it lands. It is the exit played backwards, '
+       + 'which is why it reads as undoing a close rather than as arriving.' },
+  { id:'d', n:'02', nm:'Surge', ms:'slab 130 / done 840', pick:true,
+    body:'The slab <b>lands dark and almost instantly</b>, then a wave of light runs through it '
+       + 'from the chip\'s corner: rim, edge meter, rail lamps, and the picture snapping on '
+       + 'overbright before it cools. <b>Nothing moves after the first 130 ms</b> \u2014 the geometry is '
+       + 'settled and only the lighting performs.' },
+  { id:'b', n:'03', nm:'Assemble', ms:'slab 370 / done 990',
+    body:'The machine <b>builds itself out of its three columns</b>: the rail slides in from the '
+       + 'right, the meter from the left, the display lands between them, and the rim flashes as '
+       + 'it all locks. The most gamified of the four, and the one that keeps you waiting longest '
+       + 'before there is anything to read.' },
+  { id:'c', n:'04', nm:'Scan in', ms:'slab 300 / done 940',
+    body:'A bright bar <b>crosses the screen and leaves the terminal behind it</b>, top to bottom, '
+       + 'and the parts light while it is still travelling. The most literally high-tech of the '
+       + 'four \u2014 but a beam that materialises hardware is a sci-fi idea, not a machine idea.' }
 ];
 
-/* ONE pad, defined once and stamped into each phone, so the three studies cannot drift apart.
-   --i on every staggered part is set here rather than in CSS: the meter has 12 cells and the
-   rail has 14 keys, and a :nth-child chain for both would be 26 rules that go stale the moment
-   a count changes. */
 var SEGS = 12, KEYS = 14;
 var RAIL = ['Command','Restock','Sales','Vault','Agent','Opname','Setoran','Piutang',
             'Fleet','Journey','Map','Customer','Reports','Audit'];
 
+/* ONE pad, defined once and stamped into each phone. --i is written onto each staggered part
+   here rather than as a :nth-child chain in CSS: 12 cells plus 14 lamps would be 26 rules that
+   go stale the moment either count changes. */
 function padHTML(){
   var h = '<span class="sheen"></span><span class="rim"></span>'
         + '<span class="bolt tl"></span><span class="bolt tr"></span>'
@@ -514,7 +548,7 @@ function padHTML(){
   }
   h += '</div><div class="display"><div class="crt">'
     +    '<div class="status"><span class="live"></span><span>Ponder</span>'
-    +      '<span class="sp"></span><span>Section <b>02</b>/17</span>'
+    +      '<span class="sp"></span><span>Sec <b>02</b>/17</span>'
     +      '<button class="xbtn" type="button" data-close aria-label="Close panel">&times;</button>'
     +    '</div>'
     +    '<div class="body">'
@@ -529,7 +563,7 @@ function padHTML(){
     +      '<div class="entry wr" style="--i:6"><span class="idx">03</span><span class="et">Shipment Plan</span>'
     +        '<span class="ed">Siapa yang dikirim duluan kalau barang kurang.</span></div>'
     +    '</div>'
-    +    '<div class="foot"><span>KPM</span><span class="ticks"></span><span>Ready 04/17</span></div>'
+    +    '<div class="foot"><span>KPM</span><span class="ticks"></span><span>04/17</span></div>'
     +  '</div></div><nav class="rail">';
   for(var k = 0; k < KEYS; k++){
     h += '<button class="key' + (k === 1 ? ' on' : '') + '" type="button" style="--i:' + k + '">'
@@ -538,14 +572,14 @@ function padHTML(){
   return h + '</nav>';
 }
 
-var GLYPH = '<span class="g-dsp"><span class="bez"></span><span class="tube">'
+var GLYPH = '<span class="g-dsp"><span class="bez"></span><span class="pic">'
           + '<span class="ln l1"></span><span class="ln l2"></span>'
           + '<span class="ln l3"></span><span class="ln l4"></span></span></span>';
 
 var host = document.getElementById('studies');
 STUDIES.forEach(function(s){
   var el = document.createElement('section');
-  el.className = 'study' + (s.pick ? ' pick' : '');
+  el.className = 'study' + (s.pick ? ' pick' : '') + (s.base ? ' base' : '');
   el.setAttribute('data-study', s.id);
   el.innerHTML =
     '<div class="study-head"><span>' + s.n + '</span><span class="nm">' + s.nm + '</span>'
@@ -557,6 +591,7 @@ STUDIES.forEach(function(s){
   +   '<div class="viewport">'
   +     '<div class="hint">Press the tutorial chip<br>above</div>'
   +     '<div class="pad">' + padHTML() + '</div>'
+  +     '<div class="scanbar"></div>'
   +   '</div>'
   + '</div>'
   + '<p>' + s.body + '</p>'
@@ -572,18 +607,19 @@ STUDIES.forEach(function(s){
    that the script strips a class part-way through the animation it started, and the sequence
    reads as broken rather than as slow. */
 var speed = 1;
-var IN_MS  = { deploy:710, power:720, slide:560 };
-var OUT_MS = { deploy:380, power:270, slide:260 };
-var state  = {};   /* id -> {open, timer} */
+var IN_MS = { a:990, d:840, b:990, c:940 };
+var OUT   = 380;
+var state = {};
 
 function parts(id){
   var root = document.querySelector('[data-study="' + id + '"]');
   return { root:root, pad:root.querySelector('.pad'), chip:root.querySelector('.chip'),
-           hint:root.querySelector('.hint') };
+           hint:root.querySelector('.hint'), bar:root.querySelector('.scanbar') };
 }
-function reset(pad){
-  pad.className = 'pad';
-  void pad.offsetWidth;   /* forces the reflow that lets an animation play again */
+function reset(p){
+  p.pad.className = 'pad';
+  p.bar.className = 'scanbar';
+  void p.pad.offsetWidth;   /* the reflow that lets an animation play again */
 }
 
 function openPad(id){
@@ -593,11 +629,13 @@ function openPad(id){
   st.open = true;
   p.hint.style.visibility = 'hidden';
   p.chip.classList.add('away');
-  reset(p.pad);
+  reset(p);
   p.pad.classList.add('live', 'in-' + id);
+  if(id === 'c'){ p.bar.classList.add('run'); }
   st.timer = setTimeout(function(){
     p.pad.classList.remove('in-' + id);
     p.pad.classList.add('settled');
+    p.bar.classList.remove('run');
   }, IN_MS[id] * speed);
 }
 
@@ -607,30 +645,29 @@ function closePad(id){
   clearTimeout(st.timer);
   st.open = false;
   p.pad.classList.remove('in-' + id, 'settled');
+  p.bar.classList.remove('run');
   void p.pad.offsetWidth;
-  p.pad.classList.add('out-' + id);
+  p.pad.classList.add('out');
   st.timer = setTimeout(function(){
-    reset(p.pad);
+    reset(p);
     p.chip.classList.remove('away');
     p.hint.style.visibility = '';
-  }, OUT_MS[id] * speed);
+  }, OUT * speed);
 }
 
 document.addEventListener('click', function(e){
   var t = e.target;
   var study = t.closest && t.closest('[data-study]');
-
   if(study){
     var id = study.getAttribute('data-study');
-    if(t.closest('[data-open]'))            { openPad(id);  return; }
-    if(t.closest('[data-close]'))           { closePad(id); return; }
+    if(t.closest('[data-open]'))  { openPad(id);  return; }
+    if(t.closest('[data-close]')) { closePad(id); return; }
     var act = t.closest('[data-act]');
     if(act){
       if(act.getAttribute('data-act') === 'open'){ openPad(id); } else { closePad(id); }
       return;
     }
   }
-
   var sp = t.closest && t.closest('[data-speed]');
   if(sp){
     speed = parseFloat(sp.getAttribute('data-speed'));
@@ -646,7 +683,7 @@ document.getElementById('playAll').addEventListener('click', function(){
     var st = state[s.id] || (state[s.id] = {});
     clearTimeout(st.timer); st.open = false;
     var p = parts(s.id);
-    reset(p.pad); p.chip.classList.remove('away'); p.hint.style.visibility = '';
+    reset(p); p.chip.classList.remove('away'); p.hint.style.visibility = '';
   });
   setTimeout(function(){ STUDIES.forEach(function(s){ openPad(s.id); }); }, 60);
 });
