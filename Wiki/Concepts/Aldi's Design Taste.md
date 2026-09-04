@@ -1970,3 +1970,33 @@ before compressing the content.
 shadow was tried first, did not read, and was **deleted rather than left in as a dead class**.
 
 Source: [[../Summaries/The Camera Was Aimed at the Wrong Scroller]]
+
+## An instrument does not follow the room's lights (2026-09-04)
+
+*"keep it dark, ponder panel should not change with the dark or light mode"*
+
+Asked twice before and left open both times, so the terminal shipped dark-only by default rather
+than by decision. This closes it: the field terminal — the phone's tutorial shell — keeps ONE
+palette in both themes, on purpose.
+
+**The reasoning he did not have to spell out, and the reason to record it here rather than in a
+backlog:** the sidebar took the OPPOSITE route on 2026-08-24, growing a pale anodised faceplate
+under `html.light .kpm-rail-pod`. Both calls are his and they do not contradict each other. A
+sidebar is part of the room, so it follows the room. An instrument panel is an object IN the room,
+and it reads as an instrument by staying darker than everything around it — a car dashboard does
+not turn white at noon.
+
+⚠️ **The trap this closes is the "unfinished work" reading.** A dark-only component in a
+themed app looks like a gap, and the next session to open `pad.css` would have found fourteen
+`--pp-` tokens with no light branch and "finished" the job. It is now a locked comment above
+`:root` in `src/ponder/pad.css` AND an audit check — *the field terminal keeps one palette in both
+themes* — that goes red on any `.light` / `.dark` selector or `prefers-color-scheme` query in that
+file. Trialled red before it was trusted.
+
+**Second-order note for any future light branch anywhere:** it could not have reused the amber.
+`--pp-lit` (#F59E0B) is a LAMP colour; its dark partner `--pp-lit-ink` (#2A1A08) measures 7,82:1 on
+it, but amber as INK on a pale faceplate breaks the palette law outright — gold is never text on
+light. A light terminal would have needed a second amber, i.e. a second identity.
+
+See also [[Aldi's Design Taste]] above on Lite Mode: `html.lite-mode` is the PERFORMANCE switch and
+strips motion only. It is not a theme and must never carry colour.
