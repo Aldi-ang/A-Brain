@@ -2050,3 +2050,22 @@ for, and do not build the other three "while we are in here". The three silent m
 silent on purpose and written down as a question instead.
 
 Source: [[Sounds Come From Aldi]]
+
+## He wants the ask, not the account (2026-09-04)
+
+*"stop bertele2 just tell me if i need to do something or if there is some question or input needed
+by me tell it, i want direct straightforwards information, as always i want this kind of
+conversation for every session"*
+
+"Bertele-tele" is rambling. Said after a session of correct work reported at length — nothing was
+wrong with the work, only with the telling. **A reply carries what he must DO and what he must
+ANSWER. Nothing else.** No method, no reasoning, no near-misses, no shipped-list, no hashes.
+
+⚠️ **The failure mode is subtle and it is not length.** A short reply that still narrates breaks
+this. "One thing worth knowing", "the interesting part is", "I also found" — each is an account of
+work, dressed as brevity. The account belongs in the commit message, `PROGRESS.md` and this vault,
+all three of which he can open when he wants them. He said *"for every session"*, so this is
+standing and does not need re-earning.
+
+The single carve-out stays: a QUESTION gets plain wording and a worked example, because an approval
+he did not understand is not an approval.
