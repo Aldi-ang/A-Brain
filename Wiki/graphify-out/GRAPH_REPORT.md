@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-04)
 
 ## Corpus Check
-- 82 files · ~168,937 words
+- 82 files · ~170,492 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 900 nodes · 1121 edges · 95 communities (89 shown, 6 thin omitted)
+- 906 nodes · 1128 edges · 95 communities (89 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0eef44bd`
+- Built from commit: `65c59e04`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -110,12 +110,12 @@
 - Sounds Come From Aldi
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 62 edges
+1. `Aldi's Design Taste` - 66 edges
 2. `Operation Log` - 46 edges
 3. `Anti-Recurrence Check` - 20 edges
 4. `Lancelot the Tobacco Ledger Agent` - 18 edges
 5. `Looking at the App` - 17 edges
-6. `Ponder Tutorial System` - 15 edges
+6. `Ponder Tutorial System` - 17 edges
 7. `The Book as a Stack of Sheets` - 15 edges
 8. `The KPM Control System` - 14 edges
 9. `2026-08-16 — "animation and 3D more with gamification on all of this segment"` - 13 edges
@@ -128,7 +128,7 @@
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.04
-Nodes (50): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+42 more)
+Nodes (54): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+46 more)
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.04
@@ -171,8 +171,8 @@ Cohesion: 0.12
 Nodes (17): 🔴 A HEADLESS SHOT NARROWER THAN ~518px ON WINDOWS IS A CROP, NOT A LAYOUT (2026-08-27), A screen that needs LIVE DATA can now be looked at too (2026-09-01), A SECOND HARNESS — `tools/ponder-lab.*` renders a real React component (2026-08-27), Checks that freeze a value, Four ways the harness decayed on its second outing (2026-08-17), Looking at the App, Proving a barcode without a scanner (2026-09-01), PROVING A MOTION WITHOUT A MOVING FRAME (2026-09-04) (+9 more)
 
 ### Community 12 - "The screen — mobile first, one thumb, readable in midday sun"
-Cohesion: 0.13
-Nodes (15): ANSWERED 2026-08-27 — all three, plus a fourth he added, Build order — ranked by where a mistake costs money, Decision 1 — scripted scenes, not recorded video (LOCKED), Decision 2 — fixed demo data, not a live spotlight (LOCKED, and it shapes everything), Goods Received, and his four faults (`8109559`, 663/663), One tutorial, both widths — the follow-camera decision (2026-09-01), Ponder Tutorial System, Project traps written into the plan (+7 more)
+Cohesion: 0.12
+Nodes (17): ANSWERED 2026-08-27 — all three, plus a fourth he added, Build order — ranked by where a mistake costs money, Decision 1 — scripted scenes, not recorded video (LOCKED), Decision 2 — fixed demo data, not a live spotlight (LOCKED, and it shapes everything), Goods Received, and his four faults (`8109559`, 663/663), One idea per beat, and every beat points at something (2026-09-04), One tutorial, both widths — the follow-camera decision (2026-09-01), Ponder Tutorial System (+9 more)
 
 ### Community 13 - "Where KPM Is Going"
 Cohesion: 0.18
@@ -475,7 +475,7 @@ Cohesion: 0.29
 Nodes (7): Enforced, not remembered, Open, Rejected on purpose — do not re-propose, Sounds Come From Aldi, The three rounds, What actually worked, and it is reproducible, Where sound lives, and what can never be verified from here
 
 ## Knowledge Gaps
-- **692 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+687 more)
+- **698 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+693 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -483,15 +483,15 @@ Nodes (7): Enforced, not remembered, Open, Rejected on purpose — do not re-pro
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.172) - this node is a cross-community bridge._
+  _High betweenness centrality (0.178) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
   _High betweenness centrality (0.086) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
   _High betweenness centrality (0.075) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _692 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _698 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
-  _Cohesion score 0.04 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.037037037037037035 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**
