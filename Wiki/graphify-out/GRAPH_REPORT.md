@@ -1,16 +1,16 @@
-# Graph Report - Wiki  (2026-09-03)
+# Graph Report - Wiki  (2026-09-04)
 
 ## Corpus Check
-- 81 files · ~166,765 words
+- 82 files · ~168,937 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 889 nodes · 1109 edges · 89 communities (83 shown, 6 thin omitted)
+- 900 nodes · 1121 edges · 95 communities (89 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cc97b664`
+- Built from commit: `0eef44bd`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -65,8 +65,10 @@
 - Rank Config and Achievement Badges
 - The Admin Agent Profile Id
 - Tier System
+- Design Inspiration Sources
 - Summary: KPM Project Facts Reference
 - Summary: Option B Region Lock
+- The Shell Repaints Any White It Can Reach
 - Summary: Rules Draft Process
 - Wiki/Concepts
 - The Named Path Was Already Shut
@@ -87,6 +89,7 @@
 - An Effect's Own Cleanup Can Cancel Its Frame
 - Fleet Captain Permission Gap
 - Git Worktrees
+- Wiki Index
 - Gudang Pusat (Master Vault)
 - Multi-Tenant Architecture
 - Rank Config and Achievement Badges
@@ -101,14 +104,17 @@
 - One Pack Count, Many Screens
 - A Meter That Exits Silently Is Not a Meter
 - Summary: Ponytail Philosophy Ingest
+- A Feature Is Not Done Until the Book Knows
+- A Named Import Can Shadow a Global
 - The Camera Was Aimed at the Wrong Scroller
+- Sounds Come From Aldi
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 60 edges
+1. `Aldi's Design Taste` - 62 edges
 2. `Operation Log` - 46 edges
 3. `Anti-Recurrence Check` - 20 edges
 4. `Lancelot the Tobacco Ledger Agent` - 18 edges
-5. `Looking at the App` - 16 edges
+5. `Looking at the App` - 17 edges
 6. `Ponder Tutorial System` - 15 edges
 7. `The Book as a Stack of Sheets` - 15 edges
 8. `The KPM Control System` - 14 edges
@@ -118,11 +124,11 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (89 total, 6 thin omitted)
+## Communities (95 total, 6 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.04
-Nodes (48): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+40 more)
+Nodes (50): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+42 more)
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.04
@@ -162,7 +168,7 @@ Nodes (11): Categories, Honest limits, How to use it, n8n Automation Templates A
 
 ### Community 11 - "Looking at the App"
 Cohesion: 0.12
-Nodes (16): 🔴 A HEADLESS SHOT NARROWER THAN ~518px ON WINDOWS IS A CROP, NOT A LAYOUT (2026-08-27), A screen that needs LIVE DATA can now be looked at too (2026-09-01), A SECOND HARNESS — `tools/ponder-lab.*` renders a real React component (2026-08-27), Checks that freeze a value, Four ways the harness decayed on its second outing (2026-08-17), Looking at the App, Proving a barcode without a scanner (2026-09-01), Related (+8 more)
+Nodes (17): 🔴 A HEADLESS SHOT NARROWER THAN ~518px ON WINDOWS IS A CROP, NOT A LAYOUT (2026-08-27), A screen that needs LIVE DATA can now be looked at too (2026-09-01), A SECOND HARNESS — `tools/ponder-lab.*` renders a real React component (2026-08-27), Checks that freeze a value, Four ways the harness decayed on its second outing (2026-08-17), Looking at the App, Proving a barcode without a scanner (2026-09-01), PROVING A MOTION WITHOUT A MOVING FRAME (2026-09-04) (+9 more)
 
 ### Community 12 - "The screen — mobile first, one thumb, readable in midday sun"
 Cohesion: 0.13
@@ -320,6 +326,10 @@ Nodes (5): How the shell resolves the face, Related, The Admin Agent Profile Id,
 Cohesion: 0.67
 Nodes (3): 🔴 AMBER IS AN EDGE AND AN INK. IT IS NOT A FILL. (2026-08-21), He judges by measurement, not by vibe — twice in one session, The near-miss worth remembering
 
+### Community 51 - "Design Inspiration Sources"
+Cohesion: 0.40
+Nodes (5): 21st.dev is not a browsing job, Design Inspiration Sources, Four house rules before anything lands in KPM, Licensing, one line, The five
+
 ### Community 52 - "Summary: KPM Project Facts Reference"
 Cohesion: 0.50
 Nodes (3): Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes
@@ -327,6 +337,10 @@ Nodes (3): Ripple — pages this touches, Summary: KPM Project Facts Reference, 
 ### Community 53 - "Summary: Option B Region Lock"
 Cohesion: 0.40
 Nodes (5): Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches, Summary: Option B Region Lock, The blocking question, resolved, What it fixed
+
+### Community 54 - "The Shell Repaints Any White It Can Reach"
+Cohesion: 0.40
+Nodes (5): The rule, The second cause of the same appearance, The Shell Repaints Any White It Can Reach, ⚠️ The two harness traps, which cost more than the bug, What changed in the look
 
 ### Community 55 - "Summary: Rules Draft Process"
 Cohesion: 0.40
@@ -392,6 +406,10 @@ Nodes (8): 2026-09-01 — the gap, on purpose this time, and one tier the other 
 Cohesion: 0.33
 Nodes (5): Confirmed real incidents (3, so far), Git Worktrees, Related, The resulting discipline, Verify before trusting
 
+### Community 76 - "Wiki Index"
+Cohesion: 0.40
+Nodes (5): Concepts (recurring patterns), Entities (specific things), Known gaps (honest, not filled in yet), Summaries (one per ingested source, newest ingest pass first), Wiki Index
+
 ### Community 77 - "Gudang Pusat (Master Vault)"
 Cohesion: 0.25
 Nodes (8): It holds PEOPLE too, as of the same day, The fault this replaced, The job was half the size it looked, and reading the code is what showed that, The picker rule, The Place Registry, The shape, Two consequences worth remembering, What it does not do
@@ -413,8 +431,8 @@ Cohesion: 0.67
 Nodes (3): Adding a new entity, Pages here, Wiki/Entities
 
 ### Community 82 - "A CSS Animation Outranks Your Inline Style"
-Cohesion: 0.06
-Nodes (29): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot, A Feature Is Not Done Until the Book Knows, And one thing only a rendered frame catches (+21 more)
+Cohesion: 0.33
+Nodes (6): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot
 
 ### Community 83 - "Gudang Pusat (Master Vault)"
 Cohesion: 0.40
@@ -440,12 +458,24 @@ Nodes (7): A Meter That Exits Silently Is Not a Meter, Resolution — 2026-08-31
 Cohesion: 0.40
 Nodes (4): Ripple — pages this touches, Summary: Ponytail Philosophy Ingest, Where it went, Why this was ingested
 
+### Community 91 - "A Feature Is Not Done Until the Book Knows"
+Cohesion: 0.50
+Nodes (4): A Feature Is Not Done Until the Book Knows, And one thing only a rendered frame catches, The rule, split, Two mechanical traps the first one hit
+
+### Community 92 - "A Named Import Can Shadow a Global"
+Cohesion: 0.50
+Nodes (4): A Named Import Can Shadow a Global, The fix, and the rule, What happened, What it cost, and what did NOT catch it
+
 ### Community 93 - "The Camera Was Aimed at the Wrong Scroller"
 Cohesion: 0.29
 Nodes (7): The camera already existed, and was aimed wrong twice, The Camera Was Aimed at the Wrong Scroller, The decision that came first, The fix, The trap worth carrying, Two smaller things in the same block, Verification — beat by beat, not by eye
 
+### Community 94 - "Sounds Come From Aldi"
+Cohesion: 0.29
+Nodes (7): Enforced, not remembered, Open, Rejected on purpose — do not re-propose, Sounds Come From Aldi, The three rounds, What actually worked, and it is reproducible, Where sound lives, and what can never be verified from here
+
 ## Knowledge Gaps
-- **683 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+678 more)
+- **692 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+687 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -453,15 +483,15 @@ Nodes (7): The camera already existed, and was aimed wrong twice, The Camera Was
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.170) - this node is a cross-community bridge._
+  _High betweenness centrality (0.172) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.087) - this node is a cross-community bridge._
+  _High betweenness centrality (0.086) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.076) - this node is a cross-community bridge._
+  _High betweenness centrality (0.075) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _683 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _692 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
-  _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.04 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**

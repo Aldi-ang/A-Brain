@@ -44,6 +44,9 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   harness lied first
 - [[The Rule That Never Applied]] — three same-day CSS bugs where the declaration was written
   correctly and still lost; greping the source proves it was typed, not that it applies
+- [[Sounds Come From Aldi]] — a sound is a file he chose, never one generated in code and never
+  one borrowed from another meaning. Three rounds lost to that, the ffmpeg cut method that
+  finally worked, and why audibility is his phone's test and never this environment's
 - [[Draft-Then-Deploy Discipline]] — rules changes are always draft until manually deployed
 - [[The KPM Control System]] — the reusable button/panel/record vocabulary, and the rule that
   authority is graded by material rather than colour

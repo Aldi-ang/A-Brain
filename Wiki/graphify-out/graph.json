@@ -450,8 +450,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_a_feature_is_not_done_until_the_book_knows",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Feature Is Not Done Until the Book Knows",
       "norm_label": "a feature is not done until the book knows"
     },
     {
@@ -461,8 +461,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_the_rule_split",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Feature Is Not Done Until the Book Knows",
       "norm_label": "the rule, split"
     },
     {
@@ -472,8 +472,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_two_mechanical_traps_the_first_one_hit",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Feature Is Not Done Until the Book Knows",
       "norm_label": "two mechanical traps the first one hit"
     },
     {
@@ -483,8 +483,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_and_one_thing_only_a_rendered_frame_catches",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 91,
+      "community_name": "A Feature Is Not Done Until the Book Knows",
       "norm_label": "and one thing only a rendered frame catches"
     },
     {
@@ -593,8 +593,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 92,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "a named import can shadow a global"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_happened",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 92,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "what happened"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 92,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "what it cost, and what did not catch it"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 92,
+      "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "the fix, and the rule"
     },
     {
@@ -2193,6 +2193,28 @@
       "norm_label": "he will pay width for legibility on a table that already scrolls (2026-09-01)"
     },
     {
+      "label": "An instrument does not follow the room's lights (2026-09-04)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1974",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_an_instrument_does_not_follow_the_room_s_lights_2026_09_04",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "an instrument does not follow the room's lights (2026-09-04)"
+    },
+    {
+      "label": "The icon follows the panel, because the panels do not look alike (2026-09-04)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2004",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_the_icon_follows_the_panel_because_the_panels_do_not_look_alike_2026_09_04",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "the icon follows the panel, because the panels do not look alike (2026-09-04)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -2540,8 +2562,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_design_inspiration_sources",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "design inspiration sources"
     },
     {
@@ -2551,8 +2573,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_the_five",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "the five"
     },
     {
@@ -2562,8 +2584,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_21st_dev_is_not_a_browsing_job",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "21st.dev is not a browsing job"
     },
     {
@@ -2573,8 +2595,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_four_house_rules_before_anything_lands_in_kpm",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "four house rules before anything lands in kpm"
     },
     {
@@ -2584,8 +2606,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_licensing_one_line",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "licensing, one line"
     },
     {
@@ -3854,6 +3876,17 @@
       "norm_label": "proving a barcode without a scanner (2026-09-01)"
     },
     {
+      "label": "PROVING A MOTION WITHOUT A MOVING FRAME (2026-09-04)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L359",
+      "_origin": "ast",
+      "id": "concepts_looking_at_the_app_proving_a_motion_without_a_moving_frame_2026_09_04",
+      "community": 11,
+      "community_name": "Looking at the App",
+      "norm_label": "proving a motion without a moving frame (2026-09-04)"
+    },
+    {
       "label": "Off-Token Colour Migration Map.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Off-Token Colour Migration Map.md",
@@ -4545,6 +4578,94 @@
       "community": 18,
       "community_name": "Silent Failure Disease",
       "norm_label": "the sharper version of the same case: the animation ran and was invisible (2026-08-16)"
+    },
+    {
+      "label": "Sounds Come From Aldi.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "sounds come from aldi.md"
+    },
+    {
+      "label": "Sounds Come From Aldi",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "community": 94,
+      "community_name": "Sounds Come From Aldi",
+      "norm_label": "sounds come from aldi"
+    },
+    {
+      "label": "The three rounds",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi_the_three_rounds",
+      "community": 94,
+      "community_name": "Sounds Come From Aldi",
+      "norm_label": "the three rounds"
+    },
+    {
+      "label": "What actually worked, and it is reproducible",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi_what_actually_worked_and_it_is_reproducible",
+      "community": 94,
+      "community_name": "Sounds Come From Aldi",
+      "norm_label": "what actually worked, and it is reproducible"
+    },
+    {
+      "label": "Where sound lives, and what can never be verified from here",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi_where_sound_lives_and_what_can_never_be_verified_from_here",
+      "community": 94,
+      "community_name": "Sounds Come From Aldi",
+      "norm_label": "where sound lives, and what can never be verified from here"
+    },
+    {
+      "label": "Enforced, not remembered",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi_enforced_not_remembered",
+      "community": 94,
+      "community_name": "Sounds Come From Aldi",
+      "norm_label": "enforced, not remembered"
+    },
+    {
+      "label": "Rejected on purpose \u2014 do not re-propose",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi_rejected_on_purpose_do_not_re_propose",
+      "community": 94,
+      "community_name": "Sounds Come From Aldi",
+      "norm_label": "rejected on purpose \u2014 do not re-propose"
+    },
+    {
+      "label": "Open",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi_open",
+      "community": 94,
+      "community_name": "Sounds Come From Aldi",
+      "norm_label": "open"
     },
     {
       "label": "The Book as a Stack of Sheets.md",
@@ -5301,8 +5422,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the shell repaints any white it can reach"
     },
     {
@@ -5312,8 +5433,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_rule",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the rule"
     },
     {
@@ -5323,8 +5444,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_second_cause_of_the_same_appearance",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the second cause of the same appearance"
     },
     {
@@ -5334,8 +5455,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_two_harness_traps_which_cost_more_than_the_bug",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "\u26a0\ufe0f the two harness traps, which cost more than the bug"
     },
     {
@@ -5345,8 +5466,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_what_changed_in_the_look",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "what changed in the look"
     },
     {
@@ -6753,8 +6874,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "index_wiki_index",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 76,
+      "community_name": "Wiki Index",
       "norm_label": "wiki index"
     },
     {
@@ -6764,8 +6885,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "index_entities_specific_things",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 76,
+      "community_name": "Wiki Index",
       "norm_label": "entities (specific things)"
     },
     {
@@ -6775,8 +6896,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "index_concepts_recurring_patterns",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 76,
+      "community_name": "Wiki Index",
       "norm_label": "concepts (recurring patterns)"
     },
     {
@@ -6786,8 +6907,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 76,
+      "community_name": "Wiki Index",
       "norm_label": "summaries (one per ingested source, newest ingest pass first)"
     },
     {
@@ -6797,8 +6918,8 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 76,
+      "community_name": "Wiki Index",
       "norm_label": "known gaps (honest, not filled in yet)"
     },
     {
@@ -8546,8 +8667,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -11954,6 +12075,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi",
+      "target": "concepts_aldi_s_design_taste",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
       "source_location": "L111",
       "weight": 1.0,
@@ -12235,6 +12367,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_amber_is_an_edge_and_an_ink_it_is_not_a_fill_2026_08_21",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L1974",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_an_instrument_does_not_follow_the_room_s_lights_2026_09_04",
       "confidence_score": 1.0
     },
     {
@@ -12532,6 +12675,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_the_hole_in_the_palette_law_it_bans_colours_but_never_named_replacements_2026_08_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2004",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_the_icon_follows_the_panel_because_the_panels_do_not_look_alike_2026_09_04",
       "confidence_score": 1.0
     },
     {
@@ -15111,6 +15265,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi",
+      "target": "concepts_looking_at_the_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Book as a Stack of Sheets.md",
       "source_location": "L112",
       "weight": 1.0,
@@ -15205,6 +15370,17 @@
       "_origin": "ast",
       "source": "concepts_looking_at_the_app_looking_at_the_app",
       "target": "concepts_looking_at_the_app_proving_a_barcode_without_a_scanner_2026_09_01",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L359",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_looking_at_the_app_looking_at_the_app",
+      "target": "concepts_looking_at_the_app_proving_a_motion_without_a_moving_frame_2026_09_04",
       "confidence_score": 1.0
     },
     {
@@ -16250,6 +16426,83 @@
       "_origin": "ast",
       "source": "concepts_silent_failure_disease_case_a_transition_on_an_element_that_was_just_created_2026_08_16",
       "target": "concepts_silent_failure_disease_the_sharper_version_of_the_same_case_the_animation_ran_and_was_invisible_2026_08_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi",
+      "target": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "target": "concepts_sounds_come_from_aldi_enforced_not_remembered",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "target": "concepts_sounds_come_from_aldi_open",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L88",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "target": "concepts_sounds_come_from_aldi_rejected_on_purpose_do_not_re_propose",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "target": "concepts_sounds_come_from_aldi_the_three_rounds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "target": "concepts_sounds_come_from_aldi_what_actually_worked_and_it_is_reproducible",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "target": "concepts_sounds_come_from_aldi_where_sound_lives_and_what_can_never_be_verified_from_here",
       "confidence_score": 1.0
     },
     {
@@ -21985,5 +22238,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "cc97b664ae9005ff1154ad1154918417ea45e70d"
+  "built_at_commit": "0eef44bd05e9298d606c7fbbbdde30b0f82f6873"
 }

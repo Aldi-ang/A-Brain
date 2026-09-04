@@ -2018,3 +2018,35 @@ Pinned by 'a phone opens the field terminal, anything wider opens the book, and 
 in integration.audit.mjs, which holds all three of panel, component and glyph together.
 
 Related: [[Aldi's Design Taste]] above, 2026-09-04 — the terminal keeps one palette in both themes.
+
+## He will not accept a made sound, and he says so in four words (2026-09-04)
+
+*"all bad nvm, use this for the section button click on the side"*
+
+Seven synthesised tech takes for the field terminal, presented with waveforms, a rapid-press test
+and a published review page. All seven rejected in one line, and a screen recording of the sound he
+actually wanted sent in the same message. **This is the third round of the same verdict** — see
+[[Sounds Come From Aldi]] for rounds 1 and 2 and the ffmpeg method that does work.
+
+⚠️ **The gate did not save it, and that is the part worth remembering.** He had explicitly asked
+for the synthesis *with* a review step — *"can u make tech sound and give me the draft so i can
+review before u integrate"* — and the concern was raised to him before building. His ask was his
+call and building it was right. It still cost a generator, a review page and an artifact to reach
+four words. **Asking which file is not a slower path than making one; it is the only path that has
+ever finished.**
+
+**And a derived sound is not a made sound.** He did not object to the panel-opening built by
+dropping his own click an octave — he parked it (*"forget the panel open for now"*), which is not
+the same as bad. Transforming his material stays inside the rule; inventing beside it does not.
+
+## He prices the feature before he prices the polish (2026-09-04)
+
+*"most of the time phone user wont be using their volume on this app anyway"*
+
+Said while approving the rail-key sound — accepting the work and, in the same breath, telling me
+what it is worth. He is not asking for less quality; he is refusing to spend a session on the tier
+below it. **Read this as a stop signal on scope, not on craft:** ship the one sound that was asked
+for, and do not build the other three "while we are in here". The three silent moments were left
+silent on purpose and written down as a question instead.
+
+Source: [[Sounds Come From Aldi]]

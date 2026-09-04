@@ -46,6 +46,7 @@ The house rules this project follows so mistakes don't repeat.
 - [[The Named Path Was Already Shut]] — guard the WRITE, not the control someone noticed.
 - [[The Rule That Never Applied]] — the CSS-shaped version of the same discipline: a Tailwind class, source order and a filled animation each beat a correct rule in one day. Measure the computed value, don't grep the source.
 - [[Looking at the App]] — measuring is not looking. How to render a real KPM screen without the HTTPS dev server or a Google login, and why a new measuring tool is itself unverified until one of its readings is confirmed independently.
+- [[Sounds Come From Aldi]] — the audio version of the same discipline, and the sharpest example of a written lesson failing to prevent its own repeat. Every sound is a file he picked; three rounds were spent proving that, the third one after rounds 1 and 2 were already recorded in the source file being edited. Audibility cannot be verified here at all — `playSound` is gated behind a real user gesture the preview pane cannot produce.
 - [[Draft-Then-Deploy Discipline]] — a Firestore rule change is only a draft until a human deploys it by hand.
 - [[Rules Draft Process]] — the summary this discipline was built from: document a blocked fix, don't silently skip it.
 - [[The KPM Control System]] — the shared button/panel/record classes every KPM screen should spend, and the Lite-Mode contract they keep.
