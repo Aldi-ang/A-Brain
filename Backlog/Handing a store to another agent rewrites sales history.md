@@ -1,11 +1,11 @@
 ---
 title: Handing a store to another agent rewrites sales history
 description: Approving a store transfer edits every past transaction for that store to name the NEW agent. The real seller is erased, the new agent inherits sales they never made, and same-named shops are dragged along.
-status: To Do
+status: Done
 area: Store transfers
 priority: HIGH
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-09-05
 ---
 
 # Handing a store to another agent rewrites sales history
@@ -111,3 +111,22 @@ drawn, not before.
 "UI Says Yes, Server Says No" shape already in the vault. Hiding an edit control in
 ConsignmentFinanceView leaves the write path open; the rule and the handler both have to refuse it.
 `firestore.rules` stays a draft until Aldi deploys it himself.
+
+## ✅ BUILT AND SHIPPED — 2026-09-05, `39cd90d`
+
+Past sales keep the agent who made them. Ownership moved to the customer document —
+`ownerAgentId`, `ownerAgentName`, and a `handoffs` array holding `{fromId, fromName, toId, toName,
+date}` per transfer. `ConsignmentFinanceView` reaches the inherited debt through that owner plus the
+hand-off chain, so `A -> B -> C` still reaches C, and the new holder can see and collect a debt he
+now owns. `handleDeleteConsignmentData` refuses rows the caller did not make — both sides, before
+the confirm and before any batch is built. `mappedBy` was not repurposed; it still does its own job
+at request time.
+
+The nota carries the line: `SERAH` on the thermal slip, `Alih Kelola` on the A4.
+
+**The arrow question is answered.** Aldi, 2026-09-05: *"if budi to andi then Budi -> Andi"*. The
+receipt renders `from → to`, which is what shipped — sender on the left, receiver on the right. His
+earlier line reading "Andi -> Budi" was the two names, not the direction. No change needed.
+
+Still open, and it is Aldi's to run: [[Deploy the store hand-off write rule]]. The handler refuses
+the write today; the database does not.

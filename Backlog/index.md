@@ -75,3 +75,5 @@ Some Backlog items correspond to real Wiki pages once resolved — e.g. the merg
 is documented in [[../Wiki/Summaries/Fleet Captain Rule Gaps — Batch 1 and 2]] and
 [[../Wiki/Entities/Fleet Captain Permission Gap]]. Backlog tracks the doing; the Wiki captures
 the understanding after the fact.
+
+- [[Deploy the store hand-off write rule]] — the app refuses a receiver editing inherited sales; the database still allows it. One rule, hand-deployed by Aldi.

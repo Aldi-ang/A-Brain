@@ -62,8 +62,12 @@ apart, and it records who first registered the store. "Current owner" is a separ
    they were replaced in place by assertions that the sweep is *absent* and that the debt still
    arrives.
 
-## Open
+## Settled — the arrow reads sender first
 
-The arrow direction on the receipt. His sentence reads "Andi -> Budi" while the example he was
-answering had Budi handing the store **to** Andi. It renders `from → to` today, which is the
-literal record. Worth one confirmation the first time he sees a real nota with the line on it.
+Asked whether the receipt's hand-off line should read `from → to` or the reverse, Aldi answered,
+2026-09-05: *"if budi to andi then Budi -> Andi"*. Sender on the left, receiver on the right, which
+is what shipped. His earlier "Andi -> Budi" was naming the two people, not fixing a direction.
+
+Nothing is open on this concept. The one thing still owed is **his**, not the code's:
+the matching Firestore rule is drafted, not deployed — see `Backlog/Deploy the store hand-off write
+rule.md`. Until that lands, the refusal exists only in the handler.
