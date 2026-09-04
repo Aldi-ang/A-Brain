@@ -2000,3 +2000,21 @@ light. A light terminal would have needed a second amber, i.e. a second identity
 
 See also [[Aldi's Design Taste]] above on Lite Mode: `html.lite-mode` is the PERFORMANCE switch and
 strips motion only. It is not a theme and must never carry colour.
+
+## The icon follows the panel, because the panels do not look alike (2026-09-04)
+
+*"icon should be different because they have different theme and color"*
+
+Confirming the split shipped on 2026-09-03: a display glyph on a phone, a book glyph on anything
+wider. It had been my call, not his, and it is now his.
+
+**The reason he gave is sharper than the one it was built on.** It was built on "the icon should
+look like what it opens" — a functional argument. His is a visual one: the two panels do not share
+a palette or a material, so one icon standing for both would be a lie about which one you are
+about to see. The book is warm paper on cream; the terminal is a dark slate instrument with amber
+lamps. Same feature, two faces, two glyphs.
+
+Pinned by 'a phone opens the field terminal, anything wider opens the book, and the glyph matches'
+in integration.audit.mjs, which holds all three of panel, component and glyph together.
+
+Related: [[Aldi's Design Taste]] above, 2026-09-04 — the terminal keeps one palette in both themes.
