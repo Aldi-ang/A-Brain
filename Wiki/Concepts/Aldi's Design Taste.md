@@ -2069,3 +2069,22 @@ standing and does not need re-earning.
 
 The single carve-out stays: a QUESTION gets plain wording and a worked example, because an approval
 he did not understand is not an approval.
+
+## He judges a tutorial by what it SHOWS, not by what it says (2026-09-04)
+
+*"there is too much words but too little showing"* · *"make sure that for almost every sentence there
+is some textbox to highlights and explain not just sentence reading"*
+
+And then the correction that mattered more than either, when a false choice was put to him about how
+to build the demo content:
+
+*"show the fake content but real panel like u do on other tutorial of course, uve done this before
+bruh why dont u look at other tutorial that u made"*
+
+⚠️ **He was right and the question should never have been asked.** The pattern already existed in
+four other stages; the answer was in the codebase, not in his head. **Before offering him an A-or-B
+design decision, check whether this project already solved it — an option list costs him a reply and
+teaches nothing.** See [[Ponder Tutorial System]] for the rule and the measurements.
+
+His standard here is concrete rather than aesthetic: an explanation of the barcode scanner should
+highlight the barcode scanner's own textbox and button. Not the panel it sits in, and not nothing.

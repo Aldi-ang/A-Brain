@@ -208,3 +208,64 @@ The camera it replaced was aimed wrong on the horizontal axis at every phone wid
 
 Also from that block: the highlight ring got its own `TONE_RING` map and reads orange at 2px,
 because `border-line-3` — the grey used for table rules — was not legible as a highlight.
+
+## One idea per beat, and every beat points at something (2026-09-04)
+
+*"there is too much words but too little showing"*, then the instruction that fixed it — *"make sure
+that for almost every sentence there is some textbox to highlights and explain not just sentence
+reading"*, and *"also apply this logic to other tutorial as well"*.
+
+**The rule now: a beat says one sentence and highlights the one thing that sentence is about. A
+sentence that cannot point at anything does not belong in a scene.**
+
+Applied to all five scenes in one day. Measured before and after, because "wordy" is not an opinion
+when it can be counted:
+
+| | before | after |
+|---|---|---|
+| beats across the book | 69 | **168** |
+| average characters per beat | 136 | **68** |
+| beats over 150 characters | 19 | **3** |
+| distinct focus keys | — | 80 |
+
+⚠️ **THE DIAGNOSIS WAS NOT "THE WORDING IS BAD".** `regional-warehouse` had ten paragraphs sharing
+seven keys, five of them focusing the same tab in a row — and its stage body was a single line of
+grey placeholder text, so there was physically nothing else to point at. The other four stages were
+already rich (`StockByWarehouseTable` 36 anchors, `ProductPerformanceTable` 14, `GoodsReceivedStage`
+12) and their scenes simply used a fraction of them. **Count the anchors before rewriting a word.**
+
+⚠️ **A STAGE THAT REFUSES DEMO CONTENT IS ARGUING WITH THE REST OF THE CODEBASE.**
+`RegionalWarehouseStage` carried a comment rejecting a demo body as "a second version of the screen
+to keep correct". But `GoodsReceivedStage` is hand-built demo markup and always was, so the rule was
+one no other stage followed. The real protection is not abstinence — it is the audit check that
+every `focus` key must resolve to a `data-ponder` attribute, which turns a renamed anchor into a
+failed build instead of a tutorial pointing at nothing.
+
+**Use the screen's own words in demo markup.** "Scan barang sampai", "Qty (Bks)", "Buku Besar" — a
+tutorial that renames a button teaches a button that does not exist.
+
+## Presence is not visibility (2026-09-04)
+
+**A beat may not point inside something that is closed, and this shipped.** `stock-by-warehouse` had
+a beat carrying `act: 'close'` while focusing `item:bandung-choco`, an item inside BANDUNG's drawer.
+
+Why every existing check missed it: the drawer collapses with a `0fr` grid track instead of
+unmounting, so **the element still exists**. `querySelector` finds it. The audit's `resolvesKey`
+finds its key in the source. The highlight drew a ring with no height around something nobody could
+see, and every suite was green.
+
+**A DOM presence check would also have passed.** That is the part worth remembering: for anything
+that can be collapsed, hidden, or behind a tab, presence proves nothing and only geometry or a
+replay of the scene's own state script can tell the truth.
+
+Two checks now close the class (`integration.audit.mjs`, search `strandedBeats`): one replays each
+scene's `act` script the way `StockStage.scriptedOpen` does and demands any `item:`/`drawer:` key be
+inside whatever is open at that beat; the other pins every `item:` key to a product that exists in
+the demo world. Trialled red by restoring the shipped bug — it failed alone, naming the two beats.
+
+⚠️ **A browser walk was tried first and abandoned.** Clicking through 51 steps stalls past the
+45-second tool limit because the pane does not composite ([[Looking at the App]]). The replay check
+is better anyway: exact rather than sampled, and it cannot go stale. **When the UI cannot be driven,
+check the state machine instead of the pixels.**
+
+Related: [[Aldi's Design Taste]] · [[Looking at the App]] · [[What Create Mod's Ponder Actually Does]]
