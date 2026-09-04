@@ -355,3 +355,50 @@ printed paper settles scannability, and that test belongs to Aldi.
 `11·(len+3)+2 = 222` on the assumption of pure Code128-B, and measured 167. JsBarcode encodes in
 optimal MIXED mode, dropping into Code C for the digit run. **A red check is a claim about the
 code that has to be checked too** — here the check was wrong and the artifact was right.
+
+## PROVING A MOTION WITHOUT A MOVING FRAME (2026-09-04)
+
+**The Browser pane does not composite, and it says nothing about that.** Measured on the ponder
+lab: `requestAnimationFrame` fired **0 times in 500 ms**, while `document.hidden` was `false` and
+`document.visibilityState` was `"visible"`. Fronting the tab with `tabs_select` did not change it —
+still 0. `tabs_context` is the only honest reporter: it answers *"The Browser pane is currently
+hidden."*
+
+⚠️ **`agent-browser` hung again — 1800 s, aborted, second time.** The note above already recorded
+one 1801 s hang and it was probed anyway. Treat that tool as unavailable in this environment, not
+as worth one more try; the retry costs half an hour and returns nothing.
+
+**The way through was to stop sampling frames and inspect the animation OBJECTS.** `PonderBook`
+turns a sheet with the Web Animations API (`el.animate(...)`), not with per-frame inline styles.
+So `document.getAnimations()` answers the question directly, and it answers it **without a
+timeline that advances** — the objects exist, carry their duration and easing, and can be read the
+instant they are created:
+
+    document.getAnimations().map(a => ({
+      dur:   a.effect.getTiming().duration,
+      ease:  a.effect.getTiming().easing,
+      state: a.playState,
+    }))
+
+That turned two motion claims into arithmetic:
+
+| claim | what was read | verdict |
+|---|---|---|
+| a ribbon lands in one step | section 17 → 1, sixteen sheets: **zero** turn animations created, before-set identical to after-set (three 200 ms card transitions, unchanged) | no flip-through |
+| a neighbour turn still folds | ArrowRight: **exactly one** animation, `dur 340` (= `TURN_FULL_MS`), `cubic-bezier(0.62, 0.02, 0.28, 1)` (= `HINGE`) | unchanged |
+
+**And a still frame of a moving thing is one line away.** A frozen timeline is an advantage here:
+pause the animation and write its `currentTime`, then screenshot — the pane renders on demand even
+though it will not run a loop.
+
+    document.getAnimations().forEach(a => { a.pause(); a.currentTime = a.effect.getTiming().duration * 0.45; })
+
+At 45 % of the arc the leaf's computed transform came back as
+`matrix3d(0.0946663, 0, 0.995509, 0, …)` → **rotateY ≈ 84,6°**, with live z components, and the
+screenshot showed the sheet standing on edge at the spine. That is proof of APPEARANCE, not only
+of ratio — the distinction the top of this note insists on.
+
+**The general rule:** when the surface will not run time, look for the declarative object that
+describes the motion rather than the pixels that would have shown it. WAAPI, CSS transitions
+(`getComputedStyle(el).transitionDuration`) and `element.getAnimations()` are all readable at rest,
+and a paused animation is a scrubber for taking the photograph the loop refused to produce.
