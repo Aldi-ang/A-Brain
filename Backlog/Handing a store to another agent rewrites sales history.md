@@ -79,3 +79,35 @@ the two disagree afterwards. Do not drop that overwrite blindly either — `App.
 Partly hardened since this was written: the request now pins `customerId` when the sender's own
 ownership can single one shop out, and the rewrite is filtered by `heldBySender`, so a same-named
 twin's rows no longer move.
+
+## ✅ ALDI DECIDED — 2026-09-05. Both see it; the new owner is view-only.
+
+His words, verbatim:
+
+> *"then andi and budi but andi should be view only and budi can edit the value and of course add
+> history on the receipt the hands off thats tell Andi -> Budi"*
+
+Read as three requirements:
+
+1. **Both agents see the store's old sales.** Neither dashboard loses them.
+2. **The agent who RECEIVES the store sees them read-only.** He can look, chase and collect; he
+   cannot change a number he did not write. The agent who MADE those sales keeps the right to edit
+   their values.
+3. **The hand-off is recorded and visible on the receipt / history**, naming both sides and reading
+   as a hand-off, not as a silent change of owner.
+
+What that settles: **the rewrite at `App.jsx:1746-1749` goes.** Past sales keep the agent who made
+them, which is requirement 2's whole basis — you cannot grant "the seller may edit, the receiver may
+not" while the record says the receiver was the seller. The debt reaches the new agent through the
+store's CURRENT OWNER instead, not by restamping history.
+
+⚠️ **Direction check for whoever builds this.** The example he answered was "Budi hands his store to
+Andi", so the receiving agent is Andi and the selling agent is Budi. His line reads "Andi -> Budi".
+Build it as a rule about roles — *receiver is view-only, seller keeps edit* — and let the receipt
+render whichever two names apply. Confirm the arrow's direction with him when the receipt line is
+drawn, not before.
+
+⚠️ **Read-only must be enforced where the WRITE happens, not by hiding a button.** This is the
+"UI Says Yes, Server Says No" shape already in the vault. Hiding an edit control in
+ConsignmentFinanceView leaves the write path open; the rule and the handler both have to refuse it.
+`firestore.rules` stays a draft until Aldi deploys it himself.
