@@ -54,3 +54,28 @@ gives the new agent the view you want.
 
 Also drop the `mappedBy` overwrite at `:1637` — that field records who first registered the store,
 which a transfer does not change.
+
+## ✏️ CORRECTION — 2026-09-05. **The suggested fix above is wrong as written.**
+
+"Do not touch past transactions at all" would ship a worse bug than the one it fixes.
+
+`ConsignmentFinanceView.jsx:59` scopes a consignment/receivables view by
+`t.agentId === agentProfileId`. The rewrite at `App.jsx:1746-1749` is what moves the store's
+outstanding debt onto the new agent's screen. Delete it on its own and the agent who now owns the
+store cannot see, chase or collect what that store owes — the debt disappears from every agent view
+and only Admin can still find it. For a paying customer that reads as lost money, not as fixed
+history.
+
+So this item is **not** a four-line delete. The real shape is: stop rewriting history, and give the
+receivables view a second way to find a store's transactions — by the store's current owner, not by
+the agent stamped on each old row. That is a change to how one screen queries, and it needs Aldi's
+answer to the question the item already raises: after a hand-off, whose dashboard shows the old
+sales — the seller's, the new owner's, or both.
+
+Also still true and unchanged: `mappedBy` is overwritten at approval while `mappedById` is not, so
+the two disagree afterwards. Do not drop that overwrite blindly either — `App.jsx` uses
+`c.mappedBy === fromAgentName` at request time to tell two same-named shops apart.
+
+Partly hardened since this was written: the request now pins `customerId` when the sender's own
+ownership can single one shop out, and the rewrite is filtered by `heldBySender`, so a same-named
+twin's rows no longer move.
