@@ -106,3 +106,40 @@ looks finished while the feature is still dead. Any future "agent X can now see 
 in the same pass, which button acts on Y and who is allowed to press it.
 
 Not fixed yet — Aldi ranks first, and removing that gate is a permission change on a money path.
+
+## Aldi's scope answer, 2026-09-05 — locked
+
+Asked which stores a field agent may run Store Audit on, he answered:
+
+> *"of course the consignment that they made or receive from other handsoff, that is the only store
+> that they see"*
+
+So the audit scope is exactly the receivables scope that already exists — stores whose consignment
+he made himself, plus stores handed to him. Not "any store on screen", and there is no third case:
+those two ARE everything an agent can see. Ungating `ConsignmentFinanceView.jsx:961` therefore needs
+no new filter, because `myTransactions` is already that list. What it still needs is the decision
+about the audit's *write* half: the audit records shelf counts and retur alongside the payment, and
+inherited rows are meant to be view-only for their values.
+
+## And the bell is not a footnote — his correction, 2026-09-05
+
+I ranked the broken bell last because the transfer could still be approved from the Receivables
+card. He rejected that:
+
+> *"u cant just ignore the notification bell like that, i can see that there is notification number
+> but the panel wont shows up even when i press it, therefore i dont know what notification is
+> coming to my account because notification bells have so many usage and not just for the
+> consignment"*
+
+He is right and the reasoning is worth keeping: **a shared surface cannot be triaged inside one
+feature's story.** The bell carries stock requests, EOD, approvals, transfers and more. Judging it
+by "does the transfer flow still have another door" measured the wrong thing entirely — the badge
+counts correctly, so every one of those features is silently delivering mail nobody can open.
+
+The badge number proves the data path is healthy (`NotificationBell.jsx:15` counts from the same
+array the panel renders at `:86`), which narrows it to rendering: `isOpen` flips, the panel mounts,
+and something upstream hides it. Prime candidate is `BiohazardTheme.jsx:941` —
+`relative z-10 ... overflow-hidden` wrapping the header the bell sits in. That combination clips an
+absolutely-positioned dropdown and traps its `z-[9999]` inside a `z-10` stacking context. Unproven:
+nothing was rendered, so this stays a candidate, not a cause. The comment at `:1032` shows a
+previous session already fought a stacking bug on this exact bell and removed a decoy `z-[9999]`.
