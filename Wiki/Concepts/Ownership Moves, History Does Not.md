@@ -71,3 +71,38 @@ is what shipped. His earlier "Andi -> Budi" was naming the two people, not fixin
 Nothing is open on this concept. The one thing still owed is **his**, not the code's:
 the matching Firestore rule is drafted, not deployed — see `Backlog/Deploy the store hand-off write
 rule.md`. Until that lands, the refusal exists only in the handler.
+
+## The first live test, 2026-09-05 — the debt arrives, the button does not
+
+Aldi ran the flow end to end for the first time: Tier 1 sells on consignment, hands the store to a
+test agent account, swaps accounts, accepts. Three faults, none of them in the hand-off logic
+itself, all of them in the screen around it.
+
+**1. The receiver goes blind the moment he accepts.** `ConsignmentFinanceView.jsx:269` lists
+incoming hand-offs with `status === 'PENDING_AGENT'`. Accepting moves the status to
+`PENDING_ADMIN`, so the card correctly disappears — and nothing replaces it. The
+`pendingAdminRequests` list (`:987`) renders only for `isAdmin`, and `outgoingRequests` (`:270`)
+matches only requests the viewer **sent**. The receiver is neither, so he sees no trace of a
+request he just accepted. It reads as "I pressed the button and it deleted itself".
+
+**2. The admin was never actually blocked.** The bell is broken (separately, cause not yet found),
+but approval does not need it: Receivables shows an **Admin Auth Required** card with *Authorize
+Transfer*, and `pendingAdminRequests` (`:271`) filters on status alone with no agent scoping. Worth
+remembering as a shape — *a notification is a shortcut to a screen, never the only door to it.* The
+flow looked dead when only its shortcut was.
+
+**3. The one that matters: Store Audit is admin-only.** `ConsignmentFinanceView.jsx:961` wraps the
+Store Audit button in `isAdmin &&`, and collecting money and updating the shelf both run through it
+(the audit confirm calls `onPayment`). Line `:963` gives the Transfer button `col-span-4` when
+`!isAdmin` — the layout was deliberately written for "an agent sees only the hand-off button".
+
+So a field agent has never been able to collect on a consignment store at all. The hand-off work
+made the inherited debt **visible** to the agent who now owns it; this gate means he still cannot
+**act** on it. Aldi's words: *"i should be able to update the shelf and collect money"*.
+
+**The lesson worth keeping:** making data reachable is not the same as making it actionable. The
+read path and the write path are gated by different code, and a fix that only proves the read path
+looks finished while the feature is still dead. Any future "agent X can now see Y" work should ask,
+in the same pass, which button acts on Y and who is allowed to press it.
+
+Not fixed yet — Aldi ranks first, and removing that gate is a permission change on a money path.

@@ -1,7 +1,7 @@
 # Graph Report - Wiki  (2026-09-05)
 
 ## Corpus Check
-- 83 files · ~171,194 words
+- 83 files · ~171,241 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c059684d`
+- Built from commit: `43c738fa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -499,7 +499,7 @@ Nodes (7): 3.2 How XP works, and why it can never decay again, The daily formula
 
 ### Community 99 - "Ownership Moves, History Does Not"
 Cohesion: 0.33
-Nodes (6): Open, Ownership Moves, History Does Not, The problem, The shape that was built (39cd90d), The two traps a lazy build walks into, Why the rewrite existed — the trap
+Nodes (6): Ownership Moves, History Does Not, Settled — the arrow reads sender first, The problem, The shape that was built (39cd90d), The two traps a lazy build walks into, Why the rewrite existed — the trap
 
 ### Community 100 - "1. The thing you need to know first"
 Cohesion: 0.33

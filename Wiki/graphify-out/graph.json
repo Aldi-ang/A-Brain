@@ -4151,15 +4151,15 @@
       "norm_label": "the two traps a lazy build walks into"
     },
     {
-      "label": "Open",
+      "label": "Settled \u2014 the arrow reads sender first",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Ownership Moves, History Does Not.md",
       "source_location": "L65",
       "_origin": "ast",
-      "id": "concepts_ownership_moves_history_does_not_open",
+      "id": "concepts_ownership_moves_history_does_not_settled_the_arrow_reads_sender_first",
       "community": 99,
       "community_name": "Ownership Moves, History Does Not",
-      "norm_label": "open"
+      "norm_label": "settled \u2014 the arrow reads sender first"
     },
     {
       "label": "Ponder Tutorial System.md",
@@ -15952,7 +15952,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_ownership_moves_history_does_not_ownership_moves_history_does_not",
-      "target": "concepts_ownership_moves_history_does_not_open",
+      "target": "concepts_ownership_moves_history_does_not_settled_the_arrow_reads_sender_first",
       "confidence_score": 1.0
     },
     {
@@ -22579,5 +22579,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c059684d2046c42607d363daf4dcdf8db07243c3"
+  "built_at_commit": "43c738fa114e4b801f2c29fdc2b76c8771c36bb7"
 }
