@@ -60,38 +60,36 @@ at all — once notifications actually opened, their volume became a design cons
 `src/App.jsx:467` downloads custom permissions from Firebase at startup and overwrites it. So this
 is new keys plus a region scope, not a new configuration system.
 
-### The data shape is a real decision — do not settle it quietly
+### 🔒 The data shape — DECIDED 2026-09-05, do not re-propose the cheap version
 
-Every tier maps to a flat ARRAY OF STRINGS and every reader assumes that shape.
+Offered string flags (`approve_consignment_own_region` / `_all_regions`) as the encoding that fits
+the existing shape with no reader changes, he refused it and named the flaw better than the offer did:
 
-| Option | Expresses | Cost |
-|---|---|---|
-| String flags — `approve_consignment_own_region` / `_all_regions` | own vs all | fits perfectly, no reader changes — but **cannot say "regions X and Y"**, which is what he asked for |
-| Per-tier region map beside the array | exactly what he described | matrix stops being one uniform shape; Firebase doc, settings screen and every reader must agree |
+> *"no i want all the region the be registered on the matrix, because if there is only 2 option all
+> or own regional approval means that there are only 2 option to choose floods or drip of water, the
+> system that i want to make is to have power to choose 1,2,3,4 or whatever regional number that i
+> want to receive notification and approval from"*
 
-He described the second. Shipping the first because it is easier would quietly deliver less than he
-asked for — propose it explicitly if proposing it at all.
+**Every region is registered in the matrix; a tier holds an arbitrary subset of them.** Flags are
+refused outright — own-versus-all is precisely the binary he is escaping, and a cheap encoding that
+only offers the two extremes is not a smaller version of this feature, it is a different one.
 
-## Where it lives
+The cost is accepted: `ROLE_PERMISSIONS` maps each tier to a flat array of strings today and every
+reader assumes that, so the Firebase document, the settings screen and every reader have to agree on
+a new per-tier field.
 
-- `src/ConsignmentFinanceView.jsx:36-52` — `dropdownAgents`, the target list. Filters admins out,
-  filters by region only when the admin region control is set, then by the search box.
-- `src/App.jsx` `handleRequestTransfer` — writes the request with no eligibility check at all.
+**⚠️ The trap that would make a lazy build wrong.** The region list is DATA, not a constant.
+`ConsignmentFinanceView.jsx:29-32` derives `uniqueLocations` from the motorists' `location` field,
+upper-cased and trimmed, with `UNASSIGNED` a real value rather than an absence. So the matrix must
+enumerate the regions that actually exist, pick up a new one the moment an agent is given that
+location, and cope with a tier whose saved list names a region nobody is in any more. A hardcoded
+region list looks correct on the day it is written and rots silently afterwards.
 
-## The shape
-
-One predicate used in BOTH places. The dropdown hides ineligible targets; the handler refuses them.
-Dropdown-only is the [[UI-Says-Yes-Server-Says-No Pattern]], which is already why the delete guard
-in `handleDeleteConsignmentData` exists.
-
-Exclude the current owner via `ownerAgentId` on the customer document — added by the hand-off work,
-`39cd90d`. **Not `mappedBy`**: that records who first registered the store, and
-`handleRequestTransfer` still reads it to tell two same-named shops apart.
-
-Region is `location` on the motorist, upper-cased and trimmed at `ConsignmentFinanceView.jsx:29-32`.
-`UNASSIGNED` is a real value rather than an absence — decide explicitly whether such an agent can
-receive anything.
+**Worth keeping as a shape:** twice in one conversation the cheaper encoding was the one that
+quietly delivered less than was asked. Offering it is fine; shipping it because it fits the existing
+structure is how a feature arrives looking complete and doing half the job.
 
 ## Related
+
 
 [[Ownership Moves, History Does Not]] · [[Deploy the store hand-off write rule]]
