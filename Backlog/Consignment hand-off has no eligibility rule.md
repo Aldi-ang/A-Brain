@@ -32,10 +32,45 @@ Two separate things in one sentence:
 > the one who can transfer consignment between regional area personnel"*
 
 - **(a) Same region by default.** A hand-off stays inside one regional team.
-- **(b) Tiers 1–3 cross regions.** ⚠️ **Ambiguous and NOT to be guessed.** It can mean those tiers
-  may *send* a store to another region, or that a cross-region hand-off may be *requested* by anyone
-  and only *approved* by them. Ask before building; the two are different permission models and the
-  wrong one is a hole, not a cosmetic error.
+- **(b) Tiers 1–3 cross regions.** Asked whether that meant *sending* or *approving*, he rejected
+  both readings and gave a third design — see below. That is the one to build.
+
+## ✅ ALDI DECIDED — 2026-09-05. Approval authority is a matrix option, scoped by region.
+
+> *"regarding the approval for the consignment there should be option in the matrix for what tier
+> that can receive and approve the consignment and also which is the region selected to receive from
+> this way it would increase flexibility for who can have the power of the approval for specific area
+> or areas, but on default their own regional admin is the only one who can do that, if we put this
+> power towards the upper tier for all region then there will be massive loads of approval
+> notification bells coming to the upper tier, thats why i think regional selecting is important in
+> this matter"*
+
+Two things become configurable per tier: **who may receive and approve a consignment hand-off**, and
+**which regions they may do it for**. Default is the agent's own regional admin and nobody else.
+
+**His reason is operational load, not policy** — an upper tier holding approval for every region
+drowns in approval notifications. Worth keeping as a general shape: *a permission granted too widely
+is not only a security question, it is a workload question*, and the bell is the surface where that
+cost lands. The bell fault fixed earlier the same day (`4bb9ad7`) is what made this visible to him
+at all — once notifications actually opened, their volume became a design constraint.
+
+### The matrix is already runtime-editable — this is smaller than it looks
+
+`src/config/permissions.js:109` is `export let ROLE_PERMISSIONS`, a mutable binding, and
+`src/App.jsx:467` downloads custom permissions from Firebase at startup and overwrites it. So this
+is new keys plus a region scope, not a new configuration system.
+
+### The data shape is a real decision — do not settle it quietly
+
+Every tier maps to a flat ARRAY OF STRINGS and every reader assumes that shape.
+
+| Option | Expresses | Cost |
+|---|---|---|
+| String flags — `approve_consignment_own_region` / `_all_regions` | own vs all | fits perfectly, no reader changes — but **cannot say "regions X and Y"**, which is what he asked for |
+| Per-tier region map beside the array | exactly what he described | matrix stops being one uniform shape; Firebase doc, settings screen and every reader must agree |
+
+He described the second. Shipping the first because it is easier would quietly deliver less than he
+asked for — propose it explicitly if proposing it at all.
 
 ## Where it lives
 
