@@ -77,3 +77,5 @@ is documented in [[../Wiki/Summaries/Fleet Captain Rule Gaps — Batch 1 and 2]]
 the understanding after the fact.
 
 - [[Deploy the store hand-off write rule]] — the app refuses a receiver editing inherited sales; the database still allows it. One rule, hand-deployed by Aldi.
+
+- [[Consignment hand-off has no eligibility rule]] — a store can be offered to the agent who already owns it, and across regions. His rule is recorded; half of it still needs one answer.

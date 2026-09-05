@@ -4173,6 +4173,28 @@
       "norm_label": "the first live test, 2026-09-05 \u2014 the debt arrives, the button does not"
     },
     {
+      "label": "Aldi's scope answer, 2026-09-05 \u2014 locked",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ownership Moves, History Does Not.md",
+      "source_location": "L110",
+      "_origin": "ast",
+      "id": "concepts_ownership_moves_history_does_not_aldi_s_scope_answer_2026_09_05_locked",
+      "community": 99,
+      "community_name": "Ownership Moves, History Does Not",
+      "norm_label": "aldi's scope answer, 2026-09-05 \u2014 locked"
+    },
+    {
+      "label": "And the bell is not a footnote \u2014 his correction, 2026-09-05",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ownership Moves, History Does Not.md",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "concepts_ownership_moves_history_does_not_and_the_bell_is_not_a_footnote_his_correction_2026_09_05",
+      "community": 99,
+      "community_name": "Ownership Moves, History Does Not",
+      "norm_label": "and the bell is not a footnote \u2014 his correction, 2026-09-05"
+    },
+    {
       "label": "Ponder Tutorial System.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Ponder Tutorial System.md",
@@ -15959,6 +15981,28 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Ownership Moves, History Does Not.md",
+      "source_location": "L110",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ownership_moves_history_does_not_ownership_moves_history_does_not",
+      "target": "concepts_ownership_moves_history_does_not_aldi_s_scope_answer_2026_09_05_locked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ownership Moves, History Does Not.md",
+      "source_location": "L124",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ownership_moves_history_does_not_ownership_moves_history_does_not",
+      "target": "concepts_ownership_moves_history_does_not_and_the_bell_is_not_a_footnote_his_correction_2026_09_05",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ownership Moves, History Does Not.md",
       "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
@@ -22601,5 +22645,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c89c1cacd80ce283f58e0ba5be87cee3c936be65"
+  "built_at_commit": "d5c9bab5f919c32b5a76fb7beeceeeabdd71b6db"
 }
