@@ -29,6 +29,7 @@ should trace back to one of these.
 - [[Stock Count Trust Chain]] — recount, cause, tolerance and leak detection, all shipped in one afternoon; and the five cause words that are still Claude's, not Aldi's.
 - [[Surat Jalan Desk and Sebaran Stok]] — the Restock Vault becomes one surat jalan desk with four tabs, HQ gets a push and a request queue, and Sebaran Stok answers "where is every pack" per warehouse.
 - [[Store Hand-off Name Collision]] — a name-keyed transfer moved the wrong agent receivable; the prescribed id fix was impossible.
+- [[The Panel That Never Reads a Transaction]] — Product Performance shows unpaid consignment as revenue, and the fix is five files upstream in the rollup writer; plus the Vercel demo and the signup check that made it safe.
 
 ## Adding a new summary
 

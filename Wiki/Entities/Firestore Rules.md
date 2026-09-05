@@ -3,9 +3,9 @@ title: Firestore Rules
 description: The server-side rule file that actually decides who can read or write what — separate from whatever the UI shows.
 type: entity
 created: 2026-07-27
-updated: 2026-08-10
+updated: 2026-09-05
 confidence: medium
-checked: 2026-08-10
+checked: 2026-09-05
 tags: [firestore, security, rules]
 ---
 
@@ -134,6 +134,26 @@ no agent deploys them.
 packaged until it is dealt with deliberately.
 
 confidence: high · checked: 2026-08-11 (both files read with surrounding context, comment quoted)
+
+## 2026-09-05: a public URL made the draft/deployed gap concrete
+
+The app went online at `kpm-ang.vercel.app` (Vercel Preview, aliased to the
+`phase0-solid-ground` branch) so Aldi could show friends. Two things that gap means in practice:
+
+- **What protects the demo is not the rules.** `grep -rn "createUserWithEmailAndPassword" src/`
+  returns nothing — there is no self-signup anywhere in the app, so a stranger with the URL
+  reaches a login screen and stops. Accounts are admin-created. That check ran *before* the
+  push, not after.
+- **What is still open is the store hand-off write rule — drafted, NOT deployed.** At the
+  database level an account holder can still edit or delete transactions he did not make. The
+  demo does not expose this (friends cannot get an account), but it is live for real agents
+  right now. See [[../Concepts/Ownership Moves, History Does Not]] and the Backlog card
+  *Deploy the store hand-off write rule*.
+
+The Firebase web config at `src/config/firebase.js:8` is committed, which is normal — a web API
+key is not a secret. But it does mean these rules are the *whole* of the boundary, so a drafted
+rule is an open door rather than a pending chore. Source:
+[[../Summaries/The Panel That Never Reads a Transaction]].
 
 ## Verify before trusting
 

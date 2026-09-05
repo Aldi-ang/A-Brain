@@ -3,9 +3,9 @@ title: A Rollup Is a Cache, Not a Ledger
 description: The sales rollup answers "what sold" for one document read instead of thousands, and the property that makes it safe is that it can always be rebuilt from the transactions.
 type: concept
 created: 2026-08-30
-updated: 2026-08-30
+updated: 2026-09-05
 confidence: high
-checked: 2026-08-30
+checked: 2026-09-05
 tags: [kpm, sales, firestore, cost, reporting, data-integrity]
 ---
 
@@ -95,5 +95,35 @@ Ten more checks scan the wiring, because nothing except a scan can prove all fou
 exist. Lose one and the totals drift with every check still green — which is
 [[Silent Failure Disease]] exactly.
 
-See also: [[A Ratio of Sums Is Not a Rate]] · [[Silent Failure Disease]] ·
+## 2026-09-05: the dimension that was never recorded
+
+The rebuild property makes a *wrong* rollup cheap to fix. It does nothing about a rollup that
+is right and **too narrow** — and that is the harder failure, because it surfaces as a bug in a
+screen that is innocent.
+
+Product Performance was showing unpaid `Titip` consignment as revenue. That is a real money
+mis-statement, and no amount of work in `ProductPerformancePanel.jsx` can fix it: the panel
+reads `sales_stats`, and `salesDelta` accumulates `{ qty, revenue }` with **no `paymentType`
+dimension at all**. Receivable and finished sales were merged before the writer ever saw them.
+**A panel cannot render a distinction its source never recorded.**
+
+Two consequences worth carrying:
+
+1. **Adding a dimension is a write-path change, not a read-path change** — the delta, the
+   writer, `sumRange`, and every renderer. Five files, which is exactly why it was scoped and
+   named rather than started.
+2. **Historical documents will answer the new question anyway, and answer it wrong.** Every
+   month already in `sales_stats` holds only `{ qty, revenue }`. Ship the split without a
+   decision and past months report *zero receivable, 100% finished sales* — confidently, with
+   no error. That is [[Silent Failure Disease]] living in the data instead of the code. Either
+   backfill from `transactions` or label pre-change months as "not separated"; do not let old
+   documents answer a question they were never asked.
+
+Unverified as of 2026-09-05: whether a later `CONSIGNMENT_PAYMENT` also enters the rollup
+(`SALE_TYPES`, `salesRollup.js:42-46`). If a Titip sale books revenue at placement *and* its
+payment books it again, the totals double-count today — a bigger bug than the split, and it
+must be settled first. See [[../Summaries/The Panel That Never Reads a Transaction]].
+
+See also: [[../Summaries/The Panel That Never Reads a Transaction]] ·
+[[A Ratio of Sums Is Not a Rate]] · [[Silent Failure Disease]] ·
 [[A Check Points at a File, Not at a Behaviour]] · [[The Eight Warehouse Gaps]]

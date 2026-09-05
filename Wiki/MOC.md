@@ -122,3 +122,4 @@ Real things that went wrong (or nearly did), and what was learned.
 - [[Brainstorm/2026-09-02_phone-tutorial-shell]] — 🔴 OPEN: four candidate phone shells for the tutorial, drafted for him to operate. The PC half is decided — keep the book, drop the riffle.
 - [[Concepts/A Named Import Can Shadow a Global]] — module scope beats the global object, and the failure is a blank screen rather than a red build.
 - [[Summaries/Stock Count Trust Chain]] — how a count becomes trustworthy: tolerance, recount, cause, leak detection. The one open decision is naming the five shortage causes.
+- [[Summaries/The Panel That Never Reads a Transaction]] — a money mis-statement whose fix is nowhere near the screen that shows it, the trap waiting in every rollup month already written, and the day the app first went online for friends to see.

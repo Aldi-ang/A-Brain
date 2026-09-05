@@ -16,6 +16,13 @@ edited after creation** except for display-only frontmatter (title/description/t
 
 ## Files here (as of 2026-07-27)
 
+- `2026-09-05_source_kpm-rollup-scope-and-vercel-demo.md` — commits `610f02c` → `2906294`: the
+  Product Performance trace that found the consignment/paid merge happens in the rollup writer,
+  the branch pushed for a `kpm-ang.vercel.app` demo and the no-self-signup check that made it
+  safe, and the 5-hour quota window correction.
+- `2026-09-03_source_kpm-follow-camera-2026-09-01.md` — the 2026-09-01 evening block behind
+  [[../Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller]]. (Listed here 2026-09-05; the
+  file was written on 2026-09-03 but this index was not updated at the time.)
 - `2026-08-27_source_surat-jalan-desk-and-sebaran-stok.md` — the twenty commit messages from
   `aea7de4` to `ce313f9`, verbatim: the Restock Vault becoming one surat jalan desk, the Request
   tab moved off the branch screen, Tujuan from the roster, Sebaran Stok, the ratio-of-sums

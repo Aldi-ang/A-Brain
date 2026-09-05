@@ -3,7 +3,7 @@ title: "Session Ingest State"
 description: Tracking file for the a-brain-session-ingest scheduled task — which sessions/Inbox items have already been processed.
 type: state
 created: 2026-07-27
-updated: 2026-09-03
+updated: 2026-09-05
 tags: [runs, state]
 ---
 
@@ -44,3 +44,6 @@ not hand-edit unless correcting a mistake the task made.
 | local_93d335ca / f24d1038 / fc549650 / 379fdbd9 / ed6d83fe / 9983bb3f / 84d3ec89 / 5be01efb / a55ef6f0 (repeat) | Vault gap curator / A brain session ingest, 2026-08-27 -> 2026-08-31 | 2026-09-01 | Not re-read row-by-row — verified covered by the vault's own git log (continuous self-ingest commits through `e80aa11`, matching KPM commits through `5d71a3f`) |
 | local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-09-03 | **Partially ingested (sixth pass).** Its 2026-09-01 -> 2026-09-03 18:09 work was almost entirely self-ingested as it went (vault commits `eb41e9f` -> `cc97b66`, matching KPM `a4bc1ca` -> `87f7138` within seconds each time). The one real gap was the **2026-09-01 18:11 -> 18:40 WIB** block (`7d3d350`, `87b0939`, `832e465`, `96f2474`) - `"follow camera"` returned zero hits across `Wiki/`. Captured as [[../Wiki/Summaries/The Camera Was Aimed at the Wrong Scroller]] |
 | local_8970b322 / and the 2026-09-02 -> 2026-09-03 curator+ingest sessions | Vault gap curator / A brain session ingest | 2026-09-03 | Skipped - these ARE this task's own runs and the vault-maintenance sessions; their writes ARE the vault |
+| local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-09-05 | **Partially ingested (seventh pass).** Its 2026-09-03 23:38 -> 2026-09-05 09:10 work was self-ingested as it went (vault `ea4ad74` -> `c5648ad`, each landing within a minute of its KPM counterpart). The gap was the **2026-09-05 09:13 -> 09:52 WIB** block (`610f02c`, `c739608`, `0b947f8`, `2906294`) - the last vault commit of the day is `c5648ad` at 09:10:30, so these four had no coverage. Captured as [[../Wiki/Summaries/The Panel That Never Reads a Transaction]]. Verified by git log on both repos, not re-read from transcripts |
+| _(2026-09-04 sound/ponder/backlog work)_ | - | 2026-09-05 | Verified covered, not re-read. Vault commits `038bd95` -> `ed080f9` pair with the KPM commits of 2026-09-04 (rail key from Aldi's own recording, one-palette field terminal, the ponder sweeps, the four Backlog candidates) |
+| _(2026-09-04 -> 2026-09-05 curator + ingest sessions)_ | Vault gap curator / A brain session ingest | 2026-09-05 | Skipped - this task's own runs and the vault-maintenance sessions |

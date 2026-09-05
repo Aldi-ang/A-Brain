@@ -1223,3 +1223,38 @@ exactly like a measurement that covers the feature.
 **Skill-file edit (named, not buried):** `kpm-inventory-facts.md` in the `delegate-coding-task`
 skill gained the CRLF-needle rule. Second real occurrence — see [[Concepts/A Cache Saying No]] for
 the first, on the same day.
+
+## 2026-09-05 — ingest: the rollup that threw the question away, and the day the app went online
+
+Scheduled `a-brain-session-ingest` run. Everything through KPM commit `efcfc33` (09:10:10) was
+already self-ingested — the vault's own `c5648ad` landed 20 seconds later, the usual pattern. The
+gap was the **last four commits of the morning**, `610f02c` → `2906294` (09:13 → 09:52 WIB), which
+had no vault counterpart at all.
+
+**Added:** [[Summaries/The Panel That Never Reads a Transaction]], from
+[[../Raw/2026-09-05_source_kpm-rollup-scope-and-vercel-demo]].
+
+**Rippled:**
+
+- [[Concepts/A Rollup Is a Cache, Not a Ledger]] — a 2026-09-05 section. The rebuild property
+  makes a *wrong* rollup cheap; it does nothing for a rollup that is right and **too narrow**.
+  `salesDelta` carries `{ qty, revenue }` and no `paymentType`, so the consignment/paid split was
+  gone before the writer ever saw it — and a panel cannot render a distinction its source never
+  recorded.
+- [[Entities/Firestore Rules]] — the draft/deployed gap stopped being abstract. A public demo URL
+  exists now; what protects it is the *absence of self-signup*, not the rules. The store hand-off
+  write rule is still drafted-not-deployed and still live for real agents.
+
+**The thing worth carrying:** every rollup month already written holds only `{ qty, revenue }`.
+Ship the split naively and history reports **zero receivable, 100% finished sales** — confidently,
+with no error anywhere. Old documents will answer a question they were never asked.
+
+**Open and unverified, flagged not guessed:** does a later `CONSIGNMENT_PAYMENT` also enter the
+rollup (`SALE_TYPES`, `salesRollup.js:42-46`)? If it does, Product Performance double-counts today
+and that is bigger than the split. The session ran out of budget before checking and refused to
+assume.
+
+**No skill-file edit this run.** The rollup trap is a strong candidate for
+`kpm-inventory-facts.md`, but it is a *trace*, not a verified fix — nothing has been built or
+proven yet. Recorded here and in the Summary instead; worth adding to the skill file the moment
+bug 2 actually ships.
