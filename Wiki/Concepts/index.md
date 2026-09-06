@@ -71,3 +71,4 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 - [[Sounds Come From Aldi]] — every sound in KPM is a file he picked. Three rounds have been lost to inventing one instead, the third *after* the first two were written down in the file that was open. Also the ffmpeg method that works, and why audibility can never be proven from here.
 
 - [[Ownership Moves, History Does Not]] — a store hand-off used to overwrite the seller on every past sale to move the debt. The rows keep their author now; ownership moved to the store record instead. Includes why the rewrite could not just be deleted.
+- [[Handoff Eligibility]] — who may receive a consignment store, who may approve it, and the branch-per-tier matrix behind both.

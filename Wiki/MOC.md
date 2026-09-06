@@ -121,6 +121,7 @@ Real things that went wrong (or nearly did), and what was learned.
 - [[Concepts/The Book as a Stack of Sheets]] — the Framer-model rebuild of the tutorial book, the arithmetic that put the chapters on the leaves, and the two width-specific faults a render caught.
 - [[Brainstorm/2026-09-02_phone-tutorial-shell]] — 🔴 OPEN: four candidate phone shells for the tutorial, drafted for him to operate. The PC half is decided — keep the book, drop the riffle.
 - [[Brainstorm/2026-09-06_handoff-approval-region-matrix]] — 🔴 OPEN: who gets the hand-off approval bell, and for which regions. Three options priced; the data shape and the default are decided, the replace-vs-add question is his. The SENDING half already shipped (`dace958`).
+- [[Concepts/Handoff Eligibility]] — who may receive a consignment store and who may approve the hand-off; the matrix key per branch, and why absence of a key must mean "tier default".
 - [[Concepts/A Named Import Can Shadow a Global]] — module scope beats the global object, and the failure is a blank screen rather than a red build.
 - [[Summaries/Stock Count Trust Chain]] — how a count becomes trustworthy: tolerance, recount, cause, leak detection. The one open decision is naming the five shortage causes.
 - [[Summaries/The Shorter List Was Never the Eligible One]] — a permission predicate and a too-long list looked like the same fix and were not, plus what a view filter must never be allowed to become.

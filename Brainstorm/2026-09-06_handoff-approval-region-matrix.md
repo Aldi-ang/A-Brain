@@ -1,8 +1,10 @@
 # Hand-off approval: who gets the bell, and for which regions
 
-**Status: DECIDED 2026-09-06 — OPTION B.** His answer, verbatim: *"both still get the bells of
-course"*. The configured tier is ADDED beside him, never replaces him; either can authorise. NOT
-yet built — see the build note at the bottom. Written 2026-09-06, before his answer, so the options survive a
+**Status: BUILT 2026-09-06 — OPTION B.** Shipped; the durable write-up is [[Handoff Eligibility]].
+This page is kept for the options and the paths rejected on purpose.
+
+**Was: DECIDED — OPTION B.** His answer, verbatim: *"both still get the bells of
+course"*. The configured tier is ADDED beside him, never replaces him; either can authorise. Built. Written 2026-09-06, before his answer, so the options survive a
 `/clear`. Related: [[Ownership Moves, History Does Not]], [[UI Says Yes, Server Says No Pattern]].
 
 ## The problem, in his words
