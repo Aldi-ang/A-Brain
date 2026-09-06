@@ -40,8 +40,9 @@ list keeps the Firebase handler, which is already registered — localhost, the 
 testing, and every auto-generated Vercel preview URL. Preview URLs can never be registered in
 advance, which is why a blanket "use `window.location.host` when deployed" rule was rejected.
 
-⚠️ **The pass-through is unproven until it is deployed.** The checks pin the configuration, not the
-round trip.
+**✅ Confirmed live, 2026-09-06 15:50.** `https://kpm-ang.vercel.app/__/auth/handler` returns 200 and
+its body is byte-identical to Firebase's own handler (same md5), and Aldi signed in on the live link
+with **Brave shields up**. The checks pin the configuration; this is the round trip.
 
 ## Three theories died on the way, and what killed each
 

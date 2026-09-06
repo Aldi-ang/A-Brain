@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-06)
 
 ## Corpus Check
-- 86 files · ~178,247 words
+- 87 files · ~178,754 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 958 nodes · 1212 edges · 93 communities (87 shown, 6 thin omitted)
+- 964 nodes · 1222 edges · 99 communities (93 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a7c07d7a`
+- Built from commit: `ad55d32c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,7 +19,6 @@
 - Operation Log
 - Lancelot the Tobacco Ledger Agent
 - KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
-- Concepts/index.md
 - 3.2 How XP works, and why it can never decay again
 - The KPM Control System
 - Anti-Recurrence Check
@@ -67,9 +66,12 @@
 - The Admin Agent Profile Id
 - Tier System
 - Design Inspiration Sources
+- The cross-site login block
 - Summary: Option B Region Lock
 - The Shell Repaints Any White It Can Reach
 - Summary: Rules Draft Process
+- Wiki/Concepts
+- Headquarters Is Not a Cabang
 - Wiki/Concepts
 - Store Hand-off Name Collision
 - Wiki/Entities
@@ -80,6 +82,7 @@
 - A Rect Is Painted, Not Laid Out
 - A Smooth Scroll That Never Runs
 - A Check Points at a File, Not at a Behaviour
+- The Named Path Was Already Shut
 - Entities/index.md
 - The Book as a Stack of Sheets
 - 2026-08-27 — the tutorial's four answers, and how a panel got its English name
@@ -101,6 +104,8 @@
 - One Pack Count, Many Screens
 - A Meter That Exits Silently Is Not a Meter
 - Summary: Ponytail Philosophy Ingest
+- Summary: KPM Project Facts Reference
+- Wiki/Summaries
 - The Camera Was Aimed at the Wrong Scroller
 - Sounds Come From Aldi
 - Wiki Index
@@ -123,7 +128,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (93 total, 6 thin omitted)
+## Communities (99 total, 6 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.04
@@ -140,10 +145,6 @@ Nodes (41): A trap already in the data, Consequences — the build list, in orde
 ### Community 3 - "KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics"
 Cohesion: 0.04
 Nodes (45): 1. The thing you need to know first, 2. What's already good, 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated (+37 more)
-
-### Community 4 - "Concepts/index.md"
-Cohesion: 0.11
-Nodes (14): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang, It has now bitten twice, in two different shapes, The trap underneath both, Still open, found while here, The Named Path Was Already Shut, The rule this leaves behind, Where the money actually leaked (+6 more)
 
 ### Community 5 - "3.2 How XP works, and why it can never decay again"
 Cohesion: 0.09
@@ -246,7 +247,7 @@ Cohesion: 0.29
 Nodes (6): confidence / checked frontmatter, Maintenance, The case that proved it was needed, What NOT to retrofit, Why this exists, Wiki Conventions
 
 ### Community 30 - "Sale Is Final — no refund, no credit"
-Cohesion: 0.29
+Cohesion: 0.33
 Nodes (6): Sale Is Final — no refund, no credit, The consequence nobody should forget, What survives, and why, What the rule is, What this kills, Why this is recorded
 
 ### Community 31 - "Secure Context Requirement"
@@ -282,15 +283,15 @@ Cohesion: 0.40
 Nodes (4): Ripple — pages this touches, Summary: Lost Work in Worktrees — Three Incidents, The pattern across all three, The three incidents
 
 ### Community 39 - "Summary: Fleet Captain Rule Gaps — Batch 1 and 2"
-Cohesion: 0.33
-Nodes (6): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, Ripple — pages this touches, Summary: Fleet Captain Rule Gaps — Batch 1 and 2, The gap this project almost repeated
+Cohesion: 0.15
+Nodes (11): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, Ripple — pages this touches, Summary: Fleet Captain Rule Gaps — Batch 1 and 2, The gap this project almost repeated, Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches (+3 more)
 
 ### Community 40 - "Summary: Offline Login Lockout Fix"
 Cohesion: 0.33
 Nodes (5): Ripple — pages this touches, Summary: Offline Login Lockout Fix, The bug, The fix, Why this belongs in the wiki
 
 ### Community 41 - "Summary: Rank Config Cross-Tenant Gap"
-Cohesion: 0.40
+Cohesion: 0.33
 Nodes (5): Framing note, Ripple — pages this touches, Summary: Rank Config Cross-Tenant Gap, The gap, Two layers, two different fixes
 
 ### Community 42 - "Six Days — Gate, Phone Access, Quota Meter"
@@ -302,7 +303,7 @@ Cohesion: 0.50
 Nodes (4): 1. He judges a surface by how it feels after an hour, not in a screenshot, 2. Navigation labels are words, not codes, 3. Depth is confirmed, and quiet is why, Backlight out, full words in, and the lowkey 3D stays (2026-09-02)
 
 ### Community 44 - "Draft-Then-Deploy Discipline"
-Cohesion: 0.40
+Cohesion: 0.29
 Nodes (5): Draft-Then-Deploy Discipline, Related, Related process: the deploy checklist, The "document, don't silently half-fix" convention, Why
 
 ### Community 45 - "Off-Token Colour Migration Map"
@@ -333,9 +334,13 @@ Nodes (3): 🔴 AMBER IS AN EDGE AND AN INK. IT IS NOT A FILL. (2026-08-21), He 
 Cohesion: 0.40
 Nodes (5): 21st.dev is not a browsing job, Design Inspiration Sources, Four house rules before anything lands in KPM, Licensing, one line, The five
 
-### Community 53 - "Summary: Option B Region Lock"
+### Community 52 - "The cross-site login block"
 Cohesion: 0.40
-Nodes (5): Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches, Summary: Option B Region Lock, The blocking question, resolved, What it fixed
+Nodes (5): The cause, The cross-site login block, The fix, Three theories died on the way, and what killed each, Two symptoms, one root
+
+### Community 53 - "Summary: Option B Region Lock"
+Cohesion: 0.50
+Nodes (4): A Named Import Can Shadow a Global, The fix, and the rule, What happened, What it cost, and what did NOT catch it
 
 ### Community 54 - "The Shell Repaints Any White It Can Reach"
 Cohesion: 0.40
@@ -346,8 +351,16 @@ Cohesion: 0.40
 Nodes (4): Ripple — pages this touches, Summary: Rules Draft Process, The documentation convention, What it establishes
 
 ### Community 56 - "Wiki/Concepts"
-Cohesion: 0.14
-Nodes (12): A Feature Is Not Done Until the Book Knows, And one thing only a rendered frame catches, The rule, split, Two mechanical traps the first one hit, A Named Import Can Shadow a Global, The fix, and the rule, What happened, What it cost, and what did NOT catch it (+4 more)
+Cohesion: 0.50
+Nodes (4): A Feature Is Not Done Until the Book Knows, And one thing only a rendered frame catches, The rule, split, Two mechanical traps the first one hit
+
+### Community 57 - "Headquarters Is Not a Cabang"
+Cohesion: 0.50
+Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang, It has now bitten twice, in two different shapes, The trap underneath both
+
+### Community 58 - "Wiki/Concepts"
+Cohesion: 0.50
+Nodes (4): Adding a new concept, Pages here, Why these matter beyond KPM, Wiki/Concepts
 
 ### Community 59 - "Store Hand-off Name Collision"
 Cohesion: 0.50
@@ -372,6 +385,10 @@ Nodes (8): A Smooth Scroll That Never Runs, The lesson worth keeping, The second
 ### Community 67 - "A Check Points at a File, Not at a Behaviour"
 Cohesion: 0.29
 Nodes (7): A Check Points at a File, Not at a Behaviour, And a third shape: a mangled pattern that cannot fail, The recurrence — this is the second time, The sibling failure: a check that pins an exact LITERAL, What happened, 2026-08-30, What to do instead, Why nobody noticed — the part worth fixing
+
+### Community 68 - "The Named Path Was Already Shut"
+Cohesion: 0.50
+Nodes (4): Still open, found while here, The Named Path Was Already Shut, The rule this leaves behind, Where the money actually leaked
 
 ### Community 69 - "Entities/index.md"
 Cohesion: 0.29
@@ -445,6 +462,14 @@ Nodes (7): A Meter That Exits Silently Is Not a Meter, Resolution — 2026-08-31
 Cohesion: 0.40
 Nodes (4): Ripple — pages this touches, Summary: Ponytail Philosophy Ingest, Where it went, Why this was ingested
 
+### Community 91 - "Summary: KPM Project Facts Reference"
+Cohesion: 0.50
+Nodes (3): Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes
+
+### Community 92 - "Wiki/Summaries"
+Cohesion: 0.67
+Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
+
 ### Community 93 - "The Camera Was Aimed at the Wrong Scroller"
 Cohesion: 0.29
 Nodes (7): The camera already existed, and was aimed wrong twice, The Camera Was Aimed at the Wrong Scroller, The decision that came first, The fix, The trap worth carrying, Two smaller things in the same block, Verification — beat by beat, not by eye
@@ -470,7 +495,7 @@ Cohesion: 0.20
 Nodes (10): Aldi's scope answer, 2026-09-05 — locked, And the bell is not a footnote — his correction, 2026-09-05, Ownership Moves, History Does Not, Settled — the arrow reads sender first, The first live test, 2026-09-05 — the debt arrives, the button does not, The problem, The shape that was built (39cd90d), The two traps a lazy build walks into (+2 more)
 
 ## Knowledge Gaps
-- **741 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+736 more)
+- **745 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+740 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -478,13 +503,13 @@ Nodes (10): Aldi's scope answer, 2026-09-05 — locked, And the bell is not a fo
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.173) - this node is a cross-community bridge._
+  _High betweenness centrality (0.172) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
   _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
   _High betweenness centrality (0.071) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _741 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _745 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.03571428571428571 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

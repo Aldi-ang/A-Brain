@@ -593,8 +593,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "a named import can shadow a global"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_happened",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "what happened"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "what it cost, and what did not catch it"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "the fix, and the rule"
     },
     {
@@ -2694,8 +2694,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "draft-then-deploy discipline.md"
     },
     {
@@ -3145,8 +3145,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_headquarters_is_not_a_cabang_headquarters_is_not_a_cabang",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 57,
+      "community_name": "Headquarters Is Not a Cabang",
       "norm_label": "headquarters is not a cabang"
     },
     {
@@ -3156,8 +3156,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "concepts_headquarters_is_not_a_cabang_it_has_now_bitten_twice_in_two_different_shapes",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 57,
+      "community_name": "Headquarters Is Not a Cabang",
       "norm_label": "it has now bitten twice, in two different shapes"
     },
     {
@@ -3167,8 +3167,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "concepts_headquarters_is_not_a_cabang_the_trap_underneath_both",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 57,
+      "community_name": "Headquarters Is Not a Cabang",
       "norm_label": "the trap underneath both"
     },
     {
@@ -3178,8 +3178,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "concepts_headquarters_is_not_a_cabang_and_the_wrong_fix_that_was_nearly_taken",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 57,
+      "community_name": "Headquarters Is Not a Cabang",
       "norm_label": "and the wrong fix that was nearly taken"
     },
     {
@@ -4696,8 +4696,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_sale_is_final_no_refund_no_credit",
-      "community": 30,
-      "community_name": "Sale Is Final \u2014 no refund, no credit",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "sale is final - no refund, no credit.md"
     },
     {
@@ -5328,6 +5328,72 @@
       "norm_label": "\ud83d\udd34 still open \u2014 the phone's closed pose"
     },
     {
+      "label": "The Cross-Site Login Block.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_the_cross_site_login_block",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "the cross-site login block.md"
+    },
+    {
+      "label": "The cross-site login block",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "concepts_the_cross_site_login_block_the_cross_site_login_block",
+      "community": 52,
+      "community_name": "The cross-site login block",
+      "norm_label": "the cross-site login block"
+    },
+    {
+      "label": "The cause",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "concepts_the_cross_site_login_block_the_cause",
+      "community": 52,
+      "community_name": "The cross-site login block",
+      "norm_label": "the cause"
+    },
+    {
+      "label": "Two symptoms, one root",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "concepts_the_cross_site_login_block_two_symptoms_one_root",
+      "community": 52,
+      "community_name": "The cross-site login block",
+      "norm_label": "two symptoms, one root"
+    },
+    {
+      "label": "The fix",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "concepts_the_cross_site_login_block_the_fix",
+      "community": 52,
+      "community_name": "The cross-site login block",
+      "norm_label": "the fix"
+    },
+    {
+      "label": "Three theories died on the way, and what killed each",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "concepts_the_cross_site_login_block_three_theories_died_on_the_way_and_what_killed_each",
+      "community": 52,
+      "community_name": "The cross-site login block",
+      "norm_label": "three theories died on the way, and what killed each"
+    },
+    {
       "label": "The Eight Warehouse Gaps.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Eight Warehouse Gaps.md",
@@ -5664,8 +5730,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_the_named_path_was_already_shut_the_named_path_was_already_shut",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 68,
+      "community_name": "The Named Path Was Already Shut",
       "norm_label": "the named path was already shut"
     },
     {
@@ -5675,8 +5741,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "concepts_the_named_path_was_already_shut_where_the_money_actually_leaked",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 68,
+      "community_name": "The Named Path Was Already Shut",
       "norm_label": "where the money actually leaked"
     },
     {
@@ -5686,8 +5752,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_the_named_path_was_already_shut_the_rule_this_leaves_behind",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 68,
+      "community_name": "The Named Path Was Already Shut",
       "norm_label": "the rule this leaves behind"
     },
     {
@@ -5697,8 +5763,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_the_named_path_was_already_shut_still_open_found_while_here",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 68,
+      "community_name": "The Named Path Was Already Shut",
       "norm_label": "still open, found while here"
     },
     {
@@ -6159,7 +6225,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "concepts_index_wiki_concepts",
-      "community": 56,
+      "community": 58,
       "community_name": "Wiki/Concepts",
       "norm_label": "wiki/concepts"
     },
@@ -6170,7 +6236,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_index_pages_here",
-      "community": 56,
+      "community": 58,
       "community_name": "Wiki/Concepts",
       "norm_label": "pages here"
     },
@@ -6181,7 +6247,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "concepts_index_why_these_matter_beyond_kpm",
-      "community": 56,
+      "community": 58,
       "community_name": "Wiki/Concepts",
       "norm_label": "why these matter beyond kpm"
     },
@@ -6192,7 +6258,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "concepts_index_adding_a_new_concept",
-      "community": 56,
+      "community": 58,
       "community_name": "Wiki/Concepts",
       "norm_label": "adding a new concept"
     },
@@ -7333,7 +7399,7 @@
       "label": "Known gaps (honest, not filled in yet)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L133",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
       "community": 95,
@@ -8315,8 +8381,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -8392,8 +8458,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -8469,8 +8535,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 91,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -8480,8 +8546,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 91,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -8491,8 +8557,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 91,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "what it establishes"
     },
     {
@@ -8502,8 +8568,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 91,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -8733,8 +8799,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "option b region lock.md"
     },
     {
@@ -8744,8 +8810,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_summary_option_b_region_lock",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "summary: option b region lock"
     },
     {
@@ -8755,8 +8821,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_what_it_fixed",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "what it fixed"
     },
     {
@@ -8766,8 +8832,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_the_blocking_question_resolved",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "the blocking question, resolved"
     },
     {
@@ -8777,8 +8843,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_extended_to_fleet_captain_and_a_real_stale_memory_lesson",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "extended to fleet captain \u2014 and a real \"stale memory\" lesson"
     },
     {
@@ -8788,8 +8854,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_ripple_pages_this_touches",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -8854,8 +8920,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 41,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -10438,8 +10504,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_index_wiki_summaries",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 92,
+      "community_name": "Wiki/Summaries",
       "norm_label": "wiki/summaries"
     },
     {
@@ -10449,8 +10515,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "summaries_index_pages_here",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 92,
+      "community_name": "Wiki/Summaries",
       "norm_label": "pages here"
     },
     {
@@ -10460,8 +10526,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 92,
+      "community_name": "Wiki/Summaries",
       "norm_label": "adding a new summary"
     },
     {
@@ -11548,7 +11614,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L129",
+      "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -11559,7 +11625,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L125",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -16266,6 +16332,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_cross_site_login_block",
+      "target": "concepts_looking_at_the_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
       "source_location": "L42",
       "weight": 1.0,
@@ -17377,6 +17454,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_cross_site_login_block",
+      "target": "concepts_secure_context_requirement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Rule That Never Applied.md",
       "source_location": "L43",
       "weight": 1.0,
@@ -18043,6 +18131,94 @@
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets_the_close_done_as_a_fold_and_why_he_could_not_close_it_at_all_2026_09_02",
       "target": "concepts_the_book_as_a_stack_of_sheets_two_harness_notes_both_paid_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_index",
+      "target": "concepts_the_cross_site_login_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_cross_site_login_block",
+      "target": "concepts_the_cross_site_login_block_the_cross_site_login_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Index.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "concepts_the_cross_site_login_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/MOC.md",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "moc",
+      "target": "concepts_the_cross_site_login_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_cross_site_login_block_the_cross_site_login_block",
+      "target": "concepts_the_cross_site_login_block_the_cause",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_cross_site_login_block_the_cross_site_login_block",
+      "target": "concepts_the_cross_site_login_block_the_fix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_cross_site_login_block_the_cross_site_login_block",
+      "target": "concepts_the_cross_site_login_block_three_theories_died_on_the_way_and_what_killed_each",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_cross_site_login_block_the_cross_site_login_block",
+      "target": "concepts_the_cross_site_login_block_two_symptoms_one_root",
       "confidence_score": 1.0
     },
     {
@@ -20513,7 +20689,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L131",
+      "source_location": "L132",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -20524,7 +20700,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L130",
+      "source_location": "L131",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -20557,7 +20733,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L133",
+      "source_location": "L134",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -21404,7 +21580,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L126",
+      "source_location": "L127",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -21426,7 +21602,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L128",
+      "source_location": "L129",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -21437,7 +21613,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L127",
+      "source_location": "L128",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -23877,5 +24053,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a7c07d7ae4a2a9adaf6ffe5b2ca9acade33e2d34"
+  "built_at_commit": "ad55d32cd277f02e177b40b121195667754acc8f"
 }
