@@ -124,6 +124,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Summaries/The Camera Was Aimed at the Wrong Scroller]] — the Ponder camera used `block:'nearest'` on the first match and moved the stage, not the table's own scroller: perfect vertically, 0% horizontally in view on five of fourteen phone beats.
 - [[Concepts/The Book as a Stack of Sheets]] — the tutorial book rebuilt on the Framer interactive-book model: the sheet technique, why the chapters had to become the leaves, and the drag that never goes through React state.
 - [[Brainstorm/2026-09-02_phone-tutorial-shell]] — 🔴 OPEN: four candidate phone shells for the tutorial, drafted for him to operate. The PC half is decided — keep the book, drop the riffle.
+- [[Brainstorm/2026-09-06_handoff-approval-region-matrix]] — 🔴 OPEN: who gets the hand-off approval bell, and for which regions. Three options priced; the data shape and the default are decided, the replace-vs-add question is his. The SENDING half already shipped (`dace958`).
 - [[Concepts/A Named Import Can Shadow a Global]] — an imported icon called `Map` beat the global; `new Map()` threw and the book went black with every check green.
 - [[Summaries/The Panel That Never Reads a Transaction]] — unpaid consignment shown as revenue: the panel reads a rollup that merged receivable and paid before the writer ever saw them, so the fix is five files upstream. Traced 2026-09-05, not built. Same day: the `kpm-ang.vercel.app` demo, and the no-self-signup check that made a public URL safe.
 
