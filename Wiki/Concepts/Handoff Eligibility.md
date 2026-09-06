@@ -45,21 +45,53 @@ agents both missing one are not "the same branch", they are both unplaced.
 
 ## Half two — who may approve
 
-`canApproveHandoffFrom(userRole, approverRegion, storeRegion)`.
+`canApproveHandoffFrom(profile, storeRegion, roster)`. It takes a PERSON, not a tier.
 
-- Tier 1 always, whatever else is configured. **Option B: he can never be locked out or lose a bell.**
-- Configured: the tier's `handoff_region:<BRANCH>` entries must contain the store's branch.
-  `approverRegion` is ignored here — the branch comes from the config, not from where the approver
-  personally sits. That is his "power to choose 1,2,3,4 or whatever regional number".
-- Default (nothing configured anywhere): T4 REGIONAL ADMIN standing in that same branch.
+- **Tier 1 always**, whatever anybody is named for. Option B: he can never be locked out or lose a
+  bell.
+- **Named**: the person's `approvalRegions` array must contain the store's branch. Where that person
+  personally stands is irrelevant — an agent in Surabaya can answer for Bandung.
+- **Not named**: the branch falls to its own T4 REGIONAL ADMIN — *unless somebody has been named for
+  that branch*, in which case the default is displaced. See below.
 
-**The branch of a hand-off is the RECEIVING agent's.** `handoffEligibility` guarantees a receiver
-has a real branch; the sender may be an admin with none. And the question being approved is whether
-that branch may take this store.
+`approvalRegions` lives on the employee record and is edited in **Fleet & Canvas → add/edit
+personnel → Hand-off approval branches**, beside allowed payments and allowed price tiers.
 
-`handoffApprovers(roster, storeRegion, excludeIds)` returns who else to ring. It leaves out every
-Tier 1 (the `agentId: 'ADMIN'` notification already reaches them, and a Tier 1 matches every region
-rule — this is what stops Aldi being told twice), the receiver, and the sender.
+### ⚠️ It was built on the TIER first, and that was wrong
+
+For about an hour on 2026-09-06 this was a row per branch in the **permission matrix**, keyed by
+tier. Aldi killed it on sight:
+
+> "there is so flaw in the matrix system if u build it that way, i want the approval power to be
+> given on specific person inside the fleet and canvas manager, because if u put it on each tier
+> like this then, all the regional admin if tick, will see every single approval for every regional
+> location as well, where i only want this 1 account to have the power for approval in bandung only"
+
+He was right. Ticking BANDUNG against T4 handed Bandung to **every T4 in the company** — the control
+built to stop the approval flood caused it. The permission matrix answers *what may this RANK do*;
+*which branches does THIS PERSON answer for* was never a rank question. A self-check now asserts the
+matrix carries no per-branch rows, so this cannot come back quietly.
+
+### A grant displaces the default, for that branch only
+
+His sentence carried "only" at both ends — one account, one branch. So naming anybody for BANDUNG
+takes Bandung off Bandung's regional admin; Jakarta is untouched and still falls to its own.
+
+That is also the whole revocation story. He grants, and the grant displaces, which is why there is
+no separate "remove approval" switch.
+
+### `null`, never `[]`
+
+Absent or `null` means *not named* and the default applies. An empty array means *named for no
+branches at all*. If the Fleet form wrote `[]` on every save, editing somebody's phone number would
+silently strip a regional admin's default. Both the create and the edit path write `null` when
+nothing is ticked, and a check asserts both paths.
+
+### The bell
+
+`handoffApprovers(roster, storeRegion, excludeIds)` returns who else to ring beside the owner. It
+leaves out every Tier 1 (the `agentId: 'ADMIN'` notification already reaches them, and a Tier 1
+matches every rule — this is what stops Aldi being told twice), the receiver, and the sender.
 
 ## What Option B cost, and where it is paid
 
@@ -74,10 +106,12 @@ Two people hold the Authorize button now, so:
 
 ## The absence-means-tier-default shape — do not "fix" it
 
-Both keys read a MISSING key as "use the tier default", never as "no". `injectDynamicPermissions`
+(This governs `handoff_cross_region`, the SENDING key. Approval no longer uses the matrix at all.)
+
+The key reads a MISSING key as "use the tier default", never as "no". `injectDynamicPermissions`
 replaces a saved tier's list wholesale, so a brand-new key is simply absent from the matrix Aldi
 already deployed to Firebase. Read as a plain missing permission it means "no", and the feature
-looks broken for every tier at once while the code is right. Six keys in that file now do this.
+looks broken for every tier at once while the code is right. Five keys in that file do this.
 
 The moment the key appears anywhere in his saved matrix, his switch wins in **both** directions —
 including taking the default away from T4.
@@ -85,9 +119,9 @@ including taking the default away from T4.
 ## ⚠️ The branch list is DATA
 
 `ConsignmentFinanceView.jsx:29-32` derives branches from the motorists' `location`, upper-cased and
-trimmed. The Settings matrix enumerates the live branches **unioned with the ones already saved** —
-without that union, a branch he granted vanishes from the screen the day its last agent moves away,
-while the permission stays live in Firebase with no way to take it back.
+trimmed. The Fleet & Canvas control enumerates the live branches **unioned with the ones already
+granted to somebody** — without that union, a branch he granted vanishes from the control the day
+its last agent moves away, while the grant stays live in the database with no way to take it back.
 
 A hardcoded branch list looks right on the day it is written and rots silently.
 
@@ -99,8 +133,9 @@ off by default, or their cross-branch right would be live at the write and unrea
 
 ## Live behaviour change on first deploy
 
-With nothing configured, T4 REGIONAL ADMINs begin receiving approval bells and can authorise. That
-is his stated default, not a side effect — but it happens without him opening Settings.
+With nobody named, T4 REGIONAL ADMINs begin receiving approval bells for their own branch and can
+authorise them. That is his stated default, not a side effect — but it happens without him opening
+Fleet & Canvas.
 
 Related: [[Ownership Moves, History Does Not]] · [[Fleet Captain Permission Gap]] ·
 [[Brainstorm/2026-09-06_handoff-approval-region-matrix]]

@@ -2122,3 +2122,32 @@ something other than the default exists. Tiers 1-3 may hand a store across branc
 and unreachable on screen. See [[UI Says Yes, Server Says No Pattern]] for the inverse fault.
 
 Related: [[Handoff Eligibility]] · the reversal is commit `dace958` -> the one after it.
+
+## Twice in one day, he reversed a control for being built at the wrong GRANULARITY (2026-09-06)
+
+Two reversals, hours apart, and underneath they are the same mistake.
+
+**One — the hand-off picker.** He reported a name missing from a list. It shipped as a greyed-out row
+explaining the missing name. His answer: *"i dont want the list to be greyed out, but just hide
+personnel that is not on regional team on default, so that there will be less personel list when the
+dropdown is opened"*. The complaint was never *why is this name missing*, it was *why is this list so
+long*. The answer was built one level too small.
+
+**Two — the approval control.** He asked for approval power to be configurable "in the matrix". It
+shipped as a branch row per TIER. His answer: *"there is so flaw in the matrix system if u build it
+that way ... if u put it on each tier like this then, all the regional admin if tick, will see every
+single approval for every regional location as well, where i only want this 1 account to have the
+power for approval in bandung only"*. The answer was built one level too big.
+
+⚠️ **The check that would have caught both, and takes one minute: name the exact set of people or
+rows the control produces, on his real company, and read it back against his sentence.** For the
+picker that is "every agent in the company, because he is Tier 1 and everyone is eligible for him" —
+which visibly fails "less personel list". For the matrix that is "every T4 everywhere" — which
+visibly fails "this 1 account ... in bandung only". Neither needed him to look at a screen.
+
+**He also says the word.** "less personel list" was in the sentence before the greyed row was
+proposed. "this 1 account" was in the sentence that killed the tier matrix. When he names a
+quantity — one account, a shorter list, four regions not two — that quantity IS the specification,
+and a design that cannot produce exactly it is the wrong design however reasonable it reads.
+
+Related: [[Handoff Eligibility]] · [[Anti-Recurrence Check]]
