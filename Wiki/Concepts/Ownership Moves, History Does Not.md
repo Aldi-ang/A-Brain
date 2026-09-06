@@ -1,7 +1,7 @@
 ---
 type: concept
 confidence: high
-checked: 2026-09-05
+checked: 2026-09-06
 ---
 
 # Ownership Moves, History Does Not
@@ -143,3 +143,17 @@ and something upstream hides it. Prime candidate is `BiohazardTheme.jsx:941` —
 absolutely-positioned dropdown and traps its `z-[9999]` inside a `z-10` stacking context. Unproven:
 nothing was rendered, so this stays a candidate, not a cause. The comment at `:1032` shows a
 previous session already fought a stacking bug on this exact bell and removed a decoy `z-[9999]`.
+
+## Who may receive it at all (2026-09-06)
+
+Ownership moving cleanly says nothing about *whom* it may move to. That half shipped separately as
+`handoffEligibility` — one predicate in `src/config/permissions.js`, enforced in the picker and at
+the write, refusing an off-roster agent, an owner account, the current owner, an unplaced agent at
+either end, and a cross-branch hand-off by anyone below tier 3. Aldi's rule, 2026-09-05:
+*"consignment should only be transferred between regional team member only, and only tier 1,2,3 is
+the one who can transfer consignment between regional area personnel."*
+
+The **approving** half is still unbuilt. Aldi chose Option B on 2026-09-06: a tier delegated
+approval power over a region is *added* beside him, never replacing him. See
+[[../Summaries/The Shorter List Was Never the Eligible One]] and
+[[../../Brainstorm/2026-09-06_handoff-approval-region-matrix]].

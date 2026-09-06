@@ -16,6 +16,11 @@ edited after creation** except for display-only frontmatter (title/description/t
 
 ## Files here (as of 2026-07-27)
 
+- `2026-09-06_source_kpm-handoff-eligibility-and-demo-blockers.md` — commits `dace958` → `dd5639a`:
+  `handoffEligibility` shipped as one predicate guarding the picker and the write, the next-morning
+  reversal from greying out to hiding, and the `curl` that found Vercel Deployment Protection
+  bouncing every demo visitor. Behind
+  [[../Wiki/Summaries/The Shorter List Was Never the Eligible One]].
 - `2026-09-05_source_kpm-rollup-scope-and-vercel-demo.md` — commits `610f02c` → `2906294`: the
   Product Performance trace that found the consignment/paid merge happens in the rollup writer,
   the branch pushed for a `kpm-ang.vercel.app` demo and the no-self-signup check that made it

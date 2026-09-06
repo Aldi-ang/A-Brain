@@ -2270,6 +2270,17 @@
       "norm_label": "he judges a tutorial by what it shows, not by what it says (2026-09-04)"
     },
     {
+      "label": "A shorter list beats a self-explaining one (2026-09-06)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2092",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_a_shorter_list_beats_a_self_explaining_one_2026_09_06",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "a shorter list beats a self-explaining one (2026-09-06)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -7072,8 +7083,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "index_wiki_index",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 95,
+      "community_name": "Wiki Index",
       "norm_label": "wiki index"
     },
     {
@@ -7083,8 +7094,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "index_entities_specific_things",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 95,
+      "community_name": "Wiki Index",
       "norm_label": "entities (specific things)"
     },
     {
@@ -7094,8 +7105,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "index_concepts_recurring_patterns",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 95,
+      "community_name": "Wiki Index",
       "norm_label": "concepts (recurring patterns)"
     },
     {
@@ -7105,8 +7116,8 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 95,
+      "community_name": "Wiki Index",
       "norm_label": "summaries (one per ingested source, newest ingest pass first)"
     },
     {
@@ -7116,8 +7127,8 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 95,
+      "community_name": "Wiki Index",
       "norm_label": "known gaps (honest, not filled in yet)"
     },
     {
@@ -8084,8 +8095,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -8876,8 +8887,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -12675,6 +12686,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_a_screen_can_be_exempt_from_the_theme_entirely_2026_08_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2092",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_a_shorter_list_beats_a_self_explaining_one_2026_09_06",
       "confidence_score": 1.0
     },
     {
@@ -23008,5 +23030,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "54d4a3313d8c38f75dc197175c781b8896fb317f"
+  "built_at_commit": "ba42702c57e7ce38831eefb094166e5b894b32c7"
 }

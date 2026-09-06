@@ -3,9 +3,9 @@ title: Firestore Rules
 description: The server-side rule file that actually decides who can read or write what — separate from whatever the UI shows.
 type: entity
 created: 2026-07-27
-updated: 2026-09-05
+updated: 2026-09-06
 confidence: medium
-checked: 2026-09-05
+checked: 2026-09-06
 tags: [firestore, security, rules]
 ---
 
@@ -154,6 +154,22 @@ The Firebase web config at `src/config/firebase.js:8` is committed, which is nor
 key is not a secret. But it does mean these rules are the *whole* of the boundary, so a drafted
 rule is an open door rather than a pending chore. Source:
 [[../Summaries/The Panel That Never Reads a Transaction]].
+
+## The demo was not exposed — it was unreachable (2026-09-06)
+
+The 2026-09-05 entry above reasoned about what protects the public demo. A `curl` the next morning
+showed the question was moot in a way nobody had checked: **`kpm-ang.vercel.app` answers 302 to
+`vercel.com/sso-api`.** Vercel *Deployment Protection* was bouncing every visitor not signed into
+Aldi's Vercel team — which is also why his friends saw nothing.
+
+The 2026-09-05 claim still stands as written (no self-signup, so no stranger can obtain an
+account); this only adds that a second, earlier gate was closed the whole time. Both are settings
+in Aldi's dashboards, neither is code, and both are his to flip. **When he flips them, the
+absence-of-signup argument becomes the only protection again — and the store hand-off write rule
+is still drafted, not deployed.** A related discovery from the same commit: no demo account was
+ever needed, because Fleet & Canvas already requires a Google account email when adding personnel
+and `App.jsx` reads that `employee_directory` doc on login. Source:
+[[../Summaries/The Shorter List Was Never the Eligible One]].
 
 ## Verify before trusting
 

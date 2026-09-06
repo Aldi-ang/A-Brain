@@ -3,9 +3,9 @@ title: UI-Says-Yes-Server-Says-No Pattern
 description: The bug shape where a button works fine in the UI but silently fails at the database layer.
 type: concept
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-09-06
 confidence: high
-checked: 2026-07-27
+checked: 2026-09-06
 tags: [pattern, permissions, bug-class]
 ---
 
@@ -30,6 +30,24 @@ A feature can look fully built and simply not work for the exact users it was bu
 the same specific cause: `isAreaAdmin()` checking only the literal `'AREA_ADMIN'` string
 while the UI (correctly) also shows the same controls to a delegated `FLEET_CAPTAIN`.
 
+## The version where the server check did not exist at all (2026-09-06)
+
+`handleRequestTransfer` in `App.jsx` created the `account_transfers` document with **no
+eligibility check of any kind** — not an incomplete one, an absent one. A field agent could hand a
+store to somebody on the other side of the company. The picker was the only thing standing between
+the app and that write, and a picker is not a boundary.
+
+The fix is the shape to copy: **one predicate, `handoffEligibility` in `src/config/permissions.js`,
+called in both places.** Not a duplicated condition in two files that can drift — one exported
+function, one truth, refused at the picker for the human and at the write for everything else. The
+commit named this pattern by name as the reason.
+
+A follow-on from the same day sharpens the rule further: when the picker was later reversed to
+*hide* other branches instead of greying them out, the checkbox that reveals them widens the
+**view** and never the permission. A Tier 5 who ticks nothing and a Tier 5 who could tick it both
+still cannot cross, because the predicate decides. Source:
+[[../Summaries/The Shorter List Was Never the Eligible One]].
+
 ## The general lesson
 
 Whenever a UI shows a control gated on tier/role/permission, the matching server-side rule
@@ -41,4 +59,5 @@ already cover it because the function name sounds right.
 - [[Fleet Captain Permission Gap]]
 - [[Firestore Rules]]
 - [[Tier System]]
-- Summaries: [[Fleet Captain Rule Gaps — Batch 1 and 2]], [[Rank Config Cross-Tenant Gap]]
+- Summaries: [[Fleet Captain Rule Gaps — Batch 1 and 2]], [[Rank Config Cross-Tenant Gap]],
+  [[The Shorter List Was Never the Eligible One]]

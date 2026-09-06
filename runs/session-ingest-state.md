@@ -3,7 +3,7 @@ title: "Session Ingest State"
 description: Tracking file for the a-brain-session-ingest scheduled task — which sessions/Inbox items have already been processed.
 type: state
 created: 2026-07-27
-updated: 2026-09-05
+updated: 2026-09-06
 tags: [runs, state]
 ---
 
@@ -47,3 +47,6 @@ not hand-edit unless correcting a mistake the task made.
 | local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-09-05 | **Partially ingested (seventh pass).** Its 2026-09-03 23:38 -> 2026-09-05 09:10 work was self-ingested as it went (vault `ea4ad74` -> `c5648ad`, each landing within a minute of its KPM counterpart). The gap was the **2026-09-05 09:13 -> 09:52 WIB** block (`610f02c`, `c739608`, `0b947f8`, `2906294`) - the last vault commit of the day is `c5648ad` at 09:10:30, so these four had no coverage. Captured as [[../Wiki/Summaries/The Panel That Never Reads a Transaction]]. Verified by git log on both repos, not re-read from transcripts |
 | _(2026-09-04 sound/ponder/backlog work)_ | - | 2026-09-05 | Verified covered, not re-read. Vault commits `038bd95` -> `ed080f9` pair with the KPM commits of 2026-09-04 (rail key from Aldi's own recording, one-palette field terminal, the ponder sweeps, the four Backlog candidates) |
 | _(2026-09-04 -> 2026-09-05 curator + ingest sessions)_ | Vault gap curator / A brain session ingest | 2026-09-05 | Skipped - this task's own runs and the vault-maintenance sessions |
+| local_d1c49093-4d21-47d3-aab4-f2f2295255e9 | CROWN PLAN PHASE 4 PART 9 | 2026-09-06 | **Partially ingested (eighth pass).** The 2026-09-06 morning (`dace958` -> `dd5639a`, 07:22 -> 08:02 WIB) was only *half* self-ingested: vault `54d4a33` and `ba42702` captured the approval brainstorm and the picker reversal as a taste entry, but nothing in `Wiki/` held the engineering — the `handoffEligibility` predicate, the new matrix key, or the `curl` in `952b0ca` (08:02:34, after the last vault commit of 08:00:41). Captured as [[../Wiki/Summaries/The Shorter List Was Never the Eligible One]] |
+| _(2026-09-05 evening -> 2026-09-06 07:27)_ | - | 2026-09-06 | Verified covered, not re-read. Vault `4623062` is this task's own 2026-09-05 run; `54d4a33` (07:25) carries the approval-matrix brainstorm with the three options and the rejected paths |
+| _(2026-09-05 -> 2026-09-06 curator + ingest sessions)_ | Vault gap curator / A brain session ingest | 2026-09-06 | Skipped - this task's own runs and the vault-maintenance sessions; their writes ARE the vault |

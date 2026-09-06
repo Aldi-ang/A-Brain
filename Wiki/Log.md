@@ -1258,3 +1258,44 @@ assume.
 `kpm-inventory-facts.md`, but it is a *trace*, not a verified fix — nothing has been built or
 proven yet. Recorded here and in the Summary instead; worth adding to the skill file the moment
 bug 2 actually ships.
+
+## 2026-09-06 — ingest: the shorter list was never the eligible one
+
+Scheduled `a-brain-session-ingest` run. Gap found by pairing the two git logs, as usual. The
+working session self-ingested through vault `ba42702` (08:00:41), which covers the picker reversal
+as a *taste* entry and the Option B decision. What had no coverage anywhere in `Wiki/` was the
+**engineering** of the morning: `dace958`'s eligibility predicate, the new matrix key, and the
+`curl` result in `952b0ca` (08:02:34, after the last vault commit).
+
+**Added:** [[Summaries/The Shorter List Was Never the Eligible One]], from
+[[../Raw/2026-09-06_source_kpm-handoff-eligibility-and-demo-blockers]].
+
+**Rippled:**
+
+- [[Concepts/UI-Says-Yes-Server-Says-No Pattern]] — the version where the server check *did not
+  exist at all*. `handleRequestTransfer` wrote `account_transfers` with no eligibility check of any
+  kind; the picker was the only thing in the way, and a picker is not a boundary. The fix shape
+  worth copying: one exported predicate, called in both places, not two conditions that drift.
+- [[Entities/Tier System]] — **a brand-new matrix key is ABSENT, not "no"**. Aldi's
+  `ROLE_PERMISSIONS` matrix lives in Firebase, so a key added by new code is missing from it;
+  reading that as denied breaks the feature for every tier at once while the code is right.
+  Absence means the tier default — `handoff_cross_region` joins `view_expected_count`,
+  `handle_delivery`, `manage_registry`.
+- [[Entities/Firestore Rules]] — **the demo was not exposed, it was unreachable.** The 2026-09-05
+  entry reasoned about what protects a public URL; a `curl` showed `kpm-ang.vercel.app` answering
+  302 to `vercel.com/sso-api`. The earlier claim stands as written; this only adds an earlier gate
+  nobody had checked. When Aldi flips it, the drafted-not-deployed hand-off write rule matters
+  again.
+- [[Concepts/Ownership Moves, History Does Not]] — the *who may receive it* half, and the note that
+  the approving half is still unbuilt with Option B now chosen.
+
+**The thing worth carrying:** he complained about a *long list*; the fix that landed first was an
+*eligibility* filter. Those look like one job and are not. He is Tier 1 — everyone is eligible for
+him, so hiding the ineligible would have hidden nobody from the one person complaining. The filter
+that shortens the list is the regional team. And the checkbox added to reveal other branches
+widens the **view**, never the permission: the predicate still decides.
+
+**Skill-file edit (named, not buried):** `kpm-inventory-facts.md` in the `delegate-coding-task`
+skill gained the absence-means-tier-default rule for new `ROLE_PERMISSIONS` keys. Real, verified,
+shipped fix (`dace958`, checks 1035 → 1060 green, trialled red twice), and it will recur on the
+very next matrix key anyone adds.
