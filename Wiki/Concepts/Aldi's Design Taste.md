@@ -2088,3 +2088,37 @@ teaches nothing.** See [[Ponder Tutorial System]] for the rule and the measureme
 
 His standard here is concrete rather than aesthetic: an explanation of the barcode scanner should
 highlight the barcode scanner's own textbox and button. Not the panel it sits in, and not nothing.
+
+## A shorter list beats a self-explaining one (2026-09-06)
+
+*"i dont want the list to be greyed out, but just hide personnel that is not on regional team on
+default, so that there will be less personel list when the dropdown is opened"*
+
+The day before, he had reported the hand-off picker as broken because a name he expected was
+missing from it with no explanation. The fix shipped as a greyed-out row carrying the reason —
+"another branch", "already holds this store" — on the reasoning that a name which vanishes reads as
+a fault. He looked at it and reversed it in one sentence.
+
+**Both readings of his complaint were available and the wrong one was chosen.** He was not asking
+*why is this name missing*; he was asking *why is this list so long that I cannot find the name I
+want*. A greyed row answers the first question and makes the second one worse — it adds rows.
+
+⚠️ **The lesson is not "he prefers hiding".** It is that a control's problem is usually the one he
+names, not the one it implies. He said "less personel list" explicitly, and that phrase was already
+in the sentence when the greyed-out row was proposed.
+
+**What still had to be true after the reversal**, and he did not have to say either of these:
+
+- **The filter has to be the one that shortens HIS list.** He is Tier 1, so every agent in the
+  company is eligible for him — hiding only the ineligible would have hidden nobody from the one
+  person complaining. The regional team is the filter that bites.
+- **The one remaining case where hiding can still read as broken has to speak.** An empty list now
+  says "Nobody in JAKARTA can receive this store" instead of showing a bare dropdown. That is the
+  original complaint, cornered into the only place it can still happen.
+
+And the phrase **"on default"** carried a second requirement he never spelled out: a default implies
+something other than the default exists. Tiers 1-3 may hand a store across branches, so they get a
+"Show other branches" checkbox, off by default. Without it the permission would be live at the write
+and unreachable on screen. See [[UI Says Yes, Server Says No Pattern]] for the inverse fault.
+
+Related: [[Handoff Eligibility]] · the reversal is commit `dace958` -> the one after it.

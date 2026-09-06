@@ -961,6 +961,17 @@
       "norm_label": "what made this checkable"
     },
     {
+      "label": "2026-09-05: the dimension that was never recorded",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A Rollup Is a Cache, Not a Ledger.md",
+      "source_location": "L98",
+      "_origin": "ast",
+      "id": "concepts_a_rollup_is_a_cache_not_a_ledger_2026_09_05_the_dimension_that_was_never_recorded",
+      "community": 69,
+      "community_name": "Entities/index.md",
+      "norm_label": "2026-09-05: the dimension that was never recorded"
+    },
+    {
       "label": "A Smooth Scroll That Never Runs.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/A Smooth Scroll That Never Runs.md",
@@ -6175,10 +6186,21 @@
       "norm_label": "\ud83d\udd34 do not delete that line \u2014 it is load-bearing"
     },
     {
-      "label": "Verify before trusting",
+      "label": "2026-09-05: a public URL made the draft/deployed gap concrete",
       "file_type": "document",
       "source_file": "Wiki/Entities/Firestore Rules.md",
       "source_location": "L138",
+      "_origin": "ast",
+      "id": "entities_firestore_rules_2026_09_05_a_public_url_made_the_draft_deployed_gap_concrete",
+      "community": 15,
+      "community_name": "Firestore Rules",
+      "norm_label": "2026-09-05: a public url made the draft/deployed gap concrete"
+    },
+    {
+      "label": "Verify before trusting",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Firestore Rules.md",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "entities_firestore_rules_verify_before_trusting",
       "community": 15,
@@ -7050,8 +7072,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "index_wiki_index",
-      "community": 76,
-      "community_name": "Wiki Index",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "wiki index"
     },
     {
@@ -7061,8 +7083,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "index_entities_specific_things",
-      "community": 76,
-      "community_name": "Wiki Index",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "entities (specific things)"
     },
     {
@@ -7072,8 +7094,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "index_concepts_recurring_patterns",
-      "community": 76,
-      "community_name": "Wiki Index",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "concepts (recurring patterns)"
     },
     {
@@ -7083,19 +7105,19 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
-      "community": 76,
-      "community_name": "Wiki Index",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "summaries (one per ingested source, newest ingest pass first)"
     },
     {
       "label": "Known gaps (honest, not filled in yet)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L129",
+      "source_location": "L131",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
-      "community": 76,
-      "community_name": "Wiki Index",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "known gaps (honest, not filled in yet)"
     },
     {
@@ -7812,6 +7834,17 @@
       "community": 1,
       "community_name": "Operation Log",
       "norm_label": "2026-09-03 \u2014 ingest: the follow camera, the one gap the self-ingest left on 2026-09-01"
+    },
+    {
+      "label": "2026-09-05 \u2014 ingest: the rollup that threw the question away, and the day the app went online",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1227",
+      "_origin": "ast",
+      "id": "log_2026_09_05_ingest_the_rollup_that_threw_the_question_away_and_the_day_the_app_went_online",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-05 \u2014 ingest: the rollup that threw the question away, and the day the app went online"
     },
     {
       "label": "MOC.md",
@@ -8843,8 +8876,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -9209,6 +9242,94 @@
       "community": 93,
       "community_name": "The Camera Was Aimed at the Wrong Scroller",
       "norm_label": "the trap worth carrying"
+    },
+    {
+      "label": "The Panel That Never Reads a Transaction.md",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "summaries_the_panel_that_never_reads_a_transaction",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "the panel that never reads a transaction.md"
+    },
+    {
+      "label": "The Panel That Never Reads a Transaction",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "summaries_the_panel_that_never_reads_a_transaction_the_panel_that_never_reads_a_transaction",
+      "community": 76,
+      "community_name": "Wiki Index",
+      "norm_label": "the panel that never reads a transaction"
+    },
+    {
+      "label": "The report",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "summaries_the_panel_that_never_reads_a_transaction_the_report",
+      "community": 76,
+      "community_name": "Wiki Index",
+      "norm_label": "the report"
+    },
+    {
+      "label": "Where the distinction actually dies",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "summaries_the_panel_that_never_reads_a_transaction_where_the_distinction_actually_dies",
+      "community": 76,
+      "community_name": "Wiki Index",
+      "norm_label": "where the distinction actually dies"
+    },
+    {
+      "label": "The trap that makes a lazy build wrong",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "summaries_the_panel_that_never_reads_a_transaction_the_trap_that_makes_a_lazy_build_wrong",
+      "community": 76,
+      "community_name": "Wiki Index",
+      "norm_label": "the trap that makes a lazy build wrong"
+    },
+    {
+      "label": "The larger question underneath, unanswered",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "summaries_the_panel_that_never_reads_a_transaction_the_larger_question_underneath_unanswered",
+      "community": 76,
+      "community_name": "Wiki Index",
+      "norm_label": "the larger question underneath, unanswered"
+    },
+    {
+      "label": "Same day: the demo went online, and the check that made that safe",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "summaries_the_panel_that_never_reads_a_transaction_same_day_the_demo_went_online_and_the_check_that_made_that_safe",
+      "community": 76,
+      "community_name": "Wiki Index",
+      "norm_label": "same day: the demo went online, and the check that made that safe"
+    },
+    {
+      "label": "Also settled, no code",
+      "file_type": "document",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "summaries_the_panel_that_never_reads_a_transaction_also_settled_no_code",
+      "community": 76,
+      "community_name": "Wiki Index",
+      "norm_label": "also settled, no code"
     },
     {
       "label": "Trophy Room and Rank System Design.md",
@@ -9995,7 +10116,7 @@
       "label": "Adding a new summary",
       "file_type": "document",
       "source_file": "Wiki/Summaries/index.md",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
       "community": 58,
@@ -10624,7 +10745,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Rollup Is a Cache, Not a Ledger.md",
-      "source_location": "L99",
+      "source_location": "L129",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_rollup_is_a_cache_not_a_ledger",
@@ -11086,7 +11207,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L127",
+      "source_location": "L128",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -11097,7 +11218,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L123",
+      "source_location": "L124",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -11625,11 +11746,44 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Rollup Is a Cache, Not a Ledger.md",
-      "source_location": "L99",
+      "source_location": "L129",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_rollup_is_a_cache_not_a_ledger",
       "target": "concepts_the_eight_warehouse_gaps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Rollup Is a Cache, Not a Ledger.md",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_rollup_is_a_cache_not_a_ledger",
+      "target": "summaries_the_panel_that_never_reads_a_transaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1239",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
+      "target": "concepts_a_rollup_is_a_cache_not_a_ledger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A Rollup Is a Cache, Not a Ledger.md",
+      "source_location": "L98",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_rollup_is_a_cache_not_a_ledger_a_rollup_is_a_cache_not_a_ledger",
+      "target": "concepts_a_rollup_is_a_cache_not_a_ledger_2026_09_05_the_dimension_that_was_never_recorded",
       "confidence_score": 1.0
     },
     {
@@ -15958,6 +16112,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Firestore Rules.md",
+      "source_location": "L150",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_firestore_rules",
+      "target": "concepts_ownership_moves_history_does_not",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
       "source_location": "L117",
       "weight": 1.0,
@@ -15974,6 +16139,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
+      "target": "concepts_ownership_moves_history_does_not",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_panel_that_never_reads_a_transaction",
       "target": "concepts_ownership_moves_history_does_not",
       "confidence_score": 1.0
     },
@@ -16733,6 +16909,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "summaries_store_hand_off_name_collision",
+      "target": "concepts_silent_failure_disease",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_panel_that_never_reads_a_transaction",
       "target": "concepts_silent_failure_disease",
       "confidence_score": 1.0
     },
@@ -18236,7 +18423,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/index.md",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "summaries_index",
@@ -18400,11 +18587,33 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Firestore Rules.md",
+      "source_location": "L156",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_firestore_rules",
+      "target": "summaries_the_panel_that_never_reads_a_transaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/index.md",
       "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_index",
+      "target": "entities_firestore_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1244",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
       "target": "entities_firestore_rules",
       "confidence_score": 1.0
     },
@@ -18428,6 +18637,17 @@
       "_origin": "ast",
       "source": "summaries_stock_count_trust_chain",
       "target": "entities_firestore_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Firestore Rules.md",
+      "source_location": "L138",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_firestore_rules_firestore_rules",
+      "target": "entities_firestore_rules_2026_09_05_a_public_url_made_the_draft_deployed_gap_concrete",
       "confidence_score": 1.0
     },
     {
@@ -18511,7 +18731,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/Firestore Rules.md",
-      "source_location": "L138",
+      "source_location": "L158",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_firestore_rules_firestore_rules",
@@ -19512,7 +19732,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/index.md",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "summaries_index",
@@ -19575,6 +19795,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Index.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "summaries_the_panel_that_never_reads_a_transaction",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
@@ -19600,7 +19831,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L129",
+      "source_location": "L131",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -19869,6 +20100,17 @@
       "_origin": "ast",
       "source": "log",
       "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1234",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log",
+      "target": "summaries_the_panel_that_never_reads_a_transaction",
       "confidence_score": 1.0
     },
     {
@@ -20381,6 +20623,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
+      "source_location": "L1227",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_05_ingest_the_rollup_that_threw_the_question_away_and_the_day_the_app_went_online",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
       "source_location": "L219",
       "weight": 1.0,
       "_origin": "ast",
@@ -20403,7 +20656,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L124",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -20419,6 +20672,17 @@
       "_origin": "ast",
       "source": "moc",
       "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/MOC.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "moc",
+      "target": "summaries_the_panel_that_never_reads_a_transaction",
       "confidence_score": 1.0
     },
     {
@@ -21566,6 +21830,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L98",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_panel_that_never_reads_a_transaction",
+      "target": "summaries_store_hand_off_name_collision",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/Store Hand-off Name Collision.md",
@@ -21805,6 +22080,94 @@
       "_origin": "ast",
       "source": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_was_aimed_at_the_wrong_scroller",
       "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller_verification_beat_by_beat_not_by_eye",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/index.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_index",
+      "target": "summaries_the_panel_that_never_reads_a_transaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_panel_that_never_reads_a_transaction",
+      "target": "summaries_the_panel_that_never_reads_a_transaction_the_panel_that_never_reads_a_transaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L89",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_panel_that_never_reads_a_transaction_the_panel_that_never_reads_a_transaction",
+      "target": "summaries_the_panel_that_never_reads_a_transaction_also_settled_no_code",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_panel_that_never_reads_a_transaction_the_panel_that_never_reads_a_transaction",
+      "target": "summaries_the_panel_that_never_reads_a_transaction_same_day_the_demo_went_online_and_the_check_that_made_that_safe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_panel_that_never_reads_a_transaction_the_panel_that_never_reads_a_transaction",
+      "target": "summaries_the_panel_that_never_reads_a_transaction_the_larger_question_underneath_unanswered",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_panel_that_never_reads_a_transaction_the_panel_that_never_reads_a_transaction",
+      "target": "summaries_the_panel_that_never_reads_a_transaction_the_report",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_panel_that_never_reads_a_transaction_the_panel_that_never_reads_a_transaction",
+      "target": "summaries_the_panel_that_never_reads_a_transaction_the_trap_that_makes_a_lazy_build_wrong",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Summaries/The Panel That Never Reads a Transaction.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "summaries_the_panel_that_never_reads_a_transaction_the_panel_that_never_reads_a_transaction",
+      "target": "summaries_the_panel_that_never_reads_a_transaction_where_the_distinction_actually_dies",
       "confidence_score": 1.0
     },
     {
@@ -22559,7 +22922,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Summaries/index.md",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "summaries_index_wiki_summaries",
@@ -22645,5 +23008,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d5c9bab5f919c32b5a76fb7beeceeeabdd71b6db"
+  "built_at_commit": "54d4a3313d8c38f75dc197175c781b8896fb317f"
 }

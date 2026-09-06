@@ -1,6 +1,8 @@
 # Hand-off approval: who gets the bell, and for which regions
 
-**Status: OPEN — waiting on Aldi.** Written 2026-09-06, before his answer, so the options survive a
+**Status: DECIDED 2026-09-06 — OPTION B.** His answer, verbatim: *"both still get the bells of
+course"*. The configured tier is ADDED beside him, never replaces him; either can authorise. NOT
+yet built — see the build note at the bottom. Written 2026-09-06, before his answer, so the options survive a
 `/clear`. Related: [[Ownership Moves, History Does Not]], [[UI Says Yes, Server Says No Pattern]].
 
 ## The problem, in his words
@@ -39,7 +41,7 @@ The bell goes to the tier(s) he named for that store's region, and to nobody els
 | Risk | a delegated region whose approver never logs in leaves hand-offs stuck with nobody told |
 | Fits | his stated reason — the whole point was to stop bells reaching the upper tier |
 
-## Option B — the configured tier is ADDED to the admin
+## ✅ CHOSEN — Option B — the configured tier is ADDED to the admin
 
 Both get the bell; either can authorise.
 
@@ -106,3 +108,17 @@ The SENDING half is done and green: `handoffEligibility` in `src/config/permissi
 wrong receiver in both the picker and the write. Cross-branch sending is already a matrix key,
 `handoff_cross_region`, defaulting to tiers 1-3 with the absence-means-tier-default shape. The
 APPROVING half in this note is what remains.
+
+
+## What Option B still owes when it is built (2026-09-06)
+
+He picked ADD, so the load problem he originally described is NOT solved by this feature on its own
+— he keeps every bell he has today and the regional approver gets one too. He knows; he chose it
+anyway, and the safety is the point. Do not re-argue it.
+
+Two things Option B needs that Option A would not have:
+
+1. **A double-authorise guard.** Two people can now reach the same `PENDING_ADMIN` request. The
+   second Authorize must find the request already approved and say so, not run the approval twice.
+2. **The bell must not double up for him.** He is Tier 1 and would match every region rule; the
+   notification write has to send him exactly one.

@@ -1,16 +1,16 @@
-# Graph Report - Wiki  (2026-09-05)
+# Graph Report - Wiki  (2026-09-06)
 
 ## Corpus Check
-- 83 files · ~172,030 words
+- 84 files · ~173,900 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 916 nodes · 1142 edges · 96 communities (90 shown, 6 thin omitted)
+- 927 nodes · 1164 edges · 96 communities (90 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d5c9bab5`
+- Built from commit: `54d4a331`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,6 +19,7 @@
 - Operation Log
 - Lancelot the Tobacco Ledger Agent
 - KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
+- Concepts/index.md
 - 3.2 How XP works, and why it can never decay again
 - The KPM Control System
 - Anti-Recurrence Check
@@ -112,7 +113,7 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `Aldi's Design Taste` - 66 edges
-2. `Operation Log` - 46 edges
+2. `Operation Log` - 47 edges
 3. `Anti-Recurrence Check` - 20 edges
 4. `Lancelot the Tobacco Ledger Agent` - 18 edges
 5. `Looking at the App` - 17 edges
@@ -133,7 +134,7 @@ Nodes (54): 2026-08-24 — the ON plate is brown by law, and the bezel is the wa
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.04
-Nodes (47): 2026-07-27 — First ingest pass (structure build + seed content), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run), 2026-07-27 — Tidy pass (frontmatter, titles, MOC), 2026-07-28 — dependency-removal regression, fixed and rippled, 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard, 2026-08-10 — Six-day backfill, on Aldi's emergency instruction, 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent (+39 more)
+Nodes (48): 2026-07-27 — First ingest pass (structure build + seed content), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run), 2026-07-27 — Tidy pass (frontmatter, titles, MOC), 2026-07-28 — dependency-removal regression, fixed and rippled, 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard, 2026-08-10 — Six-day backfill, on Aldi's emergency instruction, 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent (+40 more)
 
 ### Community 2 - "Lancelot the Tobacco Ledger Agent"
 Cohesion: 0.05
@@ -142,6 +143,10 @@ Nodes (41): A trap already in the data, Consequences — the build list, in orde
 ### Community 3 - "KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics"
 Cohesion: 0.04
 Nodes (45): 1. The thing you need to know first, 2. What's already good, 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated (+37 more)
+
+### Community 4 - "Concepts/index.md"
+Cohesion: 0.16
+Nodes (5): Concepts (recurring patterns), Entities (specific things), Known gaps (honest, not filled in yet), Summaries (one per ingested source, newest ingest pass first), Wiki Index
 
 ### Community 5 - "3.2 How XP works, and why it can never decay again"
 Cohesion: 0.09
@@ -184,8 +189,8 @@ Cohesion: 0.18
 Nodes (11): Address gap, Auto resi tracking, honestly priced, DECISION: ~~OPEN~~ — CLOSED BY THE BUILD, 2026-08-26/27, HQ-Initiated Stock Push, Options, Rejected on purpose — do not re-propose, The in-transit hole — the cheapest thing worth building, The problem, his words (+3 more)
 
 ### Community 15 - "Firestore Rules"
-Cohesion: 0.20
-Nodes (10): 🔴 DO NOT DELETE THAT LINE — it is load-bearing, Firestore Rules, It's a draft, not the live rules, Re-confirmed still-undeployed, 2026-07-27, Related, Superseded, 2026-07-29 — most of the ruleset deployed 2026-07-28, The one confirmed tenant-isolation failure, The owner's email is a hardcoded master key — found 2026-08-10 (+2 more)
+Cohesion: 0.18
+Nodes (11): 2026-09-05: a public URL made the draft/deployed gap concrete, 🔴 DO NOT DELETE THAT LINE — it is load-bearing, Firestore Rules, It's a draft, not the live rules, Re-confirmed still-undeployed, 2026-07-27, Related, Superseded, 2026-07-29 — most of the ruleset deployed 2026-07-28, The one confirmed tenant-isolation failure (+3 more)
 
 ### Community 16 - "Master Vault Gate"
 Cohesion: 0.25
@@ -388,8 +393,8 @@ Cohesion: 0.50
 Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang, It has now bitten twice, in two different shapes, The trap underneath both
 
 ### Community 69 - "Entities/index.md"
-Cohesion: 0.33
-Nodes (6): A Rollup Is a Cache, Not a Ledger, Four details that would each have been a silent wrong number, The counter was the easy half, The property that makes it safe, What made this checkable, What shipped
+Cohesion: 0.29
+Nodes (7): 2026-09-05: the dimension that was never recorded, A Rollup Is a Cache, Not a Ledger, Four details that would each have been a silent wrong number, The counter was the easy half, The property that makes it safe, What made this checkable, What shipped
 
 ### Community 70 - "The Book as a Stack of Sheets"
 Cohesion: 0.08
@@ -408,8 +413,8 @@ Cohesion: 0.33
 Nodes (5): Confirmed real incidents (3, so far), Git Worktrees, Related, The resulting discipline, Verify before trusting
 
 ### Community 76 - "Wiki Index"
-Cohesion: 0.40
-Nodes (5): Concepts (recurring patterns), Entities (specific things), Known gaps (honest, not filled in yet), Summaries (one per ingested source, newest ingest pass first), Wiki Index
+Cohesion: 0.29
+Nodes (7): Also settled, no code, Same day: the demo went online, and the check that made that safe, The larger question underneath, unanswered, The Panel That Never Reads a Transaction, The report, The trap that makes a lazy build wrong, Where the distinction actually dies
 
 ### Community 77 - "Gudang Pusat (Master Vault)"
 Cohesion: 0.25
@@ -480,7 +485,7 @@ Cohesion: 0.22
 Nodes (9): Aldi's scope answer, 2026-09-05 — locked, And the bell is not a footnote — his correction, 2026-09-05, Ownership Moves, History Does Not, Settled — the arrow reads sender first, The first live test, 2026-09-05 — the debt arrives, the button does not, The problem, The shape that was built (39cd90d), The two traps a lazy build walks into (+1 more)
 
 ## Knowledge Gaps
-- **706 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+701 more)
+- **715 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+710 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -488,16 +493,16 @@ Nodes (9): Aldi's scope answer, 2026-09-05 — locked, And the bell is not a foo
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.176) - this node is a cross-community bridge._
+  _High betweenness centrality (0.174) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
+  _High betweenness centrality (0.086) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.074) - this node is a cross-community bridge._
+  _High betweenness centrality (0.073) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _706 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _715 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.037037037037037035 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
-  _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**
   _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
