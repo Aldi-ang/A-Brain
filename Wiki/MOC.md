@@ -35,6 +35,7 @@ How KPM decides who can read or write what, and where that's gone wrong.
 - [[Dead Weight Cleanup and Rules-Deploy Gap]] — 2026-07-27 re-check: rules deploy still the top open gap; also removed two console.logs that leaked a privilege-bypass path to devtools. Update: the cleanup's dependency removal broke the production build (`react-is`), fixed 2026-07-28.
 
 ## 🧭 Process & Discipline
+- [[Concepts/A Mode Reminder Does Not Outrank Aldi]] — a standing decision of Aldi's beats an instruction injected mid-session; the 31-agent, 1.62M-token workflow that proved it, and the hook proposed to stop the next one.
 
 - [[n8n Automation Templates Archive]] — a parts bin of 347 prebuilt automations, archived
 - [[Skill Repos Evaluated 2026-08-25]] — the verdict table, so the same 19 links are not re-read

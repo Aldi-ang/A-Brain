@@ -73,3 +73,4 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 - [[Ownership Moves, History Does Not]] — a store hand-off used to overwrite the seller on every past sale to move the debt. The rows keep their author now; ownership moved to the store record instead. Includes why the rewrite could not just be deleted.
 - [[Handoff Eligibility]] — who may receive a consignment store, who may approve it, and the branch-per-tier matrix behind both.
 - [[The Cross-Site Login Block]] — sign-in worked on localhost, failed deployed; the app and the auth handler were two different sites.
+- [[Concepts/A Mode Reminder Does Not Outrank Aldi]] — a standing decision of Aldi's beats an instruction injected mid-session; the 31-agent, 1.62M-token workflow that proved it, and the hook proposed to stop the next one.

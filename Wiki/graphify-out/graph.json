@@ -5386,7 +5386,7 @@
       "label": "Three theories died on the way, and what killed each",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
-      "source_location": "L46",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_the_cross_site_login_block_three_theories_died_on_the_way_and_what_killed_each",
       "community": 52,
@@ -16333,7 +16333,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_cross_site_login_block",
@@ -17455,7 +17455,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_cross_site_login_block",
@@ -18203,7 +18203,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Cross-Site Login Block.md",
-      "source_location": "L46",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_cross_site_login_block_the_cross_site_login_block",
@@ -24053,5 +24053,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ad55d32cd277f02e177b40b121195667754acc8f"
+  "built_at_commit": "30d322aecae5c56c378fd53bb6193685f24837d4"
 }
