@@ -137,5 +137,40 @@ With nobody named, T4 REGIONAL ADMINs begin receiving approval bells for their o
 authorise them. That is his stated default, not a side effect — but it happens without him opening
 Fleet & Canvas.
 
+## 2026-09-07 — the receiver may now authorise their own incoming store
+
+**Aldi's call, and it reverses one third of the three-key protocol.** He handed a store to a Tier 4
+regional admin, who could accept it but not authorise it, and said *"cant approve it themself can u
+fix this"*. He was told plainly that this was the second key, and that his own Tier 1 account could
+already approve it, so nothing was stuck. He decided anyway: *"yeah they should be able to confirm
+their own request"*. Shipped in `ad4f18b`.
+
+**Implemented narrowly, and the narrowness is the whole safety of it.** Only the receiver exclusion
+was dropped. `canApproveHandoffFrom` still runs on every candidate, so:
+
+| who | may authorise a store handed to them |
+|---|---|
+| a branch approver (named, or the branch's own T4 by default) | **yes — new** |
+| an ordinary Tier 5 / Tier 6 agent | no, unchanged |
+| the SENDER | no, unchanged — asking for a store and granting it yourself is one person doing everything |
+
+The bell fan-out moved with the button: `handoffApprovers` is called with only the sender in
+`excludeIds`. A button with no notification behind it is the same fault as the notification with no
+button that `5973fc2` fixed hours earlier.
+
+⚠️ `MANUAL_TEST_CHECKLIST.md` Round 7 Section C item 4 said the receiver never gets an approval
+bell. It was rewritten the same day. **Do not "restore" this behaviour as if it were a regression** —
+it is a decision, and it is his.
+
+## 2026-09-07 — and the approval queue was invisible to the very people it was for
+
+Separately the same day, `5973fc2`. `pendingAdminRequests` was correct — three RENDER sites then
+threw it away unless `isAdmin`, which in this app is not "is an admin" but the vault-unlock flag,
+and POV forces it false. A real Tier 4 with granted approval power got the bell and a panel reading
+"No pending action required." The memo's deps also omitted `motorists`/`myProfile`, so the queue
+was computed once against a roster that had not loaded — a permission bug and a staleness bug
+wearing one symptom.
+
 Related: [[Ownership Moves, History Does Not]] · [[Fleet Captain Permission Gap]] ·
+[[A Hijacked UID Is Not an Identity]] · [[A Stored Name Is Not the Name of Record]] ·
 [[Brainstorm/2026-09-06_handoff-approval-region-matrix]]

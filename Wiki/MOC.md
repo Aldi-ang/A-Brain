@@ -20,6 +20,7 @@ fixed/deployed right now," always check the real `kpm-inventory` git repo, not t
 ---
 
 ## 🔒 Security & Permissions
+- [[Concepts/A Hijacked UID Is Not an Identity]] — the uid hijack meets any per-person key: 2026-09-07 privilege escalation, both guards, and what it deliberately did NOT break.
 
 How KPM decides who can read or write what, and where that's gone wrong.
 

@@ -77,3 +77,5 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 
 - [[A Stored Name Is Not the Name of Record]] — a transaction freezes the Google account name; Fleet & Roster is the name of record, and the agent id on the row is the only way back to it. Also why the hand-off left every "who manages this" reader naming the previous agent.
 - [[Email Is a Document ID, Not a Field]] — which required fields are structural and which are tidiness, and the duplicate check that silently breaks when you relax one.
+
+- [[A Hijacked UID Is Not an Identity]] — KPM rewrites every agent's uid to the owner's, so the vault's 5-minute grace unlocked for whoever signed in next on that browser. A Tier 4 became a global admin. The general rule for any key built on a substituted identity.
