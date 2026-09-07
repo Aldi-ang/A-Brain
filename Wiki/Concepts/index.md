@@ -74,3 +74,6 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 - [[Handoff Eligibility]] — who may receive a consignment store, who may approve it, and the branch-per-tier matrix behind both.
 - [[The Cross-Site Login Block]] — sign-in worked on localhost, failed deployed; the app and the auth handler were two different sites.
 - [[Concepts/A Mode Reminder Does Not Outrank Aldi]] — a standing decision of Aldi's beats an instruction injected mid-session; the 31-agent, 1.62M-token workflow that proved it, and the hook proposed to stop the next one.
+
+- [[A Stored Name Is Not the Name of Record]] — a transaction freezes the Google account name; Fleet & Roster is the name of record, and the agent id on the row is the only way back to it. Also why the hand-off left every "who manages this" reader naming the previous agent.
+- [[Email Is a Document ID, Not a Field]] — which required fields are structural and which are tidiness, and the duplicate check that silently breaks when you relax one.

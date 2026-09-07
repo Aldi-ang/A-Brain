@@ -58,6 +58,8 @@ The house rules this project follows so mistakes don't repeat.
 - [[Lancelot the Tobacco Ledger Agent]] — the bookkeeper agent for Aldi's separate tobacco business: which connector can actually write to Google Sheets, the arithmetic checks that catch a misread nota, and why receipt images are Drive links rather than embedded objects.
 
 ## 🏗️ Architecture
+- [[Concepts/A Stored Name Is Not the Name of Record]] — render the id, not the snapshot string; and a decision to stop denormalising creates readers that are now wrong.
+- [[Concepts/Email Is a Document ID, Not a Field]] — a field that is a Firestore path segment cannot be made optional.
 
 The shape of the app everything else sits on top of.
 

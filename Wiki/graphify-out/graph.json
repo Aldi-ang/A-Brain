@@ -634,7 +634,7 @@
       "label": "Related",
       "file_type": "document",
       "source_file": "Wiki/Concepts/A Mode Reminder Does Not Outrank Aldi.md",
-      "source_location": "L57",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_related",
       "community": 41,
@@ -11625,7 +11625,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/A Mode Reminder Does Not Outrank Aldi.md",
-      "source_location": "L57",
+      "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_mode_reminder_does_not_outrank_aldi_a_mode_reminder_does_not_outrank_aldi",
@@ -24196,5 +24196,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6984871cccfed58196223fa76301bc40467b9094"
+  "built_at_commit": "96f2261e93cdf77c24597251fa1038660e75cbe2"
 }

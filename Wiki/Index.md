@@ -116,6 +116,8 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Concepts/A Store Name Is Not a Store]] — the name is not the shop; a name-keyed sweep is a money bug.
 - [[Concepts/A Mode Reminder Does Not Outrank Aldi]] — a standing decision of Aldi's beats an instruction injected mid-session; the 31-agent, 1.62M-token workflow that proved it, and the hook proposed to stop the next one.
 - [[Concepts/Ownership Moves, History Does Not]] — a hand-off moves ownership, never authorship; and why deleting the rewrite alone would have been the worse bug.
+- [[Concepts/A Stored Name Is Not the Name of Record]] — the stored agent name is a frozen Google displayName; the id on the row is the fact. Also why the hand-off left every "who manages this" reader naming the previous agent.
+- [[Concepts/Email Is a Document ID, Not a Field]] — telling a structural required field from a tidy one before relaxing it, and the duplicate check that breaks when you do.
   backfill pass that closed a six-day vault gap
 
 - [[Concepts/Where KPM Is Going]] — START HERE: the theme, every locked decision, and the direction.
