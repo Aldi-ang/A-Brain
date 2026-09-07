@@ -49,7 +49,19 @@ names: **a rule that keeps failing is not a rule to say louder, it is a rule to 
 
 Proposed: a `PreToolUse` hook on the `Workflow` tool in `.claude/settings.json` that blocks the call
 outright. A hook cannot be skimmed past by a later instruction and cannot go stale quietly.
-**OPEN — waiting on Aldi.** He was asked 2026-09-07 12:05 and has not answered.
+**BUILT 2026-09-07 12:15.** He answered by restating the rule — *"i never allow u to use workflow
+automatically until im the one who ask it"* — so the gate exists now:
+`A-Brain/automation/fanout-gate.mjs`, a `PreToolUse` hook on `Workflow|Agent` registered in
+kpm-inventory's `.claude/settings.json`. Denies by default. Unlocking is a separate deliberate act
+— create `.claude/.fanout-unlocked` in the project root — which no "be exhaustive" instruction will
+ever tell an agent to do. That asymmetry is the whole mechanism: today's reminder said *call
+Workflow*; it cannot say *create a sentinel file first*.
+
+Tested locked / unlocked / re-locked / Agent = deny / allow / deny / deny. The first run of that
+test **failed** — the unlock did nothing, because `payload.cwd` arrives as an MSYS path
+(`/d/APP...`) that Node cannot resolve on Windows. It now checks `process.cwd()` first and treats
+`payload.cwd` as a fallback. A gate whose unlock silently never fires is a gate that gets ripped
+out the first time it blocks something real, so that test earned its place.
 
 **Rejected on purpose:** making the hook *warn and continue*. A warning is functionally what §9a
 already was, and §9a is what just failed.
