@@ -82,3 +82,4 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 
 - [[A Hijacked UID Is Not an Identity]] — KPM rewrites every agent's uid to the owner's, so the vault's 5-minute grace unlocked for whoever signed in next on that browser. A Tier 4 became a global admin. The general rule for any key built on a substituted identity.
 - [[POV Changes the Id, Never the Email]] — the tier preview moves agentId and leaves email alone on purpose, so any screen resolving identity by email keeps showing Aldi his own data under somebody else's banner. Visible-but-unsellable is the tell. One instance fixed, one still open in FleetCanvasManager.
+- [[A Retry Must Land Where the First Try Landed]] — a part-committed offline sync re-sent the sales that had already landed. The obvious fix, a deterministic id from localId, was worse: autoIncrement collides across devices and would have silently overwritten another salesman’s sale.
