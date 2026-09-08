@@ -33,6 +33,7 @@ For the authoritative flat catalog, always check [[../Index]] first.
 - [[Silent Failure Disease]]
 - [[UI-Says-Yes-Server-Says-No Pattern]]
 - [[A Store Name Is Not a Store]] — several shops share a name 14.5 km apart; a name is a label, never a selector.
+- [[Ecer Is a Person, Not a Shop]] — the tier rule, and why "strict" could not be written as a status whitelist.
 
 ## Why these matter beyond KPM
 

@@ -114,6 +114,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   still undeployed; dead code/deps/assets and a leaking "GOD MODE" console.log cleaned up
 - [[Six Days — Gate, Phone Access, Quota Meter]] — 178 commits, 2026-08-04 → 2026-08-10; the
 - [[Concepts/A Store Name Is Not a Store]] — the name is not the shop; a name-keyed sweep is a money bug.
+- [[Concepts/Ecer Is a Person, Not a Shop]] — his tier design, and why an Ecer consignment broke the store hand-off three steps downstream.
 - [[Concepts/A Mode Reminder Does Not Outrank Aldi]] — a standing decision of Aldi's beats an instruction injected mid-session; the 31-agent, 1.62M-token workflow that proved it, and the hook proposed to stop the next one.
 - [[Concepts/Ownership Moves, History Does Not]] — a hand-off moves ownership, never authorship; and why deleting the rewrite alone would have been the worse bug.
 - [[Concepts/A Stored Name Is Not the Name of Record]] — the stored agent name is a frozen Google displayName; the id on the row is the fact. Also why the hand-off left every "who manages this" reader naming the previous agent.

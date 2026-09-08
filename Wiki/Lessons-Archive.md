@@ -247,3 +247,27 @@ answer was that a Firestore write promise never settles offline — proved in 10
 once it was finally asked. The bug was one un-awaited call away the whole time.
 Seen: 2026-08-20
 Fired:
+
+
+### 2026-08-24 — grep the taste file for locked laws BEFORE proposing a visual change, not after
+**Status:** RETIRED (2026-09-07) — never fired in 14 days of real work. Already enforced
+structurally: SKILL.md §1a mandates loading `Aldi's Design Taste.md` before ANY design work, so
+this entry was the same rule said louder. Retired per §8b rather than repeated.
+**Trigger:** before proposing ANY change to a colour, material or treatment that already ships —
+the moment a specific token, fill or surface is named as the thing to change.
+**Lesson:** run `grep -n "^## " "A-Brain/Wiki/Concepts/Aldi.s Design Taste.md"` and read every
+heading carrying a red marker. They are locked laws in his own words, and the headings alone are
+enough to spot a collision. SKILL.md §1a already mandates loading that file for design work, so
+this is not a new rule - it is the one-command form of a rule that got skipped because the task
+looked too small to need it. **The size of the edit is not evidence about the size of the law.**
+**Would have prevented:** 2026-08-24. A two-line token swap looked too small for the design stack,
+so it was skipped, twice, deliberately, and said so out loud. The whole session then went into
+proving an amber plate impossible, computing feasibility windows, running a trial edit against
+the repo and drafting a contrast-rule change - all aimed at making 68 amber FILLS. The taste file
+says *"AMBER IS AN EDGE AND AN INK. IT IS NOT A FILL"*, quoting him twice, the second time as
+*"stop using amber background i said, i hate it"*. Aldi caught it by asking *"already load all the
+skills to do the job?"* - the user did the check the process was supposed to do.
+Seen: 2026-08-24
+Fired:
+
+Archived: 2026-09-08 (retired 2026-09-07, moved per SKILL.md 8a).
