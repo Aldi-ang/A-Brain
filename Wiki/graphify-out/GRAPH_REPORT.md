@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-08)
 
 ## Corpus Check
-- 92 files · ~183,496 words
+- 92 files · ~183,837 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1003 nodes · 1283 edges · 105 communities (99 shown, 6 thin omitted)
+- 1004 nodes · 1285 edges · 105 communities (99 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `23fb6b91`
+- Built from commit: `bf1798cb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -317,8 +317,8 @@ Cohesion: 0.33
 Nodes (6): 2026-09-01 — two fault classes this map never covered, and both are app-wide, Off-Token Colour Migration Map, ⚠️ Read this first when light mode starts (added 2026-08-15), The table, The two checks that prove it, What is NOT migrated
 
 ### Community 46 - "UI-Says-Yes-Server-Says-No Pattern"
-Cohesion: 0.33
-Nodes (6): Related, The general lesson, The sharpest instance: Fleet Captain, The version where the server check did not exist at all (2026-09-06), UI-Says-Yes-Server-Says-No Pattern, Why this is worse than an obviously-broken feature
+Cohesion: 0.29
+Nodes (7): Related, The general lesson, The inverse shape: the server check was RIGHT, and a decision changed only the UI (2026-09-08), The sharpest instance: Fleet Captain, The version where the server check did not exist at all (2026-09-06), UI-Says-Yes-Server-Says-No Pattern, Why this is worse than an obviously-broken feature
 
 ### Community 47 - "Multi-Tenant Architecture"
 Cohesion: 0.50
@@ -525,7 +525,7 @@ Cohesion: 0.50
 Nodes (4): A Named Import Can Shadow a Global, The fix, and the rule, What happened, What it cost, and what did NOT catch it
 
 ## Knowledge Gaps
-- **774 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+769 more)
+- **775 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+770 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -539,7 +539,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
   _High betweenness centrality (0.077) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _774 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _775 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.03571428571428571 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

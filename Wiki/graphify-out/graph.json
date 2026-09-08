@@ -6384,10 +6384,21 @@
       "norm_label": "the version where the server check did not exist at all (2026-09-06)"
     },
     {
-      "label": "The general lesson",
+      "label": "The inverse shape: the server check was RIGHT, and a decision changed only the UI (2026-09-08)",
       "file_type": "document",
       "source_file": "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md",
       "source_location": "L51",
+      "_origin": "ast",
+      "id": "concepts_ui_says_yes_server_says_no_pattern_the_inverse_shape_the_server_check_was_right_and_a_decision_changed_only_the_ui_2026_09_08",
+      "community": 46,
+      "community_name": "UI-Says-Yes-Server-Says-No Pattern",
+      "norm_label": "the inverse shape: the server check was right, and a decision changed only the ui (2026-09-08)"
+    },
+    {
+      "label": "The general lesson",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "concepts_ui_says_yes_server_says_no_pattern_the_general_lesson",
       "community": 46,
@@ -6398,7 +6409,7 @@
       "label": "Related",
       "file_type": "document",
       "source_file": "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md",
-      "source_location": "L57",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "concepts_ui_says_yes_server_says_no_pattern_related",
       "community": 46,
@@ -15188,6 +15199,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ui_says_yes_server_says_no_pattern",
+      "target": "concepts_anti_recurrence_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Where KPM Is Going.md",
       "source_location": "L75",
       "weight": 1.0,
@@ -19996,7 +20018,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md",
-      "source_location": "L57",
+      "source_location": "L87",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_ui_says_yes_server_says_no_pattern_ui_says_yes_server_says_no_pattern",
@@ -20007,11 +20029,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md",
-      "source_location": "L51",
+      "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_ui_says_yes_server_says_no_pattern_ui_says_yes_server_says_no_pattern",
       "target": "concepts_ui_says_yes_server_says_no_pattern_the_general_lesson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ui_says_yes_server_says_no_pattern_ui_says_yes_server_says_no_pattern",
+      "target": "concepts_ui_says_yes_server_says_no_pattern_the_inverse_shape_the_server_check_was_right_and_a_decision_changed_only_the_ui_2026_09_08",
       "confidence_score": 1.0
     },
     {
@@ -25153,5 +25186,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "23fb6b91278d128fb763950732734ccc232acc42"
+  "built_at_commit": "bf1798cb2863773ac9091c77764171edc52a6314"
 }

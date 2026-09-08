@@ -171,6 +171,48 @@ and POV forces it false. A real Tier 4 with granted approval power got the bell 
 was computed once against a roster that had not loaded — a permission bug and a staleness bug
 wearing one symptom.
 
+## 2026-09-08 — the write had never been told, and it refused what the queue had cleared
+
+`ad4f18b` above changed the QUEUE and not the WRITE. `handleAdminApproveTransfer` still refused
+`toAgentId === agentProfileId`, so a branch approver receiving a store saw the Authorize button and
+the press did nothing. Aldi found it as the one person who could: KALDI is Bandung’s only account,
+its named approver, and was the receiver. Fixed in `d84bc4c` by deleting the receiver clause from
+the write. See the inverse-shape section of [[UI Says Yes, Server Says No Pattern]] — a server check
+that was correct when it shipped and went stale when a decision landed on one half.
+
+## 2026-09-08 — NO TIER FLOOR ON A NAMED APPROVER, and why that is not a gap
+
+The fix above made a live question of one that had been latent: a Tier 6 ticked for a branch in
+Fleet & Canvas now really can authorise, including a store handed to them. Asked whether the chip
+row should refuse ranks below Tier 4, Aldi said no:
+
+> "since the one who can edit the fleet and roster is tier 3 and above then we dont need any floor
+> for this, let the company decide and make it most flexible" — 2026-09-08
+
+**His reasoning, and it holds.** The power is not in holding the tick, it is in being able to GRANT
+one — `canEditFleetRoster`, which defaults to Tier 4 and above, from his own 2026-08-24 line
+*"regional manager can edit the fleet and canvas, tier below that cannot"*. Tighter than the Tier 3
+he remembered. Nobody who rides in a van can name an approver.
+
+**The RED trial settled it rather than merely permitting it.** Adding the floor back turns six
+checks red, and two of them predate the question: `HANA_BDG`, the fixture for his ORIGINAL
+2026-08-24 feature request, is Tier 5. A floor would not have restricted a new flexibility, it
+would have broken the named-approver feature as first specified. There was never a Tier 4
+assumption to restore — `ad4f18b`’s comment saying it was meant for "a Tier 4 regional admin" was
+describing the expected USER, not a rule.
+
+⚠️ **A floor here looks like a missing check and is a reversal.** Locked at
+`canApproveHandoffFrom` with a comment and six assertions in `logicFixes.selfcheck.mjs` (`adf9560`).
+
+**The two decisions are linked, and the check says so.** No floor on who may be NAMED is safe only
+while the gate on who may NAME them holds. `defaultFleetAccess` is pinned as the pure function —
+not `canEditFleetRoster`, which reads a `ROLE_PERMISSIONS` that earlier self-check sections mutate,
+and whose matrix override is his to set on purpose. If that default ever moves, he has to be told
+this decision was resting on it.
+
+The grant screen states the consequence, since rank no longer limits it: *"Only this person
+authorises hand-offs into X, whatever their rank — including stores handed to them."*
+
 Related: [[Ownership Moves, History Does Not]] · [[Fleet Captain Permission Gap]] ·
 [[A Hijacked UID Is Not an Identity]] · [[A Stored Name Is Not the Name of Record]] ·
 [[Brainstorm/2026-09-06_handoff-approval-region-matrix]]
