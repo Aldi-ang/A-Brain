@@ -219,8 +219,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_a_css_animation_outranks_your_inline_style",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
       "norm_label": "a css animation outranks your inline style"
     },
     {
@@ -230,8 +230,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_the_shape",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
       "norm_label": "the shape"
     },
     {
@@ -241,8 +241,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_why_it_survived_every_check_and_every_screenshot",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
       "norm_label": "why it survived every check and every screenshot"
     },
     {
@@ -252,8 +252,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_the_law",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
       "norm_label": "the law"
     },
     {
@@ -263,8 +263,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_family",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
       "norm_label": "family"
     },
     {
@@ -274,8 +274,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_where_it_happened",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
       "norm_label": "where it happened"
     },
     {
@@ -967,8 +967,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_a_rect_is_painted_not_laid_out",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "a rect is painted, not laid out"
     },
     {
@@ -978,8 +978,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_shape",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "the shape"
     },
     {
@@ -989,8 +989,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_why_it_survived_every_check_and_every_screenshot",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "why it survived every check and every screenshot"
     },
     {
@@ -1000,8 +1000,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_law",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "the law"
     },
     {
@@ -1011,8 +1011,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_wider_lesson_and_it_is_the_expensive_one",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "the wider lesson, and it is the expensive one"
     },
     {
@@ -1022,8 +1022,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_family",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "family"
     },
     {
@@ -1033,8 +1033,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_where_it_happened",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 53,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "where it happened"
     },
     {
@@ -1143,8 +1143,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_a_smooth_scroll_that_never_runs",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "a smooth scroll that never runs"
     },
     {
@@ -1154,8 +1154,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_what_it_looked_like",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "what it looked like"
     },
     {
@@ -1165,8 +1165,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_the_wrong_diagnosis_and_why_it_was_believable",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "the wrong diagnosis, and why it was believable"
     },
     {
@@ -1176,8 +1176,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_what_it_actually_was",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "what it actually was"
     },
     {
@@ -1187,8 +1187,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_the_second_half_a_phone_has_no_beside",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "the second half \u2014 a phone has no \"beside\""
     },
     {
@@ -1198,8 +1198,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_verification",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "verification"
     },
     {
@@ -1209,8 +1209,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_the_lesson_worth_keeping",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "the lesson worth keeping"
     },
     {
@@ -1220,8 +1220,8 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "concepts_a_smooth_scroll_that_never_runs_the_sequel_the_same_call_a_second_way_to_be_wrong_2026_09_01",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "the sequel \u2014 the same call, a second way to be wrong (2026-09-01)"
     },
     {
@@ -2993,6 +2993,83 @@
       "id": "concepts_draft_then_deploy_discipline_related",
       "community": 59,
       "community_name": "Store Hand-off Name Collision",
+      "norm_label": "related"
+    },
+    {
+      "label": "Ecer Is a Person, Not a Shop.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_ecer_is_a_person_not_a_shop",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "ecer is a person, not a shop.md"
+    },
+    {
+      "label": "Ecer Is a Person, Not a Shop",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "norm_label": "ecer is a person, not a shop"
+    },
+    {
+      "label": "Why it was a money bug and not a preference",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "concepts_ecer_is_a_person_not_a_shop_why_it_was_a_money_bug_and_not_a_preference",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "norm_label": "why it was a money bug and not a preference"
+    },
+    {
+      "label": "What ships",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "concepts_ecer_is_a_person_not_a_shop_what_ships",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "norm_label": "what ships"
+    },
+    {
+      "label": "The trap inside \"strict\", and it is the part worth remembering",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "concepts_ecer_is_a_person_not_a_shop_the_trap_inside_strict_and_it_is_the_part_worth_remembering",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "norm_label": "the trap inside \"strict\", and it is the part worth remembering"
+    },
+    {
+      "label": "Still open",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "concepts_ecer_is_a_person_not_a_shop_still_open",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "norm_label": "still open"
+    },
+    {
+      "label": "Related",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "concepts_ecer_is_a_person_not_a_shop_related",
+      "community": 82,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "related"
     },
     {
@@ -6585,7 +6662,7 @@
       "label": "Why these matter beyond KPM",
       "file_type": "document",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L37",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "concepts_index_why_these_matter_beyond_kpm",
       "community": 58,
@@ -6596,7 +6673,7 @@
       "label": "Adding a new concept",
       "file_type": "document",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "concepts_index_adding_a_new_concept",
       "community": 58,
@@ -7740,7 +7817,7 @@
       "label": "Known gaps (honest, not filled in yet)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L138",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
       "community": 95,
@@ -9217,8 +9294,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest",
-      "community": 100,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 84,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "ponytail philosophy ingest.md"
     },
     {
@@ -9228,8 +9305,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_summary_ponytail_philosophy_ingest",
-      "community": 100,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 84,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "summary: ponytail philosophy ingest"
     },
     {
@@ -9239,8 +9316,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_why_this_was_ingested",
-      "community": 100,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 84,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "why this was ingested"
     },
     {
@@ -9250,8 +9327,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_where_it_went",
-      "community": 100,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 84,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "where it went"
     },
     {
@@ -9261,8 +9338,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_ripple_pages_this_touches",
-      "community": 100,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 84,
+      "community_name": "What Create Mod's Ponder Actually Does",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -9822,8 +9899,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_was_aimed_at_the_wrong_scroller",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 56,
+      "community_name": "Wiki/Concepts",
       "norm_label": "the camera was aimed at the wrong scroller"
     },
     {
@@ -9833,8 +9910,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_decision_that_came_first",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 56,
+      "community_name": "Wiki/Concepts",
       "norm_label": "the decision that came first"
     },
     {
@@ -9844,8 +9921,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_camera_already_existed_and_was_aimed_wrong_twice",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 56,
+      "community_name": "Wiki/Concepts",
       "norm_label": "the camera already existed, and was aimed wrong twice"
     },
     {
@@ -9855,8 +9932,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_fix",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 56,
+      "community_name": "Wiki/Concepts",
       "norm_label": "the fix"
     },
     {
@@ -9866,8 +9943,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_verification_beat_by_beat_not_by_eye",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 56,
+      "community_name": "Wiki/Concepts",
       "norm_label": "verification \u2014 beat by beat, not by eye"
     },
     {
@@ -9877,8 +9954,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_two_smaller_things_in_the_same_block",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 56,
+      "community_name": "Wiki/Concepts",
       "norm_label": "two smaller things in the same block"
     },
     {
@@ -9888,8 +9965,8 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "summaries_the_camera_was_aimed_at_the_wrong_scroller_the_trap_worth_carrying",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 56,
+      "community_name": "Wiki/Concepts",
       "norm_label": "the trap worth carrying"
     },
     {
@@ -10097,8 +10174,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "trophy room and rank system design.md"
     },
     {
@@ -10108,8 +10185,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_kpm_inventory_trophy_room_rank_system_performance_ergonomics",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "kpm inventory \u2014 trophy room, rank system, performance & ergonomics"
     },
     {
@@ -10119,8 +10196,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_a_design_document_for_the_achievement_ranking_system_the_agent_profile_and_making_the_app_light_on_cheap_phones",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "a design document for the achievement/ranking system, the agent profile, and making the app light on cheap phones"
     },
     {
@@ -10130,8 +10207,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_1_the_thing_you_need_to_know_first",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "1. the thing you need to know first"
     },
     {
@@ -10141,8 +10218,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_your_lifetime_numbers_are_7_day_numbers_and_every_agent_s_rank_is_a_speedometer_not_an_odometer",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "your \"lifetime\" numbers are 7-day numbers, and every agent's rank is a speedometer, not an odometer"
     },
     {
@@ -10152,8 +10229,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_this_means_for_your_agents_right_now_today",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "what this means for your agents *right now, today*"
     },
     {
@@ -10163,8 +10240,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_second_thing_rank_counts_money_you_haven_t_been_paid",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "the second thing: rank counts money you haven't been paid"
     },
     {
@@ -10174,8 +10251,8 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_third_thing_two_bugs_sitting_under_all_of_this",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "the third thing: two bugs sitting under all of this"
     },
     {
@@ -10185,8 +10262,8 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_one_thing_i_was_told_was_broken_that_is_not_broken_correcting_the_record",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "one thing i was told was broken that is not broken \u2014 correcting the record"
     },
     {
@@ -10196,8 +10273,8 @@
       "source_location": "L170",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_2_what_s_already_good",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "2. what's already good"
     },
     {
@@ -10295,8 +10372,8 @@
       "source_location": "L463",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_3_2_how_xp_works_and_why_it_can_never_decay_again",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "3.2 how xp works, and why it can never decay again"
     },
     {
@@ -10306,8 +10383,8 @@
       "source_location": "L511",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_why_it_cannot_decay_the_whole_proof",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "why it cannot decay \u2014 the whole proof"
     },
     {
@@ -10317,8 +10394,8 @@
       "source_location": "L533",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_daily_formula",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the daily formula"
     },
     {
@@ -10328,8 +10405,8 @@
       "source_location": "L563",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_a_real_day_looks_like",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "what a real day looks like"
     },
     {
@@ -10339,8 +10416,8 @@
       "source_location": "L586",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_ladder",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the ladder"
     },
     {
@@ -10350,8 +10427,8 @@
       "source_location": "L609",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_where_xp_is_minted_inside_a_transaction_that_already_runs",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "where xp is minted \u2014 inside a transaction that already runs"
     },
     {
@@ -10361,8 +10438,8 @@
       "source_location": "L683",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_one_runnable_check",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the one runnable check"
     },
     {
@@ -10372,8 +10449,8 @@
       "source_location": "L709",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_3_3_the_achievement_system",
-      "community": 84,
-      "community_name": "What Create Mod's Ponder Actually Does",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "3.3 the achievement system"
     },
     {
@@ -10383,8 +10460,8 @@
       "source_location": "L711",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_kill_one_of_the_two_systems",
-      "community": 84,
-      "community_name": "What Create Mod's Ponder Actually Does",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "kill one of the two systems"
     },
     {
@@ -10394,8 +10471,8 @@
       "source_location": "L730",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_schema",
-      "community": 84,
-      "community_name": "What Create Mod's Ponder Actually Does",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "schema"
     },
     {
@@ -10405,8 +10482,8 @@
       "source_location": "L757",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_evaluation_the_elegant_part",
-      "community": 84,
-      "community_name": "What Create Mod's Ponder Actually Does",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "evaluation \u2014 the elegant part"
     },
     {
@@ -10416,8 +10493,8 @@
       "source_location": "L771",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_starter_set_with_the_exact_data_source_for_each_or_an_honest_not_yet",
-      "community": 84,
-      "community_name": "What Create Mod's Ponder Actually Does",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the starter set \u2014 with the exact data source for each, or an honest \"not yet\""
     },
     {
@@ -10427,8 +10504,8 @@
       "source_location": "L844",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_how_you_configure_them",
-      "community": 84,
-      "community_name": "What Create Mod's Ponder Actually Does",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "how you configure them"
     },
     {
@@ -10581,8 +10658,8 @@
       "source_location": "L1223",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_5_making_it_fun_and_the_ways_it_could_go_badly_wrong",
-      "community": 51,
-      "community_name": "Design Inspiration Sources",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "5. making it fun (and the ways it could go badly wrong)"
     },
     {
@@ -10592,8 +10669,8 @@
       "source_location": "L1225",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_moments_of_delight_what_actually_lands",
-      "community": 51,
-      "community_name": "Design Inspiration Sources",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "the moments of delight \u2014 what actually lands"
     },
     {
@@ -10603,8 +10680,8 @@
       "source_location": "L1259",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_how_this_could_fail_and_what_stops_it",
-      "community": 51,
-      "community_name": "Design Inspiration Sources",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "how this could fail, and what stops it"
     },
     {
@@ -10614,8 +10691,8 @@
       "source_location": "L1261",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_1_the_leaderboard_bottom",
-      "community": 51,
-      "community_name": "Design Inspiration Sources",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 1: the leaderboard bottom"
     },
     {
@@ -10625,8 +10702,8 @@
       "source_location": "L1288",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_2_the_new_hire_versus_the_veteran",
-      "community": 51,
-      "community_name": "Design Inspiration Sources",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 2: the new hire versus the veteran"
     },
     {
@@ -10636,8 +10713,8 @@
       "source_location": "L1305",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_3_it_feels_like_surveillance_not_appreciation",
-      "community": 51,
-      "community_name": "Design Inspiration Sources",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 3: it feels like surveillance, not appreciation"
     },
     {
@@ -10647,8 +10724,8 @@
       "source_location": "L1332",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_4_the_boss_becomes_the_heartbeat",
-      "community": 51,
-      "community_name": "Design Inspiration Sources",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 4: the boss becomes the heartbeat"
     },
     {
@@ -10658,8 +10735,8 @@
       "source_location": "L1347",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_5_half_the_fleet_gets_an_empty_trophy_room",
-      "community": 51,
-      "community_name": "Design Inspiration Sources",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 5: half the fleet gets an empty trophy room"
     },
     {
@@ -10669,8 +10746,8 @@
       "source_location": "L1355",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_6_the_rank_titles",
-      "community": 51,
-      "community_name": "Design Inspiration Sources",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 6: the rank titles"
     },
     {
@@ -10680,8 +10757,8 @@
       "source_location": "L1365",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_7_nobody_asked_the_actual_employees",
-      "community": 51,
-      "community_name": "Design Inspiration Sources",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 7: nobody asked the actual employees"
     },
     {
@@ -10691,8 +10768,8 @@
       "source_location": "L1379",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_6_performance_work_making_it_light_on_a_potato_phone",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "6. performance work \u2014 making it light on a potato phone"
     },
     {
@@ -10702,8 +10779,8 @@
       "source_location": "L1419",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_7_ergonomics_one_handed_field_use",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "7. ergonomics \u2014 one-handed field use"
     },
     {
@@ -10713,8 +10790,8 @@
       "source_location": "L1439",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_8_the_plan",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "8. the plan"
     },
     {
@@ -10724,8 +10801,8 @@
       "source_location": "L1446",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_0_solid_ground",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 0 \u2014 solid ground"
     },
     {
@@ -10735,8 +10812,8 @@
       "source_location": "L1483",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_1_the_performance_pass",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 1 \u2014 the performance pass"
     },
     {
@@ -10746,8 +10823,8 @@
       "source_location": "L1496",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_2_the_ledger_runs_in_the_dark",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 2 \u2014 the ledger runs in the dark"
     },
     {
@@ -10757,8 +10834,8 @@
       "source_location": "L1533",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_3_tenure_and_the_backfill",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 3 \u2014 tenure and the backfill"
     },
     {
@@ -10768,8 +10845,8 @@
       "source_location": "L1562",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_4_flip_the_switch",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 4 \u2014 flip the switch"
     },
     {
@@ -10779,8 +10856,8 @@
       "source_location": "L1589",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_5_one_badge_system",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 5 \u2014 one badge system"
     },
     {
@@ -10790,8 +10867,8 @@
       "source_location": "L1616",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_6_the_trophy_room",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 6 \u2014 the trophy room"
     },
     {
@@ -10801,8 +10878,8 @@
       "source_location": "L1644",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_7_seasons_and_the_honest_extras",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 7 \u2014 seasons and the honest extras"
     },
     {
@@ -10812,8 +10889,8 @@
       "source_location": "L1666",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_8_ergonomics",
-      "community": 53,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 8 \u2014 ergonomics"
     },
     {
@@ -10823,8 +10900,8 @@
       "source_location": "L1674",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_9_what_i_d_revisit_later_and_the_signal_that_says_it_s_time",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "9. what i'd revisit later, and the signal that says it's time"
     },
     {
@@ -10834,8 +10911,8 @@
       "source_location": "L1749",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_appendix_everything_i_checked_in_one_list",
-      "community": 56,
-      "community_name": "Wiki/Concepts",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "appendix: everything i checked, in one list"
     },
     {
@@ -11350,7 +11427,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L68",
+      "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -11537,7 +11614,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L58",
+      "source_location": "L59",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -11691,7 +11768,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -11812,7 +11889,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L81",
+      "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -11823,7 +11900,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L121",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -11933,7 +12010,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L62",
+      "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -11955,7 +12032,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L125",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -11966,7 +12043,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L121",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -12054,7 +12131,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L117",
+      "source_location": "L118",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -12197,7 +12274,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L70",
+      "source_location": "L71",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -12208,7 +12285,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L134",
+      "source_location": "L135",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -12219,7 +12296,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L130",
+      "source_location": "L131",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -12307,7 +12384,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L50",
+      "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -12461,7 +12538,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L55",
+      "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -12890,7 +12967,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L64",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -12901,7 +12978,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L127",
+      "source_location": "L128",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -12923,7 +13000,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L123",
+      "source_location": "L124",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -13070,6 +13147,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_a_stored_name_is_not_the_name_of_record",
+      "target": "concepts_a_store_name_is_not_a_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ecer_is_a_person_not_a_shop",
       "target": "concepts_a_store_name_is_not_a_store",
       "confidence_score": 1.0
     },
@@ -13264,7 +13352,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L78",
+      "source_location": "L79",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -13275,7 +13363,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L119",
+      "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -14826,7 +14914,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L61",
+      "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -14996,6 +15084,17 @@
       "_origin": "ast",
       "source": "concepts_anti_recurrence_check",
       "target": "summaries_the_camera_was_aimed_at_the_wrong_scroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ecer_is_a_person_not_a_shop",
+      "target": "concepts_anti_recurrence_check",
       "confidence_score": 1.0
     },
     {
@@ -15551,6 +15650,116 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ecer_is_a_person_not_a_shop",
+      "target": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ecer_is_a_person_not_a_shop",
+      "target": "concepts_silent_failure_disease",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_index",
+      "target": "concepts_ecer_is_a_person_not_a_shop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Index.md",
+      "source_location": "L117",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "concepts_ecer_is_a_person_not_a_shop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/MOC.md",
+      "source_location": "L117",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "moc",
+      "target": "concepts_ecer_is_a_person_not_a_shop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
+      "target": "concepts_ecer_is_a_person_not_a_shop_related",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
+      "target": "concepts_ecer_is_a_person_not_a_shop_still_open",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
+      "target": "concepts_ecer_is_a_person_not_a_shop_the_trap_inside_strict_and_it_is_the_part_worth_remembering",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
+      "target": "concepts_ecer_is_a_person_not_a_shop_what_ships",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Ecer Is a Person, Not a Shop.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
+      "target": "concepts_ecer_is_a_person_not_a_shop_why_it_was_a_money_bug_and_not_a_preference",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Email Is a Document ID, Not a Field.md",
       "source_location": "L12",
       "weight": 1.0,
@@ -15563,7 +15772,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L79",
+      "source_location": "L80",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -15574,7 +15783,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L120",
+      "source_location": "L121",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -15816,7 +16025,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L54",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -15992,7 +16201,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L74",
+      "source_location": "L75",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -16003,7 +16212,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L132",
+      "source_location": "L133",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -16014,7 +16223,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L128",
+      "source_location": "L129",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -16223,7 +16432,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L56",
+      "source_location": "L57",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -16751,7 +16960,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -17554,7 +17763,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L67",
+      "source_location": "L68",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -17631,7 +17840,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L73",
+      "source_location": "L74",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -17686,7 +17895,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L118",
+      "source_location": "L119",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -17708,7 +17917,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L117",
+      "source_location": "L118",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -17829,7 +18038,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L59",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -18610,7 +18819,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L71",
+      "source_location": "L72",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -18698,7 +18907,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L69",
+      "source_location": "L70",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -18731,7 +18940,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L129",
+      "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -18742,7 +18951,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L125",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -19017,7 +19226,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -19039,7 +19248,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L133",
+      "source_location": "L134",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -19050,7 +19259,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L129",
+      "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -19105,7 +19314,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -19501,7 +19710,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -19644,7 +19853,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L63",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -19666,7 +19875,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L126",
+      "source_location": "L127",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -19677,7 +19886,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L122",
+      "source_location": "L123",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -19842,7 +20051,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L60",
+      "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -19952,7 +20161,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L124",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -19974,7 +20183,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L120",
+      "source_location": "L121",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -20128,7 +20337,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L47",
+      "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index",
@@ -20150,7 +20359,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index_wiki_concepts",
@@ -20172,7 +20381,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_index_wiki_concepts",
@@ -21558,7 +21767,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L128",
+      "source_location": "L129",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -21569,7 +21778,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L136",
+      "source_location": "L137",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -21580,7 +21789,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L135",
+      "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -21613,7 +21822,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L138",
+      "source_location": "L139",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -22471,7 +22680,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L131",
+      "source_location": "L132",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -22482,7 +22691,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L124",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -22493,7 +22702,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L133",
+      "source_location": "L134",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -22504,7 +22713,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L132",
+      "source_location": "L133",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -24944,5 +25153,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "955fe2e3aaa962c3180a066405b7dcd47c673d19"
+  "built_at_commit": "23fb6b91278d128fb763950732734ccc232acc42"
 }

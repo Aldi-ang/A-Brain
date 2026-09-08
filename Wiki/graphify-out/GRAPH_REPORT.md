@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-08)
 
 ## Corpus Check
-- 91 files · ~182,780 words
+- 92 files · ~183,496 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 996 nodes · 1271 edges · 105 communities (99 shown, 6 thin omitted)
+- 1003 nodes · 1283 edges · 105 communities (99 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `955fe2e3`
+- Built from commit: `23fb6b91`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,7 +19,6 @@
 - Operation Log
 - Lancelot the Tobacco Ledger Agent
 - KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
-- Concepts/index.md
 - 3.2 How XP works, and why it can never decay again
 - The KPM Control System
 - Anti-Recurrence Check
@@ -150,16 +149,12 @@ Cohesion: 0.05
 Nodes (41): A trap already in the data, Consequences — the build list, in order, Design decision — images are links, not embedded objects, Formatting is part of the job, Four bugs confirmed by hand, all mine, all in code that had passed 32 self-tests, How the business actually works — confirmed 2026-08-11, IN/OUT is now much smaller, Lancelot the Tobacco Ledger Agent (+33 more)
 
 ### Community 3 - "KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics"
-Cohesion: 0.17
-Nodes (12): 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated, 4.7 The Locker Room — how peers see each other, 4.8 One shared component (+4 more)
-
-### Community 4 - "Concepts/index.md"
-Cohesion: 0.09
-Nodes (28): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot, A Rect Is Painted, Not Laid Out, Family (+20 more)
+Cohesion: 0.04
+Nodes (45): 1. The thing you need to know first, 2. What's already good, 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated (+37 more)
 
 ### Community 5 - "3.2 How XP works, and why it can never decay again"
-Cohesion: 0.22
-Nodes (9): 3.1 The data model — real paths, real shapes, 3.4 Security rules — what changes and what doesn't, 3. The recommended design — "Buku Karir" (the Career Book), A. The career ledger — `.../career/{agentId}` (NEW collection), B. Awards — `.../career/{agentId}/awards/{awardId}` (NEW subcollection), C. Config — `.../settings/progression` (NEW, replaces two leaking docs), D. Two new fields on `.../motorists/{agentId}`, E. Fields added to `.../eod_reports/{reportId}` (+1 more)
+Cohesion: 0.09
+Nodes (22): 3.1 The data model — real paths, real shapes, 3.2 How XP works, and why it can never decay again, 3.3 The achievement system, 3.4 Security rules — what changes and what doesn't, 3. The recommended design — "Buku Karir" (the Career Book), A. The career ledger — `.../career/{agentId}` (NEW collection), B. Awards — `.../career/{agentId}/awards/{awardId}` (NEW subcollection), C. Config — `.../settings/progression` (NEW, replaces two leaking docs) (+14 more)
 
 ### Community 6 - "The KPM Control System"
 Cohesion: 0.11
@@ -342,16 +337,16 @@ Cohesion: 0.67
 Nodes (3): 🔴 AMBER IS AN EDGE AND AN INK. IT IS NOT A FILL. (2026-08-21), He judges by measurement, not by vibe — twice in one session, The near-miss worth remembering
 
 ### Community 51 - "Design Inspiration Sources"
-Cohesion: 0.20
-Nodes (10): 5. Making it fun (and the ways it could go badly wrong), Failure 1: the leaderboard bottom, Failure 2: the new hire versus the veteran, Failure 3: it feels like surveillance, not appreciation, Failure 4: the boss becomes the heartbeat, Failure 5: half the fleet gets an empty trophy room, Failure 6: the rank titles, Failure 7: nobody asked the actual employees (+2 more)
+Cohesion: 0.25
+Nodes (8): A Smooth Scroll That Never Runs, The lesson worth keeping, The second half — a phone has no "beside", The sequel — the same call, a second way to be wrong (2026-09-01), The wrong diagnosis, and why it was believable, Verification, What it actually was, What it looked like
 
 ### Community 52 - "The cross-site login block"
 Cohesion: 0.40
 Nodes (5): The cause, The cross-site login block, The fix, Three theories died on the way, and what killed each, Two symptoms, one root
 
 ### Community 53 - "Summary: Option B Region Lock"
-Cohesion: 0.20
-Nodes (10): 8. The plan, Phase 0 — Solid ground, Phase 1 — The performance pass, Phase 2 — The ledger runs in the dark, Phase 3 — Tenure and the backfill, Phase 4 — Flip the switch, Phase 5 — One badge system, Phase 6 — The trophy room (+2 more)
+Cohesion: 0.29
+Nodes (7): A Rect Is Painted, Not Laid Out, Family, The law, The shape, The wider lesson, and it is the expensive one, Where it happened, Why it survived every check and every screenshot
 
 ### Community 54 - "The Shell Repaints Any White It Can Reach"
 Cohesion: 0.40
@@ -362,8 +357,8 @@ Cohesion: 0.40
 Nodes (4): Ripple — pages this touches, Summary: Rules Draft Process, The documentation convention, What it establishes
 
 ### Community 56 - "Wiki/Concepts"
-Cohesion: 0.25
-Nodes (7): 2. What's already good, 6. Performance work — making it light on a potato phone, 7. Ergonomics — one-handed field use, 9. What I'd revisit later, and the signal that says it's time, A design document for the achievement/ranking system, the agent profile, and making the app light on cheap phones, Appendix: everything I checked, in one list, KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
+Cohesion: 0.29
+Nodes (7): The camera already existed, and was aimed wrong twice, The Camera Was Aimed at the Wrong Scroller, The decision that came first, The fix, The trap worth carrying, Two smaller things in the same block, Verification — beat by beat, not by eye
 
 ### Community 57 - "Headquarters Is Not a Cabang"
 Cohesion: 0.50
@@ -410,8 +405,8 @@ Cohesion: 0.08
 Nodes (25): A flick is a speed, not a distance, Closing a book is one motion, not a fade, FLIP is the one number that differs between the widths, He watched it, and named two faults (2026-09-02), 🔴 STILL OPEN — the phone's closed pose, The book arrives closed, and what "intersection between model and animation" meant, The Book as a Stack of Sheets, The bug only running it could find (+17 more)
 
 ### Community 72 - "An Effect's Own Cleanup Can Cancel Its Frame"
-Cohesion: 0.29
-Nodes (7): 3.2 How XP works, and why it can never decay again, The daily formula, The ladder, The one runnable check, What a real day looks like, Where XP is minted — inside a transaction that already runs, Why it cannot decay — the whole proof
+Cohesion: 0.33
+Nodes (6): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot
 
 ### Community 74 - "Fleet Captain Permission Gap"
 Cohesion: 0.25
@@ -447,15 +442,15 @@ Nodes (3): Adding a new entity, Pages here, Wiki/Entities
 
 ### Community 82 - "A CSS Animation Outranks Your Inline Style"
 Cohesion: 0.33
-Nodes (6): 1. The thing you need to know first, One thing I was told was broken that is NOT broken — correcting the record, The second thing: rank counts money you haven't been paid, The third thing: two bugs sitting under all of this, What this means for your agents *right now, today*, Your "Lifetime" numbers are 7-day numbers, and every agent's rank is a speedometer, not an odometer
+Nodes (6): Ecer Is a Person, Not a Shop, Related, Still open, The trap inside "strict", and it is the part worth remembering, What ships, Why it was a money bug and not a preference
 
 ### Community 83 - "Gudang Pusat (Master Vault)"
 Cohesion: 0.40
 Nodes (5): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The name, and who decided it, ⚠️ The trap — `'MASTER'` is also a routing value, What this does NOT settle
 
 ### Community 84 - "What Create Mod's Ponder Actually Does"
-Cohesion: 0.33
-Nodes (6): 3.3 The achievement system, Evaluation — the elegant part, How you configure them, Kill one of the two systems, Schema, The starter set — with the exact data source for each, or an honest "not yet"
+Cohesion: 0.40
+Nodes (4): Ripple — pages this touches, Summary: Ponytail Philosophy Ingest, Where it went, Why this was ingested
 
 ### Community 87 - "7 Days to Die — mod load order and the infinite loading screen"
 Cohesion: 0.22
@@ -510,8 +505,8 @@ Cohesion: 0.20
 Nodes (10): Aldi's scope answer, 2026-09-05 — locked, And the bell is not a footnote — his correction, 2026-09-05, Ownership Moves, History Does Not, Settled — the arrow reads sender first, The first live test, 2026-09-05 — the debt arrives, the button does not, The problem, The shape that was built (39cd90d), The two traps a lazy build walks into (+2 more)
 
 ### Community 100 - "Summary: Ponytail Philosophy Ingest"
-Cohesion: 0.20
-Nodes (7): Adding a new summary, Pages here, Wiki/Summaries, Ripple — pages this touches, Summary: Ponytail Philosophy Ingest, Where it went, Why this was ingested
+Cohesion: 0.40
+Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
 
 ### Community 101 - "Summary: KPM Project Facts Reference"
 Cohesion: 0.50
@@ -530,7 +525,7 @@ Cohesion: 0.50
 Nodes (4): A Named Import Can Shadow a Global, The fix, and the rule, What happened, What it cost, and what did NOT catch it
 
 ## Knowledge Gaps
-- **769 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+764 more)
+- **774 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+769 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -538,13 +533,13 @@ Nodes (4): A Named Import Can Shadow a Global, The fix, and the rule, What happe
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.168) - this node is a cross-community bridge._
+  _High betweenness centrality (0.174) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.082) - this node is a cross-community bridge._
+  _High betweenness centrality (0.092) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.069) - this node is a cross-community bridge._
+  _High betweenness centrality (0.077) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _769 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _774 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.03571428571428571 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
