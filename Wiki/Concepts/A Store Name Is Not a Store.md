@@ -3,9 +3,9 @@ title: A Store Name Is Not a Store
 description: Aldi's book contains several shops that share a name, kilometres apart. Any code that identifies a shop by its name is a money bug waiting for the second shop to open.
 type: concept
 created: 2026-08-18
-updated: 2026-08-18
+updated: 2026-09-08
 confidence: high
-checked: 2026-08-18
+checked: 2026-09-08
 tags: [pattern, identity, money, kpm]
 ---
 
@@ -88,6 +88,14 @@ document carries matches nothing, which fails silently and reports success — s
   `storesServed`, a count banked into the career document with `increment()`.
   **Finding the class beat finding the instances by five to three.**
 
+- **Account hand-off, again, 2026-09-08** — this time the shop had NO document at all.
+  `handleAdminApproveTransfer` wrote `status: 'APPROVED'` unconditionally and only then looked for
+  the customer to move; the owner change and the `handoffs` entry both sat inside
+  `if (targetCustomer)`. "HQ 3" matched zero documents, so the request said APPROVED, the store
+  stayed with the sender, the receiver never got it, and the approver had no history to show —
+  one failure wearing three faces. Fixed `cdaabc7`: the target is resolved before anything is
+  written and the approval is refused when there is none.
+
 ## The rule that follows from it, added 2026-08-18
 
 Because the name IS the key, **nothing may ever be appended to it.** Writing the price tier into
@@ -106,6 +114,29 @@ name, not a tier.
 
 Pinned by 14 assertions in `logicFixes.selfcheck.mjs`; the six regression guards were watched
 failing against the pre-fix code (stash the fix, run the check) before being trusted.
+
+## A shop can exist on screen with no document behind it, added 2026-09-08
+
+The page above assumes the problem is *which* document a name picks. There is a worse case: **none.**
+
+`ConsignmentFinanceView`'s `customerData` (`:281`) is built by folding TRANSACTIONS, not by reading
+the `customers` collection. So Active Consignments will happily show a shop with a name, a held
+quantity and an outstanding balance while no customer document exists for it anywhere. Aldi read
+that list as proof the shop was registered — reasonably, since it is the screen where he manages
+shops — and it is not that at all.
+
+Two consequences worth carrying forward:
+
+1. **A screen listing shops is not evidence a shop is registered.** Ask which collection built the
+   list before treating its rows as documents. The registry and the consignment list disagree by
+   construction.
+2. **Never write the "done" half of a two-part operation before the half that can fail.** The
+   status write cost nothing to move; leaving it first turned a recoverable "cannot find the shop"
+   into a permanent record claiming money and responsibility had changed hands. A toast explaining
+   the failure does not undo a write — Aldi got that toast and the record stood anyway.
+
+The second point is the general one, and it is not about store names at all. See
+[[Silent Failure Disease]] for the family it belongs to.
 
 ## Related
 
