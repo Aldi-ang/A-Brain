@@ -505,8 +505,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_a_hijacked_uid_is_not_an_identity",
-      "community": 42,
-      "community_name": "Six Days \u2014 Gate, Phone Access, Quota Meter",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "a hijacked uid is not an identity"
     },
     {
@@ -516,8 +516,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_the_tell_was_in_the_screenshot_not_the_sentence",
-      "community": 42,
-      "community_name": "Six Days \u2014 Gate, Phone Access, Quota Meter",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "the tell was in the screenshot, not the sentence"
     },
     {
@@ -527,8 +527,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_the_mechanism",
-      "community": 42,
-      "community_name": "Six Days \u2014 Gate, Phone Access, Quota Meter",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "the mechanism"
     },
     {
@@ -538,8 +538,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_the_general_shape",
-      "community": 42,
-      "community_name": "Six Days \u2014 Gate, Phone Access, Quota Meter",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "the general shape"
     },
     {
@@ -549,8 +549,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_what_it_did_not_break",
-      "community": 42,
-      "community_name": "Six Days \u2014 Gate, Phone Access, Quota Meter",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "what it did not break"
     },
     {
@@ -560,8 +560,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_guarded_by",
-      "community": 42,
-      "community_name": "Six Days \u2014 Gate, Phone Access, Quota Meter",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "guarded by"
     },
     {
@@ -571,8 +571,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_related",
-      "community": 42,
-      "community_name": "Six Days \u2014 Gate, Phone Access, Quota Meter",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "related"
     },
     {
@@ -681,8 +681,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_a_mode_reminder_does_not_outrank_aldi",
-      "community": 41,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "a mode reminder does not outrank aldi"
     },
     {
@@ -692,8 +692,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_the_decision_it_protects",
-      "community": 41,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "the decision it protects"
     },
     {
@@ -703,8 +703,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_what_happened",
-      "community": 41,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "what happened"
     },
     {
@@ -714,8 +714,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_why_prose_did_not_prevent_it",
-      "community": 41,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "why prose did not prevent it"
     },
     {
@@ -725,8 +725,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_related",
-      "community": 41,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "related"
     },
     {
@@ -3013,8 +3013,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "ecer is a person, not a shop"
     },
     {
@@ -3024,8 +3024,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_why_it_was_a_money_bug_and_not_a_preference",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "why it was a money bug and not a preference"
     },
     {
@@ -3035,8 +3035,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_what_ships",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "what ships"
     },
     {
@@ -3046,8 +3046,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_the_trap_inside_strict_and_it_is_the_part_worth_remembering",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "the trap inside \"strict\", and it is the part worth remembering"
     },
     {
@@ -3057,8 +3057,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_still_open",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "still open"
     },
     {
@@ -3068,8 +3068,8 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_related",
-      "community": 82,
-      "community_name": "A CSS Animation Outranks Your Inline Style",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "related"
     },
     {
@@ -3544,6 +3544,28 @@
       "community": 96,
       "community_name": "Hand-off eligibility",
       "norm_label": "2026-09-07 \u2014 and the approval queue was invisible to the very people it was for"
+    },
+    {
+      "label": "2026-09-08 \u2014 the write had never been told, and it refused what the queue had cleared",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Handoff Eligibility.md",
+      "source_location": "L174",
+      "_origin": "ast",
+      "id": "concepts_handoff_eligibility_2026_09_08_the_write_had_never_been_told_and_it_refused_what_the_queue_had_cleared",
+      "community": 96,
+      "community_name": "Hand-off eligibility",
+      "norm_label": "2026-09-08 \u2014 the write had never been told, and it refused what the queue had cleared"
+    },
+    {
+      "label": "2026-09-08 \u2014 NO TIER FLOOR ON A NAMED APPROVER, and why that is not a gap",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Handoff Eligibility.md",
+      "source_location": "L183",
+      "_origin": "ast",
+      "id": "concepts_handoff_eligibility_2026_09_08_no_tier_floor_on_a_named_approver_and_why_that_is_not_a_gap",
+      "community": 96,
+      "community_name": "Hand-off eligibility",
+      "norm_label": "2026-09-08 \u2014 no tier floor on a named approver, and why that is not a gap"
     },
     {
       "label": "Headquarters Is Not a Cabang.md",
@@ -7787,8 +7809,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "index_wiki_index",
-      "community": 95,
-      "community_name": "Wiki Index",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "wiki index"
     },
     {
@@ -7798,8 +7820,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "index_entities_specific_things",
-      "community": 95,
-      "community_name": "Wiki Index",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "entities (specific things)"
     },
     {
@@ -7809,8 +7831,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "index_concepts_recurring_patterns",
-      "community": 95,
-      "community_name": "Wiki Index",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "concepts (recurring patterns)"
     },
     {
@@ -7820,8 +7842,8 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
-      "community": 95,
-      "community_name": "Wiki Index",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "summaries (one per ingested source, newest ingest pass first)"
     },
     {
@@ -7831,8 +7853,8 @@
       "source_location": "L139",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
-      "community": 95,
-      "community_name": "Wiki Index",
+      "community": 27,
+      "community_name": "A Store Name Is Not a Store",
       "norm_label": "known gaps (honest, not filled in yet)"
     },
     {
@@ -8821,8 +8843,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -8898,8 +8920,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 100,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -8975,8 +8997,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 101,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 100,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -8986,8 +9008,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 101,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 100,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -8997,8 +9019,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 101,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 100,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "what it establishes"
     },
     {
@@ -9008,8 +9030,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 101,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 100,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -9239,8 +9261,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 100,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "option b region lock.md"
     },
     {
@@ -9250,8 +9272,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_summary_option_b_region_lock",
-      "community": 98,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "summary: option b region lock"
     },
     {
@@ -9261,8 +9283,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_what_it_fixed",
-      "community": 98,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "what it fixed"
     },
     {
@@ -9272,8 +9294,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_the_blocking_question_resolved",
-      "community": 98,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "the blocking question, resolved"
     },
     {
@@ -9283,8 +9305,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_extended_to_fleet_captain_and_a_real_stale_memory_lesson",
-      "community": 98,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "extended to fleet captain \u2014 and a real \"stale memory\" lesson"
     },
     {
@@ -9294,8 +9316,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_ripple_pages_this_touches",
-      "community": 98,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -9712,8 +9734,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 100,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "store hand-off name collision.md"
     },
     {
@@ -9723,8 +9745,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_store_hand_off_name_collision",
-      "community": 102,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 100,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "store hand-off name collision"
     },
     {
@@ -9734,8 +9756,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_the_fix_that_could_not_be_built",
-      "community": 102,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 100,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "the fix that could not be built"
     },
     {
@@ -9745,8 +9767,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_what_shipped",
-      "community": 102,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 100,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "what shipped"
     },
     {
@@ -9756,8 +9778,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_verified",
-      "community": 102,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 100,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "verified"
     },
     {
@@ -9987,8 +10009,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 100,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "the panel that never reads a transaction.md"
     },
     {
@@ -16201,7 +16223,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Handoff Eligibility.md",
-      "source_location": "L174",
+      "source_location": "L216",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_handoff_eligibility",
@@ -16272,6 +16294,28 @@
       "_origin": "ast",
       "source": "concepts_handoff_eligibility_hand_off_eligibility",
       "target": "concepts_handoff_eligibility_2026_09_07_the_receiver_may_now_authorise_their_own_incoming_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Handoff Eligibility.md",
+      "source_location": "L183",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_handoff_eligibility_hand_off_eligibility",
+      "target": "concepts_handoff_eligibility_2026_09_08_no_tier_floor_on_a_named_approver_and_why_that_is_not_a_gap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Handoff Eligibility.md",
+      "source_location": "L174",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_handoff_eligibility_hand_off_eligibility",
+      "target": "concepts_handoff_eligibility_2026_09_08_the_write_had_never_been_told_and_it_refused_what_the_queue_had_cleared",
       "confidence_score": 1.0
     },
     {
@@ -25186,5 +25230,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "bf1798cb2863773ac9091c77764171edc52a6314"
+  "built_at_commit": "2026177a93560e008a7347997c8129ffff69f1af"
 }

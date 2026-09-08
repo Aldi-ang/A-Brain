@@ -120,6 +120,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Concepts/A Stored Name Is Not the Name of Record]] — the stored agent name is a frozen Google displayName; the id on the row is the fact. Also why the hand-off left every "who manages this" reader naming the previous agent.
 - [[Concepts/Email Is a Document ID, Not a Field]] — telling a structural required field from a tidy one before relaxing it, and the duplicate check that breaks when you do.
 - [[Concepts/A Hijacked UID Is Not an Identity]] — a substituted uid turned the vault grace into a privilege escalation; grep the hijacked field, not the feature.
+- [[Concepts/POV Changes the Id, Never the Email]] — wrong only under POV? grep the screen for user?.email and ask which identity it trusted.
   backfill pass that closed a six-day vault gap
 
 - [[Concepts/Where KPM Is Going]] — START HERE: the theme, every locked decision, and the direction.

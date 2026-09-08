@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-08)
 
 ## Corpus Check
-- 92 files · ~183,837 words
+- 92 files · ~184,327 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1004 nodes · 1285 edges · 105 communities (99 shown, 6 thin omitted)
+- 1006 nodes · 1287 edges · 98 communities (92 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bf1798cb`
+- Built from commit: `2026177a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -55,8 +55,6 @@
 - Summaries/index.md
 - Summary: Fleet Captain Rule Gaps — Batch 1 and 2
 - Summary: Offline Login Lockout Fix
-- Summary: Rank Config Cross-Tenant Gap
-- Six Days — Gate, Phone Access, Quota Meter
 - Design Inspiration Sources
 - Draft-Then-Deploy Discipline
 - Off-Token Colour Migration Map
@@ -95,7 +93,6 @@
 - Rank Config and Achievement Badges
 - Tier System
 - Wiki/Entities
-- A CSS Animation Outranks Your Inline Style
 - Gudang Pusat (Master Vault)
 - What Create Mod's Ponder Actually Does
 - 2026-09-01 — "not just recolor but redesign", and what he meant by it
@@ -108,14 +105,10 @@
 - Email Is a Document ID, Not a Field
 - The Camera Was Aimed at the Wrong Scroller
 - Sounds Come From Aldi
-- Wiki Index
 - Hand-off eligibility
 - The Shorter List Was Never the Eligible One
-- Summary: Option B Region Lock
 - Ownership Moves, History Does Not
 - Summary: Ponytail Philosophy Ingest
-- Summary: KPM Project Facts Reference
-- Store Hand-off Name Collision
 - Wiki/Summaries
 - A Named Import Can Shadow a Global
 
@@ -129,12 +122,12 @@
 7. `The Book as a Stack of Sheets` - 15 edges
 8. `The KPM Control System` - 14 edges
 9. `2026-08-16 — "animation and 3D more with gamification on all of this segment"` - 13 edges
-10. `KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics` - 12 edges
+10. `Hand-off eligibility` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (105 total, 6 thin omitted)
+## Communities (98 total, 6 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.04
@@ -241,8 +234,8 @@ Cohesion: 0.29
 Nodes (7): A Network Is Not The Internet, It has lied twice here, It survived the first fix, because the fix moved the lie instead of removing it, Related, The 2026-08-19 freeze, in order, The rule, The third round, and the fact underneath all of it
 
 ### Community 27 - "A Store Name Is Not a Store"
-Cohesion: 0.25
-Nodes (8): A shop can exist on screen with no document behind it, added 2026-09-08, A Store Name Is Not a Store, Related, The rule, The rule that follows from it, added 2026-08-18, The three fields that actually identify something, Where it has bitten, Why this keeps happening
+Cohesion: 0.06
+Nodes (31): A Hijacked UID Is Not an Identity, Guarded by, Related, The general shape, The mechanism, The tell was in the screenshot, not the sentence, What it did NOT break, A Mode Reminder Does Not Outrank Aldi (+23 more)
 
 ### Community 28 - "Fat Documents in a Live Listener"
 Cohesion: 0.29
@@ -296,21 +289,13 @@ Nodes (6): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, R
 Cohesion: 0.33
 Nodes (5): Ripple — pages this touches, Summary: Offline Login Lockout Fix, The bug, The fix, Why this belongs in the wiki
 
-### Community 41 - "Summary: Rank Config Cross-Tenant Gap"
-Cohesion: 0.40
-Nodes (5): A Mode Reminder Does Not Outrank Aldi, Related, The decision it protects, What happened, Why prose did not prevent it
-
-### Community 42 - "Six Days — Gate, Phone Access, Quota Meter"
-Cohesion: 0.29
-Nodes (7): A Hijacked UID Is Not an Identity, Guarded by, Related, The general shape, The mechanism, The tell was in the screenshot, not the sentence, What it did NOT break
-
 ### Community 43 - "Design Inspiration Sources"
 Cohesion: 0.50
 Nodes (4): 1. He judges a surface by how it feels after an hour, not in a screenshot, 2. Navigation labels are words, not codes, 3. Depth is confirmed, and quiet is why, Backlight out, full words in, and the lowkey 3D stays (2026-09-02)
 
 ### Community 44 - "Draft-Then-Deploy Discipline"
-Cohesion: 0.33
-Nodes (5): Framing note, Ripple — pages this touches, Summary: Rank Config Cross-Tenant Gap, The gap, Two layers, two different fixes
+Cohesion: 0.14
+Nodes (10): Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches, Summary: Option B Region Lock, The blocking question, resolved, What it fixed, Framing note, Ripple — pages this touches, Summary: Rank Config Cross-Tenant Gap (+2 more)
 
 ### Community 45 - "Off-Token Colour Migration Map"
 Cohesion: 0.33
@@ -440,10 +425,6 @@ Nodes (6): A brand-new matrix key is ABSENT, not "no" (2026-09-06), Delegation: 
 Cohesion: 0.67
 Nodes (3): Adding a new entity, Pages here, Wiki/Entities
 
-### Community 82 - "A CSS Animation Outranks Your Inline Style"
-Cohesion: 0.33
-Nodes (6): Ecer Is a Person, Not a Shop, Related, Still open, The trap inside "strict", and it is the part worth remembering, What ships, Why it was a money bug and not a preference
-
 ### Community 83 - "Gudang Pusat (Master Vault)"
 Cohesion: 0.40
 Nodes (5): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The name, and who decided it, ⚠️ The trap — `'MASTER'` is also a routing value, What this does NOT settle
@@ -484,37 +465,21 @@ Nodes (5): 21st.dev is not a browsing job, Design Inspiration Sources, Four hous
 Cohesion: 0.29
 Nodes (7): Enforced, not remembered, Open, Rejected on purpose — do not re-propose, Sounds Come From Aldi, The three rounds, What actually worked, and it is reproducible, Where sound lives, and what can never be verified from here
 
-### Community 95 - "Wiki Index"
-Cohesion: 0.40
-Nodes (5): Concepts (recurring patterns), Entities (specific things), Known gaps (honest, not filled in yet), Summaries (one per ingested source, newest ingest pass first), Wiki Index
-
 ### Community 96 - "Hand-off eligibility"
-Cohesion: 0.13
-Nodes (15): 2026-09-07 — and the approval queue was invisible to the very people it was for, 2026-09-07 — the receiver may now authorise their own incoming store, A grant displaces the default, for that branch only, Display, Half one — who may receive, Half two — who may approve, Hand-off eligibility, ⚠️ It was built on the TIER first, and that was wrong (+7 more)
+Cohesion: 0.12
+Nodes (17): 2026-09-07 — and the approval queue was invisible to the very people it was for, 2026-09-07 — the receiver may now authorise their own incoming store, 2026-09-08 — NO TIER FLOOR ON A NAMED APPROVER, and why that is not a gap, 2026-09-08 — the write had never been told, and it refused what the queue had cleared, A grant displaces the default, for that branch only, Display, Half one — who may receive, Half two — who may approve (+9 more)
 
 ### Community 97 - "The Shorter List Was Never the Eligible One"
 Cohesion: 0.22
 Nodes (9): Still open, The brief named the wrong list, The demo nobody could open, The new matrix key, and why absence must not mean "no", The Shorter List Was Never the Eligible One, The thing worth carrying, Two decisions made inside the fix, both flagged rather than assumed, Verification, and its ceiling (+1 more)
-
-### Community 98 - "Summary: Option B Region Lock"
-Cohesion: 0.40
-Nodes (5): Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches, Summary: Option B Region Lock, The blocking question, resolved, What it fixed
 
 ### Community 99 - "Ownership Moves, History Does Not"
 Cohesion: 0.20
 Nodes (10): Aldi's scope answer, 2026-09-05 — locked, And the bell is not a footnote — his correction, 2026-09-05, Ownership Moves, History Does Not, Settled — the arrow reads sender first, The first live test, 2026-09-05 — the debt arrives, the button does not, The problem, The shape that was built (39cd90d), The two traps a lazy build walks into (+2 more)
 
 ### Community 100 - "Summary: Ponytail Philosophy Ingest"
-Cohesion: 0.40
-Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
-
-### Community 101 - "Summary: KPM Project Facts Reference"
-Cohesion: 0.50
-Nodes (3): Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes
-
-### Community 102 - "Store Hand-off Name Collision"
-Cohesion: 0.50
-Nodes (4): Store Hand-off Name Collision, The fix that could not be built, Verified, What shipped
+Cohesion: 0.15
+Nodes (10): Adding a new summary, Pages here, Wiki/Summaries, Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes, Store Hand-off Name Collision, The fix that could not be built (+2 more)
 
 ### Community 103 - "Wiki/Summaries"
 Cohesion: 0.50
@@ -525,7 +490,7 @@ Cohesion: 0.50
 Nodes (4): A Named Import Can Shadow a Global, The fix, and the rule, What happened, What it cost, and what did NOT catch it
 
 ## Knowledge Gaps
-- **775 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+770 more)
+- **777 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+772 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -537,9 +502,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
   _High betweenness centrality (0.092) - this node is a cross-community bridge._
 - **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.077) - this node is a cross-community bridge._
+  _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _775 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _777 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.03571428571428571 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

@@ -21,6 +21,7 @@ fixed/deployed right now," always check the real `kpm-inventory` git repo, not t
 
 ## 🔒 Security & Permissions
 - [[Concepts/A Hijacked UID Is Not an Identity]] — the uid hijack meets any per-person key: 2026-09-07 privilege escalation, both guards, and what it deliberately did NOT break.
+- [[Concepts/POV Changes the Id, Never the Email]] — the preview's one blind spot: email-first lookups. 2026-09-08 agent inventory, the second instance still open, and why rewriting the email is the wrong repair.
 
 How KPM decides who can read or write what, and where that's gone wrong.
 
