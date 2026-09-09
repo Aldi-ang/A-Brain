@@ -56,12 +56,12 @@ The strong half is not the camera — it is that **a camera-only tier has no fil
 of a shipped build.** Verified in `dist`, not asserted from the source:
 
 ```
-(ht||!1)&&e.jsx("input",{type:"file"...
+$t&&e.jsx("input",{type:"file",accept:"image/*",id:"txProof"...
 ```
 
-`ht` is the tier answer, `!1` is `import.meta.env.DEV` after Vite replaced it. The dev escape
-hatch — which exists only so a machine with no webcam can still reach the rest of the sale screen —
-is gated on the **build mode and never on the tier**, and it is compiled out.
+`$t` is the tier answer, and it is the ONLY thing in front of the input — in every build. It read
+`(ht||!1)&&` for about an hour, where `!1` was `import.meta.env.DEV` compiled out of production;
+that half is gone entirely, for the reason in the next section but one.
 
 ## Two traps this sat on
 
@@ -74,6 +74,36 @@ camera on this device, or permission refused. A blocked camera that left the but
 **A `position: fixed` modal opened from inside the manifest drawer is positioned against the
 drawer, not the viewport.** The drawer is a scrolling flex column. `createPortal` to `document.body`
 is the fix, and it is why the camera is not half off-screen.
+
+## The dev-only bypass that lasted an hour
+
+The first version carried a **"Dev only — pick a file instead"** button on the blocked state, gated
+on `import.meta.env.DEV` and never on the tier, so a machine with no webcam could still finish a
+sale. It could not exist in a production build, which is what made it sound safe.
+
+Aldi killed it the moment he saw it, wearing tier 6:
+
+> *"me as tier 6 still can see this option and can use it"*
+
+He is right and the reasoning was backwards. **`npm run dev` is the only place he tests anything.**
+A bypass that exists exactly there does not preserve testability — it removes the rule under test,
+in the one environment where the rule could be watched working.
+
+> **An escape hatch scoped to the environment you test in is not a safety valve. It is the feature
+> being switched off, everywhere it could have been observed.**
+
+And it was redundant on top of that: the product already has a visible, auditable way to let a tier
+attach a file — turn `photo_pick_from_gallery` ON for that tier in the permission matrix, test, turn
+it off. A hidden second answer to *"may this tier attach a file"* is how two answers to one question
+start disagreeing.
+
+Removed in `1857b97`. Verified in `dist`: `$t&&e.jsx("input",{type:"file"` — the `||!1` is gone and
+the string "Dev only" appears nowhere in the bundle. The consequence is stated rather than hidden:
+on a machine with no webcam, a camera-only tier genuinely cannot complete a sale. That is his rule.
+
+⚠️ **The guard that pins this reads through `code()`, not the raw file.** The comments left where
+the bypass used to be name `import.meta.env.DEV` in order to say *do not put this back*, and a raw
+grep cannot tell a warning about a line from the line.
 
 ## The permission shape, unchanged from its three siblings
 
@@ -102,4 +132,4 @@ See [[Anti-Recurrence Check]].
 - [[Secure Context Requirement]] — why the dev server is https, and what breaks on a LAN address
 - [[Every Action Must Report]] — a control that cannot say why it will not work
 - [[Anti-Recurrence Check]] — shape 4: grepping the source proves a thing was typed, never that it applies
-- Shipped: `284ea64`
+- Shipped: `284ea64`, and the bypass removed in `1857b97`
