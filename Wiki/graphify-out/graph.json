@@ -3101,8 +3101,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 59,
+      "community_name": "Store Hand-off Name Collision",
       "norm_label": "draft-then-deploy discipline.md"
     },
     {
@@ -5114,8 +5114,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_pov_changes_the_id_never_the_email",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 98,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "pov changes the id, never the email"
     },
     {
@@ -5125,8 +5125,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_how_it_was_found_2026_09_08",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 98,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "how it was found \u2014 2026-09-08"
     },
     {
@@ -5136,8 +5136,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_not_a_permission_hole_and_say_so_plainly",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 98,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "not a permission hole, and say so plainly"
     },
     {
@@ -5147,8 +5147,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_the_second_instance_still_unfixed_as_of_2026_09_08",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 98,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "the second instance, still unfixed as of 2026-09-08"
     },
     {
@@ -5158,8 +5158,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_the_rule_for_next_time",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 98,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "the rule for next time"
     },
     {
@@ -5169,8 +5169,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 98,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "related"
     },
     {
@@ -8771,6 +8771,39 @@
       "norm_label": "2026-08-25 \u2014 measure what a thing costs every session before judging whether to adopt it"
     },
     {
+      "label": "2026-08-26 \u2014 an installed skill's `description` is not its only trigger surface",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L297",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_08_26_an_installed_skill_s_description_is_not_its_only_trigger_surface",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-08-26 \u2014 an installed skill's `description` is not its only trigger surface"
+    },
+    {
+      "label": "2026-08-26 \u2014 a green build is not a check that the identifiers exist",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L319",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_08_26_a_green_build_is_not_a_check_that_the_identifiers_exist",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-08-26 \u2014 a green build is not a check that the identifiers exist"
+    },
+    {
+      "label": "2026-08-26 \u2014 read a screen's real field names before proposing its replacement",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L344",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_08_26_read_a_screen_s_real_field_names_before_proposing_its_replacement",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-08-26 \u2014 read a screen's real field names before proposing its replacement"
+    },
+    {
       "label": "Log.md",
       "file_type": "document",
       "source_file": "Wiki/Log.md",
@@ -9712,8 +9745,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 105,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -9723,8 +9756,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 105,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -9734,8 +9767,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 105,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "what it establishes"
     },
     {
@@ -9745,8 +9778,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 105,
+      "community_name": "Summary: KPM Project Facts Reference",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -10350,8 +10383,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -10449,8 +10482,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "store hand-off name collision.md"
     },
     {
@@ -10724,8 +10757,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the panel that never reads a transaction.md"
     },
     {
@@ -23801,6 +23834,39 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L319",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_08_18_2nd_today_chosen_by_oldest_last_fire",
+      "target": "lessons_archive_2026_08_26_a_green_build_is_not_a_check_that_the_identifiers_exist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L297",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_08_18_2nd_today_chosen_by_oldest_last_fire",
+      "target": "lessons_archive_2026_08_26_an_installed_skill_s_description_is_not_its_only_trigger_surface",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L344",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_08_18_2nd_today_chosen_by_oldest_last_fire",
+      "target": "lessons_archive_2026_08_26_read_a_screen_s_real_field_names_before_proposing_its_replacement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
       "source_location": "L10",
       "weight": 1.0,
@@ -26924,5 +26990,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a070160e3e15a505fb7b66e1624db70195f71887"
+  "built_at_commit": "8d3ae3c31707292838c3f5504419d0268e45fa38"
 }

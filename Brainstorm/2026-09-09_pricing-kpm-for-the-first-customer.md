@@ -12,6 +12,10 @@ tags: [kpm, pricing, business, indonesia, saas, strategy]
 
 # Pricing KPM — the first customer and everything after him
 
+> ⚠️ **SUPERSEDED IN PART, 2026-09-10.** Aldi said the real user count is **50-100**, not the 10-30
+> this note assumed. The Rp 2,5 juta/month recommendation and Option C's numbers no longer apply.
+> The measured market comps below are still good. New figures: [[2026-09-10_pricing-revisi-50-100-user]].
+
 ## The problem, in his words
 
 > *"how should i price this level of app that im working right now for the company tho and how much
