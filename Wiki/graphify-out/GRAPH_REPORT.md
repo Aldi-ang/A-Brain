@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-09)
 
 ## Corpus Check
-- 98 files · ~191,249 words
+- 99 files · ~192,523 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1061 nodes · 1366 edges · 107 communities (101 shown, 6 thin omitted)
+- 1071 nodes · 1376 edges · 110 communities (104 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `16ee9637`
+- Built from commit: `a070160e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -53,6 +53,8 @@
 - Summary: Claude Code CLI Install — McAfee Download Freeze
 - Summary: Customer Directory Permission Tier
 - Dead Weight Cleanup and Rules-Deploy Gap
+- Summaries/index.md
+- KPM Product Inventory
 - Summary: Offline Login Lockout Fix
 - Ecer Is a Person, Not a Shop
 - POV changes the id, never the email
@@ -103,6 +105,7 @@
 - One Pack Count, Many Screens
 - A Meter That Exits Silently Is Not a Meter
 - Summary: Ponytail Philosophy Ingest
+- Summary: Option B Region Lock
 - Email Is a Document ID, Not a Field
 - The Camera Was Aimed at the Wrong Scroller
 - Sounds Come From Aldi
@@ -137,7 +140,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (107 total, 6 thin omitted)
+## Communities (110 total, 6 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.04
@@ -156,8 +159,8 @@ Cohesion: 0.04
 Nodes (45): 1. The thing you need to know first, 2. What's already good, 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated (+37 more)
 
 ### Community 4 - "Concepts/index.md"
-Cohesion: 0.11
-Nodes (12): And the message, Email Is a Document ID, Not a Field, Guarded by, Related, The trap that comes free with every relaxed field, Which required fields are actually structural, Adding a new summary, Pages here (+4 more)
+Cohesion: 0.14
+Nodes (6): How it was found — 2026-09-08, Not a permission hole, and say so plainly, POV changes the id, never the email, Related, The rule for next time, The second instance, still unfixed as of 2026-09-08
 
 ### Community 5 - "3.2 How XP works, and why it can never decay again"
 Cohesion: 0.09
@@ -291,6 +294,14 @@ Nodes (5): A real, documented (not fixed) risk, Ripple — pages this touches, S
 Cohesion: 0.33
 Nodes (6): Dead Weight Cleanup and Rules-Deploy Gap, Related, Update 2026-07-28 — the cleanup broke the production build, Verify before trusting, What happened, Why it's worth remembering
 
+### Community 38 - "Summaries/index.md"
+Cohesion: 0.20
+Nodes (6): Adding a new summary, Pages here, Wiki/Summaries, Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes
+
+### Community 39 - "KPM Product Inventory"
+Cohesion: 0.20
+Nodes (9): Capabilities that were NOT in the earlier pricing, and should have been, KPM Product Inventory, Method, and its limit, Related, Security, verified in code, Size, measured, The permission surface, The replacement-cost anchor (+1 more)
+
 ### Community 40 - "Summary: Offline Login Lockout Fix"
 Cohesion: 0.33
 Nodes (5): Ripple — pages this touches, Summary: Offline Login Lockout Fix, The bug, The fix, Why this belongs in the wiki
@@ -301,15 +312,15 @@ Nodes (6): A Stored Name Is Not the Name of Record, Fault 1 — the string is a 
 
 ### Community 42 - "POV changes the id, never the email"
 Cohesion: 0.33
-Nodes (6): How it was found — 2026-09-08, Not a permission hole, and say so plainly, POV changes the id, never the email, Related, The rule for next time, The second instance, still unfixed as of 2026-09-08
+Nodes (6): And the message, Email Is a Document ID, Not a Field, Guarded by, Related, The trap that comes free with every relaxed field, Which required fields are actually structural
 
 ### Community 43 - "Design Inspiration Sources"
 Cohesion: 0.50
 Nodes (4): 1. He judges a surface by how it feels after an hour, not in a screenshot, 2. Navigation labels are words, not codes, 3. Depth is confirmed, and quiet is why, Backlight out, full words in, and the lowkey 3D stays (2026-09-02)
 
 ### Community 44 - "Draft-Then-Deploy Discipline"
-Cohesion: 0.15
-Nodes (11): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, Ripple — pages this touches, Summary: Fleet Captain Rule Gaps — Batch 1 and 2, The gap this project almost repeated, Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches (+3 more)
+Cohesion: 0.33
+Nodes (6): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, Ripple — pages this touches, Summary: Fleet Captain Rule Gaps — Batch 1 and 2, The gap this project almost repeated
 
 ### Community 45 - "Off-Token Colour Migration Map"
 Cohesion: 0.33
@@ -467,6 +478,10 @@ Nodes (7): A Meter That Exits Silently Is Not a Meter, Resolution — 2026-08-31
 Cohesion: 0.29
 Nodes (7): Also settled, no code, Same day: the demo went online, and the check that made that safe, The larger question underneath, unanswered, The Panel That Never Reads a Transaction, The report, The trap that makes a lazy build wrong, Where the distinction actually dies
 
+### Community 91 - "Summary: Option B Region Lock"
+Cohesion: 0.40
+Nodes (5): Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches, Summary: Option B Region Lock, The blocking question, resolved, What it fixed
+
 ### Community 92 - "Email Is a Document ID, Not a Field"
 Cohesion: 0.25
 Nodes (8): A dev door onto `window` is guarded, not trusted, Looking inside the app, Related, The three traps, all hit on the first run, The vault was seeded as data, not typed into the form, Two locks, and neither is opened by typing a password, What it does not solve, What was already there, and what was missing
@@ -540,7 +555,7 @@ Cohesion: 0.50
 Nodes (4): Store Hand-off Name Collision, The fix that could not be built, Verified, What shipped
 
 ## Knowledge Gaps
-- **819 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+814 more)
+- **827 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+822 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -554,7 +569,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
   _High betweenness centrality (0.066) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _819 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _827 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.03571428571428571 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

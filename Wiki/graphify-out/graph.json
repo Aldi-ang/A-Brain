@@ -3255,8 +3255,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_email_is_a_document_id_not_a_field",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 42,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "email is a document id, not a field"
     },
     {
@@ -3266,8 +3266,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_which_required_fields_are_actually_structural",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 42,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "which required fields are actually structural"
     },
     {
@@ -3277,8 +3277,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_the_trap_that_comes_free_with_every_relaxed_field",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 42,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "the trap that comes free with every relaxed field"
     },
     {
@@ -3288,8 +3288,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_and_the_message",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 42,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "and the message"
     },
     {
@@ -3299,8 +3299,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_guarded_by",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 42,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "guarded by"
     },
     {
@@ -3310,8 +3310,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 42,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "related"
     },
     {
@@ -5114,8 +5114,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_pov_changes_the_id_never_the_email",
-      "community": 42,
-      "community_name": "POV changes the id, never the email",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "pov changes the id, never the email"
     },
     {
@@ -5125,8 +5125,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_how_it_was_found_2026_09_08",
-      "community": 42,
-      "community_name": "POV changes the id, never the email",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "how it was found \u2014 2026-09-08"
     },
     {
@@ -5136,8 +5136,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_not_a_permission_hole_and_say_so_plainly",
-      "community": 42,
-      "community_name": "POV changes the id, never the email",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "not a permission hole, and say so plainly"
     },
     {
@@ -5147,8 +5147,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_the_second_instance_still_unfixed_as_of_2026_09_08",
-      "community": 42,
-      "community_name": "POV changes the id, never the email",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the second instance, still unfixed as of 2026-09-08"
     },
     {
@@ -5158,8 +5158,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_the_rule_for_next_time",
-      "community": 42,
-      "community_name": "POV changes the id, never the email",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the rule for next time"
     },
     {
@@ -5169,8 +5169,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_related",
-      "community": 42,
-      "community_name": "POV changes the id, never the email",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "related"
     },
     {
@@ -7715,6 +7715,116 @@
       "norm_label": "what this does not settle"
     },
     {
+      "label": "KPM Product Inventory.md",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "entities_kpm_product_inventory",
+      "community": 39,
+      "community_name": "KPM Product Inventory",
+      "norm_label": "kpm product inventory.md"
+    },
+    {
+      "label": "KPM Product Inventory",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "entities_kpm_product_inventory_kpm_product_inventory",
+      "community": 39,
+      "community_name": "KPM Product Inventory",
+      "norm_label": "kpm product inventory"
+    },
+    {
+      "label": "Method, and its limit",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "entities_kpm_product_inventory_method_and_its_limit",
+      "community": 39,
+      "community_name": "KPM Product Inventory",
+      "norm_label": "method, and its limit"
+    },
+    {
+      "label": "Size, measured",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "entities_kpm_product_inventory_size_measured",
+      "community": 39,
+      "community_name": "KPM Product Inventory",
+      "norm_label": "size, measured"
+    },
+    {
+      "label": "The permission surface",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "entities_kpm_product_inventory_the_permission_surface",
+      "community": 39,
+      "community_name": "KPM Product Inventory",
+      "norm_label": "the permission surface"
+    },
+    {
+      "label": "Capabilities that were NOT in the earlier pricing, and should have been",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "entities_kpm_product_inventory_capabilities_that_were_not_in_the_earlier_pricing_and_should_have_been",
+      "community": 39,
+      "community_name": "KPM Product Inventory",
+      "norm_label": "capabilities that were not in the earlier pricing, and should have been"
+    },
+    {
+      "label": "Security, verified in code",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "entities_kpm_product_inventory_security_verified_in_code",
+      "community": 39,
+      "community_name": "KPM Product Inventory",
+      "norm_label": "security, verified in code"
+    },
+    {
+      "label": "The replacement-cost anchor",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "entities_kpm_product_inventory_the_replacement_cost_anchor",
+      "community": 39,
+      "community_name": "KPM Product Inventory",
+      "norm_label": "the replacement-cost anchor"
+    },
+    {
+      "label": "What this changed about the price",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L113",
+      "_origin": "ast",
+      "id": "entities_kpm_product_inventory_what_this_changed_about_the_price",
+      "community": 39,
+      "community_name": "KPM Product Inventory",
+      "norm_label": "what this changed about the price"
+    },
+    {
+      "label": "Related",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L125",
+      "_origin": "ast",
+      "id": "entities_kpm_product_inventory_related",
+      "community": 39,
+      "community_name": "KPM Product Inventory",
+      "norm_label": "related"
+    },
+    {
       "label": "Master Vault Gate.md",
       "file_type": "document",
       "source_file": "Wiki/Entities/Master Vault Gate.md",
@@ -9448,8 +9558,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -9525,8 +9635,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -9602,8 +9712,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -9613,8 +9723,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -9624,8 +9734,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "what it establishes"
     },
     {
@@ -9635,8 +9745,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -9866,8 +9976,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "option b region lock.md"
     },
     {
@@ -9877,8 +9987,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_summary_option_b_region_lock",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 91,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "summary: option b region lock"
     },
     {
@@ -9888,8 +9998,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_what_it_fixed",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 91,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "what it fixed"
     },
     {
@@ -9899,8 +10009,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_the_blocking_question_resolved",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 91,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "the blocking question, resolved"
     },
     {
@@ -9910,8 +10020,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_extended_to_fleet_captain_and_a_real_stale_memory_lesson",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 91,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "extended to fleet captain \u2014 and a real \"stale memory\" lesson"
     },
     {
@@ -9921,8 +10031,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_ripple_pages_this_touches",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 91,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -10339,8 +10449,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "store hand-off name collision.md"
     },
     {
@@ -10614,8 +10724,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "the panel that never reads a transaction.md"
     },
     {
@@ -11560,8 +11670,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "summaries/index.md"
     },
     {
@@ -11571,8 +11681,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_index_wiki_summaries",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "wiki/summaries"
     },
     {
@@ -11582,8 +11692,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "summaries_index_pages_here",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "pages here"
     },
     {
@@ -11593,8 +11703,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 38,
+      "community_name": "Summaries/index.md",
       "norm_label": "adding a new summary"
     },
     {
@@ -22490,6 +22600,116 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_kpm_product_inventory",
+      "target": "entities_kpm_product_inventory_kpm_product_inventory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_kpm_product_inventory",
+      "target": "entities_terminal_tenant_path_split",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_kpm_product_inventory_kpm_product_inventory",
+      "target": "entities_kpm_product_inventory_capabilities_that_were_not_in_the_earlier_pricing_and_should_have_been",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_kpm_product_inventory_kpm_product_inventory",
+      "target": "entities_kpm_product_inventory_method_and_its_limit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_kpm_product_inventory_kpm_product_inventory",
+      "target": "entities_kpm_product_inventory_related",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_kpm_product_inventory_kpm_product_inventory",
+      "target": "entities_kpm_product_inventory_security_verified_in_code",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_kpm_product_inventory_kpm_product_inventory",
+      "target": "entities_kpm_product_inventory_size_measured",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_kpm_product_inventory_kpm_product_inventory",
+      "target": "entities_kpm_product_inventory_the_permission_surface",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_kpm_product_inventory_kpm_product_inventory",
+      "target": "entities_kpm_product_inventory_the_replacement_cost_anchor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/KPM Product Inventory.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_kpm_product_inventory_kpm_product_inventory",
+      "target": "entities_kpm_product_inventory_what_this_changed_about_the_price",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/index.md",
@@ -26704,5 +26924,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "16ee96371f4462757ae1336200f0482215261d50"
+  "built_at_commit": "a070160e3e15a505fb7b66e1624db70195f71887"
 }
