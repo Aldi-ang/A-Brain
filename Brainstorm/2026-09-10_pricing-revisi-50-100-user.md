@@ -151,7 +151,6 @@ dalam perjanjian lisensi. Bawa ini ke notaris kalau pertanyaannya benar-benar mu
 
 ---
 
----
 
 ## Kalau ditanya "kenapa segitu" — kata-katanya
 
