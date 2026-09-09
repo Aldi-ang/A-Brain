@@ -1478,6 +1478,94 @@
       "norm_label": "related"
     },
     {
+      "label": "A sale is a closed contract \u2014 no cash goes back.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back",
+      "community": 4,
+      "community_name": "Concepts/index.md",
+      "norm_label": "a sale is a closed contract \u2014 no cash goes back.md"
+    },
+    {
+      "label": "A completed sale is a closed contract",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
+      "community": 102,
+      "community_name": "How this could fail, and what stops it",
+      "norm_label": "a completed sale is a closed contract"
+    },
+    {
+      "label": "The business model, in his words",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_business_model_in_his_words",
+      "community": 102,
+      "community_name": "How this could fail, and what stops it",
+      "norm_label": "the business model, in his words"
+    },
+    {
+      "label": "What it means",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_it_means",
+      "community": 102,
+      "community_name": "How this could fail, and what stops it",
+      "norm_label": "what it means"
+    },
+    {
+      "label": "Three things it explains that looked like bugs",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_three_things_it_explains_that_looked_like_bugs",
+      "community": 102,
+      "community_name": "How this could fail, and what stops it",
+      "norm_label": "three things it explains that looked like bugs"
+    },
+    {
+      "label": "What shipped",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_shipped",
+      "community": 102,
+      "community_name": "How this could fail, and what stops it",
+      "norm_label": "what shipped"
+    },
+    {
+      "label": "The part worth remembering \u2014 it took TWO edits, and the second was invisible",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_part_worth_remembering_it_took_two_edits_and_the_second_was_invisible",
+      "community": 102,
+      "community_name": "How this could fail, and what stops it",
+      "norm_label": "the part worth remembering \u2014 it took two edits, and the second was invisible"
+    },
+    {
+      "label": "Rejected on purpose",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_rejected_on_purpose",
+      "community": 102,
+      "community_name": "How this could fail, and what stops it",
+      "norm_label": "rejected on purpose"
+    },
+    {
       "label": "Aldi's Design Taste.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
@@ -8213,7 +8301,7 @@
       "label": "Known gaps (honest, not filled in yet)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L145",
+      "source_location": "L146",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
       "community": 100,
@@ -10581,7 +10669,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design",
-      "community": 109,
+      "community": 3,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "trophy room and rank system design.md"
     },
@@ -10592,7 +10680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_kpm_inventory_trophy_room_rank_system_performance_ergonomics",
-      "community": 109,
+      "community": 3,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "kpm inventory \u2014 trophy room, rank system, performance & ergonomics"
     },
@@ -10603,7 +10691,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_a_design_document_for_the_achievement_ranking_system_the_agent_profile_and_making_the_app_light_on_cheap_phones",
-      "community": 109,
+      "community": 3,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "a design document for the achievement/ranking system, the agent profile, and making the app light on cheap phones"
     },
@@ -10614,8 +10702,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_1_the_thing_you_need_to_know_first",
-      "community": 111,
-      "community_name": "1. The thing you need to know first",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "1. the thing you need to know first"
     },
     {
@@ -10625,8 +10713,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_your_lifetime_numbers_are_7_day_numbers_and_every_agent_s_rank_is_a_speedometer_not_an_odometer",
-      "community": 111,
-      "community_name": "1. The thing you need to know first",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "your \"lifetime\" numbers are 7-day numbers, and every agent's rank is a speedometer, not an odometer"
     },
     {
@@ -10636,8 +10724,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_this_means_for_your_agents_right_now_today",
-      "community": 111,
-      "community_name": "1. The thing you need to know first",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "what this means for your agents *right now, today*"
     },
     {
@@ -10647,8 +10735,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_second_thing_rank_counts_money_you_haven_t_been_paid",
-      "community": 111,
-      "community_name": "1. The thing you need to know first",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "the second thing: rank counts money you haven't been paid"
     },
     {
@@ -10658,8 +10746,8 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_third_thing_two_bugs_sitting_under_all_of_this",
-      "community": 111,
-      "community_name": "1. The thing you need to know first",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "the third thing: two bugs sitting under all of this"
     },
     {
@@ -10669,8 +10757,8 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_one_thing_i_was_told_was_broken_that_is_not_broken_correcting_the_record",
-      "community": 111,
-      "community_name": "1. The thing you need to know first",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "one thing i was told was broken that is not broken \u2014 correcting the record"
     },
     {
@@ -10680,7 +10768,7 @@
       "source_location": "L170",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_2_what_s_already_good",
-      "community": 109,
+      "community": 3,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "2. what's already good"
     },
@@ -10779,7 +10867,7 @@
       "source_location": "L463",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_3_2_how_xp_works_and_why_it_can_never_decay_again",
-      "community": 110,
+      "community": 5,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "3.2 how xp works, and why it can never decay again"
     },
@@ -10790,7 +10878,7 @@
       "source_location": "L511",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_why_it_cannot_decay_the_whole_proof",
-      "community": 110,
+      "community": 5,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "why it cannot decay \u2014 the whole proof"
     },
@@ -10801,7 +10889,7 @@
       "source_location": "L533",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_daily_formula",
-      "community": 110,
+      "community": 5,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the daily formula"
     },
@@ -10812,7 +10900,7 @@
       "source_location": "L563",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_a_real_day_looks_like",
-      "community": 110,
+      "community": 5,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "what a real day looks like"
     },
@@ -10823,7 +10911,7 @@
       "source_location": "L586",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_ladder",
-      "community": 110,
+      "community": 5,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the ladder"
     },
@@ -10834,7 +10922,7 @@
       "source_location": "L609",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_where_xp_is_minted_inside_a_transaction_that_already_runs",
-      "community": 110,
+      "community": 5,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "where xp is minted \u2014 inside a transaction that already runs"
     },
@@ -10845,7 +10933,7 @@
       "source_location": "L683",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_one_runnable_check",
-      "community": 110,
+      "community": 5,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the one runnable check"
     },
@@ -10856,8 +10944,8 @@
       "source_location": "L709",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_3_3_the_achievement_system",
-      "community": 112,
-      "community_name": "3.3 The achievement system",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "3.3 the achievement system"
     },
     {
@@ -10867,8 +10955,8 @@
       "source_location": "L711",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_kill_one_of_the_two_systems",
-      "community": 112,
-      "community_name": "3.3 The achievement system",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "kill one of the two systems"
     },
     {
@@ -10878,8 +10966,8 @@
       "source_location": "L730",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_schema",
-      "community": 112,
-      "community_name": "3.3 The achievement system",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "schema"
     },
     {
@@ -10889,8 +10977,8 @@
       "source_location": "L757",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_evaluation_the_elegant_part",
-      "community": 112,
-      "community_name": "3.3 The achievement system",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "evaluation \u2014 the elegant part"
     },
     {
@@ -10900,8 +10988,8 @@
       "source_location": "L771",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_starter_set_with_the_exact_data_source_for_each_or_an_honest_not_yet",
-      "community": 112,
-      "community_name": "3.3 The achievement system",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the starter set \u2014 with the exact data source for each, or an honest \"not yet\""
     },
     {
@@ -10911,8 +10999,8 @@
       "source_location": "L844",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_how_you_configure_them",
-      "community": 112,
-      "community_name": "3.3 The achievement system",
+      "community": 5,
+      "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "how you configure them"
     },
     {
@@ -11065,8 +11153,8 @@
       "source_location": "L1223",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_5_making_it_fun_and_the_ways_it_could_go_badly_wrong",
-      "community": 102,
-      "community_name": "How this could fail, and what stops it",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "5. making it fun (and the ways it could go badly wrong)"
     },
     {
@@ -11076,8 +11164,8 @@
       "source_location": "L1225",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_moments_of_delight_what_actually_lands",
-      "community": 102,
-      "community_name": "How this could fail, and what stops it",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "the moments of delight \u2014 what actually lands"
     },
     {
@@ -11087,8 +11175,8 @@
       "source_location": "L1259",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_how_this_could_fail_and_what_stops_it",
-      "community": 102,
-      "community_name": "How this could fail, and what stops it",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "how this could fail, and what stops it"
     },
     {
@@ -11098,8 +11186,8 @@
       "source_location": "L1261",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_1_the_leaderboard_bottom",
-      "community": 102,
-      "community_name": "How this could fail, and what stops it",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 1: the leaderboard bottom"
     },
     {
@@ -11109,8 +11197,8 @@
       "source_location": "L1288",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_2_the_new_hire_versus_the_veteran",
-      "community": 102,
-      "community_name": "How this could fail, and what stops it",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 2: the new hire versus the veteran"
     },
     {
@@ -11120,8 +11208,8 @@
       "source_location": "L1305",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_3_it_feels_like_surveillance_not_appreciation",
-      "community": 102,
-      "community_name": "How this could fail, and what stops it",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 3: it feels like surveillance, not appreciation"
     },
     {
@@ -11131,8 +11219,8 @@
       "source_location": "L1332",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_4_the_boss_becomes_the_heartbeat",
-      "community": 102,
-      "community_name": "How this could fail, and what stops it",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 4: the boss becomes the heartbeat"
     },
     {
@@ -11142,8 +11230,8 @@
       "source_location": "L1347",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_5_half_the_fleet_gets_an_empty_trophy_room",
-      "community": 102,
-      "community_name": "How this could fail, and what stops it",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 5: half the fleet gets an empty trophy room"
     },
     {
@@ -11153,8 +11241,8 @@
       "source_location": "L1355",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_6_the_rank_titles",
-      "community": 102,
-      "community_name": "How this could fail, and what stops it",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 6: the rank titles"
     },
     {
@@ -11164,8 +11252,8 @@
       "source_location": "L1365",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_7_nobody_asked_the_actual_employees",
-      "community": 102,
-      "community_name": "How this could fail, and what stops it",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "failure 7: nobody asked the actual employees"
     },
     {
@@ -11175,7 +11263,7 @@
       "source_location": "L1379",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_6_performance_work_making_it_light_on_a_potato_phone",
-      "community": 109,
+      "community": 3,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "6. performance work \u2014 making it light on a potato phone"
     },
@@ -11186,7 +11274,7 @@
       "source_location": "L1419",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_7_ergonomics_one_handed_field_use",
-      "community": 109,
+      "community": 3,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "7. ergonomics \u2014 one-handed field use"
     },
@@ -11197,8 +11285,8 @@
       "source_location": "L1439",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_8_the_plan",
-      "community": 106,
-      "community_name": "8. The plan",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "8. the plan"
     },
     {
@@ -11208,8 +11296,8 @@
       "source_location": "L1446",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_0_solid_ground",
-      "community": 106,
-      "community_name": "8. The plan",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 0 \u2014 solid ground"
     },
     {
@@ -11219,8 +11307,8 @@
       "source_location": "L1483",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_1_the_performance_pass",
-      "community": 106,
-      "community_name": "8. The plan",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 1 \u2014 the performance pass"
     },
     {
@@ -11230,8 +11318,8 @@
       "source_location": "L1496",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_2_the_ledger_runs_in_the_dark",
-      "community": 106,
-      "community_name": "8. The plan",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 2 \u2014 the ledger runs in the dark"
     },
     {
@@ -11241,8 +11329,8 @@
       "source_location": "L1533",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_3_tenure_and_the_backfill",
-      "community": 106,
-      "community_name": "8. The plan",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 3 \u2014 tenure and the backfill"
     },
     {
@@ -11252,8 +11340,8 @@
       "source_location": "L1562",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_4_flip_the_switch",
-      "community": 106,
-      "community_name": "8. The plan",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 4 \u2014 flip the switch"
     },
     {
@@ -11263,8 +11351,8 @@
       "source_location": "L1589",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_5_one_badge_system",
-      "community": 106,
-      "community_name": "8. The plan",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 5 \u2014 one badge system"
     },
     {
@@ -11274,8 +11362,8 @@
       "source_location": "L1616",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_6_the_trophy_room",
-      "community": 106,
-      "community_name": "8. The plan",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 6 \u2014 the trophy room"
     },
     {
@@ -11285,8 +11373,8 @@
       "source_location": "L1644",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_7_seasons_and_the_honest_extras",
-      "community": 106,
-      "community_name": "8. The plan",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 7 \u2014 seasons and the honest extras"
     },
     {
@@ -11296,8 +11384,8 @@
       "source_location": "L1666",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_8_ergonomics",
-      "community": 106,
-      "community_name": "8. The plan",
+      "community": 3,
+      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "phase 8 \u2014 ergonomics"
     },
     {
@@ -11307,7 +11395,7 @@
       "source_location": "L1674",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_9_what_i_d_revisit_later_and_the_signal_that_says_it_s_time",
-      "community": 109,
+      "community": 3,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "9. what i'd revisit later, and the signal that says it's time"
     },
@@ -11318,7 +11406,7 @@
       "source_location": "L1749",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_appendix_everything_i_checked_in_one_list",
-      "community": 109,
+      "community": 3,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "appendix: everything i checked, in one list"
     },
@@ -12703,7 +12791,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L141",
+      "source_location": "L142",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -12714,7 +12802,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L137",
+      "source_location": "L138",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -13984,6 +14072,138 @@
       "_origin": "ast",
       "source": "concepts_a_stored_name_is_not_the_name_of_record_a_stored_name_is_not_the_name_of_record",
       "target": "concepts_a_stored_name_is_not_the_name_of_record_the_general_shape",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back",
+      "target": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L66",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back",
+      "target": "concepts_revenue_recognition_titip_waits_for_the_cash",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back",
+      "target": "concepts_ui_says_yes_server_says_no_pattern",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/index.md",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_index",
+      "target": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Index.md",
+      "source_location": "L139",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "index",
+      "target": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/MOC.md",
+      "source_location": "L135",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "moc",
+      "target": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
+      "target": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_rejected_on_purpose",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
+      "target": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_business_model_in_his_words",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
+      "target": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_part_worth_remembering_it_took_two_edits_and_the_second_was_invisible",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
+      "target": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_three_things_it_explains_that_looked_like_bugs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
+      "target": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_it_means",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/A sale is a closed contract \u2014 no cash goes back.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
+      "target": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_shipped",
       "confidence_score": 1.0
     },
     {
@@ -16784,7 +17004,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L139",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -16795,7 +17015,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L135",
+      "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -20249,7 +20469,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L140",
+      "source_location": "L141",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -20260,7 +20480,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L136",
+      "source_location": "L137",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -22790,7 +23010,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L143",
+      "source_location": "L144",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -22801,7 +23021,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L142",
+      "source_location": "L143",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -22834,7 +23054,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L145",
+      "source_location": "L146",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -23703,7 +23923,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L138",
+      "source_location": "L139",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -23725,7 +23945,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L140",
+      "source_location": "L141",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -23736,7 +23956,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/MOC.md",
-      "source_location": "L139",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast",
       "source": "moc",
@@ -26176,5 +26396,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "669752f2a71b829e85d77baa2cedc6b4c27787b3"
+  "built_at_commit": "7655b11b1ae1317b24c2d8aadce7a0690c0be318"
 }
