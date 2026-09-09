@@ -271,3 +271,25 @@ Seen: 2026-08-24
 Fired:
 
 Archived: 2026-09-08 (retired 2026-09-07, moved per SKILL.md 8a).
+
+### 2026-08-25 — measure what a thing costs EVERY session before judging whether to adopt it
+**Status:** RETIRED (2026-09-08) — never fired in 14 days of real work. Not convertible to a
+check: it fires only when a whole skill pack or context file is being adopted, which happened
+once. Retired per 8b as a rule whose trigger is too rare to earn a standing entry; the one
+command it prescribes lives on in SKILL.md 1b, which quotes a token price in every skill offer.
+**Trigger:** before adopting anything that loads on every session — a skill pack, a plugin, a
+hook, a CLAUDE.md block, a context file. The moment the question is "should we install this".
+**Lesson:** measure its per-session token cost FIRST, in one command, before reading a word of
+its README. A catalog's own index file or the frontmatter of its skills gives the real number.
+That number often settles the question alone and makes the rest of the reading unnecessary.
+Stars, licence and features rank a thing on axes that say nothing about what it costs forever.
+**Would have prevented:** 2026-08-25, asked to add 19 skill repos. Read three full READMEs,
+fifteen metadata rows and seven directory listings first, ranking them on licence and purpose.
+Then one command measured the catalog: 818 skills = 89,705 tokens in EVERY session, 14x his
+entire installed set, on the account of the person who had PROGRESS.md trimmed for costing
+50,000. That single number decided 18 of the 19 cases and could have been the first thing run.
+Sibling of "test the primitive before tracing the path" — same instinct, different checkpoint.
+Seen: 2026-08-25
+Fired:
+
+Archived: 2026-09-09 (retired 2026-09-08, moved per SKILL.md 8a).
