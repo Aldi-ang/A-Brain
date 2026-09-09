@@ -293,3 +293,70 @@ Seen: 2026-08-25
 Fired:
 
 Archived: 2026-09-09 (retired 2026-09-08, moved per SKILL.md 8a).
+
+### 2026-08-26 — an installed skill's `description` is not its only trigger surface
+**Status:** RETIRED (2026-09-09) — never fired in 14 days of real work. Not convertible here: it fires only
+when a third-party skill pack is installed, which happened once. The habit it prescribes now lives
+in SKILL.md 1b, which keeps the 1,200-skill library outside ~/.claude/skills so nothing auto-fires.
+**Trigger:** before installing any third-party skill, plugin or marketplace entry — after the
+files are copied, before saying it is installed.
+**Lesson:** read the WHOLE frontmatter, not the description. A skill can carry `triggers:`,
+`auto-invoke`, `preamble-tier` and other keys that make it fire on its own regardless of what the
+description says. Rewriting the description to say MANUAL ONLY changes nothing if a `triggers:`
+list is still sitting three lines below it. Grep the installed copy for every frontmatter key and
+justify each one before claiming it is opt-in.
+**Would have prevented:** 2026-08-26, the gstack install. Four skills were installed with their
+descriptions rewritten to "MANUAL ONLY — never invoke unless Aldi types it by name", and all four
+still shipped `triggers:` blocks underneath — 22 lines of them, including "show me design
+options". Any of them would have auto-fired a 16k-26k-token skill on an ordinary sentence, in the
+same session where Aldi had just said *"we have limited token so make sure that inefficient token
+usage skills are stores instead of auto use"*. Caught only by eyeballing the frontmatter after the
+install had already been reported as done.
+Seen: 2026-08-26
+Fired:
+
+
+### 2026-08-26 — a green build is not a check that the identifiers exist
+**Status:** RETIRED (2026-09-09) — never fired in 14 days of real work. Converted, not dropped: its structural
+form is an ESLint `no-undef` gate over the touched files, which cannot go stale the way this
+paragraph can. Successor is that gate; re-write this entry only if the gate is refused.
+**Trigger:** after moving state or a helper OUT of a component — an extraction, a rename, a split
+into a shared file — and before reporting the change as done.
+**Lesson:** a bundler resolves IMPORTS, not free variables, so a call to a setter that no longer
+exists builds cleanly and throws only when that line runs. Text-grepping self-checks cannot catch
+it either: they read source as a string and have no idea what a scope is. Run the linter's
+`no-undef` over the touched files. If the repo's lint is too noisy to gate on — this one carries
+~290 findings — gate on that ONE rule rather than skipping the linter, because it is the rule that
+separates "untidy" from "blank screen". And do not trust a grep to stand in for it: searching
+`scrub` does not match `setScrub`, which is exactly how the manual check missed it too.
+**Would have prevented:** 2026-08-26, the dashboard rebuild. Extracting the chart into PaceChart
+took its `scrub` state with it and left `setScrub(null)` behind in an effect. Build passed, the
+607-check integration audit passed, 813 logic checks, 26 threshold checks and every contrast pair
+passed — and the first time Aldi opened the screen it rendered "[DASHBOARD] FAILED TO LOAD",
+because the error boundary swallowed the whole tab. Diagnosing it cost a vault unlock, a console
+flooded with ~60 Firestore clock warnings that hid the one real line, and a page reload that wiped
+the collector armed to catch it. ESLint had reported it as `no-undef` the entire time.
+Seen: 2026-08-26
+Fired:
+
+
+
+### 2026-08-26 — read a screen's real field names before proposing its replacement
+**Status:** RETIRED (2026-09-09) — never fired in 14 days of real work. Retired per 8b as a platitude: "read
+the file before redesigning it" is already what SKILL.md 4 requires at plan time, so this entry
+restated a default instead of naming a new checkpoint.
+**Trigger:** any redesign, mockup or "what should we add here" for an EXISTING screen — the moment
+a replacement layout is drawn instead of a line edited.
+**Lesson:** grep the target file for its actual field and state names first, and lay the proposed
+design against that list. A redesign that silently drops a working field does not read as an
+oversight; it reads as a removed feature, and the only person who can catch it is the owner.
+**Would have prevented:** the first Restock Vault artifact left out the resi, the nota photo and
+the shipment photo. All three are in `RestockVaultView.jsx` — `trackingNo`, `receiptFile` →
+`receiptUrl`, `packagePhotoUrl` — and one grep finds them. Aldi caught it instead ("dont forget
+place to put the bukti foto shipment and the resi receipt") and the artifact was rebuilt whole.
+That same grep, run late, also produced the two findings the redesign existed to produce: the
+shipment photo is only ever WRITTEN by the branch screen, and the factory's own surat-jalan number
+has no field at all. Both arrived only because he pushed back.
+Seen: 2026-08-26
+Fired:
+
