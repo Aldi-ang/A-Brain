@@ -151,6 +151,124 @@ dalam perjanjian lisensi. Bawa ini ke notaris kalau pertanyaannya benar-benar mu
 
 ---
 
+---
+
+## Kalau ditanya "kenapa segitu" — kata-katanya
+
+Aldi, 2026-09-10: *"jika ditanya kenapa harga 12 juta perbulan dan 600 juta untuk harga aplikasi
+licensi bagaimana menjawabnya"*.
+
+### Tiga aturan sebelum kalimat pertama
+
+1. **Jangan pernah menjawab dengan biaya sendiri.** Begitu kalimatnya jadi *"servernya sekian, waktu
+   saya sekian"*, harganya berubah jadi biaya + margin di kepala pembeli — dan margin selalu bisa
+   ditawar. Biaya Aldi bukan urusan Om, dan menyebutnya memberi Om pisau.
+2. **Diam setelah menyebut angka.** Orang yang buru-buru membenarkan harganya terdengar seperti
+   orang yang diam-diam tahu harganya kemahalan.
+3. **Kalau ditawar, jangan turunkan harga — kurangi isinya.** Turun ke Rp 7 juta berarti turun ke 50
+   pengguna. Itu sudah ada di tabel jenjang, jadi bukan mengalah, itu pindah paket.
+
+### Rp 12 juta per bulan
+
+**Langkah 1 — balikkan dulu, jangan langsung jawab.**
+
+> *"Sebelum saya jawab — Om, berapa titip yang di luar sekarang, dan siapa yang hitung?"*
+
+Kalau angkanya keluar, seluruh sisanya jadi mudah. Kalau Om tidak tahu angkanya — **dan biasanya
+memang tidak tahu** — ketidaktahuan itu sendiri sudah penjualannya, dan itu momen untuk berhitung
+bersama, bukan sendirian.
+
+**Langkah 2 — ubah jadi satu angka, pakai angka Om.**
+
+> *"Seratus sales, masing-masing bawa sekitar Rp 30 juta. Itu Rp 3 miliar ada di jalan tiap hari.
+> Bocor satu persen saja, Rp 30 juta sebulan hilang tanpa kelihatan di laporan mana pun. Rp 12 juta
+> itu empat puluh persen dari angka yang Om sudah bayar tiap bulan tanpa sadar."*
+
+**Langkah 3 — bandingkan ke sesuatu yang bisa Om cek sendiri.**
+
+> *"Accurate Online untuk seratus pengguna sekitar Rp 2,5 juta sebulan, dan Om bisa cek harganya
+> online. Tapi Accurate tidak tahu sales-nya ada di mana, tidak mengerti titip, dan tidak mencetak
+> nota di motor. Yang mengerti itu semua namanya Badger Maps, dari luar, lima puluh delapan dolar
+> per orang — untuk seratus orang itu sekitar Rp 94 juta sebulan. Saya di antara keduanya, dan jauh
+> lebih dekat ke yang murah."*
+
+**Langkah 4 — kecilkan angkanya sampai sebesar apa adanya.**
+
+> *"Rp 12 juta dibagi seratus orang itu Rp 120 ribu per orang sebulan. Empat ribu rupiah per sales
+> per hari."*
+
+**Empat ribu rupiah per hari adalah kalimat penutupnya.** Sesudah itu diam.
+
+**Langkah 5, kalau masih perlu — bandingkan ke gaji.**
+
+> *"Satu admin yang kerjanya khusus menghitung ulang titip itu Rp 4 sampai 5 juta sebulan, dan dia
+> baru bisa menghitung setelah kejadian. Rp 12 juta itu dua setengah orang admin — yang bekerja tiap
+> detik, tidak lupa, dan tidak ikut berkompromi di lapangan."*
+
+### Rp 600 juta lisensi permanen
+
+**Jawabannya dimulai dengan tidak menyarankannya.** Ini yang membuat seluruh percakapan harga jadi
+dipercaya.
+
+> *"Rp 600 juta itu tiga sampai lima kali langganan setahun. Rasio itu yang dipakai industri
+> software, jadi angkanya bukan karangan saya. Tapi saya tidak menyarankan Om ambil yang ini, dan
+> saya jelaskan kenapa."*
+
+Lalu hitungannya, di depan Om:
+
+| | 5 tahun |
+|---|---|
+| Langganan Rp 12 juta × 60 bulan | **Rp 720 juta** |
+| Beli putus Rp 600 juta + 5 × Rp 120 juta maintenance | **Rp 1,2 miliar** |
+
+> *"Om bayar hampir Rp 500 juta lebih banyak, untuk hak yang baru terpakai kalau saya berhenti.
+> Beli putus baru menang kalau Om membuang maintenance-nya — dan tanpa maintenance, aplikasinya rusak
+> sendiri dalam kira-kira dua tahun. Bukan karena saya berhenti mengurus, tapi karena Firebase,
+> Chrome dan Android berubah tanpa menunggu siapa-siapa."*
+
+**Dan ini pukulan terakhirnya, dan yang paling murah:**
+
+> *"Yang sebenarnya Om beli dengan Rp 600 juta bukan aplikasinya. Yang Om beli adalah rasa aman
+> kalau saya hilang. Dan itu sudah Om dapat, gratis, di Pasal 9: kode programnya dititipkan ke
+> notaris. Kalau saya berhenti mendukung sembilan puluh hari, atau saya kenapa-kenapa, kodenya
+> otomatis diserahkan ke Om. Om tidak perlu membayar Rp 600 juta untuk hal yang sudah ada di
+> kontrak."*
+
+**Pasal escrow itu mematikan keberatan beli-putus tanpa Aldi kehilangan apa pun.** Bawa duluan,
+jangan tunggu ditanya.
+
+Satu argumen tambahan yang nyata untuk bagian keuangan pabrik:
+
+> *"Rp 12 juta berulang itu biaya operasional, tanda tangannya di level Om. Rp 600 juta sekali itu
+> belanja modal, dan biasanya butuh persetujuan yang lebih tinggi dan lebih lama."*
+
+### Dua keberatan yang pasti datang
+
+**"Kan keluarga, kok bayar?"**
+
+> *"Justru karena keluarga saya mau ini jelas. Kalau gratis, Om tidak enak menagih saya waktu ada
+> yang rusak, dan saya tidak enak menolak permintaan yang di luar kesepakatan. Dua-duanya jadi
+> menyimpan. Kalau ada kontrak, Om berhak menuntut saya, dan saya berhak bilang tidak. Itu yang
+> bikin hubungannya awet."*
+
+**"Ini kan dibuat pakai AI, kok mahal?"**
+
+Jangan disembunyikan — bisa ketahuan, dan ketahuan lebih mahal daripada mengakui.
+
+> *"Betul, saya yang bikin, pakai alat AI. Sama seperti arsitek pakai komputer, bukan pensil. Tapi
+> AI tidak memberi tahu saya bahwa omzet harus menunggu uangnya masuk, tidak memberi tahu bahwa
+> titip itu piutang sampai audit toko menemukan barangnya laku, dan tidak tahu ada satuan Bal, Slop
+> dan Bks. Itu semua dari mengerti dagang keluarga sendiri. Yang Om bayar bukan waktu mengetiknya,
+> tapi bahwa hitungannya benar sejak hari pertama, dan ada orang yang memperbaikinya di hari kedua."*
+
+### Yang tidak boleh diucapkan
+
+- **Berapa biaya server Aldi.** Sekali disebut, harganya jadi biaya + margin.
+- **Angka Rp 1,4 miliar biaya bikin ulang, dua kali.** Sekali saja, sebelum menyebut harga, lalu
+  jangan diulang. Diulang jadi terdengar membela diri.
+- **"Boleh deh, berapa maunya Om."** Sekali harga jadi bisa dikarang, semua angka di atas hilang
+  artinya.
+
 ## Yang jadi lebih berisiko justru karena jumlahnya, bukan karena harganya
 
 ⚠️ **Pada 50-100 pengguna, yang dijual bukan lagi software. Yang dijual adalah Aldi sebagai
