@@ -3101,8 +3101,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline",
-      "community": 59,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "draft-then-deploy discipline.md"
     },
     {
@@ -3255,8 +3255,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_email_is_a_document_id_not_a_field",
-      "community": 91,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "email is a document id, not a field"
     },
     {
@@ -3266,8 +3266,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_which_required_fields_are_actually_structural",
-      "community": 91,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "which required fields are actually structural"
     },
     {
@@ -3277,8 +3277,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_the_trap_that_comes_free_with_every_relaxed_field",
-      "community": 91,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the trap that comes free with every relaxed field"
     },
     {
@@ -3288,8 +3288,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_and_the_message",
-      "community": 91,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "and the message"
     },
     {
@@ -3299,8 +3299,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_guarded_by",
-      "community": 91,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "guarded by"
     },
     {
@@ -3310,8 +3310,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_related",
-      "community": 91,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "related"
     },
     {
@@ -7165,10 +7165,21 @@
       "norm_label": "two traps this sat on"
     },
     {
-      "label": "The permission shape, unchanged from its three siblings",
+      "label": "The dev-only bypass that lasted an hour",
       "file_type": "document",
       "source_file": "Wiki/Concepts/capture=environment Is a Request, Not a Lock.md",
       "source_location": "L78",
+      "_origin": "ast",
+      "id": "concepts_capture_environment_is_a_request_not_a_lock_the_dev_only_bypass_that_lasted_an_hour",
+      "community": 82,
+      "community_name": "A Mode Reminder Does Not Outrank Aldi",
+      "norm_label": "the dev-only bypass that lasted an hour"
+    },
+    {
+      "label": "The permission shape, unchanged from its three siblings",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/capture=environment Is a Request, Not a Lock.md",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "concepts_capture_environment_is_a_request_not_a_lock_the_permission_shape_unchanged_from_its_three_siblings",
       "community": 82,
@@ -7179,7 +7190,7 @@
       "label": "What the check had to be",
       "file_type": "document",
       "source_file": "Wiki/Concepts/capture=environment Is a Request, Not a Lock.md",
-      "source_location": "L92",
+      "source_location": "L122",
       "_origin": "ast",
       "id": "concepts_capture_environment_is_a_request_not_a_lock_what_the_check_had_to_be",
       "community": 82,
@@ -7190,7 +7201,7 @@
       "label": "Related",
       "file_type": "document",
       "source_file": "Wiki/Concepts/capture=environment Is a Request, Not a Lock.md",
-      "source_location": "L99",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "concepts_capture_environment_is_a_request_not_a_lock_related",
       "community": 82,
@@ -9437,8 +9448,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -9514,8 +9525,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -9591,8 +9602,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -9602,8 +9613,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -9613,8 +9624,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what it establishes"
     },
     {
@@ -9624,8 +9635,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -9855,8 +9866,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "option b region lock.md"
     },
     {
@@ -9866,8 +9877,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_summary_option_b_region_lock",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "summary: option b region lock"
     },
     {
@@ -9877,8 +9888,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_what_it_fixed",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "what it fixed"
     },
     {
@@ -9888,8 +9899,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_the_blocking_question_resolved",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "the blocking question, resolved"
     },
     {
@@ -9899,8 +9910,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_extended_to_fleet_captain_and_a_real_stale_memory_lesson",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "extended to fleet captain \u2014 and a real \"stale memory\" lesson"
     },
     {
@@ -9910,8 +9921,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_ripple_pages_this_touches",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -9976,8 +9987,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 112,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -11549,8 +11560,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "summaries/index.md"
     },
     {
@@ -11560,8 +11571,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_index_wiki_summaries",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "wiki/summaries"
     },
     {
@@ -11571,8 +11582,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "summaries_index_pages_here",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "pages here"
     },
     {
@@ -11582,8 +11593,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "adding a new summary"
     },
     {
@@ -15992,7 +16003,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/capture=environment Is a Request, Not a Lock.md",
-      "source_location": "L97",
+      "source_location": "L127",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_capture_environment_is_a_request_not_a_lock",
@@ -21712,7 +21723,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/capture=environment Is a Request, Not a Lock.md",
-      "source_location": "L99",
+      "source_location": "L129",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_capture_environment_is_a_request_not_a_lock_capture_environment_is_a_request_not_a_lock",
@@ -21724,6 +21735,17 @@
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/capture=environment Is a Request, Not a Lock.md",
       "source_location": "L78",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_capture_environment_is_a_request_not_a_lock_capture_environment_is_a_request_not_a_lock",
+      "target": "concepts_capture_environment_is_a_request_not_a_lock_the_dev_only_bypass_that_lasted_an_hour",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/capture=environment Is a Request, Not a Lock.md",
+      "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_capture_environment_is_a_request_not_a_lock_capture_environment_is_a_request_not_a_lock",
@@ -21767,7 +21789,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/capture=environment Is a Request, Not a Lock.md",
-      "source_location": "L92",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_capture_environment_is_a_request_not_a_lock_capture_environment_is_a_request_not_a_lock",
@@ -26682,5 +26704,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ea4e34fb8b986a0f6e8c06906fba41cb8179e28f"
+  "built_at_commit": "16ee96371f4462757ae1336200f0482215261d50"
 }

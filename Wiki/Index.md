@@ -155,3 +155,4 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 
 - [7 Days to Die — mod load order](Concepts/7%20Days%20to%20Die%20Mod%20Load%20Order.md) — infinite loading screen = one mod extending a block from a mod that loads after it; Vortex's load-order list does not match the disk
 - [[capture=environment Is a Request, Not a Lock]] — the HTML attribute that looks like it forces a camera and is ignored on desktop; the tier rule for sale-proof photos built on top of it, and why the enforcement is that a field tier has no file input in the DOM at all.
+- [[2026-09-09_pricing-kpm-for-the-first-customer]] — what KPM should cost in Indonesia, measured comps (Accurate, Mekari Jurnal, Badger Maps), what it costs to run, five pricing options for the uncle, the features no comparable product has, and the selling strategy. DECISION OPEN.
