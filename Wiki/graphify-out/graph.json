@@ -1055,8 +1055,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_a_retry_must_land_where_the_first_try_landed",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 108,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "a retry must land where the first try landed"
     },
     {
@@ -1066,8 +1066,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_what_was_wrong",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 108,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "what was wrong"
     },
     {
@@ -1077,8 +1077,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_the_trap_which_is_the_whole_reason_this_page_exists",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 108,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "the trap, which is the whole reason this page exists"
     },
     {
@@ -1088,8 +1088,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_the_shape_worth_reusing",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 108,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "the shape worth reusing"
     },
     {
@@ -1099,8 +1099,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_what_is_still_not_exactly_once_on_purpose",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 108,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "what is still not exactly-once, on purpose"
     },
     {
@@ -1110,8 +1110,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 108,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "related"
     },
     {
@@ -3178,8 +3178,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 109,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "ecer is a person, not a shop"
     },
     {
@@ -3189,8 +3189,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_why_it_was_a_money_bug_and_not_a_preference",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 109,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "why it was a money bug and not a preference"
     },
     {
@@ -3200,8 +3200,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_what_ships",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 109,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "what ships"
     },
     {
@@ -3211,8 +3211,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_the_trap_inside_strict_and_it_is_the_part_worth_remembering",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 109,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "the trap inside \"strict\", and it is the part worth remembering"
     },
     {
@@ -3222,8 +3222,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_still_open",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 109,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "still open"
     },
     {
@@ -3233,8 +3233,8 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 109,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "related"
     },
     {
@@ -8023,10 +8023,43 @@
       "norm_label": "closed 2026-08-11 08:45 \u2014 the rules are deployed, so the fix works"
     },
     {
-      "label": "The lesson worth carrying",
+      "label": "The second file, 2026-09-09 \u2014 Fleet & Roster",
       "file_type": "document",
       "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
       "source_location": "L105",
+      "_origin": "ast",
+      "id": "entities_terminal_tenant_path_split_the_second_file_2026_09_09_fleet_roster",
+      "community": 101,
+      "community_name": "Store Hand-off Name Collision",
+      "norm_label": "the second file, 2026-09-09 \u2014 fleet & roster"
+    },
+    {
+      "label": "Four silent steps, no error at any of them",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
+      "source_location": "L123",
+      "_origin": "ast",
+      "id": "entities_terminal_tenant_path_split_four_silent_steps_no_error_at_any_of_them",
+      "community": 101,
+      "community_name": "Store Hand-off Name Collision",
+      "norm_label": "four silent steps, no error at any of them"
+    },
+    {
+      "label": "The half that is not a code fix",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
+      "source_location": "L135",
+      "_origin": "ast",
+      "id": "entities_terminal_tenant_path_split_the_half_that_is_not_a_code_fix",
+      "community": 101,
+      "community_name": "Store Hand-off Name Collision",
+      "norm_label": "the half that is not a code fix"
+    },
+    {
+      "label": "The lesson worth carrying",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "entities_terminal_tenant_path_split_the_lesson_worth_carrying",
       "community": 101,
@@ -8037,7 +8070,7 @@
       "label": "Related",
       "file_type": "document",
       "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
-      "source_location": "L111",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "entities_terminal_tenant_path_split_related",
       "community": 101,
@@ -9393,8 +9426,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -9481,8 +9514,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2_summary_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "summary: fleet captain rule gaps \u2014 batch 1 and 2"
     },
     {
@@ -9492,8 +9525,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2_batch_1_commit_74a02d2",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "batch 1 (commit `74a02d2`)"
     },
     {
@@ -9503,8 +9536,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2_batch_2_commit_d3ec78f",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "batch 2 (commit `d3ec78f`)"
     },
     {
@@ -9514,8 +9547,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2_the_gap_this_project_almost_repeated",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "the gap this project almost repeated"
     },
     {
@@ -9525,8 +9558,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2_resolution",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "resolution"
     },
     {
@@ -9536,8 +9569,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2_ripple_pages_this_touches",
-      "community": 39,
-      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -9932,8 +9965,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -9943,8 +9976,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_summary_rank_config_cross_tenant_gap",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 112,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "summary: rank config cross-tenant gap"
     },
     {
@@ -9954,8 +9987,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_framing_note",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 112,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "framing note"
     },
     {
@@ -9965,8 +9998,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_the_gap",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 112,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "the gap"
     },
     {
@@ -9976,8 +10009,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_two_layers_two_different_fixes",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 112,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "two layers, two different fixes"
     },
     {
@@ -9987,8 +10020,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_ripple_pages_this_touches",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 112,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -10185,8 +10218,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -10284,8 +10317,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "store hand-off name collision.md"
     },
     {
@@ -10295,8 +10328,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_store_hand_off_name_collision",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 114,
+      "community_name": "Store Hand-off Name Collision",
       "norm_label": "store hand-off name collision"
     },
     {
@@ -10306,8 +10339,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_the_fix_that_could_not_be_built",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 114,
+      "community_name": "Store Hand-off Name Collision",
       "norm_label": "the fix that could not be built"
     },
     {
@@ -10317,8 +10350,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_what_shipped",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 114,
+      "community_name": "Store Hand-off Name Collision",
       "norm_label": "what shipped"
     },
     {
@@ -10328,8 +10361,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_verified",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 114,
+      "community_name": "Store Hand-off Name Collision",
       "norm_label": "verified"
     },
     {
@@ -10559,8 +10592,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the panel that never reads a transaction.md"
     },
     {
@@ -10757,7 +10790,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design",
-      "community": 3,
+      "community": 105,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "trophy room and rank system design.md"
     },
@@ -10768,7 +10801,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_kpm_inventory_trophy_room_rank_system_performance_ergonomics",
-      "community": 3,
+      "community": 105,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "kpm inventory \u2014 trophy room, rank system, performance & ergonomics"
     },
@@ -10779,7 +10812,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_a_design_document_for_the_achievement_ranking_system_the_agent_profile_and_making_the_app_light_on_cheap_phones",
-      "community": 3,
+      "community": 105,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "a design document for the achievement/ranking system, the agent profile, and making the app light on cheap phones"
     },
@@ -10790,8 +10823,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_1_the_thing_you_need_to_know_first",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 110,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "1. the thing you need to know first"
     },
     {
@@ -10801,8 +10834,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_your_lifetime_numbers_are_7_day_numbers_and_every_agent_s_rank_is_a_speedometer_not_an_odometer",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 110,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "your \"lifetime\" numbers are 7-day numbers, and every agent's rank is a speedometer, not an odometer"
     },
     {
@@ -10812,8 +10845,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_this_means_for_your_agents_right_now_today",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 110,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "what this means for your agents *right now, today*"
     },
     {
@@ -10823,8 +10856,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_second_thing_rank_counts_money_you_haven_t_been_paid",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 110,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "the second thing: rank counts money you haven't been paid"
     },
     {
@@ -10834,8 +10867,8 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_third_thing_two_bugs_sitting_under_all_of_this",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 110,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "the third thing: two bugs sitting under all of this"
     },
     {
@@ -10845,8 +10878,8 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_one_thing_i_was_told_was_broken_that_is_not_broken_correcting_the_record",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 110,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "one thing i was told was broken that is not broken \u2014 correcting the record"
     },
     {
@@ -10856,7 +10889,7 @@
       "source_location": "L170",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_2_what_s_already_good",
-      "community": 3,
+      "community": 105,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "2. what's already good"
     },
@@ -10955,7 +10988,7 @@
       "source_location": "L463",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_3_2_how_xp_works_and_why_it_can_never_decay_again",
-      "community": 5,
+      "community": 106,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "3.2 how xp works, and why it can never decay again"
     },
@@ -10966,7 +10999,7 @@
       "source_location": "L511",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_why_it_cannot_decay_the_whole_proof",
-      "community": 5,
+      "community": 106,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "why it cannot decay \u2014 the whole proof"
     },
@@ -10977,7 +11010,7 @@
       "source_location": "L533",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_daily_formula",
-      "community": 5,
+      "community": 106,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the daily formula"
     },
@@ -10988,7 +11021,7 @@
       "source_location": "L563",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_a_real_day_looks_like",
-      "community": 5,
+      "community": 106,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "what a real day looks like"
     },
@@ -10999,7 +11032,7 @@
       "source_location": "L586",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_ladder",
-      "community": 5,
+      "community": 106,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the ladder"
     },
@@ -11010,7 +11043,7 @@
       "source_location": "L609",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_where_xp_is_minted_inside_a_transaction_that_already_runs",
-      "community": 5,
+      "community": 106,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "where xp is minted \u2014 inside a transaction that already runs"
     },
@@ -11021,7 +11054,7 @@
       "source_location": "L683",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_one_runnable_check",
-      "community": 5,
+      "community": 106,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the one runnable check"
     },
@@ -11032,8 +11065,8 @@
       "source_location": "L709",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_3_3_the_achievement_system",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 111,
+      "community_name": "3.3 The achievement system",
       "norm_label": "3.3 the achievement system"
     },
     {
@@ -11043,8 +11076,8 @@
       "source_location": "L711",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_kill_one_of_the_two_systems",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 111,
+      "community_name": "3.3 The achievement system",
       "norm_label": "kill one of the two systems"
     },
     {
@@ -11054,8 +11087,8 @@
       "source_location": "L730",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_schema",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 111,
+      "community_name": "3.3 The achievement system",
       "norm_label": "schema"
     },
     {
@@ -11065,8 +11098,8 @@
       "source_location": "L757",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_evaluation_the_elegant_part",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 111,
+      "community_name": "3.3 The achievement system",
       "norm_label": "evaluation \u2014 the elegant part"
     },
     {
@@ -11076,8 +11109,8 @@
       "source_location": "L771",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_starter_set_with_the_exact_data_source_for_each_or_an_honest_not_yet",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 111,
+      "community_name": "3.3 The achievement system",
       "norm_label": "the starter set \u2014 with the exact data source for each, or an honest \"not yet\""
     },
     {
@@ -11087,8 +11120,8 @@
       "source_location": "L844",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_how_you_configure_them",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 111,
+      "community_name": "3.3 The achievement system",
       "norm_label": "how you configure them"
     },
     {
@@ -11241,8 +11274,8 @@
       "source_location": "L1223",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_5_making_it_fun_and_the_ways_it_could_go_badly_wrong",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "5. making it fun (and the ways it could go badly wrong)"
     },
     {
@@ -11252,8 +11285,8 @@
       "source_location": "L1225",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_moments_of_delight_what_actually_lands",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "the moments of delight \u2014 what actually lands"
     },
     {
@@ -11263,8 +11296,8 @@
       "source_location": "L1259",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_how_this_could_fail_and_what_stops_it",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "how this could fail, and what stops it"
     },
     {
@@ -11274,8 +11307,8 @@
       "source_location": "L1261",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_1_the_leaderboard_bottom",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "failure 1: the leaderboard bottom"
     },
     {
@@ -11285,8 +11318,8 @@
       "source_location": "L1288",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_2_the_new_hire_versus_the_veteran",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "failure 2: the new hire versus the veteran"
     },
     {
@@ -11296,8 +11329,8 @@
       "source_location": "L1305",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_3_it_feels_like_surveillance_not_appreciation",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "failure 3: it feels like surveillance, not appreciation"
     },
     {
@@ -11307,8 +11340,8 @@
       "source_location": "L1332",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_4_the_boss_becomes_the_heartbeat",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "failure 4: the boss becomes the heartbeat"
     },
     {
@@ -11318,8 +11351,8 @@
       "source_location": "L1347",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_5_half_the_fleet_gets_an_empty_trophy_room",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "failure 5: half the fleet gets an empty trophy room"
     },
     {
@@ -11329,8 +11362,8 @@
       "source_location": "L1355",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_6_the_rank_titles",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "failure 6: the rank titles"
     },
     {
@@ -11340,8 +11373,8 @@
       "source_location": "L1365",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_7_nobody_asked_the_actual_employees",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 39,
+      "community_name": "Summary: Fleet Captain Rule Gaps \u2014 Batch 1 and 2",
       "norm_label": "failure 7: nobody asked the actual employees"
     },
     {
@@ -11351,7 +11384,7 @@
       "source_location": "L1379",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_6_performance_work_making_it_light_on_a_potato_phone",
-      "community": 3,
+      "community": 105,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "6. performance work \u2014 making it light on a potato phone"
     },
@@ -11362,7 +11395,7 @@
       "source_location": "L1419",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_7_ergonomics_one_handed_field_use",
-      "community": 3,
+      "community": 105,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "7. ergonomics \u2014 one-handed field use"
     },
@@ -11373,8 +11406,8 @@
       "source_location": "L1439",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_8_the_plan",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 98,
+      "community_name": "8. The plan",
       "norm_label": "8. the plan"
     },
     {
@@ -11384,8 +11417,8 @@
       "source_location": "L1446",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_0_solid_ground",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 98,
+      "community_name": "8. The plan",
       "norm_label": "phase 0 \u2014 solid ground"
     },
     {
@@ -11395,8 +11428,8 @@
       "source_location": "L1483",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_1_the_performance_pass",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 98,
+      "community_name": "8. The plan",
       "norm_label": "phase 1 \u2014 the performance pass"
     },
     {
@@ -11406,8 +11439,8 @@
       "source_location": "L1496",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_2_the_ledger_runs_in_the_dark",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 98,
+      "community_name": "8. The plan",
       "norm_label": "phase 2 \u2014 the ledger runs in the dark"
     },
     {
@@ -11417,8 +11450,8 @@
       "source_location": "L1533",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_3_tenure_and_the_backfill",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 98,
+      "community_name": "8. The plan",
       "norm_label": "phase 3 \u2014 tenure and the backfill"
     },
     {
@@ -11428,8 +11461,8 @@
       "source_location": "L1562",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_4_flip_the_switch",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 98,
+      "community_name": "8. The plan",
       "norm_label": "phase 4 \u2014 flip the switch"
     },
     {
@@ -11439,8 +11472,8 @@
       "source_location": "L1589",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_5_one_badge_system",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 98,
+      "community_name": "8. The plan",
       "norm_label": "phase 5 \u2014 one badge system"
     },
     {
@@ -11450,8 +11483,8 @@
       "source_location": "L1616",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_6_the_trophy_room",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 98,
+      "community_name": "8. The plan",
       "norm_label": "phase 6 \u2014 the trophy room"
     },
     {
@@ -11461,8 +11494,8 @@
       "source_location": "L1644",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_7_seasons_and_the_honest_extras",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 98,
+      "community_name": "8. The plan",
       "norm_label": "phase 7 \u2014 seasons and the honest extras"
     },
     {
@@ -11472,8 +11505,8 @@
       "source_location": "L1666",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_8_ergonomics",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 98,
+      "community_name": "8. The plan",
       "norm_label": "phase 8 \u2014 ergonomics"
     },
     {
@@ -11483,7 +11516,7 @@
       "source_location": "L1674",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_9_what_i_d_revisit_later_and_the_signal_that_says_it_s_time",
-      "community": 3,
+      "community": 105,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "9. what i'd revisit later, and the signal that says it's time"
     },
@@ -11494,7 +11527,7 @@
       "source_location": "L1749",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_appendix_everything_i_checked_in_one_list",
-      "community": 3,
+      "community": 105,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "appendix: everything i checked, in one list"
     },
@@ -11505,8 +11538,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "summaries/index.md"
     },
     {
@@ -11516,8 +11549,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_index_wiki_summaries",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 115,
+      "community_name": "Wiki/Summaries",
       "norm_label": "wiki/summaries"
     },
     {
@@ -11527,8 +11560,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "summaries_index_pages_here",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 115,
+      "community_name": "Wiki/Summaries",
       "norm_label": "pages here"
     },
     {
@@ -11538,8 +11571,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
-      "community": 38,
-      "community_name": "Summaries/index.md",
+      "community": 115,
+      "community_name": "Wiki/Summaries",
       "norm_label": "adding a new summary"
     },
     {
@@ -22746,7 +22779,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
-      "source_location": "L111",
+      "source_location": "L157",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_terminal_tenant_path_split_terminal_tenant_path_split",
@@ -22768,7 +22801,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
-      "source_location": "L105",
+      "source_location": "L151",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_terminal_tenant_path_split_terminal_tenant_path_split",
@@ -22801,11 +22834,44 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_terminal_tenant_path_split_terminal_tenant_path_split",
+      "target": "entities_terminal_tenant_path_split_the_second_file_2026_09_09_fleet_roster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
       "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_terminal_tenant_path_split_terminal_tenant_path_split",
       "target": "entities_terminal_tenant_path_split_why_it_survived",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_terminal_tenant_path_split_the_second_file_2026_09_09_fleet_roster",
+      "target": "entities_terminal_tenant_path_split_four_silent_steps_no_error_at_any_of_them",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Terminal Tenant Path Split.md",
+      "source_location": "L135",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_terminal_tenant_path_split_the_second_file_2026_09_09_fleet_roster",
+      "target": "entities_terminal_tenant_path_split_the_half_that_is_not_a_code_fix",
       "confidence_score": 1.0
     },
     {
@@ -26594,5 +26660,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7af56d56cb875a8af64eb60b88e336c038fc69d9"
+  "built_at_commit": "ac2bf026d64b0b3d495556ae32efcb62c09f8f05"
 }

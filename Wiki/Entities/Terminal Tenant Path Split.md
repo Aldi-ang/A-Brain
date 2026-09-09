@@ -137,10 +137,38 @@ carrying two meanings.
 An empty roster has **four** causes — the read was refused, your own record is missing, you have no
 area, or your branch genuinely has nobody — and all four printed *"No personnel found"*. The
 Firestore error code went to `console.warn` and nowhere a person would look. They now each say
-which, and the refusal prints its code on screen. That message is also the observation the fix still
-needs: Aldi found this through the **POV switch**, which keeps his real uid, and on the owner's own
-account `bossUid === user.uid` — so old and new code agree there. The vault bug is certain for a
-real tier-4 login; whether it was the live cause on *his* screen is what the next look will say.
+which, and the refusal prints its code on screen. That message paid for itself in one turn.
+
+### ANSWERED, same day — and it was NOT the vault
+
+Aldi reopened the screen and read back: **"Your own staff record was not found."** So the read had
+succeeded and the roster was full — his own screenshot shows seven people at HEADQUARTERS with
+**[TEST] REGIONAL ADMIN** among them, sitting there the whole time.
+
+The live cause was a **prop App.jsx never passed**:
+
+```js
+const myProfile = (previewing ? null : activeMotorists.find(m => m.email === user.email))
+    || activeMotorists.find(m => m.id === agentProfileId);   // agentProfileId === undefined
+```
+
+The first half is deliberately null under POV — the preview keeps his real email, so that lookup
+must stand down or it finds HIS record whatever tier he wears ([[POV Changes the Id, Never the
+Email]]). **The half it stands down TO did not exist.** `find(m => m.id === undefined)` is nothing,
+on every tier, however full the roster is. Shipped `b945280`.
+
+> **When you disable a lookup, the fallback it lands on is new load-bearing code. Test the path you
+> just created, not only the one you closed.**
+
+Why it survived: a real login never reaches the fallback, because the email lookup answers first.
+The only identity that reaches it is the preview — and the preview is what nobody re-tested after
+the stand-down was added. App.jsx passes `agentProfileId` to five other screens, so a file-wide grep
+says yes; the guard had to be scoped to the `<FleetCanvasManager` tag to see the gap.
+
+**The vault fix is kept and is not wasted.** It is a real defect for any non-owner login and nine
+paths hang off it, including branch-stock writes. It was simply not what Aldi hit, because POV keeps
+his real uid and on the owner's account `bossUid === user.uid` — old and new code agree there. Two
+genuine bugs stacked on one screen, and only the second one was his.
 
 ⚠️ **And even with the right vault, a regional admin sees only staff whose `location` string matches
 theirs exactly.** A costume parked at `Headquarters` while the team is at a branch is still an empty
