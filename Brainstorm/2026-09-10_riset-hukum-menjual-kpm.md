@@ -67,6 +67,54 @@ konsultan legal, 11 Mei 2026).
 hukumnya memang di **AHU** (Kemenkumham), bukan di OSS; OSS baru dipakai untuk NIB. Jangan cari
 pendirian PT Perorangan di OSS.
 
+### Kapan PT itu harus ada — dan kapan belum perlu
+
+Aldi, 2026-09-10: *"so i need to make pt perorangan for this?"*
+
+**Secara hukum: tidak wajib.** Orang pribadi ber-NPWP boleh menagih dan dibayar. Dan tarif final
+0,5% berlaku untuk **WP Orang Pribadi maupun Perseroan Perorangan** — PP 20/2026 mencakup keduanya,
+jadi badan usaha bukan syarat untuk dapat tarif itu.
+
+Yang berubah kalau tanpa badan usaha:
+
+| | orang pribadi | PT Perorangan |
+|---|---|---|
+| pemotongan pajak oleh pelanggan | **PPh 21** untuk bukan-pegawai — dihitung dari 50% bruto × tarif progresif, dan berantakan | **PPh 23, 2% flat** + bukti potong yang rapi |
+| harta pribadi kalau ada tuntutan | **ikut tertagih** | terpisah, ini badan hukum |
+| diterima bagian keuangan pabrik | tergantung kebijakan mereka | selalu |
+| kewajiban rutin | SPT Tahunan OP saja | SPT Tahunan Badan + pembukuan + laporan keuangan tahunan ke Kemenkumham [likely — belum diverifikasi] |
+
+**Alasan sebenarnya bukan soal ditagih atau tidak. Alasannya tanggung jawab.** Pasal 12 draf kontrak
+membatasi ganti rugi, tapi ayat (4) sengaja mengecualikan kesengajaan dan kesalahan berat — dan di
+celah itu, tanpa badan hukum, yang tertagih adalah harta pribadi Aldi. PT Perorangan menutup celah
+itu dengan Rp 50.000.
+
+**Waktunya:**
+
+1. Selesaikan kerja yang menghalangi rilis. Belum perlu PT.
+2. TANYA, TUNJUKKAN. Belum perlu PT.
+3. **Om bilang ya** → daftarkan PT sekarang. Prosesnya online, hitungan hari, tapi beri **jarak 2-4
+   minggu** sebelum tanggal tanda tangan — pemadanan NIK-NPWP di Coretax bisa tersangkut dan sistem
+   AHU menolak otomatis kalau datanya tidak sinkron.
+4. Tanda tangan kontrak **atas nama PT**, karena Pasal 1 menyebut badan usaha, bukan orang.
+5. Invoice pertama.
+
+⚠️ **Satu NIK hanya boleh mendirikan satu PT Perorangan per tahun buku.** Jadi jangan daftarkan
+sekarang "biar siap" — kalau ternyata bentuknya perlu berubah, kesempatan tahun ini sudah terpakai.
+
+**Boleh pilot dulu sebagai orang pribadi?** Bisa. Pilot Rp 4 juta × 6 bulan = Rp 24 juta, nilai
+kecil, dan itu menghindari beban administrasi PT selama fase yang belum pasti. Risikonya: paparan
+tanggung jawab sudah dimulai begitu data stok sungguhan masuk. **Bentuk PT sebelum kontrak rollout
+penuh, bukan sebelum pilot** — kecuali jawaban pertanyaan di bawah bilang lain.
+
+**Pertanyaan yang menyelesaikan ini, dan gratis:** tanyakan ke orang keuangan Om —
+*"Bagian keuangan bisa bayar ke perorangan, atau harus ke badan usaha?"* Jawaban mereka yang
+memutuskan, bukan tebakan. Banyak pabrik punya kebijakan vendor yang tidak bisa menerima perorangan
+sama sekali; kalau begitu, PT harus ada sebelum invoice pertama, titik.
+
+**CV tetap kalah**, alasannya sama seperti di atas: sekutu aktif CV bertanggung jawab sampai
+harta pribadi, dan pendiriannya butuh akta notaris Rp 5-10 juta melawan PNBP Rp 50.000.
+
 ---
 
 ## 2. PPh 23 — dan mengapa kata-kata di kontrak menentukan tarifnya
