@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-09)
 
 ## Corpus Check
-- 97 files · ~189,147 words
+- 98 files · ~190,219 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1048 nodes · 1351 edges · 110 communities (104 shown, 6 thin omitted)
+- 1056 nodes · 1361 edges · 106 communities (100 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7655b11b`
+- Built from commit: `7af56d56`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,6 +19,7 @@
 - Operation Log
 - Lancelot the Tobacco Ledger Agent
 - KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
+- Concepts/index.md
 - 3.2 How XP works, and why it can never decay again
 - The KPM Control System
 - Anti-Recurrence Check
@@ -111,18 +112,14 @@
 - Wiki Index
 - Hand-off eligibility
 - The Shorter List Was Never the Eligible One
-- Summary: Option B Region Lock
 - Ownership Moves, History Does Not
 - Summary: Ponytail Philosophy Ingest
 - Store Hand-off Name Collision
 - How this could fail, and what stops it
 - Wiki/Summaries
 - A Named Import Can Shadow a Global
-- A retry must land where the first try landed
 - Revenue recognition — a Titip placement is not income
-- Store Hand-off Name Collision
 - Summary: Lost Work in Worktrees — Three Incidents
-- Summary: KPM Project Facts Reference
 
 ## God Nodes (most connected - your core abstractions)
 1. `Aldi's Design Taste` - 68 edges
@@ -139,7 +136,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (110 total, 6 thin omitted)
+## Communities (106 total, 6 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.04
@@ -156,6 +153,10 @@ Nodes (41): A trap already in the data, Consequences — the build list, in orde
 ### Community 3 - "KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics"
 Cohesion: 0.04
 Nodes (45): 1. The thing you need to know first, 2. What's already good, 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated (+37 more)
+
+### Community 4 - "Concepts/index.md"
+Cohesion: 0.12
+Nodes (12): A retry must land where the first try landed, Related, The shape worth reusing, The trap, which is the whole reason this page exists, What is still not exactly-once, on purpose, What was wrong, Ecer Is a Person, Not a Shop, Related (+4 more)
 
 ### Community 5 - "3.2 How XP works, and why it can never decay again"
 Cohesion: 0.09
@@ -290,8 +291,8 @@ Cohesion: 0.33
 Nodes (6): Dead Weight Cleanup and Rules-Deploy Gap, Related, Update 2026-07-28 — the cleanup broke the production build, Verify before trusting, What happened, Why it's worth remembering
 
 ### Community 38 - "Summaries/index.md"
-Cohesion: 0.40
-Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
+Cohesion: 0.15
+Nodes (10): Adding a new summary, Pages here, Wiki/Summaries, Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes, Store Hand-off Name Collision, The fix that could not be built (+2 more)
 
 ### Community 39 - "Summary: Fleet Captain Rule Gaps — Batch 1 and 2"
 Cohesion: 0.33
@@ -314,8 +315,8 @@ Cohesion: 0.50
 Nodes (4): 1. He judges a surface by how it feels after an hour, not in a screenshot, 2. Navigation labels are words, not codes, 3. Depth is confirmed, and quiet is why, Backlight out, full words in, and the lowkey 3D stays (2026-09-02)
 
 ### Community 44 - "Draft-Then-Deploy Discipline"
-Cohesion: 0.33
-Nodes (5): Framing note, Ripple — pages this touches, Summary: Rank Config Cross-Tenant Gap, The gap, Two layers, two different fixes
+Cohesion: 0.14
+Nodes (10): Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches, Summary: Option B Region Lock, The blocking question, resolved, What it fixed, Framing note, Ripple — pages this touches, Summary: Rank Config Cross-Tenant Gap (+2 more)
 
 ### Community 45 - "Off-Token Colour Migration Map"
 Cohesion: 0.33
@@ -446,8 +447,8 @@ Cohesion: 0.67
 Nodes (3): Adding a new entity, Pages here, Wiki/Entities
 
 ### Community 82 - "A Mode Reminder Does Not Outrank Aldi"
-Cohesion: 0.33
-Nodes (6): Ecer Is a Person, Not a Shop, Related, Still open, The trap inside "strict", and it is the part worth remembering, What ships, Why it was a money bug and not a preference
+Cohesion: 0.29
+Nodes (7): capture="environment" Is a Request, Not a Lock, Related, The permission shape, unchanged from its three siblings, The rule Aldi asked for, Two traps this sat on, What actually enforces it, What the check had to be
 
 ### Community 83 - "Gudang Pusat (Master Vault)"
 Cohesion: 0.40
@@ -501,10 +502,6 @@ Nodes (17): 2026-09-07 — and the approval queue was invisible to the very peop
 Cohesion: 0.22
 Nodes (9): Still open, The brief named the wrong list, The demo nobody could open, The new matrix key, and why absence must not mean "no", The Shorter List Was Never the Eligible One, The thing worth carrying, Two decisions made inside the fix, both flagged rather than assumed, Verification, and its ceiling (+1 more)
 
-### Community 98 - "Summary: Option B Region Lock"
-Cohesion: 0.40
-Nodes (5): Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches, Summary: Option B Region Lock, The blocking question, resolved, What it fixed
-
 ### Community 99 - "Ownership Moves, History Does Not"
 Cohesion: 0.20
 Nodes (10): Aldi's scope answer, 2026-09-05 — locked, And the bell is not a footnote — his correction, 2026-09-05, Ownership Moves, History Does Not, Settled — the arrow reads sender first, The first live test, 2026-09-05 — the debt arrives, the button does not, The problem, The shape that was built (39cd90d), The two traps a lazy build walks into (+2 more)
@@ -529,28 +526,16 @@ Nodes (4): A Feature Is Not Done Until the Book Knows, And one thing only a rend
 Cohesion: 0.50
 Nodes (4): A Named Import Can Shadow a Global, The fix, and the rule, What happened, What it cost, and what did NOT catch it
 
-### Community 105 - "A retry must land where the first try landed"
-Cohesion: 0.33
-Nodes (6): A retry must land where the first try landed, Related, The shape worth reusing, The trap, which is the whole reason this page exists, What is still not exactly-once, on purpose, What was wrong
-
 ### Community 107 - "Revenue recognition — a Titip placement is not income"
 Cohesion: 0.22
 Nodes (9): Rejected on purpose, Revenue recognition — a Titip placement is not income, The decision, in his words, The problem it settled, The second bug, found while proving the first was repairable, Verified, What he still has to do, What shipped (+1 more)
-
-### Community 108 - "Store Hand-off Name Collision"
-Cohesion: 0.50
-Nodes (4): Store Hand-off Name Collision, The fix that could not be built, Verified, What shipped
 
 ### Community 113 - "Summary: Lost Work in Worktrees — Three Incidents"
 Cohesion: 0.40
 Nodes (4): Ripple — pages this touches, Summary: Lost Work in Worktrees — Three Incidents, The pattern across all three, The three incidents
 
-### Community 114 - "Summary: KPM Project Facts Reference"
-Cohesion: 0.50
-Nodes (3): Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes
-
 ## Knowledge Gaps
-- **809 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+804 more)
+- **815 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+810 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -558,13 +543,13 @@ Nodes (3): Ripple — pages this touches, Summary: KPM Project Facts Reference, 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.194) - this node is a cross-community bridge._
+  _High betweenness centrality (0.189) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `Concepts/index.md`?**
-  _High betweenness centrality (0.103) - this node is a cross-community bridge._
+  _High betweenness centrality (0.075) - this node is a cross-community bridge._
 - **Why does `The Book as a Stack of Sheets` connect `The Book as a Stack of Sheets` to `Concepts/index.md`?**
-  _High betweenness centrality (0.073) - this node is a cross-community bridge._
+  _High betweenness centrality (0.072) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _809 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _815 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.03571428571428571 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**

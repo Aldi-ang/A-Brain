@@ -3,10 +3,10 @@ title: Terminal Tenant Path Split
 description: The sales terminal read customers from the boss's vault and wrote IOUs and new outlets to the salesman's own — invisible on the boss's own account, which is why it survived so long.
 type: entity
 created: 2026-08-11
-updated: 2026-08-11
+updated: 2026-09-09
 confidence: high
-checked: 2026-08-11
-tags: [kpm, multi-tenant, firestore, bug, sales-terminal]
+checked: 2026-09-09
+tags: [kpm, multi-tenant, firestore, bug, sales-terminal, fleet-roster]
 ---
 
 # Terminal Tenant Path Split
@@ -102,6 +102,52 @@ to deploy, never what Firebase is enforcing** — the Console is the only source
 took Aldi about thirty seconds. [[Draft-Then-Deploy Discipline]] still holds for *writing* rules:
 deploying remains his to do, never the agent's.
 
+## The second file, 2026-09-09 — Fleet & Roster
+
+**The 2026-08-11 note ended by saying the other re-derivations were "probably the same fault". They
+were.** Aldi's report: *"my tier 4 cant even detect its own sales team inside the fleet and roster"*.
+His screen read **UNASSIGNED ROSTER — ACTIVE PERSONNEL: 0 — No personnel found** while the staff sat
+in the database untouched.
+
+`FleetCanvasManager.jsx:19` carried the identical shape, one line into the component:
+
+```js
+const userId = user?.uid || user?.id || 'default';        // no bossUid
+```
+
+**Nine collection paths hang off it** — the roster listener, the branch-stock listener, the product
+and branch-inventory writes behind Load Canvas and Reconcile, and the GPS-bypass approve/reject
+updates. So this is not a read-only mistake like the IOU banner was: **Load Canvas moves real stock
+through a path built on the wrong tenant id.**
+
+### Four silent steps, no error at any of them
+
+1. the listener subscribes to the signed-in person's own empty vault → `localFleet` is `[]`
+2. `myProfile` — found by id in that empty list — is `undefined`
+3. `rawLocation` falls through to the literal string `'UNASSIGNED'`
+4. the roster filter is an exact area match, and **no staff record ever carries `'UNASSIGNED'`** —
+   the app's own blank sentinel is `'UNASSIGNED AREA'`, a different string
+
+Step 4 is the one worth remembering on its own: two spellings of "no branch yet" existed in one
+file, and the fallback used the one that matches nobody. See the standing lesson about a sentinel
+carrying two meanings.
+
+### The half that is not a code fix
+
+An empty roster has **four** causes — the read was refused, your own record is missing, you have no
+area, or your branch genuinely has nobody — and all four printed *"No personnel found"*. The
+Firestore error code went to `console.warn` and nowhere a person would look. They now each say
+which, and the refusal prints its code on screen. That message is also the observation the fix still
+needs: Aldi found this through the **POV switch**, which keeps his real uid, and on the owner's own
+account `bossUid === user.uid` — so old and new code agree there. The vault bug is certain for a
+real tier-4 login; whether it was the live cause on *his* screen is what the next look will say.
+
+⚠️ **And even with the right vault, a regional admin sees only staff whose `location` string matches
+theirs exactly.** A costume parked at `Headquarters` while the team is at a branch is still an empty
+roster, correctly. That is a data question, not a bug.
+
+Shipped `da71cbd`.
+
 ## The lesson worth carrying
 
 **When one file re-derives a value the rest of the app centralises, treat the copy as wrong until
@@ -115,3 +161,4 @@ expression. Two names for one concept in one file meant nobody owned it.
 - [[Multi-Tenant Architecture]] — the `bossUid` pattern this bypassed
 - [[Fleet Captain Permission Gap]] — same "works for the tester, broken for the worker" shape
 - [[Aldi's Design Taste]] — he found it by testing, not by reading; his round result is the source
+- [[POV Changes the Id, Never the Email]] — the OTHER identity trap in this same file, and why POV masks this one
