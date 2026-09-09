@@ -192,6 +192,68 @@ badan yang dipilih secara spesifik ke konsultan pajak, bukan menanyakan "UMKM" s
 miliar, jadi tarif 0,5% berlaku dan PPh-nya sekitar Rp 1,2 juta setahun. Bahkan lima pelanggan
 sekaligus baru Rp 1,2 miliar, masih di bawah batas.
 
+### Rp 500 juta pertama bebas — dan itu hanya untuk orang pribadi
+
+Aldi, 2026-09-10: *"kalau 12 juta perbulan kurang lebih seperti umkm kan"*. Benar, dan jauh lebih
+jauh dari batas daripada yang dia kira.
+
+Rp 12 juta/bulan = **Rp 144 juta/tahun**. Batas UMKM Rp 4,8 miliar. **Itu 3% dari batas.**
+
+Lalu ada fasilitas UU HPP: bagi **Wajib Pajak orang pribadi**, peredaran bruto **sampai Rp 500 juta
+per tahun bebas dari PPh final 0,5%** ini. [likely — dari ringkasan panduankeuangan.id atas PP
+55/2022 dan UU HPP; konfirmasi ke konsultan pajak sebelum dipakai di depan bagian keuangan]
+
+| omzet setahun | sebagai orang pribadi | sebagai PT Perorangan |
+|---|---|---|
+| Rp 48 juta (pilot Rp 4 juta/bulan) | **Rp 0** | Rp 240.000 |
+| Rp 144 juta (Rp 12 juta/bulan) | **Rp 0** | Rp 720.000 |
+| Rp 432 juta (tiga pelanggan) | **Rp 0** | Rp 2.160.000 |
+| Rp 600 juta | Rp 500 ribu (atas Rp 100 juta kelebihannya) | Rp 3.000.000 |
+
+**Fasilitas Rp 500 juta itu tidak berlaku untuk badan.** PT Perorangan membayar 0,5% dari rupiah
+pertama. Batas silangnya sekitar **Rp 41,7 juta per bulan** — sebelum itu, orang pribadi tidak
+membayar PPh final sama sekali.
+
+⚠️ **Tapi selisihnya kecil, dan tidak boleh jadi alasan memilih.** Rp 720 ribu setahun bukan angka
+yang layak dipertaruhkan melawan harta pribadi. **Keputusan PT tetap soal tanggung jawab, bukan soal
+pajak.**
+
+### Kalau pabriknya bisa membayar perorangan: alur dan yang harus disiapkan
+
+**Alurnya tiap bulan:**
+
+1. Aldi kirim **invoice** (tagihan biasa, bukan Faktur Pajak — Faktur Pajak hanya untuk PKP).
+2. Bagian keuangan pabrik memotong pajak dari nilai tagihan.
+3. Sisanya ditransfer ke rekening Aldi.
+4. Pabrik menerbitkan **bukti potong**, dan Aldi harus memintanya kalau tidak dikirim.
+5. Aldi melaporkan semuanya di **SPT Tahunan Orang Pribadi**.
+
+**Lima hal yang harus disiapkan sebelum invoice pertama:**
+
+1. **NPWP pribadi aktif**, dengan NIK sudah dipadankan di Coretax. Kalau belum pernah dipadankan,
+   ini yang paling sering menghambat, dan bukan pekerjaan lima menit.
+2. **Surat Keterangan (Suket) PP 55/2022**, diajukan lewat **Coretax**. Surat ini adalah bukti bahwa
+   Aldi memenuhi kriteria PPh Final, sehingga lawan transaksi **tidak memotong dengan tarif umum**.
+   **Tanpa surat ini, pabrik akan memotong pakai tarif biasa** — untuk orang pribadi bukan pegawai
+   itu mekanisme PPh 21, bukan 0,5%. Sumber: Pajakku, *Panduan Surat Keterangan (Suket) UMKM PP 55
+   di Coretax*. Dan surat keterangan PP 55/2022 **tetap berlaku sah selama masa transisi PP
+   20/2026** — pajaknow.id, 19 Juni 2026.
+3. **Rekening bank atas nama sendiri**, nama persis sama dengan yang tertera di NPWP. Bagian
+   keuangan pabrik menolak transfer ke nama yang berbeda.
+4. **Template invoice** berisi: nomor invoice berurutan, tanggal, nama dan NPWP Aldi, nama dan NPWP
+   pelanggan, uraian jasa yang mengikuti kata-kata Pasal 2 kontrak, periode layanan, jumlah,
+   tanggal jatuh tempo, dan nomor rekening.
+5. **Catatan peredaran bruto bulanan.** Sederhana saja — tanggal, nomor invoice, jumlah. Ini yang
+   dipakai mengisi SPT dan yang membuktikan posisinya terhadap batas Rp 500 juta dan Rp 4,8 miliar.
+
+⚠️ **Kalau pabrik tidak memotong sama sekali** — sebagian tidak memotong untuk perorangan — maka
+kewajiban setornya jatuh ke Aldi, bulanan, lewat kode billing. Di bawah Rp 500 juta setahun jumlahnya
+Rp 0, tapi **kewajiban mencatat dan melapor tetap ada**. Nol rupiah bukan berarti tidak usah lapor.
+
+**Yang tetap harus ditanyakan ke konsultan pajak, satu jam:** apakah Suket PP 55 sudah cukup untuk
+menghentikan pemotongan PPh 21, atau pabrik tetap memotong dan Aldi mengkreditkannya nanti. Jawaban
+itu menentukan berapa yang benar-benar masuk rekening tiap bulan.
+
 ---
 
 ## 4. PPN dan status PKP
