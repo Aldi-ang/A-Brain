@@ -7781,21 +7781,21 @@
       "norm_label": "perpetual licence \u2014 offered to be refused"
     },
     {
-      "label": "Copyright sale \u2014 **Rp 5 miliar**, priced to refuse",
+      "label": "Copyright sale \u2014 **not for sale.** Corrected 2026-09-10.",
       "file_type": "document",
       "source_file": "Wiki/Entities/KPM Price Sheet.md",
       "source_location": "L96",
       "_origin": "ast",
-      "id": "entities_kpm_price_sheet_copyright_sale_rp_5_miliar_priced_to_refuse",
+      "id": "entities_kpm_price_sheet_copyright_sale_not_for_sale_corrected_2026_09_10",
       "community": 41,
       "community_name": "Ecer Is a Person, Not a Shop",
-      "norm_label": "copyright sale \u2014 **rp 5 miliar**, priced to refuse"
+      "norm_label": "copyright sale \u2014 **not for sale.** corrected 2026-09-10."
     },
     {
       "label": "Tax position at these numbers",
       "file_type": "document",
       "source_file": "Wiki/Entities/KPM Price Sheet.md",
-      "source_location": "L106",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "entities_kpm_price_sheet_tax_position_at_these_numbers",
       "community": 41,
@@ -7806,7 +7806,7 @@
       "label": "Rules that do not change with the number",
       "file_type": "document",
       "source_file": "Wiki/Entities/KPM Price Sheet.md",
-      "source_location": "L121",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "entities_kpm_price_sheet_rules_that_do_not_change_with_the_number",
       "community": 41,
@@ -7817,7 +7817,7 @@
       "label": "Still open",
       "file_type": "document",
       "source_file": "Wiki/Entities/KPM Price Sheet.md",
-      "source_location": "L132",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "entities_kpm_price_sheet_still_open",
       "community": 41,
@@ -7828,7 +7828,7 @@
       "label": "Related",
       "file_type": "document",
       "source_file": "Wiki/Entities/KPM Price Sheet.md",
-      "source_location": "L139",
+      "source_location": "L161",
       "_origin": "ast",
       "id": "entities_kpm_price_sheet_related",
       "community": 41,
@@ -22783,7 +22783,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_kpm_price_sheet_kpm_price_sheet",
-      "target": "entities_kpm_price_sheet_copyright_sale_rp_5_miliar_priced_to_refuse",
+      "target": "entities_kpm_price_sheet_copyright_sale_not_for_sale_corrected_2026_09_10",
       "confidence_score": 1.0
     },
     {
@@ -22812,7 +22812,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/KPM Price Sheet.md",
-      "source_location": "L139",
+      "source_location": "L161",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_kpm_price_sheet_kpm_price_sheet",
@@ -22823,7 +22823,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/KPM Price Sheet.md",
-      "source_location": "L121",
+      "source_location": "L143",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_kpm_price_sheet_kpm_price_sheet",
@@ -22834,7 +22834,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/KPM Price Sheet.md",
-      "source_location": "L132",
+      "source_location": "L154",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_kpm_price_sheet_kpm_price_sheet",
@@ -22856,7 +22856,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Entities/KPM Price Sheet.md",
-      "source_location": "L106",
+      "source_location": "L128",
       "weight": 1.0,
       "_origin": "ast",
       "source": "entities_kpm_price_sheet_kpm_price_sheet",
@@ -27232,5 +27232,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3212393ea85ef07dd55af59ecc86faafe5f6b05e"
+  "built_at_commit": "bc4c9f15224df5ab6dc70e95197da51fd728d316"
 }

@@ -1,7 +1,7 @@
 # Graph Report - Wiki  (2026-09-10)
 
 ## Corpus Check
-- 100 files · ~195,107 words
+- 100 files · ~195,399 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3212393e`
+- Built from commit: `bc4c9f15`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -296,7 +296,7 @@ Nodes (5): Ripple — pages this touches, Summary: Offline Login Lockout Fix, Th
 
 ### Community 41 - "Ecer Is a Person, Not a Shop"
 Cohesion: 0.18
-Nodes (10): Copyright sale — **Rp 5 miliar**, priced to refuse, Cost to run — one customer, 25-30 users, KPM Price Sheet, Perpetual licence — offered to be refused, Related, Rules that do not change with the number, Still open, Subscription — the number to say (+2 more)
+Nodes (10): Copyright sale — **not for sale.** Corrected 2026-09-10., Cost to run — one customer, 25-30 users, KPM Price Sheet, Perpetual licence — offered to be refused, Related, Rules that do not change with the number, Still open, Subscription — the number to say (+2 more)
 
 ### Community 43 - "Design Inspiration Sources"
 Cohesion: 0.50

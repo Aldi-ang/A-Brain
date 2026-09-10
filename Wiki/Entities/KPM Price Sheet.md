@@ -6,7 +6,7 @@ created: 2026-09-10
 updated: 2026-09-10
 confidence: medium
 checked: 2026-09-10
-status: ACTIVE — applies to a 25-30 user customer. Count still unconfirmed.
+status: ACTIVE — 25-30 users. Aldi leans to Rp 10 juta (not Rp 5 juta) as of 2026-09-10 — see that section. Count still unconfirmed.
 tags: [kpm, pricing, business, indonesia, canonical]
 ---
 
@@ -140,6 +140,58 @@ Rp 5 juta × 12 = **Rp 60 juta/tahun**.
 **The entity decision is about liability, not tax** — the difference is Rp 300 ribu a year. Details
 and the Surat Keterangan mechanism: [[2026-09-10_riset-hukum-menjual-kpm]].
 
+
+## Rp 10 juta — Aldi's own number, 2026-09-10
+
+> *"btw i think i will give my uncle price of 10 million per month for this app"*
+
+**His call, and it is not unreasonable.** Run against the same four yardsticks, two survive and two
+do not.
+
+| yardstick | at Rp 5 juta | at Rp 10 juta |
+|---|---|---|
+| ① cost (Rp 2 juta running) | 2,5× | **5×** — a normal software margin, fine |
+| ② market band (Rp 4,5-9 juta derived, Rp 150-300 ribu/field user) | inside, near floor | **Rp 333 ribu/user — at or just above the ceiling** |
+| ③ leak (Rp 600-750 juta on the road, 1% = Rp 6-7,5 juta) | below the leak | **ABOVE the leak — the argument inverts** |
+| ④ admin salary | ≈ 1 admin | ≈ 2,5-3 admin |
+
+### The one that matters is ③
+
+*"The price is below what you are already losing"* is the strongest sentence in the whole pitch, and
+it stops being true at Rp 10 juta. Nothing replaces it — ② and ④ are comparisons, ③ is the only
+yardstick that is about the buyer's own money.
+
+**What would make Rp 10 juta the honest number:** road stock of **≈ Rp 1 miliar**, so that 1% is
+Rp 10 juta. That is **33 sales carrying Rp 30 juta each, or 25 sales carrying Rp 40 juta each.**
+Both are entirely plausible — and **nobody has asked.**
+
+⚠️ **So the price should not be fixed before step 2 of the sales order.** One question decides it:
+*"Berapa titip yang di luar sekarang, dan berapa rata-rata yang dibawa satu sales?"* If the answer
+puts a miliar on the road, Rp 10 juta is cheap and defensible on every yardstick. If it puts
+Rp 600 juta there, Rp 10 juta is priced above the problem it solves.
+
+### The better plan, if he wants the higher number without waiting
+
+**Open at Rp 10 juta, expect to land at Rp 7 juta.** Nobody accepts the first number, and opening at
+Rp 5 juta leaves nowhere to go — that is the real flaw in the earlier recommendation. Rp 7 juta is
+Rp 233 ribu per user, inside the band, and still at or below a 1% leak on 25 sales.
+
+**Rp 5 juta was priced as a first-customer, family, still-has-day-one-bugs number.** If Aldi does not
+want to give that discount, that is a legitimate call — the discount was a choice, not a
+calculation.
+
+⚠️ **The risk with family is not the money, it is being found out later.** Charging a stranger the
+top of the band is ordinary. Charging family the top of the band is only safe if it is never
+presented as a favour. Say the number plainly, or discount it plainly. Not both.
+
+### What does not change at Rp 10 juta
+
+Final PPh is still **Rp 0** — Rp 120 juta/year, far under Rp 500 juta. Perpetual licence rescales to
+**Rp 500 juta + Rp 100 juta/year**, and the five-year arithmetic still favours subscription
+(Rp 600 juta against Rp 1 miliar). Floor is still Rp 2 juta. Copyright is still not for sale.
+
+**DECISION: Aldi's, stated as intent 2026-09-10, not yet final.** The discovery question above is
+what should settle it.
 ## Rules that do not change with the number
 
 1. **Never answer a price question with your own costs.** The moment the sentence is *"the server
