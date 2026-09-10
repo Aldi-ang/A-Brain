@@ -1,16 +1,112 @@
 ---
-title: Revisi harga KPM — 50 sampai 100 pengguna
-description: Aldi menyebut jumlah pengguna sebenarnya, 50-100 orang. Angka Rp 2,5 juta di catatan 9 September dihitung untuk 10-30 pengguna dan sudah tidak berlaku. Ini penggantinya, plus harga lisensi permanen dan alasan beli putus lebih mahal untuk pembelinya.
+title: Revisi harga KPM — 25-30 pengguna (angkanya bergerak dua kali)
+description: Jumlah pengguna bergerak dua kali dalam satu hari - 10-30, lalu 50-100, lalu 25-30. Revisi kedua yang berlaku - Rp 5 juta per bulan, lantai Rp 2 juta, dan empat ukuran bebas yang menjelaskan kenapa itu wajar. Berisi juga skrip menjawab pertanyaan harga.
 type: brainstorm
 created: 2026-09-10
 updated: 2026-09-10
 confidence: medium
 checked: 2026-09-10
-status: OPEN — menunggu jawaban Aldi soal komposisi pengguna dan beban dukungan
+status: OPEN — REVISI KEDUA berlaku (25-30 pengguna, Rp 5 juta). Menunggu pembagian sales lapangan vs kantor.
 tags: [kpm, pricing, business, indonesia, lisensi]
 ---
 
-# Revisi harga — 50 sampai 100 pengguna
+# Revisi harga — jumlah pengguna, dan angkanya yang bergerak dua kali
+
+---
+
+## ⚠️ REVISI KEDUA, 2026-09-10 sore — jumlahnya 25-30, bukan 50-100
+
+Aldi: *"okay jadi semua sales lapangan dan karyawan kerja yang bakal pake app ini sekita 25 -30
+orang can u revise the cost and give me the reason why this price is fair"*.
+
+**Angka pengguna sudah bergerak dua kali dalam satu hari: 10-30 → 50-100 → 25-30.** Yang terakhir
+yang dipakai, karena paling spesifik. Tapi **konfirmasi sekali lagi sebelum menyebut harga ke Om** —
+harga yang salah kutip mahal ditarik kembali, dan seluruh angka di bawah bergantung pada satu bilangan
+ini.
+
+Bagian di bawah judul ini menggantikan tabel jenjang dan angka "untuk Om" di atas. Pembanding pasar,
+skrip jawaban, dan bagian risiko tetap berlaku.
+
+### Biaya jalan di 25-30 pengguna
+
+| | per bulan |
+|---|---|
+| Firebase (25-30 pengguna, foto bukti, listener realtime) | Rp 250-500 ribu |
+| Alat AI yang terpakai untuk kerja ini | Rp 300-500 ribu |
+| Dukungan, 8-15 jam @ Rp 100 ribu/jam | Rp 800 ribu - 1,5 juta |
+| **Titik impas** | **≈ Rp 2 juta/bulan** |
+
+Turun dari Rp 6 juta di skenario 100 pengguna. Beban dukungan yang turun, bukan servernya.
+
+### Harganya
+
+| | |
+|---|---|
+| Pilot, 3-6 bulan, **seluruh tim** | **Rp 2,5 juta/bulan** |
+| Setelah pilot, sampai 30 pengguna | **Rp 5 juta/bulan** |
+| Pengguna ke-31 dan seterusnya | Rp 150 ribu/orang/bulan |
+| Implementasi: migrasi data + pelatihan 30 orang | **Rp 7,5 juta**, separuh dibebaskan ditukar testimoni + 2 perkenalan |
+| **Lantai** | **Rp 2 juta/bulan** |
+
+⚠️ **Tabel jenjang di atas menyebut Rp 7 juta untuk 26-50 pengguna. Angka itu hasil interpolasi dari
+skenario 100 pengguna, bukan turunan.** Diturunkan langsung untuk 30 pengguna, angkanya Rp 5 juta.
+Yang diturunkan menang atas yang diinterpolasi.
+
+⚠️ **Di 25-30 orang tidak ada potongan kecil untuk dijadikan pilot.** Satu cabang dengan 25 pengguna
+adalah hampir seluruh perusahaan. Jadi pilotnya **dibatasi waktu, bukan dibatasi orang** — semua
+memakai sejak hari pertama, dengan harga yang lebih rendah selama masa pembuktian. Konsekuensinya:
+**bug hari pertama harus beres sebelum pilot dimulai**, karena tidak ada kelompok kecil yang
+menyerap kesalahannya lebih dulu.
+
+### Empat ukuran yang jatuh di tempat yang sama — ini arti "wajar"
+
+Satu pembenaran bisa dikarang. Empat ukuran yang saling bebas dan berhenti di angka yang sama, tidak.
+
+**① Ukuran biaya.** Jalannya Rp 2 juta. Rp 5 juta itu 2,5 kali biaya. Cukup untuk membayar waktu dan
+menyisakan margin, tidak cukup untuk disebut mencekik.
+
+**② Ukuran pasar.** Accurate Online, 30 pengguna: Rp 333.000 + 29 × Rp 22.200 = **Rp 976.800/bulan** —
+tapi Accurate tidak tahu sales-nya di mana, tidak mengerti titip, tidak mencetak nota di motor.
+Badger Maps, 30 pengguna: $58 × 30 ≈ **Rp 28 juta/bulan**. Padanan Indonesia pada Rp 150-300 ribu per
+pengguna lapangan: **Rp 4,5-9 juta**. Rp 5 juta ada di dalamnya, dekat ke batas bawah — posisi yang
+benar untuk pelanggan pertama yang masih menemukan bug.
+
+**③ Ukuran kebocoran.** Kalau 20-25 dari mereka sales lapangan yang masing-masing membawa sekitar
+Rp 30 juta, itu **Rp 600-750 juta ada di jalan**. Bocor satu persen = **Rp 6-7,5 juta sebulan**.
+**Harganya di bawah kebocorannya.** Aplikasi ini membayar dirinya sendiri kalau ia menutup kurang
+dari satu persen.
+
+**④ Ukuran gaji.** Rp 5 juta kira-kira satu gaji admin. Bedanya, admin tidak bisa menghitung ulang
+Rp 750 juta stok yang sedang berjalan di jalan raya, dan tidak bisa tahu sebuah penjualan terjadi di
+toko yang benar.
+
+### Lisensi permanen di ukuran ini
+
+Rp 5 juta/bulan = Rp 60 juta/tahun. Rasio 3-5 kali → **Rp 250 juta**, plus maintenance 20% =
+**Rp 50 juta/tahun**.
+
+| | 5 tahun |
+|---|---|
+| Langganan Rp 5 juta × 60 bulan | **Rp 300 juta** |
+| Beli putus Rp 250 juta + 5 × Rp 50 juta | **Rp 500 juta** |
+
+Argumennya tidak berubah, cuma angkanya mengecil: **beli putus tetap lebih mahal untuk pembelinya**,
+dan Pasal 9 escrow tetap memberi Om rasa aman yang sama secara gratis.
+
+**Jual putus hak cipta tetap Rp 5 miliar** — angka itu tidak bergantung pada besar pelanggan ini,
+melainkan pada seluruh pasar yang tertutup.
+
+### Pajaknya jadi sepele
+
+Rp 5 juta × 12 = **Rp 60 juta/tahun**. Jauh di bawah Rp 500 juta, jadi sebagai orang pribadi **PPh
+finalnya Rp 0**. Bahkan pilot Rp 2,5 juta pun sama. Ini memperkuat urutan yang sudah ditulis: pilot
+sebagai orang pribadi, PT dibentuk sebelum kontrak penuh, dan alasannya tanggung jawab — bukan pajak.
+
+### Yang masih harus dijawab Aldi
+
+**Dari 25-30 orang itu, berapa yang sales lapangan dan berapa yang kantor?** Ukuran ③ bergantung
+padanya. Kalau ternyata hanya 12 sales lapangan dan 18 orang kantor, argumen kebocorannya mengecil
+setengah, dan Rp 5 juta perlu ditinjau ulang.
 
 Aldi, 2026-09-10: *"how much for renting how much for license buying and his employee who will use
 this app is around 50-100 people"*.
