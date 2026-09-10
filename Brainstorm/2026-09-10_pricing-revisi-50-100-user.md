@@ -12,6 +12,10 @@ tags: [kpm, pricing, business, indonesia, lisensi]
 
 # Revisi harga — jumlah pengguna, dan angkanya yang bergerak dua kali
 
+> 🔴 **THE CANONICAL NUMBERS NOW LIVE IN [[KPM Price Sheet]].** This file is the reasoning trail and
+> the answer script. **Its middle sections still carry the superseded 100-user tables** — the REVISI
+> KEDUA banner below is what applies. Do not quote a price from the middle of this file.
+
 ---
 
 ## ⚠️ REVISI KEDUA, 2026-09-10 sore — jumlahnya 25-30, bukan 50-100
