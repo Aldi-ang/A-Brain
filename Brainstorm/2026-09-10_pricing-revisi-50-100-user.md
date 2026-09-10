@@ -97,7 +97,7 @@ Rp 5 juta/bulan = Rp 60 juta/tahun. Rasio 3-5 kali → **Rp 250 juta**, plus mai
 Argumennya tidak berubah, cuma angkanya mengecil: **beli putus tetap lebih mahal untuk pembelinya**,
 dan Pasal 9 escrow tetap memberi Om rasa aman yang sama secara gratis.
 
-**Jual putus hak cipta tetap Rp 5 miliar** — angka itu tidak bergantung pada besar pelanggan ini,
+**Jual putus hak cipta: TIDAK DIJUAL** (angka Rp 5 miliar ditarik 2026-09-10 malam — lihat [[KPM Price Sheet]]). Dulu dianggap tidak bergantung pada besar pelanggan ini,
 melainkan pada seluruh pasar yang tertutup.
 
 ### Pajaknya jadi sepele
@@ -238,6 +238,13 @@ dan biasanya butuh tanda tangan yang lebih tinggi.
 ---
 
 ## Jual putus hak cipta: **Rp 5 miliar**, dan angka itu memang untuk menolak
+
+> 🔴 **KOREKSI 2026-09-10 malam — angka Rp 5 miliar DITARIK.** Aldi menantangnya dan dia benar.
+> Aritmatikanya salah (10 × Rp 15 juta × 12 = Rp 1,8 miliar/tahun, bukan Rp 900 juta), tarifnya sudah
+> basi (Rp 15 juta itu harga 100 pengguna), dan yang paling fatal: **Rp 5 miliar itu 3,5× biaya bikin
+> ulang yang saya sebut sendiri, Rp 1,4 miliar.** Tidak ada yang membayar hak cipta lebih mahal
+> daripada membangun ulang. **Jawabannya sekarang: hak ciptanya tidak dijual.** Kalau benar-benar
+> didesak dengan uang sungguhan, batas yang bisa dipertahankan Rp 2-3 miliar. Lihat [[KPM Price Sheet]].
 
 Kalau hak ciptanya berpindah, seluruh pasar rokok Jawa tertutup selamanya. Kudus, Kediri, Malang,
 Solo. Kalau realistis sepuluh pabrik dalam lima tahun pada Rp 15 juta/bulan, itu **Rp 900 juta per

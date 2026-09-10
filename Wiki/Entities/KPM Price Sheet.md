@@ -93,11 +93,33 @@ two years — Firebase, Chrome and Android change without waiting for anyone.
 customer the code if Aldi stops for 90 days or dies. **They do not need to buy Rp 250 juta of
 insurance they already have in the contract.** Lead with this rather than waiting to be asked.
 
-## Copyright sale — **Rp 5 miliar**, priced to refuse
+## Copyright sale — **not for sale.** Corrected 2026-09-10.
 
-Independent of this customer's size. If copyright transfers, the whole Java tobacco market closes
-forever — ten factories over five years at Rp 15 juta/month is Rp 900 juta a year forgone. A high
-price is the polite way to say no.
+**The Rp 5 miliar figure is withdrawn.** Aldi challenged it — *"is 5 milliar reasonable that amount
+is crazy work"* — and he was right. Three things were wrong with it, and the first is an arithmetic
+error of mine:
+
+1. **The arithmetic.** It read *"ten factories over five years at Rp 15 juta/month is Rp 900 juta a
+   year forgone"*. Ten × Rp 15 juta × 12 is **Rp 1,8 miliar** a year, not Rp 900 juta.
+2. **The rate was already stale when it was written.** Rp 15 juta was the 100-user price, superseded
+   the same day. At 25-30 users the figure is Rp 5 juta, so ten factories is Rp 600 juta a year.
+3. **It beat its own ceiling, and this is the real flaw.** KPM's replacement cost is quoted at
+   **Rp 1,4 miliar**. A copyright price of Rp 5 miliar is **3,5× the cost of building the whole
+   thing from scratch** — so it stops being a polite refusal and starts telling the buyer to go hire
+   a developer instead. **Nobody pays more for a copyright than for a clean rebuild.** Rebuild cost
+   is the ceiling on any IP price, always.
+
+**So: say it is not for sale, and give the reason in one sentence.** A price implies willingness, a
+number that absurd invites haggling, and inside a family it reads as contempt.
+
+> *"Hak ciptanya tidak saya jual. Kalau dijual, saya tidak boleh lagi menawarkan ini ke pabrik lain
+> selamanya — jadi yang Om beli bukan aplikasinya, tapi seluruh usaha saya. Dan yang Om sebenarnya
+> butuhkan sudah ada gratis di Pasal 9."*
+
+**If someone genuinely pushes with real money**, the defensible ceiling is rebuild cost plus a
+premium for it already working, already debugged, and available now instead of in a year:
+**Rp 2-3 miliar**. Not five. Note that at that price it is no longer a refusal — a real buyer could
+pay it — so only name it if the answer would actually be yes.
 
 Legal hook: **UU 28/2014 Pasal 82 ayat (3)** forbids a licence agreement being used to remove or take
 over all of the creator's rights. A full transfer needs its own assignment deed, never a clause
