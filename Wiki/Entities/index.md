@@ -36,3 +36,4 @@ Per the `ingest` operation in [[../../CLAUDE.md|CLAUDE.md]]: give it frontmatter
 (`title`, `description`, `created`, `updated`, `tags`), link it from here, from [[../Index]],
 and from the right section of [[../MOC]]. A page missing from any of those three is an orphan.
 - [[KPM Price Sheet]] — the canonical numbers for selling KPM: Rp 5 juta/bulan at 25-30 users, floor Rp 2 juta, perpetual Rp 250 juta, final PPh Rp 0. Read this for a price, not the Brainstorm notes.
+- [[What Counts As Low]] — the one rule for "low stock" (own MIN. ALERT in Bks, else the company default of 3 Bal converted per product), the two settled answers (blank = company default; minStock is Bks), and the 2026-08-25→09-12 gap where the module shipped and four screens kept `|| 50` / `|| 5` — closed in `9b31bf0`.
