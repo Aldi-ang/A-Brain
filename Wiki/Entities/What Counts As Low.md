@@ -52,6 +52,12 @@ Stock Opname) spread the product and override `stock` — the shape `App.jsx:216
 `appSettings` had to be threaded into two places that never had it: a prop from `App.jsx` into
 ResidentEvilInventory, and an option into `useTransactionEngine`.
 
+**Confirmed by Aldi, 2026-09-12 20:50, two screenshots.** Dashboard STOK KRITIS: `coba baru`,
+`1 BAL`, `ambang 3 bal`, one product. Sales terminal: the `LOW` badge on the COBA BARU card. Both
+screens agree. His words on sending them: *"this is the look on the dashboard sc1, and sc2 is the
+look for sales terminal"*. Seen in the same picture and queued as wording, not a bug: the alarm
+toast prints `(300 left)` with no unit while the panel says `1 BAL` (`App.jsx:1365`).
+
 ## The guard
 
 `src/config/stockThreshold.selfcheck.mjs` section 7: each of the four files must not inline
