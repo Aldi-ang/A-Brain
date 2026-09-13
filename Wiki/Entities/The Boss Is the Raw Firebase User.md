@@ -50,7 +50,8 @@ fix: App passes the prop, the view aliases it `liveRole` and reads it first. Aft
 for `user?.userRole` across `src` matches only the two fallbacks. **Confirmed by Aldi, 20:00,
 on the terminal half:** *"yes now the nota name is the same with the signature name since i use
 tier 1 to sell stuff, and i can use the camera rolls to sell stuff as tier 1 no camera lock no
-more"*. Stock Opname awaits his eye.
+more"*. **Stock Opname confirmed 20:08**, his screenshot with EXPECTED GOOD 600 / EXPECTED
+DAMAGED 5 beside a product as tier 1: *"yep tes approve"*.
 
 **Same family.** [[Fleet Captain Permission Gap]] — a tier check that matched the UI's idea of the
 tier and not the backend's. Here the UI's idea was wrong for one person. And
