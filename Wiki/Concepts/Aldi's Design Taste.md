@@ -3,9 +3,9 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-09-03
+updated: 2026-09-13
 confidence: medium
-checked: 2026-09-01
+checked: 2026-09-13
 tags: [pattern, design, taste, ux, aldi]
 ---
 
@@ -2151,3 +2151,29 @@ quantity — one account, a shorter list, four regions not two — that quantity
 and a design that cannot produce exactly it is the wrong design however reasonable it reads.
 
 Related: [[Handoff Eligibility]] · [[Anti-Recurrence Check]]
+
+## The glass number is not fixed — it moves when the ground behind it does (2026-09-13)
+
+> *"i want u to make the side panel to be less transparant because on some bright space the name
+> and logo cant be seen"*
+
+He chose 0.02 himself on a slider on 2026-08-14 (*"as transparan like apple liquid glass theme
+uknow"*). A month later, with a bright page region behind the capsule, the same eye reversed it —
+the dark rail's tint went to .42/.58, still a gradient over transparent with the blur on. This is
+the SAME complaint he made about light mode on 2026-08-16 (*"on the light background the text on
+the sidebar almost invisible"*), which produced the anodized plate. The rule that survives both:
+**he tunes transparency by looking at what is BEHIND it, never by the number**, so a glass value
+is only ever right for the grounds he has seen it over. Guarded as a band, not a number
+(`logicFixes.selfcheck.mjs`, THE DARK RAIL IS GLASS YOU CAN READ THROUGH). Repo `2771374`.
+
+Same session, two smaller calls on the customer form, both his words:
+
+> *"gps example number should be more transparant here sc4 it is too visible that i think it is
+> already filled"*
+
+An italic example was not enough — he reads the mono face as "typed" until it is also faint.
+`placeholder:italic placeholder:opacity-50`. And on the browser's own *"Please fill out this
+field."* bubble appearing where the app's strip should have: he listed it as a finding, so the
+form got `noValidate` and its refusals speak in the app's voice. He expects ONE reporting channel.
+
+Related: [[Lift the Dialog, Never Push the Rest Down]] · [[Silent Failure Disease]]
