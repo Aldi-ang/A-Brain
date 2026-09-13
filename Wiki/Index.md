@@ -39,6 +39,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[UI-Says-Yes-Server-Says-No Pattern]] — a UI control shown without a matching server rule
 - [[Anti-Recurrence Check]] — never claim "committed" without `git show --stat` proof
 - [[The Named Path Was Already Shut]] — the button a bug report names is usually the one already guarded
+- [[Lift the Dialog, Never Push the Rest Down]] — the alarm strip painted over the confirm dialog; pushing the toast column down would have hidden five vault-gate reports, so the dialog was lifted instead. Also the map of every full-screen layer and its z-index.
 - [[Looking at the App]] — how to actually SEE a KPM screen before claiming a visual fix: the
 - [[Concepts/Looking Inside the App]] — the emulator setup; every screen behind the login is verifiable now, real data still is not.
   theme-lab harness, why the dev server cannot be opened directly, and the three ways the

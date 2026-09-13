@@ -360,3 +360,95 @@ has no field at all. Both arrived only because he pushed back.
 Seen: 2026-08-26
 Fired:
 
+
+
+<!-- archived 2026-09-12 from lessons.md -->
+
+### 2026-08-27 — a closed verification path costs more to re-prove than to ask about
+**Status:** RETIRED (2026-09-10) — never fired in 14 days of real work. Retired per 8b as a
+platitude: it restates the cost model already in SKILL.md §9 (cost = context × turns), and its
+trigger was never specific enough to catch anything a plan-time read would miss.
+**Trigger:** finishing a change in this repo and reaching for the browser to see it — any session
+where the work lands behind the Master Vault gate, a self-signed dev cert, a login, or anything
+else the handoff notes already flag as unreachable.
+**Lesson:** the traps list in `.claude/NEXT-SESSION.md` is not background colour, it is a map of
+which paths are closed. When it says a path is closed, the cheap move is ONE line asking him to
+open it — not a sequence of tool calls that ends up demonstrating the note was right. Read the
+traps before opening the browser, not after it fails. And treat an unfamiliar browser MCP as a
+last resort rather than a fallback: it can stall for its full idle timeout, which is dead
+wall-clock nobody can interrupt.
+**Would have prevented:** 2026-08-27, the Request tab session. The notes already said *"the
+vault gate re-locks; he must type the password, you cannot."* Tried anyway: ~10 tool calls plus an
+`agent_browser_open` that hung its full **1800s** idle timeout. He opened Chrome himself in the
+end — which is exactly what one line of asking would have got, immediately.
+Seen: 2026-08-27
+Fired:
+
+---
+
+### 2026-08-27 — a total ÷ a total is only a rate if the things are interchangeable
+**Status:** RETIRED (2026-09-10) — never fired in 14 days of real work. Not convertible into a
+check: it is a statistical reasoning rule with no file to guard and no mutating action to gate.
+Retired as a platitude.
+Summing a numerator and summing a denominator, then dividing, silently assumes every item in the
+sum can substitute for every other. For stock, demand does not transfer between products. Aggregate
+the RATIO per item (min / count-at-risk), or do not print a total at all.
+**Would have prevented:** 2026-08-27, Sebaran Stok. I shipped a warehouse-level "Est. days left" as
+`total shelf ÷ total daily rate`. Master Vault read **348 days**. That entire rate was one product,
+Cello Chocolate; the other four sold nothing — and Chocolate itself had **20 days**. The headline
+figure was 17× more comfortable than the truth, on the exact panel built to answer "which warehouse
+do I restock first". Every check passed, the build was green, and I verified the arithmetic on
+screen twice — the arithmetic was right and the statistic was meaningless. **Aldi caught it, not
+me:** *"u cant just divide total with the average goods like that, these are different goods should
+have their own depleted number"*. Cost a shipped wrong number in front of the owner and a full
+remove-and-recheck cycle. Verifying that a number computes is not verifying that it MEANS anything.
+Seen: 2026-08-27
+Fired:
+
+---
+
+---
+
+### 2026-08-27 — a headless frame narrower than the browser's minimum window is a CROP
+**Status:** RETIRED (2026-09-10) — never fired in 14 days of real work. Converted, not dropped:
+the headless harness built on 2026-09-09 for the sale-proof camera sets its own viewport, so the
+fact now lives in runnable code instead of prose. Re-write this only if that harness is removed.
+**Trigger:** before reading any headless-Chrome screenshot taken at a phone width, and before
+reporting a responsive layout as broken or fixed on the strength of one.
+**Lesson:** make the page report its own `window.innerWidth` and compare it to the width you
+asked for. Chrome on Windows will not open a window under ~518 CSS px, so `--window-size=375`
+lays out at 518 and saves the left 375px — a picture of a wide layout with the right-hand third
+sliced off, which is visually identical to a component overflowing its viewport.
+`--force-device-scale-factor` does not help; it scales output, not the viewport. 518px is still a
+valid narrow frame, being under both the `sm:` and `lg:` breakpoints.
+**Would have prevented:** 2026-08-27, Ponder slice 1. Three phone screenshots each "showed" the
+overlay overflowing: close button gone, caption clipped mid-word, controls cut. A real browser at
+a 375 viewport measured the panel at 375 with zero overflow — it had never been broken. Cost three
+shots, two rounds of diagnosis, and a layout change made against a bug that did not exist. The
+change was kept on other merits, which is the part that would have hidden the mistake.
+Seen: 2026-08-27
+Fired:
+
+---
+
+---
+
+### 2026-09-01 — never send JavaScript through `node -e` inside a double-quoted shell string
+**Status:** RETIRED (2026-09-12) — converted into a hook. Prose fired four times and never held; `A-Brain/automation/heredoc-gate.mjs` now refuses the command itself (PreToolUse on Bash, registered in kpm `.claude/settings.json`). Aldi approved it 2026-09-12: "yes add the guard if needs to". Proven live the same session: a heredoc with a backslash was blocked with the message.
+**Trigger:** before running any `node -e "..."` / `python -c "..."` that patches a source file — the
+moment the code being passed contains a template literal, `$`, a backtick, or a backslash class.
+**Lesson:** write the patch script to a file and run the file, or use a quoted heredoc (`<<'EOF'`).
+The shell expands `${...}` and command-substitutes backticks INSIDE double quotes, so the string
+node receives is not the string you wrote. It fails silently on the parts that happen to expand to
+nothing.
+**Would have prevented:** 2026-09-01, patching PonderBook.jsx. Two `el.animate` keyframe lines came
+out as `[{ transform:  }, { transform:  }]` — the template literals were eaten and the replacement
+still "succeeded". A separate regex patch was mangled the same way and left the audit file with
+`/{safeTurn} / {maxTurn}/` in it, which is a syntax error, not a regex. The build caught one; the
+other two were found only by reading the block back. A book whose sheets animate to nothing would
+have passed every check.
+Seen: 2026-09-01
+Fired:
+Fired: 2026-09-02 (THIRD occurrence, and the prose is not working — twice in one session a python heredoc ate escapes in an audit patch: `
+` inside a JS regex literal became a real newline, and `'` became a bare quote that broke the string. Structural rule replacing the prose: if the payload contains a backslash, a backtick or `${`, write it with the Write tool and splice the FILE. Never build it inside a heredoc string.)
+Seen: 2026-09-12 (FOURTH. A quoted heredoc <<'EOF' — the thing the Lesson line still recommends — collapsed a \n to a real newline and broke a 115-line markdown heredoc on a backtick. Three turns lost before switching to the Write tool. The Lesson line's heredoc advice is wrong in this harness; the 2026-09-02 structural rule is the only one that holds: payload has a backslash, backtick or ${ → Write tool, then run the file. Not yet a hook; proposed to Aldi 2026-09-12.)

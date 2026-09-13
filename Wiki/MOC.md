@@ -49,6 +49,7 @@ The house rules this project follows so mistakes don't repeat.
 - [[Anti-Recurrence Check]] — never say "committed" without checking `git show --stat` yourself.
 - [[The Named Path Was Already Shut]] — guard the WRITE, not the control someone noticed.
 - [[The Rule That Never Applied]] — the CSS-shaped version of the same discipline: a Tailwind class, source order and a filled animation each beat a correct rule in one day. Measure the computed value, don't grep the source.
+- [[Lift the Dialog, Never Push the Rest Down]] — a z-index move crosses every layer between the old number and the new one. The toast-over-dialog fix, the five reports the obvious fix would have silenced, and the layer map.
 - [[Looking at the App]] — measuring is not looking. How to render a real KPM screen without the HTTPS dev server or a Google login, and why a new measuring tool is itself unverified until one of its readings is confirmed independently.
 - [[Concepts/Looking Inside the App]] — 2026-09-08: http dev mode, seeded emulator, the vault opened as data, and the five checks holding the dev door shut.
 - [[Sounds Come From Aldi]] — the audio version of the same discipline, and the sharpest example of a written lesson failing to prevent its own repeat. Every sound is a file he picked; three rounds were spent proving that, the third one after rounds 1 and 2 were already recorded in the source file being edited. Audibility cannot be verified here at all — `playSound` is gated behind a real user gesture the preview pane cannot produce.
