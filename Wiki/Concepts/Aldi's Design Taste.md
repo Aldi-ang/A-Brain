@@ -2183,3 +2183,11 @@ not visible in very bright space"* → `.66/.78` (`3af7685`). Two rounds in one 
 number: he does not name a value, he names the ground it failed on, and expects the next step to
 be visibly bigger than the last. The band guard caps at .8; past that it is solid, and that is a
 different material he has not asked for.
+
+Round three, the same evening: *"the visibility is still not maximal, the goal is making the logo
+clearer u can reduce the transparancy even more or make the logo clearer"*. He named the GOAL and
+handed over the lever. The answer was both levers — glass to .80/.90 and the resting mark ink from
+#6b5845 to #b39c7d (7,14:1) — and the second one was the one that mattered: the marks had been
+2,78:1 on the plate since the rail was built, and `contrast.selfcheck.mjs` had been saying so as a
+`note` for three weeks, waiting for exactly this sentence. When he says "still not visible" twice,
+stop turning the dial he pointed at and look for the number a check already flagged. `7ea096e`.
