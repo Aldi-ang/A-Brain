@@ -2177,3 +2177,9 @@ field."* bubble appearing where the app's strip should have: he listed it as a f
 form got `noValidate` and its refusals speak in the app's voice. He expects ONE reporting channel.
 
 Related: [[Lift the Dialog, Never Push the Rest Down]] · [[Silent Failure Disease]]
+
+Round two, forty minutes later, over a near-white receipt: *"reduce the transparancy more still
+not visible in very bright space"* → `.66/.78` (`3af7685`). Two rounds in one evening on the same
+number: he does not name a value, he names the ground it failed on, and expects the next step to
+be visibly bigger than the last. The band guard caps at .8; past that it is solid, and that is a
+different material he has not asked for.
