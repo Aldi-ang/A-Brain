@@ -2191,3 +2191,6 @@ handed over the lever. The answer was both levers — glass to .80/.90 and the r
 2,78:1 on the plate since the rail was built, and `contrast.selfcheck.mjs` had been saying so as a
 `note` for three weeks, waiting for exactly this sentence. When he says "still not visible" twice,
 stop turning the dial he pointed at and look for the number a check already flagged. `7ea096e`.
+
+His verdict on round three, 19:34: *"look very nice now u may move on"*. Closed at `7ea096e`:
+glass .80/.90, resting marks #b39c7d.
