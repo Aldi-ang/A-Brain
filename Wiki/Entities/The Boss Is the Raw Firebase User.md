@@ -1,6 +1,6 @@
 ---
 title: The Boss Is the Raw Firebase User
-description: Why the owner got the field agent's camera lock on his own sales terminal — the boss's `user` object is the unmodified Firebase auth user and carries no role, so any screen that reads the tier off `user` alone sees him as tier 5. The fix, the guard, and the one screen still open.
+description: Why the owner got the field agent's camera lock on his own sales terminal — the boss's `user` object is the unmodified Firebase auth user and carries no role, so any screen that reads the tier off `user` alone sees him as tier 5. The fix, the guard, and the second screen closed the same evening.
 type: entity
 created: 2026-09-13
 updated: 2026-09-13
@@ -43,9 +43,14 @@ TOO: App hands the role over, the terminal reads the prop first, both sites use 
 from App, and treat the user object as the fallback for the non-boss case only. The grep that
 finds the next one: `user?.userRole` / `user.userRole` across `src`.
 
-**Still open — `StockOpnameView.jsx:200`**: `const userRole = user?.userRole || 'AGENT'`, mounted
-without the prop. The boss is a field agent on Stock Opname today. Written as the next job in
-the repo's `NEXT-SESSION.md`; not fixed in the same commit because it was a fourth file.
+**Closed the same evening — `9fed51d`.** `StockOpnameView.jsx:200` had the identical derivation
+(`user?.userRole || 'AGENT'`) and no prop from App; the owner counted blind there and
+`isHighCommand` — the gate on the pending-audit and quarantine listeners — was false for him. Same
+fix: App passes the prop, the view aliases it `liveRole` and reads it first. After that the sweep
+for `user?.userRole` across `src` matches only the two fallbacks. **Confirmed by Aldi, 20:00,
+on the terminal half:** *"yes now the nota name is the same with the signature name since i use
+tier 1 to sell stuff, and i can use the camera rolls to sell stuff as tier 1 no camera lock no
+more"*. Stock Opname awaits his eye.
 
 **Same family.** [[Fleet Captain Permission Gap]] — a tier check that matched the UI's idea of the
 tier and not the backend's. Here the UI's idea was wrong for one person. And
