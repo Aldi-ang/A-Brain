@@ -59,6 +59,11 @@ Chrome at 820×300, both themes — the method in [[Looking at the App]].
 The mascot and the profile editors still sit above the dialog. Not touched — no report of a
 confirm being raised from inside either, and moving them is a separate decision.
 
+**Tested by Aldi 2026-09-13 18:23**, his screenshot of the Inventory screen with `coba baru`'s
+alarm up and a delete question open: *"now the question panel is on front of everything else and
+dim all the background"*. The mascot bubble (`PROTOCOL ALERT: TIME FOR USB SAFE BACKUP!`) is
+visibly bright above the scrim in that frame — he was told it is deliberate and did not object.
+
 ## Related
 
 - [[Silent Failure Disease]] — the law the wrong fix would have broken five times
