@@ -2194,3 +2194,24 @@ stop turning the dial he pointed at and look for the number a check already flag
 
 His verdict on round three, 19:34: *"look very nice now u may move on"*. Closed at `7ea096e`:
 glass .80/.90, resting marks #b39c7d.
+
+## A decision comes as a picture, never as a sentence (2026-09-14)
+
+Asked to choose between three layouts for the Restock Vault tab strip on a phone, written as a
+table of class names and trade-offs, he did not choose. His words: *"if u want me to decide then
+give me ilustration or image or anything to show me what is the recommended changes instead of
+telling me with your technical AI sentence that i wont understand keep this work method in mind
+when working with me"*. And the goal, so it never needs re-asking: *"we need all the panel whatever
+the method is, i just want to make sure that all the features is available on the phone as good as
+pc uses"*.
+
+**What this settles.** A 🔴 DECIDE on a screen is delivered as one image: the screen as it is today
+and each option rendered at the real width, side by side, the recommended one marked, one plain
+sentence under each. The reply text carries only the question. Same instinct as *"seeing it beats
+reasoning about it"* (2026-08-27, the tutorial chip) and *"live and playable beats a picture"* — he
+judges with his eyes, so the options must be things he can look at.
+
+**How it is made.** `tools/ponder-lab.jsx` takes `?css=<rules>` and injects them after the app's
+own stylesheet, so a proposed layout renders in the real component without touching it. A scratch
+HTML with one 375×812 `<iframe>` per option, rendered by headless Chrome at a wide window, is the
+composite — see [[Looking at the App]]. The first one: `tabs-options.png`, 2026-09-14 19:15.
