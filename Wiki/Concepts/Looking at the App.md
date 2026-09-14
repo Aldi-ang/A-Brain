@@ -319,8 +319,12 @@ cannot shrink (a `truncate` child sets the min-content of a parent with no `min-
 cluster is `shrink-0`, so the arithmetic said "505 > 375, overflow". The frame said what that looks
 like on his phone: the book, the cloud and half a switch, then nothing — no bell for the whole life
 of the app on a phone. Fixed as `flex-wrap` + `ml-auto` (`2af2dd9`), his wrap-over-truncate rule
-from [[Aldi's Design Taste]] applied. Still owed: his phone screenshot, which is the only frame of
-the real device.
+from [[Aldi's Design Taste]] applied. **Confirmed by Aldi the same evening** with Chrome's device
+toolbar (F12 → Ctrl+Shift+M) at 420 and 375 — *"sc1 is 420, sc2 is 375"* — and that is a third
+honest phone instrument: **his own browser at a typed width**, cheaper than the phone and exact,
+when what is being checked is layout rather than touch or `crypto.subtle`. His first attempt,
+*"i use pc but reduce its resolution"*, landed at ~550 CSS px, too wide to wrap — a frame has to be
+at the width where the bug lives, or it proves only that nothing else moved.
 
 See also: [[Ponder Tutorial System]] · [[What Create Mod's Ponder Actually Does]]
 
