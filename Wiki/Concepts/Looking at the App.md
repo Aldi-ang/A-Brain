@@ -3,9 +3,9 @@ title: Looking at the App
 description: How to actually see a KPM screen before claiming a visual fix — the theme lab harness, why the dev server cannot be opened directly, and the three ways the harness lied before it told the truth.
 type: concept
 created: 2026-08-16
-updated: 2026-09-01
+updated: 2026-09-14
 confidence: high
-checked: 2026-09-01
+checked: 2026-09-14
 tags: [pattern, verification, design, tooling, kpm]
 ---
 
@@ -291,6 +291,36 @@ exercises the whole mobile branch.
 The general shape is the one this page keeps re-learning: **a harness that renders something other
 than what the app renders measures the harness.** Here it was not the markup or the stylesheet — it
 was the viewport, and the harness never said so.
+
+## A REAL 375px VIEWPORT EXISTS NOW — the in-app pane, sized, plus `?shell` (2026-09-14)
+
+**The honest phone instrument on this machine is the in-app Browser pane with `resize_window` to
+375×812, and `innerWidth` read in the SAME probe as every rectangle.** Headless Chrome crops at 518
+(above); the pane lays out at whatever it is told — but a hidden pane reports `innerWidth 0` and
+still returns plausible rectangles, which is how two false phone claims sat in the queue for days:
+*"the menu ribbon is at top:-66px, half above the viewport"* and *"the bell is at x 398..445"*.
+
+Measured properly on 2026-09-14, one of them was an artifact and the other was real and worse:
+
+| claim from the hidden pane | at a real 375×812 (`innerWidth` 375 in the probe) | verdict |
+|---|---|---|
+| ribbon `top:-66px` | top **340** of 812 = `(812 − 132) / 2` exactly | artifact — `innerHeight` was 0 when it was written down |
+| bell x 398..445 | bell x **442..489**, control cluster 260..489, column `overflow-hidden` | real — clipped, never drawn; the theme switch cut in half |
+
+The mount that made it possible: **`?shell` in `tools/ponder-lab.jsx`** renders the real
+`BiohazardTheme` (top bar, ribbon, rail) with the sync chip copied verbatim from `App.jsx`, and
+`tools/lab-firebase-stub.js` stands in for `src/config/firebase.js` inside the lab only, because the
+real module boots Firebase on import. Recipe: `preview_start` ponder-lab → `resize_window` 375×812 →
+navigate `?shell` (`&light` for the light theme) → `javascript_tool` reading `innerWidth` and the
+rects together → screenshot. Reset the pane with the `desktop` preset when done.
+
+**What the frame bought that the numbers did not:** the row was `flex` with no wrap, the title stack
+cannot shrink (a `truncate` child sets the min-content of a parent with no `min-w-0`), and the
+cluster is `shrink-0`, so the arithmetic said "505 > 375, overflow". The frame said what that looks
+like on his phone: the book, the cloud and half a switch, then nothing — no bell for the whole life
+of the app on a phone. Fixed as `flex-wrap` + `ml-auto` (`2af2dd9`), his wrap-over-truncate rule
+from [[Aldi's Design Taste]] applied. Still owed: his phone screenshot, which is the only frame of
+the real device.
 
 See also: [[Ponder Tutorial System]] · [[What Create Mod's Ponder Actually Does]]
 

@@ -1299,3 +1299,7 @@ widens the **view**, never the permission: the predicate still decides.
 skill gained the absence-means-tier-default rule for new `ROLE_PERMISSIONS` keys. Real, verified,
 shipped fix (`dace958`, checks 1035 → 1060 green, trialled red twice), and it will recur on the
 very next matrix key anyone adds.
+
+## 2026-09-14 — the phone top bar, measured at last
+
+`Looking at the App.md` gained the real-375px recipe: the in-app pane sized with `resize_window`, `innerWidth` read in the same probe, and the new `?shell` ponder-lab mount of the app shell. Two queued phone claims settled by measurement — the ribbon `top:-66px` was a hidden-pane artifact (top 340 of 812), the off-screen bell was real and worse (x 442..489). Shipped as `2af2dd9` in kpm-inventory (`flex-wrap` + `ml-auto` on the top bar), guard THE BELL IS ON THE PHONE SCREEN, 1470/1470.
