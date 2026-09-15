@@ -2,7 +2,7 @@
 title: Nota scan (CamScanner-style) and tracking goods by production date
 type: brainstorm
 created: 2026-09-15
-status: OPEN — waiting on Aldi
+status: DECIDED 2026-09-15 08:50 — scan A shipped (3bac5b7); lot tracking shaped, build parked behind the sweep
 tags: [brainstorm, restock-vault, master-vault, regional-warehouse, photo, lot-tracking, phone]
 ---
 
@@ -40,8 +40,12 @@ local contrast, whitened background, darkened ink (adaptive threshold / "magic c
 - The package photo (`packageFile`) is a photo of goods, not a document — the scan filter would
   make it worse. Apply only to the nota.
 
-**Decision:** OPEN. The question for him: A now (clear, not straightened), or wait for B
-(straightened too, 8 MB heavier app)?
+**Decision (2026-09-15 08:50):** *"nota scan = A keep the storage small to minimize firebase
+cost"*. Shipped as `3bac5b7`: `helpers.scanPixels` (local-mean threshold, two box sizes, paper →
+white, ink → black) + `scanNotaToBase64` (800 wide, JPEG 0.5, scan only — the original never
+leaves the phone), wired to the nota only. Proof `?nota-scan` in the ponder lab; maths in
+`src/config/notaScan.selfcheck.mjs`. What stays for B: the dark band where the table meets the
+paper's edge — a crop removes it.
 
 **Rejected on purpose:** C (cloud) — offline is a hard rule for the field terminal
 ([[Secure Context Requirement]] and the offline-auth work).
@@ -85,9 +89,33 @@ Reports: per store, which lots were delivered; per lot, which stores got it; age
 which lot left (FIFO, options A/B), or does the PERSON record which lot actually left (option C)?
 His complaint-tracing goal needs the truth, and a warehouse that mixes boxes makes FIFO a guess.
 
-**Decision:** OPEN. Recommended: C first (production date on the surat jalan line and the sale
-line, report by lot per store) — it delivers the complaint-tracing report in days, and A can be
-built on the data C collects if FIFO turns out to hold in practice.
+**Decision (2026-09-15 08:50):** *"yes either FIVO or FEVO should be able to use as option to
+manage the regional warehouse and master vault"* — the SYSTEM decides which lot leaves, and the
+rule (FIFO = oldest production date first, FEFO = nearest expiry first) is a setting. So option C
+is out; the choice is between A (stock split per lot everywhere) and B (a lot ledger beside the
+stock number). **Recommended shape, not yet approved:** B first — a `lots` ledger per product per
+place, fed by `productionDate` on every intake line (required, like `batchNo`), decremented
+FIFO/FEFO on every movement, with the chosen lot PRINTED on the surat jalan so the loader takes
+the box the paper names; the `stock` number stays the truth for today's screens; reports read
+the ledger. A becomes possible later on the ledger's data.
+
+**Models applied (2026-09-15, thinking-partner):**
+- *Reversibility* — splitting `stock` per lot touches every stock write and needs a migration:
+  a one-way door. A ledger beside the number is a two-way door (delete it, nothing breaks). That
+  is why B before A.
+- *Second-order thinking* — FIFO on paper is only true if the loader takes the box the paper
+  says. So the lot goes ON the surat jalan; the paper drives the hands, not the other way round.
+- *Chesterton's Fence* — `batchNo` already exists at intake (PO number). Keep it; add the date
+  beside it rather than repurposing it.
+- *Pre-mortem* — "a year on, every report says unknown lot": intake staff left the date blank.
+  Make it required at intake (the same `:493` list that requires `batchNo`), or default it to
+  the PO date with a visible flag.
+- *Opportunity cost* — built now it displaces two sweep screens; parked behind the sweep, his
+  order.
+
+**Parked with it (his words):** *"i was thinking on redesign the method the regional admin fill
+the agent inventory but we'll decide first if this really needed or not in the app"* — not a
+job until he says it is.
 
 **Rejected on purpose:** expiry-date as the key — cigarettes carry a production date, not an
 expiry; and the existing `expiryDate` field on the PO is per delivery, not per product line.

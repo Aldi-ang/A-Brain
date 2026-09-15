@@ -2261,3 +2261,18 @@ but each one must now be measured after the cut, not from an older frame.
 report wrap on the phone; audit G60 (2026-09-01) pins that footer to ONE line because it is
 pinned at the bottom of the phone and his condition for anything pinned is that it collapses to
 one line. Two of his rules met on one element and the check, not memory, settled it.
+
+### The next two picks, 08:50 the same morning — and one against the picture's advice
+
+Shown `rv-notice.png` (message A dashed / B left rule; buttons A one row / B button + link,
+B recommended because A's words wrap), he answered *"message = A and button= A"*. **He chose the
+button row whose words wrap, having seen them wrap.** Read it as: one row of two equal buttons
+beat one button and a link, even at the cost of a two-line label — the pair reads as one choice.
+Do not "fix" the wrap into option B later; he priced it.
+
+His words on the empty-table box, which shaped message A: *"different animation and color to
+shows that this is a warning or notification on not actually belong to the real panel just
+something the user need to do to in some certain situation"*. A NOTICE is: dashed edge (not part
+of the panel), amber ink and edge (never a fill), a small label naming what to do, a fade-in and
+a slow breathing edge (motion says "alive, waiting on you"; Lite Mode strips both). Reuse this
+exact look for the next empty state that asks for an action, and nothing else.

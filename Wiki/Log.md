@@ -12,6 +12,17 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-09-15 — thinking-partner installed; Alucard §1c makes it automatic
+
+His ask: *"add this skills inside alucard, or maybe mental thinking to make our job more effective
+and efficient and give better input later on"* — github.com/mattnowdev/thinking-partner. Source
+cloned to `Skills-Library/thinking-partner` (indexed), installed as `Skill(thinking-partner)`
+(17.8 KB SKILL.md, 150+ models in `references/model-catalog.md`, diagnostics in
+`references/thinking-diagnostics.md`). Alucard SKILL.md gained §1c: automatic on any feature
+ask, DECIDE, brainstorm, root-cause hunt or plan; 2–3 models applied silently, named only in the
+vault note (`Models applied:`), the challenge landing as ONE descriptive question. First use the
+same hour: the lot-tracking brainstorm.
+
 ## 2026-08-17 — Ripple: the stamp ceiling, and a palette bug that was really a money bug
 
 Commit `23d1977` on `phase0-solid-ground`, 594/594 audit (group 48 is new and was seen to
