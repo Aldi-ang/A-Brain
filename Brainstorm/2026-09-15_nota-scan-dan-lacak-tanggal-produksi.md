@@ -99,6 +99,21 @@ FIFO/FEFO on every movement, with the chosen lot PRINTED on the surat jalan so t
 the box the paper names; the `stock` number stays the truth for today's screens; reports read
 the ledger. A becomes possible later on the ledger's data.
 
+**Refined 09:15, his words:** *"make sure that the regional admin and the restock sender can
+choose which product with specific production date/batch to be sent or carried to the agent
+inventory, there will be update needed is some components that we have"*. So it is NOT system-only:
+the PERSON picks the batch on every KIRIM line and every load-to-agent line; the setting
+(FIFO/FEFO) only pre-selects. That makes lots VISIBLE per product at Master Vault and Regional
+Warehouse — option A's shape (stock per batch), not the invisible ledger. Mock rendered for him:
+`lot-mock.png` (KIRIM line with a batch picker, TERTUA pre-selected; load-to-agent the same; a
+Settings switch FIFO/FEFO; the list of components that change). Owed: his yes on the mock and
+"now or after the phone sweep".
+
+**Also shipped 09:24 (`39dc277`):** the scan is levelled — `helpers.deskewAngle` + rotate by its
+negative; a photo taken with the phone sideways is upright already (the browser applies the
+camera's orientation tag). His words: *"make the photo upright so that its easier to read … if
+took the photo on landscape or potrait it will stay upright"*.
+
 **Models applied (2026-09-15, thinking-partner):**
 - *Reversibility* — splitting `stock` per lot touches every stock write and needs a migration:
   a one-way door. A ledger beside the number is a two-way door (delete it, nothing breaks). That
