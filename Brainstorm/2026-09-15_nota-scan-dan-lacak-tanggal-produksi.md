@@ -47,6 +47,14 @@ leaves the phone), wired to the nota only. Proof `?nota-scan` in the ponder lab;
 `src/config/notaScan.selfcheck.mjs`. What stays for B: the dark band where the table meets the
 paper's edge — a crop removes it.
 
+**Reopened 10:15 — B is wanted after all, his words on the first real scan:** *"is it possible
+that u make the scanner automatically align and make sure the receipt to be square and 2D like in
+plain paper … there is no pressable or interaction button on the preview photo or maybe the edit
+button like camscanner have"*. The A scan of a 40° perspective shot stayed crooked: `deskewAngle`
+covers ±15° and perspective is not a rotation. Plan (in `.claude/NEXT-SESSION.md`): pure-JS corner
+finding (Otsu → largest bright blob → convex hull → best quad) + homography warp + scan, with a
+manual corner editor as the fallback — no OpenCV (8 MB) needed for this.
+
 **Rejected on purpose:** C (cloud) — offline is a hard rule for the field terminal
 ([[Secure Context Requirement]] and the offline-auth work).
 
