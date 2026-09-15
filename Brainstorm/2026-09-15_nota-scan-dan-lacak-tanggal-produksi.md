@@ -2,7 +2,7 @@
 title: Nota scan (CamScanner-style) and tracking goods by production date
 type: brainstorm
 created: 2026-09-15
-status: DECIDED 2026-09-15 08:50 — scan A shipped (3bac5b7); lot tracking shaped, build parked behind the sweep
+status: DECIDED 2026-09-15 09:41 — scan A + levelling shipped (3bac5b7, 39dc277); lot tracking = FIFO-only pre-selected recommendation with manual pick, build AFTER the phone sweep
 tags: [brainstorm, restock-vault, master-vault, regional-warehouse, photo, lot-tracking, phone]
 ---
 
@@ -113,6 +113,15 @@ Settings switch FIFO/FEFO; the list of components that change). Owed: his yes on
 negative; a photo taken with the phone sideways is upright already (the browser applies the
 camera's orientation tag). His words: *"make the photo upright so that its easier to read … if
 took the photo on landscape or potrait it will stay upright"*.
+
+**Closed 09:35–09:41, his words:** *"looks cool tbh u can add that lot tracking later"* (the mock is
+the shape; build after the sweep) and, told that FEFO equals FIFO for one product with a fixed
+shelf life: *"yeah thats why bruh fivo or fevo doesnt do shit actually lol just add one of those or
+something and also this is should just work as recommendation and preselect the batch where
+actually the regional admin can manually choose from the selection tab right"*. **Final shape:**
+FIFO only, no setting; the oldest production date is pre-selected as a recommendation on every
+KIRIM and load-to-agent line, and the sender picks any other batch from the list. The surat jalan
+prints the batch that was picked. Rejected on purpose: FEFO and the Settings switch.
 
 **Models applied (2026-09-15, thinking-partner):**
 - *Reversibility* — splitting `stock` per lot touches every stock write and needs a migration:
