@@ -3,9 +3,9 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-09-13
+updated: 2026-09-15
 confidence: medium
-checked: 2026-09-13
+checked: 2026-09-15
 tags: [pattern, design, taste, ux, aldi]
 ---
 
@@ -2215,3 +2215,15 @@ judges with his eyes, so the options must be things he can look at.
 own stylesheet, so a proposed layout renders in the real component without touching it. A scratch
 HTML with one 375×812 `<iframe>` per option, rendered by headless Chrome at a wide window, is the
 composite — see [[Looking at the App]]. The first one: `tabs-options.png`, 2026-09-14 19:15.
+
+**He chose the next morning, 2026-09-15 07:40, from the re-sent picture, in five words:** *"A is
+good and do 1"* — A = the two extra tabs drop to a second row (the wrap, same instinct as the top
+bar the day before), 1 = one screen at a time, salesmen's screens first. Shipped as `096ac05`
+within twelve minutes of the answer. **What the picture did not know:** it was rendered in the
+bare lab where the desk is 325 px; inside the real app shell the desk is 271 px, so on his phone
+the same fix lands as THREE tab rows, not two. The next picture (`rv-findings.png`) rendered the
+desk inside the real wrappers and put the frame-cut option beside it — the lesson is in
+[[Looking at the App]]: a proposal frame must carry the real wrappers, or the approved picture and
+the shipped screen differ. Open at the time of writing: whether to cut the phone frame (shell
+`p-6` → `p-2`, panel `p-4` → `p-2`, border 4 → 2, phones only), and the words for the hint
+line that says *"Cari barang di kiri"* on a phone where the list is above.

@@ -3,9 +3,9 @@ title: Looking at the App
 description: How to actually see a KPM screen before claiming a visual fix — the theme lab harness, why the dev server cannot be opened directly, and the three ways the harness lied before it told the truth.
 type: concept
 created: 2026-08-16
-updated: 2026-09-14
+updated: 2026-09-15
 confidence: high
-checked: 2026-09-14
+checked: 2026-09-15
 tags: [pattern, verification, design, tooling, kpm]
 ---
 
@@ -327,6 +327,44 @@ when what is being checked is layout rather than touch or `crypto.subtle`. His f
 at the width where the bug lives, or it proves only that nothing else moved.
 
 See also: [[Ponder Tutorial System]] · [[What Create Mod's Ponder Actually Does]]
+
+## THE FRAME MUST CARRY THE REAL WRAPPERS — `?shell&places` and `?tab=` (2026-09-15)
+
+**A proposal rendered in a bare mount can be approved and still not be what ships.** The Restock
+Vault tab-strip options (`tabs-options.png`) were rendered through `?places`, which mounts the
+desk in a bare `p-4`: desk 325 px at 375, five tabs on 3+2 rows. Aldi approved that picture.
+Inside the real app the desk sits in the shell's `p-6` (`BiohazardTheme.jsx:1059`) and App.jsx's
+`border-4 p-4` panel (`App.jsx:4804`): desk **271** px, and the identical fix lands as **three**
+rows. Nothing was wrong with the CSS; the instrument left out 54 px of frame.
+
+**The mount that fixes it: `?shell&places`** in `tools/ponder-lab.jsx` — the desk inside the real
+`BiohazardTheme`, wrapped with App.jsx's classes copied verbatim. Measure a phone proposal there,
+never in the bare mount, and say in the caption which one it is.
+
+**`?tab=<label>[,<label>...]`** presses, in order, each desk button whose text starts with the
+label (`?tab=data,daftarkan%20pabrik` opens Data Induk and then its factory form), so a headless
+render can show a tab or a form that is not the default view. Timing is the whole trick, and two
+obvious versions fail: a `setTimeout` loses the race in headless Chrome, which shoots the moment
+the page has loaded (cross-origin iframes run in real time, outside the main frame's
+`--virtual-time-budget`); a plain synchronous loop presses the second button before React has
+drawn it. What works: **one press per microtask** — a `.click()` inside a commit schedules React's
+re-render as its own microtask, so the next `.then` runs after that flush and finds the button
+the last press revealed.
+
+**Two traps that each cost a turn today:**
+- The lab's root URL is `/tools/ponder-lab.html`. `http://localhost:4190/` serves the APP's own
+  `index.html` through the lab's vite config, which dies on the firestore stub (*"does not provide
+  an export named 'addDoc'"*) — that error means the wrong page, not a missing stub export.
+- `npm run build` while the lab is up killed vite's watcher (`EBUSY` on
+  `dist/kpm-final-logo.png`). `tools/ponder-lab.config.mjs` now ignores `dist/`.
+
+**The proof-PNG recipe, as run 2026-09-15:** a scratch HTML with one 375×812 `<iframe>` per frame
+(each an `?shell&places…` URL, `&css=` for an option, `&tab=` for a second tab), pinned to
+`width: 375px` per column so a long caption cannot widen it, rendered by
+`chrome.exe --headless=new --disable-gpu --hide-scrollbars --window-size=1620,1040
+--virtual-time-budget=15000 --screenshot=out.png file:///…/page.html`. To show a region low on
+the page inside an 812-tall frame, `&css=.biohazard-content{transform:translateY(-1930px)}`
+shifts the content up; the document does not scroll, the picture does.
 
 ## A screen that needs LIVE DATA can now be looked at too (2026-09-01)
 
