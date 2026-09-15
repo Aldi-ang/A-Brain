@@ -2227,3 +2227,37 @@ desk inside the real wrappers and put the frame-cut option beside it — the les
 the shipped screen differ. Open at the time of writing: whether to cut the phone frame (shell
 `p-6` → `p-2`, panel `p-4` → `p-2`, border 4 → 2, phones only), and the words for the hint
 line that says *"Cari barang di kiri"* on a phone where the list is above.
+
+## Hints go, reports stay — the tutorial owns the explaining (2026-09-15)
+
+Shown the Restock Vault at 375 inside the real shell (`rv-findings.png`: today / cut the frame /
+Data Induk / the cut hint line) and asked YES/NO on the frame and a letter for the hint's words,
+he answered both at once, in one sentence:
+
+> *"just make the panel bigger so that more words and panel fit inside the phone because there is
+> so little space, since we have the ponder tools we dont need any hints panel i guess"*
+
+**Two rules in one line.**
+
+1. **Space on the phone is for words and panels, not for frame.** He did not weigh the border he
+   would lose; he named what the space is FOR. The shell's `p-6` became `p-2 lg:p-6` — every
+   screen, not just this one — and the panel `border-2 lg:border-4 p-2 lg:p-4`. Desk 271 → 323
+   px. The PC keeps every number. Same instinct as *"he removes information to make what is left
+   bigger"* (2026-08-16) and the 2026-09-01 phone complaint *"too much going on vertically in
+   that small space"*.
+2. **An explanatory hint is not wanted anywhere the tutorial reaches.** *"since we have the
+   ponder tools we dont need any hints panel"* — the empty-cart line under the form and the Data
+   Induk intro paragraph were deleted, not reworded. **The line that survives is a REPORT:**
+   *"→ Belum lengkap: Asal, Tujuan"* is the form saying what is still missing, and it stays
+   (law 2, every action must report). The test for any line of copy on a screen from now on:
+   does it tell him what the screen just did or still needs (keep), or how the screen works
+   (delete — the book does that)?
+
+**What this cost that he did not price, said in the reply:** the frame cut is shell-wide, so the
+other fifteen screens changed on the phone before they were swept. That is the sweep's purpose,
+but each one must now be measured after the cut, not from an older frame.
+
+**A guard caught a draft that broke his own earlier rule.** The first pass let the completeness
+report wrap on the phone; audit G60 (2026-09-01) pins that footer to ONE line because it is
+pinned at the bottom of the phone and his condition for anything pinned is that it collapses to
+one line. Two of his rules met on one element and the check, not memory, settled it.
