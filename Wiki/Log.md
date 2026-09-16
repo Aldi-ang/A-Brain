@@ -23,6 +23,12 @@ pane measures and exercises (drag / PUTAR / PAKAI), headless shoots at 518; the 
 does not finish loading headless. Lessons: three 2026-09-02 entries retired as platitudes (never
 fired in 14 days).
 
+Evening, same day: scanner and ribbon CONFIRMED on his phone; `af4d5e2` first-open fix (the stale
+red Access Denied had two writers — recorded on `Concepts/UI-Says-Yes-Server-Says-No Pattern.md`);
+`Concepts/Aldi's Design Taste.md` gained the pull-tab-at-25 % entry; one new lesson ("unreachable"
+needs every writer of every half). Session closed 21:20 at *"let me test tomorrow prepare notes
+and prompt for tomorrow"*.
+
 ## 2026-09-15 — thinking-partner installed; Alucard §1c makes it automatic
 
 His ask: *"add this skills inside alucard, or maybe mental thinking to make our job more effective
