@@ -2276,3 +2276,18 @@ something the user need to do to in some certain situation"*. A NOTICE is: dashe
 of the panel), amber ink and edge (never a fill), a small label naming what to do, a fade-in and
 a slow breathing edge (motion says "alive, waiting on you"; Lite Mode strips both). Reuse this
 exact look for the next empty state that asks for an action, and nothing else.
+
+## The phone's pull-tab rests a quarter of the way down, not in the middle (2026-09-16)
+
+His ask, unprompted, after a day on the phone: *"make the sidebar button on the right side phone
+to be 25% from upper right as default location instead of just 50% between upper and bottom right
+side"*. Shipped as `c5c7ed3` (kpm-inventory): the ribbon's DEFAULT centre sits at 25 % of the
+screen height; a spot he drags to still wins and is remembered. Read it with his 2026-08-12 line
+(*"our thumb usually position differently when using phone right"*): on his phone the resting
+thumb is HIGH on the right edge, not at the vertical middle. Anything else that wants to be under
+the thumb on a phone — a floating action, a drag handle — starts from that same quarter mark
+before it asks him.
+
+Confirmed the same evening with the nota scanner: *"test 1 approve, nota looks align and good,
+test 2 looks great as well"* — the squared, levelled scan of a photo taken at an angle is what he
+meant by *"square and 2D like in plain paper"*; no further polish was asked for.
