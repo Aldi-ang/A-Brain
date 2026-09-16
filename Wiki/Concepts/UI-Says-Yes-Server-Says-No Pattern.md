@@ -78,6 +78,33 @@ changed. See [[Anti-Recurrence Check]].
 gone failed on its own warning comment, which quotes the clause it tells you not to restore. Scope
 to `code()`, never to a raw grep of a file that also discusses the code.
 
+## The UI said NO before the server had spoken — a stale verdict beside a fresh identity (2026-09-16)
+
+Aldi's first open on a new address, his own tier-1 account: *"access denied that took too long
+on recognizing my tier 1 account, it said im not part of the employee"*. Then the vault gate,
+then the app; never again on later opens. Shipped as kpm `af4d5e2`.
+
+**The trap in the diagnosis.** The red *Access Denied* panel renders when `user` is set AND
+`userRole === 'UNAUTHORIZED'`. Inside the sign-in listener his email has a bypass in both the
+try and the catch, so the first answer was "unreachable for your account" — and it was wrong.
+The two halves of the condition have DIFFERENT writers: the role was left at UNAUTHORIZED by
+the page's very first `onAuthStateChanged(null)` (the sign-out branch), and `user` was set by
+`handleLogin` the instant the Google popup resolved — a second writer, outside the listener.
+Set together, they painted a verdict left over from a sign-out while the listener's four serial,
+server-first reads were still running on a cold connection. Later opens have a warm connection
+and no popup path, so the same two writes never overlapped again.
+
+**Rule for the next "that state is unreachable":** grep every WRITER of each half of the
+condition, not just the code path you are reading. A state is reachable if any pair of writers
+can leave both halves true at the same time, whatever function each lives in.
+
+**The fix shape** (the honest one, not the fast one): the listener owns `user`; the first thing it
+says is a STATUS ("Checking your account", the account named, a way out) and `user` stays null
+until the role is known — so nothing keyed on `user` starts under a role about to change; the
+independent reads go out in one `Promise.all`; `finally` clears the status on every exit. The
+same session also stopped OPEN THE VAULT from awaiting a bookkeeping write (the strike reset)
+before its animation — a server round trip between the right password and the first frame.
+
 ## The general lesson
 
 Whenever a UI shows a control gated on tier/role/permission, the matching server-side rule
