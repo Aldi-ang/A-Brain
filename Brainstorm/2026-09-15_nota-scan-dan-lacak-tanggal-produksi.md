@@ -55,6 +55,26 @@ covers ±15° and perspective is not a rotation. Plan (in `.claude/NEXT-SESSION.
 finding (Otsu → largest bright blob → convex hull → best quad) + homography warp + scan, with a
 manual corner editor as the fallback — no OpenCV (8 MB) needed for this.
 
+**B SHIPPED 2026-09-16 as `a267298`** (kpm-inventory). `helpers.findPaper` (Otsu → largest bright
+blob → hull of each row's outer pixels → hull ≤ 24 → the 4 points with the biggest quad; null on a
+sticker < 15 % of the frame, an L (blob under 80 % of its quad), or a frame-filling sheet > 95 %),
+`helpers.homography` (Heckbert's closed form), `helpers.warpQuad` (bilinear, ≤ 800 wide; one cycle
+of the corner order = a 90° turn), `helpers.loadNotaPhoto` (one decode at ≤ 1600, shared).
+`PhotoField` grew SESUAIKAN → `CornerSheet` (dialog language, 4 × 44 px pointer handles, ATAS on
+the top edge, PUTAR 90°, BATAL, PAKAI → rescan → `onFile(file, scan)`), and an asli / scan switch.
+notaScan 22/22, logicFixes 1547/1547, audit 722/722. PC timing at 1600×1200: findPaper 8 ms,
+warpQuad 19 ms. Three things learned building it:
+- **The hull-ratio test does not catch an L.** An L's hull is nearly a quad, so "quad ≥ 60 % of
+  hull" passes; what catches it is "the blob fills ≥ 80 % of its best quad". A sheet fills its quad.
+- **scanPixels must run AFTER the warp.** The scan paints the table black and the paper white with
+  a dark halo — the one picture Otsu must never see. Guarded by order in logicFixes.
+- **Corner precision is ± one sample step** (≈ 5 px at 1600), and the error lands INSIDE the
+  sheet, so the warp loses a hair of margin and never a band of table.
+Known limit, waiting on his real-nota test: the sheet must be the BRIGHT class. A white desk merges
+table and sheet → quad fills the frame → null → old path (the editor still opens, frame corners as
+the default). If his phone shows that, the next step is an edge-based finder (Sobel + the same
+hull/quad), not a threshold tweak.
+
 **Rejected on purpose:** C (cloud) — offline is a hard rule for the field terminal
 ([[Secure Context Requirement]] and the offline-auth work).
 

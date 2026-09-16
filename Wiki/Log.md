@@ -12,6 +12,17 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-09-16 — nota scan option B shipped: pure-JS paper finder + perspective warp + corner editor
+
+kpm-inventory `a267298`. `helpers.findPaper` / `homography` / `warpQuad` / `loadNotaPhoto`;
+`PhotoField` SESUAIKAN sheet. Recorded in `Brainstorm/2026-09-15_nota-scan-dan-lacak-tanggal-produksi.md`
+(the B block: what shipped, three things learned — the L-shape needs a blob-fills-quad rule, the
+scan must run after the warp, corner error lands inside the sheet — and the white-desk limit that
+waits on his real-nota test). `Concepts/Looking at the App.md` gained the 375-sheet section: the
+pane measures and exercises (drag / PUTAR / PAKAI), headless shoots at 518; the iframe wrapper
+does not finish loading headless. Lessons: three 2026-09-02 entries retired as platitudes (never
+fired in 14 days).
+
 ## 2026-09-15 — thinking-partner installed; Alucard §1c makes it automatic
 
 His ask: *"add this skills inside alucard, or maybe mental thinking to make our job more effective

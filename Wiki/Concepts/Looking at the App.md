@@ -328,6 +328,28 @@ at the width where the bug lives, or it proves only that nothing else moved.
 
 See also: [[Ponder Tutorial System]] · [[What Create Mod's Ponder Actually Does]]
 
+## A FULL-SCREEN SHEET AT 375: the pane measures, headless shoots at 518 (2026-09-16)
+
+**A `fixed inset-0` sheet is viewport-bound, so the `maxWidth: 375` trick the `?photo` mount uses
+for the box does nothing for the dialog over it.** Headless at 420 gave a frame whose right third
+was the 518-crop (the PAKAI button cut in half — the artifact above, again). Two ways were tried
+to get an honest 375 PNG out of headless, and the one that sounds right does not work:
+
+- **An `file://` wrapper page with two 375×812 `<iframe>`s pointing at the lab** — the iframes
+  never finish their work under `--virtual-time-budget` (the outer document is idle, so the budget
+  burns instantly), and with `--timeout=9000` the frames show the lab's empty state or another
+  route. Do not spend a turn on it again.
+- **What works:** measure at 375 in the in-app pane (`resize_window` mobile, `innerWidth` in the
+  same probe as the dialog's rect — 351 wide, no overflow, four handles 44×44) and shoot the FILE
+  at `--window-size=518,900`, the narrowest uncropped headless width. Say which is which in the
+  reply: the PNG is the appearance, the pane numbers are the phone.
+
+The pane can also EXERCISE the sheet: `left_click_drag` on a handle (coordinates are in the
+screenshot's frame, ×1.75 at 375 — a click in CSS pixels landed on the backdrop and closed the
+dialog once), `find` + `ref` clicks for PUTAR / PAKAI, then the resulting `<img>`'s
+`naturalWidth/Height` prove the turn (378×311 → 321×407). That is the proof a corner editor needs;
+a still frame cannot show a drag.
+
 ## THE FRAME MUST CARRY THE REAL WRAPPERS — `?shell&places` and `?tab=` (2026-09-15)
 
 **A proposal rendered in a bare mount can be approved and still not be what ships.** The Restock
