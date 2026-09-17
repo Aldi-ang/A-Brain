@@ -3,9 +3,9 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-09-15
+updated: 2026-09-17
 confidence: medium
-checked: 2026-09-15
+checked: 2026-09-17
 tags: [pattern, design, taste, ux, aldi]
 ---
 
@@ -2291,3 +2291,30 @@ before it asks him.
 Confirmed the same evening with the nota scanner: *"test 1 approve, nota looks align and good,
 test 2 looks great as well"* — the squared, levelled scan of a photo taken at an angle is what he
 meant by *"square and 2D like in plain paper"*; no further polish was asked for.
+
+## Denser and bigger at once: he picks the smaller picture to get the bigger button (2026-09-17)
+
+Shown two boards of the Sales Terminal at a measured 375 (`st-wares.png`: TODAY / A / B;
+`st-sheet.png`: TODAY / AFTER), A recommended because it kept the row height and the 96 px
+picture, he chose the other one:
+
+> *"just change into B because it fit well and doesnt take a lot of space and bigger button as
+> well users need it, manifest also looks better since there is more space to press and read yes"*
+
+**Three things in one sentence.** (1) *"doesnt take a lot of space"* — a shorter row wins over a
+kept picture; he is optimising wares-per-screen for a salesman scrolling all day, the same instinct
+as *"too much going on vertically in that small space"* (2026-09-01) and *"space on the phone is for
+words and panels"* (2026-09-15). (2) *"bigger button as well users need it"* — he names the USER,
+not himself; the 44 px rule is now his, stated unprompted. (3) *"more space to press and read"* —
+press AND read: a 44 px control is worth it to him for the reading room as much as the target.
+He did not mention the one cost A's caption carried (B's longer names still wrap) — a two-line name
+is not a price he counts. Shipped as kpm `4ba6563`.
+
+**Same reply, the vault gate.** *"the password press still took some time to submit and react,
+well if u can make it faster then please do and if u cant then add some waiting animation on the
+button to show that it is working and wait for process so that we as users know and willing to
+wait"* — his own statement of law 2 (every action reports), with the priority order: speed first,
+and if speed is out of reach, an honest wait. Both were shipped (`dfc2392`): the read the press
+waited on now starts while he types, and the button says CHECKING for whatever is left. His
+incognito test of `af4d5e2` passed the same message: *"there is no access denied panel, it give me
+straigh to the master vault panel instead which is good"*.

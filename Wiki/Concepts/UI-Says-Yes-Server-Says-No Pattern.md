@@ -3,7 +3,7 @@ title: UI-Says-Yes-Server-Says-No Pattern
 description: The bug shape where a button works fine in the UI but silently fails at the database layer.
 type: concept
 created: 2026-07-27
-updated: 2026-09-06
+updated: 2026-09-17
 confidence: high
 checked: 2026-09-06
 tags: [pattern, permissions, bug-class]
@@ -118,3 +118,17 @@ already cover it because the function name sounds right.
 - [[Tier System]]
 - Summaries: [[Fleet Captain Rule Gaps — Batch 1 and 2]], [[Rank Config Cross-Tenant Gap]],
   [[The Shorter List Was Never the Eligible One]]
+
+### The morning after: the test passed, and the next wait was named (2026-09-17)
+
+*"i tested it on incognito and relog to my account tier 1 and there is no access denied panel, it
+give me straigh to the master vault panel instead which is good"* — `af4d5e2` confirmed. Then:
+*"the password press still took some time to submit and react"*. That wait was
+`handlePinLogin`'s first line of work, `await getDoc(settings/admin)`, one cold round trip
+before anything on screen moved. Shipped as kpm `dfc2392`: the profile is fetched into
+`adminProfileRef` the moment the gate is SHOWN (he spends seconds typing — that is the round
+trip), the press uses it or falls back to a live read, a failed attempt re-arms the fetch AFTER its
+own strike write so the next press never reads a pre-strike copy, and `pinChecking` puts
+"Checking…" with the spinning arrows on the button and disables it until the answer is back. The
+same shape as the first-open fix: name the exact await between the press and the first pixel,
+move it earlier, and say something on screen while whatever is left runs.

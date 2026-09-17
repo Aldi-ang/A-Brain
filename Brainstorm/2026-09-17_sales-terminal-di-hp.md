@@ -1,10 +1,10 @@
 ---
 title: Sales Terminal on the phone — what 375 px measured, and the two fixes on the table
-description: The phone sweep reaches the Sales Terminal. Every control measured at innerWidth 375 in the real shell, the two proposals rendered through ?css= and sent as frames. OPEN — waiting on Aldi's letter and his YES/NO.
+description: The phone sweep reaches the Sales Terminal. Every control measured at innerWidth 375 in the real shell, the two proposals rendered through ?css= and sent as frames. DECIDED the same morning — B for the wares row, YES for the sheet — shipped kpm 4ba6563.
 type: brainstorm
 created: 2026-09-17
 updated: 2026-09-17
-status: OPEN — waiting on Aldi
+status: DECIDED — B + YES, shipped kpm 4ba6563
 confidence: high
 checked: 2026-09-17
 tags: [brainstorm, phone, sales-terminal, sweep, 375]
@@ -64,7 +64,16 @@ under 10 px, the four unit boxes on one row at y 1246. All rules under `@media (
 
 ## Decision
 
-OPEN — waiting on Aldi: a letter for the wares row (A or B) and YES/NO on the sheet.
+**B + YES, 2026-09-17 08:30**, his words: *"just change into B because it fit well and doesnt take
+a lot of space and bigger button as well users need it, manifest also looks better since there is
+more space to press and read yes"*. He took the shorter row over the kept picture — A's argument
+(row height unchanged, 96 px picture) did not weigh; space and button size did. Shipped as kpm
+`4ba6563`: picture `w-16 h-16 p-1` (56 px target), steppers `w-11 h-11 lg:w-8 lg:h-8`, every
+sheet control `min-h-[44px] lg:min-h-0`, labels 11 (unit labels 10, one row), nine element-scoped
+guards in `logicFixes.selfcheck.mjs` (red 8 → green 1574), audit G7b re-pointed at 64 px (722).
+Desk probed at 1280: every number as before. Left alone on purpose: the admin field-mode toggle
+(27 px, tier 1 only) and the six 8.5 px mono eyebrow labels of the customer brief — a separate
+typographic decision. ✅ TEST owed on his phone.
 
 ## Rejected on purpose
 

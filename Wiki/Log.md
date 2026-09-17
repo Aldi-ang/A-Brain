@@ -1339,3 +1339,11 @@ lab (kpm `dbc0787`) put the terminal in the real shell at innerWidth 375; the ta
 undersized control is in the note; two boards sent (wares A/B, sheet YES/NO). `Looking at the
 App` gained the `#root{width:375px}` pin that makes a headless 518 frame carry the 375 layout.
 Lessons: four 2026-09-16 retirements archived; four LIVE entries fired.
+
+## 2026-09-17 — the Sales Terminal shipped on the phone; the vault press reports
+
+His answer to the boards at 08:30: B + YES → kpm `4ba6563`; the brainstorm note closed with his
+words, the taste page gained "denser and bigger at once" (he picks the smaller picture to get the
+bigger button; he names the user, not himself). `af4d5e2` confirmed by his incognito test; the
+next wait — the security-profile read on the password press — moved earlier and made visible
+(`dfc2392`), recorded on the UI-Says-Yes page. Packed build serving on `https://192.168.1.107:4173`.
