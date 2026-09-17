@@ -2318,3 +2318,22 @@ and if speed is out of reach, an honest wait. Both were shipped (`dfc2392`): the
 waited on now starts while he types, and the button says CHECKING for whatever is left. His
 incognito test of `af4d5e2` passed the same message: *"there is no access denied panel, it give me
 straigh to the master vault panel instead which is good"*.
+
+## The lookup comes before the form, and a list is sorted before it is styled (2026-09-17, 10:00)
+
+Three Customers boards at 375 (form folds behind a button / every box 44 / folder rows + tighter
+shop cards) and one question (skip the four folder levels for a T5?). His answer, one sentence:
+
+> *"yes to all but on the customer directory i want the customer name to be alphabetically in order so that its easier to find them, for the question that u ask i think just let it be like that do not need to change anything"*
+
+Read it as three rules. (1) He takes every density and size fix without weighing them — the sweep's
+44 px rule and "space for words and panels" are settled taste now, not decisions. (2) **He adds
+the thing the boards did not offer: order in the list.** A prettier card is worth less to him than
+knowing where a name will be — *"easier to find them"* is the whole reason. Any list he will scan
+by name should be A→Z before it is restyled. (3) He leaves structure alone when it is somebody
+else's tool: the folder tree is the boss's organiser and he did not want it flattened for the
+salesman — *"just let it be like that"*. Structure changes need his ask; surface changes do not.
+
+Ten minutes later, unprompted, on the same form: *"i want the textbox background to be dark when use darkmode and light when use light mode because right now it is white inside dark mode and it is too bright bro"*. A white input on a dark card is a defect to
+him, not a style — the same eye that caught the emerald setup screen and the blue OTP. Every box
+takes a surface token from now on; a bare input is a bug waiting for dark mode.

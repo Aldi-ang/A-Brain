@@ -1349,3 +1349,7 @@ next wait — the security-profile read on the password press — moved earlier 
 (`dfc2392`), recorded on the UI-Says-Yes page. Packed build serving on `https://192.168.1.107:4173`.
 
 Confirmed 09:05: *"t1 approve, t 2 approve, t3 i just tried to close the incognito and open it again after that i manual google login , master vault panel shows up enter password and it instantly let me in after press so i havent be able to see the processing animation tho"*.
+
+## 2026-09-17 — Customers shipped on the phone
+
+Brainstorm closed (three YES + A→Z, folder tree stays), kpm `a9822ff`; taste page: the lookup comes before the form, sort before style, structure needs his ask, bare inputs are a dark-mode bug. Trap recorded in the brainstorm and the next brief: `button:has(> svg:only-child)`.

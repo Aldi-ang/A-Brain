@@ -1,10 +1,10 @@
 ---
 title: Customers on the phone — what 375 px measured, and the three YES/NO fixes on the table
-description: The phone sweep reaches the Customers screen (CustomerManagement). Measured at innerWidth 375 in the real shell; three proposals rendered through ?css= and sent as three boards. OPEN — waiting on Aldi's three answers.
+description: The phone sweep reaches the Customers screen (CustomerManagement). Measured at innerWidth 375 in the real shell; three proposals rendered through ?css= and sent as three boards. DECIDED 10:00 — three YES, names A→Z, the folder tree stays — shipped kpm a9822ff.
 type: brainstorm
 created: 2026-09-17
 updated: 2026-09-17
-status: OPEN — waiting on Aldi
+status: DECIDED — three YES + A→Z, folder tree stays; shipped kpm a9822ff
 confidence: high
 checked: 2026-09-17
 tags: [brainstorm, phone, customers, sweep, 375]
@@ -89,7 +89,7 @@ Indonesia → provinsi → kabupaten → kecamatan? Behaviour change, T5/T6 only
 
 ## Decision
 
-OPEN — waiting on Aldi: YES/NO ×3 and the ❓.
+**Three YES + one addition + the ❓ answered NO, 2026-09-17 10:00.** His words: *"yes to all but on the customer directory i want the customer name to be alphabetically in order so that its easier to find them, for the question that u ask i think just let it be like that do not need to change anything"*. Mid-build: *"i want the textbox background to be dark when use darkmode and light when use light mode because right now it is white inside dark mode and it is too bright bro"*. Shipped kpm `a9822ff` (the commit message carries every class): `showForm` seeded from the width, the 48 px gold button under lg, Edit opens / save folds; every box 44 with `bg-[var(--inset)]` on the raised card and `bg-[var(--raised)]` inside the inset blocks; Auto-Find / My GPS a half each; folder rows; shop cards 222 → 199; Edit / breadcrumb 44; shops `localeCompare(..., 'id', { sensitivity: 'base' })`. Guards 1587 (red 8 first), audit 722, desk 1280 unchanged. Trap found: `index.css` `button:has(> svg:only-child)` — an icon + text button counts as icon-only (text nodes are not children), so it went inline-flex over `lg:hidden`; the label is a span now. ✅ TEST owed on his phone.
 
 ## Rejected on purpose
 
