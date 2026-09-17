@@ -3,7 +3,7 @@ title: Looking at the App
 description: How to actually see a KPM screen before claiming a visual fix — the theme lab harness, why the dev server cannot be opened directly, and the three ways the harness lied before it told the truth.
 type: concept
 created: 2026-08-16
-updated: 2026-09-15
+updated: 2026-09-17
 confidence: high
 checked: 2026-09-15
 tags: [pattern, verification, design, tooling, kpm]
@@ -496,3 +496,19 @@ of ratio — the distinction the top of this note insists on.
 describes the motion rather than the pixels that would have shown it. WAAPI, CSS transitions
 (`getComputedStyle(el).transitionDuration`) and `element.getAnimations()` are all readable at rest,
 and a paused animation is a scrubber for taking the photograph the loop refused to produce.
+
+## AN HONEST 375 PNG OUT OF HEADLESS: pin the app, not the window (2026-09-17)
+
+Headless will not go under 518, but the app does not have to know. `?css=` can carry
+`#root{width:375px} div[style*="drawer-h"]{width:375px;right:auto} .fixed.inset-0{right:auto;width:375px}`
+— the shell lays out at 375 inside the 518 window, the media queries still see 518 (so anything
+keyed on `max-width:1023px` still fires as on a phone), and the PNG's left 375 px IS the phone
+layout: the product name wraps exactly where the pane said it does. Crop in the compose page
+(`object-fit:none; object-position:left top` in a 375-wide box). Two limits: viewport units
+(`100vh`) still mean the window, and a portal that centres with `justify-content:center` inside
+a pinned `inset-0` can shift — the shop picker did; when a frame looks wrong, the pane number is
+the truth and the frame is dropped, never explained. The Sales Terminal boards
+(`st-wares.png`, `st-sheet.png`, 2026-09-17) were shot this way; `tools/ponder-lab.jsx`
+`?shell&terminal`, `?grip` (a real pointer tap on the manifest grip — `.click()` does nothing to
+a pointer gesture, and the customer bar above it wears the same `cursor-grab` class with a no-op
+tap, so take the LAST one).

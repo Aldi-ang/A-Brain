@@ -452,3 +452,71 @@ Fired:
 Fired: 2026-09-02 (THIRD occurrence, and the prose is not working — twice in one session a python heredoc ate escapes in an audit patch: `
 ` inside a JS regex literal became a real newline, and `'` became a bare quote that broke the string. Structural rule replacing the prose: if the payload contains a backslash, a backtick or `${`, write it with the Write tool and splice the FILE. Never build it inside a heredoc string.)
 Seen: 2026-09-12 (FOURTH. A quoted heredoc <<'EOF' — the thing the Lesson line still recommends — collapsed a \n to a real newline and broke a 115-line markdown heredoc on a backtick. Three turns lost before switching to the Write tool. The Lesson line's heredoc advice is wrong in this harness; the 2026-09-02 structural rule is the only one that holds: payload has a backslash, backtick or ${ → Write tool, then run the file. Not yet a hook; proposed to Aldi 2026-09-12.)
+
+### 2026-09-02 — a literal that duplicates a named constant is a silent override, not a duplicate
+**Status:** RETIRED (2026-09-16) — platitude — 14 days, three sessions of clamps and defaults written, never fired; no structural form (no lint for 'quantity already has a name')
+**Trigger:** before writing any clamp, floor, ceiling or default as a bare number — the moment
+`Math.max(90, x)` / `?? 300` / `|| 0.5` is about to be typed.
+**Lesson:** ask whether that quantity already has a name in the codebase, and use the name. Two
+numbers for one quantity do not disagree loudly; the one LATER in the pipeline silently wins, and
+every check that reads the earlier one keeps passing. If the second place genuinely needs its own
+value, it needs its own NAME, so the two can be seen to differ.
+**Would have prevented:** 2026-09-02, the tutorial book's page riffle. `pageModel.js` planned a
+60ms floor per page turn; `play()` in `PonderBook.jsx` floored the same value at a literal 90.
+The longest run took 1260ms instead of 840 — fifty per cent slower than designed — while all 1000
+self-checks read the planned number and reported green. Found only by counting the real durations
+out of `document.getAnimations()` in the browser, which is not something anyone does twice.
+Seen: 2026-09-02
+Fired:
+
+### 2026-09-02 — a "still broken" report after a fix is not evidence the fix was wrong
+**Status:** RETIRED (2026-09-16) — platitude — never fired in 14 days; the 2026-08-27 'inherited explanation is a hypothesis' entry covers the same checkpoint and IS firing
+**Trigger:** the moment the user says a thing you just fixed is still broken — before re-reading,
+loosening or reverting the fix you made.
+**Lesson:** reproduce the failure from scratch first, as if there had been no fix. Two independent
+causes behind one symptom is ordinary, and the cheapest way to lose a correct fix is to treat the
+second report as a verdict on the first. Only after a fresh reproduction do you know which of the
+two you are looking at.
+**Would have prevented:** 2026-09-02, the tutorial book's close button. Reported broken, fixed (a
+drifting tap armed a page drag and stole the click), reported broken again. The second cause was
+entirely different: pressing close mid-flight measured the book through its own `scale(0.049)`, so
+the departure computed to `translate(-53px) scale(1.005)` and went nowhere — and the guard flag was
+already set, so every later press was a no-op. Several turns went into theorising about why the
+first fix had "failed" before it was reproduced; it had not failed, and unpicking it would have
+brought back the first bug while leaving the second.
+Seen: 2026-09-02
+Fired:
+
+### 2026-09-02 — verify a field name against one real record before sweeping a data file
+**Status:** RETIRED (2026-09-16) — platitude — 14 days without a fire; not KPM-shaped (7DTD configs), and the 2026-08-18 'scope a guard to the element' entry already forces the anchor-asserted read that would catch a wrong name
+**Trigger:** about to grep, scan or audit a config/data format for a property, column or key
+across many files — before reporting anything the sweep returns.
+**Lesson:** open ONE known-good record and confirm the exact spelling and column position first.
+A sweep for a name that does not exist returns a confident, well-formatted list of nothing, and a
+sweep reading the wrong column returns a list of the wrong thing. Both look like findings. The
+check costs one command; the alternative is presenting garbage as evidence and acting on it.
+**Would have prevented:** 2026-09-02, three times in one session on 7 Days to Die configs.
+`Magazine_size` does not exist (it is `MagazineSize`), so a "70+ guns are broken" list was pure
+noise. `MagazineItemNames` does not exist (it is `Magazine_items`), so a magazine audit reported
+all-clear against nothing. Worst: Project Z's Localization.csv is a 6-column layout
+(`Key,Source,Context,Changes,English,Russian`), not the 20-column standard, so reading index 5
+returned the Russian column — 48 entries were "translated into English" that were already English,
+and the patch shipped, overriding correct text until the user noticed and said so.
+Seen: 2026-09-02
+Fired:
+
+### 2026-09-03 — a perfect correlation is worthless when both candidates move together
+**Status:** RETIRED (2026-09-16) — platitude: never fired in 14 days; the 2026-08-27 'inherited explanation is a hypothesis' entry already forces the re-test that separates two candidates that move together
+**Trigger:** before naming a cause from N sessions/runs of on-off evidence — the moment you are
+about to retire, disable or blame a component because the correlation looks clean.
+**Lesson:** list every variable that moved with the suspect. If a second one tracks it, the
+correlation cannot separate them — say so, and change ONE of them to split the pair before
+concluding. State the count that would falsify you, then go and check it.
+**Would have prevented:** the 7DTD `EModelBase.CrouchUpdate` crash. Four sessions ran
+mod-ON/crash, mod-OFF/clean and the corpse mod was declared "confirmed as the cause" and
+retired. The fifth session crashed 593 times with it disabled — the real suspect was a pack
+whose stripped DLL left half-built entities, and both things put more broken zombies near the
+player at once. Aldi lost two play sessions to a locked console, and the session before that
+was spent on a gore-setting theory built on the same bad inference.
+Seen: 2026-09-03
+Fired:

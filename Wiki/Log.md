@@ -1331,3 +1331,11 @@ very next matrix key anyone adds.
 ## 2026-09-14 — the phone top bar, measured at last
 
 `Looking at the App.md` gained the real-375px recipe: the in-app pane sized with `resize_window`, `innerWidth` read in the same probe, and the new `?shell` ponder-lab mount of the app shell. Two queued phone claims settled by measurement — the ribbon `top:-66px` was a hidden-pane artifact (top 340 of 812), the off-screen bell was real and worse (x 442..489). Shipped as `2af2dd9` in kpm-inventory (`flex-wrap` + `ml-auto` on the top bar), guard THE BELL IS ON THE PHONE SCREEN, 1470/1470.
+
+## 2026-09-17 — the Sales Terminal measured on the phone, nothing shipped yet
+
+`Brainstorm/2026-09-17_sales-terminal-di-hp` opened (🔴 OPEN): `?shell&terminal` in the ponder
+lab (kpm `dbc0787`) put the terminal in the real shell at innerWidth 375; the table of every
+undersized control is in the note; two boards sent (wares A/B, sheet YES/NO). `Looking at the
+App` gained the `#root{width:375px}` pin that makes a headless 518 frame carry the 375 layout.
+Lessons: four 2026-09-16 retirements archived; four LIVE entries fired.
