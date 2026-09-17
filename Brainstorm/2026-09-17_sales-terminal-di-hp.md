@@ -4,7 +4,7 @@ description: The phone sweep reaches the Sales Terminal. Every control measured 
 type: brainstorm
 created: 2026-09-17
 updated: 2026-09-17
-status: DECIDED — B + YES, shipped kpm 4ba6563
+status: CONFIRMED on his phone 2026-09-17 09:05 — B + YES, kpm 4ba6563
 confidence: high
 checked: 2026-09-17
 tags: [brainstorm, phone, sales-terminal, sweep, 375]
@@ -73,7 +73,7 @@ sheet control `min-h-[44px] lg:min-h-0`, labels 11 (unit labels 10, one row), ni
 guards in `logicFixes.selfcheck.mjs` (red 8 → green 1574), audit G7b re-pointed at 64 px (722).
 Desk probed at 1280: every number as before. Left alone on purpose: the admin field-mode toggle
 (27 px, tier 1 only) and the six 8.5 px mono eyebrow labels of the customer brief — a separate
-typographic decision. ✅ TEST owed on his phone.
+typographic decision. ✅ CONFIRMED on his phone at 09:05: *"t1 approve, t 2 approve, t3 i just tried to close the incognito and open it again after that i manual google login , master vault panel shows up enter password and it instantly let me in after press so i havent be able to see the processing animation tho"* — the third test is the vault press (`dfc2392`): the prefetch removed the wait entirely, so the spinner had nothing to show.
 
 ## Rejected on purpose
 

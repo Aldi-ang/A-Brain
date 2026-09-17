@@ -1347,3 +1347,5 @@ words, the taste page gained "denser and bigger at once" (he picks the smaller p
 bigger button; he names the user, not himself). `af4d5e2` confirmed by his incognito test; the
 next wait — the security-profile read on the password press — moved earlier and made visible
 (`dfc2392`), recorded on the UI-Says-Yes page. Packed build serving on `https://192.168.1.107:4173`.
+
+Confirmed 09:05: *"t1 approve, t 2 approve, t3 i just tried to close the incognito and open it again after that i manual google login , master vault panel shows up enter password and it instantly let me in after press so i havent be able to see the processing animation tho"*.

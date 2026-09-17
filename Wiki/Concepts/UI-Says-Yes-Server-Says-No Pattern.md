@@ -132,3 +132,6 @@ own strike write so the next press never reads a pre-strike copy, and `pinChecki
 "Checking…" with the spinning arrows on the button and disables it until the answer is back. The
 same shape as the first-open fix: name the exact await between the press and the first pixel,
 move it earlier, and say something on screen while whatever is left runs.
+
+Confirmed on his phone at 09:05: *"t1 approve, t 2 approve, t3 i just tried to close the incognito and open it again after that i manual google login , master vault panel shows up enter password and it instantly let me in after press so i havent be able to see the processing animation tho"*. The spinner was never seen because the read it covers was
+already back — the faster path won and the report path stayed as insurance for a slow signal.
