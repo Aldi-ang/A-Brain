@@ -103,6 +103,7 @@ What the app looks like, and what Aldi wants it to feel like.
 ## 📱 Phone & Device
 
 - [[Secure Context Requirement]] — why the app worked on his PC and did nothing on his phone for months.
+- [[Brainstorm/2026-09-17_customers-di-hp]] — the Customers screen measured at 375; three fixes and one question open.
 - [[Brainstorm/2026-09-17_sales-terminal-di-hp]] — the Sales Terminal measured at 375 in the real shell; the two fixes on the table.
 - [[Fat Documents in a Live Listener]] — why registering an outlet froze his phone and nothing on a desktop: a fat field plus a collection listener, and one write costs megabytes.
 - [[Six Days — Gate, Phone Access, Quota Meter]] — the backfill covering 2026-08-04 → 2026-08-10, including how phone access was finally fixed.
