@@ -2,7 +2,7 @@
 title: Customers on the phone, round two — the boss's header, DEL/EDIT behind ⋯, a new hold
 type: brainstorm
 created: 2026-09-18
-status: OPEN — waiting on Aldi (three letters)
+status: DECIDED 2026-09-18 16:26 — A / A / A, shipped kpm 5d7a9d0
 tags: [kpm, phone, customers, design, motion]
 ---
 
@@ -36,8 +36,10 @@ Both A/B on every board stop the sideways move (board 1) and survive Lite Mode (
 
 ## Decision
 
-**OPEN — waiting on Aldi.** Boards sent as `cust2-boards.png`; live hold links on his phone through
-the lab's new `--host` (`http://192.168.1.132:4190/tools/ponder-lab.html?shell&customers&admin&look=hold-a`).
+**DECIDED 2026-09-18 16:26 — *"Board 1 = A, Board 2 and 3 also A"*.** Shipped kpm `5d7a9d0` the same
+hour: measured after as tier 1 at 375 (shell scrollWidth 375, tools row 44 → three 44 px rows, ⋯ 44, strip
+163 × 44 × 2), desk at 1280 unchanged, guards 1626 (10 red first), audit 722. He felt the hold on his phone
+through the lab's `--host` before answering.
 
 ## Rejected on purpose
 

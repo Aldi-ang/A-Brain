@@ -2413,3 +2413,26 @@ scroll — do not recommend the compact one and let him correct it.
 
 Rendered and measured, not described: both boards through `?look=` entries at a pinned 375,
 TODAY beside each option, one PNG. He answered in one line. kpm `84e102f`.
+
+
+## Rare tools fold, DEL/EDIT hide behind a ⋯, and a hold must not repeat the pad's lamp (2026-09-18)
+
+Customers round two, three boards, his answer in one line: *"Board 1 = A, Board 2 and 3 also A"* —
+the recommended option each time. What the three say together:
+
+- **A monthly action pays no rent on a daily screen.** The boss's Find Duplicates / Data Scrub /
+  Import Map fold behind one ADMIN TOOLS row on the phone; he did not want them as tiles even at
+  44 px. Pair with 2026-08-16 *"he removes information to make what is left bigger"*.
+- **A destructive control is hidden, not shrunk.** DEL / EDIT on every row become one ⋯ key and a
+  strip that unfolds under the row — his own words were *"hide delete and edit button somewhere
+  with some animation just to make things little bit clearer and spacey"*. The fold IS the
+  animation he asked for; a hover-reveal or a swipe would not have been (sideways is banned).
+- **Motion vocabulary must not repeat across instruments.** The folder icon's lamp lighting amber
+  under the thumb was the ponder pad's signal, and he read the copy as *"repetitive because it have
+  similar animation like the ponder panel, try make the animation little bit different and unique
+  but stay smooth and on theme"*. The row now draws an amber charge line along its bottom edge
+  while held and the lamp stays black. Rule to carry: before reusing a signal from one instrument
+  on another, ask whether he will see both in one session — if yes, it needs its own move.
+
+He felt board 3 on his phone through the lab (`--host`) before answering; the stills could not
+show the motion and said so. kpm `5d7a9d0`.

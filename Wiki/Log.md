@@ -1357,3 +1357,7 @@ Brainstorm closed (three YES + A→Z, folder tree stays), kpm `a9822ff`; taste p
 ## 2026-09-18 — EOD Setoran shipped on the phone
 
 His board 1 YES + board 2 B ("more space for long product name"), kpm `84e102f`: deck as tall as the card on top, count rows stacked with 96×44 boxes, no inner scroll, 44 px verdict buttons, labels 11; desk unchanged at 1280. Taste page: he takes the taller row to get the whole name (pairs with 2026-09-17's smaller picture for the bigger button). Looking at the App: `?tab=type:`, the mid-transition rect trap, a 500 in the lab is a syntax error, and the `{/* */}`-after-`(` trap is now a selfcheck sweep. Next: Stock Opname on the phone.
+
+## 2026-09-18 — Customers round two shipped on the phone
+
+His A / A / A on three boards, kpm `5d7a9d0`: the boss's admin tools fold behind ADMIN TOOLS (the sideways cause — shell scrollWidth 521 → 375 as tier 1), DEL / EDIT behind a ⋯ key with a fold under every row and card (one set of buttons relocated by `contents lg:flex` + grid placement), the hold is an amber charge line and the lamp stays black; desk unchanged at 1280. Taste page: rare tools fold, destructive controls hide, motion vocabulary must not repeat across instruments. Looking at the App: the pane does not advance a transition until it paints — screenshot, then read; utility-class selectors match more than the group you mean. Brainstorm note closed DECIDED. Next: Stock Opname on the phone, measured as both tiers.

@@ -567,3 +567,23 @@ without shadows from the start, or it is redrawn before shipping and he is told 
   mounts it; `&admin` mounts the boss's review side (unmeasured). Two cash sales and one
   transfer so both money cards have rows; the van and the cukai debts from the same
   `FIXTURES['motorists/m2']` object the agent branch uses. kpm `84e102f`.
+
+
+## THE PANE DOES NOT ADVANCE A TRANSITION UNTIL IT PAINTS (2026-09-18, learned twice in one day)
+
+A property read from the pane right after a press — a rect, a transform, a border colour, a
+`grid-template-rows` — can be the START value of a CSS transition, however long you `await`: the
+Browser pane throttles rendering while nothing forces a frame, and a transition only advances on
+frames. Twice today: the EOD deck's next card read 41 × 89 for a 44 × 96 box (scale .93 not yet
+1) after 1.2 s; the ⋯ key's amber border read as `--line-2` after 400 ms, and the strip's rows
+read `0px` after a click that had opened it. Every "bug" vanished the moment a `computer`
+screenshot forced a paint — the values were then 44 × 96, amber, 60.6 px. The rule: **screenshot
+first, then read** any property that has a transition on it; or read the untransitioned truth
+(`aria-expanded`, the inline style, the class list) and treat the computed value as pending.
+A div with the same class and no transition reads its final value at once — that was the probe
+that separated "the rule does not apply" from "the rule has not been painted yet".
+
+Also from the same job: a look or a guard written against utility classes (`.flex.gap-2`,
+`.flex.gap-1`) matched the title `<h2>` and the DEL button, which carry the same utilities —
+two frames were wrong before the selectors were scoped to `div.flex.gap-2`. Utilities describe
+layout, not identity; scope to the tag or to a real class.
