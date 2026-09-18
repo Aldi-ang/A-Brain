@@ -4,7 +4,7 @@ description: The phone sweep reaches the Agent Inventory (AgentInventoryView, th
 type: brainstorm
 created: 2026-09-18
 updated: 2026-09-18
-status: DECIDED — board 1 YES, board 2 B; shipped kpm 8b9b3f9
+status: CONFIRMED on his phone 2026-09-18 10:00 — "T1 approve"; shipped kpm 8b9b3f9
 confidence: high
 checked: 2026-09-18
 tags: [brainstorm, phone, agent-inventory, sweep, 375]

@@ -4,7 +4,7 @@ description: The phone sweep reaches the Customers screen (CustomerManagement). 
 type: brainstorm
 created: 2026-09-17
 updated: 2026-09-17
-status: DECIDED — three YES + A→Z, folder tree stays; shipped kpm a9822ff
+status: CONFIRMED on his phone 2026-09-18 — "t2 approve" (with three follow-up asks, see 2026-09-18_customers-look-dan-badge-karantina); shipped kpm a9822ff
 confidence: high
 checked: 2026-09-17
 tags: [brainstorm, phone, customers, sweep, 375]

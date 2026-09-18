@@ -2776,6 +2776,17 @@
       "norm_label": "the lookup comes before the form, and a list is sorted before it is styled (2026-09-17, 10:00)"
     },
     {
+      "label": "A frame he has seen becomes a word he can use (2026-09-18, 09:30)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2341",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_a_frame_he_has_seen_becomes_a_word_he_can_use_2026_09_18_09_30",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "a frame he has seen becomes a word he can use (2026-09-18, 09:30)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -3178,8 +3189,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 55,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "draft-then-deploy discipline.md"
     },
     {
@@ -3189,8 +3200,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_draft_then_deploy_discipline",
-      "community": 116,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 55,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "draft-then-deploy discipline"
     },
     {
@@ -3200,8 +3211,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_why",
-      "community": 116,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 55,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "why"
     },
     {
@@ -3211,8 +3222,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_the_document_don_t_silently_half_fix_convention",
-      "community": 116,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 55,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "the \"document, don't silently half-fix\" convention"
     },
     {
@@ -3222,8 +3233,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_related_process_the_deploy_checklist",
-      "community": 116,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 55,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "related process: the deploy checklist"
     },
     {
@@ -3233,8 +3244,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_related",
-      "community": 116,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 55,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "related"
     },
     {
@@ -7864,8 +7875,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_gudang_pusat_master_vault",
-      "community": 83,
-      "community_name": "Gudang Pusat (Master Vault)",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "gudang pusat (master vault).md"
     },
     {
@@ -10801,8 +10812,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 55,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -10878,8 +10889,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 117,
-      "community_name": "Wiki/Summaries",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -11219,8 +11230,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 117,
-      "community_name": "Wiki/Summaries",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "option b region lock.md"
     },
     {
@@ -11230,8 +11241,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_summary_option_b_region_lock",
-      "community": 118,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "summary: option b region lock"
     },
     {
@@ -11241,8 +11252,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_what_it_fixed",
-      "community": 118,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "what it fixed"
     },
     {
@@ -11252,8 +11263,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_the_blocking_question_resolved",
-      "community": 118,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "the blocking question, resolved"
     },
     {
@@ -11263,8 +11274,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_extended_to_fleet_captain_and_a_real_stale_memory_lesson",
-      "community": 118,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "extended to fleet captain \u2014 and a real \"stale memory\" lesson"
     },
     {
@@ -11274,8 +11285,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_ripple_pages_this_touches",
-      "community": 118,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -11593,8 +11604,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -11703,8 +11714,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_store_hand_off_name_collision",
-      "community": 63,
-      "community_name": "A Stored Name Is Not the Name of Record",
+      "community": 116,
+      "community_name": "Store Hand-off Name Collision",
       "norm_label": "store hand-off name collision"
     },
     {
@@ -11714,8 +11725,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_the_fix_that_could_not_be_built",
-      "community": 63,
-      "community_name": "A Stored Name Is Not the Name of Record",
+      "community": 116,
+      "community_name": "Store Hand-off Name Collision",
       "norm_label": "the fix that could not be built"
     },
     {
@@ -11725,8 +11736,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_what_shipped",
-      "community": 63,
-      "community_name": "A Stored Name Is Not the Name of Record",
+      "community": 116,
+      "community_name": "Store Hand-off Name Collision",
       "norm_label": "what shipped"
     },
     {
@@ -11736,8 +11747,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_verified",
-      "community": 63,
-      "community_name": "A Stored Name Is Not the Name of Record",
+      "community": 116,
+      "community_name": "Store Hand-off Name Collision",
       "norm_label": "verified"
     },
     {
@@ -12913,8 +12924,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 117,
-      "community_name": "Wiki/Summaries",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "summaries/index.md"
     },
     {
@@ -16228,6 +16239,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_a_decision_comes_as_a_picture_never_as_a_sentence_2026_09_14",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2341",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_a_frame_he_has_seen_becomes_a_word_he_can_use_2026_09_18_09_30",
       "confidence_score": 1.0
     },
     {
@@ -29454,5 +29476,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9348f5f6eca2dae595e7b8ca75ca9fef0cbb27cb"
+  "built_at_commit": "1667bc824eac2349c4f1072d6ebe94538f62a32f"
 }
