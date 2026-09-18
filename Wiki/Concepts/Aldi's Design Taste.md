@@ -2436,3 +2436,28 @@ the recommended option each time. What the three say together:
 
 He felt board 3 on his phone through the lab (`--host`) before answering; the stills could not
 show the motion and said so. kpm `5d7a9d0`.
+
+## "Too much red" and "too compact" — he refuses a floor that is only sizes (2026-09-18, 19:00)
+
+Four Stock Opname boards at 375 (the salesman's count card TODAY/AFTER, the damage reel A/B, the
+boss's four tabs A/B, the boss's audit list TODAY/AFTER). His answer, one line:
+
+> *"A for expired panel, A for supply telemetry, for the HQ audit i still dont like the
+> presentation, all the data is good for just looks bad for the presentation i feels that it is
+> too compact in a small space, and for the warehouse opname i dont like the presentation because
+> there is too much red and not really have any animation or effect"*
+
+What it settles. (1) **He names a control by the word on its face**, not by the board number:
+"expired panel" = the kinds-of-damage reel (EXPIRED was the face in the frame), "supply
+telemetry" = the boss's tab strip (the title above it). Frames must carry a readable word he can
+point at. (2) **A board that only fixes sizes is not a design he will say YES to when the screen
+looks wrong** — the count card's AFTER had every label at 11 and every key at 44 and he refused it
+for its colour and its stillness. Sizes are the floor, not the proposal; ship them without asking
+(done, kpm f72ef35) and board the LOOK. (3) "too much red" — on the first miscount the card
+edge, the bar, DIFFERENCE, the recount box, the CLEAR key and the damaged line all went red at
+once. Read with 2026-08-21 ("use amber for little things", the verdict is an edge): red is for a
+problem that is SURE; a request to count again is amber. (4) "not really have any animation or
+effect" — the third screen where "static" is the complaint (Customers 2026-09-18 10:40); a card
+he types into must still belong to the control system (top light, LED digits, a fold). (5) "too
+compact in a small space" — the boss's audit item packed name + SYS -> FND + difference on one
+line; the thing to READ gets the room (2026-09-18, EOD board 2 B).

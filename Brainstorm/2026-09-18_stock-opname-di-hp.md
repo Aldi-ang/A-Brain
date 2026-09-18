@@ -2,7 +2,7 @@
 title: Stock Opname on the phone — the count card, the damage reel, the boss's four tabs, the boss's lists
 type: brainstorm
 created: 2026-09-18
-status: OPEN — waiting on Aldi (four boards sent 2026-09-18 ~18:55)
+status: HALF DECIDED 2026-09-18 19:00 — boards 2 = A, 3 = A shipped with the size floor (kpm f72ef35); boards 1 and 4 REFUSED as presentation; boards 5 (count card look) and 6 (audit item look) sent, OPEN
 tags: [kpm, phone, stock-opname, design]
 ---
 
@@ -53,7 +53,26 @@ so the phone keeps the reel and only resizes its keys — no new control).
 
 ## Decision
 
-OPEN — waiting on Aldi. Board 1 YES/NO · Board 2 A/B · Board 3 A/B · Board 4 YES/NO.
+2026-09-18 19:00, his words: *"A for expired panel, A for supply telemetry, for the HQ audit i still
+dont like the presentation, all the data is good for just looks bad for the presentation i feels
+that it is too compact in a small space, and for the warehouse opname i dont like the presentation
+because there is too much red and not really have any animation or effect"*.
+
+Board 2 = A and board 3 = A SHIPPED together with the size floor of boards 1 and 4 (title one
+line, 11 px, 44 px keys, pickers 44, names wrap, SUBMIT one line) — kpm `f72ef35`, guards 1636,
+audit 722, desk at 1280 unchanged. Boards 1 and 4 REFUSED as presentation and re-boarded:
+
+| Board | Frames | Recommended | Cost |
+|---|---|---|---|
+| 5 the count card look | TODAY / **A** amber until the count is sure (red only for a confirmed difference or a refused submit), plates with the top light, DIFFERENCE as an LED with rolling digits, the verdict block folds open on the first typed number / B no bar and no coloured edge, one stamp (COUNT AGAIN / MATCH / DIFFERENCE) drops onto the corner | A | A: a fold + a roll to build (grid-rows and .kpm-roll already exist); B: the stamp collides with a long name |
+| 6 the audit item look | TODAY / **A** one thing per line — name, three plates EXPECTED · FOUND · DIFFERENCE (the salesman's own words), pills, two full rows / B the difference leads at 28 px with the counts small beside it | A | A: item taller; B: shorter, but the count pair is small again |
+
+Models applied: Second-Order Thinking (red on every first miscount teaches a salesman that red
+means nothing — so red waits for the confirmed difference); Chesterton's Fence (the recount copy
+"most differences are miscounts" is the reason the first-pass colour must not be an alarm);
+Opportunity Cost (6B is shorter but hides the two counts he asked to read).
+
+OPEN — waiting on Aldi: Board 5 A/B · Board 6 A/B.
 
 ## Rejected on purpose
 
