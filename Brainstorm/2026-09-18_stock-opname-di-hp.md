@@ -2,7 +2,7 @@
 title: Stock Opname on the phone — the count card, the damage reel, the boss's four tabs, the boss's lists
 type: brainstorm
 created: 2026-09-18
-status: HALF DECIDED 2026-09-18 19:00 — boards 2 = A, 3 = A shipped with the size floor (kpm f72ef35); boards 1 and 4 REFUSED as presentation; boards 5 (count card look) and 6 (audit item look) sent, OPEN
+status: MOSTLY DECIDED 2026-09-18 19:25 — 2 = A, 3 = A shipped (kpm f72ef35); 5 = A and 6 = A decided minus the LED; the NIXIE COUNTER built live in the lab, board 7 sent, OPEN on YES/NO + whether it replaces the Agent Inventory LED
 tags: [kpm, phone, stock-opname, design]
 ---
 
@@ -72,7 +72,26 @@ means nothing — so red waits for the confirmed difference); Chesterton's Fence
 "most differences are miscounts" is the reason the first-pass colour must not be an alarm);
 Opportunity Cost (6B is shorter but hides the two counts he asked to read).
 
-OPEN — waiting on Aldi: Board 5 A/B · Board 6 A/B.
+2026-09-18 19:25, his words (with a 2.8 s clip of a price whose digits roll one place at a time):
+*"board 5 = A but i want u to redesign the difference, it looks bad and standardize effect, too
+much of that type, for item count board 6 i like A but make the difference number a little bit
+bigger and put some animation on the number as well, what if u make the counter to be like this
+animation look on the attachment that i send u and make it like nixie tube a like so its analog
+but animated must look kinda cool i think"*.
+
+DECIDED: 5 = A (amber until sure, plates with the top light, the verdict block folds open) minus
+the LED; 6 = A (three plates) with the difference bigger and animated. Candidate built LIVE in
+the lab, not as a still: `tools/lab-nixie.jsx` — `NixieCount` (one black glass tube per digit, a
+0–9 reel that TRANSLATES to the digit with a 45 ms stagger per place from the left, the lit digit
+amber on a gradient disc, the unlit "8" filament ghosted behind; no shadow, no filter — G30 and
+Lite Mode) — `?shell&nixie` ticks every 2.4 s at 16 / 20 / 26 / 36 px; `&nixify` drops the real
+counters into the Stock Opname figures (`?shell&opname&look=op-7&nixify`, `…&admin&look=op-8&nixify`).
+Board 7 sent (LED vs nixie on the count card; plain vs nixie plates on the audit item).
+Found while shooting: the itemized list inside an expanded audit is `max-h-[40vh] overflow-y-auto`
+(`StockOpnameView.jsx:1326`) — a second scroller on the phone; goes with the build.
+
+OPEN — waiting on Aldi: the nixie counter YES / NO, and ❓ whether "standardize" means the Agent
+Inventory Quarantine LED (his B, `832ea7c`) becomes a nixie counter too.
 
 ## Rejected on purpose
 
