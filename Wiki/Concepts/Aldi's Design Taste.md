@@ -2538,3 +2538,28 @@ was an afterthought clause and it was the only change that touched two screens. 
 his sentence as carefully as the letters.
 
 Shipped kpm `056d8e3`. Measured 375 both tiers + 1280, the SHIPPED board sent.
+
+## "So many buttons" — a shipped card is not a finished card, and critical keeps its light (2026-09-19, 02:55)
+
+Twenty minutes after choosing B for the Journey Plan store card and seeing it shipped at 317 px
+(strip, name + ⋯, status pill, address, ENGAGE TARGET, RADAR / NAVIGATE / LOG, the ↑ ↓ + assign
+fold), he sent:
+
+> *"i think i want u to redesign the store card, and make it compact as well so that it doesnt take
+> so much space because there is so many buttons there but of course make sure that stores with
+> critical alert are still showing critical animation or lighting on its each store card, after this
+> prepare for notes and prompt we continue tomorrow"*
+
+What it settles. (1) **A board he approved is a floor he can still refuse once it is real** — the
+same shape as the Stock Opname count card (2026-09-18 19:00: sizes fixed, look refused). The B
+frame kept every button the desk had; seeing six keys per card on a phone, he counted them. **Next
+time a card carries more than three keys on the phone, board the compact version FIRST**, before
+he has to ask. (2) **"So many buttons" names the cause, not the height** — the fix he wants is
+fewer visible actions (the everyday ones stay, the rest fold), not smaller ones; his 44 px rule
+stands. (3) **"Critical animation or lighting" is a requested exception to "too much of those
+blinking light" (2026-09-18)** — an overdue store is a state that must be SEEN on its card. Read
+with the rule that closed the blinking lights (*a light blinks only while something is happening
+right now*): the answer is a steady critical light or a breath, an instrument of the control
+system, not the `animate-pulse` pill the card has today. (4) **He closes the day with the ask in
+hand** — *"prepare for notes and prompt we continue tomorrow"* — so the notes carry his sentence
+verbatim and the boards are the first thing tomorrow, before any code.
