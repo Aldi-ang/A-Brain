@@ -2461,3 +2461,25 @@ effect" — the third screen where "static" is the complaint (Customers 2026-09-
 he types into must still belong to the control system (top light, LED digits, a fold). (5) "too
 compact in a small space" — the boss's audit item packed name + SYS -> FND + difference on one
 line; the thing to READ gets the room (2026-09-18, EOD board 2 B).
+
+## "Standardize effect" — one number instrument, and he brought the reference himself (2026-09-18, 19:25)
+
+Boards 5 and 6 (the count card look, the audit item look), his answer with a 2.8 s screen
+recording attached — a pricing card whose digits roll vertically one place at a time, the left
+digits settling first and the right ones lagging:
+
+> *"board 5 = A but i want u to redesign the difference, it looks bad and standardize effect, too
+> much of that type, for item count board 6 i like A but make the difference number a little bit
+> bigger and put some animation on the number as well, what if u make the counter to be like this
+> animation look on the attachment that i send u and make it like nixie tube a like so its analog
+> but animated must look kinda cool i think"*
+
+What it settles. (1) **He rejects a SECOND kind of the same effect.** The LED window (Agent
+Inventory's Quarantine count, his B on 2026-09-18 10:40) placed on the count card's DIFFERENCE
+was "one more of that type" — the app should have ONE animated-number instrument, not a family.
+(2) **He specifies by reference, and the reference is the motion, not the look** — the clip is a
+plain white price; the LOOK he wants is his own word, "nixie tube": analog, warm, glowing digits
+in glass. Take the motion from the clip and the material from the word. (3) The DIFFERENCE is the
+verdict, so it is bigger than the figures it is computed from ("a little bit bigger", both
+screens). (4) Build one instrument and use it everywhere a figure changes; ask before swapping the
+instrument he already approved (the LED), never assume "standardize" reaches it.
