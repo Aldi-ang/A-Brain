@@ -535,3 +535,37 @@ resource and every mod stored in his forge, permanently. An earlier removal in t
 already turned a placed block into a different mod's block by shifting block IDs - the same class of
 mistake, and the first one should have been the warning.
 Fired:
+
+## Archived 2026-09-19 — retired 2026-09-18, both superseded by SKILL.md prose
+
+### 2026-09-04 — a tool the note in front of you records as hanging is a settled result, not a stale data point
+**Status:** RETIRED (2026-09-18) — never fired in 14 days; SKILL.md §2 "stop at the first source that answers" already covers it
+**Trigger:** before reaching for a second verification surface after the first one fails — at the
+moment the fallback is chosen.
+**Lesson:** when the vault note you are ALREADY reading names a tool as having timed out, that is
+the answer; take the path the note says worked. Re-probing to "check whether it is fixed now" is
+only justified when something changed since the note, and a new session is not a change.
+**Would have prevented:** `Looking at the App.md` was open in context and said `agent-browser`
+"hung for 1801s and aborted". It was called anyway, hung for the full 1800s a second time, and
+returned nothing — while the fix (read `document.getAnimations()` on the surface already open)
+took one call.
+Seen: 2026-09-04
+Fired:
+
+### 2026-09-04 — check whether this codebase already solved it before offering Aldi an A-or-B choice
+**Status:** RETIRED (2026-09-18) — superseded by SKILL.md §4 "second layout of an existing component: list what the SOLVED width already decided"; structural, not prose
+**Trigger:** at plan time, the moment a design question is about to be put to him as two options —
+before the AskUserQuestion or the "two ways:" paragraph is written.
+**Lesson:** grep the sibling implementations first. If one of them already answers the question,
+there is no choice to offer: state what the pattern is and follow it. An option list is only
+honest when the codebase genuinely has no precedent, and "which approach" questions are exactly
+the kind whose answer is usually already checked in.
+**Would have prevented:** the Regional Warehouse ponder was blocked on a question put to him as
+"build fake tab bodies (drift risk) or mount the real panels (heavy)", complete with a
+recommendation. Both were wrong. His reply: *"show the fake content but real panel like u do on
+other tutorial of course, uve done this before bruh why dont u look at other tutorial that u
+made"*. `GoodsReceivedStage` had been hand-built demo markup with 12 anchors the whole time, and
+`StockByWarehouseTable` had 36 — one grep for `data-ponder` per stage would have settled it. The
+question cost a round trip and ended the turn with nothing built.
+Seen: 2026-09-04
+Fired:
