@@ -2,7 +2,7 @@
 title: Stock Opname on the phone — the count card, the damage reel, the boss's four tabs, the boss's lists
 type: brainstorm
 created: 2026-09-18
-status: MOSTLY DECIDED 2026-09-18 19:25 — 2 = A, 3 = A shipped (kpm f72ef35); 5 = A and 6 = A decided minus the LED; the NIXIE COUNTER built live in the lab, board 7 sent, OPEN on YES/NO + whether it replaces the Agent Inventory LED
+status: DECIDED 2026-09-18 21:30 — everything shipped (kpm f72ef35 floor; a13744a nixie counter + amber count card + one-thing-per-line audit item); the blinking lights are the follow-up, his call owed
 tags: [kpm, phone, stock-opname, design]
 ---
 
@@ -90,8 +90,14 @@ Board 7 sent (LED vs nixie on the count card; plain vs nixie plates on the audit
 Found while shooting: the itemized list inside an expanded audit is `max-h-[40vh] overflow-y-auto`
 (`StockOpnameView.jsx:1326`) — a second scroller on the phone; goes with the build.
 
-OPEN — waiting on Aldi: the nixie counter YES / NO, and ❓ whether "standardize" means the Agent
-Inventory Quarantine LED (his B, `832ea7c`) becomes a nixie counter too.
+2026-09-18 21:30, his words: *"okay nixie looks fine, standardise here because that effect is also
+use in the ponder panel before as i remember, im talking about the blinking dot light and we also
+use that on the customer profile as well, too much of those blinking light"*. SHIPPED kpm
+`a13744a` (the nixie counter, the amber-until-sure count card with the fold, the one-thing-per-line
+audit item, the itemized list as one scroller). "Standardize" was about the BLINKING DOT LIGHT
+family — inventoried (PROGRESS.md 21:50) and proposed as one rule: a light blinks only while
+something is happening right now. His YES/NO owed, plus ❓ whether the Agent Inventory LED window
+becomes a nixie counter.
 
 ## Rejected on purpose
 

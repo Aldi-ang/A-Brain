@@ -305,3 +305,25 @@ testing around it.
 
 **The general lesson: a test that constructs a copy cannot test how the original computes.** Found
 only by deliberately breaking the module — which is the practice that earns the word "verified".
+
+## The nixie counter — the one moving-number instrument (2026-09-18, kpm a13744a)
+
+`src/components/NixieCount.jsx` + `.kpm-nixie*` in theme.css + `helpers.nixieDigits`. Aldi's own
+reference: a 2.8 s clip of a price whose digits roll one place at a time, and his word for the
+look, "nixie tube" — "analog but animated". One black glass window per digit; a 0-9 reel inside
+it TRANSLATES to the digit (`--i`) over 420 ms with a 45 ms stagger per place from the left, so
+the right-hand digits lag like the clip; the lit digit is amber on a gradient disc; the unlit
+"8" filament is ghosted behind. Tubes are keyed by place value, so 99 -> 100 adds a tube and the
+reels already on screen keep rolling. `signed` prints − / + (a DIFFERENCE); a count prints none.
+
+Rules it obeys, and why it looks the way it does: no shadow and no filter (audit G30 - the
+control system may not depend on either; Lite Mode strips both, so a stopped tube must still read
+as a display); black in both themes (an instrument does not follow the room's lights,
+2026-09-04); tabular mono digits (his "clear and HD"). Where it lives: the count card's DIFFERENCE
+(20 px) and the boss's audit plates EXPECTED / FOUND / DIFFERENCE (20 / 20 / 26 px on the phone,
+`.kpm-nixie-verdict`). It REPLACED an LED window (`.kpm-led`) he refused as "one more effect
+type" - the LED still lives on Agent Inventory's Quarantine count until he says otherwise.
+
+The related colour rule, same commit: on the count card a first-pass difference is AMBER (the
+screen's own copy says most are miscounts) and RED waits for the second count to confirm it
+(`recount.confirmed || recount.disagreement`). His words: "too much red".

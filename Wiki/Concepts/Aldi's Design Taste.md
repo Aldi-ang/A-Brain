@@ -2483,3 +2483,21 @@ in glass. Take the motion from the clip and the material from the word. (3) The 
 verdict, so it is bigger than the figures it is computed from ("a little bit bigger", both
 screens). (4) Build one instrument and use it everywhere a figure changes; ask before swapping the
 instrument he already approved (the LED), never assume "standardize" reaches it.
+
+## "Too much of those blinking light" — the offending effect was the LAMP, not the number (2026-09-18, 21:30)
+
+Shown the nixie counter live on his phone, he took it in four words and then corrected what
+"standardize" had meant:
+
+> *"okay nixie looks fine, standardise here because that effect is also use in the ponder panel
+> before as i remember, im talking about the blinking dot light and we also use that on the
+> customer profile as well, too much of those blinking light"*
+
+What it settles. (1) The thing he had counted as "too much of that type" was the small BLINKING
+DOT (the LED's red lamp, the pending pill on Customers, the finance ping) — a family of looping
+lights across screens, not the number effect. Read his complaints about repetition at the level
+of the SIGNAL, not the component: two instruments that pulse the same way are one signal repeated,
+whatever they are attached to. (2) A loop that never stops reads as noise to him after an hour;
+the pad's lamps, which only light on a press or an arrival, he remembers as blinking — so any
+light that pulses forever will be counted against the app. (3) The rule to propose from this:
+a light blinks only while something is happening right now.
