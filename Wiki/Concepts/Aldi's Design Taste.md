@@ -2393,3 +2393,23 @@ it, so it became a guard (the SIDEWAYS RATCHET), not a note.
 (nothing in the control system may depend on a shadow — his 2026-08-15 Lite Mode rule) turned them
 into borders and gradient layers before shipping (kpm `832ea7c`). The shape he chose is what shipped; the
 glow behind the LED digits is not. Told in one line, not hidden.
+
+
+## He takes the taller row to get the whole product name (2026-09-18)
+
+EOD Setoran on the phone, two boards. Board 1 (the card deck as tall as the card on top, blank
+card backs peeking): *"board 1 yes"*. Board 2, the count rows — A was recommended (one line per
+product, name wraps beside a 64 × 44 box, rows 52 px) and B was the taller alternative (name on
+its own line, a 96 × 44 box under it on the right, rows 75 px): *"board 2 B because it have more
+space for long product name"*.
+
+**What it settles, read with 2026-09-17:** the day before he took the SMALLER product picture to
+get the BIGGER button; today he took the TALLER row to get the WHOLE name. The constant is not
+"compact" and not "big" — it is that the thing the salesman must READ or PRESS gets the room,
+and everything decorative pays for it. A recommendation that optimises for a shorter card loses
+to one that optimises for the line he has to act on. Next time a board trades card height
+against name legibility or target size, recommend the legible one and say what it costs in
+scroll — do not recommend the compact one and let him correct it.
+
+Rendered and measured, not described: both boards through `?look=` entries at a pinned 375,
+TODAY beside each option, one PNG. He answered in one line. kpm `84e102f`.

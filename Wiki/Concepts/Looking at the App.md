@@ -542,3 +542,28 @@ Cost 2026-09-18: three probes and a module-graph hunt before the address was rea
 pane and the eye, and failed G30 on the built output — nothing in the control system may depend on
 a shadow. The check is right and the boards were wrong; a proposal for a `.kpm-*` class is drawn
 without shadows from the start, or it is redrawn before shipping and he is told (kpm `832ea7c`).
+
+
+## TYPE INTO THE LAB, READ THE TRANSFORM, AND A 500 IS A SYNTAX ERROR (2026-09-18, EOD Setoran)
+
+- **`?tab=type:<value>`** — the press chain in `tools/ponder-lab.jsx` now types into the first
+  enabled, visible input inside the desk (React's own value setter, then an `input` event). Made
+  because the EOD deck's confirm button is disabled until the card carries a figure, so card 2
+  and card 3 could not be reached headless by presses alone:
+  `?shell&eod&tab=type:2490000,put%20cash,landed,put%20transfer`.
+- **A rect read within a second or two of a press can be MID-TRANSITION.** The EOD deck's next
+  card scales .93 → 1 over 500 ms; a probe that read the count box right after the press got
+  41 × 89 for a box that is 44 × 96, and the desk probe at 1280 read 69 × 36 for a 74-wide box.
+  Read `getComputedStyle(el).transform` in the same probe; if it is not the identity matrix,
+  wait and read again. The pane also throttles transitions while it is not painting, so a
+  1.2 s wait is not always enough — the transform is the truth, not the clock.
+- **A blank lab page with `[vite] Failed to reload … 500` in the console is a SYNTAX ERROR in a
+  source file**, not a stub problem: `preview_logs` names the file and line. This time it was a
+  `{/* JSX comment */}` written as the first thing inside `cond ? (` — two expressions, a parse
+  error — the exact trap the brief carried in prose. It is now a logicFixes sweep over every
+  `src/**/*.jsx` (`(\s*{/*` goes red), proven red on a probe file. A trap in a brief is a
+  hope; a trap in a check is a wall.
+- **`?shell&eod`** — EODReconciliationView, the T5 submit flow, no wrapper, as App.jsx:5022
+  mounts it; `&admin` mounts the boss's review side (unmeasured). Two cash sales and one
+  transfer so both money cards have rows; the van and the cukai debts from the same
+  `FIXTURES['motorists/m2']` object the agent branch uses. kpm `84e102f`.

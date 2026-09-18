@@ -1353,3 +1353,7 @@ Confirmed 09:05: *"t1 approve, t 2 approve, t3 i just tried to close the incogni
 ## 2026-09-17 — Customers shipped on the phone
 
 Brainstorm closed (three YES + A→Z, folder tree stays), kpm `a9822ff`; taste page: the lookup comes before the form, sort before style, structure needs his ask, bare inputs are a dark-mode bug. Trap recorded in the brainstorm and the next brief: `button:has(> svg:only-child)`.
+
+## 2026-09-18 — EOD Setoran shipped on the phone
+
+His board 1 YES + board 2 B ("more space for long product name"), kpm `84e102f`: deck as tall as the card on top, count rows stacked with 96×44 boxes, no inner scroll, 44 px verdict buttons, labels 11; desk unchanged at 1280. Taste page: he takes the taller row to get the whole name (pairs with 2026-09-17's smaller picture for the bigger button). Looking at the App: `?tab=type:`, the mid-transition rect trap, a 500 in the lab is a syntax error, and the `{/* */}`-after-`(` trap is now a selfcheck sweep. Next: Stock Opname on the phone.

@@ -681,8 +681,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_a_mode_reminder_does_not_outrank_aldi",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "a mode reminder does not outrank aldi"
     },
     {
@@ -692,8 +692,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_the_decision_it_protects",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "the decision it protects"
     },
     {
@@ -703,8 +703,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_what_happened",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "what happened"
     },
     {
@@ -714,8 +714,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_why_prose_did_not_prevent_it",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "why prose did not prevent it"
     },
     {
@@ -725,8 +725,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "related"
     },
     {
@@ -747,8 +747,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
-      "community": 115,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "a named import can shadow a global"
     },
     {
@@ -758,8 +758,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_happened",
-      "community": 115,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what happened"
     },
     {
@@ -769,8 +769,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
-      "community": 115,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what it cost, and what did not catch it"
     },
     {
@@ -780,8 +780,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
-      "community": 115,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the fix, and the rule"
     },
     {
@@ -967,8 +967,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_a_rect_is_painted_not_laid_out",
-      "community": 51,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "a rect is painted, not laid out"
     },
     {
@@ -978,8 +978,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_shape",
-      "community": 51,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "the shape"
     },
     {
@@ -989,8 +989,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_why_it_survived_every_check_and_every_screenshot",
-      "community": 51,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "why it survived every check and every screenshot"
     },
     {
@@ -1000,8 +1000,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_law",
-      "community": 51,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "the law"
     },
     {
@@ -1011,8 +1011,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_the_wider_lesson_and_it_is_the_expensive_one",
-      "community": 51,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "the wider lesson, and it is the expensive one"
     },
     {
@@ -1022,8 +1022,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_family",
-      "community": 51,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "family"
     },
     {
@@ -1033,8 +1033,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "concepts_a_rect_is_painted_not_laid_out_where_it_happened",
-      "community": 51,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 12,
+      "community_name": "The screen \u2014 mobile first, one thumb, readable in midday sun",
       "norm_label": "where it happened"
     },
     {
@@ -1055,8 +1055,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_a_retry_must_land_where_the_first_try_landed",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 30,
+      "community_name": "Sale Is Final \u2014 no refund, no credit",
       "norm_label": "a retry must land where the first try landed"
     },
     {
@@ -1066,8 +1066,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_what_was_wrong",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 30,
+      "community_name": "Sale Is Final \u2014 no refund, no credit",
       "norm_label": "what was wrong"
     },
     {
@@ -1077,8 +1077,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_the_trap_which_is_the_whole_reason_this_page_exists",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 30,
+      "community_name": "Sale Is Final \u2014 no refund, no credit",
       "norm_label": "the trap, which is the whole reason this page exists"
     },
     {
@@ -1088,8 +1088,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_the_shape_worth_reusing",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 30,
+      "community_name": "Sale Is Final \u2014 no refund, no credit",
       "norm_label": "the shape worth reusing"
     },
     {
@@ -1099,8 +1099,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_what_is_still_not_exactly_once_on_purpose",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 30,
+      "community_name": "Sale Is Final \u2014 no refund, no credit",
       "norm_label": "what is still not exactly-once, on purpose"
     },
     {
@@ -1110,8 +1110,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 30,
+      "community_name": "Sale Is Final \u2014 no refund, no credit",
       "norm_label": "related"
     },
     {
@@ -1418,8 +1418,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_a_stored_name_is_not_the_name_of_record",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
       "norm_label": "a stored name is not the name of record"
     },
     {
@@ -1429,8 +1429,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_fault_1_the_string_is_a_snapshot_of_a_google_account",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
       "norm_label": "fault 1 \u2014 the string is a snapshot of a google account"
     },
     {
@@ -1440,8 +1440,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_fault_2_the_newest_row_s_seller_is_not_the_current_owner",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
       "norm_label": "fault 2 \u2014 the newest row's seller is not the current owner"
     },
     {
@@ -1451,8 +1451,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_the_general_shape",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
       "norm_label": "the general shape"
     },
     {
@@ -1462,8 +1462,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_guarded_by",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
       "norm_label": "guarded by"
     },
     {
@@ -1473,8 +1473,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
       "norm_label": "related"
     },
     {
@@ -1495,8 +1495,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "a completed sale is a closed contract"
     },
     {
@@ -1506,8 +1506,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_business_model_in_his_words",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "the business model, in his words"
     },
     {
@@ -1517,8 +1517,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_it_means",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "what it means"
     },
     {
@@ -1528,8 +1528,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_three_things_it_explains_that_looked_like_bugs",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "three things it explains that looked like bugs"
     },
     {
@@ -1539,8 +1539,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_shipped",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "what shipped"
     },
     {
@@ -1550,8 +1550,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_part_worth_remembering_it_took_two_edits_and_the_second_was_invisible",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "the part worth remembering \u2014 it took two edits, and the second was invisible"
     },
     {
@@ -1561,8 +1561,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_rejected_on_purpose",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "rejected on purpose"
     },
     {
@@ -3200,8 +3200,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 63,
+      "community_name": "A Stored Name Is Not the Name of Record",
       "norm_label": "draft-then-deploy discipline.md"
     },
     {
@@ -3354,8 +3354,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_email_is_a_document_id_not_a_field",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "email is a document id, not a field"
     },
     {
@@ -3365,8 +3365,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_which_required_fields_are_actually_structural",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "which required fields are actually structural"
     },
     {
@@ -3376,8 +3376,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_the_trap_that_comes_free_with_every_relaxed_field",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "the trap that comes free with every relaxed field"
     },
     {
@@ -3387,8 +3387,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_and_the_message",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "and the message"
     },
     {
@@ -3398,8 +3398,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_guarded_by",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "guarded by"
     },
     {
@@ -3409,8 +3409,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 51,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "related"
     },
     {
@@ -3849,8 +3849,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_headquarters_is_not_a_cabang_headquarters_is_not_a_cabang",
-      "community": 109,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 49,
+      "community_name": "The Admin Agent Profile Id",
       "norm_label": "headquarters is not a cabang"
     },
     {
@@ -3860,8 +3860,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "concepts_headquarters_is_not_a_cabang_it_has_now_bitten_twice_in_two_different_shapes",
-      "community": 109,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 49,
+      "community_name": "The Admin Agent Profile Id",
       "norm_label": "it has now bitten twice, in two different shapes"
     },
     {
@@ -3871,8 +3871,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "concepts_headquarters_is_not_a_cabang_the_trap_underneath_both",
-      "community": 109,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 49,
+      "community_name": "The Admin Agent Profile Id",
       "norm_label": "the trap underneath both"
     },
     {
@@ -3882,8 +3882,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "concepts_headquarters_is_not_a_cabang_and_the_wrong_fix_that_was_nearly_taken",
-      "community": 109,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 49,
+      "community_name": "The Admin Agent Profile Id",
       "norm_label": "and the wrong fix that was nearly taken"
     },
     {
@@ -5009,6 +5009,17 @@
       "norm_label": "an honest 375 png out of headless: pin the app, not the window (2026-09-17)"
     },
     {
+      "label": "THREE MORE INSTRUMENTS, and one trap (2026-09-18)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L516",
+      "_origin": "ast",
+      "id": "concepts_looking_at_the_app_three_more_instruments_and_one_trap_2026_09_18",
+      "community": 11,
+      "community_name": "Looking at the App",
+      "norm_label": "three more instruments, and one trap (2026-09-18)"
+    },
+    {
       "label": "Off-Token Colour Migration Map.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Off-Token Colour Migration Map.md",
@@ -5026,8 +5037,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_off_token_colour_migration_map_off_token_colour_migration_map",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "off-token colour migration map"
     },
     {
@@ -5037,8 +5048,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_off_token_colour_migration_map_the_table",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "the table"
     },
     {
@@ -5048,8 +5059,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "concepts_off_token_colour_migration_map_what_is_not_migrated",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "what is not migrated"
     },
     {
@@ -5059,8 +5070,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "concepts_off_token_colour_migration_map_the_two_checks_that_prove_it",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "the two checks that prove it"
     },
     {
@@ -5070,8 +5081,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "concepts_off_token_colour_migration_map_read_this_first_when_light_mode_starts_added_2026_08_15",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "\u26a0\ufe0f read this first when light mode starts (added 2026-08-15)"
     },
     {
@@ -5081,8 +5092,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "concepts_off_token_colour_migration_map_2026_09_01_two_fault_classes_this_map_never_covered_and_both_are_app_wide",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "2026-09-01 \u2014 two fault classes this map never covered, and both are app-wide"
     },
     {
@@ -5301,8 +5312,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_pov_changes_the_id_never_the_email",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "pov changes the id, never the email"
     },
     {
@@ -5312,8 +5323,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_how_it_was_found_2026_09_08",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "how it was found \u2014 2026-09-08"
     },
     {
@@ -5323,8 +5334,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_not_a_permission_hole_and_say_so_plainly",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "not a permission hole, and say so plainly"
     },
     {
@@ -5334,8 +5345,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_the_second_instance_still_unfixed_as_of_2026_09_08",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the second instance, still unfixed as of 2026-09-08"
     },
     {
@@ -5345,8 +5356,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_the_rule_for_next_time",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "the rule for next time"
     },
     {
@@ -5356,8 +5367,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "The Shell Repaints Any White It Can Reach",
       "norm_label": "related"
     },
     {
@@ -5774,8 +5785,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_sale_is_final_no_refund_no_credit",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "sale is final - no refund, no credit.md"
     },
     {
@@ -5785,8 +5796,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "concepts_sale_is_final_no_refund_no_credit_sale_is_final_no_refund_no_credit",
-      "community": 30,
-      "community_name": "Sale Is Final \u2014 no refund, no credit",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "sale is final \u2014 no refund, no credit"
     },
     {
@@ -5796,8 +5807,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_sale_is_final_no_refund_no_credit_what_the_rule_is",
-      "community": 30,
-      "community_name": "Sale Is Final \u2014 no refund, no credit",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "what the rule is"
     },
     {
@@ -5807,8 +5818,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "concepts_sale_is_final_no_refund_no_credit_what_this_kills",
-      "community": 30,
-      "community_name": "Sale Is Final \u2014 no refund, no credit",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "what this kills"
     },
     {
@@ -5818,8 +5829,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "concepts_sale_is_final_no_refund_no_credit_what_survives_and_why",
-      "community": 30,
-      "community_name": "Sale Is Final \u2014 no refund, no credit",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "what survives, and why"
     },
     {
@@ -5829,8 +5840,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "concepts_sale_is_final_no_refund_no_credit_the_consequence_nobody_should_forget",
-      "community": 30,
-      "community_name": "Sale Is Final \u2014 no refund, no credit",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "the consequence nobody should forget"
     },
     {
@@ -5840,8 +5851,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_sale_is_final_no_refund_no_credit_why_this_is_recorded",
-      "community": 30,
-      "community_name": "Sale Is Final \u2014 no refund, no credit",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "why this is recorded"
     },
     {
@@ -6049,8 +6060,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
-      "community": 94,
-      "community_name": "Sounds Come From Aldi",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "sounds come from aldi"
     },
     {
@@ -6060,8 +6071,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_sounds_come_from_aldi_the_three_rounds",
-      "community": 94,
-      "community_name": "Sounds Come From Aldi",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "the three rounds"
     },
     {
@@ -6071,8 +6082,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "concepts_sounds_come_from_aldi_what_actually_worked_and_it_is_reproducible",
-      "community": 94,
-      "community_name": "Sounds Come From Aldi",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "what actually worked, and it is reproducible"
     },
     {
@@ -6082,8 +6093,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "concepts_sounds_come_from_aldi_where_sound_lives_and_what_can_never_be_verified_from_here",
-      "community": 94,
-      "community_name": "Sounds Come From Aldi",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "where sound lives, and what can never be verified from here"
     },
     {
@@ -6093,8 +6104,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "concepts_sounds_come_from_aldi_enforced_not_remembered",
-      "community": 94,
-      "community_name": "Sounds Come From Aldi",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "enforced, not remembered"
     },
     {
@@ -6104,8 +6115,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "concepts_sounds_come_from_aldi_rejected_on_purpose_do_not_re_propose",
-      "community": 94,
-      "community_name": "Sounds Come From Aldi",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "rejected on purpose \u2014 do not re-propose"
     },
     {
@@ -6115,8 +6126,8 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "concepts_sounds_come_from_aldi_open",
-      "community": 94,
-      "community_name": "Sounds Come From Aldi",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "open"
     },
     {
@@ -6940,8 +6951,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_shell_repaints_any_white_it_can_reach",
-      "community": 54,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the shell repaints any white it can reach"
     },
     {
@@ -6951,8 +6962,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_rule",
-      "community": 54,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the rule"
     },
     {
@@ -6962,8 +6973,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_second_cause_of_the_same_appearance",
-      "community": 54,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the second cause of the same appearance"
     },
     {
@@ -6973,8 +6984,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_the_two_harness_traps_which_cost_more_than_the_bug",
-      "community": 54,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "\u26a0\ufe0f the two harness traps, which cost more than the bug"
     },
     {
@@ -6984,8 +6995,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "concepts_the_shell_repaints_any_white_it_can_reach_what_changed_in_the_look",
-      "community": 54,
-      "community_name": "The Shell Repaints Any White It Can Reach",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what changed in the look"
     },
     {
@@ -7116,8 +7127,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_what_create_mod_s_ponder_actually_does_what_create_mod_s_ponder_actually_does",
-      "community": 93,
-      "community_name": "A retry must land where the first try landed",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "what create mod's ponder actually does"
     },
     {
@@ -7127,8 +7138,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "concepts_what_create_mod_s_ponder_actually_does_getting_the_source_at_all",
-      "community": 93,
-      "community_name": "A retry must land where the first try landed",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "getting the source at all"
     },
     {
@@ -7138,8 +7149,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "concepts_what_create_mod_s_ponder_actually_does_every_control_and_what_it_really_is",
-      "community": 93,
-      "community_name": "A retry must land where the first try landed",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "every control, and what it really is"
     },
     {
@@ -7149,8 +7160,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "concepts_what_create_mod_s_ponder_actually_does_the_three_mechanics_worth_stealing",
-      "community": 93,
-      "community_name": "A retry must land where the first try landed",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "the three mechanics worth stealing"
     },
     {
@@ -7160,8 +7171,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_what_create_mod_s_ponder_actually_does_the_architectural_difference_that_made_kpm_s_engine_short",
-      "community": 93,
-      "community_name": "A retry must land where the first try landed",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "the architectural difference that made kpm's engine short"
     },
     {
@@ -7171,8 +7182,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "concepts_what_create_mod_s_ponder_actually_does_what_kpm_dropped_on_purpose",
-      "community": 93,
-      "community_name": "A retry must land where the first try landed",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "what kpm dropped on purpose"
     },
     {
@@ -7182,8 +7193,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "concepts_what_create_mod_s_ponder_actually_does_the_one_place_a_scene_script_is_worth_reading",
-      "community": 93,
-      "community_name": "A retry must land where the first try landed",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "the one place a scene script is worth reading"
     },
     {
@@ -10823,8 +10834,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 73,
-      "community_name": "Entities/index.md",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -10900,8 +10911,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 90,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -11032,8 +11043,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_light_ground_and_the_theme_lab_light_ground_and_the_theme_lab",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "light ground and the theme lab"
     },
     {
@@ -11043,8 +11054,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "summaries_light_ground_and_the_theme_lab_the_one_sentence_version",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "the one-sentence version"
     },
     {
@@ -11054,8 +11065,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "summaries_light_ground_and_the_theme_lab_three_surfaces_one_cause",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "three surfaces, one cause"
     },
     {
@@ -11065,8 +11076,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "summaries_light_ground_and_the_theme_lab_the_app_had_two_light_themes_and_nobody_had_put_them_side_by_side",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "the app had two light themes and nobody had put them side by side"
     },
     {
@@ -11076,8 +11087,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "summaries_light_ground_and_the_theme_lab_a_theme_island_for_screens_that_stay_dark_in_both_themes",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "a theme island, for screens that stay dark in both themes"
     },
     {
@@ -11087,8 +11098,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "summaries_light_ground_and_the_theme_lab_frozen_copies_do_not_follow_a_corrected_token",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "frozen copies do not follow a corrected token"
     },
     {
@@ -11098,8 +11109,8 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "summaries_light_ground_and_the_theme_lab_what_only_looking_found",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "what only *looking* found"
     },
     {
@@ -11109,8 +11120,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "summaries_light_ground_and_the_theme_lab_related",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 20,
+      "community_name": "Ponytail Philosophy",
       "norm_label": "related"
     },
     {
@@ -11241,8 +11252,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 90,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "option b region lock.md"
     },
     {
@@ -11252,8 +11263,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_summary_option_b_region_lock",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "summary: option b region lock"
     },
     {
@@ -11263,8 +11274,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_what_it_fixed",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "what it fixed"
     },
     {
@@ -11274,8 +11285,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_the_blocking_question_resolved",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "the blocking question, resolved"
     },
     {
@@ -11285,8 +11296,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_extended_to_fleet_captain_and_a_real_stale_memory_lesson",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "extended to fleet captain \u2014 and a real \"stale memory\" lesson"
     },
     {
@@ -11296,8 +11307,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_ripple_pages_this_touches",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -11362,8 +11373,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 55,
-      "community_name": "Summary: Rules Draft Process",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -11714,8 +11725,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 40,
+      "community_name": "Summary: Offline Login Lockout Fix",
       "norm_label": "store hand-off name collision.md"
     },
     {
@@ -11725,8 +11736,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_store_hand_off_name_collision",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 40,
+      "community_name": "Summary: Offline Login Lockout Fix",
       "norm_label": "store hand-off name collision"
     },
     {
@@ -11736,8 +11747,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_the_fix_that_could_not_be_built",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 40,
+      "community_name": "Summary: Offline Login Lockout Fix",
       "norm_label": "the fix that could not be built"
     },
     {
@@ -11747,8 +11758,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_what_shipped",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 40,
+      "community_name": "Summary: Offline Login Lockout Fix",
       "norm_label": "what shipped"
     },
     {
@@ -11758,8 +11769,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_verified",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 40,
+      "community_name": "Summary: Offline Login Lockout Fix",
       "norm_label": "verified"
     },
     {
@@ -11989,8 +12000,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 40,
+      "community_name": "Summary: Offline Login Lockout Fix",
       "norm_label": "the panel that never reads a transaction.md"
     },
     {
@@ -12935,8 +12946,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 90,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 40,
+      "community_name": "Summary: Offline Login Lockout Fix",
       "norm_label": "summaries/index.md"
     },
     {
@@ -12946,8 +12957,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_index_wiki_summaries",
-      "community": 90,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 40,
+      "community_name": "Summary: Offline Login Lockout Fix",
       "norm_label": "wiki/summaries"
     },
     {
@@ -12957,8 +12968,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "summaries_index_pages_here",
-      "community": 90,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 40,
+      "community_name": "Summary: Offline Login Lockout Fix",
       "norm_label": "pages here"
     },
     {
@@ -12968,8 +12979,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
-      "community": 90,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 40,
+      "community_name": "Summary: Offline Login Lockout Fix",
       "norm_label": "adding a new summary"
     },
     {
@@ -20309,6 +20320,17 @@
       "_origin": "ast",
       "source": "concepts_looking_at_the_app_looking_at_the_app",
       "target": "concepts_looking_at_the_app_the_three_ways_it_lied_before_it_told_the_truth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L516",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_looking_at_the_app_looking_at_the_app",
+      "target": "concepts_looking_at_the_app_three_more_instruments_and_one_trap_2026_09_18",
       "confidence_score": 1.0
     },
     {
@@ -29498,5 +29520,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6732f7f4b7ef90a49bc22778687755039ffc0e33"
+  "built_at_commit": "8781cf151d4ddd2fd289ec014e78019a8c745da0"
 }
