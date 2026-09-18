@@ -327,3 +327,11 @@ type" - the LED still lives on Agent Inventory's Quarantine count until he says 
 The related colour rule, same commit: on the count card a first-pass difference is AMBER (the
 screen's own copy says most are miscounts) and RED waits for the second count to confirm it
 (`recount.confirmed || recount.disagreement`). His words: "too much red".
+
+**22:10 — the face and the ink (kpm bcb08c4).** `.kpm-nixie` uses `--font-display` (Barlow
+Condensed 800), tube .66em, no ghost "8"; the ink is a fixed `--nixie-ink: #FFB02E` so the black
+glass reads in light mode too. The LED window (`.kpm-led`, `.kpm-roll`, `kpmLedLamp`,
+`RollingCount`) is deleted; Agent Inventory's Quarantine count is a `NixieCount` at 16 px.
+Blinking dot lights that looped forever are gone with it (the Customers pending pill is steady,
+the Consignment Finance ping ring removed); `Lamp live` and the shell's signed-out dot remain
+because they report a state.

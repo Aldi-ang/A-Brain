@@ -2501,3 +2501,18 @@ whatever they are attached to. (2) A loop that never stops reads as noise to him
 the pad's lamps, which only light on a press or an arrival, he remembers as blinking — so any
 light that pulses forever will be counted against the app. (3) The rule to propose from this:
 a light blinks only while something is happening right now.
+
+## The nixie face, round two — "not clear" is a font, and "creative" means the same instrument (2026-09-18, 22:10)
+
+> *"change the fonts for the nixie tube because it is not clear, and also fix the light mode
+> nixie tube it is unclear as well, and just erase the dot light and use another creative design
+> bruv"*
+
+What it settles. (1) A mono digit at 20 px inside a narrow tube with a ghost "8" behind it is a
+smudge to him; the fix was the app's own condensed display face and no ghost - realism that costs
+legibility loses. (2) A theme token on a black instrument is a trap: light mode's amber is a
+dark brown, and the counter vanished. Instruments carry a FIXED ink (--nixie-ink, like the old
+--led-ink). (3) "Another creative design" for the LED did not mean a new invention - it meant
+the instrument he had just approved. The LED window and every looping dot (its lamp, the
+Customers pending pill, the finance ping) are gone; the two dots that report a live state stay.
+kpm bcb08c4.
