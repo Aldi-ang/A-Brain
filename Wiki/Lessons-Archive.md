@@ -520,3 +520,18 @@ player at once. Aldi lost two play sessions to a locked console, and the session
 was spent on a gore-setting theory built on the same bad inference.
 Seen: 2026-09-03
 Fired:
+
+### 2026-09-03 — removing a mod is a schema change to data already written
+**Status:** RETIRED (2026-09-17) — platitude — never fired in 14 days; not KPM-shaped (7DTD save data), and the 2026-09-04 ModInfo entry covers the archive-shape check that IS firing
+**Trigger:** before disabling, removing or reordering any mod, plugin or extension on a system
+that has already saved data through it.
+**Do:** ask what SHAPE that component wrote into storage - array sizes, container capacities, id
+assignments - not just what features it adds. If it sized anything, removing it makes the existing
+data unreadable, and most engines silently DISCARD what they cannot parse rather than failing loudly.
+**Would have prevented:** disabling a 7 Days to Die mod that enlarged crafting queues, purely as a
+UI test. The next chunk load threw `TileEntityWorkstation.read` index-out-of-bounds, the game
+dropped the tile entity and saved the emptied chunk two minutes later. Aldi lost every melted
+resource and every mod stored in his forge, permanently. An earlier removal in the same session had
+already turned a placed block into a different mod's block by shifting block IDs - the same class of
+mistake, and the first one should have been the warning.
+Fired:
