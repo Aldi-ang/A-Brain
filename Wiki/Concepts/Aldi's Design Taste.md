@@ -2361,3 +2361,35 @@ And the tail — *"btw what is the test customer u mean?"* — is a miss on my s
 ✅ TEST line said "Customers (`a9822ff`) on your phone" with no checklist, and a hash is not a test
 he can run. Every ✅ TEST carries its plain-word checklist in the reply itself, the same words
 PROGRESS.md keeps under WAITING ON ALDI. Lesson written 2026-09-18.
+
+## "Static and too simple" — he asks for material and motion, not for colour (2026-09-18, 10:40)
+
+After confirming two phone screens (*"T1 approve, t2 approve"*) he sent three asks in one breath:
+
+> *"i still dont like the formatting on the customer because the color and the UI is just look so
+> static and too simple but the logic between pressable is working great i want u to redesign this
+> panel i guess especially for the color and add some small animation on the folder or lighting or
+> button and i dont really like that the customer segment is not fixed and locked on phone that i can
+> swipe it right and left. and another thing is that i want u to redesign the quarantine quantity on
+> the agent inventory number box and make it more animation HD and good as well"*
+
+and, on the four boards: *"board 3 = B, board 4 =B, 5 = B, 6 = B make sure that the animation is
+clear and HD and smooth ,just to let u now that sideways swipe is inconvenience for phone so make sure
+that most of the segment doesnt have that"*.
+
+**What it settles.** (1) He says "color" and means *life*: the Customers screen had the right tokens
+and no material — plain cards, no response to touch, nothing arriving. The fix that satisfied the
+"color" complaint added no hue at all: a top light, a bezel, a proud edge, a lamp, a sweep. When he
+says a screen looks "static and too simple", check whether it ever joined [[The KPM Control System]]
+before reaching for a palette. (2) **He took the more physical option four times out of four** —
+key caps that stand proud and sink, the LED with a lamp — against a recommendation for the quieter
+hazard tag. Read with "lowkey 3D stays" and "more 3D means latched": on a screen he presses, depth
+that answers the press is not noise to him. (3) *"Clear and HD and smooth"* is his motion brief:
+crisp tabular digits, transform/opacity only, one motion per moment — not more motion. (4) **A
+sideways swipe on the phone is a defect class, not a per-screen taste** — his sentence generalised
+it, so it became a guard (the SIDEWAYS RATCHET), not a note.
+
+**And one cost he did not see:** the boards were drawn with shadows and a glow; the app's own audit
+(nothing in the control system may depend on a shadow — his 2026-08-15 Lite Mode rule) turned them
+into borders and gradient layers before shipping (kpm `832ea7c`). The shape he chose is what shipped; the
+glow behind the LED digits is not. Told in one line, not hidden.

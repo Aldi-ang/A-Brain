@@ -1,10 +1,10 @@
 ---
 title: The Customers look, the sideways swipe, and the Quarantine count — his three asks after T1/T2, and the boards on the table
-description: Aldi confirmed Agent Inventory (8b9b3f9) and Customers (a9822ff) on his phone and asked for three more things in one sentence — the Customers screen is "static and too simple", it swipes sideways on the phone, and the Quarantine count badge should be "more animation HD". Measured, diagnosed, four boards sent with live lab links (?look=). OPEN — waiting on Aldi.
+description: Aldi confirmed Agent Inventory (8b9b3f9) and Customers (a9822ff) on his phone and asked for three more things in one sentence — the Customers screen is "static and too simple", it swipes sideways on the phone, and the Quarantine count badge should be "more animation HD". Measured, diagnosed, four boards sent with live lab links (?look=). DECIDED all B at 10:45, shipped kpm 832ea7c.
 type: brainstorm
 created: 2026-09-18
 updated: 2026-09-18
-status: OPEN — waiting on Aldi (boards 3–6)
+status: DECIDED — all B; shipped kpm 832ea7c
 confidence: high
 checked: 2026-09-18
 tags: [brainstorm, phone, customers, agent-inventory, design, motion, 375]
@@ -68,8 +68,24 @@ the slowest motion already in the app and was accepted on the notice boxes).
 
 ## Decision
 
-OPEN — waiting on Aldi: 🔴 boards 3+4 A or B · 🔴 board 5 A or B · 🔴 board 6 YES/NO · ❓ is the
-shop detail page (map + competitor prices) the place he swiped, or somewhere else?
+DECIDED 2026-09-18 ~10:45, his words: *"board 3 = B, board 4 =B, 5 = B, 6 = B make sure that the
+animation is clear and HD and smooth ,just to let u now that sideways swipe is inconvenience for phone
+so make sure that most of the segment doesnt have that"*. Board 6 was a YES/NO — "B" read as the
+second frame, YES. Shipped kpm `832ea7c`.
+
+**What the audit changed on the way in.** G30 (nothing in the control system depends on a shadow —
+Lite Mode strips them on cheap phones) refused the first theme block: every proposal had been drawn
+with `box-shadow` / `text-shadow`. The shipped material is the same shape drawn with a 4 px
+border-bottom (the proud edge), gradient layers (top light, hairline, recess, plate edges) and no
+glow on the LED digits. G32 refused `--danger-text` as text → a fixed `--led-ink` token, because the
+LED's well is black in both themes and `--danger-ink` goes dark in light mode. The boards he chose
+from carried the glow and the soft drop; he was told in one line.
+
+**His new rule, generalised:** *"sideways swipe is inconvenience for phone so make sure that most of
+the segment doesnt have that"* → THE SIDEWAYS RATCHET in `logicFixes.selfcheck.mjs`: no `<table>`
+under lg may carry a bare `min-w-[Npx]`; only `HistoryReportView.jsx:500` and `:808` still do (the
+Reports day of the sweep), and no file may join them. ❓ still open: was the shop page the place he
+swiped?
 
 ## Rejected on purpose
 
