@@ -3,9 +3,9 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-09-17
+updated: 2026-09-18
 confidence: medium
-checked: 2026-09-17
+checked: 2026-09-18
 tags: [pattern, design, taste, ux, aldi]
 ---
 
@@ -2337,3 +2337,27 @@ salesman — *"just let it be like that"*. Structure changes need his ask; surfa
 Ten minutes later, unprompted, on the same form: *"i want the textbox background to be dark when use darkmode and light when use light mode because right now it is white inside dark mode and it is too bright bro"*. A white input on a dark card is a defect to
 him, not a style — the same eye that caught the emerald setup screen and the blue OTP. Every box
 takes a surface token from now on; a bare input is a bug waiting for dark mode.
+
+## A frame he has seen becomes a word he can use (2026-09-18, 09:30)
+
+Two Agent Inventory boards at 375 (`board1.png`: TODAY / AFTER — one scroll, 44 px toggle, names in
+full; `board2.png`: the Projected Value box AFTER BOARD 1 / A three columns / B folded, B
+recommended). His answer:
+
+> *"board 1 yes, board 2 B that shows "afterboard 1" when pressed, btw what is the test customer u mean?"*
+
+Three things. (1) The density-and-size board is taken whole again — the third screen in a row
+("yes to all" on Customers, "B … bigger button as well users need it" on the terminal). The 44 px
+rule, one scroller, and wrapping names are no longer decisions; stop asking, ship them inside the
+first board. (2) **He chose the FOLD over the always-visible columns**, the same pattern he approved
+for the Customers form: a block a salesman reads once a day may hide behind one 44 px tap so the
+thing he reads all day (the van, Cash) moves up. Recommendation followed. (3) **He specified the
+open state by pointing at a frame** — *"that shows 'afterboard 1' when pressed"* is the first frame
+of board 2, the three stacked rows. He did not describe it; he named the picture. Every frame sent
+is a word he can answer with, so label frames with short stable names and keep them on screen in
+the reply he answers from.
+
+And the tail — *"btw what is the test customer u mean?"* — is a miss on my side, not his: the
+✅ TEST line said "Customers (`a9822ff`) on your phone" with no checklist, and a hash is not a test
+he can run. Every ✅ TEST carries its plain-word checklist in the reply itself, the same words
+PROGRESS.md keeps under WAITING ON ALDI. Lesson written 2026-09-18.

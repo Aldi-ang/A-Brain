@@ -1,10 +1,10 @@
 ---
 title: Agent Inventory on the phone — what 375 px measured, and the two boards on the table
-description: The phone sweep reaches the Agent Inventory (AgentInventoryView, the salesman's van manifest). Mounted as T5 Budi in the real shell (kpm b1c77d8, ?shell&agent), measured at innerWidth 375 in both themes, two proposals rendered through ?css= and sent as two boards. OPEN — waiting on Aldi (YES/NO on board 1, A or B on board 2).
+description: The phone sweep reaches the Agent Inventory (AgentInventoryView, the salesman's van manifest). Mounted as T5 Budi in the real shell (kpm b1c77d8, ?shell&agent), measured at innerWidth 375 in both themes, two proposals rendered through ?css= and sent as two boards. DECIDED 09:30 — board 1 YES, board 2 B; shipped kpm 8b9b3f9.
 type: brainstorm
 created: 2026-09-18
 updated: 2026-09-18
-status: OPEN — waiting on Aldi
+status: DECIDED — board 1 YES, board 2 B; shipped kpm 8b9b3f9
 confidence: high
 checked: 2026-09-18
 tags: [brainstorm, phone, agent-inventory, sweep, 375]
@@ -73,7 +73,15 @@ opens the screen.
 
 ## Decision
 
-OPEN — waiting on Aldi: 🔴 board 1 YES/NO · 🔴 board 2 A or B.
+DECIDED 2026-09-18 09:30, his words: *"board 1 yes, board 2 B that shows "afterboard 1" when pressed"*.
+Shipped kpm `8b9b3f9`: measured after at 375 — header 424 → 294, first product row 642 → 520, fold
+button 44 ("Show ▾" / "Hide ▴", opens the three 29 px rows), toggles 44, names wrap, eight labels
+11 px; desk at 1280 unchanged. Guards 1595 (red 8 first), audit 722. ✅ TEST owed on his phone
+(`https://192.168.1.132:4173`).
+
+His "that shows 'afterboard 1' when pressed" specified the OPEN state by pointing at a frame he had
+already seen — the three stacked rows of board 2's first frame — not by describing it. A frame,
+once sent, becomes a word he can use.
 
 ## Rejected on purpose
 
