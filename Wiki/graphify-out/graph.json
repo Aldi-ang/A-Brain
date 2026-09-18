@@ -681,8 +681,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_a_mode_reminder_does_not_outrank_aldi",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "a mode reminder does not outrank aldi"
     },
     {
@@ -692,8 +692,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_the_decision_it_protects",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the decision it protects"
     },
     {
@@ -703,8 +703,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_what_happened",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what happened"
     },
     {
@@ -714,8 +714,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_why_prose_did_not_prevent_it",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "why prose did not prevent it"
     },
     {
@@ -725,8 +725,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_related",
-      "community": 65,
-      "community_name": "A Rect Is Painted, Not Laid Out",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "related"
     },
     {
@@ -1055,8 +1055,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_a_retry_must_land_where_the_first_try_landed",
-      "community": 105,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "a retry must land where the first try landed"
     },
     {
@@ -1066,8 +1066,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_what_was_wrong",
-      "community": 105,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what was wrong"
     },
     {
@@ -1077,8 +1077,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_the_trap_which_is_the_whole_reason_this_page_exists",
-      "community": 105,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the trap, which is the whole reason this page exists"
     },
     {
@@ -1088,8 +1088,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_the_shape_worth_reusing",
-      "community": 105,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the shape worth reusing"
     },
     {
@@ -1099,8 +1099,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_what_is_still_not_exactly_once_on_purpose",
-      "community": 105,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what is still not exactly-once, on purpose"
     },
     {
@@ -1110,8 +1110,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_related",
-      "community": 105,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "related"
     },
     {
@@ -1418,8 +1418,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_a_stored_name_is_not_the_name_of_record",
-      "community": 63,
-      "community_name": "A Stored Name Is Not the Name of Record",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "a stored name is not the name of record"
     },
     {
@@ -1429,8 +1429,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_fault_1_the_string_is_a_snapshot_of_a_google_account",
-      "community": 63,
-      "community_name": "A Stored Name Is Not the Name of Record",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "fault 1 \u2014 the string is a snapshot of a google account"
     },
     {
@@ -1440,8 +1440,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_fault_2_the_newest_row_s_seller_is_not_the_current_owner",
-      "community": 63,
-      "community_name": "A Stored Name Is Not the Name of Record",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "fault 2 \u2014 the newest row's seller is not the current owner"
     },
     {
@@ -1451,8 +1451,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_the_general_shape",
-      "community": 63,
-      "community_name": "A Stored Name Is Not the Name of Record",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the general shape"
     },
     {
@@ -1462,8 +1462,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_guarded_by",
-      "community": 63,
-      "community_name": "A Stored Name Is Not the Name of Record",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "guarded by"
     },
     {
@@ -1473,8 +1473,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_related",
-      "community": 63,
-      "community_name": "A Stored Name Is Not the Name of Record",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "related"
     },
     {
@@ -1495,8 +1495,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
-      "community": 104,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "a completed sale is a closed contract"
     },
     {
@@ -1506,8 +1506,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_business_model_in_his_words",
-      "community": 104,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the business model, in his words"
     },
     {
@@ -1517,8 +1517,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_it_means",
-      "community": 104,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what it means"
     },
     {
@@ -1528,8 +1528,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_three_things_it_explains_that_looked_like_bugs",
-      "community": 104,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "three things it explains that looked like bugs"
     },
     {
@@ -1539,8 +1539,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_shipped",
-      "community": 104,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what shipped"
     },
     {
@@ -1550,8 +1550,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_part_worth_remembering_it_took_two_edits_and_the_second_was_invisible",
-      "community": 104,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the part worth remembering \u2014 it took two edits, and the second was invisible"
     },
     {
@@ -1561,8 +1561,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_rejected_on_purpose",
-      "community": 104,
-      "community_name": "A Named Import Can Shadow a Global",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "rejected on purpose"
     },
     {
@@ -2787,6 +2787,17 @@
       "norm_label": "a frame he has seen becomes a word he can use (2026-09-18, 09:30)"
     },
     {
+      "label": "\"Static and too simple\" \u2014 he asks for material and motion, not for colour (2026-09-18, 10:40)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2365",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_static_and_too_simple_he_asks_for_material_and_motion_not_for_colour_2026_09_18_10_40",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "\"static and too simple\" \u2014 he asks for material and motion, not for colour (2026-09-18, 10:40)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -3189,8 +3200,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline",
-      "community": 55,
-      "community_name": "Summary: Rules Draft Process",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "draft-then-deploy discipline.md"
     },
     {
@@ -3200,8 +3211,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_draft_then_deploy_discipline",
-      "community": 55,
-      "community_name": "Summary: Rules Draft Process",
+      "community": 63,
+      "community_name": "A Stored Name Is Not the Name of Record",
       "norm_label": "draft-then-deploy discipline"
     },
     {
@@ -3211,8 +3222,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_why",
-      "community": 55,
-      "community_name": "Summary: Rules Draft Process",
+      "community": 63,
+      "community_name": "A Stored Name Is Not the Name of Record",
       "norm_label": "why"
     },
     {
@@ -3222,8 +3233,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_the_document_don_t_silently_half_fix_convention",
-      "community": 55,
-      "community_name": "Summary: Rules Draft Process",
+      "community": 63,
+      "community_name": "A Stored Name Is Not the Name of Record",
       "norm_label": "the \"document, don't silently half-fix\" convention"
     },
     {
@@ -3233,8 +3244,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_related_process_the_deploy_checklist",
-      "community": 55,
-      "community_name": "Summary: Rules Draft Process",
+      "community": 63,
+      "community_name": "A Stored Name Is Not the Name of Record",
       "norm_label": "related process: the deploy checklist"
     },
     {
@@ -3244,8 +3255,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_related",
-      "community": 55,
-      "community_name": "Summary: Rules Draft Process",
+      "community": 63,
+      "community_name": "A Stored Name Is Not the Name of Record",
       "norm_label": "related"
     },
     {
@@ -3343,8 +3354,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_email_is_a_document_id_not_a_field",
-      "community": 103,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "email is a document id, not a field"
     },
     {
@@ -3354,8 +3365,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_which_required_fields_are_actually_structural",
-      "community": 103,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "which required fields are actually structural"
     },
     {
@@ -3365,8 +3376,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_the_trap_that_comes_free_with_every_relaxed_field",
-      "community": 103,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the trap that comes free with every relaxed field"
     },
     {
@@ -3376,8 +3387,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_and_the_message",
-      "community": 103,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "and the message"
     },
     {
@@ -3387,8 +3398,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_guarded_by",
-      "community": 103,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "guarded by"
     },
     {
@@ -3398,8 +3409,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_related",
-      "community": 103,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "related"
     },
     {
@@ -5290,8 +5301,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_pov_changes_the_id_never_the_email",
-      "community": 112,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "pov changes the id, never the email"
     },
     {
@@ -5301,8 +5312,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_how_it_was_found_2026_09_08",
-      "community": 112,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "how it was found \u2014 2026-09-08"
     },
     {
@@ -5312,8 +5323,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_not_a_permission_hole_and_say_so_plainly",
-      "community": 112,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "not a permission hole, and say so plainly"
     },
     {
@@ -5323,8 +5334,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_the_second_instance_still_unfixed_as_of_2026_09_08",
-      "community": 112,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the second instance, still unfixed as of 2026-09-08"
     },
     {
@@ -5334,8 +5345,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_the_rule_for_next_time",
-      "community": 112,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the rule for next time"
     },
     {
@@ -5345,8 +5356,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_related",
-      "community": 112,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "related"
     },
     {
@@ -10812,8 +10823,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 55,
-      "community_name": "Summary: Rules Draft Process",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -10889,8 +10900,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -11230,8 +11241,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "option b region lock.md"
     },
     {
@@ -11241,8 +11252,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_summary_option_b_region_lock",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "summary: option b region lock"
     },
     {
@@ -11252,8 +11263,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_what_it_fixed",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "what it fixed"
     },
     {
@@ -11263,8 +11274,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_the_blocking_question_resolved",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "the blocking question, resolved"
     },
     {
@@ -11274,8 +11285,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_extended_to_fleet_captain_and_a_real_stale_memory_lesson",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "extended to fleet captain \u2014 and a real \"stale memory\" lesson"
     },
     {
@@ -11285,8 +11296,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_ripple_pages_this_touches",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 65,
+      "community_name": "A Rect Is Painted, Not Laid Out",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -11604,8 +11615,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 73,
+      "community_name": "Entities/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -11714,8 +11725,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_store_hand_off_name_collision",
-      "community": 116,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "store hand-off name collision"
     },
     {
@@ -11725,8 +11736,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_the_fix_that_could_not_be_built",
-      "community": 116,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "the fix that could not be built"
     },
     {
@@ -11736,8 +11747,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_what_shipped",
-      "community": 116,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "what shipped"
     },
     {
@@ -11747,8 +11758,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_verified",
-      "community": 116,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "verified"
     },
     {
@@ -12924,8 +12935,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "summaries/index.md"
     },
     {
@@ -12935,8 +12946,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_index_wiki_summaries",
-      "community": 117,
-      "community_name": "Wiki/Summaries",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "wiki/summaries"
     },
     {
@@ -12946,8 +12957,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "summaries_index_pages_here",
-      "community": 117,
-      "community_name": "Wiki/Summaries",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "pages here"
     },
     {
@@ -12957,8 +12968,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
-      "community": 117,
-      "community_name": "Wiki/Summaries",
+      "community": 90,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "adding a new summary"
     },
     {
@@ -15849,6 +15860,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2383",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste",
+      "target": "concepts_the_kpm_control_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L1470",
       "weight": 1.0,
       "_origin": "ast",
@@ -15985,17 +16007,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_book_as_a_stack_of_sheets",
-      "target": "concepts_aldi_s_design_taste",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Wiki/Concepts/The KPM Control System.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "concepts_the_kpm_control_system",
       "target": "concepts_aldi_s_design_taste",
       "confidence_score": 1.0
     },
@@ -16635,6 +16646,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_so_that_user_eyes_can_enjoy_he_buys_the_watchable_one_twice_2026_09_03",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2365",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_static_and_too_simple_he_asks_for_material_and_motion_not_for_colour_2026_09_18_10_40",
       "confidence_score": 1.0
     },
     {
@@ -29476,5 +29498,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c9c9339a612e32f234054bd684026aa99e45ece1"
+  "built_at_commit": "6732f7f4b7ef90a49bc22778687755039ffc0e33"
 }

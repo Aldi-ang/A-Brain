@@ -3,7 +3,7 @@ title: Looking at the App
 description: How to actually see a KPM screen before claiming a visual fix — the theme lab harness, why the dev server cannot be opened directly, and the three ways the harness lied before it told the truth.
 type: concept
 created: 2026-08-16
-updated: 2026-09-17
+updated: 2026-09-18
 confidence: high
 checked: 2026-09-15
 tags: [pattern, verification, design, tooling, kpm]
@@ -512,3 +512,33 @@ the truth and the frame is dropped, never explained. The Sales Terminal boards
 `?shell&terminal`, `?grip` (a real pointer tap on the manifest grip — `.click()` does nothing to
 a pointer gesture, and the customer bar above it wears the same `cursor-grab` class with a no-op
 tap, so take the LAST one).
+
+## THREE MORE INSTRUMENTS, and one trap (2026-09-18)
+
+- **`?look=<name>[,<name>]`** (`tools/lab-looks.js`) — a proposal's CSS behind a short name,
+  injected after the app's stylesheet exactly like `?css=`. Made because a board option's `?css=`
+  link ran to 6 KB and Aldi could not be handed it; `?shell&customers&look=cust-b` he could press.
+  The contract: an entry is a candidate he has not decided on; when one ships its rules move into
+  the component and the entry is deleted (today's five did — only `pin` remains). Rebuild the
+  entry set per board, never accumulate.
+- **`?shell&agent&tick`** — every 2.5 s a second RETUR joins and leaves the lab's transactions, so
+  the Quarantine count rolls 10 → 15 → 10. Motion that only fires on a DATA change cannot be
+  watched on static fixtures; the tick makes it sampleable: `el.getAnimations()` on the two roll
+  spans read `kpmRollIn` + `kpmRollOut` running together, 0 → 117 → 217 ms of 260. Same idea as
+  [[PROVING A MOTION WITHOUT A MOVING FRAME]], one step earlier — make the change happen, then read
+  the declarative object.
+- **`FIXTURES['motorists/m2']` and `FIXTURES['benchmarks']`** — the stub now answers a DOCUMENT
+  listener (`exists()` / `data()`) when a fixture is a plain object, and `doc()` joins its id
+  segments like the real API. A screen that listens to one document (Agent Inventory) used to
+  throw inside the stub's collection shape and sit on "Syncing" forever — the harness measuring the
+  harness again.
+
+**The trap:** the lab page is `/tools/ponder-lab.html`. The root `/` on the lab port serves the
+REAL app, which imports `connectFirestoreEmulator` from the stubbed `firebase/firestore` and dies
+on load — a blank dark page and that error in the console mean the wrong URL, not a broken stub.
+Cost 2026-09-18: three probes and a module-graph hunt before the address was read.
+
+**And the audit as the last reviewer:** boards drawn with `box-shadow` / `text-shadow` passed the
+pane and the eye, and failed G30 on the built output — nothing in the control system may depend on
+a shadow. The check is right and the boards were wrong; a proposal for a `.kpm-*` class is drawn
+without shadows from the start, or it is redrawn before shipping and he is told (kpm `832ea7c`).
