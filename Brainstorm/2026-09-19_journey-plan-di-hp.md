@@ -2,7 +2,7 @@
 title: Journey Plan on the phone — the top card, the store card, the path row and the sector reel
 type: brainstorm
 created: 2026-09-19
-status: OPEN — three boards sent 2026-09-19 02:20, waiting on Aldi (board 1 A/B, board 2 A/B, board 3 YES/NO)
+status: DECIDED 2026-09-19 02:30 — board 1 = B, board 2 = B, board 3 = YES, plus "fix the map"; all shipped as kpm 056d8e3
 tags: [kpm, phone, journey-plan, design]
 ---
 
@@ -85,7 +85,23 @@ morning — twenty stores × two taps; that is the flip condition and it is his 
 
 ## Decision
 
-OPEN — waiting on Aldi.
+His words, 2026-09-19 02:30: *"board 1 = B, board 2 = B, board 3 yes, btw fix the map because it said
+api key needed or something"* — the recommended option on both boards, and one ask that was not on
+any board. Shipped as kpm `056d8e3`. The one thing the boards did not show and the built screen
+does differently: the store card's tools fold open at the FOOT of the card (order-last), not under
+the name — the tool bar is the same element on both widths and the desk keeps it on top, so
+"under the name" would have needed a second copy. The ⋯ sits beside the name as boarded.
+
+**The map ask.** "API KEY REQUIRED" was the tile server, not the lab: CARTO's basemaps watermark
+every tile now (a tile fetched with curl carries it). Both maps moved to Esri's key-free canvases
+(Dark Gray on Journey Plan and the War Room, Light Gray for the War Room's light layer),
+`maxNativeZoom 16`. He saw the watermark in the board frames and reported it as a bug in the
+app — it was one, on his phone and on the War Room, not only in the lab.
+
+**Caught by the frame, not by a check:** a heading wrapped in a `<button>` lost its `uppercase`
+(Tailwind's preflight resets `text-transform` on buttons); the desk would have changed. One
+screenshot of the rendered row showed "Mission Feed" in mixed case; the button now carries
+`uppercase`. The preflight reset is now trap (m) in NEXT-SESSION.md.
 
 See also: [[2026-09-18_stock-opname-di-hp]] · [[../Wiki/Concepts/Aldi's Design Taste]] ·
 [[../Wiki/Concepts/Looking at the App]]

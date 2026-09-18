@@ -3,9 +3,9 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-09-18
+updated: 2026-09-19
 confidence: medium
-checked: 2026-09-18
+checked: 2026-09-19
 tags: [pattern, design, taste, ux, aldi]
 ---
 
@@ -2516,3 +2516,25 @@ dark brown, and the counter vanished. Instruments carry a FIXED ink (--nixie-ink
 the instrument he had just approved. The LED window and every looping dot (its lamp, the
 Customers pending pill, the finance ping) are gone; the two dots that report a live state stay.
 kpm bcb08c4.
+
+## He picks the fold twice, and files a tile watermark as an app bug (2026-09-19, 02:30)
+
+Three Journey Plan boards at 375 (the top card A floor / B fold; the store card A floor / B ⋯
+fold; the path row + sector reel YES/NO), B recommended on both. His answer in one line:
+
+> *"board 1 = B, board 2 = B, board 3 yes, btw fix the map because it said api key needed or
+> something"*
+
+What it settles. (1) **The fold is now his default for anything not pressed every minute** — the
+MISSION FEED pickers and the store card's reorder/assign tools both went behind a tap, the third
+and fourth folds he has chosen on the sweep (PROJECTED VALUE 2026-09-18 09:38, ADMIN TOOLS + DEL /
+EDIT 2026-09-18 16:26). The cost stated on board 2 (moving a store in the route is one tap
+further) did not move him. (2) **He reads the frames as the app, not as a mock.** "API KEY
+REQUIRED" was CARTO's tile watermark showing through the lab's real map, and he filed it as a
+thing to fix — rightly, it was live on his phone and on the War Room too. A board frame that
+shows a defect he did not ask about is a bug report he will make; either fix it before the board
+or say in the caption that it is not the screen's. (3) **"btw" carries a real job.** The map ask
+was an afterthought clause and it was the only change that touched two screens. Read the tail of
+his sentence as carefully as the letters.
+
+Shipped kpm `056d8e3`. Measured 375 both tiers + 1280, the SHIPPED board sent.
