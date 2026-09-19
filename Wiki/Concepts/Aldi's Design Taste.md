@@ -2563,3 +2563,26 @@ right now*): the answer is a steady critical light or a breath, an instrument of
 system, not the `animate-pulse` pill the card has today. (4) **He closes the day with the ask in
 hand** — *"prepare for notes and prompt we continue tomorrow"* — so the notes carry his sentence
 verbatim and the boards are the first thing tomorrow, before any code.
+
+## "board 1 = C … LED cyberpunk style … what is radar button actually?" — density wins, an instrument may glow, a metaphor is not a label (2026-09-19, 07:05)
+
+On the store card boards (compact A / B / C beside TODAY; the critical light TODAY / LAMP / LAMP + EDGE),
+with A and LAMP + EDGE recommended, he wrote:
+
+> *"board 1 = C, board 2 lamp edge but make it LED cyberpunk style, usually engage target and navigate,
+> what is radar button actually?"*
+
+Shipped as kpm `0743a17`. What it settles. (1) **He picks the SHORTEST card over the recommended
+middle one** — C keeps only the name, one status line and the two everyday keys (144 px, was 343); the
+strip, the address and every other key go behind the ⋯. On the phone, density beats information on
+the face of a card; the ⋯ is where information lives. Same shape as *"just make the panel bigger"*
+(2026-09-15) and *"so many buttons"* (02:55 today). (2) **"LED cyberpunk style" names the instrument
+vocabulary he wants for a state light**: a diode with a halo and neon mono words, hotter than the
+palette's brick red — an instrument light is exempt from the room's palette, like `--led-ink`
+(2026-09-04) and the nixie ink. The muted lamp on the LAMP board was not enough; the glow IS the
+point. Still no blink: the edge breathes (3.2 s), the diode is steady. (3) **A metaphor is not a
+label**: RADAR had been on the card for months and he did not know what it did. The fold now says
+SHOW ON MAP and LOG A VISIT; the desk still says Radar / Log until he asks. When he asks "what is X
+actually?" about a button, the button's name has already failed. (4) **"usually engage target and
+navigate"** confirms the everyday-key assumption — a compact card is decided by which keys a
+salesman presses daily, not by pixels; ask that question with the board, every time.
