@@ -2586,3 +2586,32 @@ SHOW ON MAP and LOG A VISIT; the desk still says Radar / Log until he asks. When
 actually?" about a button, the button's name has already failed. (4) **"usually engage target and
 navigate"** confirms the everyday-key assumption — a compact card is decided by which keys a
 salesman presses daily, not by pixels; ask that question with the board, every time.
+
+## The folder day — hold is a preview, tap is the commit, and a tap must show itself (2026-09-19, 08:05 → 13:00)
+
+One video (three folder cards, a lid that opens on hover) and nine messages in five hours, all on the same
+control, all shipped the same day and confirmed at 13:00 with *"test approve u may move on"*. His words in order:
+
+> *"change the folder design make it more alive like this video, i want u to make the customer folder like this also"* ·
+> *"B for both"* · *"add hold effect on the folder, just like the video … we have hold mechanic as well on the side
+> panel"* · *"the folder animation is upside down bruh, folder should be expand when hold and on default it should
+> shrink … put file animation on inside the folder that move up a little when expand and going back inside when
+> shrink"* · *"when hold folder should not click it will just animate bro, click to enter not hold. and paper is not
+> sliding out here"* · *"the file and the paper little bit off, revert it to before its better"* · *"animation on the
+> holding opening looks bad … especially on the LED light on the bottom … when i only press and not hold … the button
+> will just skip the animation and go directly inside"* · *"can the transition be smoother when entering inside the
+> folder and not just snapped? … just like some a hundread grand worth of APP"* · *"ok continue"*
+
+What it settles. (1) **HOLD IS A PREVIEW, TAP IS THE COMMIT.** A hold shows what a control would do and never
+does it; a tap does it — and the tap must SHOW its press first (the lid lifts, then it enters). This is now the
+interaction law for any card that opens something (`components/FolderCard.jsx`). (2) **He reasons about motion
+physically.** "Upside down", "the paper is not sliding out", "revert it, the paper inside was better" — a folder, a
+pocket, a sheet; if the model is wrong he sees it at once, and a version that broke the model (the sheet past the
+lid's edge) was sent back within minutes. Design motion from an object, not from an easing. (3) **No snaps
+anywhere on the path.** Enter = the neighbours step back, the tapped one opens, the next level rises in one item
+after another (40 ms stagger, 320 ms, ease-out). "A hundred grand worth of app" means exactly this: nothing
+appears or disappears in one frame. (4) **For MOTION he corrects the shipped thing, not a board.** Six rounds of
+"a bit off / revert / not natural" in two hours, each a one-line change — a still cannot show a hold. Ship the
+motion small, then adjust to his words; keep boards for layout. (5) **"LED light on the bottom"** was the pale
+resting sliver of the paper on a narrow folder — a light-coloured strip under a lid reads as a lamp to him; on
+narrow cards keep the pocket shut at rest.
