@@ -2615,3 +2615,12 @@ appears or disappears in one frame. (4) **For MOTION he corrects the shipped thi
 motion small, then adjust to his words; keep boards for layout. (5) **"LED light on the bottom"** was the pale
 resting sliver of the paper on a narrow folder — a light-coloured strip under a lid reads as a lamp to him; on
 narrow cards keep the pocket shut at rest.
+
+## Sampling — B, the folder everywhere (2026-09-19 19:52)
+*"B is better, use that instead"* — one message on three boards (the year page, the date + place levels, the
+items). What it confirms: once a control exists (the FolderCard), every list of the same kind wears it; the flat
+card lost the moment the real folder stood beside it, he did not weigh A. Two things the boards taught: measure a
+phone screen as the tier with the MOST keys (the boss's second gold key ran off the phone where T5 looked fine),
+and a table does not fit a phone row that also holds two keys (a one-line table cut "Cello Green 16" to "Cello
+Gr…") — rows won. Board B was the shipped component rendered in the lab, not a CSS drawing; that is why the
+decision took one message. Shipped as kpm `d7f2193`.
