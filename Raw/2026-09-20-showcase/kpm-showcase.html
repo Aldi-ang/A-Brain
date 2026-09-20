@@ -213,7 +213,7 @@
 <div class="bar"><div class="in">
   <div class="brand"><i></i>KPM</div>
   <nav class="chapters" id="chapters">
-    <a href="#apa">Apa</a><a href="#angka">Angka</a><a href="#fitur">Fitur</a><a href="#aman">Aman</a><a href="#rasakan">Rasakan</a><a href="#layar">Layar</a><a href="#harga">Harga</a><a href="#legal">Legal</a><a href="#jalan">Jalan</a><a href="#sumber">Sumber</a>
+    <a href="#apa">Apa</a><a href="#angka">Angka</a><a href="#fitur">Fitur</a><a href="#aman">Aman</a><a href="#rasakan">Rasakan</a><a href="#layar">Layar</a><a href="#jalan">Jalan</a><a href="#sumber">Sumber</a>
   </nav>
   <div class="progress" id="progress"></div>
 </div></div>
@@ -221,87 +221,87 @@
 <main class="wrap">
 
 <section class="cover" id="atas">
-  <div class="eyebrow">Sistem penjualan lapangan · PT Karyamega Putera Mandiri</div>
+  <div class="eyebrow">Aplikasi penjualan lapangan · PT Karyamega Putera Mandiri</div>
   <h1 class="title">KPM<span>Command Center</span></h1>
   <div class="rule"></div>
-  <p class="lead">Satu aplikasi di telepon setiap sales: stok di motor, penjualan di warung dengan nota tercetak, uang titipan, setoran akhir hari, stok opname, pita cukai, peta toko dan rute harian. Pemilik melihat semuanya langsung, saat itu juga.</p>
+  <p class="lead">Setiap sales punya satu aplikasi di teleponnya. Di situ ada stok yang dia bawa di motor, penjualan di warung lengkap dengan nota yang dicetak di tempat, uang titipan, setoran malam, hitung stok, pita cukai, dan peta toko. Pemilik membukanya kapan saja dan melihat keadaan saat itu juga.</p>
   <div class="stat-hero">
     <div><span class="kpm-nixie" id="heroNixie" style="--nx: 34px" aria-label="2622"></span><div class="lbl">pemeriksaan otomatis yang lulus</div></div>
     <div><span class="kpm-nixie" id="heroNixie2" style="--nx: 34px" aria-label="48695"></span><div class="lbl">baris kode aplikasi</div></div>
   </div>
-  <p class="dim" style="margin-top:14px;font-size:13px">Diukur langsung dari repositori, 20 September 2026. Setiap angka di halaman ini membawa tanda <span class="mono" style="color:var(--accent-ink)">● BUKTI</span> — ketuk untuk melihat dari mana angka itu datang.</p>
+  <p class="dim" style="margin-top:14px;font-size:13px">Angka-angka ini saya ukur langsung dari kodenya pada 20 September 2026. Setiap angka di halaman ini punya tanda <span class="mono" style="color:var(--accent-ink)">● BUKTI</span>. Ketuk, dan kelihatan dari mana asalnya.</p>
 </section>
 
 <section id="apa">
-  <div class="head"><div class="eyebrow">01 · Apa itu KPM</div><h2>Bukan aplikasi akuntansi. Sistem distribusi.</h2>
-  <p class="lead">Rumus kerjanya sederhana: setiap bungkus rokok yang keluar gudang punya jejak — siapa yang membawa, ke warung mana, dibayar tunai, transfer, atau titip. Malam harinya sales menyetor, bos memverifikasi, dan gudang menerima kembali sisa stok. Semua di satu tempat.</p></div>
+  <div class="head"><div class="eyebrow">01 · Apa itu KPM</div><h2>Bukan aplikasi kasir. Aplikasi distribusi.</h2>
+  <p class="lead">Idenya begini. Setiap bungkus rokok yang keluar gudang punya jejak: siapa yang membawa, ke warung mana, dibayar tunai, transfer, atau titip. Malamnya sales menyetor, bos memeriksa, gudang menerima kembali sisanya. Semua tercatat di satu tempat, dan tidak ada yang perlu ditulis ulang di buku.</p></div>
   <div class="rows">
-    <div class="row"><div class="t">Dipasang seperti aplikasi, jalan tanpa sinyal</div><div class="d">Dibuka dari layar utama telepon (PWA). Penjualan di tempat tanpa sinyal tetap mengurangi stok motor lewat aturan yang sama dengan saat online; tersinkron ketika sinyal kembali.</div>
-      <div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/main.jsx</b> mendaftarkan service worker (vite-plugin-pwa, pembaruan otomatis). Mesin offline dengan pemeriksaan internet sungguhan, bukan sekadar <b>navigator.onLine</b> — self-check S11, S12, S27, S30, S32 (<b>src/config/logicFixes.selfcheck.mjs</b>).</div></details></div></div>
-    <div class="row"><div class="t">Berjalan di server Google</div><div class="d">Data hidup di Firebase (Firestore + Authentication + Storage). Setiap perusahaan terpisah lewat satu kunci pemilik, sehingga aplikasi yang sama bisa dipakai pabrik lain tanpa data saling terlihat.</div>
-      <div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/config/firebase.js</b>; setiap jalur data lewat <b>bossUid</b> (A-Brain: Multi-Tenant Architecture; Terminal Tenant Path Split).</div></details></div></div>
-    <div class="row"><div class="t">16 modul, satu matriks izin yang bisa diatur pemilik</div><div class="d">Siapa boleh melihat apa diatur per jabatan — enam tingkat dari pengembang sampai pemula — bukan sekadar pilihan "admin / bukan admin".</div>
+    <div class="row"><div class="t">Dipasang seperti aplikasi, jalan tanpa sinyal</div><div class="d">Dibuka dari layar utama telepon. Kalau sales menjual di tempat yang tidak ada sinyal, stok di motornya tetap berkurang dengan aturan yang sama seperti waktu online. Begitu sinyal kembali, semuanya tersambung sendiri.</div>
+      <div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/main.jsx</b> mendaftarkan service worker (vite-plugin-pwa, pembaruan otomatis). Mesin offline memakai pemeriksaan internet sungguhan, bukan sekadar <b>navigator.onLine</b>: self-check S11, S12, S27, S30, S32 di <b>src/config/logicFixes.selfcheck.mjs</b>.</div></details></div></div>
+    <div class="row"><div class="t">Datanya di server Google</div><div class="d">Semua data hidup di Firebase, layanan milik Google. Tiap perusahaan punya kunci sendiri, jadi aplikasi yang sama bisa dipakai pabrik lain tanpa datanya saling terlihat.</div>
+      <div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/config/firebase.js</b>; setiap jalur data lewat <b>bossUid</b> (catatan A-Brain: Multi-Tenant Architecture, Terminal Tenant Path Split).</div></details></div></div>
+    <div class="row"><div class="t">16 modul, dan pemilik yang mengatur siapa boleh melihat apa</div><div class="d">Ada enam tingkat jabatan, dari pengembang sampai pemula. Hak akses tiap modul diatur per jabatan dari dalam aplikasi.</div>
       <div class="stamps" style="margin-top:6px"><span class="stamp">Command Center</span><span class="stamp">Map System</span><span class="stamp">Journey Plan</span><span class="stamp">Fleet & Canvas</span><span class="stamp">Master Vault</span><span class="stamp">Logistics</span><span class="stamp">Agent Inventory</span><span class="stamp">Sales Terminal</span><span class="stamp">Receivables</span><span class="stamp">EOD Setoran</span><span class="stamp">Stock Opname</span><span class="stamp">Customers</span><span class="stamp">Sampling</span><span class="stamp">Audit Logs</span><span class="stamp">Settings</span><span class="stamp">Agent Profile</span></div>
-      <div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Matriks izin dan 23 fungsi izin di <b>src/config/permissions.js</b>; daftar tab di <b>src/App.jsx</b> (<b>activeTab === '…'</b>, 17 nilai). Tier System: DEVELOPER → ROOKIE (A-Brain).</div></details></div></div>
+      <div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Matriks izin dan 23 fungsi izin di <b>src/config/permissions.js</b>; daftar tab di <b>src/App.jsx</b> (17 nilai <b>activeTab</b>). Enam tingkat: DEVELOPER sampai ROOKIE.</div></details></div></div>
   </div>
 </section>
 
 <section id="angka">
-  <div class="head"><div class="eyebrow">02 · Ukuran yang terukur</div><h2>Angka, bukan perasaan.</h2>
-  <p class="lead">Semua diukur pada 20 September 2026 dari kode yang sebenarnya. Pemeriksaan otomatis bisa dijalankan di depan siapa pun dalam sekitar satu setengah menit.</p></div>
+  <div class="head"><div class="eyebrow">02 · Ukurannya</div><h2>Angka, bukan perasaan.</h2>
+  <p class="lead">Semua diukur pada 20 September 2026 dari kode yang sebenarnya. Pemeriksaan otomatisnya bisa dijalankan di depan siapa saja; selesainya sekitar satu setengah menit.</p></div>
   <div class="tiles">
-    <div class="tile"><div class="n">48.695</div><div class="l">baris kode aplikasi</div><details class="ev"><summary>bukti</summary><div class="pop">Semua <b>.js/.jsx</b> di <b>src/</b> tanpa berkas pemeriksaan: <b>find src … | xargs cat | wc -l</b> → 48695. 105 berkas sumber, 41 komponen.</div></details></div>
-    <div class="tile"><div class="n">2.622</div><div class="l">pemeriksaan otomatis lulus</div><details class="ev"><summary>bukti</summary><div class="pop">15 suite: logicFixes <b>1.680</b>, integration audit <b>722</b> (atas hasil build), toastSeverity 57, stockThreshold 36, findDuplicates 26, notaScan 22, eodRecord 12, mixedUnits 12, vaultGrace 10, customerBrief 9, nextStop 9, docChanges 8, dayStats 7, txSize 6, useSound 6 — semua 0 gagal. Perintah: <b>npm run build; node src/config/integration.audit.mjs</b>.</div></details></div>
-    <div class="tile"><div class="n">16</div><div class="l">modul di balik matriks izin</div><details class="ev"><summary>bukti</summary><div class="pop"><b>src/config/permissions.js</b>; 5 saklar perilaku tambahan (mis. <b>edit_rank_config</b>, <b>photo_pick_from_gallery</b>).</div></details></div>
-    <div class="tile"><div class="n">1.764</div><div class="l">commit tercatat</div><details class="ev"><summary>bukti</summary><div class="pop"><b>git rev-list --count HEAD</b> → 1764; commit terakhir <b>2e551c8</b>, 20 Sep 2026.</div></details></div>
+    <div class="tile"><div class="n">48.695</div><div class="l">baris kode aplikasi</div><details class="ev"><summary>bukti</summary><div class="pop">Semua berkas <b>.js/.jsx</b> di <b>src/</b> tanpa berkas pemeriksaan: <b>find src … | xargs cat | wc -l</b> → 48695. Ada 105 berkas sumber dan 41 komponen.</div></details></div>
+    <div class="tile"><div class="n">2.622</div><div class="l">pemeriksaan otomatis lulus</div><details class="ev"><summary>bukti</summary><div class="pop">15 suite: logicFixes <b>1.680</b>, integration audit <b>722</b> (memeriksa hasil build), toastSeverity 57, stockThreshold 36, findDuplicates 26, notaScan 22, eodRecord 12, mixedUnits 12, vaultGrace 10, customerBrief 9, nextStop 9, docChanges 8, dayStats 7, txSize 6, useSound 6. Nol yang gagal. Perintahnya: <b>npm run build; node src/config/integration.audit.mjs</b>.</div></details></div>
+    <div class="tile"><div class="n">16</div><div class="l">modul di balik matriks izin</div><details class="ev"><summary>bukti</summary><div class="pop"><b>src/config/permissions.js</b>, ditambah 5 saklar perilaku (misalnya <b>edit_rank_config</b>, <b>photo_pick_from_gallery</b>).</div></details></div>
+    <div class="tile"><div class="n">1.764</div><div class="l">commit tercatat</div><details class="ev"><summary>bukti</summary><div class="pop"><b>git rev-list --count HEAD</b> → 1764. Commit terakhir <b>2e551c8</b>, 20 September 2026.</div></details></div>
   </div>
-  <div class="note" style="margin-top:12px">Biaya membangun ini dari nol: tim lepas 3 orang setahun ≈ <b class="mono">Rp 540 juta</b>; tim sungguhan 14 bulan ≈ <b class="mono">Rp 1,4 miliar</b>; software house Jakarta <b class="mono">Rp 1,5–3 miliar</b>. <details class="ev"><summary>bukti</summary><div class="pop">A-Brain <b>Wiki/Entities/KPM Product Inventory.md</b> (9 Sep 2026) — tarif pengembang dari pengetahuan umum, tingkat keyakinan "likely", belum dibandingkan dengan satu penawaran nyata.</div></details></div>
 </section>
 
 <section id="fitur">
-  <div class="head"><div class="eyebrow">03 · Yang tidak dimiliki aplikasi kebanyakan</div><h2>Dibuat untuk rokok, bukan untuk toko pada umumnya.</h2></div>
+  <div class="head"><div class="eyebrow">03 · Yang jarang ada di aplikasi lain</div><h2>Dibuat untuk rokok, bukan untuk toko pada umumnya.</h2>
+  <p class="lead">Aplikasi kasir biasa berhenti di meja kasir. Yang ini ikut ke motor, ke warung, dan pulang lagi ke gudang.</p></div>
   <div class="rows">
-    <div class="row"><div class="t">Jejak setiap bungkus (track & trace)</div><div class="d">Dari gudang pusat ke cabang, ke motor, ke warung — dan kembali. Untuk tembakau ini bersinggungan dengan penelusuran cukai.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Integration audit G55 "Global Logistics: where every pack is"; surat jalan dua arah G53; konversi karton/bal/slop G59.</div></details></div></div>
-    <div class="row"><div class="t">Pindai barcode saat barang datang</div><div class="d">Kamera telepon membaca kode; kalau gagal, ada jalur ketik manual.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/components/ArrivalScanner.jsx</b> (code_128); audit G58.</div></details></div></div>
-    <div class="row"><div class="t">Uang titipan yang tidak bisa "kembali"</div><div class="d">Penjualan yang selesai adalah kontrak tertutup — tidak ada uang yang diam-diam mengalir balik. Ini pagar terdalam terhadap kebocoran.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">A-Brain <b>Wiki/Concepts/A sale is a closed contract — no cash goes back.md</b>; modul Receivables & Consign.</div></details></div></div>
-    <div class="row"><div class="t">Sistem "bounty" untuk selisih hitung</div><div class="d">Sales yang pulang kurang berutang sejumlah selisihnya — dicatat, ditagih dengan harga eceran, bisa dicicil dari layar setorannya sendiri. Tingkat harga dendanya adalah pengaturan perusahaan.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Self-check S18, S22, S23; <b>eodBountyLines</b> di <b>src/utils/helpers.js:704</b>; layar "Approve Short Count" di <b>src/EODReconciliationView.jsx</b>.</div></details></div></div>
-    <div class="row"><div class="t">Stok opname dengan karantina dan audit HQ</div><div class="d">Hitungan yang berbeda tidak langsung diterima: masuk karantina dulu, lalu diperiksa kantor pusat.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Self-check S37; <b>src/StockOpnameView.jsx</b>; penghitung nixie <b>src/components/NixieCount.jsx</b>.</div></details></div></div>
-    <div class="row"><div class="t">Tutorial di dalam aplikasi</div><div class="d">Setiap layar bisa menjelaskan dirinya sendiri — jawaban untuk "karyawan saya tidak akan bisa memakainya".</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Sistem Ponder — audit G56; <b>src/ponder/PonderOverlay.jsx</b>.</div></details></div></div>
-    <div class="row"><div class="t">Jenjang pangkat dan lencana yang bisa diatur</div><div class="d">Bronze sampai Mythic, dengan XP dari kerja nyata (hari setoran terverifikasi, toko yang dilayani, tagihan yang dikumpulkan). Bingkai pangkat digambar di sekitar foto profil.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/config/career.js</b> (careerXP, computeDayXP, DEFAULT_BADGES), <b>src/config/rankBorders.jsx</b>, jenjang bawaan di <b>src/AgentProfileView.jsx:213</b>.</div></details></div></div>
-    <div class="row"><div class="t">Serah terima lintas wilayah dengan penyetuju bernama</div><div class="d">Stok yang pindah antar wilayah harus disetujui orang yang ditunjuk — bukan siapa saja yang kebetulan admin.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>handoffEligibility</b>, <b>personApprovalRegions</b>, <b>canApproveHandoffFrom</b> di <b>src/config/permissions.js</b>.</div></details></div></div>
+    <div class="row"><div class="t">Jejak setiap bungkus</div><div class="d">Dari gudang pusat ke cabang, ke motor, ke warung, lalu kembali. Untuk tembakau ini dekat sekali dengan urusan penelusuran cukai.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Integration audit G55 "Global Logistics: where every pack is"; surat jalan dua arah G53; konversi karton, bal, slop G59.</div></details></div></div>
+    <div class="row"><div class="t">Barcode dipindai saat barang datang</div><div class="d">Kamera telepon yang membaca kodenya. Kalau kameranya tidak bisa, ada jalur ketik manual.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/components/ArrivalScanner.jsx</b> (code_128); audit G58.</div></details></div></div>
+    <div class="row"><div class="t">Uang titipan tidak bisa "kembali"</div><div class="d">Penjualan yang sudah selesai dianggap kontrak tertutup. Tidak ada uang yang bisa diam-diam mengalir balik. Ini pagar yang paling saya jaga.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Catatan A-Brain <b>A sale is a closed contract — no cash goes back</b>; modul Receivables & Consign.</div></details></div></div>
+    <div class="row"><div class="t">Selisih hitung jadi utang yang tercatat</div><div class="d">Sales yang pulang kurang berutang sebesar selisihnya. Dicatat, ditagih dengan harga eceran, dan bisa dicicil dari layar setorannya sendiri. Tingkat harga dendanya diatur perusahaan.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Self-check S18, S22, S23; <b>eodBountyLines</b> di <b>src/utils/helpers.js:704</b>; layar "Approve Short Count" di <b>src/EODReconciliationView.jsx</b>.</div></details></div></div>
+    <div class="row"><div class="t">Hitung stok dengan karantina dan audit dari pusat</div><div class="d">Hitungan yang berbeda tidak langsung diterima. Masuk karantina dulu, baru diperiksa kantor pusat.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Self-check S37; <b>src/StockOpnameView.jsx</b>; penghitung nixie <b>src/components/NixieCount.jsx</b>.</div></details></div></div>
+    <div class="row"><div class="t">Tutorial di dalam aplikasi</div><div class="d">Setiap layar bisa menjelaskan dirinya sendiri. Ini jawaban untuk kalimat "karyawan saya tidak akan bisa memakainya".</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Sistem Ponder, audit G56; <b>src/ponder/PonderOverlay.jsx</b>.</div></details></div></div>
+    <div class="row"><div class="t">Pangkat dan lencana dari kerja nyata</div><div class="d">Dari Bronze sampai Mythic. XP-nya datang dari hari setoran yang lolos periksa, toko yang dilayani, dan tagihan yang berhasil dikumpulkan. Bingkai pangkatnya digambar di sekitar foto profil, supaya sales bangga melihatnya.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/config/career.js</b> (careerXP, computeDayXP, DEFAULT_BADGES), <b>src/config/rankBorders.jsx</b>, jenjang bawaan di <b>src/AgentProfileView.jsx:213</b>.</div></details></div></div>
+    <div class="row"><div class="t">Serah terima antar wilayah harus disetujui orang yang ditunjuk</div><div class="d">Stok yang pindah wilayah tidak bisa disetujui sembarang admin. Ada nama penyetujunya.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>handoffEligibility</b>, <b>personApprovalRegions</b>, <b>canApproveHandoffFrom</b> di <b>src/config/permissions.js</b>.</div></details></div></div>
   </div>
 </section>
 
 <section id="aman">
-  <div class="head"><div class="eyebrow">04 · Keamanan, diverifikasi di kode</div><h2>Masuknya lewat Google, datanya terpisah per perusahaan.</h2></div>
+  <div class="head"><div class="eyebrow">04 · Keamanan</div><h2>Masuknya lewat Google. Datanya terpisah per perusahaan.</h2></div>
   <div class="rows">
-    <div class="row"><div class="t">Login: Firebase Authentication</div><div class="d">Infrastruktur Google — klaim keamanan terkuat yang dimiliki aplikasi ini.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/config/firebase.js</b> (auth, googleProvider); aturan server <b>firestore.rules</b> (A-Brain: Firestore Rules, disiplin draft-lalu-deploy).</div></details></div></div>
-    <div class="row"><div class="t">Kata sandi induk disimpan sebagai hash, bukan teks</div><div class="d">SHA-256 lewat crypto.subtle; pemulihan tiga lapis: kata rahasia → OTP email → 5 kali gagal = terkunci permanen.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/App.jsx:1004</b> (hash), <b>:1158–1219</b> (pemulihan). Catatan jujur: hash-nya belum bergaram (salt); peningkatan ke PBKDF2 sudah dicatat sebagai pekerjaan berikutnya (A-Brain: KPM Product Inventory).</div></details></div></div>
-    <div class="row"><div class="t">Setiap tindakan melapor</div><div class="d">Hukum rumah: diam adalah bug. Simpan yang gagal berkata gagal; tidak ada dialog "confirm" bawaan browser yang bisa diblokir diam-diam.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Self-check S16, S26; gerbang dialog <b>src/components/ConfirmGate.jsx</b> menggantikan 69 <b>window.confirm/prompt</b>.</div></details></div></div>
+    <div class="row"><div class="t">Login memakai Firebase Authentication</div><div class="d">Ini sistem login milik Google. Saya tidak menyimpan kata sandi login siapa pun.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/config/firebase.js</b> (auth, googleProvider); aturan server di <b>firestore.rules</b>, dengan disiplin draf dulu, baru deploy.</div></details></div></div>
+    <div class="row"><div class="t">Kata sandi induk disimpan sebagai hash, bukan teks</div><div class="d">Kalau lupa, ada tiga lapis pemulihan: kata rahasia, lalu kode lewat email, dan setelah lima kali salah akunnya terkunci.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop"><b>src/App.jsx:1004</b> (hash SHA-256 lewat crypto.subtle), <b>:1158–1219</b> (pemulihan). Catatan jujur: hash-nya belum bergaram; peningkatan ke PBKDF2 sudah masuk daftar kerja.</div></details></div></div>
+    <div class="row"><div class="t">Setiap tindakan melapor</div><div class="d">Aturan rumah di aplikasi ini: diam itu bug. Simpan yang gagal harus bilang gagal. Tidak ada dialog bawaan browser yang bisa diblokir diam-diam.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">Self-check S16, S26; gerbang dialog <b>src/components/ConfirmGate.jsx</b> menggantikan 69 <b>window.confirm/prompt</b>.</div></details></div></div>
   </div>
 </section>
 
 <section id="rasakan">
-  <div class="head"><div class="eyebrow">05 · Rasakan antarmukanya</div><h2>Ini bukan gambar. Ini kontrol aslinya.</h2>
-  <p class="lead">Aturan gaya di bawah disalin dari berkas tema aplikasi (theme.css). Tidak ada bayangan palsu: setiap cahaya adalah gradasi, setiap lampu hanya menyala saat sesuatu sedang terjadi.</p></div>
+  <div class="head"><div class="eyebrow">05 · Coba sendiri</div><h2>Ini bukan gambar. Ini tombolnya.</h2>
+  <p class="lead">Aturan gayanya saya salin dari berkas tema aplikasi, jadi yang bergerak di sini persis yang bergerak di telepon sales. Tidak ada bayangan palsu. Setiap cahaya adalah gradasi, dan lampu hanya menyala kalau memang ada yang terjadi.</p></div>
   <div class="demos">
     <div class="demo"><h3>Map folder</h3><div class="how">Tahan untuk mengintip · ketuk untuk membuka</div>
       <div class="kpm-folders">
         <button class="kpm-folder" type="button" data-folder><div class="kpm-folder-lid"><i class="kpm-folder-file" aria-hidden="true"></i><span class="kpm-folder-icon">◎</span></div><div class="kpm-folder-panel"><h4>Bandung</h4><span class="kpm-stamp">12 target</span></div></button>
         <button class="kpm-folder" type="button" data-folder><div class="kpm-folder-lid"><i class="kpm-folder-file" aria-hidden="true"></i><span class="kpm-folder-icon">◎</span></div><div class="kpm-folder-panel"><h4>Muntilan</h4><span class="kpm-stamp">4 target</span></div></button>
       </div>
-      <div class="cap">Tutup berjenis manila terangkat, kertas di dalamnya naik — 180 ms, satu kecepatan untuk membuka dan menutup. Dipakai di Radar Hub, Pelanggan, Sampling, dan verifikasi EOD. <details class="ev"><summary>bukti</summary><div class="pop"><b>src/components/FolderCard.jsx</b> (tahan ≥ 350 ms = intip, ketuk = masuk setelah 200 ms); <b>theme.css .kpm-folder*</b>; commit 4dfc590, 8eb8a25, 4a80dca, d7f2193.</div></details></div>
+      <div class="cap">Tutupnya terangkat dan kertas di dalamnya ikut naik. 180 milidetik, sama cepat membuka dan menutup. Folder ini dipakai di Radar Hub, daftar pelanggan, Sampling, dan verifikasi setoran. <details class="ev"><summary>bukti</summary><div class="pop"><b>src/components/FolderCard.jsx</b> (tahan ≥ 350 ms = intip, ketuk = masuk setelah 200 ms); <b>theme.css .kpm-folder*</b>; commit 4dfc590, 8eb8a25, 4a80dca, d7f2193.</div></details></div>
     </div>
-    <div class="demo"><h3>Lampu status toko</h3><div class="how">Kartu kritis: tepinya menyala dan bernapas</div>
+    <div class="demo"><h3>Lampu status toko</h3><div class="how">Kartu yang bermasalah: tepinya menyala dan bernapas</div>
       <div class="store kpm-crit"><div class="nm">Toko Berkah Jaya</div><div class="kpm-led-line crit"><i aria-hidden="true"></i>Tagihan lewat 9 hari</div><div class="keys"><div class="key">Engage</div><div class="key">Navigate</div></div></div>
       <div class="store"><div class="nm">Warung Sumber Rejeki</div><div class="kpm-led-line"><i aria-hidden="true"></i>Kunjungan 3 hari lagi</div><div class="keys"><div class="key">Engage</div><div class="key">Navigate</div></div></div>
-      <div class="cap">Satu dioda dan kata-kata mono. Merah hanya untuk masalah; diam berarti beres. <details class="ev"><summary>bukti</summary><div class="pop"><b>theme.css .kpm-led-line, .kpm-crit</b> (kpmCritBreath 3,2 s); Journey Plan store card C + LED, commit 0743a17 ("LED cyberpunk style").</div></details></div>
+      <div class="cap">Satu dioda kecil dan sebaris kata. Merah cuma untuk masalah. Kalau diam, berarti beres. <details class="ev"><summary>bukti</summary><div class="pop"><b>theme.css .kpm-led-line, .kpm-crit</b> (napasnya 3,2 detik); kartu toko Journey Plan, commit 0743a17.</div></details></div>
     </div>
     <div class="demo"><h3>Penghitung nixie</h3><div class="how">Ketuk untuk memutar angka baru</div>
       <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><span class="kpm-nixie" id="demoNixie" style="--nx: 28px" aria-label="1250000"></span><button class="key" type="button" id="rollNixie" style="flex:0 0 auto;padding:0 14px">Putar</button></div>
-      <div class="cap">Satu tabung kaca hitam per digit; gulungan 0–9 bergeser ke angkanya dengan jeda 45 ms per tempat, seperti tabung nixie analog. Hitam di kedua tema — instrumen tidak mengikuti lampu ruangan. <details class="ev"><summary>bukti</summary><div class="pop"><b>src/components/NixieCount.jsx</b>; <b>theme.css .kpm-nixie*</b>; permintaan Aldi 18 Sep 2026: "make it like nixie tube a like so its analog but animated"; commit bcb08c4, a13744a.</div></details></div>
+      <div class="cap">Satu tabung kaca hitam untuk tiap angka. Di dalamnya ada gulungan 0 sampai 9 yang bergeser ke angkanya, digit di kanan menyusul sedikit lebih lambat, seperti tabung nixie sungguhan. Hitam di tema terang maupun gelap; alat ukur tidak ikut lampu ruangan. <details class="ev"><summary>bukti</summary><div class="pop"><b>src/components/NixieCount.jsx</b>; <b>theme.css .kpm-nixie*</b>; commit bcb08c4, a13744a.</div></details></div>
     </div>
-    <div class="demo"><h3>Verifikasi setoran malam</h3><div class="how">Tekan pelat emas</div>
+    <div class="demo"><h3>Verifikasi setoran malam</h3><div class="how">Tekan pelat emasnya</div>
       <div class="docket" id="docket">
         <div class="hd"><div class="kpm-stamp">Min 20 Sep · 2 laporan</div><div class="pc-name" style="margin-top:6px">Budi Santoso</div></div>
         <div class="line"><span class="kpm-led-line"><i aria-hidden="true"></i>Tunai</span><span class="v">Rp 1.250.000</span><span class="k ok">✓</span><span class="k no">✕</span></div>
@@ -309,9 +309,9 @@
         <button class="plate kpm-plate" type="button" id="verify">Verify Night</button>
         <i class="scan" aria-hidden="true"></i><i class="seal" aria-hidden="true">VERIFIED</i>
       </div>
-      <div class="cap">Garis emas memindai lembar dari atas ke bawah, cap VERIFIED menghentak, lembar pergi. Sudut HUD di kepala lembar. <details class="ev"><summary>bukti</summary><div class="pop"><b>theme.css</b> blok THE DOCKET (kpmScan 500 ms, kpmSeal 320 ms @ 450 ms); <b>src/EODReconciliationView.jsx</b> (seal, EOD_SEAL_MS 900); commit 64f6505, 20 Sep 2026.</div></details></div>
+      <div class="cap">Garis emas memindai lembar dari atas ke bawah, cap VERIFIED turun, lembarnya pergi. Sudut-sudut di kepala lembar itu gaya layar pesawat tempur; saya suka. <details class="ev"><summary>bukti</summary><div class="pop"><b>theme.css</b> blok THE DOCKET (kpmScan 500 ms, kpmSeal 320 ms @ 450 ms); <b>src/EODReconciliationView.jsx</b> (seal, EOD_SEAL_MS 900); commit 64f6505, 20 September 2026.</div></details></div>
     </div>
-    <div class="demo wide"><h3>Kartu pemain <span class="stamp" style="vertical-align:middle;margin-left:6px">dalam pengerjaan</span></h3><div class="how">Ketuk kepala kartu — malamnya terbuka di bawahnya</div>
+    <div class="demo wide"><h3>Kartu pemain <span class="stamp" style="vertical-align:middle;margin-left:6px">sedang dibangun</span></h3><div class="how">Ketuk kepala kartunya. Malam itu terbuka di bawahnya</div>
       <div class="pc" id="pc">
         <div class="pc-head" id="pcHead" role="button" tabindex="0">
           <div class="pc-top"><div class="pc-photo">BS</div><div style="min-width:0;flex:1">
@@ -330,81 +330,43 @@
         </div></div>
         <button class="pc-toggle" type="button" id="pcToggle" aria-label="Buka">⌄</button>
       </div>
-      <div class="cap">Rancangan yang disetujui 20 Sep 2026 ("looks good for v2 lets use that"): foto di dalam bingkai pangkat, XP dengan tambahan hari itu, jenjang ke pangkat berikutnya, toko yang ditutup; di bawahnya omzet, produk, dan setiap baris setoran dengan ✓ / ✕ sendiri. Belum dipasang di aplikasi — sedang dibangun. <details class="ev"><summary>bukti</summary><div class="pop">Mock di <b>tools/ponder-lab.jsx</b> (PlayerCardMock), commit 2832cea; rencana tahap A–C di <b>.claude/NEXT-SESSION.md</b>.</div></details></div>
+      <div class="cap">Ini rancangan yang baru disetujui 20 September 2026. Foto di dalam bingkai pangkat, XP dengan tambahan hari itu, jarak ke pangkat berikutnya, toko yang berhasil ditutup. Di bawahnya omzet, produk yang terjual, dan tiap baris setoran dengan ✓ atau ✕ sendiri-sendiri. Belum ada di aplikasi; sedang saya kerjakan. Angka di kartu ini contoh. <details class="ev"><summary>bukti</summary><div class="pop">Mock di <b>tools/ponder-lab.jsx</b> (PlayerCardMock), commit 2832cea; rencana tahap A sampai C di <b>.claude/NEXT-SESSION.md</b>.</div></details></div>
     </div>
   </div>
 </section>
 
 <section id="layar">
-  <div class="head"><div class="eyebrow">06 · Di layar telepon</div><h2>Diukur pada lebar 375 piksel.</h2>
-  <p class="lead">Setiap panel harus bekerja di telepon sebaik di komputer. Bingkai-bingkai ini adalah tangkapan layar dari laboratorium uji aplikasi pada lebar telepon.</p></div>
+  <div class="head"><div class="eyebrow">06 · Di layar telepon</div><h2>Diukur di lebar 375 piksel.</h2>
+  <p class="lead">Aturan saya: setiap panel harus enak dipakai di telepon, bukan cuma di komputer. Gambar-gambar ini tangkapan layar dari laboratorium uji aplikasi pada lebar telepon.</p></div>
   <div class="phones">
-    <div class="phone"><div class="scr"><img src="img/journey.png" alt="Journey Plan: feed satu baris, peta strip 160 px, folder Radar Hub di layar pertama"></div><div class="cap"><b>Journey Plan</b><br>Feed satu baris, peta menjadi strip 160 px, folder wilayah langsung terlihat. Jari menggulir halaman, bukan peta. <details class="ev"><summary>bukti</summary><div class="pop">Commit 73d9eb9 (20 Sep 2026); diukur: hub di y 545 (sebelumnya 821), touch-action pan-x pan-y.</div></details></div></div>
-    <div class="phone"><div class="scr"><img src="img/hub.png" alt="Radar Hub: kartu wilayah sebagai folder"></div><div class="cap"><b>Radar Hub</b><br>Setiap wilayah adalah folder bernomor; ketuk untuk masuk, tahan untuk mengintip. <details class="ev"><summary>bukti</summary><div class="pop">Commit 4dfc590 ("B for both", 19 Sep 2026); <b>src/JourneyView.jsx</b>.</div></details></div></div>
-    <div class="phone"><div class="scr"><img src="img/customers.png" alt="Pelanggan: folder dua per baris"></div><div class="cap"><b>Pelanggan</b><br>Folder dua per baris; alat admin (hapus / ubah) terlipat di balik tombol ⋯. <details class="ev"><summary>bukti</summary><div class="pop">Commit 8eb8a25, 5d7a9d0; <b>src/components/CustomerManager.jsx</b>.</div></details></div></div>
-    <div class="phone"><div class="scr"><img src="img/sampling.png" alt="Sampling: tahun sebagai folder"></div><div class="cap"><b>Sampling</b><br>Tahun › bulan › tanggal › tempat sebagai folder yang sama; daftar barang sebagai baris, bukan tabel. <details class="ev"><summary>bukti</summary><div class="pop">Commit d7f2193 ("B is better, use that instead", 19 Sep 2026); <b>src/components/SamplingManager.jsx</b>.</div></details></div></div>
-    <div class="phone"><div class="scr"><img src="img/eod.png" alt="EOD verifikasi: satu folder per sales"></div><div class="cap"><b>Verifikasi EOD</b><br>Satu folder per sales; ketuk → lembar malam dengan total nixie dan satu pelat. <details class="ev"><summary>bukti</summary><div class="pop">Commit 64f6505 (20 Sep 2026); gambar ini bingkai papan rancangan B yang kemudian dibangun.</div></details></div></div>
-  </div>
-</section>
-
-<section id="harga">
-  <div class="head"><div class="eyebrow">07 · Harga dan model bisnis</div><h2>Rencana harga — belum final.</h2>
-  <p class="lead">Angka di bawah adalah rencana yang tercatat, bukan kesepakatan. Semuanya bergantung pada satu bilangan yang belum dikonfirmasi: jumlah pengguna (25–30) dan berapa di antaranya sales lapangan.</p></div>
-  <div class="tbl"><table>
-    <tr><th>Paket</th><th>Angka</th></tr>
-    <tr><td>Uji coba 3–6 bulan, seluruh tim</td><td class="v">Rp 2,5 juta / bulan</td></tr>
-    <tr><td>Setelah uji coba, sampai 30 pengguna</td><td class="v">Rp 5 juta / bulan</td></tr>
-    <tr><td>Pengguna ke-31 dan seterusnya</td><td class="v">Rp 150 ribu / orang / bulan</td></tr>
-    <tr><td>Implementasi (migrasi data + pelatihan 30 orang)</td><td class="v">Rp 7,5 juta</td></tr>
-    <tr><td>Biaya jalan (Firebase, alat, 8–15 jam dukungan) — batas bawah</td><td class="v">≈ Rp 2 juta / bulan</td></tr>
-  </table></div>
-  <p class="dim" style="margin-top:8px;font-size:13px">Aldi sendiri condong ke Rp 10 juta/bulan; saran yang tercatat: buka di 10, siap mendarat di 7. <details class="ev"><summary>bukti</summary><div class="pop">A-Brain <b>Wiki/Entities/KPM Price Sheet.md</b> (10 Sep 2026, status ACTIVE) dan <b>Brainstorm/2026-09-10_pricing-revisi-50-100-user.md</b>. Biaya Firebase adalah perkiraan dari tarif publik, belum dari tagihan nyata.</div></details></p>
-  <h3 style="margin-top:22px">Empat tolok ukur yang berhenti di tempat yang sama</h3>
-  <div class="rows" style="margin-top:10px">
-    <div class="row"><div class="t">① Biaya</div><div class="d">Rp 5 juta = 2,5 × biaya jalan. Membayar waktu, menyisakan margin, tidak memeras.</div></div>
-    <div class="row"><div class="t">② Pasar</div><div class="d">Padanan Indonesia Rp 4,5–9 juta untuk 30 pengguna. Accurate Online ≈ Rp 977 ribu tapi tidak bisa titip, tidak tahu posisi sales, tidak mencetak nota di motor. Badger Maps ≈ Rp 28 juta.</div></div>
-    <div class="row"><div class="t">③ Kebocoran</div><div class="d">25 sales × Rp 30 juta stok di jalan ≈ Rp 600–750 juta. Bocor 1 % = Rp 6–7,5 juta sebulan. Harganya di bawah kebocoran. Kalimat terkuat dalam seluruh presentasi — dan berhenti benar di Rp 10 juta kecuali stok di jalan ≈ Rp 1 miliar.</div></div>
-    <div class="row"><div class="t">④ Gaji</div><div class="d">≈ satu gaji admin — dan admin tidak bisa menghitung ulang stok yang sedang bergerak di jalan.</div></div>
-  </div>
-  <h3 style="margin-top:22px">Lisensi selamanya dan hak cipta</h3>
-  <div class="tbl" style="margin-top:10px"><table>
-    <tr><th>Skema</th><th>5 tahun</th></tr>
-    <tr><td>Langganan Rp 5 juta × 60 bulan</td><td class="v">Rp 300 juta</td></tr>
-    <tr><td>Lisensi selamanya Rp 250 juta + pemeliharaan Rp 50 juta/tahun</td><td class="v">Rp 500 juta</td></tr>
-  </table></div>
-  <p class="dim" style="margin-top:8px;font-size:13px">Lisensi selamanya ditawarkan untuk ditolak — lebih mahal bagi pembeli. Hak cipta <b>tidak dijual</b>: menjualnya berarti berhenti menawarkan ke pabrik lain selamanya; batas atas yang jujur bila ada yang sungguh mendesak: biaya bangun ulang + premi, Rp 2–3 miliar. Pasal 9 (escrow) sudah memberi pembeli kode bila pengembang berhenti 90 hari. <details class="ev"><summary>bukti</summary><div class="pop">KPM Price Sheet — bagian "Perpetual licence" dan "Copyright sale — not for sale" (dikoreksi 10 Sep 2026: angka Rp 5 miliar ditarik); UU 28/2014 Pasal 82 ayat (3).</div></details></p>
-  <h3 style="margin-top:22px">Lima aturan saat ditanya harga</h3>
-  <div class="stamps" style="margin-top:10px"><span class="stamp">Jangan jawab dengan biaya sendiri</span><span class="stamp">Diam setelah menyebut angka</span><span class="stamp">Kalau didesak, kurangi cakupan — bukan harga</span><span class="stamp">Tidak ada fitur khusus gratis</span><span class="stamp">Harga paling akhir: tanya → tunjukkan → harga</span></div>
-</section>
-
-<section id="legal">
-  <div class="head"><div class="eyebrow">08 · Pajak dan hukum</div><h2>Kecil di mata pajak, jelas di atas kertas.</h2></div>
-  <div class="rows">
-    <div class="row"><div class="t">Rp 60 juta setahun = 1,25 % dari plafon UMKM</div><div class="d">Sebagai orang pribadi, omzet Rp 500 juta pertama bebas PPh final 0,5 % → PPh final Rp 0. PKP / PPN tidak diperlukan di bawah Rp 4,8 miliar. Pilihan badan usaha soal tanggung jawab, bukan pajak (selisihnya Rp 300 ribu setahun).</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">A-Brain <b>Brainstorm/2026-09-10_riset-hukum-menjual-kpm.md</b>; tingkat keyakinan "likely" pada fasilitas Rp 500 juta.</div></details></div></div>
-    <div class="row"><div class="t">Kontrak 13 pasal — draf</div><div class="d">Pasal 6 diisi dari lembar harga; Pasal 9 escrow kode. Draf, belum ditandatangani.</div><div class="e"><details class="ev"><summary>bukti</summary><div class="pop">A-Brain <b>2026-09-10_draft-13-pasal-kontrak-kpm</b>.</div></details></div></div>
+    <div class="phone"><div class="scr"><img src="img/journey.png" alt="Journey Plan: feed satu baris, peta strip 160 px, folder Radar Hub di layar pertama"></div><div class="cap"><b>Journey Plan</b><br>Feed jadi satu baris, peta jadi strip pendek, folder wilayah langsung kelihatan. Jari menggulir halaman, bukan menggeser peta. <details class="ev"><summary>bukti</summary><div class="pop">Commit 73d9eb9 (20 September 2026). Diukur: folder wilayah di y 545, sebelumnya 821; touch-action pan-x pan-y.</div></details></div></div>
+    <div class="phone"><div class="scr"><img src="img/hub.png" alt="Radar Hub: kartu wilayah sebagai folder"></div><div class="cap"><b>Radar Hub</b><br>Tiap wilayah adalah folder bernomor. Ketuk untuk masuk, tahan untuk mengintip. <details class="ev"><summary>bukti</summary><div class="pop">Commit 4dfc590 (19 September 2026); <b>src/JourneyView.jsx</b>.</div></details></div></div>
+    <div class="phone"><div class="scr"><img src="img/customers.png" alt="Pelanggan: folder dua per baris"></div><div class="cap"><b>Pelanggan</b><br>Folder dua per baris. Tombol hapus dan ubah untuk admin terlipat di balik ⋯. <details class="ev"><summary>bukti</summary><div class="pop">Commit 8eb8a25, 5d7a9d0; <b>src/components/CustomerManager.jsx</b>.</div></details></div></div>
+    <div class="phone"><div class="scr"><img src="img/sampling.png" alt="Sampling: tahun sebagai folder"></div><div class="cap"><b>Sampling</b><br>Tahun, bulan, tanggal, tempat: semuanya folder yang sama. Daftar barangnya baris, bukan tabel. <details class="ev"><summary>bukti</summary><div class="pop">Commit d7f2193 (19 September 2026); <b>src/components/SamplingManager.jsx</b>.</div></details></div></div>
+    <div class="phone"><div class="scr"><img src="img/eod.png" alt="EOD verifikasi: satu folder per sales"></div><div class="cap"><b>Verifikasi setoran</b><br>Satu folder per sales. Ketuk, dan lembar malamnya terbuka dengan total di tabung nixie dan satu pelat untuk menyetujui. <details class="ev"><summary>bukti</summary><div class="pop">Commit 64f6505 (20 September 2026); gambar ini dari papan rancangan yang kemudian dibangun.</div></details></div></div>
   </div>
 </section>
 
 <section id="jalan">
-  <div class="head"><div class="eyebrow">09 · Sedang dikerjakan</div><h2>Minggu ini, dan yang berikutnya.</h2></div>
+  <div class="head"><div class="eyebrow">07 · Yang sedang dikerjakan</div><h2>Minggu ini, dan sesudahnya.</h2></div>
   <div class="rm">
-    <div class="it done"><i></i><div><div class="t">Journey Plan di telepon: peta strip, feed satu baris, jari menggulir halaman</div><div class="d">Dikirim 20 Sep 2026 — commit 73d9eb9.</div></div></div>
-    <div class="it done"><i></i><div><div class="t">Sampling: empat tingkat sebagai folder, barang sebagai baris</div><div class="d">Dikirim 19 Sep 2026 — commit d7f2193, perbaikan 6379364.</div></div></div>
-    <div class="it done"><i></i><div><div class="t">Verifikasi EOD: satu folder per sales, lembar malam, riwayat sebagai folder</div><div class="d">Dikirim 20 Sep 2026 — commit 64f6505.</div></div></div>
-    <div class="it now"><i></i><div><div class="t">Kartu pemain: setujui / tolak per baris (tunai, transfer, cukai, bounty)</div><div class="d">Rancangan v2 disetujui 20 Sep 2026; tahap A (data per bagian + kartu) berikutnya; tahap B kartu di profil sales + animasi tambahan XP.</div></div></div>
-    <div class="it"><i></i><div><div class="t">Profil sales di telepon</div><div class="d">Dua blok melebihi lebar layar (87 dan 78 px) — tercatat di backlog, belum dikerjakan.</div></div></div>
-    <div class="it"><i></i><div><div class="t">Nixie di mode terang, hash kata sandi ke PBKDF2, dua bug hari pertama</div><div class="d">Antrean berikutnya.</div></div></div>
+    <div class="it done"><i></i><div><div class="t">Journey Plan di telepon: peta strip, feed satu baris, jari menggulir halaman</div><div class="d">Selesai 20 September 2026, commit 73d9eb9.</div></div></div>
+    <div class="it done"><i></i><div><div class="t">Sampling: empat tingkat sebagai folder, barang sebagai baris</div><div class="d">Selesai 19 September 2026, commit d7f2193 dan perbaikan 6379364.</div></div></div>
+    <div class="it done"><i></i><div><div class="t">Verifikasi setoran: satu folder per sales, lembar malam, riwayat sebagai folder</div><div class="d">Selesai 20 September 2026, commit 64f6505.</div></div></div>
+    <div class="it now"><i></i><div><div class="t">Kartu pemain: setujui atau tolak per baris (tunai, transfer, cukai, denda)</div><div class="d">Rancangan disetujui 20 September 2026. Berikutnya datanya per bagian dan kartunya, lalu kartu yang sama di profil sales dengan animasi tambahan XP.</div></div></div>
+    <div class="it"><i></i><div><div class="t">Profil sales di telepon</div><div class="d">Dua blok masih melebihi lebar layar (87 dan 78 piksel). Sudah tercatat, belum dikerjakan.</div></div></div>
+    <div class="it"><i></i><div><div class="t">Nixie di tema terang, hash kata sandi ke PBKDF2</div><div class="d">Antrean sesudah itu.</div></div></div>
   </div>
 </section>
 
 <section id="sumber">
-  <div class="head"><div class="eyebrow">10 · Sumber</div><h2>Dari mana semua ini datang.</h2></div>
+  <div class="head"><div class="eyebrow">08 · Sumber</div><h2>Dari mana semua ini.</h2></div>
   <div class="rows">
-    <div class="row"><div class="t">Kode: repositori kpm-inventory</div><div class="d mono" style="font-size:12px">src/ · src/config/permissions.js · src/config/logicFixes.selfcheck.mjs · src/config/integration.audit.mjs · src/styles/theme.css · commit 2e551c8 (20 Sep 2026)</div></div>
-    <div class="row"><div class="t">Pengetahuan: A-Brain (vault catatan)</div><div class="d mono" style="font-size:12px">Wiki/Entities/KPM Price Sheet.md · Wiki/Entities/KPM Product Inventory.md · Brainstorm/2026-09-10_pricing-revisi-50-100-user.md · Brainstorm/2026-09-10_riset-hukum-menjual-kpm.md · 2026-09-10_draft-13-pasal-kontrak-kpm · Wiki/Concepts/Aldi's Design Taste.md</div></div>
+    <div class="row"><div class="t">Kode: repositori kpm-inventory</div><div class="d mono" style="font-size:12px">src/ · src/config/permissions.js · src/config/logicFixes.selfcheck.mjs · src/config/integration.audit.mjs · src/styles/theme.css · commit 2e551c8 (20 September 2026)</div></div>
+    <div class="row"><div class="t">Catatan kerja: A-Brain</div><div class="d mono" style="font-size:12px">Wiki/Entities/KPM Product Inventory.md · Wiki/Concepts/Aldi's Design Taste.md · Wiki/Concepts/A sale is a closed contract.md</div></div>
     <div class="row"><div class="t">Cara memeriksa sendiri</div><div class="d mono" style="font-size:12px">npm run build; node src/config/integration.audit.mjs → 722 passed, 0 failed · node src/config/logicFixes.selfcheck.mjs → 1680 passed, 0 failed</div></div>
   </div>
-  <footer>KPM Command Center · disusun 20 September 2026 · fitur yang ditandai "dalam pengerjaan" belum ada di aplikasi · halaman ini akan diperbarui seiring aplikasi berkembang.</footer>
+  <footer>KPM Command Center · disusun 20 September 2026 · yang bertanda "sedang dibangun" belum ada di aplikasi · halaman ini akan saya perbarui seiring aplikasinya berkembang.</footer>
 </section>
 
 </main>
