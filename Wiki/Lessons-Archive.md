@@ -569,3 +569,21 @@ made"*. `GoodsReceivedStage` had been hand-built demo markup with 12 anchors the
 question cost a round trip and ended the turn with nothing built.
 Seen: 2026-09-04
 Fired:
+
+### 2026-09-05 — when the thing you are resizing has a stock value, read it before picking a number
+**Status:** RETIRED (2026-09-19) — never fired in 14 days of real work (the resize it describes was a game mod, not KPM); a platitude here — "read the stock value first" cannot be made a check in this repo, so it retires as prose
+**Trigger:** about to set a dimension, limit, timeout or capacity on something that ships with a
+default — a modded game's UI grid, an overridden CSS variable, a tuned config. Before choosing the
+number.
+**Lesson:** find the stock value first and treat it as the proven envelope. It is the one number in
+the system that is known to work, and it usually costs one grep. A number reasoned out from the
+screen size, the spec, or the user's phrasing is a guess wearing arithmetic.
+**Would have prevented:** 2026-09-05, the 7DTD vehicle-storage panel. Aldi said it overflowed; I
+shipped 17x22@48px, then 18x20@48px, then 18x20@36px — three round trips, each sized off his screen
+resolution and his own words ("vertical can be more"), and the first two both overran. Vanilla's own
+grid is 11 rows x 67px = 737 pixels tall and is known to fit. That line was in
+`Data/Config/XUi_InGame/windows.xml`, a file I had already opened and quoted in turn one to prove
+the grid had no scrollbar. Two of the three passes were avoidable, on a session that ran the weekly
+plan quota from 83% to 92%.
+Seen: 2026-09-05
+Fired:
