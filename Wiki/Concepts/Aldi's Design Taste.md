@@ -2633,3 +2633,13 @@ tool keys on a strip, a 124 px feed card for one line of status). "Not taking th
 shrink, not hide. The scroll bug he named ("scrolling causing the map to move instead of sliding the page down") was a
 touch-action none on the map box; the fix is the native one (drag off until full screen), no plugin. Shipped as kpm
 `73d9eb9`.
+
+## EOD HQ Verification — B, and what "tech game spices" meant (2026-09-20 02:50)
+*"B is better but i want the confirmation for cukai and cash to be one panel per person make sure animation and
+smoothness for the graphic and colour suit our theme both dark and light mode and add some tech game spices in there
+as well."* Three rules in one line. (1) **The unit of his work is the person, not the record** — two reports from one
+salesman are one night; he verifies a night. (2) **Both themes are the deliverable** — a design is checked in light
+before it ships, not assumed from the tokens. (3) **"Tech game spices" = the kit the app already owns, used sparingly:**
+the nixie for the big number, HUD corner brackets on a sheet, a scan line and a stamp on the commit, a diode that only
+lights for a problem. Not new colours, not shadows — the palette law and G30 held, and the audit refused --gold as the
+seal's text (the readable token instead). Shipped as kpm `64f6505`.
