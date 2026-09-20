@@ -1361,3 +1361,14 @@ His board 1 YES + board 2 B ("more space for long product name"), kpm `84e102f`:
 ## 2026-09-18 — Customers round two shipped on the phone
 
 His A / A / A on three boards, kpm `5d7a9d0`: the boss's admin tools fold behind ADMIN TOOLS (the sideways cause — shell scrollWidth 521 → 375 as tier 1), DEL / EDIT behind a ⋯ key with a fold under every row and card (one set of buttons relocated by `contents lg:flex` + grid placement), the hold is an amber charge line and the lamp stays black; desk unchanged at 1280. Taste page: rare tools fold, destructive controls hide, motion vocabulary must not repeat across instruments. Looking at the App: the pane does not advance a transition until it paints — screenshot, then read; utility-class selectors match more than the group you mean. Brainstorm note closed DECIDED. Next: Stock Opname on the phone, measured as both tiers.
+
+## 2026-09-20 — THE PLAYER CARD, stage A shipped (kpm `a401463`)
+
+His 03:55 redesign of the EOD review three hours after the docket shipped, decided 05:35 ("looks good for v2 lets use
+that"). Per-part approve / return on the data path (`eodReportParts`, `handleVerifyEOD(report, decision)`, the
+fresh-map gate inside the transaction, VERIFIED only when every part is in, the salesman notified and shown the reason);
+one PlayerCard per salesman replaces the folders + docket (the profile's head via `rankLadder` lifted into career.js,
+CLOSED ?/? via `dayTargets` lifted from the Journey Plan, the body grows open with a blur-in, the scan + seal kept);
+the mock and the eod-card look deleted; rules untouched and reported. New pages: [[The Player Card]] (hub),
+[[EOD Per-Part Verification]] (entity); taste page: the player card section, his words verbatim. Checks: logicFixes
+1695/1695, audit 722/722 (G30 gains the blur as a second named exemption). Next: his ✅ TEST on a401463, then stage B.

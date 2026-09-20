@@ -20,6 +20,7 @@ For the authoritative flat catalog, always check [[../Index]] first.
 - [[A CSS Animation Outranks Your Inline Style]]
 - [[A Rect Is Painted, Not Laid Out]]
 - [[Aldi's Design Taste]]
+- [[The Player Card]]
 - [[Anti-Recurrence Check]]
 - [[Draft-Then-Deploy Discipline]]
 - [[Fat Documents in a Live Listener]]

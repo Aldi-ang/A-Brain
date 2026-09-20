@@ -70,6 +70,10 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   unrelated write into megabytes of main-thread work, because a snapshot re-materialises the
   whole collection; found chasing the phone freeze after registering an outlet
 - [[Aldi's Design Taste]] — what he actually likes and rejects, built only from screens he judged
+- [[The Player Card]] — the boss's EOD review as one card per salesman: the profile's head, the handover one
+  line per part with ✓ / ✕; stage A shipped 2026-09-20, B and C named
+- [[EOD Per-Part Verification]] — the data contract behind it: what each ✓ credits, what a ✕ writes, what stayed
+  untouched (the rules), and the edges he has not decided
 - [[The Eight Warehouse Gaps]] — what big warehouse operations do that KPM does not, ranked, with the build order and the excise question that blocks one of them
 - [[Logistics and Stock Movement]] — **topic hub**: the factory→HQ→branch→van→store chain, which note answers which question, and the locked rules. Start here for anything about shipping, restock, transfers or stock levels.
 - [[One Pack Count, Many Screens]] — karton, bal, slop and bks: the one converter every screen must use, why the boxes are a calculator rather than a second unit on the line, and the two screens that still hardcode the rate and miscount today.

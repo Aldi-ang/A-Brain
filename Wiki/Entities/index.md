@@ -26,6 +26,7 @@ folder-level map, not a replacement for it.
 - [[Gudang Pusat (Master Vault)]]
 - [[The Place Registry]]
 - [[Rank Config and Achievement Badges]]
+- [[EOD Per-Part Verification]]
 - [[Terminal Tenant Path Split]]
 - [[The Admin Agent Profile Id]]
 - [[Tier System]]

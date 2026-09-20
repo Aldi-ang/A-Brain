@@ -2643,3 +2643,32 @@ before it ships, not assumed from the tokens. (3) **"Tech game spices" = the kit
 the nixie for the big number, HUD corner brackets on a sheet, a scan line and a stamp on the commit, a diode that only
 lights for a problem. Not new colours, not shadows — the palette law and G30 held, and the audit refused --gold as the
 seal's text (the readable token instead). Shipped as kpm `64f6505`.
+
+## The player card — the person as the unit, the profile as the face, per-part approval for money (2026-09-20 03:55 → 05:35)
+Three hours after the folders + docket shipped (`64f6505`) he redesigned the same screen: *"actually i want u to
+redesign this, maybe it is better when we made approve and reject for every single EOD, so one for each, cash,
+transfer, pita cukai, bounties for havent paid penalty,etc and instead of folder form i want u to make it into 3D card
+that looks like this video, the front card is for the statistic and agent profile picture of the users and second side
+of the card is for statistic on the EOD like pita cukai, transfer, cash etc … for example 3/8 stores are Closing deal
+… i want u to act like CEO and sales persona at the same time and give me your critique and recommendations on my
+idea, looks kinda fun and satisfying to see as well right?"* His answers to the four questions, 04:15: *"per item reject
+and approve looks okay, since sales will bring few kind of items, the three front number maybe we can put the EXP gain
+statistic animation on the agent EOD panel after approval,and stores closing ?/? is also important revenue should be
+on the second screen with all product performance and the EOD statistic. the picture should be the same with the
+agent profile picture inside agent profile"*. On v1 of the mock, 04:55: *"i dont know whats the point of this so erase
+that, and btw change the effect with this instead, i think it will fit the card beter and add PLUS on the increase in
+EXP and also the Recent rank and the progression from the agent profile"* — the TONIGHT nixie block erased, the pixel
+dissolve of his first clip replaced by his second clip (a card that grows open under its photo, the body blurring in).
+On v2, 05:35: *"looks good for v2 lets use that"*.
+
+What it teaches. (1) **A shipped screen is not a finished screen when its UNIT was wrong** — a night as one sheet
+verified by one plate was the reflex he refused for money; each part of the handover is its own yes or no, and the
+data model had to follow (per-part `verified` / `rejected`, [[EOD Per-Part Verification]]). (2) **The profile is the
+face; other screens borrow it, never redraw it** — "the same with the agent profile picture": the rank frame, the
+rank + title, the XP and the bar came from the profile's own code (`rankLadder` lifted so both climb one ladder).
+(3) **He swaps an effect by sending a clip, not by describing one** — the first clip's dissolve was named, the second
+clip's grow-open replaced it in one message; build the mock so the effect can be swapped without rebuilding the card.
+(4) **A number without its delta is unfinished** — "add PLUS on the increase in EXP"; the same rule as the nixie's
+signed difference. (5) **A block he cannot explain is erased on sight** — "i dont know whats the point of this so erase
+that": every figure on a card must answer a question he would ask. Shipped as kpm `a401463` (stage A); the card is
+[[The Player Card]].
