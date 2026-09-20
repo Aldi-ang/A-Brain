@@ -2624,3 +2624,12 @@ phone screen as the tier with the MOST keys (the boss's second gold key ran off 
 and a table does not fit a phone row that also holds two keys (a one-line table cut "Cello Green 16" to "Cello
 Gr…") — rows won. Board B was the shipped component rendered in the lab, not a CSS drawing; that is why the
 decision took one message. Shipped as kpm `d7f2193`.
+
+## Journey Plan — A, the strip (2026-09-20 01:15)
+*"A looks best"* between A (the map a 160 px strip with the pins still visible, the feed one line) and B (the map folded
+away into a MAP card under the hub). He kept the glance at the map over the most compact page: context he can use at a
+look stays on the first screen; what he cuts is the space that earns nothing (the +/- keys, the legend, the three
+tool keys on a strip, a 124 px feed card for one line of status). "Not taking that much space if not needed" means
+shrink, not hide. The scroll bug he named ("scrolling causing the map to move instead of sliding the page down") was a
+touch-action none on the map box; the fix is the native one (drag off until full screen), no plugin. Shipped as kpm
+`73d9eb9`.
