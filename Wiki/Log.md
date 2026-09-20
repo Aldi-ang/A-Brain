@@ -1372,3 +1372,7 @@ CLOSED ?/? via `dayTargets` lifted from the Journey Plan, the body grows open wi
 the mock and the eod-card look deleted; rules untouched and reported. New pages: [[The Player Card]] (hub),
 [[EOD Per-Part Verification]] (entity); taste page: the player card section, his words verbatim. Checks: logicFixes
 1695/1695, audit 722/722 (G30 gains the blur as a second named exemption). Next: his ✅ TEST on a401463, then stage B.
+
+## 2026-09-20 16:30 — the player card: one question per night, one history row per night (kpm `992ff6e`, `601e387`)
+
+His 15:00 answer on stage A: the confirm panel "showing up twice" (a night is two documents, the handler asked per document) and the History Log splitting one night into two rows. Fixed: `eodNightMessage` asks once for the night, `handleVerifyEOD` / `handleResetEOD` take `{ confirmed: true }`, the log shows the night as one row (a fine keeps its own). Entity page [[EOD Per-Part Verification]] to be updated with the `confirmed` flag next session (quota wall at 16:30).
