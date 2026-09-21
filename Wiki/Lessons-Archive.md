@@ -587,3 +587,19 @@ the grid had no scrollbar. Two of the three passes were avoidable, on a session 
 plan quota from 83% to 92%.
 Seen: 2026-09-05
 Fired:
+
+### 2026-09-06 — one sentinel must not carry two meanings in a permission predicate
+**Status:** RETIRED (2026-09-20) — never fired in 14 days of real work; the guarded form (`senderIsCompanyWide`) is already pinned by 3 selfcheck assertions, so the check exists and the prose retires
+**Trigger:** before shipping any access predicate where a MISSING value is read as an ALLOW — the
+moment `!x` or a default of `null` decides that somebody may do something.
+**Lesson:** give the permissive case its own explicit flag. Absent data and deliberate authority
+look identical through one variable, and the failure is silent and in the dangerous direction: the
+emptiest record gets the widest reach, and no check fails.
+**Would have prevented:** `handoffEligibility` was written with `senderRegion: null` meaning "acts
+for the whole company". A field agent whose `location` was never filled in also arrives as null, so
+every unplaced agent in the company could have handed a consignment store to anyone in any branch —
+the exact hole the predicate was written to close. Caught on re-reading the code I had just written,
+before any check existed that could have failed on it. Split into `senderIsCompanyWide` and trialled
+red: the regressed form fails 3 assertions.
+Seen: 2026-09-06
+Fired:

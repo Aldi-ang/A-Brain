@@ -3,9 +3,9 @@ title: EOD Per-Part Verification
 description: How the boss approves or returns each part of a salesman's night on its own (cash, transfer, stock, damaged, cukai, bounty) — the data contract behind the player card, what each part credits, and what stays untouched.
 type: entity
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-09-21
 confidence: high
-checked: 2026-09-20
+checked: 2026-09-21
 tags: [kpm, eod, money, firestore, career, player-card]
 ---
 
@@ -52,6 +52,19 @@ carried part approved (the old one-tap verify, kept for the lab and any old call
 
 The confirm dialog names the parts in hand and the reasons going back; the bounty amount is
 still named before it is minted (his 2026-08-18 rule: approving is allowed, never silent).
+
+**One question per night (kpm `992ff6e`, `601e387`, 2026-09-20 16:30).** A night is two
+documents (CASH_STOCK + CUKAI), and asking per document read to him as *"this panel showing up
+twice"*. The card now asks ONCE through `helpers.eodNightMessage(items, inventory, tier)` — the
+parts in handover order (cash, transfer, stock back, damaged goods, pita cukai), the bounty lines,
+the van note, the reasons going back — and calls `handleVerifyEOD(report, decision,
+{ confirmed: true })` per report; the flag skips the handler's own confirm. `handleResetEOD`
+takes the same flag, so RESET / FORCE RESET ask once for the night. A cancel keeps his ticks.
+Watched in the pane 2026-09-21 07:45 with real taps: five ✓ → one dialog → CANCEL (ticks stay) →
+CONFIRM → both writes (e2 `cukai`; e1 `cash, transfer, stock, damaged`) and the scan + VERIFIED
+seal for 900 ms. The History Log shows the night as ONE row (kpm `992ff6e`): cash & stock and pita
+cukai together, the money on the right, the stamps under it, one FORCE RESET; a BOUNTY fine keeps
+its own row.
 
 ## What did NOT change, and why
 

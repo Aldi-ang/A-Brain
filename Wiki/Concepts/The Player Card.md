@@ -3,9 +3,9 @@ title: The Player Card
 description: The boss's EOD review as one card per salesman — the profile's head, a body that grows open with the handover one line per part — and the three stages it ships in.
 type: concept
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-09-21
 confidence: high
-checked: 2026-09-20
+checked: 2026-09-21
 tags: [kpm, eod, design, player-card, agent-profile]
 ---
 
@@ -48,6 +48,17 @@ Palette (no blue, no green; gold never as text — `--accent-ink` on the ticks a
 by the row height and the opacity, Lite Mode drops the blur and loses nothing), every key 44 px,
 the dialog gate for the reason, every action reports (the toast names the parts approved and sent
 back; the salesman gets a notification and a red line).
+
+**A law it broke in light mode, found 2026-09-21 (kpm `084b05a`).** The diode line under CLOSED
+TODAY ("2 stamps lost") and the DAMAGED GOODS / PITA CUKAI labels in the open body are the shared
+`.kpm-led-line` from the store card. Its `.warn` / `.crit` states coloured the WORDS with
+`--led-warn` (#FFB020) and `--led-crit` (#FF3B4B) — fixed instrument lights that do not flip with
+the theme — so on the light card (#D2C9B4) the one line that flags a problem read at 1,5:1. The
+14:25 "watched dark and light" missed it. Fix: one rule inside the LED block, `html.light
+.kpm-led-line.crit, html.light .kpm-led-line.warn { color: var(--ink) }` — the diode keeps its
+light, the words read at 11,4:1 (measured in the pane). The same rule covers the Journey Plan store
+card and the salesman's "sent back" lines. Rule of thumb from it: an instrument colour is for the
+LAMP, never for words on a themed surface — the token file already said so for `--led-ink`.
 
 ## Related
 
