@@ -38,7 +38,7 @@ card leaves with the report.
 | stage | what | state |
 |---|---|---|
 | A | per-part verification on the data path + the card in the boss's review, the mock and the look deleted | shipped `a401463`, ✅ TEST owed |
-| B | the same head on the salesman's own Agent Profile + the EXP gain animation on his EOD panel when a part is approved | after his test |
+| B | the same head on the salesman's own Agent Profile (`PlayerCardHead`, one export, the profile's own `stats` feed it; the hero + OMSET box gone, the keys wrap at 44, one scroll) + tonight's XP on his Shift Closed block (`XpGain`: the signed nixie 0 → +N at 400 ms, the working rows after the roll) — [[2026-09-21_player-card-stage-b]] | shipped `c31af5e` (his "i like all the recommended option", 2026-09-21 08:35), ✅ TEST owed |
 | C | the History Log stays folders | decided, nothing to build |
 
 ## The laws it kept
@@ -59,6 +59,16 @@ the theme — so on the light card (#D2C9B4) the one line that flags a problem r
 light, the words read at 11,4:1 (measured in the pane). The same rule covers the Journey Plan store
 card and the salesman's "sent back" lines. Rule of thumb from it: an instrument colour is for the
 LAMP, never for words on a themed surface — the token file already said so for `--led-ink`.
+
+**Stage B's shape (kpm `c31af5e`, 2026-09-21).** The head is a PRESENTATIONAL export: `PlayerCardHead({ name,
+photo, currentTier, nextTier, progressPercent, xp, gain, frame, closed, diode, diodeText, onTap, children })`.
+The card computes its numbers from the group + ledger and passes them; the profile passes its own `stats`
+(which already ran `careerXP` / the omset formula through `rankLadder`). One renderer, two data sources that
+already existed — no ladder climbed twice, no second copy of the markup (a guard counts one `pc-head` in the
+app). `onTap` is the head's one action: the card grows open, the profile opens the avatar customizer. The XP
+gain on the salesman's panel is the nixie — his "standardize effect, one number instrument" — mounting at 0
+and rolling to `dayXP` 400 ms after the block shows, the breakdown rows rising in at 1000 ms (one moment, one
+animation; "norak" was two at once). Nothing on either screen loops.
 
 ## Related
 

@@ -2672,3 +2672,12 @@ clip's grow-open replaced it in one message; build the mock so the effect can be
 signed difference. (5) **A block he cannot explain is erased on sight** — "i dont know whats the point of this so erase
 that": every figure on a card must answer a question he would ask. Shipped as kpm `a401463` (stage A); the card is
 [[The Player Card]].
+
+## Stage B — "i like all the recommended option" (2026-09-21, 08:35)
+Two boards in one message (the head on his Agent Profile: A the hero + OMSET box gone / B the box kept; the XP gain
+on the salesman's EOD panel: A the ladder bar / B the working rows after the nixie's roll / C the 5.614 → 5.665
+figure), each with the recommended one marked and its cost stated. His whole answer: *"i like all the recommended
+option"*. Read with [[A decision comes as a picture, never as a sentence]]: when the frames are real renders at a
+measured 375 with TODAY beside them, the recommendation carries — he decided both boards in six words, thirty-five
+minutes after they were sent, without a question. The cost lines did their job: A removed a block of his own (the
+OMSET box) and he took it, because the caption said what the head already carries. Shipped as kpm `c31af5e`.

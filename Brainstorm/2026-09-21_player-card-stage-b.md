@@ -2,7 +2,7 @@
 title: The player card, stage B — the head on the Agent Profile, and the XP gain on the salesman's EOD panel
 type: brainstorm
 created: 2026-09-21
-status: OPEN — two boards sent 2026-09-21 08:15, waiting on Aldi (board 1: A / B; board 2: A / B / C)
+status: DECIDED 2026-09-21 08:35 — "i like all the recommended option" (board 1 = A, board 2 = B); shipped as kpm c31af5e, ✅ TEST owed
 tags: [kpm, phone, player-card, agent-profile, eod, design, motion]
 ---
 
@@ -59,7 +59,14 @@ the address `preview_logs` prints for ponder-lab (192.168.1.141:4190 on 2026-09-
 
 ## Decision
 
-**OPEN — waiting on Aldi** (board 1: A or B; board 2: A, B or C). Recommended A + B.
+**DECIDED 2026-09-21 08:35** — his words: *"i like all the recommended option"* → board 1 = A, board 2 = B.
+Shipped as kpm `c31af5e` the same hour: `PlayerCardHead` exported from PlayerCard.jsx and mounted in
+AgentProfileView.jsx (the hero + the OMSET box gone, GRANT AWARD in the key row, the row static and wrapping
+at 44 px on the phone, the profile's own scroller lg-only + `min-w-0`, no bounce, no pulse, App.jsx passes
+`customers` for CLOSED ?/?); `XpGain` in EODReconciliationView.jsx (the signed nixie mounting at 0, the total
+at 400 ms, the working rows at 1000 ms, 90 ms apart). Five guards red-then-green (1701/1701), audit 722/722.
+Found while shipping: the profile's flex column had `min-width: auto`, so its min-content (372 as the boss)
+pushed it 13 px past the 359 shell under `overflow-hidden` — `min-w-0`, the classic flex fix. ✅ TEST owed.
 
 ## Rejected on purpose
 
