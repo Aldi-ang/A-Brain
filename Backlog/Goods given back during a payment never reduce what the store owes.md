@@ -1,11 +1,11 @@
 ---
 title: Goods given back during a payment never reduce what the store owes
 description: A consignment payment records returnTotal, the value of goods handed back. No debt calculation in the app ever reads it, so the store is still billed for goods it returned.
-status: To Do
+status: Done
 area: Consignment / Debt
 priority: HIGH
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-09-22
 ---
 
 # Goods given back during a payment never reduce what the store owes
@@ -54,3 +54,7 @@ Wherever a consignment payment is subtracted from the debt, subtract
 Do this **after** the two duplicate debt calculators are merged into one — see
 [[Two different debt numbers for the same store]] — otherwise this same fix has to be made in
 three separate places and one of them will be missed.
+
+## ✅ DONE 2026-09-22
+
+kpm `0ad432a`: one rule, `debtCredit(tx)` in `src/utils/revenueRule.js` (cash paid + `returnTotal` for a store audit; the refund for a RETURN), read by all six calculators — the consignment ledger's balance and ageing, the sales terminal's store debts, the profile's per-store debt, the map's store popup, `outstandingTitip`. Two existing checks had asserted the bug (165.000 owed while the fixture says 4 packs on the shelf = 110.000); corrected. Regression + behaviour guards in logicFixes.selfcheck.mjs.

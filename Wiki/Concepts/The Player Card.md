@@ -44,6 +44,11 @@ card leaves with the report.
 
 ## The laws it kept
 
+**REVENUE TONIGHT is the night's omset alone** (2026-09-22, his answer to the 09-20 question, kpm `f269b9c`): *"revenue bar
+is only showing the revenue or omset that he receive that day for each person, target is only for regional team or global
+target/ all the regional sales performance at once"*. The bar against his average verified night and the "his usual night"
+line are gone; a per-person target does not exist in his business — a target belongs to a region or the whole company.
+
 Palette (no blue, no green; gold never as text — `--accent-ink` on the ticks and the seal), G30
 (the blur is a named audit exemption on the switch glow's own reasoning: the open state is carried
 by the row height and the opacity, Lite Mode drops the blur and loses nothing), every key 44 px,

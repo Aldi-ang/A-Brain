@@ -1,11 +1,11 @@
 ---
 title: Confirming a shipment twice credits the branch twice
 description: The receipt step never checks whether the shipment was already confirmed, so a double press or a retry adds the same stock again while HQ is only debited once.
-status: To Do
+status: Done
 area: Branch warehouse
 priority: HIGH
 created: 2026-08-18
-updated: 2026-08-18
+updated: 2026-09-22
 ---
 
 # Confirming a shipment twice credits the branch twice
@@ -96,3 +96,7 @@ The order document is already being read inside the transaction, so this costs n
 It needs two people at one branch pressing at almost the same time, and the button disappears once
 the screen sees the order as delivered — so the window is short. Short is not zero, and the cost is
 phantom stock in a regional warehouse.
+
+## ✅ DONE 2026-09-22
+
+Found already fixed on 2026-09-22's check: `src/components/BranchWarehouseManager.jsx:782-797` confirms inside `runTransaction`, reads the order's status there and throws "Kiriman ini sudah diterima. Stok tidak ditambah dua kali." on DELIVERED / DISPUTED — the one-line guard this note asked for, in the transaction.

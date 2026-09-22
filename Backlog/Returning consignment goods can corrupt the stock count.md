@@ -1,11 +1,11 @@
 ---
 title: Returning consignment goods can corrupt the stock count
 description: When a store returns goods, the app adds the number without converting the unit, and uses the wrong item's unit to do the maths. Returning 2 Slop can add only 2 Bks.
-status: To Do
+status: Done
 area: Consignment / Stock
 priority: HIGH
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-09-22
 ---
 
 # Returning consignment goods can corrupt the stock count
@@ -51,3 +51,7 @@ shape already recorded in the vault.
 
 Pull the unit-multiplier maths out of the sale path into one small helper and call it from all four
 places. One helper, four call sites, and the bug cannot come back in only one of them.
+
+## ✅ DONE 2026-09-22
+
+kpm `7547f48`: the two warehouse writes now add `convertToBks(item.qty, item.unit, product)` (the van row had been fixed in August; the warehouse line beside it and `handleConsignmentReturn` had not); the swallowed catch now notifies "Return failed - nothing was saved". No screen calls `onReturn` today — the live path is the audit's return loop. Two guards.

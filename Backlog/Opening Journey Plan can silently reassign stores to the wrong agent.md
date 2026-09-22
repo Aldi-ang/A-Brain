@@ -1,11 +1,11 @@
 ---
 title: Opening Journey Plan can silently reassign stores to the wrong agent
 description: A repair routine runs automatically on screen load. It guesses which agent a store belongs to by partial name match, writes the guess to the database without asking, and hides any failure.
-status: To Do
+status: Done
 area: Journey Plan
 priority: HIGH
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-09-22
 ---
 
 # Opening Journey Plan can silently reassign stores to the wrong agent
@@ -65,3 +65,7 @@ Stop guessing and stop writing on load.
 
 The real repair is to stop storing the agent's name and store their id instead, which is step 1 of
 [[Everything is linked by name instead of by id]].
+
+## ✅ DONE 2026-09-22
+
+kpm `e7ab845`: the fuzzy match and the write on open are gone; the boss is told once per open which stores point at a name not on the roster and reassigns each through the existing control; the stale name still shows in the dropdown (globalAgentList). Two guards. The id-instead-of-name repair stays in [[Everything is linked by name instead of by id]].

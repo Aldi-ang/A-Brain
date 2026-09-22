@@ -1,11 +1,11 @@
 ---
 title: The first bounty you mint will break the agent dashboard
 description: Cash penalties are stored in the same map as stamp debts. Two of the three places that read it skip the penalties; the agent's own dashboard does not, so a Rp 200.000 fine is displayed as 200.000 stamps owed.
-status: To Do
+status: Done
 area: Agent dashboard / Bounties
 priority: HIGH
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-09-22
 ---
 
 # The first bounty you mint will break the agent dashboard
@@ -62,3 +62,7 @@ three call sites anyway.
 ⚠️ **Consider also storing money separately from stamps.** One map holding both a stamp count and a
 rupiah amount, told apart only by a name prefix, is the underlying reason a guard was needed at all.
 That is a bigger change and belongs with the bounty work, not before it.
+
+## ✅ DONE 2026-09-22
+
+Found already fixed on 2026-09-22's check: `src/AgentInventoryView.jsx:149` carries the `!pid.startsWith('PENALTY_')` guard with a comment naming EODReconciliationView as the twin. The shared-formula version (option 2) is still open under the bounty work.
