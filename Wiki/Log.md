@@ -1392,3 +1392,7 @@ His PC test (three screenshots) → two boards (Raw/2026-09-22-pc-boards) → "b
 ## 2026-09-22 10:55 — the money-bug batch: three Backlog HIGH bugs fixed, two found already fixed; the card's revenue line is the omset alone
 
 His *"continue with the most orgent matters first then follow up with the other jobs"*. Checked all five HIGH Backlog notes against the live code first (two were stale — the PENALTY_ guard and the shipment transaction already existed). Fixed: goods handed back at a store audit now reduce the debt (`0ad432a`, one rule `debtCredit` for six calculators; two checks had asserted the bug), warehouse returns converted to packs (`7547f48`), Journey Plan reports ghosts instead of guessing and writing (`e7ab845`). The revenue line on the card (`f269b9c`). Guards red first each time, 1711/1711; audit 722/722 on the built dist. Backlog: five notes Done.
+
+## 2026-09-22 11:50 — the three money fixes proven in the lab with before/after (kpm lab `02b39f3`)
+
+Receivables 165.000 → 110.000, a Slop return 4202 → 4220 through the real engine, Journey Plan one silent write → zero + a message. New technique in [[Looking at the App]]: the recording stub + `?shell&piutang` over the real engine.

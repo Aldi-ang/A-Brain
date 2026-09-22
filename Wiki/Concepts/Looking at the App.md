@@ -597,3 +597,15 @@ columns of the review card passed every pane measurement and overlapped TRANSFER
 SHIPPED board was shot headless. Rule: a width claim on the desk is closed by a headless PNG (`--window-size=2000,1000`,
 his screen) in the system font, and the pane's numbers are the lower bound. The lab's `?tab=%E2%8C%84` presses the card's
 chevron, so headless can shoot the card open.
+
+## A MONEY PATH RUNS THROUGH THE REAL ENGINE IN THE LAB — writes recorded, reads from fixtures (2026-09-22)
+
+His *"can u do your test yourself to make sure that it is working"*. The Firestore stand-in (tools/lab-firestore-stub.js) now
+records every batch / updateDoc write in `globalThis.__labWrites` (`{ op, path, data }`) and answers `getDoc`, `getDocs` and
+`runTransaction`'s get from FIXTURES by the same path-suffix rule as onSnapshot. So a screen can be mounted over the REAL
+`useTransactionEngine` (`?shell&piutang` — Receivables; `window.__labAudit` is handleConsignmentPayment) and the update the
+engine would have sent is read back from the console: a 2 Slop return wrote `products/p-cg16 {stock: 4220}`. The recipe for
+a BEFORE that could have failed: `git checkout <fix>^ -- <file>`, reload, read the number, `git checkout HEAD -- <file>`.
+That is how 165.000 → 110.000, 4202 → 4220 and one-silent-write → zero were each read off the real component, not off a
+unit test. A guard that bundles the app (MerchantSalesView imports `debtCredit`) means the old revenueRule.js cannot be
+checked out alone — check out only the SCREEN whose number you want.
