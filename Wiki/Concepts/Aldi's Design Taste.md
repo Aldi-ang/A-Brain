@@ -2793,3 +2793,16 @@ Two more things settled in the same message, both worth generalising:
 - **He asks for OUR 3D, not a new 3D.** *"just like master vault and sales terminal"* — the reference is always
   something the app already does. A borrowed look gets rebuilt in our vocabulary; a borrowed capability gets pointed
   at the one we already have.
+
+## "It refreshed" means the screen re-arrived when only one thing changed (2026-09-22, 20:40)
+
+> *"i dont like that everytime i move the item it refreshed and i want it to be able to moved to empty squared and
+> not just switch place with other item location"*
+
+**His word for a re-render that replays an entrance is "refreshed", and he reads it as a fault, not as polish.** The
+arrival animation is part of a thing APPEARING; once it is on screen, a change must move only what changed. Every list
+in this app that re-draws after an edit should be checked against this: `kpm-arrive` on a re-draw is the same bug.
+
+And the other half is a taste rule about direct manipulation: **if something can be picked up, every visible place
+must be a place it can be put down.** A grid that only swaps is a grid that says no to half the gestures it invites.
+An empty square has to be a real destination, or the emptiness is decoration.

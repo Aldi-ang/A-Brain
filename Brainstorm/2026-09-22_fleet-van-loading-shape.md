@@ -257,3 +257,35 @@ Same shape as the 2026-09-21 lesson, one step further.
 
 Also: a headless shot cannot be trusted to catch the END of a transition — `?still` opens the chest with every
 duration at 1 ms so a board shows a state rather than a moment.
+
+---
+
+# ROUND FIVE — two faults he caught in one sentence (2026-09-22, 20:40)
+
+> *"i dont like that everytime i move the item it refreshed and i want it to be able to moved to empty squared and not
+> just switch place with other item location"*
+
+Both were mine, and both were the same mistake in different clothes: **I modelled the chest as a LIST of products when
+it is a MAP of squares.**
+
+| what he saw | what caused it | v3 |
+|---|---|---|
+| "everytime i move the item it refreshed" | after a drop the whole page was re-drawn WITH its entrance animation, so six boxes flew in again for a change to two squares | the entrance belongs to OPENING the chest; a move re-draws with `noanim`, and only the two squares that changed look different |
+| "not just switch place" | the layout was a dense array of product ids — there was no such thing as an empty square, so every drop could only swap | the layout is now 18 cells (3 pages × 6), each holding a product **or nothing**; a drop on an empty square moves the box and leaves its old square empty, a drop on a filled one trades places. One line covers both |
+
+Added with it, because empty squares are useless if you cannot reach them: **carry a box over a page number, hold for
+~260 ms, and the page turns under your finger** so it can be dropped on another page.
+
+## The bug that only a real drag could have found
+
+Turning the page mid-drag re-draws the grid — which **removes the square the finger started on**. The move and drop
+listeners were attached to that square (via the grid), so after the page turned they were gone with it: the page
+turned, the box followed the cursor, and the drop silently did nothing. Pointer capture would have died the same way.
+**The move and the drop now listen on the window**, which outlives any re-draw.
+
+Verified by driving real pointer events rather than by looking: a drop on an empty square moves it and empties the
+old one; the layout persists with `null`s in it; the entrance animation is gone after a move and back after a reopen;
+a box carried over the page-3 tab turns the page and lands there (`1 · 5`, `2 · 3`, `3 · 1`).
+
+**For the app, this changes the field:** the saved thing is not an ORDER but a LAYOUT — a fixed-length list of slots
+where a hole is meaningful. Still its own field, still written on drop, still never inside `activeCanvas`.
