@@ -603,3 +603,38 @@ before any check existed that could have failed on it. Split into `senderIsCompa
 red: the regressed form fails 3 assertions.
 Seen: 2026-09-06
 Fired:
+
+<!-- archived 2026-09-22 — retired 2026-09-21, moved by the §0a bookkeeping -->
+
+### 2026-09-07 — a Stop hook naming a file is not evidence you changed it
+**Status:** RETIRED (2026-09-21) — never fired in 14 days of real work; the structural form would be the Stop hook comparing `git diff --stat` instead of mtime, which it does not do; retired as prose that read as insight the day it was written
+**Trigger:** before answering a Stop hook that says "you changed X" — the moment it names a source
+file this session never opened.
+**Lesson:** compare `git diff --stat`, not the mtime. Git rewrites working files during ordinary
+READ commands when `core.autocrlf` normalizes line endings, so `git status` or `git diff --stat`
+can bump an mtime by itself and trip an mtime-comparing hook. Identical diffstat means nothing
+changed, whatever the mtime says. Confirm that before writing the note, and before naming a cause.
+**Would have prevented:** 2026-09-07. `src/ConsignmentFinanceView.jsx` read 07:21 at one stat and
+06:05 at the next, with no edit between them. The near-miss was telling Aldi a parallel session
+was live-editing his repo — false, and alarming about the one repo he cannot afford to doubt. The
+diffstat was identical across both readings (45 / 83, 120 insertions, 8 deletions), which is what
+actually settled it.
+Seen: 2026-09-07
+Fired:
+
+### 2026-09-07 — a "sees too much" report is a question about the VIEWER before it is one about the feature
+**Status:** RETIRED (2026-09-21) — never fired in 14 days of real work; no check can carry "read the screenshot's header first", so it retires as a platitude
+**Trigger:** at plan time on any report that somebody sees data they should not — cross-region,
+cross-branch, cross-tenant, "this account can see X" — before opening the feature's own scoping code.
+**Lesson:** find the one thing on screen that reveals the VIEWER'S OWN ROLE and settle who they are
+first. Headings, filter bars and menu items are usually rendered straight off the role flag, so a
+screenshot already contains the answer. An escalated session reproduces every scoping bug at once,
+so tracing the named feature will always find something plausible and it will be the wrong thing.
+**Would have prevented:** Aldi reported a Tier 4 in MUNTILAN seeing a HEADQUARTERS hand-off. I read
+`canApproveHandoffFrom`, `personApprovalRegions` and `translateLegacyRole` and built three
+hypotheses about branch matching before noticing his screenshot's header said GLOBAL RECEIVABLES —
+drawn by `isAdmin ? 'Global Receivables' : 'My Receivables'`. The account was a full admin. The real
+bug was the vault grace keyed on the hijacked boss uid, in a different file, in a different feature,
+and the header naming it had been on screen from the first message.
+Seen: 2026-09-07
+Fired:
