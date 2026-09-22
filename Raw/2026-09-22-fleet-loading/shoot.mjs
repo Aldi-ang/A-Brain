@@ -20,6 +20,23 @@ const FRAMES = {
   'b-phone': [LAB + '&mock=module&phone', 518, 1400],
   'a-pc-light': [LAB + '&mock=panel&light', 2000, 1000],
   'b-pc-light': [LAB + '&mock=module&light', 2000, 1000],
+
+  /* ROUND TWO (his "i want better UI than that for our roster ... cool if we have some 3D
+     animation as well" + "make sure that there is animation on doing loading"). */
+  'r-a-pc': [LAB + '&at=1400&mock=panel&r=a', 2000, 1000],
+  'r-b-pc': [LAB + '&at=1400&mock=panel&r=b', 2000, 1000],
+  'r-c-pc': [LAB + '&at=1400&mock=panel&r=c', 2000, 1000],
+  'r-a-phone': [LAB + '&at=1400&roster&mock=panel&r=a&phone', 518, 1400],
+  'r-b-phone': [LAB + '&at=1400&roster&mock=panel&r=b&phone', 518, 1400],
+  'r-c-phone': [LAB + '&at=1400&roster&mock=panel&r=c&phone', 518, 1400],
+  'r-b-pc-light': [LAB + '&at=1400&mock=panel&r=b&light', 2000, 1000],
+  /* the motion, frozen at one moment each (&at rewinds every animation and pauses it) */
+  'm-a-mid': [LAB + '&mock=panel&r=b&play=a&at=700', 2000, 1000],
+  'm-a-end': [LAB + '&mock=panel&r=b&play=a&at=1150', 2000, 1000],
+  'm-b-mid': [LAB + '&mock=panel&r=b&play=b&at=330', 2000, 1000],
+  'm-b-end': [LAB + '&mock=panel&r=b&play=b&at=780', 2000, 1000],
+  'm-c-mid': [LAB + '&mock=panel&r=b&play=c&at=430', 2000, 1000],
+  'm-c-end': [LAB + '&mock=panel&r=b&play=c&at=980', 2000, 1000],
 };
 const only = process.argv.slice(2);
 for (const [name, [url, w, h]] of Object.entries(FRAMES)) {

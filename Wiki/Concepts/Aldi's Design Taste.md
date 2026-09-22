@@ -2721,3 +2721,33 @@ The 2026-08-24 "few logic" question (Backlog: Redesign Receivables and Fleet) is
 admin loads a salesman's van (today `handleLoadCanvas` inside Fleet & Roster). The shape — its own module or a panel
 inside Fleet & Roster — he wants to TALK through first, as a decision with pictures, before any redesign of the screen.
 Do not start the Fleet & Roster repaint until that talk has happened; the repaint follows the shape.
+
+## He took the cheaper shape without arguing, and spent the saving on FEEL (2026-09-22, 19:00)
+
+> *"if we can put inside the fleet and roster then lets just do that, make sure that there is animation on doing
+> loading and i want better UI than that for our roster, cool if we have some 3D animation as well can u think of
+> something cool"*
+
+Four things in one sentence, and the order matters.
+
+1. **Given a cheap option and an expensive one with a real argument behind it, he takes the cheap one — on the
+   condition that it works.** "if we can" is the whole test: not "which is nicer", but "is it possible here". Third
+   time now (the panel outro, the Agent Inventory strip, this). **Lead with whether the cheap path actually holds,
+   not with the comparison.**
+2. **The money saved does not go back in the pocket — it goes into the moment.** He closed the shape question and
+   immediately spent the difference on the loading animation and the roster. A shape decision is not the end of a
+   design round for him; it is the budget for the next one.
+3. **"Better UI than that" was said about a screen I had just drawn in his own palette.** It was already tokenised,
+   already in slate + gold. So "better" here did NOT mean "not broken" — it meant the roster is still a LIST, and he
+   wants the row to say something. What the boards answered with: the van's fill (484 of his usual 600), the number
+   plate, the light. **When he says "better" about something that already obeys the laws, look for missing
+   INFORMATION, not missing style.**
+4. **"Can u think of something cool" is a real delegation, and it has a floor: it must be OUR cool.** The answer that
+   fits is the 3D crate — `.kpm-cube` already exists in the sales terminal, driven by each ware's true millimetres —
+   so the roster's 3D is a reuse of a thing he already approved, not a new toy. A 3D idea that needs its own engine
+   would have been the wrong answer to the same sentence.
+
+Also settled while building it: **the crate turns ONCE when you pick the person and parks at three-quarters.** A box
+that spins for ever is the same fault as the blinking lights he killed on 2026-09-18 — the turn has to be an event.
+
+Boards: `Raw/2026-09-22-fleet-loading/board-roster.png` (+ the phone board) and `board-motion.png`. Decision open.

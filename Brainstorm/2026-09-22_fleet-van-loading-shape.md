@@ -4,7 +4,7 @@ description: The 2026-09-22 talk Aldi asked for before the Fleet & Roster redesi
 type: brainstorm
 created: 2026-09-22
 updated: 2026-09-22
-status: OPEN — waiting on Aldi
+status: SHAPE DECIDED (A, the panel) — round two OPEN: the roster look and the loading motion
 tags: [fleet, van-loading, design, decision, aldi-asked]
 ---
 
@@ -91,3 +91,57 @@ Models applied: Chesterton's Fence (why the dock sits beside the roster at all),
 not spent on lot tracking).
 
 Related: [[Aldi's Design Taste]] · [[Fleet Captain Permission Gap]] · [[Logistics and Stock Movement]]
+
+---
+
+# ROUND TWO — DECIDED: A, the panel. Now the look and the motion (2026-09-22, 19:00)
+
+> *"if we can put inside the fleet and roster then lets just do that, make sure that there is animation on doing
+> loading and i want better UI than that for our roster, cool if we have some 3D animation as well can u think of
+> something cool"*
+
+So the shape is settled — the loading bay is a PANEL inside Fleet & Roster — and two new questions open with it.
+
+## Question 1 — the roster look (board-roster.png, board-roster-phone.png)
+
+| | what the row becomes | costs |
+|---|---|---|
+| A — the bay plate | photo, number plate, and the van's fill right now (484 of his usual 600) with the LED | ~half a session |
+| **B — the van crate (3D)** | the same thing, but the person's slot is a real `.kpm-cube`: a loaded van is a deep crate, an empty one a flat pallet, and it turns once when you pick him | ~half a session — the cube already exists |
+| C — the region folder | the warehouses as folders (Bandung open, Semarang shut), people inside; same family as Customers and Sampling | ~half a session |
+
+**Recommended B.** He asked for 3D, and `.kpm-cube` in theme.css is 3D the app already owns — driven by each ware's
+true millimetres in the sales terminal. So B answers the ask with a REUSE rather than a second 3D engine, and the
+depth carries the meaning, which means the information survives Lite Mode with the turn switched off.
+
+**not-chosen: C, the region folder — lost because the regional admin only ever sees ONE region (the roster filters to
+his own), so a folder per warehouse is a drawer he opens every time with nothing beside it. It flips the day a global
+admin works this screen across regions, which is exactly what the HQ view does.**
+
+## Question 2 — the loading motion (board-motion.png)
+
+| | what happens on one press | costs |
+|---|---|---|
+| **1 — the cargo flies** | each line leaves as a crate and lands on the tally, one after the other; the figure pumps, the van's MUAT key dips. ~1,2 s | ~half a session |
+| 2 — the surat jalan stamps | a gold line sweeps the list, each row greys as it is counted, SURAT JALAN seals. ~0,8 s | ~quarter session — it is the shipped docket's own kpmScan / kpmSeal |
+| 3 — the roller door | the bay shutter comes down over the list, MEMUAT… through the slats, lifts on a loaded van. ~1,1 s | ~half a session |
+
+**Recommended 1.** It is the only one of the three that shows the GOODS moving, and the thing being reported is goods
+moving. 2 reports paperwork; 3 reports waiting — and a door that covers the list hides the numbers while it runs,
+which is the one thing his Lite Mode law forbids an animation from doing.
+
+**not-chosen: 2 — lost on meaning, not on cost (it is the cheapest by far and it is already in the app's language).
+It flips if the surat jalan becomes the point of the moment, e.g. if loading has to be signed for on the spot.**
+
+## What the motion must not do (either way)
+
+- It never hides a figure. `.lab-door` in the mock covers the list and that is exactly why 3 is not recommended.
+- It runs ONCE. No loop, no forever-turning crate — the 2026-09-18 blinking-lights rule.
+- Lite Mode and reduced motion stop it through the app's global rules, and what is left must still read: the crate
+  parks at three-quarters, the tally shows its number, the seal is simply already there.
+- One press is still one write per product (handleLoadCanvas is untouched), so the motion's job is to make ONE report
+  out of several writes — never to imply a single transaction.
+
+Models applied: Inversion (what would make the loading moment feel worse — hiding the numbers), Second-Order Thinking
+(a roster row that shows van fill changes what the admin does before he loads), Chesterton's Fence (why the cube
+exists at all, and why it is driven by millimetres).
