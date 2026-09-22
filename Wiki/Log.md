@@ -1396,3 +1396,7 @@ His *"continue with the most orgent matters first then follow up with the other 
 ## 2026-09-22 11:50 — the three money fixes proven in the lab with before/after (kpm lab `02b39f3`)
 
 Receivables 165.000 → 110.000, a Slop return 4202 → 4220 through the real engine, Journey Plan one silent write → zero + a message. New technique in [[Looking at the App]]: the recording stub + `?shell&piutang` over the real engine.
+
+## 2026-09-22 13:10 — the security batch: the fingerprint is slow and salted; the rank settings have one home (kpm `603472d`)
+
+His YES and YES at 12:30. (a) [[The Master Password Fingerprint]] — PBKDF2-SHA256 with salt, the old form still opens and is re-saved on the first sign-in, the password keeps its case, one helper for the gate / setup / recovery / crown transfer. (b) [[Firestore Rules]] CHANGE 8 — the shared rank-settings path closed as a DRAFT, the one-time move into the company folder reported by the app, emulator 26/26. ✅ TEST owed with two order rules (deploy the build around the first sign-in; open the app as the boss before deploying the rules).

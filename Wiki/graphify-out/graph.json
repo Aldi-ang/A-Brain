@@ -2963,6 +2963,17 @@
       "norm_label": "stage b \u2014 \"i like all the recommended option\" (2026-09-21, 08:35)"
     },
     {
+      "label": "The desk \u2014 the face is not shrunk for room, and the phone is his standing condition (2026-09-22, 09:38)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2685",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_the_desk_the_face_is_not_shrunk_for_room_and_the_phone_is_his_standing_condition_2026_09_22_09_38",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "the desk \u2014 the face is not shrunk for room, and the phone is his standing condition (2026-09-22, 09:38)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -5207,6 +5218,28 @@
       "norm_label": "the pane does not advance a transition until it paints (2026-09-18, learned twice in one day)"
     },
     {
+      "label": "THE PANE'S FONT IS ~20 % NARROWER THAN HIS \u2014 a desk width is proven headless, not in the pane (2026-09-22)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L591",
+      "_origin": "ast",
+      "id": "concepts_looking_at_the_app_the_pane_s_font_is_20_narrower_than_his_a_desk_width_is_proven_headless_not_in_the_pane_2026_09_22",
+      "community": 11,
+      "community_name": "Looking at the App",
+      "norm_label": "the pane's font is ~20 % narrower than his \u2014 a desk width is proven headless, not in the pane (2026-09-22)"
+    },
+    {
+      "label": "A MONEY PATH RUNS THROUGH THE REAL ENGINE IN THE LAB \u2014 writes recorded, reads from fixtures (2026-09-22)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L601",
+      "_origin": "ast",
+      "id": "concepts_looking_at_the_app_a_money_path_runs_through_the_real_engine_in_the_lab_writes_recorded_reads_from_fixtures_2026_09_22",
+      "community": 11,
+      "community_name": "Looking at the App",
+      "norm_label": "a money path runs through the real engine in the lab \u2014 writes recorded, reads from fixtures (2026-09-22)"
+    },
+    {
       "label": "Off-Token Colour Migration Map.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/Off-Token Colour Migration Map.md",
@@ -7102,7 +7135,7 @@
       "label": "The laws it kept",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Player Card.md",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "concepts_the_player_card_the_laws_it_kept",
       "community": 115,
@@ -7113,7 +7146,7 @@
       "label": "Related",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Player Card.md",
-      "source_location": "L73",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "concepts_the_player_card_related",
       "community": 115,
@@ -11090,6 +11123,39 @@
       "community": 1,
       "community_name": "Operation Log",
       "norm_label": "2026-09-21 07:55 \u2014 the 992ff6e / 601e387 fix watched in the pane; a light-mode miss on the led words fixed (kpm `084b05a`)"
+    },
+    {
+      "label": "2026-09-22 09:45 \u2014 the desk fix shipped (kpm `20aac21`): the review card one-row head + 2:3 body from lg, the Agent Inventory header without its xl split",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1388",
+      "_origin": "ast",
+      "id": "log_2026_09_22_09_45_the_desk_fix_shipped_kpm_20aac21_the_review_card_one_row_head_2_3_body_from_lg_the_agent_inventory_header_without_its_xl_split",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-22 09:45 \u2014 the desk fix shipped (kpm `20aac21`): the review card one-row head + 2:3 body from lg, the agent inventory header without its xl split"
+    },
+    {
+      "label": "2026-09-22 10:55 \u2014 the money-bug batch: three Backlog HIGH bugs fixed, two found already fixed; the card's revenue line is the omset alone",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1392",
+      "_origin": "ast",
+      "id": "log_2026_09_22_10_55_the_money_bug_batch_three_backlog_high_bugs_fixed_two_found_already_fixed_the_card_s_revenue_line_is_the_omset_alone",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-22 10:55 \u2014 the money-bug batch: three backlog high bugs fixed, two found already fixed; the card's revenue line is the omset alone"
+    },
+    {
+      "label": "2026-09-22 11:50 \u2014 the three money fixes proven in the lab with before/after (kpm lab `02b39f3`)",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1396",
+      "_origin": "ast",
+      "id": "log_2026_09_22_11_50_the_three_money_fixes_proven_in_the_lab_with_before_after_kpm_lab_02b39f3",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-22 11:50 \u2014 the three money fixes proven in the lab with before/after (kpm lab `02b39f3`)"
     },
     {
       "label": "MOC.md",
@@ -17323,6 +17389,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2685",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_the_desk_the_face_is_not_shrunk_for_room_and_the_phone_is_his_standing_condition_2026_09_22_09_38",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L2590",
       "weight": 1.0,
       "_origin": "ast",
@@ -20832,6 +20909,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L601",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_looking_at_the_app_looking_at_the_app",
+      "target": "concepts_looking_at_the_app_a_money_path_runs_through_the_real_engine_in_the_lab_writes_recorded_reads_from_fixtures_2026_09_22",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
       "source_location": "L295",
       "weight": 1.0,
       "_origin": "ast",
@@ -20980,6 +21068,17 @@
       "_origin": "ast",
       "source": "concepts_looking_at_the_app_looking_at_the_app",
       "target": "concepts_looking_at_the_app_the_pane_does_not_advance_a_transition_until_it_paints_2026_09_18_learned_twice_in_one_day",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L591",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_looking_at_the_app_looking_at_the_app",
+      "target": "concepts_looking_at_the_app_the_pane_s_font_is_20_narrower_than_his_a_desk_width_is_proven_headless_not_in_the_pane_2026_09_22",
       "confidence_score": 1.0
     },
     {
@@ -23494,7 +23593,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Player Card.md",
-      "source_location": "L73",
+      "source_location": "L79",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_player_card_the_player_card",
@@ -23505,7 +23604,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/The Player Card.md",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_player_card_the_player_card",
@@ -28037,6 +28136,39 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
+      "source_location": "L1388",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_22_09_45_the_desk_fix_shipped_kpm_20aac21_the_review_card_one_row_head_2_3_body_from_lg_the_agent_inventory_header_without_its_xl_split",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1392",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_22_10_55_the_money_bug_batch_three_backlog_high_bugs_fixed_two_found_already_fixed_the_card_s_revenue_line_is_the_omset_alone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1396",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_22_11_50_the_three_money_fixes_proven_in_the_lab_with_before_after_kpm_lab_02b39f3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
       "source_location": "L247",
       "weight": 1.0,
       "_origin": "ast",
@@ -30532,5 +30664,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4f84930368c9ace13372d06fb2b05a56c818d8ac"
+  "built_at_commit": "5b77ec7911891ec5c4808a074ab4c9f46298b19a"
 }

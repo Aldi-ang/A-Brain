@@ -176,3 +176,15 @@ and `App.jsx` reads that `employee_directory` doc on login. Source:
 Whether a specific rule is currently correct — or currently *deployed* — is exactly the kind
 of thing this wiki should never answer on its own. Check `firestore.rules` (drafted) versus
 `firestore.rules.deployed-baseline` (live) in the real repo.
+
+## CHANGE 8 — 2026-09-22 — the shared rank-settings path is closed (DRAFT until Aldi deploys)
+
+His *"b is also Yes make sure that there is no intersection when second company coming in"*. CHANGE 7 had documented the
+gap a rules-only fix could not close: `artifacts/cello-inventory-manager/settings/{achievements,rpg_ranks}` was ONE doc
+for every company, readable by any signed-in user and writable by any company's owner. kpm `603472d`: the app reads the
+company folder only (`users/{bossUid}/settings/progression`); the vault owner's app start moves whatever is still only
+in the shared docs into it once (`src/utils/progressionHome.js`) and reports; the shared path is `allow read, write: if
+false`; `isRankConfigEditor()` removed. rules-test/test-batch1.mjs TASK 1 asserts every role DENIED, including a
+different company's owner — 26/26 in the emulator. **Deploy order:** the owner opens the app once BEFORE deploying, or
+the move can no longer read the old docs and the defaults show. See [[The Master Password Fingerprint]] for the same
+day's (a).

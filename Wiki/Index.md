@@ -58,6 +58,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   edited
 - [[9Router Subordinate AI Delegation]] — curl-delegating subtasks to free models via 9Router,
   and logging what each one is actually good at
+- [[The Master Password Fingerprint]] — PBKDF2, salted, case kept; every compare through `verifySecret`; the old build cannot read the new form
 - [[Secure Context Requirement]] — browser APIs that are undefined off HTTPS; the PC-works
   phone-does-nothing bug class
 - [[Silent Failure Disease]] — a code path that ends without telling the user; the app's oldest

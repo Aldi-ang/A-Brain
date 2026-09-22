@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-22)
 
 ## Corpus Check
-- 107 files · ~232,518 words
+- 107 files · ~233,631 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1232 nodes · 1543 edges · 120 communities (111 shown, 9 thin omitted)
+- 1238 nodes · 1549 edges · 120 communities (111 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4f849303`
+- Built from commit: `5b77ec79`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -136,10 +136,10 @@
 - Headquarters Is Not a Cabang
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 91 edges
-2. `Operation Log` - 60 edges
+1. `Aldi's Design Taste` - 92 edges
+2. `Operation Log` - 63 edges
 3. `2026-09-03 — removing a mod is a schema change to data already written` - 32 edges
-4. `Looking at the App` - 24 edges
+4. `Looking at the App` - 26 edges
 5. `Archived 2026-08-18 (2nd today) — chosen by oldest last-fire` - 21 edges
 6. `Anti-Recurrence Check` - 20 edges
 7. `Alucard — Lessons` - 19 edges
@@ -154,11 +154,11 @@
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.03
-Nodes (78): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+70 more)
+Nodes (79): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+71 more)
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.03
-Nodes (59): 2026-07-27 — First ingest pass (structure build + seed content), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run), 2026-07-27 — Tidy pass (frontmatter, titles, MOC), 2026-07-28 — dependency-removal regression, fixed and rippled, 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard, 2026-08-10 — Six-day backfill, on Aldi's emergency instruction, 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent (+51 more)
+Nodes (62): 2026-07-27 — First ingest pass (structure build + seed content), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run), 2026-07-27 — Tidy pass (frontmatter, titles, MOC), 2026-07-28 — dependency-removal regression, fixed and rippled, 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard, 2026-08-10 — Six-day backfill, on Aldi's emergency instruction, 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent (+54 more)
 
 ### Community 2 - "Lancelot the Tobacco Ledger Agent"
 Cohesion: 0.05
@@ -194,7 +194,7 @@ Nodes (11): Categories, Honest limits, How to use it, n8n Automation Templates A
 
 ### Community 11 - "Looking at the App"
 Cohesion: 0.08
-Nodes (24): A FULL-SCREEN SHEET AT 375: the pane measures, headless shoots at 518 (2026-09-16), 🔴 A HEADLESS SHOT NARROWER THAN ~518px ON WINDOWS IS A CROP, NOT A LAYOUT (2026-08-27), A REAL 375px VIEWPORT EXISTS NOW — the in-app pane, sized, plus `?shell` (2026-09-14), A screen that needs LIVE DATA can now be looked at too (2026-09-01), A SECOND HARNESS — `tools/ponder-lab.*` renders a real React component (2026-08-27), AN HONEST 375 PNG OUT OF HEADLESS: pin the app, not the window (2026-09-17), Checks that freeze a value, Four ways the harness decayed on its second outing (2026-08-17) (+16 more)
+Nodes (26): A FULL-SCREEN SHEET AT 375: the pane measures, headless shoots at 518 (2026-09-16), 🔴 A HEADLESS SHOT NARROWER THAN ~518px ON WINDOWS IS A CROP, NOT A LAYOUT (2026-08-27), A MONEY PATH RUNS THROUGH THE REAL ENGINE IN THE LAB — writes recorded, reads from fixtures (2026-09-22), A REAL 375px VIEWPORT EXISTS NOW — the in-app pane, sized, plus `?shell` (2026-09-14), A screen that needs LIVE DATA can now be looked at too (2026-09-01), A SECOND HARNESS — `tools/ponder-lab.*` renders a real React component (2026-08-27), AN HONEST 375 PNG OUT OF HEADLESS: pin the app, not the window (2026-09-17), Checks that freeze a value (+18 more)
 
 ### Community 12 - "The screen — mobile first, one thumb, readable in midday sun"
 Cohesion: 0.12
@@ -593,7 +593,7 @@ Cohesion: 0.50
 Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang, It has now bitten twice, in two different shapes, The trap underneath both
 
 ## Knowledge Gaps
-- **967 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+962 more)
+- **973 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+968 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -601,16 +601,16 @@ Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Store Hand-off Name Collision`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.173) - this node is a cross-community bridge._
+  _High betweenness centrality (0.165) - this node is a cross-community bridge._
+- **Why does `Operation Log` connect `Operation Log` to `2026-08-14 (later) — the desk sidebar becomes one button, and the video was finally watchable`, `Concepts/index.md`?**
+  _High betweenness centrality (0.050) - this node is a cross-community bridge._
 - **Why does `Looking at the App` connect `Looking at the App` to `Concepts/index.md`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
-- **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _967 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _973 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
-  _Cohesion score 0.02564102564102564 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.02531645569620253 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
-  _Cohesion score 0.03389830508474576 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.03225806451612903 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**
   _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
