@@ -2774,3 +2774,22 @@ Three things worth keeping.
 
 Prototype: https://claude.ai/artifact/V5Z3ZkQZ3fvtXHynn4AnNF · [[Design Inspiration Sources]] rule 1 (repalette,
 always) is what look 2 in it exists to answer.
+
+## 🔴 THE CHEST IS BROWN, AND HE SAID SO OUT LOUD (2026-09-22, 20:10)
+
+> *"i like the brown color chest dont need to follow the theme"*
+
+**The second named exemption from the palette law**, after the printed nota ([[The receipt keeps KPM company blue]]).
+The rule underneath both: **an OBJECT may keep its own colour; app furniture may not.** The nota is paper, the chest
+is a crate — the panel that opens out of it is furniture, and that is why look 2 exists for the panel and not for the
+chest.
+
+Two more things settled in the same message, both worth generalising:
+
+- **"Bigger, with pages" beats "everything at once".** *"i rather have big square and page 1,2,3 selection that all at
+  once inside the chest causing it to be smaller and harder to see"* — the same instinct as removing information to
+  make what is left bigger (2026-08-16). When a grid gets crowded, his answer is fewer cells and a pager, never
+  smaller cells.
+- **He asks for OUR 3D, not a new 3D.** *"just like master vault and sales terminal"* — the reference is always
+  something the app already does. A borrowed look gets rebuilt in our vocabulary; a borrowed capability gets pointed
+  at the one we already have.

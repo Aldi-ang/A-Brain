@@ -4,7 +4,7 @@ description: The 2026-09-22 talk Aldi asked for before the Fleet & Roster redesi
 type: brainstorm
 created: 2026-09-22
 updated: 2026-09-22
-status: SHAPE + ROSTER DECIDED (the panel; the region folder, tier-scoped) — the loading animation is now a Minecraft-chest prototype awaiting his review
+status: SHAPE + ROSTER + CHEST DECIDED in principle (panel · region folder tier-scoped · the chest, brown, six big squares, 3D products, drag, damaged row) — his verdict on v2 outstanding
 tags: [fleet, van-loading, design, decision, aldi-asked]
 ---
 
@@ -208,3 +208,52 @@ slow motion, the name switcher). What it establishes:
 
 Models applied: Inversion (what would make this unshippable — the answer was the assets, not the animation),
 Second-Order Thinking (a 27-slot metaphor sets an expectation about how much the screen can hold).
+
+---
+
+# ROUND FOUR — the chest grew up: six big squares, real 3D products, drag, and a damaged row (2026-09-22, 20:10)
+
+> *"i like the design that u made, anyway i want 3D animation for the product on the each of the inventory squared if
+> filled with the product just like master vault and sales terminal, and i like the brown color chest dont need to
+> follow the theme and also make the square space inside inventory larger … i rather have big square and page 1,2,3
+> selection … i think we can put 6 item square max inside the chest to make it larger what do you think?"*
+> and, minutes later:
+> *"i also want these item to be drag able, moved and saved everytime the location update, and we also need other
+> inventory panel when chest is opened to see the damaged good as well right so admin and higher tier can see damaged
+> or healthy good at all time inside the agent chest/inventory, well on the other words agent chest is basically
+> agent inventory for regional admin tier and above by default"*
+
+**v2 of the artifact — https://claude.ai/artifact/V5Z3ZkQZ3fvtXHynn4AnNF** (frames: `v2-desk.png`, `v2-phone.png`).
+
+## What was decided by him
+
+| | |
+|---|---|
+| squares | **six a page, three across**, pages numbered, and the page button carries what is on it (`2 · 3`) |
+| the product | the **real 3D box** of the Master Vault / sales terminal — `.kpm-cube` geometry, driven by the ware's true mm |
+| the chest | **stays brown**. His exemption, spoken: *"dont need to follow the theme"* — the second object after the printed nota to sit outside the palette law |
+| dragging | pick up, move, drop; **saved on drop**, and it says "tersimpan" where the work happened |
+| a second panel | **damaged goods, always under the chest**, with the reason on each one |
+| who it is for | the chest **is** the agent inventory for a regional admin and above; the salesman keeps his own screen |
+
+## My answer to his question, and the two things I pushed back on
+
+- **Six is right**, and it should be six on the phone AND on the desk. A page must mean one amount of goods, or "page 2
+  of 3" stops being a fact. The squares grow instead of multiplying. Budi's nine products then sit 6 + 3, which is why
+  the page button shows its own count.
+- **A good pack cannot be dragged into the damaged row.** That gesture would MEAN "this came back broken" — a stock
+  movement with a receipt behind it, not a tidy-up. The prototype refuses it and says so.
+- **What gets saved is the ORDER ONLY** — a short list of product ids. It must be its own field, never inside the van's
+  contents: `activeCanvas` is written by `handleLoadCanvas`, by `handleClearCanvas` and by every sale, and a tidy-up
+  that can collide with a sale is a stock bug waiting for a busy morning. Write on drop, never per frame.
+
+## Learned while building it
+
+`document.elementFromPoint` is the obvious way to answer "which square is under the finger", and it is the wrong one:
+besides ignoring `pointer-events:none` (already a Lesson), **it returns null outright when the page is not
+compositing** — a hidden tab, the preview pane, a screenshot harness. The drop silently did nothing and the first
+test read as "drag is broken". The fix is to compare the squares' own rectangles, which is also honest on a phone.
+Same shape as the 2026-09-21 lesson, one step further.
+
+Also: a headless shot cannot be trusted to catch the END of a transition — `?still` opens the chest with every
+duration at 1 ms so a board shows a state rather than a moment.

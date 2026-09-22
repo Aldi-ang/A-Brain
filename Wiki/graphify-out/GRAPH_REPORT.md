@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-22)
 
 ## Corpus Check
-- 108 files · ~235,715 words
+- 108 files · ~236,023 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1253 nodes · 1564 edges · 127 communities (118 shown, 9 thin omitted)
+- 1254 nodes · 1565 edges · 127 communities (118 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5977a950`
+- Built from commit: `3b8a68c7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -143,7 +143,7 @@
 - 3.3 The achievement system
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 95 edges
+1. `Aldi's Design Taste` - 96 edges
 2. `Operation Log` - 67 edges
 3. `2026-09-03 — removing a mod is a schema change to data already written` - 32 edges
 4. `Looking at the App` - 27 edges
@@ -161,7 +161,7 @@
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.02
-Nodes (82): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+74 more)
+Nodes (83): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+75 more)
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.03
@@ -628,7 +628,7 @@ Cohesion: 0.33
 Nodes (6): 3.3 The achievement system, Evaluation — the elegant part, How you configure them, Kill one of the two systems, Schema, The starter set — with the exact data source for each, or an honest "not yet"
 
 ## Knowledge Gaps
-- **986 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+981 more)
+- **987 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+982 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -636,15 +636,15 @@ Nodes (6): 3.3 The achievement system, Evaluation — the elegant part, How you 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Store Hand-off Name Collision`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.168) - this node is a cross-community bridge._
+  _High betweenness centrality (0.170) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `2026-08-14 (later) — the desk sidebar becomes one button, and the video was finally watchable`, `Concepts/index.md`?**
   _High betweenness centrality (0.053) - this node is a cross-community bridge._
 - **Why does `Looking at the App` connect `Looking at the App` to `Concepts/index.md`?**
-  _High betweenness centrality (0.050) - this node is a cross-community bridge._
+  _High betweenness centrality (0.051) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _986 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _987 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
-  _Cohesion score 0.024390243902439025 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.024096385542168676 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
   _Cohesion score 0.030303030303030304 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**
