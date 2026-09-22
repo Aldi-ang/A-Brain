@@ -2751,3 +2751,26 @@ Also settled while building it: **the crate turns ONCE when you pick the person 
 that spins for ever is the same fault as the blinking lights he killed on 2026-09-18 — the turn has to be an event.
 
 Boards: `Raw/2026-09-22-fleet-loading/board-roster.png` (+ the phone board) and `board-motion.png`. Decision open.
+
+## He asks for a look from a game, and he asks to REVIEW it before it is integrated (2026-09-22, 19:40)
+
+> *"for the animation what if u made this minecraft chest animation with the GUI and also the sound when we open the
+> agent inventory, and the textbox "chest" should be replaced with ("agent name" inventory") … btw i want to see it
+> on the artifact first so that i can review before integrate it"*
+
+Three things worth keeping.
+
+1. **He rejected all three of my motions by proposing a fourth, and his is better.** Same pattern as 2026-08-31
+   ("given three options, he designed a fourth"). My three were abstractions of *loading*; his is a **container
+   opening**, which is what the agent inventory actually is. When he answers a motion board with a reference instead
+   of a letter, the reference is the answer — board it, do not re-offer the three.
+2. **"I want to see it on the artifact first so I can review before integrate it" is now the standing route for any
+   borrowed look.** Not a board of stills: a page he can press, with the sound on, before a line of it goes near the
+   app. The boards stay for choices between OUR options; a lifted look gets a prototype.
+3. **He names the copy targets precisely** — the GUI, the sound, and the title text replaced with the agent's name.
+   He does not ask for the textures, and the answer to what he did not ask for is the house rule anyway: the motion
+   is copyable, the assets are not. Say that in the same breath as showing it, or the prototype reads as a promise
+   to ship someone else's art.
+
+Prototype: https://claude.ai/artifact/V5Z3ZkQZ3fvtXHynn4AnNF · [[Design Inspiration Sources]] rule 1 (repalette,
+always) is what look 2 in it exists to answer.

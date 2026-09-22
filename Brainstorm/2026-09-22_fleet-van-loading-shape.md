@@ -4,7 +4,7 @@ description: The 2026-09-22 talk Aldi asked for before the Fleet & Roster redesi
 type: brainstorm
 created: 2026-09-22
 updated: 2026-09-22
-status: SHAPE DECIDED (A, the panel) — round two OPEN: the roster look and the loading motion
+status: SHAPE + ROSTER DECIDED (the panel; the region folder, tier-scoped) — the loading animation is now a Minecraft-chest prototype awaiting his review
 tags: [fleet, van-loading, design, decision, aldi-asked]
 ---
 
@@ -145,3 +145,66 @@ It flips if the surat jalan becomes the point of the moment, e.g. if loading has
 Models applied: Inversion (what would make the loading moment feel worse — hiding the numbers), Second-Order Thinking
 (a roster row that shows van fill changes what the admin does before he loads), Chesterton's Fence (why the cube
 exists at all, and why it is driven by millimetres).
+
+---
+
+# ROUND THREE — the roster is C (tier-scoped), and the animation became a chest (2026-09-22, 19:40)
+
+> *"region folder is good but its limited only for tier 3 and above to see every region just like the exact logic we
+> have on our recent fleet and roster so we can do that because regional admin shouldnt be seeing other regional
+> roster and inventory. for the animation what if u made this minecraft chest animation with the GUI and also the
+> sound when we open the agent inventory, and the textbox "chest" should be replaced with ("agent name" inventory")
+> … btw i want to see it on the artifact first so that i can review before integrate it"*
+
+## The roster: C, with the tier rule as its reason
+
+Decided: **the region folder**, and the folders are only plural for **tier 3 and above** (T1 DEVELOPER, T2
+COMPANY_OWNER, T3 AREA_ADMIN = "HQ SALES MANAGER"). A **T4 regional admin sees ONE folder — his own region** — which
+is what the screen already does today.
+
+⚠️ **What he asked for is a small widening, not the status quo.** `FleetCanvasManager.jsx:16` reads
+`isGlobalAdmin = ['DEVELOPER','COMPANY_OWNER','ADMIN'].includes(userRole)` — that is T1 and T2 only. **T3 is in the
+`isAreaAdmin` branch today and sees only his own region.** Giving T3 every region means adding `AREA_ADMIN` to that
+list (or replacing it with a `seesEveryRegion(role)` helper in config/permissions.js, which is the better shape —
+the literal-list check is the exact form of the [[Fleet Captain Permission Gap]]).
+
+## 🔴 The thing his REASON exposes, and it is not a layout problem
+
+His words: *"regional admin shouldnt be seeing other regional roster and inventory"*. That is a security statement.
+Measured in `firestore.rules` today:
+
+```
+match /motorists/{motoristId}                       { allow read: if isSalesman(bossUid); }   // :450
+match /branches/{branchLocation}/inventory/{prodId} { allow read: if isSalesman(bossUid); }   // :300
+```
+
+`isSalesman(bossUid)` is "any signed-in employee of this company". **So every region's roster and every branch's
+stock are readable by every employee — the region scoping lives only in the screen's own filter.** It is the
+[[UI-Says-Yes-Server-Says-No Pattern]] in reverse: the UI says no while the server says yes. Hiding the folder does
+not make the data unreachable; it makes it unreachable *by clicking*.
+
+Making his sentence true needs the rules to carry the region, which needs the employee profile to carry it — a
+DRAFT he deploys, a rules test, and a decision about the salesman's own reads. **That is its own job**, and it is
+worth pricing separately; it is not part of the folder repaint. Recorded, not started.
+
+## The animation: the Minecraft chest, and what can actually ship
+
+He sent github/SteveFX's "Minecraft Chest + GUI Animation" (22 s, no speech). Watched frame by frame: the chest sits
+closed; on open the **lid tilts back and the grey GUI panel grows out of the lid in ~0,25 s with a small overshoot**,
+title top-left ("Chest"), 9×3 slots. He wants that when the agent inventory opens, with the title
+`"<agent name> inventory"`, and the sound.
+
+**The prototype is the artifact — https://claude.ai/artifact/V5Z3ZkQZ3fvtXHynn4AnNF** (two looks, sound on/off,
+slow motion, the name switcher). What it establishes:
+
+- **The motion is copyable; the assets are not.** Minecraft's textures, font and sounds are Mojang's and cannot ship
+  in a product he sells. Everything in the prototype is drawn from plain boxes, and the sound is synthesised in the
+  browser (a filtered noise creak + two knocks) rather than sampled.
+- **Look 1 keeps the stone-grey panel** so he can judge it against the video, and it breaks the palette law on
+  purpose. **Look 2 is the same panel in slate + gold.** His call.
+- **27 slots is a manifest, not a screen.** The agent inventory carries products, damaged goods and the cukai debt.
+  So the chest is the WAY IN: it opens, the panel shows what the van carries, the rest of the screen stays below.
+- **A turn/opening is an event**: it runs once, Lite Mode and reduced motion leave the panel simply open.
+
+Models applied: Inversion (what would make this unshippable — the answer was the assets, not the animation),
+Second-Order Thinking (a 27-slot metaphor sets an expectation about how much the screen can hold).
