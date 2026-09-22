@@ -609,3 +609,10 @@ a BEFORE that could have failed: `git checkout <fix>^ -- <file>`, reload, read t
 That is how 165.000 → 110.000, 4202 → 4220 and one-silent-write → zero were each read off the real component, not off a
 unit test. A guard that bundles the app (MerchantSalesView imports `debtCredit`) means the old revenueRule.js cannot be
 checked out alone — check out only the SCREEN whose number you want.
+
+## `look=pin` IS NOT A PHONE for a screen built on media queries — shoot at 518 (2026-09-22)
+
+The Stock Opname count card pinned to 375 inside a 2000-wide headless window rendered the DESK grid squeezed into 375
+(four plates in one row, a one-word-per-line message): the pin narrows `#root`, but `@media (max-width: 1023px)` reads
+the window. For a phone LOOK board, shoot at `--window-size=518,1000` — the narrowest uncropped headless width, and the
+phone CSS fires. The pin is only honest for layouts that do not branch on a media query. Raw/2026-09-22-nixie-light/shoot.mjs.

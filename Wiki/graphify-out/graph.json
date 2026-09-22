@@ -3376,8 +3376,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline",
-      "community": 37,
-      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "draft-then-deploy discipline.md"
     },
     {
@@ -3387,8 +3387,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_draft_then_deploy_discipline",
-      "community": 37,
-      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
+      "community": 100,
+      "community_name": "Wiki/Summaries",
       "norm_label": "draft-then-deploy discipline"
     },
     {
@@ -3398,8 +3398,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_why",
-      "community": 37,
-      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
+      "community": 100,
+      "community_name": "Wiki/Summaries",
       "norm_label": "why"
     },
     {
@@ -3409,8 +3409,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_the_document_don_t_silently_half_fix_convention",
-      "community": 37,
-      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
+      "community": 100,
+      "community_name": "Wiki/Summaries",
       "norm_label": "the \"document, don't silently half-fix\" convention"
     },
     {
@@ -3420,8 +3420,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_related_process_the_deploy_checklist",
-      "community": 37,
-      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
+      "community": 100,
+      "community_name": "Wiki/Summaries",
       "norm_label": "related process: the deploy checklist"
     },
     {
@@ -3431,8 +3431,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_related",
-      "community": 37,
-      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
+      "community": 100,
+      "community_name": "Wiki/Summaries",
       "norm_label": "related"
     },
     {
@@ -7033,6 +7033,72 @@
       "norm_label": "the nixie counter \u2014 the one moving-number instrument (2026-09-18, kpm a13744a)"
     },
     {
+      "label": "The Master Password Fingerprint.md",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "concepts_the_master_password_fingerprint",
+      "community": 65,
+      "community_name": "Summary: KPM Project Facts Reference",
+      "norm_label": "the master password fingerprint.md"
+    },
+    {
+      "label": "The Master Password Fingerprint",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "concepts_the_master_password_fingerprint_the_master_password_fingerprint",
+      "community": 65,
+      "community_name": "Summary: KPM Project Facts Reference",
+      "norm_label": "the master password fingerprint"
+    },
+    {
+      "label": "What is stored, and where",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "concepts_the_master_password_fingerprint_what_is_stored_and_where",
+      "community": 65,
+      "community_name": "Summary: KPM Project Facts Reference",
+      "norm_label": "what is stored, and where"
+    },
+    {
+      "label": "Why the plain hash was not enough HERE",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "concepts_the_master_password_fingerprint_why_the_plain_hash_was_not_enough_here",
+      "community": 65,
+      "community_name": "Summary: KPM Project Facts Reference",
+      "norm_label": "why the plain hash was not enough here"
+    },
+    {
+      "label": "The rules",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "concepts_the_master_password_fingerprint_the_rules",
+      "community": 65,
+      "community_name": "Summary: KPM Project Facts Reference",
+      "norm_label": "the rules"
+    },
+    {
+      "label": "What was NOT done, on purpose",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "concepts_the_master_password_fingerprint_what_was_not_done_on_purpose",
+      "community": 65,
+      "community_name": "Summary: KPM Project Facts Reference",
+      "norm_label": "what was not done, on purpose"
+    },
+    {
       "label": "The Named Path Was Already Shut.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/The Named Path Was Already Shut.md",
@@ -8109,6 +8175,17 @@
       "community": 15,
       "community_name": "Firestore Rules",
       "norm_label": "verify before trusting"
+    },
+    {
+      "label": "CHANGE 8 \u2014 2026-09-22 \u2014 the shared rank-settings path is closed (DRAFT until Aldi deploys)",
+      "file_type": "document",
+      "source_file": "Wiki/Entities/Firestore Rules.md",
+      "source_location": "L180",
+      "_origin": "ast",
+      "id": "entities_firestore_rules_change_8_2026_09_22_the_shared_rank_settings_path_is_closed_draft_until_aldi_deploys",
+      "community": 15,
+      "community_name": "Firestore Rules",
+      "norm_label": "change 8 \u2014 2026-09-22 \u2014 the shared rank-settings path is closed (draft until aldi deploys)"
     },
     {
       "label": "Fleet Captain Permission Gap.md",
@@ -9423,7 +9500,7 @@
       "label": "Summaries (one per ingested source, newest ingest pass first)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L96",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
       "community": 73,
@@ -9434,7 +9511,7 @@
       "label": "Known gaps (honest, not filled in yet)",
       "file_type": "document",
       "source_file": "Wiki/Index.md",
-      "source_location": "L164",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
       "community": 73,
@@ -11158,6 +11235,17 @@
       "norm_label": "2026-09-22 11:50 \u2014 the three money fixes proven in the lab with before/after (kpm lab `02b39f3`)"
     },
     {
+      "label": "2026-09-22 13:10 \u2014 the security batch: the fingerprint is slow and salted; the rank settings have one home (kpm `603472d`)",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1400",
+      "_origin": "ast",
+      "id": "log_2026_09_22_13_10_the_security_batch_the_fingerprint_is_slow_and_salted_the_rank_settings_have_one_home_kpm_603472d",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-22 13:10 \u2014 the security batch: the fingerprint is slow and salted; the rank settings have one home (kpm `603472d`)"
+    },
+    {
       "label": "MOC.md",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
@@ -11395,8 +11483,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 37,
-      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
+      "community": 66,
+      "community_name": "A Smooth Scroll That Never Runs",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -11472,8 +11560,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 95,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -11549,8 +11637,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 65,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 95,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -11560,8 +11648,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 65,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 95,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -11571,8 +11659,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 65,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 95,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "what it establishes"
     },
     {
@@ -11582,8 +11670,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 65,
-      "community_name": "Summary: KPM Project Facts Reference",
+      "community": 95,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -11813,8 +11901,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 95,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "option b region lock.md"
     },
     {
@@ -11824,8 +11912,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_summary_option_b_region_lock",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 118,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "summary: option b region lock"
     },
     {
@@ -11835,8 +11923,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_what_it_fixed",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 118,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "what it fixed"
     },
     {
@@ -11846,8 +11934,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_the_blocking_question_resolved",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 118,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "the blocking question, resolved"
     },
     {
@@ -11857,8 +11945,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_extended_to_fleet_captain_and_a_real_stale_memory_lesson",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 118,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "extended to fleet captain \u2014 and a real \"stale memory\" lesson"
     },
     {
@@ -11868,8 +11956,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_ripple_pages_this_touches",
-      "community": 44,
-      "community_name": "Draft-Then-Deploy Discipline",
+      "community": 118,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -11934,8 +12022,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 37,
-      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -12187,8 +12275,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 66,
+      "community_name": "A Smooth Scroll That Never Runs",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -13507,8 +13595,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 95,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "summaries/index.md"
     },
     {
@@ -13518,8 +13606,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_index_wiki_summaries",
-      "community": 100,
-      "community_name": "Wiki/Summaries",
+      "community": 95,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "wiki/summaries"
     },
     {
@@ -13529,8 +13617,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "summaries_index_pages_here",
-      "community": 100,
-      "community_name": "Wiki/Summaries",
+      "community": 95,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "pages here"
     },
     {
@@ -13540,8 +13628,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
-      "community": 100,
-      "community_name": "Wiki/Summaries",
+      "community": 95,
+      "community_name": "Summary: Ponytail Philosophy Ingest",
       "norm_label": "adding a new summary"
     },
     {
@@ -14496,7 +14584,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L131",
+      "source_location": "L132",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -14628,7 +14716,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L137",
+      "source_location": "L138",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -14727,7 +14815,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L127",
+      "source_location": "L128",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -14881,7 +14969,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L160",
+      "source_location": "L161",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -15453,7 +15541,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L133",
+      "source_location": "L134",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -15706,7 +15794,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L139",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -15926,7 +16014,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L125",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -16091,7 +16179,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L129",
+      "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -16212,7 +16300,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L157",
+      "source_location": "L158",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -18863,7 +18951,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L126",
+      "source_location": "L127",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -18962,7 +19050,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L130",
+      "source_location": "L131",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -19402,7 +19490,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L158",
+      "source_location": "L159",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -21426,7 +21514,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L128",
+      "source_location": "L129",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -21602,7 +21690,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L132",
+      "source_location": "L133",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -22097,7 +22185,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L156",
+      "source_location": "L157",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -22343,6 +22431,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "concepts_the_cross_site_login_block",
+      "target": "concepts_secure_context_requirement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_master_password_fingerprint",
       "target": "concepts_secure_context_requirement",
       "confidence_score": 1.0
     },
@@ -22735,7 +22834,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L141",
+      "source_location": "L142",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -23043,7 +23142,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L159",
+      "source_location": "L160",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -23513,6 +23612,61 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_master_password_fingerprint",
+      "target": "concepts_the_master_password_fingerprint_the_master_password_fingerprint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_master_password_fingerprint_the_master_password_fingerprint",
+      "target": "concepts_the_master_password_fingerprint_the_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_master_password_fingerprint_the_master_password_fingerprint",
+      "target": "concepts_the_master_password_fingerprint_what_is_stored_and_where",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_master_password_fingerprint_the_master_password_fingerprint",
+      "target": "concepts_the_master_password_fingerprint_what_was_not_done_on_purpose",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/The Master Password Fingerprint.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_the_master_password_fingerprint_the_master_password_fingerprint",
+      "target": "concepts_the_master_password_fingerprint_why_the_plain_hash_was_not_enough_here",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/index.md",
@@ -23747,7 +23901,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L138",
+      "source_location": "L139",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -24066,7 +24220,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L136",
+      "source_location": "L137",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -24720,6 +24874,17 @@
       "_origin": "ast",
       "source": "entities_firestore_rules_firestore_rules",
       "target": "entities_firestore_rules_2026_09_05_a_public_url_made_the_draft_deployed_gap_concrete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Entities/Firestore Rules.md",
+      "source_location": "L180",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "entities_firestore_rules_firestore_rules",
+      "target": "entities_firestore_rules_change_8_2026_09_22_the_shared_rank_settings_path_is_closed_draft_until_aldi_deploys",
       "confidence_score": 1.0
     },
     {
@@ -26321,7 +26486,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L140",
+      "source_location": "L141",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -26332,7 +26497,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L162",
+      "source_location": "L163",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -26343,7 +26508,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L161",
+      "source_location": "L162",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index",
@@ -26376,7 +26541,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L164",
+      "source_location": "L165",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -26387,7 +26552,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Index.md",
-      "source_location": "L96",
+      "source_location": "L97",
       "weight": 1.0,
       "_origin": "ast",
       "source": "index_wiki_index",
@@ -28163,6 +28328,17 @@
       "_origin": "ast",
       "source": "log_operation_log",
       "target": "log_2026_09_22_11_50_the_three_money_fixes_proven_in_the_lab_with_before_after_kpm_lab_02b39f3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1400",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_22_13_10_the_security_batch_the_fingerprint_is_slow_and_salted_the_rank_settings_have_one_home_kpm_603472d",
       "confidence_score": 1.0
     },
     {
@@ -30664,5 +30840,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5b77ec7911891ec5c4808a074ab4c9f46298b19a"
+  "built_at_commit": "0caeef89e060409df099b9b30b790dec87b853f7"
 }

@@ -1400,3 +1400,7 @@ Receivables 165.000 → 110.000, a Slop return 4202 → 4220 through the real en
 ## 2026-09-22 13:10 — the security batch: the fingerprint is slow and salted; the rank settings have one home (kpm `603472d`)
 
 His YES and YES at 12:30. (a) [[The Master Password Fingerprint]] — PBKDF2-SHA256 with salt, the old form still opens and is re-saved on the first sign-in, the password keeps its case, one helper for the gate / setup / recovery / crown transfer. (b) [[Firestore Rules]] CHANGE 8 — the shared rank-settings path closed as a DRAFT, the one-time move into the company folder reported by the app, emulator 26/26. ✅ TEST owed with two order rules (deploy the build around the first sign-in; open the app as the boss before deploying the rules).
+
+## 2026-09-22 14:10 — the presentation updated (artifact v6); the light-mode nixie boards sent; Fleet & Roster logic asked
+
+KPM Command Center v6 carries the security work, the shipped card and the 22 Sep numbers. Three light-mode nixie looks boarded from the real count card ([[The nixie counter in light mode — three looks]]); A recommended. The Fleet & Roster redesign waits on his answer to the 2026-08-24 "few logic" question. Lesson in [[Looking at the App]]: `look=pin` is not a phone for a media-query layout — shoot at 518.
