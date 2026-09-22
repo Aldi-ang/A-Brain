@@ -2,7 +2,7 @@
 title: The PC — the review card too tall when open, the Agent Inventory strip colliding at xl
 type: brainstorm
 created: 2026-09-22
-status: DECIDED 2026-09-22 09:38 — "board 1 = A but make the Profile picture bigger as big as B minimum, board 2 = A looks better but make sure that all the boards looks good on phone too"; shipped as kpm 20aac21, ✅ TEST owed
+status: DECIDED 2026-09-22 09:38 — "board 1 = A but make the Profile picture bigger as big as B minimum, board 2 = A looks better but make sure that all the boards looks good on phone too"; shipped as kpm 20aac21, CONFIRMED by Aldi 10:03 ("test 1 approve, test 2 approve, test 3 approve")
 tags: [kpm, pc, desk, player-card, eod, agent-inventory, layout, design]
 ---
 
