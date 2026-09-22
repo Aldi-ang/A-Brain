@@ -4,7 +4,7 @@ description: The 2026-09-22 talk Aldi asked for before the Fleet & Roster redesi
 type: brainstorm
 created: 2026-09-22
 updated: 2026-09-22
-status: SHAPE + ROSTER + CHEST DECIDED in principle (panel · region folder tier-scoped · the chest, brown, six big squares, 3D products, drag, damaged row) — his verdict on v2 outstanding
+status: SHAPE + ROSTER + CHEST DECIDED — and the LOADING GESTURE is now two chests (warehouse → van) with a quantity panel; that is tomorrow (2026-09-23)
 tags: [fleet, van-loading, design, decision, aldi-asked]
 ---
 
@@ -289,3 +289,49 @@ a box carried over the page-3 tab turns the page and lands there (`1 · 5`, `2 �
 
 **For the app, this changes the field:** the saved thing is not an ORDER but a LAYOUT — a fixed-length list of slots
 where a hole is meaningful. Still its own field, still written on drop, still never inside `activeCanvas`.
+
+---
+
+# ROUND SIX — the loading gesture becomes TWO CHESTS, and the session closes (2026-09-22, 21:00)
+
+> *"we also need fun way to put item from warehouse inside the chest, maybe drag the item inside the warehouse big
+> chest to the agent small chest kind of workflow and of course there should be panel coming up after we move an item
+> from warehouse chest to the inside agent inventory to input how many item are transferred, because at most time we
+> wont put all the stock inside warehouse to the agent inventory, and also it is better when there is better sound
+> like minecraft kinda sound on the chest animation to make it more satisfying and also transferring animation
+> between chest to make it looks cool and interactive but maybe we should do this tomorrow because we are lacking of
+> quota right now"*
+
+## ⚠️ This REPLACES the basket, and that is the thing to notice
+
+The loading bay was decided as *a panel inside Fleet & Roster carrying a basket*: search the branch stock, add lines,
+one press. **The place is unchanged. The gesture is not.** He has replaced "search and add" with **two chests side by
+side — the warehouse's big one and the salesman's small one — and you drag a product across.** The basket still
+exists underneath (several products, one press, one surat jalan); what changes is how a line gets into it.
+
+So the earlier board's "AMBIL DARI GUDANG BANDUNG" search box is superseded as the primary gesture. Keep it as the
+way to FIND a product in a warehouse that holds hundreds — you cannot drag what you cannot see — but the act of
+loading is the drag.
+
+## What he specified, exactly
+
+| | |
+|---|---|
+| the gesture | drag a product from the **warehouse chest** (big) into the **agent chest** (small) |
+| the quantity | a panel opens **on drop** to type how many — *"at most time we wont put all the stock"* |
+| the sound | closer to the game's: *"better sound like minecraft kinda sound … to make it more satisfying"* |
+| the motion | a **transfer animation between the two chests**, not just an arrival in the target |
+
+## What has to be decided while building it (not asked yet)
+
+1. **The unit the panel asks in.** The van thinks in Bks; the warehouse row is Bks; but he loads in Bal and Slop. The
+   panel should offer the same unit switcher the basket has, with the live `= N Bks`, or the number is ambiguous.
+2. **Does the drop write immediately, or fill the basket?** One drag = one `handleLoadCanvas` is the simplest true
+   thing, but then "one press, one surat jalan" is lost. The honest shape: the drag builds the manifest, and the
+   single MUAT VAN press is still what writes — the transfer animation plays on the drag, the writes happen on the
+   press, and the surat jalan stays one document.
+3. **The sound.** Mojang's files cannot ship. A better chest sound means a real recording we own (a wooden crate, a
+   latch, a lid) or a richer synthesis. Worth 30 minutes of foley rather than a library.
+
+Models applied: Second-Order Thinking (a gesture that writes per drag would multiply both writes and surat jalan),
+Inversion (what makes a transfer animation feel wrong — the goods arriving before anyone said how many).

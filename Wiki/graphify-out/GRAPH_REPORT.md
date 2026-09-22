@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-22)
 
 ## Corpus Check
-- 108 files · ~236,237 words
+- 108 files · ~236,410 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1255 nodes · 1566 edges · 121 communities (112 shown, 9 thin omitted)
+- 1256 nodes · 1567 edges · 117 communities (108 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1b44b24e`
+- Built from commit: `63309939`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,6 +19,7 @@
 - Operation Log
 - Lancelot the Tobacco Ledger Agent
 - KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
+- Concepts/index.md
 - 3.2 How XP works, and why it can never decay again
 - The KPM Control System
 - Anti-Recurrence Check
@@ -68,7 +69,6 @@
 - Summary: Rank Config Cross-Tenant Gap
 - An Effect's Own Cleanup Can Cancel Its Frame
 - What Create Mod's Ponder Actually Does
-- POV changes the id, never the email
 - A Mode Reminder Does Not Outrank Aldi
 - The Camera Was Aimed at the Wrong Scroller
 - A completed sale is a closed contract
@@ -104,9 +104,7 @@
 - 7 Days to Die — mod load order and the infinite loading screen
 - One Pack Count, Many Screens
 - The Panel That Never Reads a Transaction
-- Ecer Is a Person, Not a Shop
 - Summary: Option B Region Lock
-- Email Is a Document ID, Not a Field
 - Email Is a Document ID, Not a Field
 - Lift the Dialog, Never Push the Rest Down
 - Summary: Ponytail Philosophy Ingest
@@ -132,12 +130,11 @@
 - The Player Card
 - Off-Token Colour Migration Map
 - Sale Is Final — no refund, no credit
-- Summary: Option B Region Lock
 - The Shell Repaints Any White It Can Reach
 - Headquarters Is Not a Cabang
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 97 edges
+1. `Aldi's Design Taste` - 98 edges
 2. `Operation Log` - 67 edges
 3. `2026-09-03 — removing a mod is a schema change to data already written` - 32 edges
 4. `Looking at the App` - 27 edges
@@ -151,11 +148,11 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (121 total, 9 thin omitted)
+## Communities (117 total, 9 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.02
-Nodes (84): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+76 more)
+Nodes (85): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+77 more)
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.03
@@ -168,6 +165,10 @@ Nodes (41): A trap already in the data, Consequences — the build list, in orde
 ### Community 3 - "KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics"
 Cohesion: 0.04
 Nodes (45): 1. The thing you need to know first, 2. What's already good, 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated (+37 more)
+
+### Community 4 - "Concepts/index.md"
+Cohesion: 0.07
+Nodes (35): A Hijacked UID Is Not an Identity, Guarded by, Related, The general shape, The mechanism, The tell was in the screenshot, not the sentence, What it did NOT break, A Stored Name Is Not the Name of Record (+27 more)
 
 ### Community 5 - "3.2 How XP works, and why it can never decay again"
 Cohesion: 0.09
@@ -214,8 +215,8 @@ Cohesion: 0.15
 Nodes (13): 2026-09-05: a public URL made the draft/deployed gap concrete, CHANGE 8 — 2026-09-22 — the shared rank-settings path is closed (DRAFT until Aldi deploys), 🔴 DO NOT DELETE THAT LINE — it is load-bearing, Firestore Rules, It's a draft, not the live rules, Re-confirmed still-undeployed, 2026-07-27, Related, Superseded, 2026-07-29 — most of the ruleset deployed 2026-07-28 (+5 more)
 
 ### Community 16 - "A completed sale is a closed contract"
-Cohesion: 0.29
-Nodes (7): A Hijacked UID Is Not an Identity, Guarded by, Related, The general shape, The mechanism, The tell was in the screenshot, not the sentence, What it did NOT break
+Cohesion: 0.40
+Nodes (4): Ripple — pages this touches, Summary: Ponytail Philosophy Ingest, Where it went, Why this was ingested
 
 ### Community 17 - "9Router Subordinate AI Delegation"
 Cohesion: 0.22
@@ -246,8 +247,8 @@ Cohesion: 0.25
 Nodes (8): A dev door onto `window` is guarded, not trusted, Looking inside the app, Related, The three traps, all hit on the first run, The vault was seeded as data, not typed into the form, Two locks, and neither is opened by typing a password, What it does not solve, What was already there, and what was missing
 
 ### Community 24 - "Light Ground and the Theme Lab"
-Cohesion: 0.13
-Nodes (11): Adding a new summary, Pages here, Wiki/Summaries, Ripple — pages this touches, Summary: Ponytail Philosophy Ingest, Where it went, Why this was ingested, Ripple — pages this touches (+3 more)
+Cohesion: 0.40
+Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
 
 ### Community 25 - "Stock Count Trust Chain"
 Cohesion: 0.25
@@ -334,8 +335,8 @@ Cohesion: 0.50
 Nodes (3): Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes
 
 ### Community 46 - "A Hijacked UID Is Not an Identity"
-Cohesion: 0.33
-Nodes (6): A Stored Name Is Not the Name of Record, Fault 1 — the string is a snapshot of a Google account, Fault 2 — the newest row's seller is not the current owner, Guarded by, Related, The general shape
+Cohesion: 0.40
+Nodes (4): Ripple — pages this touches, Summary: Rules Draft Process, The documentation convention, What it establishes
 
 ### Community 47 - "Multi-Tenant Architecture"
 Cohesion: 0.50
@@ -364,10 +365,6 @@ Nodes (7): An Effect's Own Cleanup Can Cancel Its Frame, The family has six memb
 ### Community 53 - "What Create Mod's Ponder Actually Does"
 Cohesion: 0.06
 Nodes (32): 2026-09-03 — a log from a session that has not ended is not evidence of absence, 2026-09-03 — derive the coordinate model from the file's own working layouts first, 2026-09-03 — removing a mod is a schema change to data already written, 2026-09-03 — removing a mod is a schema change to data already written, 2026-09-03 — republishing an artifact starts with a full Read, not with proving the file matches, 2026-09-04 — a correlation with no mechanism is not a diagnosis, at any sample size, 2026-09-04 — a tool the note in front of you records as hanging is a settled result, not a stale data point, 2026-09-04 — check whether this codebase already solved it before offering Aldi an A-or-B choice (+24 more)
-
-### Community 54 - "POV changes the id, never the email"
-Cohesion: 0.33
-Nodes (6): How it was found — 2026-09-08, Not a permission hole, and say so plainly, POV changes the id, never the email, Related, The rule for next time, The second instance, still unfixed as of 2026-09-08
 
 ### Community 55 - "A Mode Reminder Does Not Outrank Aldi"
 Cohesion: 0.40
@@ -477,10 +474,6 @@ Nodes (6): One Pack Count, Many Screens, Pinned, The decision — the boxes are 
 Cohesion: 0.29
 Nodes (7): Also settled, no code, Same day: the demo went online, and the check that made that safe, The larger question underneath, unanswered, The Panel That Never Reads a Transaction, The report, The trap that makes a lazy build wrong, Where the distinction actually dies
 
-### Community 90 - "Ecer Is a Person, Not a Shop"
-Cohesion: 0.33
-Nodes (6): Ecer Is a Person, Not a Shop, Related, Still open, The trap inside "strict", and it is the part worth remembering, What ships, Why it was a money bug and not a preference
-
 ### Community 91 - "Summary: Option B Region Lock"
 Cohesion: 0.11
 Nodes (17): 2026-08-18 — build the viewing path; never report a look you did not get, 2026-08-18 — scope a guard to the ELEMENT, not to a string that appears on it, 2026-08-19 — a slice end must never be a raw indexOf result, 2026-08-24 — a handoff that promises a fix must be run against the check that governs it, 2026-08-25 — a check that greps source also reads the comment explaining the bug, 2026-08-27 — a check anchored on display copy fires on every wording change, 2026-08-27 — a harness that does not reproduce the ANCESTOR is testing a different page, 2026-08-27 — an inherited explanation is a hypothesis, whether it is a prior diagnosis or a known artifact (+9 more)
@@ -488,10 +481,6 @@ Nodes (17): 2026-08-18 — build the viewing path; never report a look you did n
 ### Community 92 - "Email Is a Document ID, Not a Field"
 Cohesion: 0.25
 Nodes (8): 🏗️ Architecture, 🎨 Design & Interface, Elsewhere in this vault, 🚨 Incidents, Map of Content, 📱 Phone & Device, 🧭 Process & Discipline, 🔒 Security & Permissions
-
-### Community 93 - "Email Is a Document ID, Not a Field"
-Cohesion: 0.33
-Nodes (6): And the message, Email Is a Document ID, Not a Field, Guarded by, Related, The trap that comes free with every relaxed field, Which required fields are actually structural
 
 ### Community 94 - "Lift the Dialog, Never Push the Rest Down"
 Cohesion: 0.67
@@ -585,10 +574,6 @@ Nodes (6): 2026-09-01 — two fault classes this map never covered, and both are
 Cohesion: 0.33
 Nodes (6): Sale Is Final — no refund, no credit, The consequence nobody should forget, What survives, and why, What the rule is, What this kills, Why this is recorded
 
-### Community 118 - "Summary: Option B Region Lock"
-Cohesion: 0.50
-Nodes (4): Store Hand-off Name Collision, The fix that could not be built, Verified, What shipped
-
 ### Community 121 - "The Shell Repaints Any White It Can Reach"
 Cohesion: 0.40
 Nodes (5): The rule, The second cause of the same appearance, The Shell Repaints Any White It Can Reach, ⚠️ The two harness traps, which cost more than the bug, What changed in the look
@@ -598,7 +583,7 @@ Cohesion: 0.50
 Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang, It has now bitten twice, in two different shapes, The trap underneath both
 
 ## Knowledge Gaps
-- **988 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+983 more)
+- **989 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+984 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -606,15 +591,15 @@ Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Store Hand-off Name Collision`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.171) - this node is a cross-community bridge._
+  _High betweenness centrality (0.172) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `2026-08-14 (later) — the desk sidebar becomes one button, and the video was finally watchable`, `Concepts/index.md`?**
   _High betweenness centrality (0.054) - this node is a cross-community bridge._
 - **Why does `Looking at the App` connect `Looking at the App` to `Concepts/index.md`?**
   _High betweenness centrality (0.051) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _988 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _989 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
-  _Cohesion score 0.023809523809523808 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.023529411764705882 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
   _Cohesion score 0.030303030303030304 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**
