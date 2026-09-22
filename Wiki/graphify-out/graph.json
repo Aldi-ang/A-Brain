@@ -1055,8 +1055,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_a_retry_must_land_where_the_first_try_landed",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 73,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "a retry must land where the first try landed"
     },
     {
@@ -1066,8 +1066,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_what_was_wrong",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 73,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "what was wrong"
     },
     {
@@ -1077,8 +1077,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_the_trap_which_is_the_whole_reason_this_page_exists",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 73,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "the trap, which is the whole reason this page exists"
     },
     {
@@ -1088,8 +1088,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_the_shape_worth_reusing",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 73,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "the shape worth reusing"
     },
     {
@@ -1099,8 +1099,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_what_is_still_not_exactly_once_on_purpose",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 73,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "what is still not exactly-once, on purpose"
     },
     {
@@ -1110,8 +1110,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_related",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 73,
+      "community_name": "A retry must land where the first try landed",
       "norm_label": "related"
     },
     {
@@ -1495,7 +1495,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
-      "community": 16,
+      "community": 57,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "a completed sale is a closed contract"
     },
@@ -1506,7 +1506,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_business_model_in_his_words",
-      "community": 16,
+      "community": 57,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "the business model, in his words"
     },
@@ -1517,7 +1517,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_it_means",
-      "community": 16,
+      "community": 57,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "what it means"
     },
@@ -1528,7 +1528,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_three_things_it_explains_that_looked_like_bugs",
-      "community": 16,
+      "community": 57,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "three things it explains that looked like bugs"
     },
@@ -1539,7 +1539,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_shipped",
-      "community": 16,
+      "community": 57,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "what shipped"
     },
@@ -1550,7 +1550,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_part_worth_remembering_it_took_two_edits_and_the_second_was_invisible",
-      "community": 16,
+      "community": 57,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "the part worth remembering \u2014 it took two edits, and the second was invisible"
     },
@@ -1561,7 +1561,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_rejected_on_purpose",
-      "community": 16,
+      "community": 57,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "rejected on purpose"
     },
@@ -2974,6 +2974,28 @@
       "norm_label": "the desk \u2014 the face is not shrunk for room, and the phone is his standing condition (2026-09-22, 09:38)"
     },
     {
+      "label": "A plate among plain figures refuses an instrument \u2014 \"let the format be the same with other text beside it\" (2026-09-22, 15:05)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2698",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_a_plate_among_plain_figures_refuses_an_instrument_let_the_format_be_the_same_with_other_text_beside_it_2026_09_22_15_05",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "a plate among plain figures refuses an instrument \u2014 \"let the format be the same with other text beside it\" (2026-09-22, 15:05)"
+    },
+    {
+      "label": "Fleet & Roster: the logic he wants changed is the van-loading flow; segment or panel is a talk, not a guess (2026-09-22, 15:05)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2714",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_fleet_roster_the_logic_he_wants_changed_is_the_van_loading_flow_segment_or_panel_is_a_talk_not_a_guess_2026_09_22_15_05",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "fleet & roster: the logic he wants changed is the van-loading flow; segment or panel is a talk, not a guess (2026-09-22, 15:05)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -3387,8 +3409,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_draft_then_deploy_discipline",
-      "community": 100,
-      "community_name": "Wiki/Summaries",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "draft-then-deploy discipline"
     },
     {
@@ -3398,8 +3420,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_why",
-      "community": 100,
-      "community_name": "Wiki/Summaries",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "why"
     },
     {
@@ -3409,8 +3431,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_the_document_don_t_silently_half_fix_convention",
-      "community": 100,
-      "community_name": "Wiki/Summaries",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "the \"document, don't silently half-fix\" convention"
     },
     {
@@ -3420,8 +3442,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_related_process_the_deploy_checklist",
-      "community": 100,
-      "community_name": "Wiki/Summaries",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "related process: the deploy checklist"
     },
     {
@@ -3431,8 +3453,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_related",
-      "community": 100,
-      "community_name": "Wiki/Summaries",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "related"
     },
     {
@@ -3453,8 +3475,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 90,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "ecer is a person, not a shop"
     },
     {
@@ -3464,8 +3486,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_why_it_was_a_money_bug_and_not_a_preference",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 90,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "why it was a money bug and not a preference"
     },
     {
@@ -3475,8 +3497,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_what_ships",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 90,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "what ships"
     },
     {
@@ -3486,8 +3508,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_the_trap_inside_strict_and_it_is_the_part_worth_remembering",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 90,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "the trap inside \"strict\", and it is the part worth remembering"
     },
     {
@@ -3497,8 +3519,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_still_open",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 90,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "still open"
     },
     {
@@ -3508,8 +3530,8 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_related",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 90,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "related"
     },
     {
@@ -3530,8 +3552,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_email_is_a_document_id_not_a_field",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 93,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "email is a document id, not a field"
     },
     {
@@ -3541,8 +3563,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_which_required_fields_are_actually_structural",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 93,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "which required fields are actually structural"
     },
     {
@@ -3552,8 +3574,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_the_trap_that_comes_free_with_every_relaxed_field",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 93,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "the trap that comes free with every relaxed field"
     },
     {
@@ -3563,8 +3585,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_and_the_message",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 93,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "and the message"
     },
     {
@@ -3574,8 +3596,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_guarded_by",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 93,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "guarded by"
     },
     {
@@ -3585,8 +3607,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_related",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 93,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "related"
     },
     {
@@ -9481,8 +9503,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "index_wiki_index",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 100,
+      "community_name": "Wiki/Summaries",
       "norm_label": "wiki index"
     },
     {
@@ -9492,8 +9514,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "index_entities_specific_things",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 100,
+      "community_name": "Wiki/Summaries",
       "norm_label": "entities (specific things)"
     },
     {
@@ -9503,8 +9525,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "index_concepts_recurring_patterns",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 100,
+      "community_name": "Wiki/Summaries",
       "norm_label": "concepts (recurring patterns)"
     },
     {
@@ -9514,8 +9536,8 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 100,
+      "community_name": "Wiki/Summaries",
       "norm_label": "summaries (one per ingested source, newest ingest pass first)"
     },
     {
@@ -9525,8 +9547,8 @@
       "source_location": "L165",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 100,
+      "community_name": "Wiki/Summaries",
       "norm_label": "known gaps (honest, not filled in yet)"
     },
     {
@@ -11268,6 +11290,28 @@
       "norm_label": "2026-09-22 14:10 \u2014 the presentation updated (artifact v6); the light-mode nixie boards sent; fleet & roster logic asked"
     },
     {
+      "label": "2026-09-22 15:30 \u2014 the DIFFERENCE figure shipped as his own spec (kpm `9cb543b`); the Fleet van-loading logic named",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1408",
+      "_origin": "ast",
+      "id": "log_2026_09_22_15_30_the_difference_figure_shipped_as_his_own_spec_kpm_9cb543b_the_fleet_van_loading_logic_named",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-22 15:30 \u2014 the difference figure shipped as his own spec (kpm `9cb543b`); the fleet van-loading logic named"
+    },
+    {
+      "label": "2026-09-22 16:00 \u2014 the boss's audit line follows the card (kpm `c86c9ee`); Stock Opname has no nixie left",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1412",
+      "_origin": "ast",
+      "id": "log_2026_09_22_16_00_the_boss_s_audit_line_follows_the_card_kpm_c86c9ee_stock_opname_has_no_nixie_left",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-22 16:00 \u2014 the boss's audit line follows the card (kpm `c86c9ee`); stock opname has no nixie left"
+    },
+    {
       "label": "MOC.md",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
@@ -11582,8 +11626,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -11923,8 +11967,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "option b region lock.md"
     },
     {
@@ -11934,8 +11978,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_summary_option_b_region_lock",
-      "community": 118,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "summary: option b region lock"
     },
     {
@@ -11945,8 +11989,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_what_it_fixed",
-      "community": 118,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "what it fixed"
     },
     {
@@ -11956,8 +12000,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_the_blocking_question_resolved",
-      "community": 118,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "the blocking question, resolved"
     },
     {
@@ -11967,8 +12011,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_extended_to_fleet_captain_and_a_real_stale_memory_lesson",
-      "community": 118,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "extended to fleet captain \u2014 and a real \"stale memory\" lesson"
     },
     {
@@ -11978,8 +12022,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_ripple_pages_this_touches",
-      "community": 118,
-      "community_name": "Summary: Option B Region Lock",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -12044,8 +12088,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 51,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -12055,7 +12099,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_summary_rank_config_cross_tenant_gap",
-      "community": 51,
+      "community": 119,
       "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "summary: rank config cross-tenant gap"
     },
@@ -12066,7 +12110,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_framing_note",
-      "community": 51,
+      "community": 119,
       "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "framing note"
     },
@@ -12077,7 +12121,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_the_gap",
-      "community": 51,
+      "community": 119,
       "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "the gap"
     },
@@ -12088,7 +12132,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_two_layers_two_different_fixes",
-      "community": 51,
+      "community": 119,
       "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "two layers, two different fixes"
     },
@@ -12099,7 +12143,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_ripple_pages_this_touches",
-      "community": 51,
+      "community": 119,
       "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "ripple \u2014 pages this touches"
     },
@@ -12297,8 +12341,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -12407,8 +12451,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_store_hand_off_name_collision",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 118,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "store hand-off name collision"
     },
     {
@@ -12418,8 +12462,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_the_fix_that_could_not_be_built",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 118,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "the fix that could not be built"
     },
     {
@@ -12429,8 +12473,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_what_shipped",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 118,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "what shipped"
     },
     {
@@ -12440,8 +12484,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_verified",
-      "community": 16,
-      "community_name": "A completed sale is a closed contract",
+      "community": 118,
+      "community_name": "Summary: Option B Region Lock",
       "norm_label": "verified"
     },
     {
@@ -13617,8 +13661,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "summaries/index.md"
     },
     {
@@ -16960,6 +17004,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2698",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_a_plate_among_plain_figures_refuses_an_instrument_let_the_format_be_the_same_with_other_text_beside_it_2026_09_22_15_05",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L397",
       "weight": 1.0,
       "_origin": "ast",
@@ -17108,6 +17163,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_fault_follows_the_goods_not_the_money_2026_08_17",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2714",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_fleet_roster_the_logic_he_wants_changed_is_the_van_loading_flow_segment_or_panel_is_a_talk_not_a_guess_2026_09_22_15_05",
       "confidence_score": 1.0
     },
     {
@@ -28389,6 +28455,28 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
+      "source_location": "L1408",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_22_15_30_the_difference_figure_shipped_as_his_own_spec_kpm_9cb543b_the_fleet_van_loading_logic_named",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1412",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_22_16_00_the_boss_s_audit_line_follows_the_card_kpm_c86c9ee_stock_opname_has_no_nixie_left",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
       "source_location": "L247",
       "weight": 1.0,
       "_origin": "ast",
@@ -30884,5 +30972,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5705bc82129bc7549f2c3e12d62130c3f48e5a26"
+  "built_at_commit": "7dc6cdc296601770488d340b32bdc7223c2120af"
 }
