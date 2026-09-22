@@ -34,3 +34,4 @@ graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
 # `graphify update Wiki` rewrites the root manifest.json as a side effect, which meant the Stop
 # hook dirtied ~2,200 lines of a stale graph on every single session.
 graphify-out/
+Skills-Library/thinking-partner/
