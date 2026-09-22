@@ -505,8 +505,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_a_hijacked_uid_is_not_an_identity",
-      "community": 57,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "a hijacked uid is not an identity"
     },
     {
@@ -516,8 +516,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_the_tell_was_in_the_screenshot_not_the_sentence",
-      "community": 57,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "the tell was in the screenshot, not the sentence"
     },
     {
@@ -527,8 +527,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_the_mechanism",
-      "community": 57,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "the mechanism"
     },
     {
@@ -538,8 +538,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_the_general_shape",
-      "community": 57,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "the general shape"
     },
     {
@@ -549,8 +549,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_what_it_did_not_break",
-      "community": 57,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "what it did not break"
     },
     {
@@ -560,8 +560,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_guarded_by",
-      "community": 57,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "guarded by"
     },
     {
@@ -571,8 +571,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_related",
-      "community": 57,
-      "community_name": "Headquarters Is Not a Cabang",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "related"
     },
     {
@@ -1055,8 +1055,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_a_retry_must_land_where_the_first_try_landed",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "a retry must land where the first try landed"
     },
     {
@@ -1066,8 +1066,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_what_was_wrong",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "what was wrong"
     },
     {
@@ -1077,8 +1077,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_the_trap_which_is_the_whole_reason_this_page_exists",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "the trap, which is the whole reason this page exists"
     },
     {
@@ -1088,8 +1088,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_the_shape_worth_reusing",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "the shape worth reusing"
     },
     {
@@ -1099,8 +1099,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_what_is_still_not_exactly_once_on_purpose",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "what is still not exactly-once, on purpose"
     },
     {
@@ -1110,8 +1110,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_retry_must_land_where_the_first_try_landed_related",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "related"
     },
     {
@@ -3453,8 +3453,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "ecer is a person, not a shop"
     },
     {
@@ -3464,8 +3464,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_why_it_was_a_money_bug_and_not_a_preference",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "why it was a money bug and not a preference"
     },
     {
@@ -3475,8 +3475,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_what_ships",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "what ships"
     },
     {
@@ -3486,8 +3486,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_the_trap_inside_strict_and_it_is_the_part_worth_remembering",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "the trap inside \"strict\", and it is the part worth remembering"
     },
     {
@@ -3497,8 +3497,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_still_open",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "still open"
     },
     {
@@ -3508,8 +3508,8 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_related",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "related"
     },
     {
@@ -3530,8 +3530,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_email_is_a_document_id_not_a_field",
-      "community": 93,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "email is a document id, not a field"
     },
     {
@@ -3541,8 +3541,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_which_required_fields_are_actually_structural",
-      "community": 93,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "which required fields are actually structural"
     },
     {
@@ -3552,8 +3552,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_the_trap_that_comes_free_with_every_relaxed_field",
-      "community": 93,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "the trap that comes free with every relaxed field"
     },
     {
@@ -3563,8 +3563,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_and_the_message",
-      "community": 93,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "and the message"
     },
     {
@@ -3574,8 +3574,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_guarded_by",
-      "community": 93,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "guarded by"
     },
     {
@@ -3585,8 +3585,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_related",
-      "community": 93,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "related"
     },
     {
@@ -5238,6 +5238,17 @@
       "community": 11,
       "community_name": "Looking at the App",
       "norm_label": "a money path runs through the real engine in the lab \u2014 writes recorded, reads from fixtures (2026-09-22)"
+    },
+    {
+      "label": "`look=pin` IS NOT A PHONE for a screen built on media queries \u2014 shoot at 518 (2026-09-22)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L613",
+      "_origin": "ast",
+      "id": "concepts_looking_at_the_app_look_pin_is_not_a_phone_for_a_screen_built_on_media_queries_shoot_at_518_2026_09_22",
+      "community": 11,
+      "community_name": "Looking at the App",
+      "norm_label": "`look=pin` is not a phone for a screen built on media queries \u2014 shoot at 518 (2026-09-22)"
     },
     {
       "label": "Off-Token Colour Migration Map.md",
@@ -9470,8 +9481,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "index_wiki_index",
-      "community": 73,
-      "community_name": "Wiki Index",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "wiki index"
     },
     {
@@ -9481,8 +9492,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "index_entities_specific_things",
-      "community": 73,
-      "community_name": "Wiki Index",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "entities (specific things)"
     },
     {
@@ -9492,8 +9503,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "index_concepts_recurring_patterns",
-      "community": 73,
-      "community_name": "Wiki Index",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "concepts (recurring patterns)"
     },
     {
@@ -9503,8 +9514,8 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "index_summaries_one_per_ingested_source_newest_ingest_pass_first",
-      "community": 73,
-      "community_name": "Wiki Index",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "summaries (one per ingested source, newest ingest pass first)"
     },
     {
@@ -9514,8 +9525,8 @@
       "source_location": "L165",
       "_origin": "ast",
       "id": "index_known_gaps_honest_not_filled_in_yet",
-      "community": 73,
-      "community_name": "Wiki Index",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "known gaps (honest, not filled in yet)"
     },
     {
@@ -11246,6 +11257,17 @@
       "norm_label": "2026-09-22 13:10 \u2014 the security batch: the fingerprint is slow and salted; the rank settings have one home (kpm `603472d`)"
     },
     {
+      "label": "2026-09-22 14:10 \u2014 the presentation updated (artifact v6); the light-mode nixie boards sent; Fleet & Roster logic asked",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1404",
+      "_origin": "ast",
+      "id": "log_2026_09_22_14_10_the_presentation_updated_artifact_v6_the_light_mode_nixie_boards_sent_fleet_roster_logic_asked",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-22 14:10 \u2014 the presentation updated (artifact v6); the light-mode nixie boards sent; fleet & roster logic asked"
+    },
+    {
       "label": "MOC.md",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
@@ -11483,8 +11505,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 4,
+      "community_name": "Concepts/index.md",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -11637,8 +11659,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -11648,8 +11670,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -11659,8 +11681,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
       "norm_label": "what it establishes"
     },
     {
@@ -11670,8 +11692,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 45,
+      "community_name": "Off-Token Colour Migration Map",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -11967,8 +11989,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "ponytail philosophy ingest.md"
     },
     {
@@ -11978,8 +12000,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_summary_ponytail_philosophy_ingest",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "summary: ponytail philosophy ingest"
     },
     {
@@ -11989,8 +12011,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_why_this_was_ingested",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "why this was ingested"
     },
     {
@@ -12000,8 +12022,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_where_it_went",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "where it went"
     },
     {
@@ -12011,8 +12033,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "summaries_ponytail_philosophy_ingest_ripple_pages_this_touches",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -12385,8 +12407,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_store_hand_off_name_collision",
-      "community": 90,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "store hand-off name collision"
     },
     {
@@ -12396,8 +12418,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_the_fix_that_could_not_be_built",
-      "community": 90,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "the fix that could not be built"
     },
     {
@@ -12407,8 +12429,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_what_shipped",
-      "community": 90,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "what shipped"
     },
     {
@@ -12418,8 +12440,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_verified",
-      "community": 90,
-      "community_name": "Store Hand-off Name Collision",
+      "community": 16,
+      "community_name": "A completed sale is a closed contract",
       "norm_label": "verified"
     },
     {
@@ -21074,6 +21096,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Looking at the App.md",
+      "source_location": "L613",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_looking_at_the_app_looking_at_the_app",
+      "target": "concepts_looking_at_the_app_look_pin_is_not_a_phone_for_a_screen_built_on_media_queries_shoot_at_518_2026_09_22",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Looking at the App.md",
       "source_location": "L424",
       "weight": 1.0,
       "_origin": "ast",
@@ -28345,6 +28378,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
+      "source_location": "L1404",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_22_14_10_the_presentation_updated_artifact_v6_the_light_mode_nixie_boards_sent_fleet_roster_logic_asked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
       "source_location": "L247",
       "weight": 1.0,
       "_origin": "ast",
@@ -30840,5 +30884,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0caeef89e060409df099b9b30b790dec87b853f7"
+  "built_at_commit": "5705bc82129bc7549f2c3e12d62130c3f48e5a26"
 }

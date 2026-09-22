@@ -1404,3 +1404,7 @@ His YES and YES at 12:30. (a) [[The Master Password Fingerprint]] — PBKDF2-SHA
 ## 2026-09-22 14:10 — the presentation updated (artifact v6); the light-mode nixie boards sent; Fleet & Roster logic asked
 
 KPM Command Center v6 carries the security work, the shipped card and the 22 Sep numbers. Three light-mode nixie looks boarded from the real count card ([[The nixie counter in light mode — three looks]]); A recommended. The Fleet & Roster redesign waits on his answer to the 2026-08-24 "few logic" question. Lesson in [[Looking at the App]]: `look=pin` is not a phone for a media-query layout — shoot at 518.
+
+## 2026-09-22 15:30 — the DIFFERENCE figure shipped as his own spec (kpm `9cb543b`); the Fleet van-loading logic named
+
+Both boards refused; the figure is now the siblings' plain mono figure, red on a difference, a drop on a shortfall and a rise on a surplus, once. Taste file: a plate among plain figures refuses an instrument; the Fleet & Roster logic is the van-loading flow, segment vs panel is the next job's talk. [[The nixie counter in light mode — three looks]] closed.

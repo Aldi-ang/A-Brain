@@ -2694,3 +2694,30 @@ panel like PROJECTED VALUE) — *"A looks better"* — the second time he keeps 
 (see "He keeps the default surprisingly often"). (3) **"looks good on phone too" is now a standing condition on every desk
 change**, not a question to ask: a desk fix is measured at 375 before and after, and the SHIPPED board carries the phone frame.
 Shipped as kpm `20aac21`.
+
+## A plate among plain figures refuses an instrument — "let the format be the same with other text beside it" (2026-09-22, 15:05)
+
+> *"tbh nixie tube doesnt look natural compared to other number box right there maybe we should change into other design
+> for that, we need something that is little bit special and not standardised i have no inspiration for now"*
+> — then, to three plate-family verdicts (a stamp, an engraved well, a handwritten figure):
+> *"i dont like your design on the differences, just make it on red color with some animation on negative and also
+> specific animation on positive but just let the format be the same with other text beside it"*
+
+What it settles. (1) **"Special and not standardised" did not mean a new object.** Two boards of objects lost; the
+answer was the SIBLINGS' own figure with the state carried by colour and one motion — special by behaviour, standard by
+format. Next time a figure sits in a row of plain figures, the first board is "same format + colour + one-shot
+motion", not a new material. (2) **"Some animation on negative and a specific animation on positive"** = two different
+one-shot motions that MEAN the sign (a shortfall drops, a surplus rises), never a loop — his "too much of those
+blinking light" still holds. (3) The nixie is not refused as an instrument; it is refused *beside plain figures*. Where
+it stands alone (the EOD folder total, the Agent Inventory window) it stays. Shipped kpm `9cb543b`.
+
+## Fleet & Roster: the logic he wants changed is the van-loading flow; segment or panel is a talk, not a guess (2026-09-22, 15:05)
+
+> *"i also want to redesign how the regional admin put item to the agent inventory that is the logic that i want to
+> change actually is it better to make another segment or just make another panel inside the fleet and roster is
+> something we should talk about on the next job"*
+
+The 2026-08-24 "few logic" question (Backlog: Redesign Receivables and Fleet) is answered: the logic is how a regional
+admin loads a salesman's van (today `handleLoadCanvas` inside Fleet & Roster). The shape — its own module or a panel
+inside Fleet & Roster — he wants to TALK through first, as a decision with pictures, before any redesign of the screen.
+Do not start the Fleet & Roster repaint until that talk has happened; the repaint follows the shape.

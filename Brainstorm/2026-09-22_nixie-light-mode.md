@@ -1,6 +1,6 @@
 ---
 title: The nixie counter in light mode — three looks
-status: ROUND TWO SENT 2026-09-22 14:50 — the nixie itself is refused for the DIFFERENCE plate; three plate-family verdicts boarded (A the stamp recommended); his pick owed
+status: DECIDED 2026-09-22 15:05 — both boards refused; his own spec shipped (kpm 9cb543b): the siblings' plain figure, red, a drop on a shortfall, a rise on a surplus
 created: 2026-09-22
 updated: 2026-09-22
 tags: [design, light-mode, nixie, stock-opname, boards]
@@ -59,3 +59,13 @@ download he must ship offline).
 
 not-chosen: B loses to A on his "special" — it is a nicer box. C loses on the shipping cost, not on looks; flip
 condition: if he picks C, bundle Caveat as a local woff2 and add a self-check that the font file is in dist.
+
+## DECIDED 15:05 — neither board; his own spec (kpm `9cb543b`)
+
+*"i dont like your design on the differences, just make it on red color with some animation on negative and also
+specific animation on positive but just let the format be the same with other text beside it"*. Shipped exactly that:
+the same mono figure as the three plates beside it, red on a difference, plain on a match, keyed on the value — a
+shortfall drops in (420 ms), a surplus rises with a small pop (360 ms), once. Frames: `board-shipped.png`.
+What the two rounds taught: he was not asking for a new OBJECT in that plate; he was asking for the figure to be a
+**sibling** — "the format the same with other text beside it" — with the state carried by colour and one motion.
+The nixie stays where it is not among plain figures (the audit line asked once, the EOD folder, the window).
