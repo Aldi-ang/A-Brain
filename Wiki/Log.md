@@ -1408,3 +1408,7 @@ KPM Command Center v6 carries the security work, the shipped card and the 22 Sep
 ## 2026-09-22 15:30 — the DIFFERENCE figure shipped as his own spec (kpm `9cb543b`); the Fleet van-loading logic named
 
 Both boards refused; the figure is now the siblings' plain mono figure, red on a difference, a drop on a shortfall and a rise on a surplus, once. Taste file: a plate among plain figures refuses an instrument; the Fleet & Roster logic is the van-loading flow, segment vs panel is the next job's talk. [[The nixie counter in light mode — three looks]] closed.
+
+## 2026-09-22 16:00 — the boss's audit line follows the card (kpm `c86c9ee`); Stock Opname has no nixie left
+
+His "yea sure make boss audit have the same design like that one". The three audit figures are the plain mono figure, the DIFFERENCE the keyed red one; the nixie stays only where it stands alone (the EOD folder total, the Agent Inventory window). Presentation v7.
