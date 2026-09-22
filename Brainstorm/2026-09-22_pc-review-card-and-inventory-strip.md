@@ -2,7 +2,7 @@
 title: The PC — the review card too tall when open, the Agent Inventory strip colliding at xl
 type: brainstorm
 created: 2026-09-22
-status: OPEN — two boards sent 2026-09-22 09:30, waiting on Aldi (board 1 A/B, board 2 A/B)
+status: DECIDED 2026-09-22 09:38 — "board 1 = A but make the Profile picture bigger as big as B minimum, board 2 = A looks better but make sure that all the boards looks good on phone too"; shipped as kpm 20aac21, ✅ TEST owed
 tags: [kpm, pc, desk, player-card, eod, agent-inventory, layout, design]
 ---
 
@@ -54,4 +54,11 @@ desk session; B costs one afternoon of CSS).
 
 ## Decision
 
-OPEN — waiting on Aldi.
+DECIDED 09:38: *"board 1 = A but make the Profile picture bigger as big as B minimum, board 2 = A looks better but make
+sure that all the boards looks good on phone too"*. Shipped as kpm `20aac21`: the head is one row from lg with the photo
+kept at 128 (so no `.sframe` scale at all), open or closed alike, so opening animates only the body; the body 2:3 — the
+1:1 of the board overlapped TRANSFER's label with its value and wrapped STOCK BACK / DAMAGED GOODS when shot headless in
+his system font (the pane's font is ~20 % narrower); a product row wraps on the desk instead of truncating. Card 564 px
+open (was 880), 189 closed (was 280). The Agent Inventory header lost its xl split: 239 px boxes, MODAL 41 px slack, the
+coin 38 px inside. Phone measured to the pixel with the edits stashed and restored: identical. The SHIPPED board is in
+`Raw/2026-09-22-pc-boards/board-shipped.png`.

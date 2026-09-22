@@ -1,16 +1,16 @@
-# Graph Report - Wiki  (2026-09-20)
+# Graph Report - Wiki  (2026-09-22)
 
 ## Corpus Check
-- 105 files · ~228,045 words
+- 107 files · ~232,518 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1208 nodes · 1517 edges · 120 communities (111 shown, 9 thin omitted)
+- 1232 nodes · 1543 edges · 120 communities (111 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2596bb7e`
+- Built from commit: `4f849303`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -30,7 +30,7 @@
 - Where KPM Is Going
 - HQ-Initiated Stock Push
 - Firestore Rules
-- Email Is a Document ID, Not a Field
+- A completed sale is a closed contract
 - 9Router Subordinate AI Delegation
 - Silent Failure Disease
 - The Eight Warehouse Gaps
@@ -68,8 +68,8 @@
 - Summary: Rank Config Cross-Tenant Gap
 - An Effect's Own Cleanup Can Cancel Its Frame
 - What Create Mod's Ponder Actually Does
-- The Shell Repaints Any White It Can Reach
-- Lift the Dialog, Never Push the Rest Down
+- POV changes the id, never the email
+- A Mode Reminder Does Not Outrank Aldi
 - The Camera Was Aimed at the Wrong Scroller
 - Headquarters Is Not a Cabang
 - Wiki/Concepts
@@ -87,7 +87,7 @@
 - The Book as a Stack of Sheets
 - 2026-08-27 — the tutorial's four answers, and how a panel got its English name
 - An Effect's Own Cleanup Can Cancel Its Frame
-- Entities/index.md
+- Wiki Index
 - Fleet Captain Permission Gap
 - Git Worktrees
 - Wiki Index
@@ -109,12 +109,12 @@
 - Email Is a Document ID, Not a Field
 - Email Is a Document ID, Not a Field
 - Lift the Dialog, Never Push the Rest Down
-- Ecer Is a Person, Not a Shop
+- Summary: Ponytail Philosophy Ingest
 - Hand-off eligibility
 - The Shorter List Was Never the Eligible One
 - UI-Says-Yes-Server-Says-No Pattern
 - Ownership Moves, History Does Not
-- Summary: Rules Draft Process
+- Wiki/Summaries
 - Store Hand-off Name Collision
 - A Cache Saying No
 - Light Ground and the Theme Lab
@@ -129,15 +129,15 @@
 - What Create Mod's Ponder Actually Does
 - POV changes the id, never the email
 - 2026-08-14 (later) — the desk sidebar becomes one button, and the video was finally watchable
+- The Player Card
 - Off-Token Colour Migration Map
 - Sale Is Final — no refund, no credit
-- Draft-Then-Deploy Discipline
 - The Shell Repaints Any White It Can Reach
 - Headquarters Is Not a Cabang
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 89 edges
-2. `Operation Log` - 56 edges
+1. `Aldi's Design Taste` - 91 edges
+2. `Operation Log` - 60 edges
 3. `2026-09-03 — removing a mod is a schema change to data already written` - 32 edges
 4. `Looking at the App` - 24 edges
 5. `Archived 2026-08-18 (2nd today) — chosen by oldest last-fire` - 21 edges
@@ -154,11 +154,11 @@
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.03
-Nodes (76): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+68 more)
+Nodes (78): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+70 more)
 
 ### Community 1 - "Operation Log"
-Cohesion: 0.04
-Nodes (55): 2026-07-27 — First ingest pass (structure build + seed content), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run), 2026-07-27 — Tidy pass (frontmatter, titles, MOC), 2026-07-28 — dependency-removal regression, fixed and rippled, 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard, 2026-08-10 — Six-day backfill, on Aldi's emergency instruction, 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent (+47 more)
+Cohesion: 0.03
+Nodes (59): 2026-07-27 — First ingest pass (structure build + seed content), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run), 2026-07-27 — Tidy pass (frontmatter, titles, MOC), 2026-07-28 — dependency-removal regression, fixed and rippled, 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard, 2026-08-10 — Six-day backfill, on Aldi's emergency instruction, 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent (+51 more)
 
 ### Community 2 - "Lancelot the Tobacco Ledger Agent"
 Cohesion: 0.05
@@ -181,8 +181,8 @@ Cohesion: 0.10
 Nodes (21): 2026-09-01 — a check can enforce a narrower rule than the one it is named after, 🔴 A CHECK TESTS WHETHER A NUMBER COMPUTES, NOT WHETHER IT MEANS ANYTHING (2026-08-27), A fifth shape: measuring numbers instead of LOOKING at the page (2026-08-14), A fourth shape: the check greps the source instead of measuring the result (2026-08-14), 🔴 A GREEN SUITE IS NOT A WORKING SCREEN (2026-08-21), A guard pinned by name enforces the name, not the rule (2026-09-01), A ninth shape: a dead verifier scored as a successful refutation (2026-08-17, second occurrence), A second shape of the same mistake: local checks that don't match real conditions (+13 more)
 
 ### Community 8 - "Archived 2026-08-18 (2nd today) — chosen by oldest last-fire"
-Cohesion: 0.06
-Nodes (33): 2026-07-29 — a skill's own "setup" doc can be the attack, not the SKILL.md, 2026-07-29 — agent-browser MCP tools hang; the CLI binary doesn't, 2026-07-29 — graphify call-edge queries undercount real callers, 2026-07-29 — install commands need an explicit cwd, and -g when the goal is PATH, 2026-07-30 — verify JS-rendered Artifacts by executing them in Node, not the Browser pane, 2026-08-11 — a fixed element anchored to a resizable container must be checked at EVERY size, 2026-08-12 — price a fan-out against the quota BEFORE launching, and never let one last agent own the answer, 2026-08-14 — PORT the solved layout, never rebuild the second one from a blank page (+25 more)
+Cohesion: 0.05
+Nodes (37): 2026-07-29 — a skill's own "setup" doc can be the attack, not the SKILL.md, 2026-07-29 — agent-browser MCP tools hang; the CLI binary doesn't, 2026-07-29 — graphify call-edge queries undercount real callers, 2026-07-29 — install commands need an explicit cwd, and -g when the goal is PATH, 2026-07-30 — verify JS-rendered Artifacts by executing them in Node, not the Browser pane, 2026-08-11 — a fixed element anchored to a resizable container must be checked at EVERY size, 2026-08-12 — price a fan-out against the quota BEFORE launching, and never let one last agent own the answer, 2026-08-14 — PORT the solved layout, never rebuild the second one from a blank page (+29 more)
 
 ### Community 9 - "2026-08-16 — "animation and 3D more with gamification on all of this segment""
 Cohesion: 0.15
@@ -212,9 +212,9 @@ Nodes (11): Address gap, Auto resi tracking, honestly priced, DECISION: ~~OPEN~~
 Cohesion: 0.17
 Nodes (12): 2026-09-05: a public URL made the draft/deployed gap concrete, 🔴 DO NOT DELETE THAT LINE — it is load-bearing, Firestore Rules, It's a draft, not the live rules, Re-confirmed still-undeployed, 2026-07-27, Related, Superseded, 2026-07-29 — most of the ruleset deployed 2026-07-28, The demo was not exposed — it was unreachable (2026-09-06) (+4 more)
 
-### Community 16 - "Email Is a Document ID, Not a Field"
-Cohesion: 0.40
-Nodes (5): A Mode Reminder Does Not Outrank Aldi, Related, The decision it protects, What happened, Why prose did not prevent it
+### Community 16 - "A completed sale is a closed contract"
+Cohesion: 0.29
+Nodes (7): A completed sale is a closed contract, Rejected on purpose, The business model, in his words, The part worth remembering — it took TWO edits, and the second was invisible, Three things it explains that looked like bugs, What it means, What shipped
 
 ### Community 17 - "9Router Subordinate AI Delegation"
 Cohesion: 0.22
@@ -245,8 +245,8 @@ Cohesion: 0.25
 Nodes (8): A dev door onto `window` is guarded, not trusted, Looking inside the app, Related, The three traps, all hit on the first run, The vault was seeded as data, not typed into the form, Two locks, and neither is opened by typing a password, What it does not solve, What was already there, and what was missing
 
 ### Community 24 - "Light Ground and the Theme Lab"
-Cohesion: 0.29
-Nodes (7): A completed sale is a closed contract, Rejected on purpose, The business model, in his words, The part worth remembering — it took TWO edits, and the second was invisible, Three things it explains that looked like bugs, What it means, What shipped
+Cohesion: 0.33
+Nodes (6): Ecer Is a Person, Not a Shop, Related, Still open, The trap inside "strict", and it is the part worth remembering, What ships, Why it was a money bug and not a preference
 
 ### Community 25 - "Stock Count Trust Chain"
 Cohesion: 0.25
@@ -297,8 +297,8 @@ Cohesion: 0.33
 Nodes (5): A real, documented (not fixed) risk, Ripple — pages this touches, Scope decisions worth remembering, Summary: Customer Directory Permission Tier, What it is
 
 ### Community 37 - "Dead Weight Cleanup and Rules-Deploy Gap"
-Cohesion: 0.33
-Nodes (6): Dead Weight Cleanup and Rules-Deploy Gap, Related, Update 2026-07-28 — the cleanup broke the production build, Verify before trusting, What happened, Why it's worth remembering
+Cohesion: 0.14
+Nodes (11): Draft-Then-Deploy Discipline, Related, Related process: the deploy checklist, The "document, don't silently half-fix" convention, Why, Dead Weight Cleanup and Rules-Deploy Gap, Related, Update 2026-07-28 — the cleanup broke the production build (+3 more)
 
 ### Community 38 - "Summaries/index.md"
 Cohesion: 0.40
@@ -325,8 +325,8 @@ Cohesion: 0.50
 Nodes (4): 1. He judges a surface by how it feels after an hour, not in a screenshot, 2. Navigation labels are words, not codes, 3. Depth is confirmed, and quiet is why, Backlight out, full words in, and the lowkey 3D stays (2026-09-02)
 
 ### Community 44 - "Draft-Then-Deploy Discipline"
-Cohesion: 0.33
-Nodes (6): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, Ripple — pages this touches, Summary: Fleet Captain Rule Gaps — Batch 1 and 2, The gap this project almost repeated
+Cohesion: 0.15
+Nodes (11): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, Ripple — pages this touches, Summary: Fleet Captain Rule Gaps — Batch 1 and 2, The gap this project almost repeated, Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches (+3 more)
 
 ### Community 45 - "Off-Token Colour Migration Map"
 Cohesion: 0.33
@@ -353,7 +353,7 @@ Cohesion: 0.67
 Nodes (3): 🔴 AMBER IS AN EDGE AND AN INK. IT IS NOT A FILL. (2026-08-21), He judges by measurement, not by vibe — twice in one session, The near-miss worth remembering
 
 ### Community 51 - "Summary: Rank Config Cross-Tenant Gap"
-Cohesion: 0.33
+Cohesion: 0.40
 Nodes (5): Framing note, Ripple — pages this touches, Summary: Rank Config Cross-Tenant Gap, The gap, Two layers, two different fixes
 
 ### Community 52 - "An Effect's Own Cleanup Can Cancel Its Frame"
@@ -364,13 +364,13 @@ Nodes (7): An Effect's Own Cleanup Can Cancel Its Frame, The family has six memb
 Cohesion: 0.06
 Nodes (32): 2026-09-03 — a log from a session that has not ended is not evidence of absence, 2026-09-03 — derive the coordinate model from the file's own working layouts first, 2026-09-03 — removing a mod is a schema change to data already written, 2026-09-03 — removing a mod is a schema change to data already written, 2026-09-03 — republishing an artifact starts with a full Read, not with proving the file matches, 2026-09-04 — a correlation with no mechanism is not a diagnosis, at any sample size, 2026-09-04 — a tool the note in front of you records as hanging is a settled result, not a stale data point, 2026-09-04 — check whether this codebase already solved it before offering Aldi an A-or-B choice (+24 more)
 
-### Community 54 - "The Shell Repaints Any White It Can Reach"
+### Community 54 - "POV changes the id, never the email"
 Cohesion: 0.33
 Nodes (6): How it was found — 2026-09-08, Not a permission hole, and say so plainly, POV changes the id, never the email, Related, The rule for next time, The second instance, still unfixed as of 2026-09-08
 
-### Community 55 - "Lift the Dialog, Never Push the Rest Down"
+### Community 55 - "A Mode Reminder Does Not Outrank Aldi"
 Cohesion: 0.40
-Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
+Nodes (5): A Mode Reminder Does Not Outrank Aldi, Related, The decision it protects, What happened, Why prose did not prevent it
 
 ### Community 56 - "The Camera Was Aimed at the Wrong Scroller"
 Cohesion: 0.29
@@ -416,7 +416,7 @@ Nodes (25): A flick is a speed, not a distance, Closing a book is one motion, no
 Cohesion: 0.33
 Nodes (6): A CSS Animation Outranks Your Inline Style, Family, The law, The shape, Where it happened, Why it survived every check and every screenshot
 
-### Community 73 - "Entities/index.md"
+### Community 73 - "Wiki Index"
 Cohesion: 0.40
 Nodes (5): Concepts (recurring patterns), Entities (specific things), Known gaps (honest, not filled in yet), Summaries (one per ingested source, newest ingest pass first), Wiki Index
 
@@ -461,8 +461,8 @@ Cohesion: 0.40
 Nodes (5): Gudang Pusat (Master Vault), It was spelled FOUR ways, not three, The name, and who decided it, ⚠️ The trap — `'MASTER'` is also a routing value, What this does NOT settle
 
 ### Community 84 - "Summary: Ponytail Philosophy Ingest"
-Cohesion: 0.40
-Nodes (5): Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches, Summary: Option B Region Lock, The blocking question, resolved, What it fixed
+Cohesion: 0.29
+Nodes (7): EOD Per-Part Verification, Open edges (not bugs, decisions he has not made), Related, The contract — `eodReportParts(report)` (src/utils/helpers.js), The handler — `handleVerifyEOD(report, decision)` (src/App.jsx), Verify before trusting, What did NOT change, and why
 
 ### Community 87 - "7 Days to Die — mod load order and the infinite loading screen"
 Cohesion: 0.22
@@ -496,9 +496,9 @@ Nodes (6): And the message, Email Is a Document ID, Not a Field, Guarded by, Rel
 Cohesion: 0.67
 Nodes (3): Lift the Dialog, Never Push the Rest Down, Related, The layer map, as of 2026-09-13
 
-### Community 95 - "Ecer Is a Person, Not a Shop"
-Cohesion: 0.33
-Nodes (6): Ecer Is a Person, Not a Shop, Related, Still open, The trap inside "strict", and it is the part worth remembering, What ships, Why it was a money bug and not a preference
+### Community 95 - "Summary: Ponytail Philosophy Ingest"
+Cohesion: 0.40
+Nodes (4): Ripple — pages this touches, Summary: Ponytail Philosophy Ingest, Where it went, Why this was ingested
 
 ### Community 96 - "Hand-off eligibility"
 Cohesion: 0.12
@@ -516,9 +516,9 @@ Nodes (9): Related, The general lesson, The inverse shape: the server check was 
 Cohesion: 0.20
 Nodes (10): Aldi's scope answer, 2026-09-05 — locked, And the bell is not a footnote — his correction, 2026-09-05, Ownership Moves, History Does Not, Settled — the arrow reads sender first, The first live test, 2026-09-05 — the debt arrives, the button does not, The problem, The shape that was built (39cd90d), The two traps a lazy build walks into (+2 more)
 
-### Community 100 - "Summary: Rules Draft Process"
-Cohesion: 0.40
-Nodes (4): Ripple — pages this touches, Summary: Ponytail Philosophy Ingest, Where it went, Why this was ingested
+### Community 100 - "Wiki/Summaries"
+Cohesion: 0.67
+Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
 
 ### Community 101 - "Store Hand-off Name Collision"
 Cohesion: 0.17
@@ -572,6 +572,10 @@ Nodes (7): Every control, and what it really is, Getting the source at all, The 
 Cohesion: 0.67
 Nodes (3): 2026-09-03 — a motion fix is not done until you sample the property on the live page, 2026-09-05 — a red trial that hides its own check file cannot fail, 2026-09-05 — when the thing you are resizing has a stock value, read it before picking a number
 
+### Community 115 - "The Player Card"
+Cohesion: 0.40
+Nodes (5): Related, The laws it kept, The Player Card, The stages, What it is
+
 ### Community 116 - "Off-Token Colour Migration Map"
 Cohesion: 0.33
 Nodes (6): 2026-09-01 — two fault classes this map never covered, and both are app-wide, Off-Token Colour Migration Map, ⚠️ Read this first when light mode starts (added 2026-08-15), The table, The two checks that prove it, What is NOT migrated
@@ -579,10 +583,6 @@ Nodes (6): 2026-09-01 — two fault classes this map never covered, and both are
 ### Community 117 - "Sale Is Final — no refund, no credit"
 Cohesion: 0.33
 Nodes (6): Sale Is Final — no refund, no credit, The consequence nobody should forget, What survives, and why, What the rule is, What this kills, Why this is recorded
-
-### Community 118 - "Draft-Then-Deploy Discipline"
-Cohesion: 0.40
-Nodes (5): Draft-Then-Deploy Discipline, Related, Related process: the deploy checklist, The "document, don't silently half-fix" convention, Why
 
 ### Community 121 - "The Shell Repaints Any White It Can Reach"
 Cohesion: 0.40
@@ -593,7 +593,7 @@ Cohesion: 0.50
 Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang, It has now bitten twice, in two different shapes, The trap underneath both
 
 ## Knowledge Gaps
-- **947 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+942 more)
+- **967 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+962 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -601,16 +601,16 @@ Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Store Hand-off Name Collision`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.185) - this node is a cross-community bridge._
-- **Why does `Operation Log` connect `Operation Log` to `2026-08-14 (later) — the desk sidebar becomes one button, and the video was finally watchable`, `Concepts/index.md`?**
-  _High betweenness centrality (0.072) - this node is a cross-community bridge._
+  _High betweenness centrality (0.173) - this node is a cross-community bridge._
 - **Why does `Looking at the App` connect `Looking at the App` to `Concepts/index.md`?**
-  _High betweenness centrality (0.058) - this node is a cross-community bridge._
+  _High betweenness centrality (0.049) - this node is a cross-community bridge._
+- **Why does `Lancelot the Tobacco Ledger Agent` connect `Lancelot the Tobacco Ledger Agent` to `Concepts/index.md`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _947 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _967 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
-  _Cohesion score 0.02631578947368421 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.02564102564102564 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
-  _Cohesion score 0.03636363636363636 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.03389830508474576 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**
   _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._

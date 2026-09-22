@@ -2681,3 +2681,16 @@ option"*. Read with [[A decision comes as a picture, never as a sentence]]: when
 measured 375 with TODAY beside them, the recommendation carries — he decided both boards in six words, thirty-five
 minutes after they were sent, without a question. The cost lines did their job: A removed a block of his own (the
 OMSET box) and he took it, because the caption said what the head already carries. Shipped as kpm `c31af5e`.
+
+## The desk — the face is not shrunk for room, and the phone is his standing condition (2026-09-22, 09:38)
+Two boards from his three PC screenshots (*"u need to redesign the agent inventory especailly for the modal here because its
+collapsing with other box sc1, sc3 is the review card that u ask this box is little bit to long vertically when open on the pc
+so that i need to slide up and down just to see the whole box opened i want u to shortened it"*). His answer: *"board 1 = A
+but make the Profile picture bigger as big as B minimum, board 2 = A looks better but make sure that all the boards looks good
+on phone too"*. Three things. (1) **He took the recommended layout and refused its one cost he could see** — the 72 px photo.
+The face is the identity of the card ([[The Player Card]]: "the profile is the face"); room is found elsewhere, never by
+shrinking the person. (2) **On the strip he picked the plain fix over the redesign** (A: the laptop layout on the desk, B: one
+panel like PROJECTED VALUE) — *"A looks better"* — the second time he keeps the existing look when the fix is only layout
+(see "He keeps the default surprisingly often"). (3) **"looks good on phone too" is now a standing condition on every desk
+change**, not a question to ask: a desk fix is measured at 375 before and after, and the SHIPPED board carries the phone frame.
+Shipped as kpm `20aac21`.

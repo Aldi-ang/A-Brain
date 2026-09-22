@@ -587,3 +587,13 @@ Also from the same job: a look or a guard written against utility classes (`.fle
 `.flex.gap-1`) matched the title `<h2>` and the DEL button, which carry the same utilities —
 two frames were wrong before the selectors were scoped to `div.flex.gap-2`. Utilities describe
 layout, not identity; scope to the tag or to a real class.
+
+## THE PANE'S FONT IS ~20 % NARROWER THAN HIS — a desk width is proven headless, not in the pane (2026-09-22)
+
+The same `ui-sans-serif, system-ui` stack resolves to a narrower face in the Browser pane than in headless Chrome and in his
+Brave: `Rp 1.200.000` at 20 px measured 126 px in the pane and 152 px on his screenshot (228 device px at 150 %), and the
+headless shot matched his. So a "fits with 11 px to spare" read off the pane's DOM can be 15 px over on his PC. The 1:1
+columns of the review card passed every pane measurement and overlapped TRANSFER's label with its value the moment the
+SHIPPED board was shot headless. Rule: a width claim on the desk is closed by a headless PNG (`--window-size=2000,1000`,
+his screen) in the system font, and the pane's numbers are the lower bound. The lab's `?tab=%E2%8C%84` presses the card's
+chevron, so headless can shoot the card open.
