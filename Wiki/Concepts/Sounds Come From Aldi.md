@@ -151,3 +151,8 @@ lands `bookPlace1` cut to **55–90 ms** at 35 %; page `bookFlip3` at 90 %; refu
 turned the pick-up UP. Soft, short and close beats wooden and resonant — that is what "chill" meant. The one he left
 alone and then questioned is MUAT VAN's `metalLatch` (*"doesnt really suit it"*); three candidates sit on its card
 (a van door that shuts and latches, a heavier door, a ledger snapping shut). His pick decides.
+
+**Direction is heard, not only seen (2026-09-23, 12:54).** *"make the SFX upside down when taken from agent inventory to
+warehouse, instead of going up each time now going down each time"* — the landing tick climbs box by box into the van
+and descends box by box back into the warehouse. A repeated sound's pitch contour is information: up = gaining,
+down = giving back. Keep the contour when the sound ships.
