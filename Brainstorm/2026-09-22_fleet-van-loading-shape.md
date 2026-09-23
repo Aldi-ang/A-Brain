@@ -395,3 +395,46 @@ agent-inventory chest (v3) keeps its own URL as the decided look; this page is t
 Models applied: Inversion (how would the panel cause a wrong load — a default amount, an unseen unit; both removed),
 Pre-mortem on Lite Mode (it found v3's invisible squares), Second-Order Thinking (the merge rule keeps one line per
 product, so the press stays one write per product).
+
+# ROUND EIGHT — his first verdict on the prototype, built as v2 (2026-09-23, 11:05)
+
+His words, verbatim: *"i dont like the sound effect, i want it to be more simple just like what minecraft have but
+satisfying and give me chill when interact with it https://www.youtube.com/watch?v=HOfSXB9O3dk btw i want the warehouse
+chest to be ender chest with the effects like on this video , and btw i like the logic and animation when item
+transferred to the other chest but make sure the animation is on the middle level of between the chests and not too
+bottom there, and also make sure that the drag and drop work both ways so that i can return the item from agent
+inventory to the warehouse and ne also need to add some quick transfer button kind that minecraft and other game have
+to quickly take portion or take all item from the chest "maybe" well discuss about that later"*
+
+The video is RajCraft's *How To Use The Ender Chest In Minecraft* — watched in the pane at 4 / 8 / 40 / 75 / 100 s: a
+near-black chest with a teal-grey trim, the green Eye of Ender as its latch, purple portal specks drifting round it all
+the time, and the same grey GUI.
+
+| his ask | built in v2 |
+|---|---|
+| ender chest for the warehouse | near-black body with faint purple flecks, teal trim, the green eye latch; single, wider than the van's chest; 12 specks drift all the time, a burst of 8–12 when it opens, gives or takes. Object exemption, like the brown chest |
+| the flight in the middle, not the bottom | the boxes now fly from the square they left to the square they land in, on a shallow bow sideways to the line (up on the desk, to the side on the phone) — measured: the path crosses the chest row halfway, x 397→314→292, y 59→236→412 |
+| drag both ways | van → warehouse = a RETURN (panel: "Berapa yang dikembalikan ke gudang?", capped at what the van will still hold); van → another van square = a tidy-up of the layout only ("tersimpan — hanya susunan kotak"); one SIGNED line per product, a drag the other way nets against it; the press prints a surat jalan for what went out and a BUKTI KEMBALI for what came back |
+| simpler, chill sound | a soft wood knock for the van, a low airy swell with a quiet fifth for the ender chest, a small pop per landing box that rises a little each time, a warm dark room behind all of it. No creak, no latch clatter |
+| quick transfer (take half / take all) | **PARKED at his word** — "maybe", "we'll discuss later". Not built |
+
+## Decided while building (his to overturn)
+
+- The specks drift ALL the time, as in the video. That breaks his older "a turn is an event, not a state" rule on
+  purpose, because he asked for the video's effect by name; they are the one thing that moves on its own and they are
+  gone in Lite Mode and reduced motion. If it bothers him: specks only when the chest opens.
+- A return writes a BUKTI KEMBALI, not a second surat jalan — a surat jalan is goods going OUT to the salesman.
+- The damaged row takes nothing in and gives nothing out here, either way.
+
+## The sound, honestly
+
+This is the fourth made sound to reach him, and [[Sounds Come From Aldi]] says made sounds keep losing. The real
+Minecraft sound cannot ship: Mojang owns it and KPM is a paid product. The owned paths put to him: Kenney's CC0 "RPG
+Audio" pack (public domain, 50 recorded foley sounds — download needs his yes), or a phone recording of a real box.
+
+REJECTED ON PURPOSE: shipping the game's sound "because it is only a little clip" (a paid app, a copyright holder with
+lawyers); a return dragged into the damaged row (that is the EOD quarantine flow, with its own receipt).
+
+Models applied: Inversion on the return (what would make it lose stock — a sale landing between the drag and the press;
+hence the live read inside the return transaction, written into the next job), Second-Order Thinking on the specks
+(ambient motion is the thing he killed on the blinking lights; kept because he asked by name, made removable in one line).

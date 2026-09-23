@@ -104,3 +104,15 @@ whole area is low stakes: *"most of the time phone user wont be using their volu
 anyway"*.
 
 Related: [[Aldi's Design Taste]] · [[Looking at the App]]
+
+## Round six — the chest (2026-09-23)
+
+| round | date | what was built | what he said |
+|---|---|---|---|
+| 6 | 2026-09-23 | the van-loading chests: a stick-slip hinge creak, wood modes, a steel latch, a short room — all synthesised | *"i dont like the sound effect, i want it to be more simple just like what minecraft have but satisfying and give me chill when interact with it"* |
+
+His reference was a YouTube video of the Minecraft ender chest. **The game's file cannot ship** — Mojang owns it and KPM
+is a paid app — so "which file?" has no answer in the game itself. v2 went simpler (one knock, one airy swell, one rising
+pop per box), and the owned paths were put to him in the same reply: Kenney's CC0 "RPG Audio" pack (public domain,
+recorded foley — the download needs his yes) or a phone recording of a real wooden box. If v2 loses too, do not make a
+fifth: ask for the pack or the recording.

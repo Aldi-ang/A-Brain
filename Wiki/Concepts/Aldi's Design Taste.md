@@ -2806,3 +2806,24 @@ in this app that re-draws after an edit should be checked against this: `kpm-arr
 And the other half is a taste rule about direct manipulation: **if something can be picked up, every visible place
 must be a place it can be put down.** A grid that only swaps is a grid that says no to half the gestures it invites.
 An empty square has to be a real destination, or the emptiness is decoration.
+
+## He wants the game's FEEL, named precisely — and "chill" is a sound word (2026-09-23)
+
+> *"i dont like the sound effect, i want it to be more simple just like what minecraft have but satisfying and give me
+> chill when interact with it"* · *"i want the warehouse chest to be ender chest with the effects like on this video"* ·
+> *"i like the logic and animation when item transferred to the other chest but make sure the animation is on the middle
+> level of between the chests and not too bottom there"*
+
+- **"Simple" beat "rich".** The first chest sound was layered (creak, wood modes, a steel latch) and he called it bad in
+  one line. What he describes is fewer parts: one knock, one pop. Satisfying = a small reward per box, not a big noise.
+- **"Chill" is soft attack, low pitch and a warm tail**, not a quieter version of the same sound.
+- **He watches where motion happens, not only whether it happens.** The flight was right and still in the wrong place —
+  at the chests' feet instead of across the middle, where the eye already is.
+- **Every place is a place — now in both directions.** He asked for the return drag unprompted: the same rule as the
+  empty squares (2026-09-22) — if a thing can be carried one way, it must be carryable back.
+- **"Maybe … we'll discuss later" means PARKED, not queued.** The quick-transfer keys were named and deliberately not
+  asked for; building them would spend his quota on a maybe.
+- **An object may keep its own colours — the second time he asked for one.** The ender chest is near-black, teal and
+  green-eyed; the panels around it still follow the palette law.
+
+Source: [[2026-09-22_fleet-van-loading-shape]] round eight · [[Sounds Come From Aldi]] round six
