@@ -140,3 +140,14 @@ purpose: in this app a coin sound means money moved.
 ⚠️ **Local check trap:** the Browser pane opens a file:// page as a data: snapshot, so a sibling script
 (`sfx-kenney.js`) never loads and the studio shows empty waveforms. Serve it through the `ponder-lab` preview
 (http://localhost:4190/tools/…) instead — measured: 51 decoded, 9 waveforms drawn, save + reload kept the edit.
+
+## His first saved set (2026-09-23 11:58) — and what it says about his ear
+
+Saved from the studio as `sfx/settings` version 2: ender chest `cloth2` (open, 0.96×) / `doorClose_4` (close, 0.77×,
+cut to 0.38 s); van `cloth1` (open, 0.89×) / `doorClose_4` (close); pick `handleSmallLeather` at **150 %**; a box
+lands `bookPlace1` cut to **55–90 ms** at 35 %; page `bookFlip3` at 90 %; refused `dropLeather`; room 33 %, master 62 %.
+
+**Read it as taste:** he swapped both of my wooden door-opens for CLOTH, turned the landing thud into a 35 ms tick, and
+turned the pick-up UP. Soft, short and close beats wooden and resonant — that is what "chill" meant. The one he left
+alone and then questioned is MUAT VAN's `metalLatch` (*"doesnt really suit it"*); three candidates sit on its card
+(a van door that shuts and latches, a heavier door, a ledger snapping shut). His pick decides.
