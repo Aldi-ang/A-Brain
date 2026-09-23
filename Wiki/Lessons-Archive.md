@@ -638,3 +638,62 @@ bug was the vault grace keyed on the hijacked boss uid, in a different file, in 
 and the header naming it had been on screen from the first message.
 Seen: 2026-09-07
 Fired:
+
+
+## Archived 2026-09-23 — retired 2026-09-22, never fired in 14 days
+
+### 2026-09-08 — a pass/fail tally is not a count of assertions
+**Status:** RETIRED (2026-09-22) — never fired in 14 days of real work; the KPM guards already print one PASS/FAIL line per assertion, so the structural form exists and the prose is a platitude
+**Trigger:** before comparing a check's before/after totals across a config change — the moment
+"3 passed" is read as "3 assertions passed".
+**Lesson:** compare the assertion LINES, not the summary number. A harness that appends its SKIP
+notes into the same list it counts as passes will report an unchanged total while the set of things
+actually asserted changed underneath it. Re-run with the PASS/FAIL/SKIP lines printed before
+concluding anything from a delta.
+**Would have prevented:** enabling the Dying Light pack moved `spawn-coverage-check.py` from
+"3 passed, 0 FAILED" to "2 passed, 1 FAILED". The totals both say 3, so one assertion looked like it
+had silently vanished, and a turn went on grepping for a third `ck()` call. The script has exactly
+three, and the SKIP line for the disabled pack had been counted as a pass all along. The near-miss
+was reporting a dropped assertion to Aldi as a side effect of the change.
+Seen: 2026-09-08
+Fired:
+
+### 2026-09-08 — a pass criterion written before the change is not a check on the change
+**Status:** RETIRED (2026-09-22) — never fired in 14 days of real work; no check can carry "add one open-ended exercise", so it retires as a platitude
+**Trigger:** before reporting a fix as verified when the pass criterion is a list of strings chosen
+in an EARLIER session — the moment the evidence is "grep found zero of the things we predicted".
+**Lesson:** greps prove the predicted failure is absent, nothing more. When the change enables code
+that can act outside the area it was reasoned about — a DLL, a Harmony patch, a hook, a middleware
+— the criterion must include one open-ended exercise of the surrounding behaviour, and the report
+must say the fix is unverified for everything the greps do not name. Say "clean for the two strings
+we predicted", never "clean".
+**Would have prevented:** enabling the Dying Light pack's runtime DLL. Step 3's criterion, written a
+day earlier, was `ReflectionTypeLoadException` = 0 and `EModelBase.CrouchUpdate` = 0. Both were zero,
+the whole log had zero exceptions, ten XML checks were green, and it was reported to Aldi as passing
+with "Go meet one." The same DLL patches `GetHitTransform` and `LookAtUpdate`, and it had broken
+looting on every unsearched container in the game — silently, with no log line. He found it by
+playing, told me *"it is happen after your recent update"*, and was right. The next reply then spent
+its length on a three-question interrogation and a wrong fourth suspect
+(`480_Overengineered`, enabled during every previously working session) instead of on the change
+that was four hours old and mine.
+Seen: 2026-09-08
+Fired:
+
+### 2026-09-08 — when two setups differ, diff the ACTOR before the environment
+**Status:** RETIRED (2026-09-22) — never fired in 14 days of real work; a 7DTD-shaped rule with no KPM trigger; retired as a platitude
+**Trigger:** plan time, on any "works here, broken there" report — the moment a comparison target
+is being chosen.
+**Lesson:** list every variable that could differ, not just the one the report names. A
+setup/config/environment diff answers "is the environment the same"; it cannot see the player,
+account, or user record acting inside it. Find the cheapest file that states the actor's identity
+and scale, and read it first. Rank a candidate cause by whether a MECHANISM connects it to the
+symptom — a field that differs but has no path to the symptom is noise however clean the diff is.
+**Would have prevented:** the 7DTD negative-loot-timer hunt. All of 2026-09-08 went to diffing the
+mod list; five mod-level causes were named and all five were wrong. The next brief then narrowed
+the diff to per-world sandbox settings. That diff came back clean on the actual cause — LootTimer
+was at default in all four worlds — and the one field that did differ, JumpStrength, has no path
+to loot time and would have been reported as the answer. The real variable was in a 151-byte
+`.ttp.meta`: the broken world's character is level 143, the working world's is level 2, and the
+`ScavengingTime` `perc_add` stack sums with no floor.
+Seen: 2026-09-08
+Fired:

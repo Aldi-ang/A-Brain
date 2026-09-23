@@ -335,3 +335,63 @@ loading is the drag.
 
 Models applied: Second-Order Thinking (a gesture that writes per drag would multiply both writes and surat jalan),
 Inversion (what makes a transfer animation feel wrong — the goods arriving before anyone said how many).
+
+# ROUND SEVEN — the transfer prototype, built and walked (2026-09-23, 08:55)
+
+Prototype: https://claude.ai/artifact/M3xbaPAJ9LT7FL1ETmXvuu · local `tools/chest-transfer.html` (`?still`). The
+agent-inventory chest (v3) keeps its own URL as the decided look; this page is the LOADING BAY that uses it.
+
+## What round six's three open questions became
+
+| question | built | why |
+|---|---|---|
+| the unit | keys Bks / Slop / Bal / Karton, each showing the product's own size (`= 200 bks`); default unit Bks; the amount EMPTY; live `= N Bks` from a verbatim copy of `convertToBks` | stock is printed in Bks everywhere, so Bks is the one default that cannot be misread; the AMOUNT never has a default — *"at most time we wont put all the stock"* |
+| write on drop? | no. A drop adds a muatan line; the warehouse square shows −N, the van square +N with a dashed edge. ONE MUAT VAN loops the lines (≙ one `handleLoadCanvas` each), ONE report line, ONE surat jalan | the contract round six named |
+| the sound | a deeper synthesis: wood modes at inharmonic ratios, a stick-slip hinge creak, a steel latch, a short room; baked once into buffers; no file | [[Sounds Come From Aldi]] says synthesis lost three rounds — so he is asked, in the same reply, for a phone recording of a real box lid as the way out |
+
+## Decided while building (his to overturn — none of it asked)
+
+- **Where a drop lands:** a product already in the van (or already in the muatan) always joins its own square — one
+  product, one square, one line, the same merge `handleLoadCanvas` does at L469. Otherwise the empty square under the
+  finger, then the first empty square on the page, then anywhere. The target square lights while the box is carried.
+- **Two units on one line fold into Bks**, so a line never says "3 Bal" while meaning 3 Bal and 5 Slop.
+- **The flight:** min(count in the chosen unit, 6) boxes arc from the big chest's mouth into the small one's — 3 Bal fly
+  as three. **The figures change first; the flight only decorates what is already true**, so Lite Mode, reduced motion
+  or a stalled animation can never hide a number.
+- Drop on the damaged row → refused out loud; drop anywhere else → the box flies home; nothing changes.
+- Keyboard path: Enter on a warehouse box opens the same panel. Phone: the carried box rides 46 px above the finger,
+  and the page scrolls when the finger reaches the screen edge.
+- Layout: phone = warehouse panel / the two chests side by side / the van panel (grows DOWN out of its chest) / muatan.
+  From 960 px the two panels stand on their own chests and the muatan takes the right-hand column.
+
+## Found while building — the integration must carry these
+
+1. **v3's squares are invisible under Lite Mode.** They start at `opacity:0` and only the entrance animation shows them;
+   Lite Mode strips every animation, so the chest would open empty. The transfer page keeps a square visible at rest and
+   the entrance is 8 px of travel. The integration ports THIS, not v3, and guards it. (Cost if missed: an admin with
+   Lite Mode on sees a van with no stock in it — his "an animation may never hide a figure" law, broken by the prototype
+   that was meant to demonstrate it.)
+2. **An `<input>` in a grid sheet overflows it.** The input's `size` sets the column's min-content; at 519 px the `= N Bks`
+   figure and the confirm key were pushed off the panel. Fix: `grid-template-columns:minmax(0,1fr)` + `width:0` on the input.
+3. Typing into the panel the instant it opens loses the keys — focus lands 40 ms later. A harness artefact (a person
+   cannot type that fast), written down so the next session does not chase it.
+
+## Not in the prototype, owed by the integration
+
+- A PARTIAL failure in the MUAT VAN loop (stock moved by someone else mid-press): the products that landed leave the
+  muatan, the one that failed stays with its reason, and the surat jalan lists only what landed.
+- Switching the salesman while the muatan has lines asks through the dialog gate; it never drops them silently.
+- A new product's square is written into the LAYOUT field with the press — never inside `activeCanvas`.
+
+## REJECTED ON PURPOSE
+
+- **A "semua / MAX" key** — he rarely sends all of it; add only if he asks.
+- **Remembering the last unit** — hidden state that silently turns a typed "3" into the wrong unit.
+- **Dragging a planned box back out of the van** — × on the muatan line does it in one tap; a second gesture for the
+  same thing is a second thing to get wrong.
+
+**Decision: OPEN — waiting on Aldi** (the walk, look 1 or 2, and the sound).
+
+Models applied: Inversion (how would the panel cause a wrong load — a default amount, an unseen unit; both removed),
+Pre-mortem on Lite Mode (it found v3's invisible squares), Second-Order Thinking (the merge rule keeps one line per
+product, so the press stays one write per product).
