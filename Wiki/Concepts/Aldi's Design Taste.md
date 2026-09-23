@@ -2824,6 +2824,21 @@ An empty square has to be a real destination, or the emptiness is decoration.
 - **"Maybe … we'll discuss later" means PARKED, not queued.** The quick-transfer keys were named and deliberately not
   asked for; building them would spend his quota on a maybe.
 - **An object may keep its own colours — the second time he asked for one.** The ender chest is near-black, teal and
-  green-eyed; the panels around it still follow the palette law.
+  green-eyed; the panels around it still follow the palette law. *(Superseded 2026-09-24 — the panel keeps the
+  game's grey too; see the next section.)*
 
 Source: [[2026-09-22_fleet-van-loading-shape]] round eight · [[Sounds Come From Aldi]] round six
+
+## The chest's panel is part of the object — look 1, the stone grey (2026-09-24, 06:25)
+
+> *"just use the metal latch for now its fine, inventory box panel just stay with that minecraft color"*
+
+- **The object exemption now covers the panel.** Offered look 1 (stone grey, like the game) against look 2 (the app's
+  slate and gold), he kept the game's grey. Chest, slots and panel read as ONE object from the game, not as app
+  furniture. Grey is not blue or green, so the palette law holds; only the slate-and-gold furniture rule gives way, and
+  only inside the bay.
+- **"For now, it's fine" closes a sound question.** Three candidates were offered for MUAT VAN; he kept the metal latch
+  he had said *"doesnt really suit it"*. Good enough beat another round of listening — his attention goes to the build.
+  Do not re-offer the candidates unless he raises it.
+
+Source: the 2026-09-24 session; the prototype https://claude.ai/artifact/M3xbaPAJ9LT7FL1ETmXvuu · [[Sounds Come From Aldi]]
