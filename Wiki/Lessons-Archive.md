@@ -697,3 +697,46 @@ to loot time and would have been reported as the answer. The real variable was i
 `ScavengingTime` `perc_add` stack sums with no floor.
 Seen: 2026-09-08
 Fired:
+
+### 2026-09-09 — when a root cause is found, restore what the disproved hypothesis removed
+**Status:** RETIRED (2026-09-23) — never fired in 14 days of real work; no KPM checkpoint reached it, retired as a platitude
+**Trigger:** before the completion claim on any bug hunt that ends with a root cause found somewhere OTHER than the first suspect.
+**Lesson:** list every file, mod, flag or feature that was disabled or stripped WHILE chasing the suspect, and put each one back in the same session that clears it. Closing a bug is not the end of the job; the suspects were removed on a hypothesis, and the hypothesis just died. Name them explicitly in the closing note — "cleared of X" is not the same as "restored".
+**Would have prevented:** the Dying Light runtime DLL. It was stripped 2026-09-08 09:15 as the leading suspect for a negative loot timer. The real cause was found the same day at 14:35 (`ScavengingTime` `perc_add` stacking past -100%) and fixed, and the notes even recorded "Dying Light removal changed nothing — it never touched `ScavengingTime`". The DLL was never put back. It is the only code that builds hitboxes for the pack's imported rigs, so Aldi met a Demolisher twice that could hit him while he could not hit it, and three sessions of notes carried "colliders have no XML lever, nothing can be done" as a standing conclusion. The evidence needed to reopen it was already inside the file that said it was closed.
+Seen: 2026-09-09
+Fired:
+LESSONEOF
+
+### 2026-09-09 — a method name says what code CAN do; its log line says what it DID
+**Status:** RETIRED (2026-09-23) — never fired in 14 days of real work; no KPM checkpoint reached it, retired as a platitude
+**Trigger:** about to act on a conclusion drawn from decompiled metadata — type names, method names, a strings dump — for a component that writes its own log lines. Fires the moment you write "this patch probably does X" from a symbol you have never seen execute.
+**Lesson:** grep the log for what that component actually printed BEFORE building anything on the name. A method name is a capability; a log line is an event. `get_IsRagdollActive` existing next to a cleanup patch proves the code can read ragdoll state — it proves nothing about whether the cleanup branches on it. If the component logs per-instance, the answer is already sitting in a file you can read for free, in a log that was written before the bug was even reported. Names first is only allowed when nothing was ever logged. Related but not the same as [[when the symptom is on a screen you cannot see, buy one observation before building]] — there the observation had to be bought from Aldi; here it was already on disk and simply not read.
+**Would have prevented:** 2026-09-09, the Dying Light corpse. From `PackImmediateDeathCleanupPatch` + `HideDeadEntity` + `get_IsRagdollActive` in a strings dump I inferred "the cleanup spares a corpse that is ragdolling", built `Mods/242_DyingLight_DeathBody` on it — 16 xpath patches over eight entity classes, a ModInfo, a 28-line comment block defending the reasoning — and told Aldi to restart the game and go kill zombies to test it. It was wrong: the cleanup is unconditional. One grep of the PREVIOUS day's log for `Dead model removed` would have shown the DLL announcing the deletion per entity and killed the idea before a file was written. Cost: a mod built and reverted, one game restart and one play session of his, and a "[likely]" claim shipped to him that had a free disproof available the whole time.
+Seen: 2026-09-09
+Fired:
+LEOF
+python -c "
+import re,io
+p='lessons.md'; t=open(p,encoding='utf-8').read()
+t2=re.sub(r'Last checked: .*', 'Last checked: 2026-09-09 - lesson appended (136-turn session)', t, count=1)
+open(p,'w',encoding='utf-8').write(t2)
+" && grep -n "Last checked:" lessons.md && echo "entries now: $(grep -c '^### ' lessons.md)"
+
+### 2026-09-09 — when you disable a lookup, its fallback becomes new load-bearing code
+**Status:** RETIRED (2026-09-23) — never fired in 14 days of real work; no KPM checkpoint reached it, retired as a platitude
+**Trigger:** before finishing any change that makes an existing lookup return null, skip, or stand
+down under a condition — a preview mode, a feature flag, an offline branch, a permission guard.
+**Lesson:** the `||` on the other side is now the ONLY path for that condition, and it has never
+run in production. Read it as if it were code you just wrote: does every value it depends on
+actually arrive? Then exercise the DISABLED condition, not the one you were protecting.
+**Would have prevented:** `FleetCanvasManager`'s POV email-lookup stand-down fell back to
+`find(m => m.id === agentProfileId)`, and App.jsx never passed `agentProfileId` to that tag — five
+other screens got it, so a file-wide grep said yes. Under POV the whole expression was
+`null || find(m => m.id === undefined)`: nothing, on every tier, with seven people in the roster.
+Aldi reported it as a Fleet & Roster bug on 2026-09-09; the first diagnosis found a REAL but
+different defect (a `bossUid`-less tenant id), shipped it, and had to hand him a four-way
+"which message do you see" probe to discover the actual cause. Two commits and a round-trip to
+him for a missing prop.
+Seen: 2026-09-09"""
+tail -18 "$L" | head -4
+Fired:
