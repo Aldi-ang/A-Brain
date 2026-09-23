@@ -116,3 +116,27 @@ is a paid app — so "which file?" has no answer in the game itself. v2 went sim
 pop per box), and the owned paths were put to him in the same reply: Kenney's CC0 "RPG Audio" pack (public domain,
 recorded foley — the download needs his yes) or a phone recording of a real wooden box. If v2 loses too, do not make a
 fifth: ask for the pack or the recording.
+
+## Round seven — the pack and the studio (2026-09-23, 11:25): the rule changes shape
+
+> *"just download that free pack and remake the SFX again, if possible i want to edit the SFX myself just make a small
+> studio to edit the sound but i want u to choose the best sound that sound best for these animation"*
+
+**The source question is closed for the chests:** Kenney's "RPG Audio" (kenney.nl, CC0 — public domain, commercial use
+allowed, credit optional; downloaded at his word, 51 recordings, 965 KB zip). Nothing is synthesised any more; the only
+processing is a cut, a pitch, a level and a shared room.
+
+**And the way of choosing changed: he edits, instead of voting.** Every earlier round was *I make → he judges →
+rejected*. Now the prototype carries a SOUND STUDIO — one card per moment (recording, start, end, loudness, pitch; room
+and master on top), a waveform with the kept part lit, letting go of a slider plays the result — and SIMPAN writes the
+whole setting to the artifact's own database (`sfx/settings`). That saved document is the truth the integration builds
+from: read it, cut those files, ship them to `public/sounds/`.
+
+My picks (by what each file is and its measured shape; I cannot hear): ender open `doorOpen_1` at 0.78×, ender close
+`doorClose_3` at 0.75×, van open `creak3`, van close `doorClose_4`, pick `handleSmallLeather`, a box lands `bookPlace1`
+(rising 7 % per box), page `bookFlip3`, refused `dropLeather`, MUAT VAN saved `metalLatch`. Coins were left out on
+purpose: in this app a coin sound means money moved.
+
+⚠️ **Local check trap:** the Browser pane opens a file:// page as a data: snapshot, so a sibling script
+(`sfx-kenney.js`) never loads and the studio shows empty waveforms. Serve it through the `ponder-lab` preview
+(http://localhost:4190/tools/…) instead — measured: 51 decoded, 9 waveforms drawn, save + reload kept the edit.
