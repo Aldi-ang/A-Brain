@@ -3095,6 +3095,17 @@
       "norm_label": "nothing may sit dormant, and a raw colour slab reads cheap (2026-09-24, 09:05)"
     },
     {
+      "label": "Warm light, not lines; no tutorial in a panel; group by person (2026-09-24, 12:50)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2891",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_warm_light_not_lines_no_tutorial_in_a_panel_group_by_person_2026_09_24_12_50",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "warm light, not lines; no tutorial in a panel; group by person (2026-09-24, 12:50)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -11532,6 +11543,17 @@
       "norm_label": "2026-09-24 12:04 \u2014 fleet & roster round 4 built (kpm `c4a1eaa` `d02fe2c` `dfc3820` `cb30e98`)"
     },
     {
+      "label": "2026-09-24 13:10 \u2014 his round-4 test answered (kpm `f167adb`)",
+      "file_type": "document",
+      "source_file": "Wiki/Log.md",
+      "source_location": "L1420",
+      "_origin": "ast",
+      "id": "log_2026_09_24_13_10_his_round_4_test_answered_kpm_f167adb",
+      "community": 1,
+      "community_name": "Operation Log",
+      "norm_label": "2026-09-24 13:10 \u2014 his round-4 test answered (kpm `f167adb`)"
+    },
+    {
       "label": "MOC.md",
       "file_type": "document",
       "source_file": "Wiki/MOC.md",
@@ -18076,6 +18098,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_twice_in_one_day_he_reversed_a_control_for_being_built_at_the_wrong_granularity_2026_09_06",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2891",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_warm_light_not_lines_no_tutorial_in_a_panel_group_by_person_2026_09_24_12_50",
       "confidence_score": 1.0
     },
     {
@@ -28917,6 +28950,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Log.md",
+      "source_location": "L1420",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "log_operation_log",
+      "target": "log_2026_09_24_13_10_his_round_4_test_answered_kpm_f167adb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Log.md",
       "source_location": "L247",
       "weight": 1.0,
       "_origin": "ast",
@@ -31412,5 +31456,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "cc58d23a01ca8d9e02af7a7d0a7a35c3db139615"
+  "built_at_commit": "198d9ef245d4c97a2eb47089ba442c4560b72b43"
 }
