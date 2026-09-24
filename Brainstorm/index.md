@@ -50,3 +50,5 @@ sit here indefinitely once it's actually decided.
 - [[2026-09-10_riset-hukum-menjual-kpm]] — the legal research, with a source per number: PT Perorangan (PP 8/2021, PNBP Rp 50.000), PPh 23 at 2% vs 15% and why the contract wording decides it, PP 20/2026 removing the 0,5% time limit, the Rp 4,8 miliar PKP threshold, UU 28/2014 Pasal 36/40/80/83, KUHPerdata 1247/1248/1249/1338 on liability caps, and escrow as penitipan under 1694–1696.
 - [[2026-09-10_pricing-revisi-50-100-user]] — Aldi named the real user count, 50-100. That supersedes the Rp 2,5 juta figure, which was computed for 10-30. New bands (Rp 4/7/12 juta), perpetual licence at Rp 600 juta, and the arithmetic showing perpetual costs the BUYER more over five years.
 - [[2026-09-10_draft-13-pasal-kontrak-kpm]] — the 13 clauses written as real pasal, ready for a notaris to mark up. DRAF — not reviewed, do not sign.
+
+- [[2026-09-24_roster-as-a-game-community]] — roster as a game community (State of Decay 2 / FUT / XCOM); OPEN, recommendation A
