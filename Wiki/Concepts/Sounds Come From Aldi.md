@@ -156,3 +156,15 @@ alone and then questioned is MUAT VAN's `metalLatch` (*"doesnt really suit it"*)
 warehouse, instead of going up each time now going down each time"* — the landing tick climbs box by box into the van
 and descends box by box back into the warehouse. A repeated sound's pitch contour is information: up = gaining,
 down = giving back. Keep the contour when the sound ships.
+
+**His studio numbers ship as files (2026-09-24, `1e103f1`).** *"just use the metal latch for now its fine"* closed the
+last card, so `sfx/settings` version 2 became `public/sounds/chest-*.mp3`. `tools/sfx-bake.mjs` renders each moment the
+way the studio's Web Audio graph plays it: his cut, his rate (pitch AND length together, as `playbackRate` does), 4 ms in /
+25 ms out, loudness x master, plus ROOM x the studio's own seeded room impulse with the ConvolverNode's default
+normalisation. Two traps found on the way:
+- **Chrome's mp3 decoder clamps to full scale; ffmpeg's does not.** metalLatch decodes to a 1.71 peak in ffmpeg and 1.00 in
+  the studio. He heard the clamped one, so the render clamps too. Checked against an OfflineAudioContext render of the same
+  graph: peaks 0.50 vs 0.498, loudness within 1 dB, room tail within 3 %.
+- **An `<audio>` element keeps its pitch when sped up** (`preservesPitch` defaults to true), so the rising landing pop would
+  only get faster. `useSound` sets it false on the pool and sets `playbackRate` on every play.
+Change a sound later: SIMPAN in the studio artifact, copy the numbers into SET in the script, run it.

@@ -616,3 +616,11 @@ The Stock Opname count card pinned to 375 inside a 2000-wide headless window ren
 (four plates in one row, a one-word-per-line message): the pin narrows `#root`, but `@media (max-width: 1023px)` reads
 the window. For a phone LOOK board, shoot at `--window-size=518,1000` — the narrowest uncropped headless width, and the
 phone CSS fires. The pin is only honest for layouts that do not branch on a media query. Raw/2026-09-22-nixie-light/shoot.mjs.
+
+**A shot that needs a click or a drag first, with no puppeteer (2026-09-24).** `chrome --headless=new
+--remote-debugging-port=9333` plus Node 24's built-in `WebSocket` is the whole toolkit:
+`Emulation.setDeviceMetricsOverride` for the width, `Runtime.evaluate` to tap a roster row, `Input.dispatchMouseEvent`
+for a REAL drag (Chrome turns mouse events into pointer events, so a window-listening drag runs its own code),
+`Input.insertText` to type, `Page.captureScreenshot` to save. Script: Raw/2026-09-24-van-loading-bay/shoot-bay.mjs. It
+shot the van-loading bay at 2000 and 518 in both themes, and the 2000 frame caught a muatan line pushing its x out of a
+300 px column, which the pane's scaled-down view had hidden.
