@@ -1,6 +1,6 @@
 ---
 date: 2026-09-24
-status: OPEN — waiting on Aldi
+status: DECIDED 2026-09-24 08:35 — shipped kpm 722cc48
 ---
 # The roster as a game community (Fleet & Roster left panel + the empty right panel)
 
@@ -39,7 +39,12 @@ A — it is his own reference, it keeps the list fast to scan, and the "3D profi
 already approved rather than a new engine (the same floor as 2026-09-22: "it must be OUR cool").
 
 ## Decision
-OPEN — waiting on Aldi (options shown as a three-card board in chat, 2026-09-24).
+DECIDED 08:35 by a screenshot, not by a letter: the game's Community screen itself - *"what i mean is something like
+this but change it into 3D character, if its too heavy then just 3D cards, make sure the character is hoverable and
+interacable"*. Built as 3D cards (a 3D engine + character models on a cheap Android is the "too heavy" he allowed
+for): a full-width stage, a name over each card, hover lifts and lights the floor, pick rings gold, the leader on a
+crown, a gold bar with the place and the actions; the blue panel became the community tiles. kpm `722cc48`. The
+skill-scoring question is parked: the cards carry no skill pips yet.
 
 ## Rejected on purpose
 - The folder roster (`13802b6`) — he said so. Keep its logic, drop its look.

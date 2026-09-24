@@ -2859,3 +2859,16 @@ Source: the 2026-09-24 session; the prototype https://claude.ai/artifact/M3xbaPA
 - The roster became his folders where there is more than one place, rows that say what the van holds - the same
   information-first reading of "better" as 2026-09-22. Shipped `13802b6`; his verdict owed.
 
+## He answers a menu with a screenshot of the thing he meant (2026-09-24, 08:35)
+
+> *"what i mean is something like this but change it into 3D character, if its too heavy then just 3D cards, make sure
+> the character is hoverable and interacable"* (the State of Decay 2 Community screen attached)
+
+- **Three drawn directions got no letter back - they got the original.** When he names a game, the game's own screen
+  is the spec; my A/B/C translations were all one step away from it. Next time he names a game screen: find the
+  screen first, and draw options only for what the screen does not settle.
+- **"If its too heavy then just X" is a delegated budget call with a floor.** He named the fallback himself, so
+  picking it on a real weight argument (a 3D engine + models on a cheap Android) is doing what he asked, not second-guessing him.
+- **"Hoverable and interacable" is a requirement, not garnish:** the look is judged by what happens under the pointer.
+  Shipped `722cc48`: lift + lit floor on hover, gold ring on pick, the actions in a gold bar.
+
