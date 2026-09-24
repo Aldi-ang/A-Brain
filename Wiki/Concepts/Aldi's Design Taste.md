@@ -2872,3 +2872,18 @@ Source: the 2026-09-24 session; the prototype https://claude.ai/artifact/M3xbaPA
 - **"Hoverable and interacable" is a requirement, not garnish:** the look is judged by what happens under the pointer.
   Shipped `722cc48`: lift + lit floor on hover, gold ring on pick, the actions in a gold bar.
 
+## Nothing may sit dormant, and a raw colour slab reads cheap (2026-09-24, 09:05)
+
+> *"make the spacing between cards even ... fill all the space"* · *"weird to see this chest just stay dorman like that
+> doing nothing ... weird that we have close and open button and a big space"* · *"i dont like that raw color dominating
+> the panel, maybe add some creativity to make it looks more expensive"* · *"i like that there is crown symbol for the
+> people who responsible for that area"*
+
+- **Empty space on one side reads as unfinished**, even when the layout is "correct" - he wants the row to own the width.
+- **A control that only hides things is dead weight.** A closed chest that keeps its room is "dormant"; the chests now
+  stay open and a tap only knocks them. Prefer a state that always shows something over a toggle.
+- **"Expensive" = a dark surface with gold at the EDGES, not a full gold slab**: gradient ends, a gold rim, gold ink,
+  one light sweep on an event. A large flat accent fill reads raw to him.
+- **Symbols of responsibility land**: the crown under the area leader is the one element he praised unprompted.
+Shipped in the kpm polish commit after `722cc48`; his verdict owed.
+
