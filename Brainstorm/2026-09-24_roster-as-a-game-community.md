@@ -52,3 +52,22 @@ skill-scoring question is parked: the cards carry no skill pips yet.
 
 Models applied: Opportunity Cost (B's showpiece vs the daily scan), Second-Order Thinking (a 1–7 skill scale ranks
 salesmen against each other — the scale choice is a people decision, not a UI one).
+
+## Round 4 — what sits behind a closed chest (planned 2026-09-24 09:55, not built)
+He first asked me to choose ("what do you think as CEO and Regional admin?"); I offered two read-only slips ("what he
+usually sells", "money on the road"). He answered with a better list of TOOLS: presets for the usual load, the other
+vans' stock, the geofence requests behind the van, then consignment and bounties.
+
+| Behind | Tab | Source | Round |
+|---|---|---|---|
+| warehouse | PRESET - save the muatan as the usual load, one tap puts it back | agent doc `loadPreset` (own field) | 4 |
+| warehouse | TEAM - what the other vans hold | roster `activeCanvas` | 4 |
+| van | GEOFENCE - this person's requests + history | `allBypasses`, the ledger's existing matcher | 4 |
+| van | CONSIGNMENT, BOUNTIES | reads this screen does not make yet | 5 |
+
+The rule he adopted in his own words: *"A preset only fills the muatan, the same way a drag does. That keeps the rule
+that only MUAT VAN moves stock, so a wrong preset can never change real numbers by itself."* - he took it because it is
+a guarantee, not a feature.
+Rejected on purpose: my two read-only slips (his list does more); the company-wide pending override queue living only
+behind a closed chest (a salesman waits at a shop for it) - kept at the top, his call to change.
+
