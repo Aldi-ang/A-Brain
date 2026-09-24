@@ -2887,3 +2887,24 @@ Source: the 2026-09-24 session; the prototype https://claude.ai/artifact/M3xbaPA
 - **Symbols of responsibility land**: the crown under the area leader is the one element he praised unprompted.
 Shipped in the kpm polish commit after `722cc48`; his verdict owed.
 
+
+## Warm light, not lines; no tutorial in a panel; group by person (2026-09-24, 12:50)
+
+His test of round 4, with a screen recording and two screenshots:
+- *"i dont like the background it is too norak, maybe make it more elegant and less lines like there is some
+  cyberpunk stuff going on there, just simple cool and elegant with the warm lighting just like what the State of
+  decay have"* - a perspective grid floor reads as cheap sci-fi to him. Game-like = warm LIGHT (a lamp overhead, its
+  pool on the floor, shadowed edges), never drawn lines.
+- *"dont put tutorial inside the panel, we will put all the tutorial on the ponder book anyway"* - explaining text
+  (contracts, hints, "tap to pick") belongs in the ponder book, not on the working screen. A panel carries state
+  and keys only.
+- *"instruction on sc1 is not explained correctly in indonesian and its sound so robot"* - a literal translation of
+  an English rule ("Menarik tidak mencatat apa pun", "satu tekan · van tercatat sekali") reads robotic. Write the
+  Indonesian a person would say, short: "Muatan masih kosong.", "Muat van".
+- *"i want 1 personnel and list of the products they bring, not 1 personnel and 1 product so that it will save
+  some space"* - a list about people is grouped by the PERSON, with their things under them.
+- *"add copy paste loadout ... just pure for convenience"* - he likes one-tap shortcuts that reuse a colleague's
+  work, as long as they only fill (the preset rule holds: nothing real changes until MUAT VAN).
+- The pulsing row ("card is shaking when hovered") - a hover effect that changes the WHOLE row must never switch
+  off in the gaps between items; the hover zones touch.
+Shipped kpm `f167adb` (round 4.5); his verdict owed.

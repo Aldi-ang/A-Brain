@@ -62,6 +62,11 @@ for (const [w, h] of [[1440, 900], [518, 1000]]) for (const light of [false, tru
   await sleep(600);
   await js(`[...document.querySelectorAll('.kpm-bay .slip .acts button')].find(b => /Simpan/.test(b.textContent))?.click(); true`);
   await sleep(500);
+  /* his 12:50 TIM: one row per van, and "Salin" copies that van into this muatan */
+  await js(`[...document.querySelectorAll('.kpm-bay .slip .tab')].find(t => /Tim/.test(t.textContent))?.click(); true`);
+  await sleep(300);
+  await js(`document.querySelector('.kpm-bay .slip .copy')?.click(); true`);
+  await sleep(600);
   await js(`document.querySelector('.kpm-bay').scrollIntoView({ block: 'start' }); window.scrollBy(0, -60); true`);
   await sleep(400);
   console.log(await shoot(`2-warehouse-closed-${tag}`), await js(`JSON.stringify({ rows: [...document.querySelectorAll('.kpm-bay .slip .rows li')].map(l => l.textContent), writes: (globalThis.__labWrites || []).map(x => Object.keys(x.data || {}).join()) })`));

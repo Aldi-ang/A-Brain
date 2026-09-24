@@ -1416,3 +1416,7 @@ His "yea sure make boss audit have the same design like that one". The three aud
 ## 2026-09-24 12:04 — Fleet & Roster round 4 BUILT (kpm `c4a1eaa` `d02fe2c` `dfc3820` `cb30e98`)
 
 The chests close again with tabs behind them (his usual load, the team, this person's geofence requests), far and near on the stage over a lit grid floor, the big deployment header moved into the gold bar. His preset rule kept: a preset only fills the muatan. What the build decided on its own and the three traps met are in [[2026-09-24_roster-as-a-game-community]] (Round 4). Frames + shooter: `Raw/2026-09-24-round4-chests-stage/`. His test owed.
+
+## 2026-09-24 13:10 — his round-4 test answered (kpm `f167adb`)
+
+No pulsing row, warm plain stage, no tutorial in the bay, TIM one row per van + SALIN. His words in [[Aldi's Design Taste]] (12:50); the removed tutorial text kept for the ponder page in [[2026-09-24_roster-as-a-game-community]].

@@ -1,16 +1,16 @@
 # Graph Report - Wiki  (2026-09-24)
 
 ## Corpus Check
-- 108 files · ~240,216 words
+- 108 files · ~240,302 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1271 nodes · 1582 edges · 125 communities (116 shown, 9 thin omitted)
+- 1272 nodes · 1583 edges · 122 communities (113 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c2b2ec05`
+- Built from commit: `cc58d23a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,6 +19,7 @@
 - Operation Log
 - Lancelot the Tobacco Ledger Agent
 - KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
+- Concepts/index.md
 - 3.2 How XP works, and why it can never decay again
 - The KPM Control System
 - Anti-Recurrence Check
@@ -80,6 +81,7 @@
 - A Stored Name Is Not the Name of Record
 - Entities/index.md
 - Summary: KPM Project Facts Reference
+- Summary: KPM Project Facts Reference
 - A Check Points at a File, Not at a Behaviour
 - The Named Path Was Already Shut
 - Entities/index.md
@@ -108,6 +110,7 @@
 - Map of Content
 - A Feature Is Not Done Until the Book Knows
 - A Named Import Can Shadow a Global
+- Wiki/Summaries
 - Hand-off eligibility
 - The Shorter List Was Never the Eligible One
 - UI-Says-Yes-Server-Says-No Pattern
@@ -117,10 +120,8 @@
 - Light Ground and the Theme Lab
 - 1. The thing you need to know first
 - A Rect Is Painted, Not Laid Out
-- Entities/index.md
 - Revenue recognition — a Titip placement is not income
 - What Counts As Low
-- KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
 - Wiki/Entities
 - Wiki/Concepts
 - What Create Mod's Ponder Actually Does
@@ -130,19 +131,16 @@
 - Off-Token Colour Migration Map
 - Sale Is Final — no refund, no credit
 - The Panel That Never Reads a Transaction
-- 3.2 How XP works, and why it can never decay again
 - Ecer Is a Person, Not a Shop
 - The Shell Repaints Any White It Can Reach
 - POV changes the id, never the email
-- 1. The thing you need to know first
 - Headquarters Is Not a Cabang
-- 3.3 The achievement system
 - A Mode Reminder Does Not Outrank Aldi
 - Lift the Dialog, Never Push the Rest Down
 
 ## God Nodes (most connected - your core abstractions)
 1. `Aldi's Design Taste` - 103 edges
-2. `Operation Log` - 67 edges
+2. `Operation Log` - 68 edges
 3. `2026-09-03 — removing a mod is a schema change to data already written` - 32 edges
 4. `Looking at the App` - 27 edges
 5. `Archived 2026-08-18 (2nd today) — chosen by oldest last-fire` - 21 edges
@@ -155,7 +153,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (125 total, 9 thin omitted)
+## Communities (122 total, 9 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.02
@@ -163,19 +161,19 @@ Nodes (90): 2026-08-24 — the ON plate is brown by law, and the bezel is the wa
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.03
-Nodes (66): 2026-07-27 — First ingest pass (structure build + seed content), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run), 2026-07-27 — Tidy pass (frontmatter, titles, MOC), 2026-07-28 — dependency-removal regression, fixed and rippled, 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard, 2026-08-10 — Six-day backfill, on Aldi's emergency instruction, 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent (+58 more)
+Nodes (67): 2026-07-27 — First ingest pass (structure build + seed content), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, first run), 2026-07-27 — Scheduled ingest pass (`a-brain-session-ingest`, second run), 2026-07-27 — Tidy pass (frontmatter, titles, MOC), 2026-07-28 — dependency-removal regression, fixed and rippled, 2026-08-10 — Hermes Agent studied; seven of its rules now govern Alucard, 2026-08-10 — Six-day backfill, on Aldi's emergency instruction, 2026-08-11 — Lancelot built: the tobacco business gets a bookkeeper agent (+59 more)
 
 ### Community 2 - "Lancelot the Tobacco Ledger Agent"
 Cohesion: 0.05
 Nodes (41): A trap already in the data, Consequences — the build list, in order, Design decision — images are links, not embedded objects, Formatting is part of the job, Four bugs confirmed by hand, all mine, all in code that had passed 32 self-tests, How the business actually works — confirmed 2026-08-11, IN/OUT is now much smaller, Lancelot the Tobacco Ledger Agent (+33 more)
 
 ### Community 3 - "KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics"
-Cohesion: 0.17
-Nodes (12): 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated, 4.7 The Locker Room — how peers see each other, 4.8 One shared component (+4 more)
+Cohesion: 0.04
+Nodes (45): 1. The thing you need to know first, 2. What's already good, 4.1 Hero, 4.2 Etalase — three slots the employee chooses, 4.3 Rekor Karir — four permanent tiles, 4.4 Dinding Prestasi — the badge wall, 4.5 Penghargaan — the shelf you fill by hand, 4.6 Hari Ini — operational, visually separated (+37 more)
 
 ### Community 5 - "3.2 How XP works, and why it can never decay again"
-Cohesion: 0.22
-Nodes (9): 3.1 The data model — real paths, real shapes, 3.4 Security rules — what changes and what doesn't, 3. The recommended design — "Buku Karir" (the Career Book), A. The career ledger — `.../career/{agentId}` (NEW collection), B. Awards — `.../career/{agentId}/awards/{awardId}` (NEW subcollection), C. Config — `.../settings/progression` (NEW, replaces two leaking docs), D. Two new fields on `.../motorists/{agentId}`, E. Fields added to `.../eod_reports/{reportId}` (+1 more)
+Cohesion: 0.09
+Nodes (22): 3.1 The data model — real paths, real shapes, 3.2 How XP works, and why it can never decay again, 3.3 The achievement system, 3.4 Security rules — what changes and what doesn't, 3. The recommended design — "Buku Karir" (the Career Book), A. The career ledger — `.../career/{agentId}` (NEW collection), B. Awards — `.../career/{agentId}/awards/{awardId}` (NEW subcollection), C. Config — `.../settings/progression` (NEW, replaces two leaking docs) (+14 more)
 
 ### Community 6 - "The KPM Control System"
 Cohesion: 0.11
@@ -242,7 +240,7 @@ Cohesion: 0.18
 Nodes (11): 1. One document cut in half (`aea7de4`), 2. What actually shipped for the HQ push — option A, not D, 3. The Request tab — a move, not a copy (`76de71a`), 4. Tujuan from the roster, and Headquarters is not a cabang (`76de71a`, `20c4a0a`), 5. Sebaran Stok — where every pack actually is (`76de71a` to `76f1ef3`), 6. The part worth remembering: a total over a total is not a rate (`f7800f5`), 7. Plain words, and an estimate that shows its working (`b452264`, `792ca04`), 8. Hierarchy made of space, not lines (`76f1ef3`, `d042520`) (+3 more)
 
 ### Community 22 - "Terminal Tenant Path Split"
-Cohesion: 0.20
+Cohesion: 0.22
 Nodes (9): Biometric is Vercel-only, by design (2026-08-15), Decisions that are CLOSED — do not reopen, Five modes, Master Vault Gate, Open against this screen, Phone history, Related, The numbers Aldi locked — hard-coded, pinned by audit checks (+1 more)
 
 ### Community 23 - "Map of Content"
@@ -330,8 +328,8 @@ Cohesion: 0.50
 Nodes (4): 1. He judges a surface by how it feels after an hour, not in a screenshot, 2. Navigation labels are words, not codes, 3. Depth is confirmed, and quiet is why, Backlight out, full words in, and the lowkey 3D stays (2026-09-02)
 
 ### Community 44 - "Draft-Then-Deploy Discipline"
-Cohesion: 0.13
-Nodes (11): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, Ripple — pages this touches, Summary: Fleet Captain Rule Gaps — Batch 1 and 2, The gap this project almost repeated, Framing note, Ripple — pages this touches (+3 more)
+Cohesion: 0.33
+Nodes (6): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, Ripple — pages this touches, Summary: Fleet Captain Rule Gaps — Batch 1 and 2, The gap this project almost repeated
 
 ### Community 45 - "A CSS Animation Outranks Your Inline Style"
 Cohesion: 0.33
@@ -382,8 +380,8 @@ Cohesion: 0.29
 Nodes (7): The camera already existed, and was aimed wrong twice, The Camera Was Aimed at the Wrong Scroller, The decision that came first, The fix, The trap worth carrying, Two smaller things in the same block, Verification — beat by beat, not by eye
 
 ### Community 57 - "How this could fail, and what stops it"
-Cohesion: 0.20
-Nodes (10): 5. Making it fun (and the ways it could go badly wrong), Failure 1: the leaderboard bottom, Failure 2: the new hire versus the veteran, Failure 3: it feels like surveillance, not appreciation, Failure 4: the boss becomes the heartbeat, Failure 5: half the fleet gets an empty trophy room, Failure 6: the rank titles, Failure 7: nobody asked the actual employees (+2 more)
+Cohesion: 0.40
+Nodes (5): Framing note, Ripple — pages this touches, Summary: Rank Config Cross-Tenant Gap, The gap, Two layers, two different fixes
 
 ### Community 58 - "The Player Card"
 Cohesion: 0.40
@@ -400,6 +398,10 @@ Nodes (10): Enforced, not remembered, His first saved set (2026-09-23 11:58) —
 ### Community 65 - "Summary: KPM Project Facts Reference"
 Cohesion: 0.33
 Nodes (5): The Master Password Fingerprint, The rules, What is stored, and where, What was NOT done, on purpose, Why the plain hash was not enough HERE
+
+### Community 66 - "Summary: KPM Project Facts Reference"
+Cohesion: 0.50
+Nodes (3): Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes
 
 ### Community 67 - "A Check Points at a File, Not at a Behaviour"
 Cohesion: 0.29
@@ -418,8 +420,8 @@ Cohesion: 0.08
 Nodes (25): A flick is a speed, not a distance, Closing a book is one motion, not a fade, FLIP is the one number that differs between the widths, He watched it, and named two faults (2026-09-02), 🔴 STILL OPEN — the phone's closed pose, The book arrives closed, and what "intersection between model and animation" meant, The Book as a Stack of Sheets, The bug only running it could find (+17 more)
 
 ### Community 72 - "Summary: Rules Draft Process"
-Cohesion: 0.11
-Nodes (14): Adding a new summary, Pages here, Wiki/Summaries, Ripple — pages this touches, Summary: KPM Project Facts Reference, What it establishes, Ripple — pages this touches, Summary: Rules Draft Process (+6 more)
+Cohesion: 0.40
+Nodes (4): Ripple — pages this touches, Summary: Rules Draft Process, The documentation convention, What it establishes
 
 ### Community 73 - "A retry must land where the first try landed"
 Cohesion: 0.33
@@ -478,8 +480,8 @@ Cohesion: 0.33
 Nodes (6): One Pack Count, Many Screens, Pinned, The decision — the boxes are a calculator, not a second unit, The one source, The part that is still broken, The problem, in his words
 
 ### Community 89 - "8. The plan"
-Cohesion: 0.20
-Nodes (10): 8. The plan, Phase 0 — Solid ground, Phase 1 — The performance pass, Phase 2 — The ledger runs in the dark, Phase 3 — Tenure and the backfill, Phase 4 — Flip the switch, Phase 5 — One badge system, Phase 6 — The trophy room (+2 more)
+Cohesion: 0.50
+Nodes (4): Store Hand-off Name Collision, The fix that could not be built, Verified, What shipped
 
 ### Community 90 - "Email Is a Document ID, Not a Field"
 Cohesion: 0.33
@@ -500,6 +502,10 @@ Nodes (4): A Feature Is Not Done Until the Book Knows, And one thing only a rend
 ### Community 94 - "A Named Import Can Shadow a Global"
 Cohesion: 0.50
 Nodes (4): A Named Import Can Shadow a Global, The fix, and the rule, What happened, What it cost, and what did NOT catch it
+
+### Community 95 - "Wiki/Summaries"
+Cohesion: 0.67
+Nodes (3): Adding a new summary, Pages here, Wiki/Summaries
 
 ### Community 96 - "Hand-off eligibility"
 Cohesion: 0.12
@@ -545,10 +551,6 @@ Nodes (9): Rejected on purpose, Revenue recognition — a Titip placement is not
 Cohesion: 0.29
 Nodes (5): Creating a Store Is Not a Visit, The adoption gap — a module that shipped and was not used, The guard, The lesson, which is the same lesson as [[One Pack Count, Many Screens]], What Counts As Low
 
-### Community 109 - "KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics"
-Cohesion: 0.25
-Nodes (7): 2. What's already good, 6. Performance work — making it light on a potato phone, 7. Ergonomics — one-handed field use, 9. What I'd revisit later, and the signal that says it's time, A design document for the achievement/ranking system, the agent profile, and making the app light on cheap phones, Appendix: everything I checked, in one list, KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
-
 ### Community 110 - "Wiki/Entities"
 Cohesion: 0.67
 Nodes (3): Adding a new entity, Pages here, Wiki/Entities
@@ -581,10 +583,6 @@ Nodes (6): Sale Is Final — no refund, no credit, The consequence nobody should
 Cohesion: 0.29
 Nodes (7): Also settled, no code, Same day: the demo went online, and the check that made that safe, The larger question underneath, unanswered, The Panel That Never Reads a Transaction, The report, The trap that makes a lazy build wrong, Where the distinction actually dies
 
-### Community 119 - "3.2 How XP works, and why it can never decay again"
-Cohesion: 0.29
-Nodes (7): 3.2 How XP works, and why it can never decay again, The daily formula, The ladder, The one runnable check, What a real day looks like, Where XP is minted — inside a transaction that already runs, Why it cannot decay — the whole proof
-
 ### Community 120 - "Ecer Is a Person, Not a Shop"
 Cohesion: 0.33
 Nodes (6): Ecer Is a Person, Not a Shop, Related, Still open, The trap inside "strict", and it is the part worth remembering, What ships, Why it was a money bug and not a preference
@@ -597,17 +595,9 @@ Nodes (5): The rule, The second cause of the same appearance, The Shell Repaints
 Cohesion: 0.33
 Nodes (6): How it was found — 2026-09-08, Not a permission hole, and say so plainly, POV changes the id, never the email, Related, The rule for next time, The second instance, still unfixed as of 2026-09-08
 
-### Community 123 - "1. The thing you need to know first"
-Cohesion: 0.33
-Nodes (6): 1. The thing you need to know first, One thing I was told was broken that is NOT broken — correcting the record, The second thing: rank counts money you haven't been paid, The third thing: two bugs sitting under all of this, What this means for your agents *right now, today*, Your "Lifetime" numbers are 7-day numbers, and every agent's rank is a speedometer, not an odometer
-
 ### Community 124 - "Headquarters Is Not a Cabang"
 Cohesion: 0.50
 Nodes (4): And the wrong fix that was nearly taken, Headquarters Is Not a Cabang, It has now bitten twice, in two different shapes, The trap underneath both
-
-### Community 125 - "3.3 The achievement system"
-Cohesion: 0.33
-Nodes (6): 3.3 The achievement system, Evaluation — the elegant part, How you configure them, Kill one of the two systems, Schema, The starter set — with the exact data source for each, or an honest "not yet"
 
 ### Community 126 - "A Mode Reminder Does Not Outrank Aldi"
 Cohesion: 0.40
@@ -618,7 +608,7 @@ Cohesion: 0.67
 Nodes (3): Lift the Dialog, Never Push the Rest Down, Related, The layer map, as of 2026-09-13
 
 ## Knowledge Gaps
-- **1003 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+998 more)
+- **1004 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+999 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -626,16 +616,16 @@ Nodes (3): Lift the Dialog, Never Push the Rest Down, Related, The layer map, as
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Store Hand-off Name Collision`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.174) - this node is a cross-community bridge._
+  _High betweenness centrality (0.173) - this node is a cross-community bridge._
 - **Why does `Logistics and Stock Movement` connect `Logistics and Stock Movement` to `Concepts/index.md`?**
   _High betweenness centrality (0.065) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `2026-08-14 (later) — the desk sidebar becomes one button, and the video was finally watchable`, `Concepts/index.md`?**
   _High betweenness centrality (0.062) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _1003 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1004 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
   _Cohesion score 0.022222222222222223 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
-  _Cohesion score 0.030303030303030304 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.029850746268656716 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**
   _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._

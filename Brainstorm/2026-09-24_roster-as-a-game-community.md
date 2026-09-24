@@ -87,3 +87,13 @@ sets the width (clipped "DITOLAK"); the lab stub's fixtures must be seeded befor
 Models applied: Inversion (what makes a preset change real stock? nothing - it only folds lines), Second-Order Thinking
 (the geofence tab must not become a second place to approve).
 
+
+**His 12:50 test → kpm `f167adb` (round 4.5).** The row pulsed with nobody picked (the gap between cards pointed at
+nothing, so every far card grew back) → the hover zones touch. The grid floor was "too norak ... cyberpunk" → warm
+light only (taste file, 12:50). TIM became one row per van with its goods, and each row copies into this muatan
+(SALIN, the same fill as the usual load). The tutorial left the panel for the ponder book - REJECTED ON PURPOSE:
+explaining text inside a working panel. For that ponder page, the words that were removed: "Menarik tidak mencatat
+apa pun. Stok gudang dan van baru berubah saat MUAT VAN ditekan — sekali: satu surat jalan untuk yang dimuat, satu
+bukti kembali untuk yang dikembalikan." · "Tarik kotak dari gudang ke van — atau kembali" · "Hanya mengisi muatan,
+seperti menarik kotak" · "Yang menunggu disetujui atau ditolak di antrean paling atas layar" · "Point at a card to
+look · tap to pick" - rewrite them as a person would say them, he called the originals robotic.
