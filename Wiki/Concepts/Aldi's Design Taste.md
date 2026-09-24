@@ -2842,3 +2842,20 @@ Source: [[2026-09-22_fleet-van-loading-shape]] round eight · [[Sounds Come From
   Do not re-offer the candidates unless he raises it.
 
 Source: the 2026-09-24 session; the prototype https://claude.ai/artifact/M3xbaPAJ9LT7FL1ETmXvuu · [[Sounds Come From Aldi]]
+
+## Too big is a size bug, and "the whole left panel" means every door kept (2026-09-24, 07:52)
+
+> *"box is too big that the inventory box it is on top of another and i cant even see the whole panel in there"* ·
+> *"i want u to redesign the whole left panel but dont forget to include all the logic behind that ... after that then i
+> will start to test when the UI is fixed"*
+
+- **He tests on his own PC, and his PC is not the board's width.** The bay passed at 2000 and 518 and still broke on his
+  screen (about 800 px of bay, which fell into the phone stack with 250 px squares). Shoot the width he USES (1440x900)
+  as well as the two board widths; an inventory square has a size, not a share of whatever width is left.
+- **He will not test a screen whose look is wrong** - "after that then i will start to test when the UI is fixed". A
+  visual fault blocks the functional test, so it is fixed first, in the same round.
+- **"Redesign ... but include all the logic" is permission for a full redraw with one hard floor:** every door (view,
+  edit, remove, add, search fields, rank order, the empty-roster causes) must survive, and a check must prove it.
+- The roster became his folders where there is more than one place, rows that say what the van holds - the same
+  information-first reading of "better" as 2026-09-22. Shipped `13802b6`; his verdict owed.
+
