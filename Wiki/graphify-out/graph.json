@@ -219,8 +219,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_a_css_animation_outranks_your_inline_style",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 45,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "a css animation outranks your inline style"
     },
     {
@@ -230,8 +230,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_the_shape",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 45,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the shape"
     },
     {
@@ -241,8 +241,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_why_it_survived_every_check_and_every_screenshot",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 45,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "why it survived every check and every screenshot"
     },
     {
@@ -252,8 +252,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_the_law",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 45,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "the law"
     },
     {
@@ -263,8 +263,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_family",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 45,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "family"
     },
     {
@@ -274,8 +274,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "concepts_a_css_animation_outranks_your_inline_style_where_it_happened",
-      "community": 72,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 45,
+      "community_name": "A CSS Animation Outranks Your Inline Style",
       "norm_label": "where it happened"
     },
     {
@@ -296,7 +296,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_a_cache_saying_no_a_cache_saying_no",
-      "community": 102,
+      "community": 46,
       "community_name": "A Cache Saying No",
       "norm_label": "a cache saying no"
     },
@@ -307,7 +307,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "concepts_a_cache_saying_no_what_he_saw",
-      "community": 102,
+      "community": 46,
       "community_name": "A Cache Saying No",
       "norm_label": "what he saw"
     },
@@ -318,7 +318,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "concepts_a_cache_saying_no_the_cause_and_why_the_first_reading_was_wrong",
-      "community": 102,
+      "community": 46,
       "community_name": "A Cache Saying No",
       "norm_label": "the cause, and why the first reading was wrong"
     },
@@ -329,7 +329,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_a_cache_saying_no_the_rule_this_leaves_behind",
-      "community": 102,
+      "community": 46,
       "community_name": "A Cache Saying No",
       "norm_label": "the rule this leaves behind"
     },
@@ -340,7 +340,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "concepts_a_cache_saying_no_pinned",
-      "community": 102,
+      "community": 46,
       "community_name": "A Cache Saying No",
       "norm_label": "pinned"
     },
@@ -450,7 +450,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_a_feature_is_not_done_until_the_book_knows",
-      "community": 106,
+      "community": 93,
       "community_name": "A Feature Is Not Done Until the Book Knows",
       "norm_label": "a feature is not done until the book knows"
     },
@@ -461,7 +461,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_the_rule_split",
-      "community": 106,
+      "community": 93,
       "community_name": "A Feature Is Not Done Until the Book Knows",
       "norm_label": "the rule, split"
     },
@@ -472,7 +472,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_two_mechanical_traps_the_first_one_hit",
-      "community": 106,
+      "community": 93,
       "community_name": "A Feature Is Not Done Until the Book Knows",
       "norm_label": "two mechanical traps the first one hit"
     },
@@ -483,7 +483,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "concepts_a_feature_is_not_done_until_the_book_knows_and_one_thing_only_a_rendered_frame_catches",
-      "community": 106,
+      "community": 93,
       "community_name": "A Feature Is Not Done Until the Book Knows",
       "norm_label": "and one thing only a rendered frame catches"
     },
@@ -505,8 +505,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_a_hijacked_uid_is_not_an_identity",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "A Hijacked UID Is Not an Identity",
       "norm_label": "a hijacked uid is not an identity"
     },
     {
@@ -516,8 +516,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_the_tell_was_in_the_screenshot_not_the_sentence",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "A Hijacked UID Is Not an Identity",
       "norm_label": "the tell was in the screenshot, not the sentence"
     },
     {
@@ -527,8 +527,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_the_mechanism",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "A Hijacked UID Is Not an Identity",
       "norm_label": "the mechanism"
     },
     {
@@ -538,8 +538,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_the_general_shape",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "A Hijacked UID Is Not an Identity",
       "norm_label": "the general shape"
     },
     {
@@ -549,8 +549,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_what_it_did_not_break",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "A Hijacked UID Is Not an Identity",
       "norm_label": "what it did not break"
     },
     {
@@ -560,8 +560,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_guarded_by",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "A Hijacked UID Is Not an Identity",
       "norm_label": "guarded by"
     },
     {
@@ -571,8 +571,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "concepts_a_hijacked_uid_is_not_an_identity_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 54,
+      "community_name": "A Hijacked UID Is Not an Identity",
       "norm_label": "related"
     },
     {
@@ -681,7 +681,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_a_mode_reminder_does_not_outrank_aldi",
-      "community": 55,
+      "community": 126,
       "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "a mode reminder does not outrank aldi"
     },
@@ -692,7 +692,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_the_decision_it_protects",
-      "community": 55,
+      "community": 126,
       "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "the decision it protects"
     },
@@ -703,7 +703,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_what_happened",
-      "community": 55,
+      "community": 126,
       "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "what happened"
     },
@@ -714,7 +714,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_why_prose_did_not_prevent_it",
-      "community": 55,
+      "community": 126,
       "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "why prose did not prevent it"
     },
@@ -725,7 +725,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "concepts_a_mode_reminder_does_not_outrank_aldi_related",
-      "community": 55,
+      "community": 126,
       "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "related"
     },
@@ -747,7 +747,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_a_named_import_can_shadow_a_global",
-      "community": 109,
+      "community": 94,
       "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "a named import can shadow a global"
     },
@@ -758,7 +758,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_happened",
-      "community": 109,
+      "community": 94,
       "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "what happened"
     },
@@ -769,7 +769,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_what_it_cost_and_what_did_not_catch_it",
-      "community": 109,
+      "community": 94,
       "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "what it cost, and what did not catch it"
     },
@@ -780,7 +780,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_a_named_import_can_shadow_a_global_the_fix_and_the_rule",
-      "community": 109,
+      "community": 94,
       "community_name": "A Named Import Can Shadow a Global",
       "norm_label": "the fix, and the rule"
     },
@@ -1418,8 +1418,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_a_stored_name_is_not_the_name_of_record",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 55,
+      "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "a stored name is not the name of record"
     },
     {
@@ -1429,8 +1429,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_fault_1_the_string_is_a_snapshot_of_a_google_account",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 55,
+      "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "fault 1 \u2014 the string is a snapshot of a google account"
     },
     {
@@ -1440,8 +1440,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_fault_2_the_newest_row_s_seller_is_not_the_current_owner",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 55,
+      "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "fault 2 \u2014 the newest row's seller is not the current owner"
     },
     {
@@ -1451,8 +1451,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_the_general_shape",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 55,
+      "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "the general shape"
     },
     {
@@ -1462,8 +1462,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_guarded_by",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 55,
+      "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "guarded by"
     },
     {
@@ -1473,8 +1473,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "concepts_a_stored_name_is_not_the_name_of_record_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 55,
+      "community_name": "A Mode Reminder Does Not Outrank Aldi",
       "norm_label": "related"
     },
     {
@@ -1495,7 +1495,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_a_completed_sale_is_a_closed_contract",
-      "community": 57,
+      "community": 115,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "a completed sale is a closed contract"
     },
@@ -1506,7 +1506,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_business_model_in_his_words",
-      "community": 57,
+      "community": 115,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "the business model, in his words"
     },
@@ -1517,7 +1517,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_it_means",
-      "community": 57,
+      "community": 115,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "what it means"
     },
@@ -1528,7 +1528,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_three_things_it_explains_that_looked_like_bugs",
-      "community": 57,
+      "community": 115,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "three things it explains that looked like bugs"
     },
@@ -1539,7 +1539,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_what_shipped",
-      "community": 57,
+      "community": 115,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "what shipped"
     },
@@ -1550,7 +1550,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_the_part_worth_remembering_it_took_two_edits_and_the_second_was_invisible",
-      "community": 57,
+      "community": 115,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "the part worth remembering \u2014 it took two edits, and the second was invisible"
     },
@@ -1561,7 +1561,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "concepts_a_sale_is_a_closed_contract_no_cash_goes_back_rejected_on_purpose",
-      "community": 57,
+      "community": 115,
       "community_name": "A completed sale is a closed contract",
       "norm_label": "rejected on purpose"
     },
@@ -3040,6 +3040,61 @@
       "norm_label": "\"it refreshed\" means the screen re-arrived when only one thing changed (2026-09-22, 20:40)"
     },
     {
+      "label": "He wants the game's FEEL, named precisely \u2014 and \"chill\" is a sound word (2026-09-23)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2810",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_he_wants_the_game_s_feel_named_precisely_and_chill_is_a_sound_word_2026_09_23",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "he wants the game's feel, named precisely \u2014 and \"chill\" is a sound word (2026-09-23)"
+    },
+    {
+      "label": "The chest's panel is part of the object \u2014 look 1, the stone grey (2026-09-24, 06:25)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2832",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_the_chest_s_panel_is_part_of_the_object_look_1_the_stone_grey_2026_09_24_06_25",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "the chest's panel is part of the object \u2014 look 1, the stone grey (2026-09-24, 06:25)"
+    },
+    {
+      "label": "Too big is a size bug, and \"the whole left panel\" means every door kept (2026-09-24, 07:52)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2846",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_too_big_is_a_size_bug_and_the_whole_left_panel_means_every_door_kept_2026_09_24_07_52",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "too big is a size bug, and \"the whole left panel\" means every door kept (2026-09-24, 07:52)"
+    },
+    {
+      "label": "He answers a menu with a screenshot of the thing he meant (2026-09-24, 08:35)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2862",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_he_answers_a_menu_with_a_screenshot_of_the_thing_he_meant_2026_09_24_08_35",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "he answers a menu with a screenshot of the thing he meant (2026-09-24, 08:35)"
+    },
+    {
+      "label": "Nothing may sit dormant, and a raw colour slab reads cheap (2026-09-24, 09:05)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2875",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_nothing_may_sit_dormant_and_a_raw_colour_slab_reads_cheap_2026_09_24_09_05",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "nothing may sit dormant, and a raw colour slab reads cheap (2026-09-24, 09:05)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -3057,8 +3112,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_an_effect_s_own_cleanup_can_cancel_its_frame",
-      "community": 52,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 28,
+      "community_name": "Fat Documents in a Live Listener",
       "norm_label": "an effect's own cleanup can cancel its frame"
     },
     {
@@ -3068,8 +3123,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_the_shape",
-      "community": 52,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 28,
+      "community_name": "Fat Documents in a Live Listener",
       "norm_label": "the shape"
     },
     {
@@ -3079,8 +3134,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_what_it_actually_did_twice",
-      "community": 52,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 28,
+      "community_name": "Fat Documents in a Live Listener",
       "norm_label": "what it actually did, twice"
     },
     {
@@ -3090,8 +3145,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_why_the_checks_did_not_catch_it",
-      "community": 52,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 28,
+      "community_name": "Fat Documents in a Live Listener",
       "norm_label": "why the checks did not catch it"
     },
     {
@@ -3101,8 +3156,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_what_to_do_instead",
-      "community": 52,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 28,
+      "community_name": "Fat Documents in a Live Listener",
       "norm_label": "what to do instead"
     },
     {
@@ -3112,8 +3167,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_the_general_lesson_which_is_not_about_raf",
-      "community": 52,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 28,
+      "community_name": "Fat Documents in a Live Listener",
       "norm_label": "the general lesson, which is not about raf"
     },
     {
@@ -3123,8 +3178,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "concepts_an_effect_s_own_cleanup_can_cancel_its_frame_the_family_has_six_members_now",
-      "community": 52,
-      "community_name": "An Effect's Own Cleanup Can Cancel Its Frame",
+      "community": 28,
+      "community_name": "Fat Documents in a Live Listener",
       "norm_label": "the family has six members now"
     },
     {
@@ -3387,8 +3442,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_design_inspiration_sources",
-      "community": 58,
-      "community_name": "Wiki/Concepts",
+      "community": 52,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "design inspiration sources"
     },
     {
@@ -3398,8 +3453,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_the_five",
-      "community": 58,
-      "community_name": "Wiki/Concepts",
+      "community": 52,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "the five"
     },
     {
@@ -3409,8 +3464,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_21st_dev_is_not_a_browsing_job",
-      "community": 58,
-      "community_name": "Wiki/Concepts",
+      "community": 52,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "21st.dev is not a browsing job"
     },
     {
@@ -3420,8 +3475,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_four_house_rules_before_anything_lands_in_kpm",
-      "community": 58,
-      "community_name": "Wiki/Concepts",
+      "community": 52,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "four house rules before anything lands in kpm"
     },
     {
@@ -3431,8 +3486,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "concepts_design_inspiration_sources_licensing_one_line",
-      "community": 58,
-      "community_name": "Wiki/Concepts",
+      "community": 52,
+      "community_name": "Design Inspiration Sources",
       "norm_label": "licensing, one line"
     },
     {
@@ -3453,8 +3508,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_draft_then_deploy_discipline",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "draft-then-deploy discipline"
     },
     {
@@ -3464,8 +3519,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_why",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "why"
     },
     {
@@ -3475,8 +3530,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_the_document_don_t_silently_half_fix_convention",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "the \"document, don't silently half-fix\" convention"
     },
     {
@@ -3486,8 +3541,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_related_process_the_deploy_checklist",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "related process: the deploy checklist"
     },
     {
@@ -3497,8 +3552,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "concepts_draft_then_deploy_discipline_related",
-      "community": 95,
-      "community_name": "Summary: Ponytail Philosophy Ingest",
+      "community": 51,
+      "community_name": "Summary: Rank Config Cross-Tenant Gap",
       "norm_label": "related"
     },
     {
@@ -3519,8 +3574,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_ecer_is_a_person_not_a_shop",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 120,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "ecer is a person, not a shop"
     },
     {
@@ -3530,8 +3585,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_why_it_was_a_money_bug_and_not_a_preference",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 120,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "why it was a money bug and not a preference"
     },
     {
@@ -3541,8 +3596,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_what_ships",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 120,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "what ships"
     },
     {
@@ -3552,8 +3607,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_the_trap_inside_strict_and_it_is_the_part_worth_remembering",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 120,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "the trap inside \"strict\", and it is the part worth remembering"
     },
     {
@@ -3563,8 +3618,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_still_open",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 120,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "still open"
     },
     {
@@ -3574,8 +3629,8 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "concepts_ecer_is_a_person_not_a_shop_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 120,
+      "community_name": "Ecer Is a Person, Not a Shop",
       "norm_label": "related"
     },
     {
@@ -3596,8 +3651,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_email_is_a_document_id_not_a_field",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "email is a document id, not a field"
     },
     {
@@ -3607,8 +3662,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_which_required_fields_are_actually_structural",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "which required fields are actually structural"
     },
     {
@@ -3618,8 +3673,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_the_trap_that_comes_free_with_every_relaxed_field",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "the trap that comes free with every relaxed field"
     },
     {
@@ -3629,8 +3684,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_and_the_message",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "and the message"
     },
     {
@@ -3640,8 +3695,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_guarded_by",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "guarded by"
     },
     {
@@ -3651,8 +3706,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "concepts_email_is_a_document_id_not_a_field_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 90,
+      "community_name": "Email Is a Document ID, Not a Field",
       "norm_label": "related"
     },
     {
@@ -3673,8 +3728,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_fat_documents_in_a_live_listener_fat_documents_in_a_live_listener",
-      "community": 28,
-      "community_name": "Fat Documents in a Live Listener",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "fat documents in a live listener"
     },
     {
@@ -3684,8 +3739,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "concepts_fat_documents_in_a_live_listener_the_shape",
-      "community": 28,
-      "community_name": "Fat Documents in a Live Listener",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "the shape"
     },
     {
@@ -3695,8 +3750,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "concepts_fat_documents_in_a_live_listener_why_it_hides",
-      "community": 28,
-      "community_name": "Fat Documents in a Live Listener",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "why it hides"
     },
     {
@@ -3706,8 +3761,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_fat_documents_in_a_live_listener_the_fix_and_its_boundary",
-      "community": 28,
-      "community_name": "Fat Documents in a Live Listener",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "the fix, and its boundary"
     },
     {
@@ -3717,8 +3772,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "concepts_fat_documents_in_a_live_listener_what_is_still_not_known",
-      "community": 28,
-      "community_name": "Fat Documents in a Live Listener",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "what is still not known"
     },
     {
@@ -3728,8 +3783,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "concepts_fat_documents_in_a_live_listener_the_lesson_worth_carrying",
-      "community": 28,
-      "community_name": "Fat Documents in a Live Listener",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "the lesson worth carrying"
     },
     {
@@ -3739,8 +3794,8 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "concepts_fat_documents_in_a_live_listener_related",
-      "community": 28,
-      "community_name": "Fat Documents in a Live Listener",
+      "community": 24,
+      "community_name": "Light Ground and the Theme Lab",
       "norm_label": "related"
     },
     {
@@ -4608,7 +4663,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_lift_the_dialog_never_push_the_rest_down_lift_the_dialog_never_push_the_rest_down",
-      "community": 94,
+      "community": 129,
       "community_name": "Lift the Dialog, Never Push the Rest Down",
       "norm_label": "lift the dialog, never push the rest down"
     },
@@ -4619,7 +4674,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "concepts_lift_the_dialog_never_push_the_rest_down_the_layer_map_as_of_2026_09_13",
-      "community": 94,
+      "community": 129,
       "community_name": "Lift the Dialog, Never Push the Rest Down",
       "norm_label": "the layer map, as of 2026-09-13"
     },
@@ -4630,7 +4685,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "concepts_lift_the_dialog_never_push_the_rest_down_related",
-      "community": 94,
+      "community": 129,
       "community_name": "Lift the Dialog, Never Push the Rest Down",
       "norm_label": "related"
     },
@@ -5609,8 +5664,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_pov_changes_the_id_never_the_email",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 122,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "pov changes the id, never the email"
     },
     {
@@ -5620,8 +5675,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_how_it_was_found_2026_09_08",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 122,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "how it was found \u2014 2026-09-08"
     },
     {
@@ -5631,8 +5686,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_not_a_permission_hole_and_say_so_plainly",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 122,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "not a permission hole, and say so plainly"
     },
     {
@@ -5642,8 +5697,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_the_second_instance_still_unfixed_as_of_2026_09_08",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 122,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "the second instance, still unfixed as of 2026-09-08"
     },
     {
@@ -5653,8 +5708,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_the_rule_for_next_time",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 122,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "the rule for next time"
     },
     {
@@ -5664,8 +5719,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "concepts_pov_changes_the_id_never_the_email_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 122,
+      "community_name": "POV changes the id, never the email",
       "norm_label": "related"
     },
     {
@@ -6426,6 +6481,39 @@
       "community": 63,
       "community_name": "A Stored Name Is Not the Name of Record",
       "norm_label": "open"
+    },
+    {
+      "label": "Round six \u2014 the chest (2026-09-23)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi_round_six_the_chest_2026_09_23",
+      "community": 63,
+      "community_name": "A Stored Name Is Not the Name of Record",
+      "norm_label": "round six \u2014 the chest (2026-09-23)"
+    },
+    {
+      "label": "Round seven \u2014 the pack and the studio (2026-09-23, 11:25): the rule changes shape",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L120",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi_round_seven_the_pack_and_the_studio_2026_09_23_11_25_the_rule_changes_shape",
+      "community": 63,
+      "community_name": "A Stored Name Is Not the Name of Record",
+      "norm_label": "round seven \u2014 the pack and the studio (2026-09-23, 11:25): the rule changes shape"
+    },
+    {
+      "label": "His first saved set (2026-09-23 11:58) \u2014 and what it says about his ear",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L144",
+      "_origin": "ast",
+      "id": "concepts_sounds_come_from_aldi_his_first_saved_set_2026_09_23_11_58_and_what_it_says_about_his_ear",
+      "community": 63,
+      "community_name": "A Stored Name Is Not the Name of Record",
+      "norm_label": "his first saved set (2026-09-23 11:58) \u2014 and what it says about his ear"
     },
     {
       "label": "The Book as a Stack of Sheets.md",
@@ -7248,7 +7336,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "concepts_the_player_card_the_player_card",
-      "community": 115,
+      "community": 58,
       "community_name": "The Player Card",
       "norm_label": "the player card"
     },
@@ -7259,7 +7347,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "concepts_the_player_card_what_it_is",
-      "community": 115,
+      "community": 58,
       "community_name": "The Player Card",
       "norm_label": "what it is"
     },
@@ -7270,7 +7358,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "concepts_the_player_card_the_stages",
-      "community": 115,
+      "community": 58,
       "community_name": "The Player Card",
       "norm_label": "the stages"
     },
@@ -7281,7 +7369,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "concepts_the_player_card_the_laws_it_kept",
-      "community": 115,
+      "community": 58,
       "community_name": "The Player Card",
       "norm_label": "the laws it kept"
     },
@@ -7292,7 +7380,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "concepts_the_player_card_related",
-      "community": 115,
+      "community": 58,
       "community_name": "The Player Card",
       "norm_label": "related"
     },
@@ -8029,8 +8117,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_eod_per_part_verification",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "eod per-part verification.md"
     },
     {
@@ -8117,8 +8205,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_firestore_rules",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "firestore rules.md"
     },
     {
@@ -8271,8 +8359,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "fleet captain permission gap.md"
     },
     {
@@ -8436,8 +8524,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_gudang_pusat_master_vault",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "gudang pusat (master vault).md"
     },
     {
@@ -8887,8 +8975,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "multi-tenant architecture.md"
     },
     {
@@ -8953,8 +9041,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "rank config and achievement badges.md"
     },
     {
@@ -9019,8 +9107,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_terminal_tenant_path_split",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "terminal tenant path split.md"
     },
     {
@@ -9228,8 +9316,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_the_boss_is_the_raw_firebase_user",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "the boss is the raw firebase user.md"
     },
     {
@@ -9239,8 +9327,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_the_boss_is_the_raw_firebase_user_the_boss_is_the_raw_firebase_user",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "the boss is the raw firebase user"
     },
     {
@@ -9250,8 +9338,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "entities_the_boss_is_the_raw_firebase_user_related",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "related"
     },
     {
@@ -9261,8 +9349,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_the_place_registry",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "the place registry.md"
     },
     {
@@ -9360,8 +9448,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_tier_system",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "tier system.md"
     },
     {
@@ -9492,8 +9580,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_index",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "entities/index.md"
     },
     {
@@ -10012,6 +10100,83 @@
       "community": 8,
       "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
       "norm_label": "2026-09-07 \u2014 a \"sees too much\" report is a question about the viewer before it is one about the feature"
+    },
+    {
+      "label": "Archived 2026-09-23 \u2014 retired 2026-09-22, never fired in 14 days",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L643",
+      "_origin": "ast",
+      "id": "lessons_archive_archived_2026_09_23_retired_2026_09_22_never_fired_in_14_days",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "archived 2026-09-23 \u2014 retired 2026-09-22, never fired in 14 days"
+    },
+    {
+      "label": "2026-09-08 \u2014 a pass/fail tally is not a count of assertions",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L645",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_09_08_a_pass_fail_tally_is_not_a_count_of_assertions",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-09-08 \u2014 a pass/fail tally is not a count of assertions"
+    },
+    {
+      "label": "2026-09-08 \u2014 a pass criterion written before the change is not a check on the change",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L661",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_09_08_a_pass_criterion_written_before_the_change_is_not_a_check_on_the_change",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-09-08 \u2014 a pass criterion written before the change is not a check on the change"
+    },
+    {
+      "label": "2026-09-08 \u2014 when two setups differ, diff the ACTOR before the environment",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L682",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_09_08_when_two_setups_differ_diff_the_actor_before_the_environment",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-09-08 \u2014 when two setups differ, diff the actor before the environment"
+    },
+    {
+      "label": "2026-09-09 \u2014 when a root cause is found, restore what the disproved hypothesis removed",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L701",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_09_09_when_a_root_cause_is_found_restore_what_the_disproved_hypothesis_removed",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-09-09 \u2014 when a root cause is found, restore what the disproved hypothesis removed"
+    },
+    {
+      "label": "2026-09-09 \u2014 a method name says what code CAN do; its log line says what it DID",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L710",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_09_09_a_method_name_says_what_code_can_do_its_log_line_says_what_it_did",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-09-09 \u2014 a method name says what code can do; its log line says what it did"
+    },
+    {
+      "label": "2026-09-09 \u2014 when you disable a lookup, its fallback becomes new load-bearing code",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L725",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_09_09_when_you_disable_a_lookup_its_fallback_becomes_new_load_bearing_code",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-09-09 \u2014 when you disable a lookup, its fallback becomes new load-bearing code"
     },
     {
       "label": "Lessons-Mirror.md",
@@ -11374,7 +11539,7 @@
       "_origin": "ast",
       "id": "moc_map_of_content",
       "community": 92,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community_name": "Map of Content",
       "norm_label": "map of content"
     },
     {
@@ -11385,7 +11550,7 @@
       "_origin": "ast",
       "id": "moc_security_permissions",
       "community": 92,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community_name": "Map of Content",
       "norm_label": "\ud83d\udd12 security & permissions"
     },
     {
@@ -11396,7 +11561,7 @@
       "_origin": "ast",
       "id": "moc_process_discipline",
       "community": 92,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community_name": "Map of Content",
       "norm_label": "\ud83e\udded process & discipline"
     },
     {
@@ -11407,7 +11572,7 @@
       "_origin": "ast",
       "id": "moc_architecture",
       "community": 92,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community_name": "Map of Content",
       "norm_label": "\ud83c\udfd7\ufe0f architecture"
     },
     {
@@ -11418,7 +11583,7 @@
       "_origin": "ast",
       "id": "moc_design_interface",
       "community": 92,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community_name": "Map of Content",
       "norm_label": "\ud83c\udfa8 design & interface"
     },
     {
@@ -11429,7 +11594,7 @@
       "_origin": "ast",
       "id": "moc_phone_device",
       "community": 92,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community_name": "Map of Content",
       "norm_label": "\ud83d\udcf1 phone & device"
     },
     {
@@ -11440,7 +11605,7 @@
       "_origin": "ast",
       "id": "moc_incidents",
       "community": 92,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community_name": "Map of Content",
       "norm_label": "\ud83d\udea8 incidents"
     },
     {
@@ -11451,7 +11616,7 @@
       "_origin": "ast",
       "id": "moc_elsewhere_in_this_vault",
       "community": 92,
-      "community_name": "Email Is a Document ID, Not a Field",
+      "community_name": "Map of Content",
       "norm_label": "elsewhere in this vault"
     },
     {
@@ -11593,8 +11758,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -11670,8 +11835,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -11747,8 +11912,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "kpm project facts reference.md"
     },
     {
@@ -11758,8 +11923,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_summary_kpm_project_facts_reference",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "summary: kpm project facts reference"
     },
     {
@@ -11769,8 +11934,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_what_it_establishes",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "what it establishes"
     },
     {
@@ -11780,8 +11945,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "summaries_kpm_project_facts_reference_ripple_pages_this_touches",
-      "community": 45,
-      "community_name": "Off-Token Colour Migration Map",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -12011,8 +12176,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "option b region lock.md"
     },
     {
@@ -12132,8 +12297,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 51,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -12143,8 +12308,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_summary_rank_config_cross_tenant_gap",
-      "community": 51,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "summary: rank config cross-tenant gap"
     },
     {
@@ -12154,8 +12319,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_framing_note",
-      "community": 51,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "framing note"
     },
     {
@@ -12165,8 +12330,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_the_gap",
-      "community": 51,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "the gap"
     },
     {
@@ -12176,8 +12341,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_two_layers_two_different_fixes",
-      "community": 51,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "two layers, two different fixes"
     },
     {
@@ -12187,8 +12352,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_ripple_pages_this_touches",
-      "community": 51,
-      "community_name": "Summary: Rank Config Cross-Tenant Gap",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -12198,8 +12363,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rules_draft_process",
-      "community": 46,
-      "community_name": "A Hijacked UID Is Not an Identity",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "rules draft process.md"
     },
     {
@@ -12209,8 +12374,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_rules_draft_process_summary_rules_draft_process",
-      "community": 46,
-      "community_name": "A Hijacked UID Is Not an Identity",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "summary: rules draft process"
     },
     {
@@ -12220,8 +12385,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_rules_draft_process_what_it_establishes",
-      "community": 46,
-      "community_name": "A Hijacked UID Is Not an Identity",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "what it establishes"
     },
     {
@@ -12231,8 +12396,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "summaries_rules_draft_process_the_documentation_convention",
-      "community": 46,
-      "community_name": "A Hijacked UID Is Not an Identity",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "the documentation convention"
     },
     {
@@ -12242,8 +12407,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "summaries_rules_draft_process_ripple_pages_this_touches",
-      "community": 46,
-      "community_name": "A Hijacked UID Is Not an Identity",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -12385,8 +12550,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_stock_count_trust_chain",
-      "community": 66,
-      "community_name": "A Smooth Scroll That Never Runs",
+      "community": 106,
+      "community_name": "Entities/index.md",
       "norm_label": "stock count trust chain.md"
     },
     {
@@ -12484,8 +12649,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "store hand-off name collision.md"
     },
     {
@@ -12495,8 +12660,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_store_hand_off_name_collision",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "store hand-off name collision"
     },
     {
@@ -12506,8 +12671,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_the_fix_that_could_not_be_built",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "the fix that could not be built"
     },
     {
@@ -12517,8 +12682,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_what_shipped",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "what shipped"
     },
     {
@@ -12528,8 +12693,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "summaries_store_hand_off_name_collision_verified",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "verified"
     },
     {
@@ -12759,8 +12924,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "the panel that never reads a transaction.md"
     },
     {
@@ -12770,7 +12935,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction_the_panel_that_never_reads_a_transaction",
-      "community": 89,
+      "community": 118,
       "community_name": "The Panel That Never Reads a Transaction",
       "norm_label": "the panel that never reads a transaction"
     },
@@ -12781,7 +12946,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction_the_report",
-      "community": 89,
+      "community": 118,
       "community_name": "The Panel That Never Reads a Transaction",
       "norm_label": "the report"
     },
@@ -12792,7 +12957,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction_where_the_distinction_actually_dies",
-      "community": 89,
+      "community": 118,
       "community_name": "The Panel That Never Reads a Transaction",
       "norm_label": "where the distinction actually dies"
     },
@@ -12803,7 +12968,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction_the_trap_that_makes_a_lazy_build_wrong",
-      "community": 89,
+      "community": 118,
       "community_name": "The Panel That Never Reads a Transaction",
       "norm_label": "the trap that makes a lazy build wrong"
     },
@@ -12814,7 +12979,7 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction_the_larger_question_underneath_unanswered",
-      "community": 89,
+      "community": 118,
       "community_name": "The Panel That Never Reads a Transaction",
       "norm_label": "the larger question underneath, unanswered"
     },
@@ -12825,7 +12990,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction_same_day_the_demo_went_online_and_the_check_that_made_that_safe",
-      "community": 89,
+      "community": 118,
       "community_name": "The Panel That Never Reads a Transaction",
       "norm_label": "same day: the demo went online, and the check that made that safe"
     },
@@ -12836,7 +13001,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "summaries_the_panel_that_never_reads_a_transaction_also_settled_no_code",
-      "community": 89,
+      "community": 118,
       "community_name": "The Panel That Never Reads a Transaction",
       "norm_label": "also settled, no code"
     },
@@ -12957,7 +13122,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design",
-      "community": 3,
+      "community": 109,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "trophy room and rank system design.md"
     },
@@ -12968,7 +13133,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_kpm_inventory_trophy_room_rank_system_performance_ergonomics",
-      "community": 3,
+      "community": 109,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "kpm inventory \u2014 trophy room, rank system, performance & ergonomics"
     },
@@ -12979,7 +13144,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_a_design_document_for_the_achievement_ranking_system_the_agent_profile_and_making_the_app_light_on_cheap_phones",
-      "community": 3,
+      "community": 109,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "a design document for the achievement/ranking system, the agent profile, and making the app light on cheap phones"
     },
@@ -12990,8 +13155,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_1_the_thing_you_need_to_know_first",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 123,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "1. the thing you need to know first"
     },
     {
@@ -13001,8 +13166,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_your_lifetime_numbers_are_7_day_numbers_and_every_agent_s_rank_is_a_speedometer_not_an_odometer",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 123,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "your \"lifetime\" numbers are 7-day numbers, and every agent's rank is a speedometer, not an odometer"
     },
     {
@@ -13012,8 +13177,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_this_means_for_your_agents_right_now_today",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 123,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "what this means for your agents *right now, today*"
     },
     {
@@ -13023,8 +13188,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_second_thing_rank_counts_money_you_haven_t_been_paid",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 123,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "the second thing: rank counts money you haven't been paid"
     },
     {
@@ -13034,8 +13199,8 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_third_thing_two_bugs_sitting_under_all_of_this",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 123,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "the third thing: two bugs sitting under all of this"
     },
     {
@@ -13045,8 +13210,8 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_one_thing_i_was_told_was_broken_that_is_not_broken_correcting_the_record",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 123,
+      "community_name": "1. The thing you need to know first",
       "norm_label": "one thing i was told was broken that is not broken \u2014 correcting the record"
     },
     {
@@ -13056,7 +13221,7 @@
       "source_location": "L170",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_2_what_s_already_good",
-      "community": 3,
+      "community": 109,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "2. what's already good"
     },
@@ -13155,7 +13320,7 @@
       "source_location": "L463",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_3_2_how_xp_works_and_why_it_can_never_decay_again",
-      "community": 5,
+      "community": 119,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "3.2 how xp works, and why it can never decay again"
     },
@@ -13166,7 +13331,7 @@
       "source_location": "L511",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_why_it_cannot_decay_the_whole_proof",
-      "community": 5,
+      "community": 119,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "why it cannot decay \u2014 the whole proof"
     },
@@ -13177,7 +13342,7 @@
       "source_location": "L533",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_daily_formula",
-      "community": 5,
+      "community": 119,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the daily formula"
     },
@@ -13188,7 +13353,7 @@
       "source_location": "L563",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_what_a_real_day_looks_like",
-      "community": 5,
+      "community": 119,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "what a real day looks like"
     },
@@ -13199,7 +13364,7 @@
       "source_location": "L586",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_ladder",
-      "community": 5,
+      "community": 119,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the ladder"
     },
@@ -13210,7 +13375,7 @@
       "source_location": "L609",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_where_xp_is_minted_inside_a_transaction_that_already_runs",
-      "community": 5,
+      "community": 119,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "where xp is minted \u2014 inside a transaction that already runs"
     },
@@ -13221,7 +13386,7 @@
       "source_location": "L683",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_one_runnable_check",
-      "community": 5,
+      "community": 119,
       "community_name": "3.2 How XP works, and why it can never decay again",
       "norm_label": "the one runnable check"
     },
@@ -13232,8 +13397,8 @@
       "source_location": "L709",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_3_3_the_achievement_system",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 125,
+      "community_name": "3.3 The achievement system",
       "norm_label": "3.3 the achievement system"
     },
     {
@@ -13243,8 +13408,8 @@
       "source_location": "L711",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_kill_one_of_the_two_systems",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 125,
+      "community_name": "3.3 The achievement system",
       "norm_label": "kill one of the two systems"
     },
     {
@@ -13254,8 +13419,8 @@
       "source_location": "L730",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_schema",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 125,
+      "community_name": "3.3 The achievement system",
       "norm_label": "schema"
     },
     {
@@ -13265,8 +13430,8 @@
       "source_location": "L757",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_evaluation_the_elegant_part",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 125,
+      "community_name": "3.3 The achievement system",
       "norm_label": "evaluation \u2014 the elegant part"
     },
     {
@@ -13276,8 +13441,8 @@
       "source_location": "L771",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_starter_set_with_the_exact_data_source_for_each_or_an_honest_not_yet",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 125,
+      "community_name": "3.3 The achievement system",
       "norm_label": "the starter set \u2014 with the exact data source for each, or an honest \"not yet\""
     },
     {
@@ -13287,8 +13452,8 @@
       "source_location": "L844",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_how_you_configure_them",
-      "community": 5,
-      "community_name": "3.2 How XP works, and why it can never decay again",
+      "community": 125,
+      "community_name": "3.3 The achievement system",
       "norm_label": "how you configure them"
     },
     {
@@ -13441,8 +13606,8 @@
       "source_location": "L1223",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_5_making_it_fun_and_the_ways_it_could_go_badly_wrong",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 57,
+      "community_name": "How this could fail, and what stops it",
       "norm_label": "5. making it fun (and the ways it could go badly wrong)"
     },
     {
@@ -13452,8 +13617,8 @@
       "source_location": "L1225",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_the_moments_of_delight_what_actually_lands",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 57,
+      "community_name": "How this could fail, and what stops it",
       "norm_label": "the moments of delight \u2014 what actually lands"
     },
     {
@@ -13463,8 +13628,8 @@
       "source_location": "L1259",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_how_this_could_fail_and_what_stops_it",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 57,
+      "community_name": "How this could fail, and what stops it",
       "norm_label": "how this could fail, and what stops it"
     },
     {
@@ -13474,8 +13639,8 @@
       "source_location": "L1261",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_1_the_leaderboard_bottom",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 57,
+      "community_name": "How this could fail, and what stops it",
       "norm_label": "failure 1: the leaderboard bottom"
     },
     {
@@ -13485,8 +13650,8 @@
       "source_location": "L1288",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_2_the_new_hire_versus_the_veteran",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 57,
+      "community_name": "How this could fail, and what stops it",
       "norm_label": "failure 2: the new hire versus the veteran"
     },
     {
@@ -13496,8 +13661,8 @@
       "source_location": "L1305",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_3_it_feels_like_surveillance_not_appreciation",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 57,
+      "community_name": "How this could fail, and what stops it",
       "norm_label": "failure 3: it feels like surveillance, not appreciation"
     },
     {
@@ -13507,8 +13672,8 @@
       "source_location": "L1332",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_4_the_boss_becomes_the_heartbeat",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 57,
+      "community_name": "How this could fail, and what stops it",
       "norm_label": "failure 4: the boss becomes the heartbeat"
     },
     {
@@ -13518,8 +13683,8 @@
       "source_location": "L1347",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_5_half_the_fleet_gets_an_empty_trophy_room",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 57,
+      "community_name": "How this could fail, and what stops it",
       "norm_label": "failure 5: half the fleet gets an empty trophy room"
     },
     {
@@ -13529,8 +13694,8 @@
       "source_location": "L1355",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_6_the_rank_titles",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 57,
+      "community_name": "How this could fail, and what stops it",
       "norm_label": "failure 6: the rank titles"
     },
     {
@@ -13540,8 +13705,8 @@
       "source_location": "L1365",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_failure_7_nobody_asked_the_actual_employees",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 57,
+      "community_name": "How this could fail, and what stops it",
       "norm_label": "failure 7: nobody asked the actual employees"
     },
     {
@@ -13551,7 +13716,7 @@
       "source_location": "L1379",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_6_performance_work_making_it_light_on_a_potato_phone",
-      "community": 3,
+      "community": 109,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "6. performance work \u2014 making it light on a potato phone"
     },
@@ -13562,7 +13727,7 @@
       "source_location": "L1419",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_7_ergonomics_one_handed_field_use",
-      "community": 3,
+      "community": 109,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "7. ergonomics \u2014 one-handed field use"
     },
@@ -13573,8 +13738,8 @@
       "source_location": "L1439",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_8_the_plan",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 89,
+      "community_name": "8. The plan",
       "norm_label": "8. the plan"
     },
     {
@@ -13584,8 +13749,8 @@
       "source_location": "L1446",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_0_solid_ground",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 89,
+      "community_name": "8. The plan",
       "norm_label": "phase 0 \u2014 solid ground"
     },
     {
@@ -13595,8 +13760,8 @@
       "source_location": "L1483",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_1_the_performance_pass",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 89,
+      "community_name": "8. The plan",
       "norm_label": "phase 1 \u2014 the performance pass"
     },
     {
@@ -13606,8 +13771,8 @@
       "source_location": "L1496",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_2_the_ledger_runs_in_the_dark",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 89,
+      "community_name": "8. The plan",
       "norm_label": "phase 2 \u2014 the ledger runs in the dark"
     },
     {
@@ -13617,8 +13782,8 @@
       "source_location": "L1533",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_3_tenure_and_the_backfill",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 89,
+      "community_name": "8. The plan",
       "norm_label": "phase 3 \u2014 tenure and the backfill"
     },
     {
@@ -13628,8 +13793,8 @@
       "source_location": "L1562",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_4_flip_the_switch",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 89,
+      "community_name": "8. The plan",
       "norm_label": "phase 4 \u2014 flip the switch"
     },
     {
@@ -13639,8 +13804,8 @@
       "source_location": "L1589",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_5_one_badge_system",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 89,
+      "community_name": "8. The plan",
       "norm_label": "phase 5 \u2014 one badge system"
     },
     {
@@ -13650,8 +13815,8 @@
       "source_location": "L1616",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_6_the_trophy_room",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 89,
+      "community_name": "8. The plan",
       "norm_label": "phase 6 \u2014 the trophy room"
     },
     {
@@ -13661,8 +13826,8 @@
       "source_location": "L1644",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_7_seasons_and_the_honest_extras",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 89,
+      "community_name": "8. The plan",
       "norm_label": "phase 7 \u2014 seasons and the honest extras"
     },
     {
@@ -13672,8 +13837,8 @@
       "source_location": "L1666",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_phase_8_ergonomics",
-      "community": 3,
-      "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
+      "community": 89,
+      "community_name": "8. The plan",
       "norm_label": "phase 8 \u2014 ergonomics"
     },
     {
@@ -13683,7 +13848,7 @@
       "source_location": "L1674",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_9_what_i_d_revisit_later_and_the_signal_that_says_it_s_time",
-      "community": 3,
+      "community": 109,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "9. what i'd revisit later, and the signal that says it's time"
     },
@@ -13694,7 +13859,7 @@
       "source_location": "L1749",
       "_origin": "ast",
       "id": "summaries_trophy_room_and_rank_system_design_appendix_everything_i_checked_in_one_list",
-      "community": 3,
+      "community": 109,
       "community_name": "KPM Inventory \u2014 Trophy Room, Rank System, Performance & Ergonomics",
       "norm_label": "appendix: everything i checked, in one list"
     },
@@ -13705,8 +13870,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_index",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "summaries/index.md"
     },
     {
@@ -13716,8 +13881,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "summaries_index_wiki_summaries",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "wiki/summaries"
     },
     {
@@ -13727,8 +13892,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "summaries_index_pages_here",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "pages here"
     },
     {
@@ -13738,8 +13903,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_index_adding_a_new_summary",
-      "community": 24,
-      "community_name": "Light Ground and the Theme Lab",
+      "community": 72,
+      "community_name": "Summary: Rules Draft Process",
       "norm_label": "adding a new summary"
     },
     {
@@ -17235,6 +17400,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2862",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_he_answers_a_menu_with_a_screenshot_of_the_thing_he_meant_2026_09_24_08_35",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L359",
       "weight": 1.0,
       "_origin": "ast",
@@ -17339,6 +17515,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_he_wants_the_ask_not_the_account_2026_09_04",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2810",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_he_wants_the_game_s_feel_named_precisely_and_chill_is_a_sound_word_2026_09_23",
       "confidence_score": 1.0
     },
     {
@@ -17482,6 +17669,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_norak_two_animations_claiming_the_same_moment_2026_09_03",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2875",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_nothing_may_sit_dormant_and_a_raw_colour_slab_reads_cheap_2026_09_24_09_05",
       "confidence_score": 1.0
     },
     {
@@ -17653,6 +17851,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2832",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_the_chest_s_panel_is_part_of_the_object_look_1_the_stone_grey_2026_09_24_06_25",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L2685",
       "weight": 1.0,
       "_origin": "ast",
@@ -17812,6 +18021,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_three_complaints_in_one_message_and_the_single_fault_under_all_of_them_2026_08_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2846",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_too_big_is_a_size_bug_and_the_whole_left_panel_means_every_door_kept_2026_09_24_07_52",
       "confidence_score": 1.0
     },
     {
@@ -22933,6 +23153,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L144",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "target": "concepts_sounds_come_from_aldi_his_first_saved_set_2026_09_23_11_58_and_what_it_says_about_his_ear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
       "source_location": "L97",
       "weight": 1.0,
       "_origin": "ast",
@@ -22949,6 +23180,28 @@
       "_origin": "ast",
       "source": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
       "target": "concepts_sounds_come_from_aldi_rejected_on_purpose_do_not_re_propose",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "target": "concepts_sounds_come_from_aldi_round_seven_the_pack_and_the_studio_2026_09_23_11_25_the_rule_changes_shape",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Sounds Come From Aldi.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_sounds_come_from_aldi_sounds_come_from_aldi",
+      "target": "concepts_sounds_come_from_aldi_round_six_the_chest_2026_09_23",
       "confidence_score": 1.0
     },
     {
@@ -26794,6 +27047,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L643",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_lessons_archive",
+      "target": "lessons_archive_archived_2026_09_23_retired_2026_09_22_never_fired_in_14_days",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
       "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
@@ -27151,6 +27415,72 @@
       "_origin": "ast",
       "source": "lessons_archive_archived_2026_09_19_retired_2026_09_18_both_superseded_by_skill_md_prose",
       "target": "lessons_archive_2026_09_07_a_stop_hook_naming_a_file_is_not_evidence_you_changed_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L661",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_09_23_retired_2026_09_22_never_fired_in_14_days",
+      "target": "lessons_archive_2026_09_08_a_pass_criterion_written_before_the_change_is_not_a_check_on_the_change",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L645",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_09_23_retired_2026_09_22_never_fired_in_14_days",
+      "target": "lessons_archive_2026_09_08_a_pass_fail_tally_is_not_a_count_of_assertions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L682",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_09_23_retired_2026_09_22_never_fired_in_14_days",
+      "target": "lessons_archive_2026_09_08_when_two_setups_differ_diff_the_actor_before_the_environment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L710",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_09_23_retired_2026_09_22_never_fired_in_14_days",
+      "target": "lessons_archive_2026_09_09_a_method_name_says_what_code_can_do_its_log_line_says_what_it_did",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L701",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_09_23_retired_2026_09_22_never_fired_in_14_days",
+      "target": "lessons_archive_2026_09_09_when_a_root_cause_is_found_restore_what_the_disproved_hypothesis_removed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L725",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_09_23_retired_2026_09_22_never_fired_in_14_days",
+      "target": "lessons_archive_2026_09_09_when_you_disable_a_lookup_its_fallback_becomes_new_load_bearing_code",
       "confidence_score": 1.0
     },
     {
@@ -31060,5 +31390,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6330993938617661f3e3b8062bd17a132724deb3"
+  "built_at_commit": "c2b2ec0527cb16b03b0ea1afa1db7da8b7768d16"
 }

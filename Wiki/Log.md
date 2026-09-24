@@ -1412,3 +1412,7 @@ Both boards refused; the figure is now the siblings' plain mono figure, red on a
 ## 2026-09-22 16:00 — the boss's audit line follows the card (kpm `c86c9ee`); Stock Opname has no nixie left
 
 His "yea sure make boss audit have the same design like that one". The three audit figures are the plain mono figure, the DIFFERENCE the keyed red one; the nixie stays only where it stands alone (the EOD folder total, the Agent Inventory window). Presentation v7.
+
+## 2026-09-24 12:04 — Fleet & Roster round 4 BUILT (kpm `c4a1eaa` `d02fe2c` `dfc3820` `cb30e98`)
+
+The chests close again with tabs behind them (his usual load, the team, this person's geofence requests), far and near on the stage over a lit grid floor, the big deployment header moved into the gold bar. His preset rule kept: a preset only fills the muatan. What the build decided on its own and the three traps met are in [[2026-09-24_roster-as-a-game-community]] (Round 4). Frames + shooter: `Raw/2026-09-24-round4-chests-stage/`. His test owed.

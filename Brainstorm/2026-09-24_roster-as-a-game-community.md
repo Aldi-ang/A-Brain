@@ -71,3 +71,19 @@ a guarantee, not a feature.
 Rejected on purpose: my two read-only slips (his list does more); the company-wide pending override queue living only
 behind a closed chest (a salesman waits at a shop for it) - kept at the top, his call to change.
 
+**BUILT 2026-09-24 12:04 WIB** (kpm `c4a1eaa` chests + tabs, `d02fe2c` far/near + floor, `dfc3820` header into the gold
+bar, `cb30e98` a clipped chip the frames caught). Local, not pushed; his ✅ TEST owed. Frames + the round-4 shooter:
+`Raw/2026-09-24-round4-chests-stage/`. What the build decided on its own, for him to overrule:
+- "Both closed = one short row" was read literally: each chest stands BESIDE its tabs (PC: chest | tabs | tabs | chest;
+  phone: two rows of chest | tabs). Before the first hand-close the chests open by themselves, so no tabs flash.
+- A preset line the warehouse cannot fill whole is CUT and listed with its reason (short / planned / dry / missing /
+  full), not dropped silently; a full van refuses a new product, as a drag does.
+- Saving over an existing usual load replaces it and says so ("Muatan biasa diganti"), no confirm.
+- The bar follows the picked person on any roster page or area tab (the old header always showed them).
+Traps met: a plain `.lite-mode` rule LOSES to the far-card selector (`:has()` + `:not()` add up to 0,6,0), so the dimming
+is gated with `:root:not(.lite-mode)` instead of overridden; a list inside a grid needs `minmax(0, 1fr)` or its content
+sets the width (clipped "DITOLAK"); the lab stub's fixtures must be seeded before the page runs
+(`globalThis.__labFixtures`) for a listener that subscribes on mount.
+Models applied: Inversion (what makes a preset change real stock? nothing - it only folds lines), Second-Order Thinking
+(the geofence tab must not become a second place to approve).
+
