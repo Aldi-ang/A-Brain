@@ -740,3 +740,40 @@ him for a missing prop.
 Seen: 2026-09-09"""
 tail -18 "$L" | head -4
 Fired:
+
+
+<!-- archived 2026-09-26 by alucard bookkeeping -->
+### 2026-09-10 — a number written to be refused still has to survive being checked
+**Status:** RETIRED (2026-09-24) — never fired in 14 days; superseded by the 2026-09-11 entry "check a new number against the numbers already in the same document"
+**Trigger:** before writing any DERIVED figure — a price, an estimate, an anchor — into a note as a
+settled number, especially one whose stated purpose is to be rejected.
+**Lesson:** re-run the arithmetic, and check the figure against the other numbers in the same
+document. A derived price has a ceiling set by its own alternatives; pricing through that ceiling
+inverts what the number does. "Priced to refuse" is not a licence to skip the check — the reader
+does the comparison you skipped, and a figure that fails it does the opposite of its job.
+**Would have prevented:** Rp 5 miliar for KPM's copyright, written into the vault and then into
+`Wiki/Entities/KPM Price Sheet.md` marked CANONICAL, and repeated in two replies. It carried a plain
+multiplication error (10 × Rp 15 juta × 12 read as Rp 900 juta/year, not Rp 1,8 miliar), a rate
+superseded the same day, and — the fault that mattered — it sat 3,5× above the Rp 1,4 miliar rebuild
+cost quoted three sections above it in the same file. A copyright priced above a clean rebuild tells
+the buyer to hire a developer instead. Aldi caught it: *"is 5 milliar reasonable that amount is
+crazy work"*.
+Seen: 2026-09-10
+Fired:
+
+### 2026-09-10 — when he answers a numbered list by number, read the number first
+**Status:** RETIRED (2026-09-24) — never fired in 14 days of real work; no check can see a reply, retired as a platitude
+**Trigger:** any reply from Aldi that opens with a bare numeral and a verb — "1 done", "2 skip",
+"3 later" — especially when the same message carries screenshots or a long body.
+**Lesson:** resolve the numeral against the list you sent BEFORE opening the attachments. The
+attachments are the interesting part, so they pull attention first, and the one-word answer to the
+thing you actually asked gets read past. An item he has already completed then stays on every
+subsequent list, which reads to him as not being listened to.
+**Would have prevented:** *"1 done, sc1 = dashboard, sc2 merchant salesview, sc3 stock opname"* —
+the "1 done" was read past, and "press Rebuild sales totals" was put back on his list repeatedly,
+ending with *"asked at least four times now"* written into the handoff file about him. He had to
+correct it explicitly: *"i said 1 is done which is rebuild sales total i already press that
+yesterday and todaty"*. Cost a correction turn plus commit 94c659f to fix two note files, at 94%
+weekly quota.
+Seen: 2026-09-10
+Fired:

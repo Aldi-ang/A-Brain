@@ -97,3 +97,21 @@ apa pun. Stok gudang dan van baru berubah saat MUAT VAN ditekan — sekali: satu
 bukti kembali untuk yang dikembalikan." · "Tarik kotak dari gudang ke van — atau kembali" · "Hanya mengisi muatan,
 seperti menarik kotak" · "Yang menunggu disetujui atau ditolak di antrean paling atas layar" · "Point at a card to
 look · tap to pick" - rewrite them as a person would say them, he called the originals robotic.
+
+
+**Round 5 → kpm `3d77048` (2026-09-26).** Two more tabs behind the closed van chest, beside GEOFENCE, both read-only:
+TITIP (the shops this person holds that still owe money or still hold goods: rupiah owed + packs still at the shop)
+and BOUNTY (the PENALTY_ fines on their record, reason + date). Data found first: titip = the `transactions` App
+already passed to Fleet (SALE + Titip, CONSIGNMENT_PAYMENT, RETURN); bounties = `cukaiDebts` on the person's own
+roster record, the same map the EOD WANTED board reads. No new listener, no new collection; the rules read those under
+`isSalesman`. Decided by the build: the tab's sums are the consignment screen's own (titipOf, checked to add up to
+the dashboard's receivable), the holder after a hand-off is the shop's `ownerAgentId` (so App now passes its
+`customers` too), and the WANTED board's inline bounty reading became one shared `bountyItems` both screens call.
+Tab words: "Titip" and "Bounty" - the words the salesmen and the app already use. His 07:24 mid-build ask *"make sure
+that both pc and phone looks good for fleet and canvas"*: at 518 with both chests shut each slip sat in a ~190 px
+column (tabs one per line, "12 Bks di to…" cut) → the phone keeps the open layout's order. REJECTED ON PURPOSE: a
+pay / settle key inside the tab (settling stays on its own screen, as approving stays in the queue); a second copy of
+the consignment sums or the bounty labels. Frames: `Raw/2026-09-26-round5-titip-bounty/`.
+Models applied: Inversion (how could the tab lie? a second copy of the sums drifting - so the check ties it to
+outstandingTitip), Second-Order Thinking (a hand-off must move the shop to the new holder or the seller keeps seeing
+debts he no longer collects).

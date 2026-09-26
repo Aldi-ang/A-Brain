@@ -2908,3 +2908,10 @@ His test of round 4, with a screen recording and two screenshots:
 - The pulsing row ("card is shaking when hovered") - a hover effect that changes the WHOLE row must never switch
   off in the gaps between items; the hover zones touch.
 Shipped kpm `f167adb` (round 4.5); his verdict owed.
+
+## Every screen on both widths, unasked (2026-09-26, 07:24)
+- *"make sure that both pc and phone looks good for fleet and canvas"* - sent mid-build. A panel that fits the PC and
+  squeezes on the phone is not finished; the frames at 1440 AND 518 are the check, read back before calling it done.
+  What it caught: three tabs stacked one per line and a cut "12 Bks di toko" when both chests were shut on the phone.
+  The fix reused the phone's OPEN layout order instead of inventing a new one.
+Shipped kpm `3d77048` (round 5); his verdict owed.
