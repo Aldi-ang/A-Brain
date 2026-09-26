@@ -1,0 +1,131 @@
+[
+  {
+    "name": "PC: open and close both chests - the page does not move",
+    "pass": true,
+    "got": {
+      "open": 643,
+      "vanShut": 643,
+      "bothShut": 643
+    }
+  },
+  {
+    "name": "PC: the muatan is its own card on the right, outside the bay",
+    "pass": true,
+    "got": {
+      "gap": 14,
+      "inside": false
+    }
+  },
+  {
+    "name": "Round 5: TITIP and BOUNTY show behind the closed van chest, nothing on them presses",
+    "pass": true,
+    "got": {
+      "Titip": 3,
+      "Bounty": 3,
+      "pressable": 0
+    }
+  },
+  {
+    "name": "Phone: 4 boxes in one row in both chests",
+    "pass": true,
+    "got": "{\"wh\":4,\"whSquares\":4,\"van\":4}"
+  },
+  {
+    "name": "Phone: tap a product (gold ring), tap an empty van box - the HOW MANY sheet opens, nothing written",
+    "pass": true,
+    "got": {
+      "picked": true,
+      "sheet": "{\"sheet\":true,\"writes\":0}"
+    }
+  },
+  {
+    "name": "Phone: the gold bar has nothing on top of anything",
+    "pass": true,
+    "got": {
+      "overlaps": 0
+    }
+  },
+  {
+    "name": "Phone: a long swipe on the roster moves exactly one person (two swipes, two people)",
+    "pass": true,
+    "got": {
+      "start": 0,
+      "afterOne": 1,
+      "afterTwo": 2
+    }
+  },
+  {
+    "name": "Agent inventory: tap a sale - it opens to its products and rupiah",
+    "pass": true,
+    "got": [
+      "Cello Green 16 20 Bks · Retail Rp 550.000",
+      "Djarum Coklat 12 1 Slop · Grosir Rp 90.000"
+    ]
+  },
+  {
+    "name": "EOD salesman: count Cash, put it in, press Back - Cash comes back with the number",
+    "pass": true,
+    "got": "150000"
+  },
+  {
+    "name": "EOD salesman: go to another screen and come back - the count is still there",
+    "pass": true,
+    "got": "{\"top\":\"Check all 1 transfers first\",\"cash\":true}"
+  },
+  {
+    "name": "EOD salesman: LATE EOD at the top with the date, the part sent back in red with the reason, nothing to press",
+    "pass": true,
+    "got": {
+      "text": "LATE EOD (1) FRI 25 SEP Cash WAITING Transfer WAITING Stock back 1 Bks kurang SENT BACK Bounty WAITING",
+      "buttons": 0
+    }
+  },
+  {
+    "name": "EOD boss: one card per night, no doubled lines",
+    "pass": true,
+    "got": [
+      {
+        "late": false,
+        "doubles": 0
+      },
+      {
+        "late": true,
+        "doubles": 0
+      }
+    ]
+  },
+  {
+    "name": "EOD boss: the older night sits in LATE EOD with its date",
+    "pass": true,
+    "got": [
+      "Closed today",
+      "Closed · Fri 25 Sep"
+    ]
+  },
+  {
+    "name": "EOD boss: the bounty payment is its own BOUNTY PAYBACK plate; Revenue tonight leaves it out; the light is not \"short count\"",
+    "pass": true,
+    "got": [
+      {
+        "revenue": "Rp 1.675.000",
+        "diode": "2 stamps lost",
+        "payback": true
+      }
+    ]
+  },
+  {
+    "name": "EOD boss: send the late cash back with a reason - only that report, only that part, the reason carried",
+    "pass": true,
+    "got": "[{\"id\":\"e6\",\"approve\":[],\"reject\":{\"cash\":\"uang kurang 5000\"}}]"
+  },
+  {
+    "name": "EOD boss: tick the bounty payback and approve - the payment report alone is approved",
+    "pass": true,
+    "got": "[{\"id\":\"e7\",\"approve\":[\"bounty\"],\"reject\":{}}]"
+  },
+  {
+    "name": "EOD boss: Reset the night deletes the night (cash & stock, stamps) and leaves the bounty payment",
+    "pass": true,
+    "got": "[\"e2\",\"e1\"]"
+  }
+]
