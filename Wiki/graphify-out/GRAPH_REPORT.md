@@ -1,16 +1,16 @@
-# Graph Report - Wiki  (2026-09-24)
+# Graph Report - Wiki  (2026-09-26)
 
 ## Corpus Check
-- 108 files · ~240,654 words
+- 108 files · ~241,648 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1274 nodes · 1585 edges · 122 communities (113 shown, 9 thin omitted)
+- 1279 nodes · 1590 edges · 121 communities (112 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `198d9ef2`
+- Built from commit: `41128caa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,7 +19,6 @@
 - Operation Log
 - Lancelot the Tobacco Ledger Agent
 - KPM Inventory — Trophy Room, Rank System, Performance & Ergonomics
-- Concepts/index.md
 - 3.2 How XP works, and why it can never decay again
 - The KPM Control System
 - Anti-Recurrence Check
@@ -72,7 +71,6 @@
 - A Hijacked UID Is Not an Identity
 - A Mode Reminder Does Not Outrank Aldi
 - The Camera Was Aimed at the Wrong Scroller
-- How this could fail, and what stops it
 - The Player Card
 - Store Hand-off Name Collision
 - Wiki/Entities
@@ -117,8 +115,8 @@
 - Ownership Moves, History Does Not
 - Wiki/Summaries
 - Store Hand-off Name Collision
+- Entities/index.md
 - Light Ground and the Theme Lab
-- 1. The thing you need to know first
 - A Rect Is Painted, Not Laid Out
 - Revenue recognition — a Titip placement is not income
 - What Counts As Low
@@ -139,7 +137,7 @@
 - Lift the Dialog, Never Push the Rest Down
 
 ## God Nodes (most connected - your core abstractions)
-1. `Aldi's Design Taste` - 104 edges
+1. `Aldi's Design Taste` - 107 edges
 2. `Operation Log` - 69 edges
 3. `2026-09-03 — removing a mod is a schema change to data already written` - 32 edges
 4. `Looking at the App` - 27 edges
@@ -153,11 +151,11 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (122 total, 9 thin omitted)
+## Communities (121 total, 9 thin omitted)
 
 ### Community 0 - "Aldi's Design Taste"
 Cohesion: 0.02
-Nodes (91): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+83 more)
+Nodes (94): 2026-08-24 — the ON plate is brown by law, and the bezel is the way out (measured), 2026-08-27 — a banner that names the screen you just clicked is chrome, 2026-08-27 — hierarchy is made of space, not of more lines, 2026-08-27 — plain words, and a number must show its working, 2026-08-27 — six asks in one message, and what they say about how he reviews, 2026-08-30 — "its so fague": a label that never says less THAN WHAT, 2026-08-31 — one door for the tutorial, and the reason is SPACE, 2026-09-01 — clear terms, and two sibling screens share one language (+86 more)
 
 ### Community 1 - "Operation Log"
 Cohesion: 0.03
@@ -185,7 +183,7 @@ Nodes (21): 2026-09-01 — a check can enforce a narrower rule than the one it i
 
 ### Community 8 - "Archived 2026-08-18 (2nd today) — chosen by oldest last-fire"
 Cohesion: 0.04
-Nodes (44): 2026-07-29 — a skill's own "setup" doc can be the attack, not the SKILL.md, 2026-07-29 — agent-browser MCP tools hang; the CLI binary doesn't, 2026-07-29 — graphify call-edge queries undercount real callers, 2026-07-29 — install commands need an explicit cwd, and -g when the goal is PATH, 2026-07-30 — verify JS-rendered Artifacts by executing them in Node, not the Browser pane, 2026-08-11 — a fixed element anchored to a resizable container must be checked at EVERY size, 2026-08-12 — price a fan-out against the quota BEFORE launching, and never let one last agent own the answer, 2026-08-14 — PORT the solved layout, never rebuild the second one from a blank page (+36 more)
+Nodes (46): 2026-07-29 — a skill's own "setup" doc can be the attack, not the SKILL.md, 2026-07-29 — agent-browser MCP tools hang; the CLI binary doesn't, 2026-07-29 — graphify call-edge queries undercount real callers, 2026-07-29 — install commands need an explicit cwd, and -g when the goal is PATH, 2026-07-30 — verify JS-rendered Artifacts by executing them in Node, not the Browser pane, 2026-08-11 — a fixed element anchored to a resizable container must be checked at EVERY size, 2026-08-12 — price a fan-out against the quota BEFORE launching, and never let one last agent own the answer, 2026-08-14 — PORT the solved layout, never rebuild the second one from a blank page (+38 more)
 
 ### Community 9 - "2026-08-16 — "animation and 3D more with gamification on all of this segment""
 Cohesion: 0.15
@@ -240,7 +238,7 @@ Cohesion: 0.18
 Nodes (11): 1. One document cut in half (`aea7de4`), 2. What actually shipped for the HQ push — option A, not D, 3. The Request tab — a move, not a copy (`76de71a`), 4. Tujuan from the roster, and Headquarters is not a cabang (`76de71a`, `20c4a0a`), 5. Sebaran Stok — where every pack actually is (`76de71a` to `76f1ef3`), 6. The part worth remembering: a total over a total is not a rate (`f7800f5`), 7. Plain words, and an estimate that shows its working (`b452264`, `792ca04`), 8. Hierarchy made of space, not lines (`76f1ef3`, `d042520`) (+3 more)
 
 ### Community 22 - "Terminal Tenant Path Split"
-Cohesion: 0.22
+Cohesion: 0.20
 Nodes (9): Biometric is Vercel-only, by design (2026-08-15), Decisions that are CLOSED — do not reopen, Five modes, Master Vault Gate, Open against this screen, Phone history, Related, The numbers Aldi locked — hard-coded, pinned by audit checks (+1 more)
 
 ### Community 23 - "Map of Content"
@@ -300,8 +298,8 @@ Cohesion: 0.33
 Nodes (5): A real, documented (not fixed) risk, Ripple — pages this touches, Scope decisions worth remembering, Summary: Customer Directory Permission Tier, What it is
 
 ### Community 37 - "Dead Weight Cleanup and Rules-Deploy Gap"
-Cohesion: 0.33
-Nodes (6): Dead Weight Cleanup and Rules-Deploy Gap, Related, Update 2026-07-28 — the cleanup broke the production build, Verify before trusting, What happened, Why it's worth remembering
+Cohesion: 0.15
+Nodes (11): Dead Weight Cleanup and Rules-Deploy Gap, Related, Update 2026-07-28 — the cleanup broke the production build, Verify before trusting, What happened, Why it's worth remembering, Framing note, Ripple — pages this touches (+3 more)
 
 ### Community 38 - "Summaries/index.md"
 Cohesion: 0.40
@@ -328,8 +326,8 @@ Cohesion: 0.50
 Nodes (4): 1. He judges a surface by how it feels after an hour, not in a screenshot, 2. Navigation labels are words, not codes, 3. Depth is confirmed, and quiet is why, Backlight out, full words in, and the lowkey 3D stays (2026-09-02)
 
 ### Community 44 - "Draft-Then-Deploy Discipline"
-Cohesion: 0.33
-Nodes (6): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, Ripple — pages this touches, Summary: Fleet Captain Rule Gaps — Batch 1 and 2, The gap this project almost repeated
+Cohesion: 0.15
+Nodes (11): Batch 1 (commit `74a02d2`), Batch 2 (commit `d3ec78f`), Resolution, Ripple — pages this touches, Summary: Fleet Captain Rule Gaps — Batch 1 and 2, The gap this project almost repeated, Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches (+3 more)
 
 ### Community 45 - "A CSS Animation Outranks Your Inline Style"
 Cohesion: 0.33
@@ -378,10 +376,6 @@ Nodes (6): A Stored Name Is Not the Name of Record, Fault 1 — the string is a 
 ### Community 56 - "The Camera Was Aimed at the Wrong Scroller"
 Cohesion: 0.29
 Nodes (7): The camera already existed, and was aimed wrong twice, The Camera Was Aimed at the Wrong Scroller, The decision that came first, The fix, The trap worth carrying, Two smaller things in the same block, Verification — beat by beat, not by eye
-
-### Community 57 - "How this could fail, and what stops it"
-Cohesion: 0.40
-Nodes (5): Framing note, Ripple — pages this touches, Summary: Rank Config Cross-Tenant Gap, The gap, Two layers, two different fixes
 
 ### Community 58 - "The Player Card"
 Cohesion: 0.40
@@ -535,10 +529,6 @@ Nodes (12): ANSWERED, same day — and it was NOT the vault, CLOSED 2026-08-11 0
 Cohesion: 0.25
 Nodes (8): A theme island, for screens that stay dark in both themes, Frozen copies do not follow a corrected token, Light Ground and the Theme Lab, Related, The app had two light themes and nobody had put them side by side, The one-sentence version, Three surfaces, one cause, What only *looking* found
 
-### Community 104 - "1. The thing you need to know first"
-Cohesion: 0.40
-Nodes (5): Extended to Fleet Captain — and a real "stale memory" lesson, Ripple — pages this touches, Summary: Option B Region Lock, The blocking question, resolved, What it fixed
-
 ### Community 105 - "A Rect Is Painted, Not Laid Out"
 Cohesion: 0.29
 Nodes (7): A Rect Is Painted, Not Laid Out, Family, The law, The shape, The wider lesson, and it is the expensive one, Where it happened, Why it survived every check and every screenshot
@@ -608,7 +598,7 @@ Cohesion: 0.67
 Nodes (3): Lift the Dialog, Never Push the Rest Down, Related, The layer map, as of 2026-09-13
 
 ## Knowledge Gaps
-- **1006 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+1001 more)
+- **1011 isolated node(s):** `The symptom`, `The real cause`, `How to find it in 30 seconds`, `The 2026-09-01 case`, `The trap — Vortex's load order screen lies` (+1006 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -616,15 +606,15 @@ Nodes (3): Lift the Dialog, Never Push the Rest Down, Related, The layer map, as
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Aldi's Design Taste` connect `Aldi's Design Taste` to `Entities/index.md`, `Fleet Captain Permission Gap`, `Concepts/index.md`, `2026-08-27 — the tutorial's four answers, and how a panel got its English name`, `2026-08-16 — "animation and 3D more with gamification on all of this segment"`, `Design Inspiration Sources`, `Multi-Tenant Architecture`, `Rank Config and Achievement Badges`, `Tier System`, `2026-09-01 — "not just recolor but redesign", and what he meant by it`, `2026-09-01 — he turned a feature into a SEQUENCE, and it was the better design`, `Store Hand-off Name Collision`, `Wiki/Entities`, `2026-08-24 — the grain had to go, and it was a measurement error as well as a taste one`?**
-  _High betweenness centrality (0.174) - this node is a cross-community bridge._
+  _High betweenness centrality (0.185) - this node is a cross-community bridge._
 - **Why does `Logistics and Stock Movement` connect `Logistics and Stock Movement` to `Concepts/index.md`?**
-  _High betweenness centrality (0.073) - this node is a cross-community bridge._
+  _High betweenness centrality (0.065) - this node is a cross-community bridge._
 - **Why does `Operation Log` connect `Operation Log` to `2026-08-14 (later) — the desk sidebar becomes one button, and the video was finally watchable`, `Concepts/index.md`?**
-  _High betweenness centrality (0.062) - this node is a cross-community bridge._
+  _High betweenness centrality (0.063) - this node is a cross-community bridge._
 - **What connects `The symptom`, `The real cause`, `How to find it in 30 seconds` to the rest of the system?**
-  _1006 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1011 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Aldi's Design Taste` be split into smaller, more focused modules?**
-  _Cohesion score 0.02197802197802198 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.02127659574468085 - nodes in this community are weakly interconnected._
 - **Should `Operation Log` be split into smaller, more focused modules?**
   _Cohesion score 0.029411764705882353 - nodes in this community are weakly interconnected._
 - **Should `Lancelot the Tobacco Ledger Agent` be split into smaller, more focused modules?**

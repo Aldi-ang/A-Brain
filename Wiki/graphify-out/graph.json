@@ -3106,6 +3106,39 @@
       "norm_label": "warm light, not lines; no tutorial in a panel; group by person (2026-09-24, 12:50)"
     },
     {
+      "label": "Every screen on both widths, unasked (2026-09-26, 07:24)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2912",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_every_screen_on_both_widths_unasked_2026_09_26_07_24",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "every screen on both widths, unasked (2026-09-26, 07:24)"
+    },
+    {
+      "label": "A panel that jumps is a cost; the phone wants less, and two ways to do one thing (2026-09-26, 07:50)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2919",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_a_panel_that_jumps_is_a_cost_the_phone_wants_less_and_two_ways_to_do_one_thing_2026_09_26_07_50",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "a panel that jumps is a cost; the phone wants less, and two ways to do one thing (2026-09-26, 07:50)"
+    },
+    {
+      "label": "Money that looks like every other line gets missed (2026-09-26, 08:35)",
+      "file_type": "document",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2935",
+      "_origin": "ast",
+      "id": "concepts_aldi_s_design_taste_money_that_looks_like_every_other_line_gets_missed_2026_09_26_08_35",
+      "community": 0,
+      "community_name": "Aldi's Design Taste",
+      "norm_label": "money that looks like every other line gets missed (2026-09-26, 08:35)"
+    },
+    {
       "label": "An Effect's Own Cleanup Can Cancel Its Frame.md",
       "file_type": "document",
       "source_file": "Wiki/Concepts/An Effect's Own Cleanup Can Cancel Its Frame.md",
@@ -8128,8 +8161,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_eod_per_part_verification",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "eod per-part verification.md"
     },
     {
@@ -8216,8 +8249,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_firestore_rules",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "firestore rules.md"
     },
     {
@@ -8370,8 +8403,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_fleet_captain_permission_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "fleet captain permission gap.md"
     },
     {
@@ -8535,8 +8568,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_gudang_pusat_master_vault",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "gudang pusat (master vault).md"
     },
     {
@@ -8876,8 +8909,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_master_vault_gate",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 22,
+      "community_name": "Terminal Tenant Path Split",
       "norm_label": "master vault gate.md"
     },
     {
@@ -8986,8 +9019,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_multi_tenant_architecture",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "multi-tenant architecture.md"
     },
     {
@@ -9052,8 +9085,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_rank_config_and_achievement_badges",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "rank config and achievement badges.md"
     },
     {
@@ -9118,8 +9151,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_terminal_tenant_path_split",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "terminal tenant path split.md"
     },
     {
@@ -9327,8 +9360,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_the_boss_is_the_raw_firebase_user",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "the boss is the raw firebase user.md"
     },
     {
@@ -9338,8 +9371,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "entities_the_boss_is_the_raw_firebase_user_the_boss_is_the_raw_firebase_user",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "the boss is the raw firebase user"
     },
     {
@@ -9349,8 +9382,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "entities_the_boss_is_the_raw_firebase_user_related",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "related"
     },
     {
@@ -9360,8 +9393,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_the_place_registry",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "the place registry.md"
     },
     {
@@ -9459,8 +9492,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_tier_system",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "tier system.md"
     },
     {
@@ -9591,8 +9624,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entities_index",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 102,
+      "community_name": "Entities/index.md",
       "norm_label": "entities/index.md"
     },
     {
@@ -10188,6 +10221,28 @@
       "community": 8,
       "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
       "norm_label": "2026-09-09 \u2014 when you disable a lookup, its fallback becomes new load-bearing code"
+    },
+    {
+      "label": "2026-09-10 \u2014 a number written to be refused still has to survive being checked",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L746",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_09_10_a_number_written_to_be_refused_still_has_to_survive_being_checked",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-09-10 \u2014 a number written to be refused still has to survive being checked"
+    },
+    {
+      "label": "2026-09-10 \u2014 when he answers a numbered list by number, read the number first",
+      "file_type": "document",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L764",
+      "_origin": "ast",
+      "id": "lessons_archive_2026_09_10_when_he_answers_a_numbered_list_by_number_read_the_number_first",
+      "community": 8,
+      "community_name": "Archived 2026-08-18 (2nd today) \u2014 chosen by oldest last-fire",
+      "norm_label": "2026-09-10 \u2014 when he answers a numbered list by number, read the number first"
     },
     {
       "label": "Lessons-Mirror.md",
@@ -11791,8 +11846,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_dead_weight_cleanup_and_rules_deploy_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "dead weight cleanup and rules-deploy gap.md"
     },
     {
@@ -11868,8 +11923,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_fleet_captain_rule_gaps_batch_1_and_2",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "fleet captain rule gaps \u2014 batch 1 and 2.md"
     },
     {
@@ -12209,8 +12264,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "option b region lock.md"
     },
     {
@@ -12220,8 +12275,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_summary_option_b_region_lock",
-      "community": 104,
-      "community_name": "1. The thing you need to know first",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "summary: option b region lock"
     },
     {
@@ -12231,8 +12286,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_what_it_fixed",
-      "community": 104,
-      "community_name": "1. The thing you need to know first",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "what it fixed"
     },
     {
@@ -12242,8 +12297,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_the_blocking_question_resolved",
-      "community": 104,
-      "community_name": "1. The thing you need to know first",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "the blocking question, resolved"
     },
     {
@@ -12253,8 +12308,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_extended_to_fleet_captain_and_a_real_stale_memory_lesson",
-      "community": 104,
-      "community_name": "1. The thing you need to know first",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "extended to fleet captain \u2014 and a real \"stale memory\" lesson"
     },
     {
@@ -12264,8 +12319,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "summaries_option_b_region_lock_ripple_pages_this_touches",
-      "community": 104,
-      "community_name": "1. The thing you need to know first",
+      "community": 44,
+      "community_name": "Draft-Then-Deploy Discipline",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -12330,8 +12385,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap",
-      "community": 4,
-      "community_name": "Concepts/index.md",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "rank config cross-tenant gap.md"
     },
     {
@@ -12341,8 +12396,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_summary_rank_config_cross_tenant_gap",
-      "community": 57,
-      "community_name": "How this could fail, and what stops it",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "summary: rank config cross-tenant gap"
     },
     {
@@ -12352,8 +12407,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_framing_note",
-      "community": 57,
-      "community_name": "How this could fail, and what stops it",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "framing note"
     },
     {
@@ -12363,8 +12418,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_the_gap",
-      "community": 57,
-      "community_name": "How this could fail, and what stops it",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "the gap"
     },
     {
@@ -12374,8 +12429,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_two_layers_two_different_fixes",
-      "community": 57,
-      "community_name": "How this could fail, and what stops it",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "two layers, two different fixes"
     },
     {
@@ -12385,8 +12440,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "summaries_rank_config_cross_tenant_gap_ripple_pages_this_touches",
-      "community": 57,
-      "community_name": "How this could fail, and what stops it",
+      "community": 37,
+      "community_name": "Dead Weight Cleanup and Rules-Deploy Gap",
       "norm_label": "ripple \u2014 pages this touches"
     },
     {
@@ -17246,6 +17301,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2919",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_a_panel_that_jumps_is_a_cost_the_phone_wants_less_and_two_ways_to_do_one_thing_2026_09_26_07_50",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
       "source_location": "L2698",
       "weight": 1.0,
       "_origin": "ast",
@@ -17394,6 +17460,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_eod_hq_verification_b_and_what_tech_game_spices_meant_2026_09_20_02_50",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2912",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_every_screen_on_both_widths_unasked_2026_09_26_07_24",
       "confidence_score": 1.0
     },
     {
@@ -17669,6 +17746,17 @@
       "_origin": "ast",
       "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
       "target": "concepts_aldi_s_design_taste_lite_mode_gives_up_motion_never_colour_2026_08_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Concepts/Aldi's Design Taste.md",
+      "source_location": "L2935",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "concepts_aldi_s_design_taste_aldi_s_design_taste",
+      "target": "concepts_aldi_s_design_taste_money_that_looks_like_every_other_line_gets_missed_2026_09_26_08_35",
       "confidence_score": 1.0
     },
     {
@@ -27530,6 +27618,28 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L746",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_09_23_retired_2026_09_22_never_fired_in_14_days",
+      "target": "lessons_archive_2026_09_10_a_number_written_to_be_refused_still_has_to_survive_being_checked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Wiki/Lessons-Archive.md",
+      "source_location": "L764",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lessons_archive_archived_2026_09_23_retired_2026_09_22_never_fired_in_14_days",
+      "target": "lessons_archive_2026_09_10_when_he_answers_a_numbered_list_by_number_read_the_number_first",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Wiki/Lessons-Mirror.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -31456,5 +31566,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "198d9ef245d4c97a2eb47089ba442c4560b72b43"
+  "built_at_commit": "41128caab9d1d6b5b76861dee64c844e59d82a99"
 }
