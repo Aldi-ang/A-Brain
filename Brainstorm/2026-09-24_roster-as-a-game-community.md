@@ -132,3 +132,7 @@ Second-Order Thinking (a restored draft carrying yesterday's expected figure wou
 EOD" - a red LATE EOD panel on the boss's side. B (the salesman sees an older sent-back night on his own screen) was
 not asked for; it is a ❓ in PROGRESS.md. Found while building: the bounty PAYMENT report lit "short count" and was
 counted as the night's revenue, and the card's reset deleted it - all three fixed in the same commit.
+
+**B too, 08:55 → kpm `dd94f8b`.** *"yes salesman should also need to see the late EOD, because it is their late
+responsibility"* - the salesman's EOD screen now shows his own earlier nights still waiting (date, each part Approved /
+Sent back with the reason / Waiting). It only shows; approving and resetting stay with the boss.

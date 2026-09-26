@@ -2941,3 +2941,6 @@ Shipped kpm `40db68d` `f6aeda7` `8adb777`; his verdict owed.
 - He found the false "short count" himself by testing a real reset + full return - his live tests catch what the
   lab fixtures do not.
 Shipped kpm `293798c`; his verdict owed.
+- 08:55, on who should see a late night: *"yes salesman should also need to see the late EOD, because it is their late
+  responsibility"* - whoever owes the fix must SEE it on their own screen; a problem visible only to the boss is not
+  yet the salesman's problem. Shipped kpm `dd94f8b`.
