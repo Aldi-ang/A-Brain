@@ -127,3 +127,8 @@ a convenience). OPEN — waiting on Aldi: the boss's EOD card mixes nights (A sp
 to the salesman / C leave), full diagnosis in kpm `.claude/NEXT-SESSION.md`.
 Models applied: Inversion (how could tap-to-place change real stock? only if it skipped the sheet - it cannot),
 Second-Order Thinking (a restored draft carrying yesterday's expected figure would name the wrong gap - re-read it).
+
+**The EOD-card question, CLOSED 08:35 → kpm `293798c`.** He chose A (split by night) plus "a special panel for late
+EOD" - a red LATE EOD panel on the boss's side. B (the salesman sees an older sent-back night on his own screen) was
+not asked for; it is a ❓ in PROGRESS.md. Found while building: the bounty PAYMENT report lit "short count" and was
+counted as the night's revenue, and the card's reset deleted it - all three fixed in the same commit.

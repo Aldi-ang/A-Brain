@@ -2931,3 +2931,13 @@ Shipped kpm `3d77048` (round 5); his verdict owed.
 - *"there should be data history what is being titip ... instead we need more description dropdown"* - a count
   ("1 item") is not information; a row should open to what it is made of.
 Shipped kpm `40db68d` `f6aeda7` `8adb777`; his verdict owed.
+
+## Money that looks like every other line gets missed (2026-09-26, 08:35)
+- *"split cards by night to make it clear, and make special panel for late EOD for this"* - one card is one night;
+  anything late lives apart, where it cannot be mistaken for tonight.
+- *"i want u to make the bounties payback to be more clear and little bit different from other because i dont
+  realise that the bounties payback is submitted down there"* - a line of a different KIND (a fine being paid, not
+  the night's handover) must LOOK different: its own titled plate, not one more row in the list.
+- He found the false "short count" himself by testing a real reset + full return - his live tests catch what the
+  lab fixtures do not.
+Shipped kpm `293798c`; his verdict owed.
