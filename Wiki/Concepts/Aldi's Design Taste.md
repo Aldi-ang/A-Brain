@@ -2915,3 +2915,19 @@ Shipped kpm `f167adb` (round 4.5); his verdict owed.
   What it caught: three tabs stacked one per line and a cut "12 Bks di toko" when both chests were shut on the phone.
   The fix reused the phone's OPEN layout order instead of inventing a new one.
 Shipped kpm `3d77048` (round 5); his verdict owed.
+
+## A panel that jumps is a cost; the phone wants less, and two ways to do one thing (2026-09-26, 07:50)
+- *"this whole panel shrink and expand too much as pc user i need to scroll up and down whenever i close and open the
+  chest i dont like that its incovenience"* - on the PC, opening or closing something must not move the page. It
+  overrode his own round-4 "both closed = one short row": the closed panel now keeps its room.
+- *"on phone it looks soo big, my suggestion is make the product 3D smaller and make per page 4 box only"* - on the
+  phone, less on screen at once beats bigger items; four in one row.
+- *"maybe better if the users are be able to press the product and press the van box ... so there is 2 option"* -
+  a drag alone is hard on a phone; he wants a tap-then-tap path beside it.
+- *"make sure that the muatan panel with the van inventory panel is well separated and looks separated because it
+  looks like 1 big panel"* - two jobs, two cards; nesting them in one frame reads as one thing.
+- *"there is collapsing text here"* (the gold bar on the phone) and *"make the roster slide lock 1 by 1"* - a swipe
+  should move exactly one person; text must never sit under a key.
+- *"there should be data history what is being titip ... instead we need more description dropdown"* - a count
+  ("1 item") is not information; a row should open to what it is made of.
+Shipped kpm `40db68d` `f6aeda7` `8adb777`; his verdict owed.

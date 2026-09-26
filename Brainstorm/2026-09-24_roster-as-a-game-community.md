@@ -115,3 +115,15 @@ the consignment sums or the bounty labels. Frames: `Raw/2026-09-26-round5-titip-
 Models applied: Inversion (how could the tab lie? a second copy of the sums drifting - so the check ties it to
 outstandingTitip), Second-Order Thinking (a hand-off must move the shop to the new holder or the seller keeps seeing
 debts he no longer collects).
+
+
+**His 07:50 test of round 5 → kpm `40db68d` `f6aeda7` `8adb777` (2026-09-26).** Round 5 passed. Decided by the build:
+the PC keeps the closed panel in the grid, invisible, so the tabs fill the same room (measured 643 px in all three
+states, after its status line was reserved too); the muatan left the bay's frame for its own card (`.kpm-bay-duo`);
+the phone's page size is a variable (4 under 640 px, the CSS container line), so the van has 20 squares there and 18
+on the PC; tap-then-tap reuses the drop's landing and the HOW MANY sheet, so nothing new can write. EOD draft lives in
+localStorage per salesman per night - REJECTED ON PURPOSE: a Firestore draft (a new write path and a rules change for
+a convenience). OPEN — waiting on Aldi: the boss's EOD card mixes nights (A split by night / B also show the old night
+to the salesman / C leave), full diagnosis in kpm `.claude/NEXT-SESSION.md`.
+Models applied: Inversion (how could tap-to-place change real stock? only if it skipped the sheet - it cannot),
+Second-Order Thinking (a restored draft carrying yesterday's expected figure would name the wrong gap - re-read it).
