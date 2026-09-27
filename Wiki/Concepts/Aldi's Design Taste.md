@@ -2991,3 +2991,12 @@ Then, on the two books:
 - **Hover is a preview, not decoration** - for him a hover should show what is inside (the book opening and its
   pages turning, the enchanting-table book), the same ask as the tutorial book's "open when hovered". Lite snaps.
 Built as v6 of the prototype.
+
+And on the waves he had asked for himself, once he saw them moving:
+
+> *"i dont like the radioactive effect it is too much i want the effect very minimalist but looks good instead"*
+
+**What he asks for and what he approves after seeing it are different tests** - the green waves were his words, and
+three rings rolling out every 0.8 s were too loud once on screen. It matches "lowkey" (2026-08-30): the effect he keeps
+is the one he notices a moment late. v7 offers three quiet ones side by side (a breathing hairline ring, four rising
+specks, the sign alone fading to dark green); his pick is owed.
