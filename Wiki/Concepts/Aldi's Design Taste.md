@@ -3017,3 +3017,12 @@ Then, with a screenshot of the open book (a leather frame with tabs above a two-
 - **"Open when press" means the object performs the opening**, not a panel appearing: the shut book flies up, then the
   cover turns on the spine and becomes the left page. The v8 dialog was a panel dressed as a book.
 Built as v9 (`.ob`), approved build carries it.
+
+> *"make the book look thicker when it close and open just to enhance its 3D, and also fix the ponder book , make sure
+> that there is no white lines in there"*
+
+- **Depth has to be SEEN, so the object leans.** A flat-on book cannot show its thickness however thick it is; v10
+  tips it back like a book on a desk so the bottom edge and fore-edge are faces you see.
+- **A white line is always a bug to him**, never a highlight: the page-stack edge is warm tan stripes, and the
+  tutorial book's edge strip that stood alone after closing was a real defect (kpm `dd8f1b9`, see
+  [[Anti-Recurrence Check]]: its guard passed on the broken form).
