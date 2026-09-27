@@ -2944,3 +2944,27 @@ Shipped kpm `293798c`; his verdict owed.
 - 08:55, on who should see a late night: *"yes salesman should also need to see the late EOD, because it is their late
   responsibility"* - whoever owes the fix must SEE it on their own screen; a problem visible only to the boss is not
   yet the salesman's problem. Shipped kpm `dd94f8b`.
+
+## 2026-09-27 — a switch between two views becomes two objects you can open
+
+His first look at the Agent Inventory chest on his PC (kpm `4f44e3d`), with a screenshot of the chest in a 300 px
+window under the pinned header:
+
+> *"the space to view the agent inventory is too small for the chest i use PC to see this btw ... i cant scroll down
+> for the page which causing me to unable to see the chest is full view and also its incovenience to see the sales and
+> sample as well, make sure that the chest for saleable, quarantine is separated and i suggest u to put some notes icon
+> just to view the notes and data for sample and sales that way it would save some space and add cool features as
+> well, make sure the icon is 3D kind of book or notes maybe u can use minecraft inspiration for this"*
+> *"so what im saying is erase those panel to switch between saleable and quarantine, instead replace them with 2
+> chests that can be open"*
+
+- **A pinned header is a cost on the PC too.** The desk kept its figures pinned over a scrolling list (2026-09-18
+  board 1 fixed only the phone). Once the list became a chest, the window was too small to hold it. One scroll, both widths.
+- **A segmented switch between two collections -> two objects, each opened on its own.** Same instinct as the chest
+  itself: things you own are containers you open, not tabs you flip. The quarantine chest gets Minecraft's TRAPPED
+  chest (red hook, red band) so the two read apart at a glance; an object keeps its own colours.
+- **Long lists he reads rarely go behind a 3D object.** Sales and samples become two closed books on a shelf, the count
+  on the label, opened on a tap. Drawn with the app's own box geometry (the `.kpm-cube` way), lowkey tilt, the sales
+  book with a quill (book and quill).
+
+Prototype v4, same link as the chest: https://claude.ai/artifact/V5Z3ZkQZ3fvtXHynn4AnNF. His verdict owed.
