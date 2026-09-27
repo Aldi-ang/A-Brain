@@ -1420,3 +1420,7 @@ The chests close again with tabs behind them (his usual load, the team, this per
 ## 2026-09-24 13:10 — his round-4 test answered (kpm `f167adb`)
 
 No pulsing row, warm plain stage, no tutorial in the bay, TIM one row per van + SALIN. His words in [[Aldi's Design Taste]] (12:50); the removed tutorial text kept for the ponder page in [[2026-09-24_roster-as-a-game-community]].
+
+## 2026-09-27 09:52 — the Agent Inventory chest BUILT (kpm `4f44e3d`)
+
+T1-T4 see the van as the chest (`LoadingBay vanOnly`, look 1, six a page, page keys carry their count, the damaged row under it; a drag writes only `vanLayout`); the book page Agent Inventory -> Agent Chest, 22 beats; the shut-panel speck in both book pages fixed (the book's inline opacity beat `opacity: 0`, now `visibility: hidden` after the shrink). Frames + shooter in `Raw/2026-09-27-agent-chest/`. The near-miss (a handoff naming `seesEveryRegion` for a T1-T4 rule) is on [[Fleet Captain Permission Gap]]. Next: T3 sees every region.

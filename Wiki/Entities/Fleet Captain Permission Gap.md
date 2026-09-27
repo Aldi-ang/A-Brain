@@ -114,4 +114,24 @@ worked.
 D17 in `logicFixes.selfcheck.mjs` runs the real functions on both sides of both boundaries, so the
 day someone merges the two clearances the check names which one moved.
 
+## 2026-09-27 — the same trap, written into a handoff by me
+
+The Agent Inventory chest brief (NEXT-SESSION.md, carried from 2026-09-24 07:10 to 2026-09-26) said:
+*"'Regional admin and above' is a NAMED helper `seesEveryRegion(role)`"*. Two of his rules had been
+merged into one name:
+
+| his words | tiers | helper |
+|---|---|---|
+| *"agent chest is basically agent inventory for regional admin tier and above by default"* (2026-09-22) | T1–T4 | `isFleetManagementTier` (already existed) |
+| *"limited only for tier 3 and above to see every region"* (2026-09-22, the roster) | T1–T3 | `seesEveryRegion` (the next job) |
+
+Building the chest on `seesEveryRegion` would have dropped T4 REGIONAL ADMIN — the one tier his
+sentence names — with every check green, because the brief's own guard would have tested the wrong
+set. Caught at plan time by reading his sentence in `Brainstorm/2026-09-22_fleet-van-loading-shape.md`
+and the tier labels in `permissions.js` (`T4: REGIONAL ADMIN` = `FLEET_CAPTAIN`) before the code.
+Shipped as kpm `4f44e3d`; the behaviour check "T1-T4 in, T5-T6 out" runs the real helper.
+
+**The rule it adds:** a helper NAME in a handoff is a claim about which tiers, not a fact. Re-derive
+the tier set from his own sentence and the label table before using it.
+
 See also: [[Tier System]] · [[The Place Registry]] · [[../Concepts/Anti-Recurrence Check]]

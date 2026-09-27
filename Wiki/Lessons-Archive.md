@@ -777,3 +777,22 @@ yesterday and todaty"*. Cost a correction turn plus commit 94c659f to fix two no
 weekly quota.
 Seen: 2026-09-10
 Fired:
+
+### 2026-09-11 — check a new number against the numbers already in the same document
+**Status:** RETIRED (2026-09-26) — never fired in 14+ days of real work; no check can read a price inside a note, retired as a platitude
+**Trigger:** before committing or publishing any note, sheet or artifact that will hold MORE THAN ONE
+related figure — the moment a new price, cost, estimate or total is added beside existing ones.
+**Lesson:** verify the new figure against the page it is landing on, not only against the outside
+world. Ask which existing number on this page is a floor or a ceiling for the new one, and say so in
+one clause. A document that contradicts itself is worse than one that is merely wrong, because the
+reader finds the contradiction and then distrusts every number on it — including the correct ones.
+**Would have prevented:** the Rp 5 miliar copyright figure. It was checked against the outside world
+(a projection of lost customers) and never against `KPM Product Inventory`'s own replacement-cost
+anchor of Rp 1,4 miliar, which sat two files away and later on the SAME price sheet. A copyright
+price 3,5× the cost of rebuilding the thing from scratch is not a refusal, it is an instruction to go
+hire a developer. It also carried an arithmetic slip in its supporting line — ten factories at
+Rp 15 juta a month is Rp 1,8 miliar a year, not the Rp 900 juta written — and a rate superseded
+earlier the same day. All three shipped into a committed vault note AND a published Artifact, and
+**Aldi caught it, not me**: *"is 5 milliar reasonable that amount is crazy work"*.
+Seen: 2026-09-11
+Fired:
