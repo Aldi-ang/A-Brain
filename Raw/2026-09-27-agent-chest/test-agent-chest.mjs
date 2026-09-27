@@ -107,17 +107,16 @@ await open('shell&agent&admin', 1440, 900);
   const g = await js(`(() => { const b = document.querySelector('.kpm-bay'); return { open: b.classList.contains('van-open'), squares: document.querySelectorAll('.kpm-bay .gui.van .grid .slot').length,
     title: document.querySelector('.kpm-bay .gui.van .title').innerText.replace(/\\s+/g, ' '), load: [...document.querySelectorAll('span')].find(s => s.textContent.trim() === 'Load')?.parentElement?.innerText.replace(/\\s+/g, ' ') }; })()`);
   /* sounds unlock on the first touch (useSound `unlocked`) - in the app he has already clicked the menu to get here, so
-     click once, then reopen the screen (Quarantine -> Saleable remounts the chest) and listen for the open sound */
+     click once, then shut and reopen the chest by hand (v4 has no Saleable / Quarantine switch) and listen for the open sound */
   await tap({ x: 60, y: 880 });
   await js(`(async () => { await (await import('/src/hooks/useSound.js')).unlockSounds(); return 1; })()`);   // main.jsx does this on the first gesture; the lab never runs main.jsx
   await sleep(200);
-  await js(`[...document.querySelectorAll('button')].find(b => b.textContent.trim().startsWith('Quarantine')).click(), 1`); await sleep(300);
-  await js(`[...document.querySelectorAll('button')].find(b => b.textContent.trim() === 'Saleable').click(), 1`); await sleep(1200);
+  await tap(await at('.kpm-bay .vanc')); await sleep(500); await tap(await at('.kpm-bay .vanc')); await sleep(900);
   g.keys = await keys(); g.played = await played();
   step('2. the chest opens on its own with the van-open sound; six squares a page; the page keys show their counts',
     g.open && /chest-van-open/.test(g.played) && g.squares === 6 && g.keys === '1 · 4|2 · 0|3 · 0' && /^Budi Santoso inventory/.test(g.title), g);
-  const dmg = await js(`({ head: document.querySelector('.kpm-bay .dmgHead').innerText.replace(/\\s+/g, ' '), boxes: [...document.querySelectorAll('.kpm-bay .dmg .slot')].map(s => s.innerText.replace(/\\s+/g, ' ')) })`);
-  step('4. the damaged row sits under the boxes, each with its reason', /10 Bks · 1 barang/i.test(dmg.head) && dmg.boxes.length === 1 && /Rusak \/ Basah/.test(dmg.boxes[0]), dmg);
+  const dmg = await js(`({ head: document.querySelector('.kpm-bay .gui.q .title .count').innerText, boxes: [...document.querySelectorAll('.kpm-bay .gui.q .slot.has')].map(s => s.innerText.replace(/\\s+/g, ' ')), row: !!document.querySelector('.kpm-bay .dmg') })`);
+  step('4. (v4) the damaged row became the quarantine crate beside the chest: the Quarantine tab\'s list and count, each box with its reason', dmg.head === '10 · 1 barang' && dmg.boxes.length === 1 && /Rusak \/ Basah/.test(dmg.boxes[0]) && !dmg.row, dmg);
   const chestBks = +g.title.match(/([\d.]+) Bks/)[1].replace(/\./g, ''), loadBks = +(g.load || '').match(/([\d.]+)/)?.[1].replace(/\./g, '');
   step('FINDING - the chest total and the LOAD card above it agree', chestBks === loadBks, { chest: chestBks, load: loadBks });
   await shoot('2-open-1440');
@@ -141,15 +140,15 @@ await open('shell&agent&admin', 1440, 900);
   await shoot('3-page2-1440');
   await tap(await at('.kpm-bay .gui.van .pg', 0)); await sleep(500);
   const n = (await writes()).length, o = await order();
-  await drag(BOX, 0, '.kpm-bay .dmg .slot', 0);
+  await drag(BOX, 0, '.kpm-bay .gui.q .slot', 1);
   const r = { said: await said(), writes: (await writes()).length, same: (await order()) === o };
-  step('3d. a good box dropped on the damaged row is refused out loud, nothing written, nothing moved',
+  step('3d. a good box dropped on the quarantine crate is refused out loud, nothing written, nothing moved',
     r.said === 'Barang rusak dicatat lewat EOD, bukan dipindah di sini' && r.writes === n && r.same, r);
-  const d0 = await at('.kpm-bay .dmg .slot', 0);
+  const d0 = await at('.kpm-bay .gui.q .slot.has', 0);
   await press(d0); await moveTo(d0, { x: d0.x + 120, y: d0.y - 160 }, 6);
   const ghost = await js(`!!document.querySelector('.kpm-bay-ghost')`);
   await release({ x: d0.x + 120, y: d0.y - 160 }); await sleep(500);
-  step('3e. a damaged box cannot be picked up at all', !ghost && (await writes()).length === n, { ghost, writes: (await writes()).length });
+  step('3e. a box in the quarantine crate cannot be picked up at all', !ghost && (await writes()).length === n, { ghost, writes: (await writes()).length });
 }
 
 /* ── tap, key ── */
@@ -218,8 +217,7 @@ await open('shell&agent&admin', 430, 930);
 {
   await open('shell&agent&admin', 1440, 900);
   const inj = await js(`(async () => { const m = await import('/src/config/permissions.js'); m.injectDynamicPermissions({ FLEET_CAPTAIN: ['view_agent_inventory', 'fleet_view_only'] }); return m.canEditFleetRoster('FLEET_CAPTAIN'); })()`);
-  await js(`[...document.querySelectorAll('button')].find(b => b.textContent.trim().startsWith('Quarantine')).click(), 1`); await sleep(300);
-  await js(`[...document.querySelectorAll('button')].find(b => b.textContent.trim() === 'Saleable').click(), 1`); await sleep(1200);
+  await js(`document.querySelector('.kpm-theme-switch').click(), 1`); await sleep(400); await js(`document.querySelector('.kpm-theme-switch').click(), 1`); await sleep(800);
   const n = (await writes()).length;
   await drag(BOX, 0, EMPTY, 0);
   const v = { canEdit: inj, hint: await js(`document.querySelector('.kpm-bay .bayHint')?.innerText || ''`), said: await said(), writes: (await writes()).length - n, order: await order() };
@@ -231,10 +229,10 @@ await open('shell&agent&admin', 430, 930);
 {
   await open('shell&agent&admin&lite', 430, 930);
   const l = await js(`(() => { const op = (e) => { let o = 1; for (let n = e; n; n = n.parentElement) o *= +getComputedStyle(n).opacity; return o; };
-    const slots = [...document.querySelectorAll('.kpm-bay .gui.van .slot')]; return { lite: document.documentElement.classList.contains('lite-mode'),
-    open: document.querySelector('.kpm-bay').classList.contains('van-open'), minOpacity: Math.min(...slots.map(op)), slots: slots.length,
+    const slots = [...document.querySelectorAll('.kpm-bay .gui .slot')]; return { lite: document.documentElement.classList.contains('lite-mode'),
+    open: document.querySelector('.kpm-bay').classList.contains('van-open') && document.querySelector('.kpm-bay').classList.contains('q-open'), minOpacity: Math.min(...slots.map(op)), slots: slots.length,
     running: document.querySelector('.kpm-bay').getAnimations({ subtree: true }).filter(a => a.playState === 'running').length }; })()`);
-  step('Lite Mode: the chest is open and every square fully visible, nothing left moving', l.lite && l.open && l.minOpacity === 1 && l.slots === 7 && l.running === 0, l);
+  step('Lite Mode: the chest is open and every square fully visible, nothing left moving', l.lite && l.open && l.minOpacity === 1 && l.slots === 12 && l.running === 0, l);
   await shoot('lite-430');
 }
 
@@ -257,7 +255,7 @@ await open('shell&agent&admin', 430, 930);
     const card = [...document.querySelectorAll('button, a, [role="button"]')].find(b => /Agent Chest/.test(b.textContent) && !/Agent Chest[\\s\\S]*Agent Chest/.test(b.textContent));
     if (!card) return 'no Agent Chest card'; card.click(); await wait(1500);
     return { counter: (document.body.innerText.match(/(\\d+) \\/ (\\d+)/) || [])[0], title: !!document.body.innerText.match(/AGENT CHEST/i), chest: !!document.querySelector('.kpm-bay.solo') }; })()`);
-  step('7. the book: Agent Inventory -> Agent Chest opens the page, beat 1 of 22, the real chest on its stage', nav?.counter === '1 / 22' && nav.chest, nav);
+  step('7. the book: Agent Inventory -> Agent Chest opens the page, beat 1 of ' + steps.length + ', the real chest on its stage', nav?.counter === '1 / ' + steps.length && nav.chest, nav);
 }
 const plain = (s) => s.replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
 const shutAt = (i) => { let open = true; for (let k = 0; k <= i; k++) { if (steps[k].act === 'shut:van') open = false; else if (steps[k].act === 'open:van') open = true; } return !open; };
@@ -289,7 +287,7 @@ for (const [w, h] of [[1440, 900], [430, 930]]) {
   const g = { ghost: await js(`!!document.querySelector('.kpm-bay-ghost')`), writes: (await writes()).length, same: (await order()) === o };
   step('7. a drag inside the book moves nothing, writes nothing, leaves no box in the air', !g.ghost && g.writes === 0 && g.same, g);
   await tap(await at('.kpm-bay .vanc')); await sleep(900);
-  const beat = await js(`+((document.body.innerText.match(/(\\d+) \\/ 22/) || [])[1] || 0)`);
+  const beat = await js(`+((document.body.innerText.match(/(\\d+) \\/ ${steps.length}/) || [])[1] || 0)`);
   step('7. a tap on the chest inside the book jumps to the beat about the chest', beat === 3, beat);
   await open('scene=agent-chest&step=0&lite', 430, 930);
   await js(`document.querySelector('[aria-label="Step 8"]').click(); true`); await sleep(700);
@@ -297,6 +295,66 @@ for (const [w, h] of [[1440, 900], [430, 930]]) {
     if (!e) return 'caption not found'; let o = 1; for (let n = e; n; n = n.parentElement) o *= +getComputedStyle(n).opacity; return { lite: document.documentElement.classList.contains('lite-mode'), opacity: Math.round(o * 100) / 100 }; })()`);
   step('7. Lite Mode in the book: the sentence is fully visible', lite?.lite && lite.opacity >= 0.99, lite);
   await shoot('book-lite-430');
+}
+
+/* ── v4 (2026-09-27, prototype v11): the two chests and the book of the day ── */
+const lead = (m) => +((m || '').match(/matrix3d\(([^,]+)/) || [])[1];
+{
+  await open('shell&agent&admin', 1440, 900);
+  const lay = await js(`(() => { const r = (s) => document.querySelector(s).getBoundingClientRect(); const v = r('.kpm-bay .vanc'), q = r('.kpm-bay .qc'), gv = r('.kpm-bay .gui.van'), gq = r('.kpm-bay .gui.q');
+    let n = document.querySelector('.kpm-bay').parentElement, scrollers = 0;
+    for (; n && n !== document.body; n = n.parentElement) if (/(auto|scroll)/.test(getComputedStyle(n).overflowY) && n.scrollHeight > n.clientHeight + 1) scrollers++;
+    return { side: Math.abs(v.top - q.top) < 2 && q.left > v.right, panelsOver: gv.bottom <= v.top + 1 && gq.bottom <= q.top + 1, scrollers,
+      switch: [...document.querySelectorAll('button')].some(b => /^(Saleable|Quarantine)/.test(b.textContent.trim())) }; })()`);
+  step('v4-1. PC: no switch; two chests side by side, each panel standing on its own lid; the chest scrolls with the page (one scroller)', lay.side && lay.panelsOver && !lay.switch && lay.scrollers === 1, lay);
+  await tap(await at('.kpm-bay .gui.q .slot.has', 0)); await sleep(300);
+  const q = await js(`({ said: document.querySelector('.kpm-bay .gui.q .say').innerText, specks: getComputedStyle(document.querySelector('.kpm-bay .qc .specks i')).animationName,
+    sign: getComputedStyle(document.querySelector('.kpm-bay .chest.hazard .sign svg')).animationName, glow: [...document.querySelectorAll('.kpm-bay .qc *')].some(e => getComputedStyle(e).boxShadow !== 'none' || getComputedStyle(e).filter !== 'none') })`);
+  step('v4-2. the crate: a tap tells shop + reason; the specks rise and the sign pulses; no glow', /Rusak \/ Basah · dari Toko Sumber Rejeki/.test(q.said) && q.specks === 'kpmSpeck' && q.sign === 'kpmSignPulse' && !q.glow, q);
+  await shoot('v4-chests-1440');
+  const nb = await at('.kpm-nbBtn .kpm-nb');
+  await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: nb.x, y: nb.y }); await sleep(900);
+  const hov = await js(`({ cover: getComputedStyle(document.querySelector('.kpm-nb .cover')).transform, riffle: document.querySelector('.kpm-nb').getAnimations({ subtree: true }).filter(a => a.animationName === 'kpmRiffle').length })`);
+  await shoot('v4-shelf-hover-1440');
+  step('v4-3. the shelf book on hover: the cover swings open and the three leaves riffle', lead(hov.cover) < 0 && hov.riffle === 3, hov);
+  await tap(nb); await sleep(120);
+  const f1 = await js(`document.querySelector('.kpm-ob')?.className || ''`);
+  await sleep(1400);
+  const ob = await js(`(() => { const b = document.querySelector('.kpm-ob'), r = b.getBoundingClientRect(); return { cls: b.className, w: Math.round(r.width), h: Math.round(r.height),
+    rows: Math.round(b.querySelector('.face.in .rows').getBoundingClientRect().height), tabs: [...b.querySelectorAll('.tab2')].map(t => t.innerText.trim()).join('|'),
+    left: b.querySelector('.face.in .page h3')?.innerText, right: b.querySelector('.half .page h3')?.innerText, dialog: b.getAttribute('role'), tilt: getComputedStyle(b.querySelector('.book2')).transform }; })()`);
+  await shoot('v4-book-open-1440');
+  step('v4-4. a press: the book flies up SHUT, then opens straight at one fixed size (900 x 560), six 52 px lines, two ribbons, list | entry',
+    /shut/.test(f1) && ob.cls === 'kpm-ob' && ob.w === 900 && ob.h === 560 && ob.rows === 312 && /^PENJUALAN · 3\|SAMPEL · \d+$/.test(ob.tabs) &&
+    /PENJUALAN HARI INI/i.test(ob.left) && /TOKO SUMBER REJEKI/i.test(ob.right) && ob.dialog === 'dialog' && ob.tilt === 'none', { f1, ...ob });
+  await tap(await rectNow('.kpm-ob .tab2[data-sec="samples"]')); await sleep(600);
+  const sec = await js(`document.querySelector('.kpm-ob .face.in .page h3')?.innerText`);
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+  await sleep(1300);
+  const shut = await js(`({ gone: !document.querySelector('.kpm-ob'), focus: document.activeElement?.className })`);
+  step('v4-5. the Sampel ribbon turns to its section; Escape shuts the cover and it flies back, focus back on the book', /SAMPEL HARI INI/i.test(sec) && shut.gone && shut.focus === 'kpm-nbBtn', { sec, ...shut });
+}
+{
+  await open('shell&agent&admin', 430, 930);
+  const ph = await js(`(() => { const r = (s) => document.querySelector(s).getBoundingClientRect(); const gv = r('.kpm-bay .gui.van'), v = r('.kpm-bay .vanc'), q = r('.kpm-bay .qc'), gq = r('.kpm-bay .gui.q');
+    return { order: gv.bottom <= v.top + 1 && Math.abs(v.top - q.top) < 2 && gq.top >= q.bottom - 1, over: document.documentElement.scrollWidth > innerWidth }; })()`);
+  await shoot('v4-chests-430');
+  await tap(await at('.kpm-nbBtn .kpm-nb')); await sleep(1700);
+  const one = await js(`({ faceIn: +getComputedStyle(document.querySelector('.kpm-ob .face.in')).opacity, w: Math.round(document.querySelector('.kpm-ob').getBoundingClientRect().width), list: document.querySelector('.kpm-ob .half .page h3')?.innerText })`);
+  await tap(await rectNow('.kpm-ob .half .rows button', 0)); await sleep(700);
+  const ent = await js(`({ h3: document.querySelector('.kpm-ob .half .page h3')?.innerText, back: document.querySelector('.kpm-ob .back')?.innerText })`);
+  await shoot('v4-book-430');
+  step('v4-6. phone: goods panel, the two chests side by side, the quarantine panel; the book is one page, an entry turns to its lines with "‹ Kembali ke daftar"',
+    ph.order && !ph.over && one.faceIn === 0 && one.w === 398 && /PENJUALAN HARI INI/i.test(one.list) && /TOKO SUMBER REJEKI/i.test(ent.h3) && /KEMBALI KE DAFTAR/i.test(ent.back), { ...ph, ...one, ...ent });
+}
+{
+  await open('shell&agent&admin&lite', 430, 930);
+  await tap(await at('.kpm-nbBtn .kpm-nb')); await sleep(150);
+  const lt = await js(`({ cls: document.querySelector('.kpm-ob')?.className, specks: getComputedStyle(document.querySelector('.kpm-bay .qc .specks')).display,
+    running: [...document.querySelectorAll('.kpm-ob, .kpm-bay, .kpm-shelf')].flatMap(e => e.getAnimations({ subtree: true })).filter(a => a.playState === 'running').length })`);
+  await shoot('v4-book-lite-430');
+  step('v4-7. Lite Mode: the book is simply open at once, the specks are gone, nothing moves', lt.cls === 'kpm-ob' && lt.specks === 'none' && lt.running === 0, lt);
 }
 
 step('no page errors anywhere in the walk', errors.length === 0, errors.slice(0, 4));

@@ -30,7 +30,7 @@ const shoot = async (name) => { const s = await send('Page.captureScreenshot', {
 const probe = `JSON.stringify({ solo: !!document.querySelector('.kpm-bay.solo'), wh: !!document.querySelector('.kpm-bay .gui.wh, .kpm-bay .whc'),
   man: !!document.querySelector('.kpm-bay-duo .man'), open: !!document.querySelector('.kpm-bay.van-open'),
   filled: document.querySelectorAll('.kpm-bay .gui.van .grid .slot.has').length + '/' + document.querySelectorAll('.kpm-bay .gui.van .grid .slot').length,
-  pages: [...document.querySelectorAll('.kpm-bay .gui.van .pg')].map(b => b.innerText).join('|'), dmg: document.querySelectorAll('.kpm-bay .dmg .slot').length,
+  pages: [...document.querySelectorAll('.kpm-bay .gui.van .pg')].map(b => b.innerText).join('|'), q: document.querySelectorAll('.kpm-bay .gui.q .slot.has').length, ob: document.querySelector('.kpm-ob')?.className || '',
   title: document.querySelector('.kpm-bay .gui.van .title')?.innerText.replace(/\\s+/g, ' '), list: document.querySelectorAll('h4.lg\\\\:truncate').length,
   guiW: Math.round(document.querySelector('.kpm-bay .gui.van')?.getBoundingClientRect().width || 0),
   slotW: Math.round(document.querySelector('.kpm-bay .gui.van .grid .slot')?.getBoundingClientRect().width || 0),
@@ -44,16 +44,18 @@ const look = (l) => (l === 'light' ? '&light' : l === 'lite' ? '&lite' : '');
 const runs = [];
 for (const [w, h] of [[1440, 900], [430, 930]]) for (const l of ['dark', 'light']) {
   runs.push({ w, h, l, name: `screen-admin-${w}-${l}`, url: 'shell&agent&admin', chest: true });
-  for (const step of [7, 16]) runs.push({ w, h, l, name: `book-${w}-${l}-step${step}`, url: `scene=agent-chest&step=${step}` });
+  runs.push({ w, h, l, name: `book-open-${w}-${l}`, url: 'shell&agent&admin', book: true });
+  for (const step of [7, 16, 20]) runs.push({ w, h, l, name: `book-${w}-${l}-step${step}`, url: `scene=agent-chest&step=${step}` });
 }
 runs.push({ w: 430, h: 930, l: 'dark', name: 'screen-salesman-430-dark', url: 'shell&agent' });
 runs.push({ w: 430, h: 930, l: 'lite', name: 'book-430-lite-step7', url: 'scene=agent-chest&step=7' });
-runs.push({ w: 430, h: 930, l: 'dark', name: 'book-430-dark-step19', url: 'scene=agent-chest&step=19' });
+runs.push({ w: 430, h: 930, l: 'dark', name: 'book-430-dark-step23', url: 'scene=agent-chest&step=23' });
 for (const r of runs) {
   await send('Emulation.setDeviceMetricsOverride', { width: r.w, height: r.h, deviceScaleFactor: 1, mobile: r.w < 768 });
   await send('Page.navigate', { url: LAB + r.url + look(r.l) });
   await sleep(3800);
   if (r.chest) await js(toChest);
+  if (r.book) { await js(`document.querySelector('.kpm-nbBtn').click(), 1`); await sleep(1700); }
   await sleep(300);
   console.log(await shoot(r.name), await js(probe));
 }
