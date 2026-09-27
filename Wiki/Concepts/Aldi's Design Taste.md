@@ -2978,3 +2978,16 @@ Minutes later, on the red-latch chest, with a pixel radiation sign as the pictur
 green waves ride the same exemption as the ender chest's purple specks - and the same carve-out: the one thing that
 moves on its own, gone in Lite Mode and reduced motion. A meaning he wants seen at a glance (THIS is quarantine) beat
 a subtle cue (a red latch). Built as v5 of the prototype.
+
+Then, on the two books:
+
+> *"make the book 3D more natural and make it open when hover and slide its pages like some magic book and just make it
+> 1 book instead with 2 section, 1 section for sales and one for sample just to make it more spacy"*
+
+- **Fewer objects, more room** - two related lists become one object with two sections (the ribbons), the same
+  instinct as the chest's pages: one bigger thing beats two smaller ones.
+- **"Natural" meant real parts**: covers larger than the page block, a rounded spine, loose leaves, an endpaper inside
+  the cover. The first books were boxes with a picture on the front.
+- **Hover is a preview, not decoration** - for him a hover should show what is inside (the book opening and its
+  pages turning, the enchanting-table book), the same ask as the tutorial book's "open when hovered". Lite snaps.
+Built as v6 of the prototype.
