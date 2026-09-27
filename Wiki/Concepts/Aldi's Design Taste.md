@@ -2968,3 +2968,13 @@ window under the pinned header:
   book with a quill (book and quill).
 
 Prototype v4, same link as the chest: https://claude.ai/artifact/V5Z3ZkQZ3fvtXHynn4AnNF. His verdict owed.
+
+Minutes later, on the red-latch chest, with a pixel radiation sign as the picture:
+
+> *"for the quarantine chest i think u should make it yellow and add this logo on the chest just to show that it is
+> quarantine and add some green radioactive wave just around it"*
+
+**He asked for green himself, on an object.** The palette law is about app furniture; the chest is an object, so the
+green waves ride the same exemption as the ender chest's purple specks - and the same carve-out: the one thing that
+moves on its own, gone in Lite Mode and reduced motion. A meaning he wants seen at a glance (THIS is quarantine) beat
+a subtle cue (a red latch). Built as v5 of the prototype.
