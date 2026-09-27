@@ -2999,4 +2999,9 @@ And on the waves he had asked for himself, once he saw them moving:
 **What he asks for and what he approves after seeing it are different tests** - the green waves were his words, and
 three rings rolling out every 0.8 s were too loud once on screen. It matches "lowkey" (2026-08-30): the effect he keeps
 is the one he notices a moment late. v7 offers three quiet ones side by side (a breathing hairline ring, four rising
-specks, the sign alone fading to dark green); his pick is owed.
+specks, the sign alone fading to dark green). His pick:
+
+> *"C and B is good i want it together but makes the effect for C little bit brighter"*
+
+Two quiet effects together beat one loud one: small specks at the edge of the eye plus a change in the object's own
+sign. Built as v8 (sign peak #2F9A1C instead of #1F5E12).
