@@ -3021,8 +3021,9 @@ Built as v9 (`.ob`), approved build carries it.
 > *"make the book look thicker when it close and open just to enhance its 3D, and also fix the ponder book , make sure
 > that there is no white lines in there"*
 
-- **Depth has to be SEEN, so the object leans.** A flat-on book cannot show its thickness however thick it is; v10
-  tips it back like a book on a desk so the bottom edge and fore-edge are faces you see.
+- ~~Depth has to be SEEN, so the object leans.~~ Overruled at once: *"dont make it tilt like that kinda annoying to
+  read lol, just let it straight and we can move on"*. **Reading beats depth**: anything that carries text stays
+  square to the reader; thickness is shown flat, as page layers in the margin (v11). Same line as "lowkey 3D".
 - **A white line is always a bug to him**, never a highlight: the page-stack edge is warm tan stripes, and the
   tutorial book's edge strip that stood alone after closing was a real defect (kpm `dd8f1b9`, see
   [[Anti-Recurrence Check]]: its guard passed on the broken form).
