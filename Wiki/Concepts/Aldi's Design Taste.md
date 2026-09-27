@@ -3005,3 +3005,15 @@ specks, the sign alone fading to dark green). His pick:
 
 Two quiet effects together beat one loud one: small specks at the edge of the eye plus a change in the object's own
 sign. Built as v8 (sign peak #2F9A1C instead of #1F5E12).
+
+Then, with a screenshot of the open book (a leather frame with tabs above a two-column panel):
+
+> *"make the book more natural make it open when press and also keep the original size even when there is few
+> transaction then just the other space blank rather than change the book size everytime new transaction is added"*
+
+- **An object keeps its size whatever it holds.** A notebook with two entries is the same notebook with blank lines,
+  never a shorter book. Same instinct as the chest's empty squares: an empty slot is a real place, so the container
+  never shrinks to fit its content.
+- **"Open when press" means the object performs the opening**, not a panel appearing: the shut book flies up, then the
+  cover turns on the spine and becomes the left page. The v8 dialog was a panel dressed as a book.
+Built as v9 (`.ob`), approved build carries it.
