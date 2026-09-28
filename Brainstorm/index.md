@@ -53,3 +53,4 @@ sit here indefinitely once it's actually decided.
 
 - [[2026-09-24_roster-as-a-game-community]] — roster as a game community (State of Decay 2 / FUT / XCOM); OPEN, recommendation A
 - [[2026-09-28_master-vault-password-incident]] — the vault password "wrong" everywhere after two resets; likely the vault box (15 characters) vs the reset box (25); OPEN, his count owed
+- [[2026-09-28_vault-password-per-account]] — one vault password per company (shared by T1+T2) or one per person; A own password + roster reset (recommended) / B owner only / C keep shared; OPEN

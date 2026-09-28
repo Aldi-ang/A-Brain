@@ -1,0 +1,41 @@
+---
+type: brainstorm
+status: OPEN — waiting on Aldi (A / B / C)
+date: 2026-09-28
+project: kpm-inventory
+confidence: certain (today's model, read in code)
+checked: 2026-09-28, kpm `4d833e4`
+---
+
+# Vault password: one per company, or one per person?
+
+## The problem, in his words
+
+*"this will be a problem if we put password on all of the account tho, we need a good managament for this"* (2026-09-28, right after the 15-minute lock and the landlord reset shipped, `e8477c7`).
+
+## How it works today
+
+- Who meets the vault: every role with `view_master_vault` — by default T1 (`ALL_ACCESS`) and T2 (ADMIN) (`src/config/permissions.js:128-131`); T3 and below never see it. The "Unlock Master Vault" door: `BiohazardTheme.jsx:823`, the "Restricted Access" screens `App.jsx:4678`, `SettingsView.jsx:141`.
+- Whose password: the vault doc is `users/${userId}/settings/admin` with `userId = bossUid || user.uid` (`App.jsx:458`) — so a T2 admin types the **company owner's** password. One password per company, shared.
+- What that costs: the owner has to tell every admin his password; one admin's 5 wrong tries lock the owner out too (one shared counter); removing one admin means changing the password for everyone.
+
+## Options
+
+| Option | What changes for the people | Cost |
+|---|---|---|
+| **A. Own password per person** (recommended) | Each T1/T2 sets their own the first time they unlock; their wrong tries lock only them; the owner resets a person's password or tries from the roster; the landlord resets owners (built) | biggest: a per-person key doc (e.g. `users/{bossUid}/vault_keys/{uid}`), setup on first unlock, a reset on the roster row; the rules' catch-all already lets T1/T2 write under the boss path — check a T2 cannot reset another T2 if that matters |
+| B. Password for the owner only | T2 admins skip the vault; their Google sign-in + tier decides what they can do (the server rules already check that) | small; risk: an admin's unlocked phone opens money screens with no second lock |
+| C. Keep one shared password | nothing changes | zero; the three problems above stay |
+
+## Decision
+
+OPEN — waiting on Aldi.
+
+## Rejected on purpose
+
+- A password for T3-T6 — they never meet the vault by default; adding one is work with nobody asking for it.
+- An email code per person for recovery — EmailJS sends to one fixed address today (`App.jsx` handleResetPin); per person, the owner's reset is the recovery.
+
+not-chosen: B — lost on "an admin's phone left unlocked opens money screens with no second lock". Flips if every T2 is him or family.
+
+Models applied: Second-Order Thinking (A turns the owner into the helpdesk for forgotten passwords — the roster reset is what keeps that cheap), Reversibility Test (A can fall back to B later; nothing is deleted), Inversion (what makes a shared secret fail? one person leaves).
