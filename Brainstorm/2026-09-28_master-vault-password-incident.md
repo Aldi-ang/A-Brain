@@ -33,6 +33,15 @@ He has reset twice. Every wrong press is a strike; 5 = PERMANENT lock (`App.jsx:
 
 Login box input rules are fine: `autoCorrect/autoCapitalize off`, `spellCheck false` (`:4513-4516`); both paths `.trim()`.
 
+## Root cause (11:25, his Firebase Console screenshot)
+
+`users/wbrTGOZQaZMj…/settings/admin`: `pin` in the NEW form (PBKDF2-SHA256, 600000, salt, hash), `recoveryHash` in the OLD form (one 64-hex line), `failedRecoveryAttempts` 0, `lockoutStatus` NONE, `updatedAt` 2026-09-28 10:12:47 WIB.
+
+- New-code setup writes BOTH as the new form (`App.jsx:1037-1038`); the 09-06 code writes both as the old form plus `updatedAt` (`04e1705` L988-989, L1018); a new-code unlock re-saves ONLY `pin` and never touches `updatedAt` (`App.jsx:1127`, `:1135`). So: 10:12:47 = his PC reset, done in an OLD stored copy; then his hard refresh loaded the new code, the password opened (the old form compares case-blind) and the pin was upgraded. [certain from the shape]
+- The 09-06 copies never reload on an update — `cbf9cfb` (09-19) added that — so the iPhone shortcut and an open PC tab kept running the 09-06 code after the 09-27 push. That code compares `hashedInput === data.pin` (`04e1705` L1069-1072): once any new-code screen (localhost, Safari, the refreshed PC) opens the vault, the pin is an object and every old-copy try is "wrong" plus a strike. It can still reset while `recoveryHash` is in the old form — which is how the 10:12 reset got through.
+- **The password was never wrong.** Length (10 characters), another account (his T1 is `POV_OWNER_EMAIL`, one admin doc) and an unreadable old reset are ruled out. [likely — fits every fact; his re-added shortcut confirms]
+- The brief's "the PC also rejects, so a stale copy cannot be the whole cause" was the wrong turn: every browser that ever opened this PWA runs a stored copy.
+
 ## Options (for after his answers)
 
 | Option | What it does | Cost |
@@ -45,7 +54,7 @@ Login box input rules are fine: `autoCorrect/autoCapitalize off`, `spellCheck fa
 
 ## Decision
 
-OPEN — waiting on Aldi. Option A is dropped (his password is 10 characters). Owed: ✅ his read-only Firebase Console look (Authentication list with last sign-in; the admin doc's `updatedAt`, `failedRecoveryAttempts`, the shape of `pin`; how many uids hold an admin doc) — it separates H1 / H2 / H3; ✅ finger-drag on the shortcut's vault screen; ❓ "web" = iPhone Safari or PC; 🔴 A+ (the gate words) yes/no; 🔴 L1 or L2 (recommended L2).
+ROOT CAUSE found 11:25 (above). OPEN — waiting on Aldi: ✅ re-add the iPhone shortcut, one try; ❓ name + dots back in it?; 🔴 G. the old-copy guard (a copy that finds a newer lock format reloads itself instead of comparing and striking — protects future changes only; the 09-06 copies must be replaced once by hand); 🔴 A+ gate words + a 25-character vault box; 🔴 L1 / L2. Superseded below: Option A is dropped (his password is 10 characters). Owed: ✅ his read-only Firebase Console look (Authentication list with last sign-in; the admin doc's `updatedAt`, `failedRecoveryAttempts`, the shape of `pin`; how many uids hold an admin doc) — it separates H1 / H2 / H3; ✅ finger-drag on the shortcut's vault screen; ❓ "web" = iPhone Safari or PC; 🔴 A+ (the gate words) yes/no; 🔴 L1 or L2 (recommended L2).
 
 ## Rejected on purpose
 
