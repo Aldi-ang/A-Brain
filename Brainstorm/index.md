@@ -52,3 +52,4 @@ sit here indefinitely once it's actually decided.
 - [[2026-09-10_draft-13-pasal-kontrak-kpm]] — the 13 clauses written as real pasal, ready for a notaris to mark up. DRAF — not reviewed, do not sign.
 
 - [[2026-09-24_roster-as-a-game-community]] — roster as a game community (State of Decay 2 / FUT / XCOM); OPEN, recommendation A
+- [[2026-09-28_master-vault-password-incident]] — the vault password "wrong" everywhere after two resets; likely the vault box (15 characters) vs the reset box (25); OPEN, his count owed

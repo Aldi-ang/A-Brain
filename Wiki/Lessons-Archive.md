@@ -796,3 +796,21 @@ earlier the same day. All three shipped into a committed vault note AND a publis
 **Aldi caught it, not me**: *"is 5 milliar reasonable that amount is crazy work"*.
 Seen: 2026-09-11
 Fired:
+
+<!-- archived 2026-09-28 from lessons.md; RETIRED 2026-09-27 as a platitude (the toast < dialog audit guard covers its one case) -->
+### 2026-09-13 — a z-index move crosses every layer between the old number and the new one
+**Status:** RETIRED (2026-09-27) — never fired in 14+ days of real work; retired as a platitude (a z-index move is rare here and the toast < dialog audit guard already covers the one case it was about)
+**Trigger:** before changing any z-index or stacking value — the moment a brief, a plan or a
+comment says "move X to N", and again before writing such a line into a brief for the next session.
+**Lesson:** grep every `z-[` and `z-index` in `src` first and list what sits at every value the
+layer will pass through. For each one ask: does it raise a report or a question while it is on
+screen? Then prefer LIFTING the thing that must be on top over pushing a shared layer (the toast
+column, the mascot) down through its neighbours — a shared layer has callers you did not list.
+`ExamineModal.jsx:72` already records the same instinct.
+**Would have prevented:** the 2026-09-12 brief named `Toast.jsx → z-[9998]` as "the safe half,
+the whole job". At 9998 the strip sits under the vault password gate, which raises five
+`notify()` reports while it is up — "wrong reset word" painted behind an opaque screen, and the
+guard (`toast < dialog`) green either way. Caught on 2026-09-13 before the edit: one re-plan, one
+question that bounced on wording, two turns. The version that ships is five silent reports.
+Seen: 2026-09-13
+Fired:
