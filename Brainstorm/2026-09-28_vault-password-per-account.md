@@ -29,7 +29,7 @@ checked: 2026-09-28, kpm `4d833e4`
 
 ## Decision
 
-OPEN — waiting on Aldi.
+**DECIDED 2026-09-28 17:50 — A**, in his words: *"everyone has their own password and even me as tier 1 should not and could not be able to know their password but we have power to help them reset the password tries, if they want to reset it they can use the forgot password button that the app have to send them the email for the recovery code"*. So: one password per person, only a salted fingerprint stored; T1/T2 (and the landlord for owners) reset TRIES only, never a password; a forgotten password goes through the person's own recovery word + an email code sent to THEIR address. Design written as kpm NEXT-SESSION.md's job: the owner keeps `settings/admin`, an employee gets `users/{bossUid}/vault_keys/{agentProfileId}`; the Fleet & Roster card gets the tries reset; a rules draft (he deploys) so nobody can overwrite a person's password record from outside the app. Open: where the EmailJS template sends (`to_email`).
 
 ## Rejected on purpose
 
