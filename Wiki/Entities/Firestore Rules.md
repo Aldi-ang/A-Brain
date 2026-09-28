@@ -188,3 +188,7 @@ false`; `isRankConfigEditor()` removed. rules-test/test-batch1.mjs TASK 1 assert
 different company's owner — 26/26 in the emulator. **Deploy order:** the owner opens the app once BEFORE deploying, or
 the move can no longer read the old docs and the defaults show. See [[The Master Password Fingerprint]] for the same
 day's (a).
+
+## CHANGE 11 / 11b — 2026-09-28 — a vault password per person (DRAFT until Aldi deploys)
+
+`users/{bossUid}/vault_keys/{rosterProfileId}`: the person reads/writes their own; the company T1/T2 change only the three try counters; nobody deletes. 11b takes `vault_keys` out of both catch-alls (his 🔴). MUST deploy before the app push (a T2 = `COMPANY_OWNER` is unknown to the live rules). Pointer: kpm `7b85941`, `rules-test/test-vault-keys.mjs`; the story is in [[2026-09-28_vault-password-per-account]].

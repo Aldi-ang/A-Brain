@@ -39,3 +39,7 @@ checked: 2026-09-28, kpm `4d833e4`
 not-chosen: B — lost on "an admin's phone left unlocked opens money screens with no second lock". Flips if every T2 is him or family.
 
 Models applied: Second-Order Thinking (A turns the owner into the helpdesk for forgotten passwords — the roster reset is what keeps that cheap), Reversibility Test (A can fall back to B later; nothing is deleted), Inversion (what makes a shared secret fail? one person leaves).
+
+## Built
+
+**BUILT 2026-09-28 19:45 as kpm `7b85941`** (its commit message is the story). Found while building: a T2 is saved as `COMPANY_OWNER`, and the live rules only ever knew the owner and the old `ADMIN` tag - so the new per-person doc needs the rules draft (kpm `firestore.rules` CHANGE 11) live BEFORE the app push, or every T2 is locked out of the vault. The same shape as [[UI-Says-Yes-Server-Says-No Pattern]]. Emulator: `rules-test/test-vault-keys.mjs` 38/38. Still his: 🔴 CHANGE 11b (the catch-alls leave `vault_keys` out), the deploy, the push, then the EmailJS "To Email" box.
