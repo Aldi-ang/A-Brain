@@ -21,7 +21,9 @@ He has reset twice. Every wrong press is a strike; 5 = PERMANENT lock (`App.jsx:
 
 | # | Finding | Confidence | Evidence |
 |---|---|---|---|
-| H4 (new) | The vault box takes at most **15** characters; the setup/reset box takes **25**. A 16-25-character password is saved whole, the reset opens the vault by itself (no typing), and every later try is cut at 15 by the browser, so it can never match, on any device. | likely — his count confirms | `App.jsx:4525` `maxLength={15}` vs `:4429` `maxLength={25}`, both since `d363813` (2026-04-08); save `:1037`, auto-open `:1071-1072`, strike `:1150-1152` |
+| H4 — RULED OUT 11:15 | The vault box takes at most **15** characters; the setup/reset box takes **25**. His answer: *"my password only 10 letter"*, *"containing letter number and symbol"* — it fits. The 15 vs 25 mismatch is still real for any future 16-25-character password. | ruled out by his count |
+| — RULED OUT | A reset made in the 09-06 copy writes a pin the new code cannot read. No: the old copy hashes SHA-256 of the lowercased, trimmed password — exactly `verifySecret`'s old branch. | certain (`git show 04e1705:src/App.jsx` L951-967, L989) |
+| — | His T1 is the developer path: `POV_OWNER_EMAIL` = his Gmail (`src/config/povPreview.js:26`) → `bossUid` null → the vault is under his own uid. | certain (`App.jsx:2613-2615`) | `App.jsx:4525` `maxLength={15}` vs `:4429` `maxLength={25}`, both since `d363813` (2026-04-08); save `:1037`, auto-open `:1071-1072`, strike `:1150-1152` |
 | — | Localhost is the SAME vault as live: same database folder. | certain | `src/config/firebase.js:82` `appId = "cello-inventory-manager"`; emulator only with `VITE_USE_EMULATOR=true` (no `.env.local`) |
 | H1 | The 09-06 live copy (`04e1705`) compares `hashedInput === data.pin`; a salted pin is an object, so every try there is wrong and adds a strike; its own reset writes the old string form back. Active only if the home-screen app is still that copy. | certain (mechanism), unknown (whether his shortcut is old) | `git show 04e1705:src/App.jsx` L1069-1072 |
 | H2 | He is signed in with another Google account somewhere (another uid = another vault doc). | guessing — no evidence | — |
@@ -43,7 +45,7 @@ Login box input rules are fine: `autoCorrect/autoCapitalize off`, `spellCheck fa
 
 ## Decision
 
-OPEN — waiting on Aldi: ✅ character count > 15?, ✅ finger-drag on the shortcut's vault screen, ❓ "web" = iPhone Safari or PC, 🔴 fix A/A+ yes, 🔴 L1 or L2 (recommended L2).
+OPEN — waiting on Aldi. Option A is dropped (his password is 10 characters). Owed: ✅ his read-only Firebase Console look (Authentication list with last sign-in; the admin doc's `updatedAt`, `failedRecoveryAttempts`, the shape of `pin`; how many uids hold an admin doc) — it separates H1 / H2 / H3; ✅ finger-drag on the shortcut's vault screen; ❓ "web" = iPhone Safari or PC; 🔴 A+ (the gate words) yes/no; 🔴 L1 or L2 (recommended L2).
 
 ## Rejected on purpose
 
