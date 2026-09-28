@@ -54,7 +54,7 @@ for (const r of runs) {
   await send('Emulation.setDeviceMetricsOverride', { width: r.w, height: r.h, deviceScaleFactor: 1, mobile: r.w < 768 });
   await send('Page.navigate', { url: LAB + r.url + look(r.l) });
   await sleep(3800);
-  if (r.chest) await js(toChest);
+  if (r.chest) { await js(toChest); await js("document.querySelector('.kpm-bay .vanc').click(), 1"); await sleep(900); }   // v4.1: the chest waits shut
   if (r.book) { await js(`document.querySelector('.kpm-nbBtn').click(), 1`); await sleep(1700); }
   await sleep(300);
   console.log(await shoot(r.name), await js(probe));
