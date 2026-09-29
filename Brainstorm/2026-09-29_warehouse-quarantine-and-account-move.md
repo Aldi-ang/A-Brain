@@ -87,3 +87,23 @@ His 15:40 changes (verbatim in `Wiki/Concepts/Aldi's Design Taste.md`, "Stacked 
 **Rejected on purpose:** v15's stacked layout (his call); a single toggle button that flips its face - a pair shows which box is on show at a glance (the pressed one), which a one-button flip cannot; Minecraft-style tabs on the box's top edge - not the arcade button he asked for.
 
 Models applied: Second-Order Thinking (a switch hides the healthy stock, so a return drop needs a rule), Inversion (a switch must never change the box's height, or the chests jump under the finger - so both views carry a band).
+
+## v16 answered, v17 built - 2026-09-29 16:38 - OPEN, waiting on his yes
+
+**Decided by him (16:10):** spot C (by the pages); ONE button that works both ways and changes its logo; the v16 animation is "bad" - research a smoother, more tech one.
+
+**Research, and what it turned into:**
+
+| Finding | Source | In v17 |
+|---|---|---|
+| Only transform, opacity and clip-path move smoothly; height and layout changes stutter | Emil Kowalski's performance rules | the v16 button grew its `height`; the v17 cap moves with `transform` |
+| Real springs in plain CSS: sample a spring into `linear()` stops (Chrome 113, Firefox 112, Safari 17.2) | developer.chrome.com, "linear() easing" | the button bounces on a damped spring (20% overshoot), the coin flips on a softer one |
+| Keep the old state on screen until the new one covers it | Emil (crossfade and clip-path reveals) | the old box stays as a snapshot, cut away behind the scan line |
+| Scrambled text resolving left to right reads as "decrypting" | Aceternity, Encrypted Text (50 ms a character by default) | the name and count decode at 18 ms a character |
+| A scan with a pixel grid over the content | Aceternity, Image Generation Loader | each square powers up under a pixel grid as the line passes |
+
+**Rejected on purpose:** v16's specks, mist and tape sweep (four effects on four clocks, the old box vanishing at once - his "bad"); the pair of buttons (his call); the button face showing where you ARE - the face shows where the next press goes, matching his "quarantine logo ... when press to change into quarantine panel".
+
+**Decision:** OPEN - waiting on his yes on v17.
+
+Models applied: Inversion (what makes a transition feel cheap: a snap, unsynced clocks, layout motion - v17 removes each), First Principles (what "tech" means in his theme: a lab instrument - scan, grid, decode - not particles).

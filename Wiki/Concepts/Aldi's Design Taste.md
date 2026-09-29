@@ -3057,3 +3057,14 @@ On prototype v15 (the ender chest opening two stacked boxes, the van's wooden ch
 - **A switch must be a physical thing.** He did not ask for a toggle or tabs; he sent an arcade button and wants it to sink and spring back. Each side of the switch gets its own logo AND its own effect - the quarantine one toxic, the healthy one its own - so both directions are designed, not only the dramatic one.
 - **He places a control, then asks to be told a better place.** His red box was a first guess, offered for correction. Answer with the spots drawn side by side, his own included, measured.
 - His clip, read with ffmpeg: the cap sits flush while held (~270 ms), pops up with a small overshoot on release, then settles. Built as prototype v16. [[2026-09-29_warehouse-quarantine-and-account-move]]
+
+## "Tech", smooth, and one button that does both (2026-09-29, 16:10)
+
+On v16 (two arcade buttons, three spots; specks bursting out of the button, a tape sweep, squares dropping in):
+
+> *"by the page is okay but the animation is bad i want u to research on how to make it smoother and better and more tech related animation and i rather have 1 button that work 2 ways and change it logo when pressed"*
+
+- **Specks and sweeps read as "bad" to him; he asked for research, not another guess.** The v16 intro was four effects on four clocks, and the old box vanished the instant the button was pressed - "snapped and gone", his old complaint. v17 answered with one clock and no snap: a scan line cuts the old box away as the new one appears, the squares power up as the line reaches them, the name decodes. Research sources: Chrome's `linear()` guide, Aceternity's Encrypted Text / Image Generation Loader / Background Ripple, Emil Kowalski's motion rules.
+- **"Tech" for him = lab instruments, not particles**: a scan, a pixel grid, decoding text. Consistent with the RE9 Ark Lab theme.
+- **One control, two ways, the face changes.** He prefers one button that flips over a pair he must choose between. v17's face shows where the NEXT press goes (biohazard while the healthy stock is on show, the ender eye while Quarantine is) - my reading of "change it logo when pressed", told to him, not asked.
+- He took spot C (by the page buttons) over my pick B. [[2026-09-29_warehouse-quarantine-and-account-move]]
