@@ -32,3 +32,5 @@ OPEN — waiting on Aldi: which look, and both crates or only Agent Inventory's.
 - Moving hazard stripes or pulsing rings: he turned down loud effects on this crate once already (2026-09-27, "the radioactive effect it is too much").
 
 Models applied: Inversion (what makes the box look cheap? a raw slab or a loud loop - both left out), Reversibility Test (all three are CSS on one class; any pick can be undone in one commit).
+
+**2026-09-29 08:29:** on C he said *"erase the text, the biohazard line is enough for decoration"* - v13 drops the KARANTINA label, the band stays. Read as leaning C; the pick and the both-crates answer are not confirmed yet.

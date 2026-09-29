@@ -3027,3 +3027,12 @@ Built as v9 (`.ob`), approved build carries it.
 - **A white line is always a bug to him**, never a highlight: the page-stack edge is warm tan stripes, and the
   tutorial book's edge strip that stood alone after closing was a real defect (kpm `dd8f1b9`, see
   [[Anti-Recurrence Check]]: its guard passed on the broken form).
+
+## A tape band is decoration enough; a word on it is one too many (2026-09-29)
+
+On look C of the biohazard box (a tape band under the title with KARANTINA on a yellow label), with a crop of just the band:
+
+> *"erase the text, the biohazard line is enough for decoration"*
+
+- **The stripes already say it.** The crate, its sign and its title already name the place; a label on the tape repeats it. Same instinct as "lowkey": a meaning carried by the object's own marks beats a caption.
+- Built as prototype v13 (https://claude.ai/artifact/QA46EfZgkJPd6PH7f2FSjD): the band stays, the word is gone. Whether C is his pick is still to be confirmed. [[2026-09-29_biohazard-box-looks]]
