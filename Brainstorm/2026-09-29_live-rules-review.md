@@ -40,3 +40,20 @@ OPEN - waiting on Aldi: publish now? and which of a/b/c first.
 - Folding a/b/c silently into today's draft: every `allow` change is his call (rules draft process).
 
 Models applied: Inversion (what could the publish break? the live app's vault path - checked), Chesterton's Fence (the shared settings path was closed only after the data moved).
+
+## His call, 2026-09-29 10:10: *"fix first publish later just checked first what need to be fixed, finaliza then publish last"*
+
+Full pass over every rule of the draft (not only a-c). The fix list put to him, ranked by harm (T1-T4 = owner, T2 admin, T3 AREA_ADMIN, T4 FLEET_CAPTAIN):
+
+| # | Hole (rule) | Fix | Could break |
+|---|---|---|---|
+| 1 | `gps_bypasses` update by any employee - self-approve a bypass; the agent's app sells on `status === 'APPROVED'` (`MerchantSalesView.jsx:869`) [certain] | create only as PENDING; status change only T1-T4 (the Fleet & Roster approvers, `FleetCanvasManager.jsx:1416`) | a T5/T6 given the approve screen |
+| 2 | `branches/*/inventory` write by any employee - any branch's stock and damaged stock [certain]; writers found: Fleet load/return, branch receive, EOD verify, Stock Opname approve - all management | T1-T4 only | a T5/T6 given Branch Warehouse / EOD verify [likely none] |
+| 3 | `stock_requests` create/update by any employee; only Restock Vault + Branch Warehouse write it | T1-T4 only | same |
+| 4 | `settings/admin` (the owner's vault record) readable by every employee; his `recoveryHash` is still the OLD fast SHA-256 form - guessable offline | owner (+ landlord) only; after the push he re-saves the recovery word | T2s on the OLD app lose the vault between publish and push |
+| 5 | `employee_directory` listable by any Google account | no list except the super admin; single look-ups stay | none found (only LandlordDashboard lists) [likely] |
+| 6 | T2 (`COMPANY_OWNER`) not in the company catch-all | T2 = old ADMIN powers, minus `settings/admin`, `vault_keys`, and never a T1 tag (motorists via their own rule) | none - T2 gains |
+| 7 | `account_transfers` update by any employee - can mark APPROVED (nothing moves, the record lies) | APPROVED only T1-T4 | none |
+| 8 | `products` update by T3/T4 - any field incl. prices; the fleet flow writes only `stock`/`name`/`productId` (+ `damagedStock` at EOD) | T3/T4 limited to those fields | none |
+
+Parked, no fix (design): fake `transactions` by any employee; an agent edits their own van stock (the sale engine needs it; EOD catches it); audit-log and notification spam.
