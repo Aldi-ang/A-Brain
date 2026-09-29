@@ -107,3 +107,7 @@ Models applied: Second-Order Thinking (a switch hides the healthy stock, so a re
 **Decision:** OPEN - waiting on his yes on v17.
 
 Models applied: Inversion (what makes a transition feel cheap: a snap, unsynced clocks, layout motion - v17 removes each), First Principles (what "tech" means in his theme: a lab instrument - scan, grid, decode - not particles).
+
+## v17 rejected, v18 built from his own design - 2026-09-29 17:00 - OPEN
+
+His 16:25: the scan and the coin flip are both "bad"; research more, other themes, a better button. Then his own idea (Satisfactory hatch: doors open, a 3D button lifts; a press plays it backwards and changes the logo). v18 = his hatch button on four boxes: 1 blast doors, 2 turn it over, 3 roller shutter, 4 wave of squares (research: Aceternity Background Ripple + Text Flipping Board for the wave; the warehouse shutter and blast doors from his RE9 lab theme). Rejected on purpose: my four buttons for this round (a dial, a Minecraft lever, a slide switch, an arcade button with a rolling face) - dropped before he saw them, because his own button came in first. **Decision:** OPEN - which box change, and his yes on the button.

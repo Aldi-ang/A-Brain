@@ -3068,3 +3068,18 @@ On v16 (two arcade buttons, three spots; specks bursting out of the button, a ta
 - **"Tech" for him = lab instruments, not particles**: a scan, a pixel grid, decoding text. Consistent with the RE9 Ark Lab theme.
 - **One control, two ways, the face changes.** He prefers one button that flips over a pair he must choose between. v17's face shows where the NEXT press goes (biohazard while the healthy stock is on show, the ender eye while Quarantine is) - my reading of "change it logo when pressed", told to him, not asked.
 - He took spot C (by the page buttons) over my pick B. [[2026-09-29_warehouse-quarantine-and-account-move]]
+
+## He designs the control himself when the options miss (2026-09-29, 16:25-17:00)
+
+On v17 (one arcade button whose face flipped like a coin; a scan line across the box):
+
+> *"i dont like the animation for both of those, maybe lets try other theme and animation for these go research more and i dont like the animation for that button switch flip, do you have better idea? u can even make new kind of animation or button"*
+
+Then, before any new option reached him, with a clip of Satisfactory's launch button (a ribbed hatch, two doors slide apart, a red dome on a hazard plate rises; a fist punches it):
+
+> *"what if we made button animation like what satisfactory have, so there is like some blast door opening and the 3D button lift up, when press it plays the animation backwards and change the button logo from quarantine to healthy goods logo what about that"*
+
+- **Two rejections in a row, then his own design.** Same pattern as the EOD letter (2026-08-16): when the options miss, he stops choosing and specifies. His spec is the spec; the nouns are load-bearing - hatch, doors, lift, backwards, logo.
+- **He likes machines that REVEAL a control**, from games he plays (Satisfactory, Minecraft), more than flat effects (a scan, specks, a coin flip). A control that hides and comes out reads as "3D" and "tech" to him.
+- **"Plays the animation backwards"** = the exit is the entrance reversed, and the state change happens while the thing is hidden. Built as v18: the face changes only behind the shut doors.
+- A scan line and a coin flip were both rejected as "bad"; do not offer them again for this switch. [[2026-09-29_warehouse-quarantine-and-account-move]]
