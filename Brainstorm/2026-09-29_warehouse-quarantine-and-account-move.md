@@ -1,7 +1,7 @@
 ---
 title: Warehouse quarantine chest, and moving a person to a new Gmail
 created: 2026-09-29
-status: OPEN — waiting on Aldi
+status: PARTLY DECIDED — B (sell to a customer) still open
 tags: [kpm, quarantine, warehouse, stock-opname, fleet-roster, account-lock]
 ---
 
@@ -40,3 +40,12 @@ OPEN — waiting on Aldi: A or B first; yes/no on C. Decided today: no wipe on l
 - A new "transfer account" tool: the Edit email move already does it; build only the missing T2 permission if he wants it.
 
 Models applied: Chesterton's Fence (the email move already exists - find why before building a new one), Second-Order Thinking (a resell exit changes cash, EOD and the count, not only the chest), Opportunity Cost (the crate is cheap; the resell exit delays the enchanting-table build).
+
+## Decided, 2026-09-29 09:00
+
+> *"there should be 4 chest on the fleet and roster then, biohazard chest for agent and warehouse and then wooden chest for agent and warehouse, Tier 1 , tier 2  could also be able to do that. u can put reset button instead of save button"*
+
+- **A, widened: four chests in Fleet & Roster's bay** - the wooden chest for the warehouse and for the agent's van (today's two), plus a biohazard crate for each: the warehouse's `damagedStock` and the van's quarantine. Queued in kpm NEXT-SESSION.md after the tape-band build; pictures first.
+- **C: yes** - built as kpm `c8cdc1c`, rules CHANGE 13 (DRAFT): a T1/T2 moves a person to a new Gmail; never a Tier 1 tag. The committed rules failed 6 of the new emulator cases (the T2 move was refused: UI yes, server no) and showed a CHANGE 12 gap - a T2 could lock a legacy `ADMIN`, which the app reads as Tier 1. Both closed.
+- The reset box's button says RESET (`c8cdc1c`).
+- **B (sell to a customer) still OPEN** - he did not pick it; do not build it unasked.
