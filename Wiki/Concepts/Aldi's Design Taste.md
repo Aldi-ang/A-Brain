@@ -3036,3 +3036,5 @@ On look C of the biohazard box (a tape band under the title with KARANTINA on a 
 
 - **The stripes already say it.** The crate, its sign and its title already name the place; a label on the tape repeats it. Same instinct as "lowkey": a meaning carried by the object's own marks beats a caption.
 - Built as prototype v13 (https://claude.ai/artifact/QA46EfZgkJPd6PH7f2FSjD): the band stays, the word is gone. Whether C is his pick is still to be confirmed. [[2026-09-29_biohazard-box-looks]]
+
+Then, 2026-09-29: *"tape band is the one that i like the most"* (C, no word, is the pick) and *"use Quarantine instead of karantina we will add language switching int he future"* - **new labels are English**; the old Indonesian ones wait for the language switch, never converted unasked.

@@ -54,4 +54,5 @@ sit here indefinitely once it's actually decided.
 - [[2026-09-24_roster-as-a-game-community]] — roster as a game community (State of Decay 2 / FUT / XCOM); OPEN, recommendation A
 - [[2026-09-28_master-vault-password-incident]] — the vault password "wrong" everywhere after two resets; likely the vault box (15 characters) vs the reset box (25); OPEN, his count owed
 - [[2026-09-28_vault-password-per-account]] — one vault password per company (shared by T1+T2) or one per person; A own password + roster reset (recommended) / B owner only / C keep shared; DECIDED A, built kpm 7b85941 + reset/lock 56801d9
-- [[2026-09-29_biohazard-box-looks]] — the quarantine crate's box in three biohazard looks (A tape rim / B inside the crate / C taped label), prototype v12; OPEN
+- [[2026-09-29_biohazard-box-looks]] — the quarantine crate's box in three biohazard looks (A tape rim / B inside the crate / C taped label); DECIDED C, the tape band with no word (v14)
+- [[2026-09-29_warehouse-quarantine-and-account-move]] — a quarantine chest for the regional warehouse in Fleet & Roster, a "sell to a customer" exit, T2 moving a person to a new Gmail (the Edit-email move already exists); no wipe on lock; OPEN

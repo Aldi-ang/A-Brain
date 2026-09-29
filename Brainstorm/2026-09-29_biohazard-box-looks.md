@@ -1,7 +1,7 @@
 ---
 title: Biohazard box looks
 created: 2026-09-29
-status: OPEN — waiting on Aldi
+status: DECIDED — C (tape band, no word)
 tags: [kpm, design, agent-inventory, quarantine, chest]
 ---
 
@@ -24,7 +24,7 @@ All three use only the crate's own object colours (yellow #F2C318, black #141414
 
 ## Decision
 
-OPEN — waiting on Aldi: which look, and both crates or only Agent Inventory's.
+**DECIDED 2026-09-29 — C, the tape band with no word** (his *"tape band is the one that i like the most"*), labels in English (*"use Quarantine instead of karantina we will add language switching int he future"*; prototype v14). "Both crates" became a bigger ask - a quarantine chest for the regional warehouse in Fleet & Roster: [[2026-09-29_warehouse-quarantine-and-account-move]].
 
 ## Rejected on purpose
 
