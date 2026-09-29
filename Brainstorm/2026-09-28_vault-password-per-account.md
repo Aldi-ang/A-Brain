@@ -43,3 +43,13 @@ Models applied: Second-Order Thinking (A turns the owner into the helpdesk for f
 ## Built
 
 **BUILT 2026-09-28 19:45 as kpm `7b85941`** (its commit message is the story). Found while building: a T2 is saved as `COMPANY_OWNER`, and the live rules only ever knew the owner and the old `ADMIN` tag - so the new per-person doc needs the rules draft (kpm `firestore.rules` CHANGE 11) live BEFORE the app push, or every T2 is locked out of the vault. The same shape as [[UI-Says-Yes-Server-Says-No Pattern]]. Emulator: `rules-test/test-vault-keys.mjs` 38/38. Still his: 🔴 CHANGE 11b (the catch-alls leave `vault_keys` out), the deploy, the push, then the EmailJS "To Email" box.
+
+## Reset + lock (his follow-up, 2026-09-28 20:05-20:10)
+
+His words: *"we admin can reset their password but of course this need double confirmation but we cant change their password, we are also should be able to lock their account as tier 1 and 2 just incase their phone is gone or get hacked make sure that the company data is not leaked right"* - *"admin is tier 1 and 2 btw not regional admin"* - *"if possible we should type confirm and press enter button to reset their password would be safe to avoid accidental pressing, lock account basically just make that email unable to login at all"*. Read as YES to CHANGE 11b.
+
+**BUILT 2026-09-29 as kpm `56801d9`** (the commit message is the story). Reset = type "confirm" + Enter, DELETES the person's `vault_keys` doc so they make the new one themselves. Lock = `{ locked, lockedAt, lockedBy }` on `employee_directory/<email>`: the app signs them out live and at sign-in; rules CHANGE 12 makes a locked record no profile at all (the data half). T1/T2 only, never on your own card or the owner's.
+
+Trap pinned by a check (logicFixes): a LOCKED person must not delete their own login record (it erases the lock), but the self-delete keeps `resource == null ||` - without it the ghost killer's delete of a MISSING record throws, and App.jsx's "Live profile sync failed" catch lets the ghost IN. A tightened rule that throws on a missing doc is a hole, not a lock.
+
+Known limit (put to him 2026-09-29 as a 🔴): `firebase.js` keeps a persistent offline copy, so a lost phone kept OFFLINE still shows what it downloaded before the lock; signOut does not wipe it. No server-side lock can reach a phone that never reconnects.
