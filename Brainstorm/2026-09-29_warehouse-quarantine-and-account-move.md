@@ -49,3 +49,23 @@ Models applied: Chesterton's Fence (the email move already exists - find why bef
 - **C: yes** - built as kpm `c8cdc1c`, rules CHANGE 13 (DRAFT): a T1/T2 moves a person to a new Gmail; never a Tier 1 tag. The committed rules failed 6 of the new emulator cases (the T2 move was refused: UI yes, server no) and showed a CHANGE 12 gap - a T2 could lock a legacy `ADMIN`, which the app reads as Tier 1. Both closed.
 - The reset box's button says RESET (`c8cdc1c`).
 - **B (sell to a customer) still OPEN** - he did not pick it; do not build it unasked.
+
+## His design drawn - prototype v15, 2026-09-29 15:32 - OPEN, waiting on Aldi
+
+His design (12:05): *"i think we just make the ender chest have 2 inventory type, one is quarantine inventory and 1 is healthy stock while on the agent side there should be 2 chest with 1 inventory box each instead ... on minecraft ender chest is considered as general chest, chest that can contained everything"*.
+
+Drawn as the section "Fleet & Roster: the quarantine boxes" at the top of https://claude.ai/artifact/QA46EfZgkJPd6PH7f2FSjD (v15), with the bay's own CSS and the sizes measured in the lab (`?shell&fleet`: bay 1019 px at 1440, 365 px at 430).
+
+| Choice in v15 | Why | Cost |
+|---|---|---|
+| Quarantine boxes on the OUTSIDE (top row on the PC, top and bottom on the phone); healthy boxes next to the chests | the loading drag goes healthy box -> van box; this keeps it as short as today | a Quarantine box sits one box further from its chest |
+| Three chests in one row on the phone (ender 118 + wooden 88 + crate 88 in 345 px) | the ender chest is the warehouse's only chest; the van side gets its pair | the van caption needs two lines ("Van" / plate) |
+| The crate opens on load, like the other two | same behaviour for every chest | phone page +163 px (821 -> 984) while all are open |
+| The van box's "Barang rusak" row moves into the crate's box | one place for damaged goods per side | the drop refusal (`refs.dmg`) moves with it |
+| A shut Quarantine box gives its room back on the phone; the PC keeps the row | no dead space on the phone | - |
+
+**Decision:** OPEN - waiting on Aldi's 🔴 "build it like this?".
+
+**Rejected on purpose:** the two warehouse boxes side by side inside the warehouse column on the PC - two boxes of ~220 px each cannot hold the 3-across squares the healthy box uses today.
+
+Models applied: Second-Order Thinking (where the Quarantine box sits changes how far the loading drag travels), Inversion (what would make the page worse on the phone: dead space from a shut box, a caption broken inside the plate - both fixed before publishing).
