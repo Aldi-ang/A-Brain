@@ -69,3 +69,21 @@ Drawn as the section "Fleet & Roster: the quarantine boxes" at the top of https:
 **Rejected on purpose:** the two warehouse boxes side by side inside the warehouse column on the PC - two boxes of ~220 px each cannot hold the 3-across squares the healthy box uses today.
 
 Models applied: Second-Order Thinking (where the Quarantine box sits changes how far the loading drag travels), Inversion (what would make the page worse on the phone: dead space from a shut box, a caption broken inside the plate - both fixed before publishing).
+
+## v15 changed by him - prototype v16, 2026-09-29 15:58 - OPEN, waiting on Aldi
+
+His 15:40 changes (verbatim in `Wiki/Concepts/Aldi's Design Taste.md`, "Stacked boxes lose to one box you switch"): the van's wooden chest and crate take turns; the ender chest keeps ONE box, switched between healthy and Quarantine by an animated arcade button (his clip) with a toxic effect one way and its own healthy effect the other; and *"maybe we need better button placement instead of up there maybe do u have suggestion where i should put it?"*.
+
+| Spot for the two buttons | What he gets | Cost (measured at 430) |
+|---|---|---|
+| A. In the title, by the warehouse name (his red box) | the switch next to the name that says which box it is | the count drops to a second line: the box is 40 px taller on the phone, and on the PC too in the Quarantine view |
+| **B. At the end of the search row (recommended)** | the buttons fit the row's height; nothing else moves | the search box gets shorter (313 -> 219 px on the phone) |
+| C. In the pages row, bottom right | near the thumb on the phone | far from the name; in the Quarantine view the note had to shrink to "fix in Stock Opname" to stay on one line |
+
+**Decision:** OPEN - waiting on his spot and his yes.
+
+**Also chosen by me, told to him (not asked):** a box dragged back to the warehouse always lands in the healthy stock - if Quarantine is showing, the box switches back to healthy first, with its intro; the ender chest opens on healthy; the crate stays shut on load.
+
+**Rejected on purpose:** v15's stacked layout (his call); a single toggle button that flips its face - a pair shows which box is on show at a glance (the pressed one), which a one-button flip cannot; Minecraft-style tabs on the box's top edge - not the arcade button he asked for.
+
+Models applied: Second-Order Thinking (a switch hides the healthy stock, so a return drop needs a rule), Inversion (a switch must never change the box's height, or the chests jump under the finger - so both views carry a band).

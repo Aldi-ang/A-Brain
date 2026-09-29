@@ -3044,3 +3044,16 @@ Then, 2026-09-29: *"tape band is the one that i like the most"* (C, no word, is 
 > *"on minecraft ender chest is considered as general chest, chest that can contained everything so we use that terminology and logic instead"*
 
 - **The game's own meaning decides where a thing goes.** The ender chest holds everything, so the warehouse's damaged stock lives INSIDE it (a second inventory box), while the van keeps two separate chests. He reasons from Minecraft's rules, not from symmetry - a design that is logical in the game wins over one that only looks even. "Inventory box" is his word for the grey panel a chest opens. [[2026-09-29_fleet-roster-quarantine-chests]]
+
+## Stacked boxes lose to one box you switch; a switch he can feel (2026-09-29, 15:40)
+
+On prototype v15 (the ender chest opening two stacked boxes, the van's wooden chest and crate each opening its own box, all at once), with a crop of the warehouse title and a 2.6 s clip of a 3D arcade button:
+
+> *"dont make the inventory stacked on top of another for the wooden and quarantine chest, instead open them is one at time, so opening quarantine chest will close the wooden chest and vice versa"*
+
+> *"i rather ask u to make some small section button just beside the warehouse name to switch between quarantine or healthy inventory so 1 switch able inventory panel only, make sure that the button is animated like this button on the video that i gave u and make sure that the button have quarantine logo and toxic effect when press to change into quarantine panel and there should be intro for the panel, this is also work the other way around, pressing back to the healthy goods should also be animated and healthy goods panel should have their own animation and effect how about that?, but maybe we need better button placement instead of up there maybe do u have suggestion where i should put it?"*
+
+- **Stacking reads as clutter to him; taking turns reads as a game.** Same answer he gave Agent Inventory on 2026-09-28 ("open them one by one"): two boxes of the same kind never share the screen, one closes when the other opens.
+- **A switch must be a physical thing.** He did not ask for a toggle or tabs; he sent an arcade button and wants it to sink and spring back. Each side of the switch gets its own logo AND its own effect - the quarantine one toxic, the healthy one its own - so both directions are designed, not only the dramatic one.
+- **He places a control, then asks to be told a better place.** His red box was a first guess, offered for correction. Answer with the spots drawn side by side, his own included, measured.
+- His clip, read with ffmpeg: the cap sits flush while held (~270 ms), pops up with a small overshoot on release, then settles. Built as prototype v16. [[2026-09-29_warehouse-quarantine-and-account-move]]
