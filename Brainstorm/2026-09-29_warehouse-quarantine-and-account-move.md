@@ -113,3 +113,14 @@ Models applied: Inversion (what makes a transition feel cheap: a snap, unsynced 
 His 16:25: the scan and the coin flip are both "bad"; research more, other themes, a better button. Then his own idea (Satisfactory hatch: doors open, a 3D button lifts; a press plays it backwards and changes the logo). v18 = his hatch button on four boxes: 1 blast doors, 2 turn it over, 3 roller shutter, 4 wave of squares (research: Aceternity Background Ripple + Text Flipping Board for the wave; the warehouse shutter and blast doors from his RE9 lab theme). Rejected on purpose: my four buttons for this round (a dial, a Minecraft lever, a slide switch, an arcade button with a rolling face) - dropped before he saw them, because his own button came in first. **Decision:** OPEN - which box change, and his yes on the button.
 
 **DECIDED 2026-09-29 18:35:** v21 approved ("i love the button now ... u can continue the work"). Box change: he did not pick one - building 1 (blast doors, the default he saw). The build is kpm NEXT-SESSION.md.
+
+## The chest on Stock Opname and the regional warehouse too - 2026-09-29 19:25 - OPEN
+
+His words: *"btw this quarantine chest should also be available on the stock opname dont u think and regional warehouse"*.
+
+| Screen | Today | Fit | Cost |
+|---|---|---|---|
+| Regional warehouse (BranchWarehouseManager.jsx) | the branch stock; damagedStock read in 2 places, no quarantine view | good - the same healthy/quarantine switch on that branch's box | small once the box + hatch are a shared piece |
+| Stock Opname (StockOpnameView.jsx) | a full quarantine area: facility filter, quarantine_logs history, PENDING_HQ_APPROVAL (send to HQ) | the chest as the way in only | the resolve actions and the log must stay; a 4-square box cannot carry them |
+
+**Recommended:** build the box + hatch as ONE shared piece in the Fleet & Roster build, then the regional warehouse, then Stock Opname - pictures first for both. **Decision:** OPEN - his yes on the order. Models applied: Second-Order Thinking (Stock Opname is where damaged stock is resolved - a look-only chest there would hide the work).
