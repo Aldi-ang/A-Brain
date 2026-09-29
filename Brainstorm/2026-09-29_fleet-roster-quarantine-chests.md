@@ -42,3 +42,5 @@ Models applied: Chesterton's Fence (the ender chest already means "the warehouse
 - **Agent / van side = two chests, one inventory box each**: the wooden chest (healthy van stock) and the tape-band quarantine crate - the same pair Agent Inventory already has.
 - "Inventory box" = the grey panel that opens from a chest: title + count, search, the slots, the pages (his screenshot of "Gudang PUSAT").
 - Next: one prototype frame of THIS layout (PC 1440 + phone 430) for his OK, then build.
+
+**2026-09-29 v15 -> v16:** his design drawn (v15, stacked boxes), then changed by him to one switchable warehouse box + van chests that take turns (v16, three button spots). Options, costs and what was rejected: [[2026-09-29_warehouse-quarantine-and-account-move]] (the two sections at its end).
