@@ -3038,3 +3038,9 @@ On look C of the biohazard box (a tape band under the title with KARANTINA on a 
 - Built as prototype v13 (https://claude.ai/artifact/QA46EfZgkJPd6PH7f2FSjD): the band stays, the word is gone. Whether C is his pick is still to be confirmed. [[2026-09-29_biohazard-box-looks]]
 
 Then, 2026-09-29: *"tape band is the one that i like the most"* (C, no word, is the pick) and *"use Quarantine instead of karantina we will add language switching int he future"* - **new labels are English**; the old Indonesian ones wait for the language switch, never converted unasked.
+
+## The ender chest is the general chest (2026-09-29)
+
+> *"on minecraft ender chest is considered as general chest, chest that can contained everything so we use that terminology and logic instead"*
+
+- **The game's own meaning decides where a thing goes.** The ender chest holds everything, so the warehouse's damaged stock lives INSIDE it (a second inventory box), while the van keeps two separate chests. He reasons from Minecraft's rules, not from symmetry - a design that is logical in the game wins over one that only looks even. "Inventory box" is his word for the grey panel a chest opens. [[2026-09-29_fleet-roster-quarantine-chests]]

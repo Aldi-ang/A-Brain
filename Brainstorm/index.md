@@ -57,4 +57,4 @@ sit here indefinitely once it's actually decided.
 - [[2026-09-29_biohazard-box-looks]] — the quarantine crate's box in three biohazard looks (A tape rim / B inside the crate / C taped label); DECIDED C, the tape band with no word (v14)
 - [[2026-09-29_warehouse-quarantine-and-account-move]] — a quarantine chest for the regional warehouse in Fleet & Roster, a "sell to a customer" exit, T2 moving a person to a new Gmail (the Edit-email move already exists); no wipe on lock; OPEN
 - [[2026-09-29_live-rules-review]] — his live Firestore rules == the repo baseline; our draft loses nothing; 3 live gaps (directory listable, self-approvals, T2 blocked); OPEN
-- [[2026-09-29_fleet-roster-quarantine-chests]] — Fleet & Roster quarantine chests beside the ender chest: A ender→quarantine / B two boxes per chest / C four loose / D pairs (recommended); OPEN, pictures owed
+- [[2026-09-29_fleet-roster-quarantine-chests]] — Fleet & Roster quarantine chests beside the ender chest: A ender→quarantine / B two boxes per chest / C four loose / DECIDED 12:05: the ender chest holds two boxes, the van two chests

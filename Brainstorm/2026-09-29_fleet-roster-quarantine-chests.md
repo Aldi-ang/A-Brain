@@ -1,7 +1,7 @@
 ---
 title: Fleet & Roster quarantine chests - how to fit them beside the ender chest
 created: 2026-09-29
-status: OPEN — pictures owed, then his pick
+status: DECIDED 2026-09-29 12:05 — the ender chest holds two boxes; the van side two chests
 tags: [kpm, design, fleet-roster, loading-bay, quarantine, chest]
 ---
 
@@ -33,3 +33,12 @@ OPEN - pictures first (his rule): draw B, C and D on the prototype (PC 1440 + ph
 - A tab or switch inside one box between good and damaged - he turned that down on 2026-09-27 ("erase those panel to switch between saleable and quarantine").
 
 Models applied: Chesterton's Fence (the ender chest already means "the warehouse gives" - re-meaning it costs more than it looks), Second-Order Thinking (a two-box panel doubles the height on the phone).
+
+## DECIDED 2026-09-29 12:05 (his own design - neither B nor D as drawn up)
+
+> *"i think we just make the ender chest have 2 inventory type, one is quarantine inventory and 1 is healthy stock while on the agent side there should be 2 chest with 1 inventory box each instead, btw what i called inventory box is this screenshot, on minecraft ender chest is considered as general chest, chest that can contained everything so we use that terminology and logic instead"*
+
+- **Warehouse = the ENDER chest, two inventory boxes**: the healthy stock box (today's "Gudang ..." box) and a quarantine box (that warehouse's `damagedStock`). In Minecraft the ender chest is the general chest that holds everything - so it holds both.
+- **Agent / van side = two chests, one inventory box each**: the wooden chest (healthy van stock) and the tape-band quarantine crate - the same pair Agent Inventory already has.
+- "Inventory box" = the grey panel that opens from a chest: title + count, search, the slots, the pages (his screenshot of "Gudang PUSAT").
+- Next: one prototype frame of THIS layout (PC 1440 + phone 430) for his OK, then build.
