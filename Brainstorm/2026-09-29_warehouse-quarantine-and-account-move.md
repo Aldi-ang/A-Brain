@@ -124,3 +124,5 @@ His words: *"btw this quarantine chest should also be available on the stock opn
 | Stock Opname (StockOpnameView.jsx) | a full quarantine area: facility filter, quarantine_logs history, PENDING_HQ_APPROVAL (send to HQ) | the chest as the way in only | the resolve actions and the log must stay; a 4-square box cannot carry them |
 
 **Recommended:** build the box + hatch as ONE shared piece in the Fleet & Roster build, then the regional warehouse, then Stock Opname - pictures first for both. **Decision:** OPEN - his yes on the order. Models applied: Second-Order Thinking (Stock Opname is where damaged stock is resolved - a look-only chest there would hide the work).
+
+**DECIDED 2026-09-29 19:30:** *"yes good order"* - Fleet & Roster (the shared box + hatch) -> the regional warehouse -> Stock Opname, pictures first for the last two.
