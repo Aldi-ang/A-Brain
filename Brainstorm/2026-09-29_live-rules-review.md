@@ -1,7 +1,7 @@
 ---
 title: Live Firestore rules review (before publishing CHANGE 11-13)
 created: 2026-09-29
-status: OPEN — waiting on Aldi
+status: DECIDED + BUILT (kpm 788692f) — his publish owed
 tags: [kpm, firestore-rules, security, review]
 ---
 
@@ -57,3 +57,9 @@ Full pass over every rule of the draft (not only a-c). The fix list put to him, 
 | 8 | `products` update by T3/T4 - any field incl. prices; the fleet flow writes only `stock`/`name`/`productId` (+ `damagedStock` at EOD) | T3/T4 limited to those fields | none |
 
 Parked, no fix (design): fake `transactions` by any employee; an agent edits their own van stock (the sale engine needs it; EOD catches it); audit-log and notification spam.
+
+## Built, 2026-09-29 10:40 - kpm `788692f` (CHANGE 14)
+
+His *"okay continue"* to all eight. `rules-test/test-rules-holes.mjs` 46/46; the same test on the previous draft fails 18 cases (every hole real). One near-miss worth keeping: my first fixture had a T2 "overwrite a person's vault password" on the T2's OWN doc - allowed by design (only the person changes their password) - and it read as a hole until the fixture was pointed at a colleague. A red case is evidence only after the fixture is checked to be the case it claims.
+
+Publish order: he publishes → push right after (T2s on the old app lose the vault in between, #4) → EmailJS To Email → re-save his recovery word (old fast form) → baseline copy.
