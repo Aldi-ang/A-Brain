@@ -79,3 +79,23 @@ Rejected on purpose now: full-face hazard stripes on the doors ("too norak").
 - Stock Opname: switching crates, the box shrinks into the old crate and grows out of the new one.
 - "everything else looks fine" = v23's lowered book, box A on these screens, regional B + chest, Opname B are approved.
 - Still OPEN: box A on the two boxes already built.
+
+## 2026-09-30 10:10 — the healthy blast door (prototype v26)
+
+**Problem, his words (09:25, after the island was approved with "the rest is great"):** *"make the blast door for healthy goods special, design it so that it look kinda realistic and more beautiful"*. The healthy door is the one that shuts when the box goes BACK from the Quarantine; it was plain dark steel with a 4 px seam.
+
+**Options (drawn on v26, keys "Healthy 1 / 2 / 3"; a key holds that door shut so it can be looked at):**
+
+| # | Look | What makes it real | Cost |
+|---|---|---|---|
+| 1 | Ender vault | dark ender steel, brushed; two reinforcement bands with bolts; interlocking teeth at the seam; the lock = the ender eye in a chrome ring (same eye as the button) | busiest of the three; the eye is a second ender eye on screen next to the button's |
+| 2 | Vault wheel | polished brushed steel, two panel grooves, bolts; teeth; a bank-vault wheel that turns a quarter as the doors lock | the only light door on a grey box - less contrast; a rotation (Lite Mode stops it) |
+| 3 | Quiet ender | plain ender steel, a seam of ender specks, a small ender eye; no teeth | may read as "not special enough" - his ask was special |
+
+Shared build facts: the lock rides on the LEFT door now (its teeth overlap the right door), so the left door rests `translateX(calc(-101% - 30px))` like the right; the right door's edge is the teeth's mirror (clip-path sockets) with a 2 px dark edge, so apart the doors show real interlocking edges. No shadow, no glow.
+
+**Decision:** OPEN - waiting on Aldi. My pick 1 (it ties the healthy side to the ender chest and the button's eye).
+
+**Models applied:** Inversion (what makes a door look FAKE: flat colour, a straight seam, nothing that locks - each look fixes all three except 3's seam).
+
+**Rejected on purpose:** four thin spokes on the wheel (first draw read as a gun sight, redrawn as a 3-spoke wheel before he saw it); a black recess under the teeth (while the doors moved it looked like black teeth on the right door).
