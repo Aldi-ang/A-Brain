@@ -27,7 +27,25 @@ tags: [kpm, performance, phone, animation]
 
 **Ruled out on purpose (measured):** the whole app re-renders once a second (the shell clock) - stopping it saved 1 point; Firebase idle timers - under 1 a second once synced (55/s is only the first sync after unlock); tab switch times 0.3-0.5 s except Map/Journey ~1.2 s and Reports ~1 s (their map/report code loads on first open). Not measurable honestly in headless: the GPU cost of backdrop blur (Map x3, Agent Profile x4) and blended map tiles - software GL there.
 
-**Decision:** OPEN - his pick owed. My order: 1 (every screen, all the time), 2, 3, 4, 5, 6; 7 and 8 later.
+**Decision:** his 2026-10-01 00:05 *"sure just do it your order"* -> 1-6.
+
+**BUILT 2026-10-01 (local, not pushed), each proved same-look and measured:**
+
+| # | Commit | Same look, proved by | Idle CPU (quick run, 6x-slow) |
+|---|---|---|---|
+| 1 | `6b2747a` mascot sheet on a ::before strip moved by transform | every frame of both sheets byte-identical (plain box); corner box worst pixel 1/255 | Command Center 18 -> 3, Fleet 22 -> 2, Sales 19 -> 2 |
+| 2 | `5937e67` sign = still black + green copy fading by opacity (SIGN_PULSE) | 12 moments, worst pixel 0 | Agent Inventory 97 -> 27 |
+| 3 | `8b6e87a` card spin = CSS layer INSIDE the drag rotation | rotation matrices equal (inside) / unequal (outside, the wobble) | Master Vault 85 -> 5 (re-renders 125/s -> 1.5/s) |
+| 4 | `91817a5` dot loop sleeps at rest, wakes on touch/unlock | touch walk: rest 0 loop calls; finger lights the same 4,596 px; lift = dark + asleep; wave draws | gate 23 -> 2 |
+| 5 | `385736b` notice edge on a WRAPPER ::before, opacity 1 -> .35 | 12 moments, worst pixel 1/255, edge breathing in both | Restock 45 -> 4 |
+| 6 | SKIPPED on purpose | re-measured after 1-5: Stock Opname 7% -> 5% with the badges paused - 2 points is not worth code | - |
+
+**Full 17-screen run after (same method as before, CSS-coverage recording on):** sign-in 34 -> 4, gate 25 -> 3, Command Center 18 -> 4, Fleet 22 -> 4, Agent Inventory 94 -> 33 (scroll janky frames 25 -> 3, worst 376 -> 255 ms), Sales 19 -> 3, Map 26 -> 7, Journey 21 -> 5, Master Vault 92 -> 8, Stock Opname 39 -> 8, Receivables/Customers/Sampling/Reports/Audit/Settings ~19 -> 3-4. Cold first open unchanged (3.45 s; not in scope).
+
+**NEW, OPEN - his yes owed before any code:**
+- **The coin spin** (`kpmCoinSpinLg`, background-position sheet, theme.css ~737) is now Agent Inventory's biggest cost: 30% -> 9% paused. Same technique as #1.
+- **Restock Vault keeps working at rest** - 37 DOM changes/s on `div.grid.gap-x-4` and 26/s on its inputs, IndexedDB reads, 2.5 renders/s - identical in the before and after runs, so it is not an animation. Full run 35%, quick runs 4-5% (3 times). Cause not traced yet.
+- **EOD Setoran and Agent Profile stay ~22%** with no fix aimed at them; main frames keep coming (68-92/s headless) from something not yet named.
 
 **Models applied:** Theory of Constraints (switch-off tests find the real bottleneck instead of guessing - the once-a-second app re-render looked guilty and was worth 1 point); Inversion (what would make a fast app heavy at rest: things animating nobody can see); Chesterton's Fence on #4 (the dot loop exists for the unlock wave and the finger light - sleeping it must keep both).
 

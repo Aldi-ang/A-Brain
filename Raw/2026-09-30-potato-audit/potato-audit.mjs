@@ -226,15 +226,52 @@ const ablate = async (screen, steps) => {
   }
   await js(RESUME);
 };
-if (ABLATE) await ablate('vault gate', [['as is', ''], ['dot field loop off', `__potato.block = ':78:'; 1`]]);
+if (ABLATE) await ablate('vault gate', process.env.QUICK ? [['as is', '']] : [['as is', ''], ['dot field loop off', `__potato.block = ':78:'; 1`]]);
+/* GATETEST=1: the dot field on the gate - at rest, under a finger, after the finger lifts, and in the unlock wave */
+if (process.env.GATETEST) {
+  const lit = `(() => { const c = [...document.querySelectorAll('canvas')].find(x => x.width > 300); if (!c) return -1; const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data; let s = 0; for (let i = 3; i < d.length; i += 4) s += d[i] > 0 ? 1 : 0; return s; })()`;
+  const loops = async () => { await js(`(() => { __potato.raf = {}; __potato.on = true; return 1; })()`); await sleep(1000);
+    return js(`(() => { __potato.on = false; return Object.entries(__potato.raf).filter(([k]) => k.includes(':78:') || k.includes('VaultGate')).reduce((s, [, v]) => s + v, 0); })()`); };
+  const g = {};
+  g.rest = { loopCallsPerSec: await loops(), litPixels: await js(lit) };
+  await send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: 24, y: 770 }] }); await sleep(400);
+  g.fingerDown = { loopCallsPerSec: await loops(), litPixels: await js(lit) };
+  await send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] }); await sleep(400);
+  g.fingerUp = { loopCallsPerSec: await loops(), litPixels: await js(lit) };
+  await js(`(() => { const i = document.querySelector('input[placeholder="MASTER PASSWORD"]'); const set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set; set.call(i, 'Emulator-1!'); i.dispatchEvent(new Event('input', { bubbles: true })); [...document.querySelectorAll('button[type="submit"]')].find(b => /vault/i.test(b.textContent)).click(); return 1; })()`);
+  await sleep(2500);
+  g.unlockWave = { loopCallsPerSec: await loops(), litPixels: await js(lit) };
+  console.log('gate', JSON.stringify(g)); chrome.kill(); process.exit(0);
+}
 out.unlockTypingMsPerLetter = await js(`(() => { const i = document.querySelector('input[placeholder="MASTER PASSWORD"]'); if (!i) return -1; const set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set; const w = 'Emulator-1!'; let t = 0; for (let k = 1; k <= w.length; k++) { const a = performance.now(); set.call(i, w.slice(0, k)); i.dispatchEvent(new Event('input', { bubbles: true })); t += performance.now() - a; } return +(t / w.length).toFixed(1); })()`);
 await js(`[...document.querySelectorAll('button[type="submit"]')].find(b => /vault/i.test(b.textContent)).click(); 1`);
 { const u = await trace(() => sleep(10000)); out.unlockSequence = { ...u, ...at60(u, 10) }; }
 await sleep(2000);
 
 /* ── 3. every screen: tap -> settle, idle, what runs, a touch scroll ──────────────────────────────────────────── */
+/* FRAMES=<tag>: every frame of the visible mascot sprite, paused at the middle of each step, saved as frames-<tag>/NN.png
+   - two builds' folders compared byte for byte prove a same-look change */
+if (process.env.FRAMES) {
+  const dir = path.join(HERE, 'frames-' + process.env.FRAMES); fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir);
+  await send('Emulation.setCPUThrottlingRate', { rate: 1 });
+  const info = await js(`(() => { const el = [...document.querySelectorAll('.kpm-merch-talk, .kpm-merch-idle')].find(e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.top < innerHeight && r.bottom > 0; });
+    if (!el) return null; el.id = 'potato-merch'; return { talk: el.classList.contains('kpm-merch-talk') }; })()`);
+  out.frames = info;
+  if (info) {
+    const n = info.talk ? 13 : 10, dur = info.talk ? 2400 : 3000;
+    for (let k = 0; k < n; k++) {
+      const clip = await js(`(() => { const el = document.getElementById('potato-merch');
+        document.getAnimations().filter(a => a.effect?.target === el && /kpmMerch(Idle|Talk)/.test(a.animationName)).forEach(a => { a.pause(); a.currentTime = ${(k + 0.5) * dur / n}; });
+        const r = el.getBoundingClientRect(); return { x: r.left, y: r.top, width: r.width, height: r.height, scale: 1 }; })()`);
+      await sleep(150);
+      const shot = await send('Page.captureScreenshot', { format: 'png', clip });
+      fs.writeFileSync(path.join(dir, String(k).padStart(2, '0') + '.png'), Buffer.from(shot.result.data, 'base64'));
+    }
+  }
+  console.log('frames', JSON.stringify(info)); chrome.kill(); process.exit(0);
+}
 if (ABLATE) {
-  const ALL = `document.getAnimations().forEach(a => a.pause()); 1`, CLOCK = `__potato.blockT = ':112:4630'; 1`;
+  const ALL =`document.getAnimations().forEach(a => a.pause()); 1`, CLOCK = `__potato.blockT = ':112:4630'; 1`;
   const PLAN = [
     ['Command Center', [['as is', ''], ['mascot sprite paused', PAUSE('/kpmMerch/')], ['clock stopped', CLOCK], ['every CSS animation paused', ALL], ['all paused + clock stopped', ALL + ';' + CLOCK]]],
     ['Agent Inventory', [['as is', ''], ['coin spin paused', PAUSE('/kpmCoinSpin/')], ['sign pulse paused', PAUSE('/kpmSignPulse/')], ['specks paused', PAUSE('/kpmSpeck/')],
@@ -243,7 +280,9 @@ if (ABLATE) {
     ['Restock Vault', [['as is', ''], ['notice breathe paused', PAUSE('/kpmNoticeBreathe/')], ['every CSS animation paused', ALL]]],
     ['Stock Opname', [['as is', ''], ['pulse paused', PAUSE('/pulse/')], ['every CSS animation paused', ALL]]],
   ];
-  for (const [tab, steps] of PLAN) { await tapTab(tab); await sleep(1500); await ablate(tab, steps); }
+  /* QUICK=1: only "as is" on each screen (before/after a fix), plus two mascot-only screens */
+  const plan = process.env.QUICK ? [...PLAN.map(([t, s]) => [t, s.slice(0, 1)]), ['Fleet & Canvas', [['as is', '']]], ['Sales Terminal', [['as is', '']]]] : PLAN;
+  for (const [tab, steps] of plan) { await tapTab(tab); await sleep(1500); await ablate(tab, steps); }
   fs.writeFileSync(path.join(HERE, 'potato-ablate.json'), JSON.stringify(out.ablate, null, 1));
   console.log('written ablate'); chrome.kill(); process.exit(0);
 }

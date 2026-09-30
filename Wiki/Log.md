@@ -1440,3 +1440,7 @@ Each measured before and after; results table and the open 5c (tutorial-book spl
 ## 2026-09-30 21:30 — potato-phone audit, measured (no code)
 
 17 screens on a 6x-slow simulated phone, full animations, plus switch-off tests per animation/loop; 8 ranked same-look fixes in [[2026-09-30_potato-phone-audit]]; the tool in Raw/2026-09-30-potato-audit.
+
+## 2026-10-01 00:50 — potato fixes 1-5 BUILT (kpm `6b2747a` `5937e67` `8b6e87a` `91817a5` `385736b`)
+
+Each proved same-look (byte\/pixel compares, matrix maths, a touch walk) and measured; 6 skipped after re-measuring; three new open items. [[2026-09-30_potato-phone-audit]].

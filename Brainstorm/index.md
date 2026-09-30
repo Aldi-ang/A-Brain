@@ -61,4 +61,4 @@ sit here indefinitely once it's actually decided.
 - [[2026-09-29_fleet-roster-quarantine-chests]] — Fleet & Roster quarantine chests beside the ender chest: A ender→quarantine / B two boxes per chest / C four loose / DECIDED 12:05: the ender chest holds two boxes, the van two chests
 - [[2026-09-30_customer-showcase]] - a 3D, animated showcase of KPM for customers: A web page / B video / C in-app demo; OPEN, my pick A
 - [[2026-09-30_app-feels-heavy]] - the app feels heavy on the phone: 5 findings; BUILT 2026-09-30 18:25 (5 commits, local), 5c tutorial-book split open
-- [[2026-09-30_potato-phone-audit]] - what makes KPM heavy on a cheap phone in full animation mode: 17 screens measured at 6x-slow CPU + switch-off tests; 8 ranked fixes, all same-look; OPEN, his pick owed
+- [[2026-09-30_potato-phone-audit]] - cheap-phone audit in full animation mode; fixes 1-5 BUILT 2026-10-01 (local), 6 skipped (measured 2 pts); OPEN: coin spin, Restock rest churn, EOD/Agent Profile 22%
