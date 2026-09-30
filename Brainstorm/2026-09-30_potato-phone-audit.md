@@ -43,7 +43,7 @@ tags: [kpm, performance, phone, animation]
 **Full 17-screen run after (same method as before, CSS-coverage recording on):** sign-in 34 -> 4, gate 25 -> 3, Command Center 18 -> 4, Fleet 22 -> 4, Agent Inventory 94 -> 33 (scroll janky frames 25 -> 3, worst 376 -> 255 ms), Sales 19 -> 3, Map 26 -> 7, Journey 21 -> 5, Master Vault 92 -> 8, Stock Opname 39 -> 8, Receivables/Customers/Sampling/Reports/Audit/Settings ~19 -> 3-4. Cold first open unchanged (3.45 s; not in scope).
 
 **NEW, OPEN - his yes owed before any code:**
-- **The coin spin** (`kpmCoinSpinLg`, background-position sheet, theme.css ~737) is now Agent Inventory's biggest cost: 30% -> 9% paused. Same technique as #1.
+- ~~The coin spin~~ **BUILT `72101d1`** on his *"sure fix the coin too"*: Agent Inventory 30% -> 15%. Pixels: small coin identical; large coin identical but for a half-pixel sliver of the neighbouring frame that moved from the right edge to the left. TRAP met: right after a FRESH emulator start every screen read 80-86% (Firestore IndexedDB first sync, ~1,600 reads in 4 s) - re-run on the warm database before trusting any number.
 - **Restock Vault keeps working at rest** - 37 DOM changes/s on `div.grid.gap-x-4` and 26/s on its inputs, IndexedDB reads, 2.5 renders/s - identical in the before and after runs, so it is not an animation. Full run 35%, quick runs 4-5% (3 times). Cause not traced yet.
 - **EOD Setoran and Agent Profile stay ~22%** with no fix aimed at them; main frames keep coming (68-92/s headless) from something not yet named.
 

@@ -1444,3 +1444,7 @@ Each measured before and after; results table and the open 5c (tutorial-book spl
 ## 2026-10-01 00:50 — potato fixes 1-5 BUILT (kpm `6b2747a` `5937e67` `8b6e87a` `91817a5` `385736b`)
 
 Each proved same-look (byte\/pixel compares, matrix maths, a touch walk) and measured; 6 skipped after re-measuring; three new open items. [[2026-09-30_potato-phone-audit]].
+
+## 2026-10-01 01:20 — the coin spin BUILT (kpm 72101d1)
+
+Agent Inventory 30% -> 15%; [[2026-09-30_potato-phone-audit]]. A fresh emulator reads 80% everywhere for its first sync - measure warm.
