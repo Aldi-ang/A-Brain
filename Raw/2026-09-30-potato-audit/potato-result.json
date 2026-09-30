@@ -1,0 +1,1823 @@
+{
+ "rate": 6,
+ "viewport": "390x844@2 touch",
+ "when": "",
+ "load": {
+  "cold_slow4g": {
+   "screenReadyMs": 3452,
+   "fcpMs": 3448,
+   "jsKB": 333,
+   "cssKB": 63,
+   "files": 10,
+   "longTasks": 3,
+   "longestTaskMs": 332,
+   "scriptMs": 878,
+   "taskMs": 2336
+  },
+  "warm_slow4g": {
+   "screenReadyMs": 683,
+   "fcpMs": 680,
+   "jsKB": 1,
+   "cssKB": 0,
+   "files": 9,
+   "longTasks": 1,
+   "longestTaskMs": 103,
+   "scriptMs": 247,
+   "taskMs": 1356
+  }
+ },
+ "screens": [
+  {
+   "label": "sign-in screen",
+   "busyPct": 155,
+   "scriptMs": 1183,
+   "styleRecalcs": 1310,
+   "layouts": 0,
+   "reactCommitsPerSec": 2,
+   "rafPerSec": [
+    "index-8RiJaBKh.js:78:19686 x327.3"
+   ],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x2"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x2.3",
+    "button.kpm-chip.kpm-clock x2"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "3600000ms@index-8RiJaBKh.js:232:39170",
+    "800ms@firebase-CJqMpJsG.js:31:63061"
+   ],
+   "trace": {
+    "mainTaskMs": 3158,
+    "frames": 650,
+    "frameMs": 2874,
+    "paints": 0,
+    "paintMs": 0,
+    "styleMs": 394,
+    "layoutMs": 0,
+    "rafFired": 650,
+    "timersFired": 9,
+    "rasterMs": 0,
+    "gpuMs": 2795,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 2874ms x650",
+     "FireAnimationFrame 812ms x650",
+     "FunctionCall 684ms x684",
+     "Commit 595ms x651",
+     "UpdateLayoutTree 394ms x651",
+     "LayerTreeHost::DoUpdateLayers 320ms x651"
+    ]
+   },
+   "framesPerSecHeadless": 163,
+   "msPerFrame": 4.42,
+   "idleCpuPctAt60": 34,
+   "who": [
+    "1x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 164,
+    "running": 1,
+    "runningOnScreen": 1,
+    "notComposited": [],
+    "composited": [
+     "pulse @ div.h-1.5.w-1.5 x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [],
+     "blend": [],
+     "bigShadow": 0,
+     "willChange": 0,
+     "fixed": 0
+    },
+    "canvases": [
+     "canvas.absolute.inset-0 780x1688"
+    ],
+    "coarse": true,
+    "lite": false
+   }
+  },
+  {
+   "label": "vault gate (dot field)",
+   "busyPct": 103,
+   "scriptMs": 802,
+   "styleRecalcs": 1132,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.8,
+   "rafPerSec": [
+    "index-8RiJaBKh.js:78:19686 x282.8"
+   ],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.8",
+    "firebase-CJqMpJsG.js:18:5642 x0.8"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x2",
+    "button.kpm-chip.kpm-clock x1.8"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 2412,
+    "frames": 660,
+    "frameMs": 2198,
+    "paints": 0,
+    "paintMs": 0,
+    "styleMs": 315,
+    "layoutMs": 0,
+    "rafFired": 660,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 2082,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 2198ms x660",
+     "FireAnimationFrame 608ms x660",
+     "FunctionCall 513ms x701",
+     "Commit 454ms x660",
+     "UpdateLayoutTree 315ms x660",
+     "LayerTreeHost::DoUpdateLayers 246ms x660"
+    ]
+   },
+   "framesPerSecHeadless": 165,
+   "msPerFrame": 3.33,
+   "idleCpuPctAt60": 25,
+   "who": [
+    "1x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 190,
+    "running": 1,
+    "runningOnScreen": 1,
+    "notComposited": [],
+    "composited": [
+     "pulse @ div.absolute.inset-0 x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "div.absolute.inset-0 blur(64px)"
+     ],
+     "blend": [],
+     "bigShadow": 2,
+     "willChange": 0,
+     "fixed": 0
+    },
+    "canvases": [
+     "canvas.absolute.inset-0 780x1688"
+    ],
+    "coarse": true,
+    "lite": false
+   }
+  },
+  {
+   "settleMs": 0,
+   "label": "Command Center",
+   "busyPct": 73,
+   "scriptMs": 29,
+   "styleRecalcs": 997,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.3"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.8",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 1866,
+    "frames": 661,
+    "frameMs": 1780,
+    "paints": 44,
+    "paintMs": 16,
+    "styleMs": 520,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 1547,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 1780ms x661",
+     "UpdateLayoutTree 520ms x663",
+     "Commit 249ms x662",
+     "PrePaint 206ms x663",
+     "AnimationHost::TickAnimations 80ms x663",
+     "LocalFrameView::ScheduleAnimation 79ms x665"
+    ]
+   },
+   "framesPerSecHeadless": 165,
+   "msPerFrame": 2.69,
+   "idleCpuPctAt60": 18,
+   "who": [
+    "2x/2s tree 735: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 734: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 580,
+    "running": 2,
+    "runningOnScreen": 2,
+    "notComposited": [
+     "kpmMerchTalk @ div.kpm-merch.kpm-merch-talk [backgroundPositionX,backgroundPositionY] x1 inf onscreen 1"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 1,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2556,
+    "jankyFrames": 3,
+    "worstFrameMs": 170
+   }
+  },
+  {
+   "settleMs": 413,
+   "label": "Fleet & Canvas",
+   "busyPct": 84,
+   "scriptMs": 64,
+   "styleRecalcs": 1005,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.8,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.8",
+    "firebase-CJqMpJsG.js:18:5642 x0.8",
+    "index-8RiJaBKh.js:14:6598 x0.5"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x2",
+    "button.kpm-chip.kpm-clock x1.8"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 2118,
+    "frames": 650,
+    "frameMs": 1969,
+    "paints": 42,
+    "paintMs": 20,
+    "styleMs": 550,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 13,
+    "rasterMs": 0,
+    "gpuMs": 1798,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 1969ms x650",
+     "UpdateLayoutTree 550ms x651",
+     "Commit 276ms x651",
+     "PrePaint 208ms x651",
+     "AnimationHost::TickAnimations 98ms x650",
+     "LocalFrameView::ScheduleAnimation 85ms x654"
+    ]
+   },
+   "framesPerSecHeadless": 163,
+   "msPerFrame": 3.03,
+   "idleCpuPctAt60": 22,
+   "who": [
+    "2x/2s tree 490: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 489: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 428,
+    "running": 2,
+    "runningOnScreen": 2,
+    "notComposited": [
+     "kpmMerchTalk @ div.kpm-merch.kpm-merch-talk [backgroundPositionX,backgroundPositionY] x1 inf onscreen 1"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 1,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2546,
+    "jankyFrames": 0,
+    "worstFrameMs": 18
+   }
+  },
+  {
+   "settleMs": 147,
+   "label": "Agent Inventory",
+   "busyPct": 146,
+   "scriptMs": 69,
+   "styleRecalcs": 47,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.3"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.5",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 17,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 3761,
+    "frames": 32,
+    "frameMs": 3660,
+    "paints": 120,
+    "paintMs": 149,
+    "styleMs": 3466,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 2751,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 3660ms x32",
+     "UpdateLayoutTree 3466ms x33",
+     "Paint 149ms x120",
+     "Commit 67ms x33",
+     "FunctionCall 58ms x99",
+     "SimpleWatcher::OnHandleReady 49ms x15"
+    ]
+   },
+   "framesPerSecHeadless": 8,
+   "msPerFrame": 114.38,
+   "idleCpuPctAt60": 94,
+   "who": [
+    "2x/2s tree 824: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 823: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 734,
+    "running": 10,
+    "runningOnScreen": 10,
+    "notComposited": [
+     "kpmCoinSpinLg @ i.kpm-coin.lg [backgroundPositionX,backgroundPositionY] x1 inf onscreen 1",
+     "kpmSignPulse @ svg. [fill] x1 inf onscreen 1",
+     "kpmMerchTalk @ div.kpm-merch.kpm-merch-talk [backgroundPositionX,backgroundPositionY] x1 inf onscreen 1"
+    ],
+    "composited": [
+     "kpmSpeck @ i. x4 inf onscreen 4",
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1",
+     "kpmBookBob @ span.float x1 inf onscreen 1",
+     "kpmBookYaw @ span.ebyaw x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 2,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 3816,
+    "jankyFrames": 25,
+    "worstFrameMs": 376
+   }
+  },
+  {
+   "settleMs": 528,
+   "label": "Sales Terminal",
+   "busyPct": 75,
+   "scriptMs": 45,
+   "styleRecalcs": 999,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.8,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.8",
+    "index-8RiJaBKh.js:14:6598 x0.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.3"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x2",
+    "button.kpm-chip.kpm-clock x1.8"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 1925,
+    "frames": 660,
+    "frameMs": 1833,
+    "paints": 26,
+    "paintMs": 9,
+    "styleMs": 471,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 2053,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 1833ms x660",
+     "UpdateLayoutTree 471ms x661",
+     "Commit 303ms x661",
+     "PrePaint 198ms x661",
+     "AnimationHost::TickAnimations 81ms x661",
+     "MainFrameAborted 72ms x661"
+    ]
+   },
+   "framesPerSecHeadless": 165,
+   "msPerFrame": 2.78,
+   "idleCpuPctAt60": 19,
+   "who": [
+    "2x/2s tree 644: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 643: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 581,
+    "running": 2,
+    "runningOnScreen": 1,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)",
+      "div.fig.sh brightness(0) blur(5px) (off)",
+      "div.fig.sh brightness(0) blur(5px) (off)"
+     ],
+     "blend": [
+      "div.cast"
+     ],
+     "bigShadow": 4,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2523,
+    "jankyFrames": 0,
+    "worstFrameMs": 12
+   }
+  },
+  {
+   "settleMs": 1264,
+   "label": "Map System",
+   "busyPct": 106,
+   "scriptMs": 39,
+   "styleRecalcs": 1025,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.5"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.5",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 2667,
+    "frames": 661,
+    "frameMs": 2570,
+    "paints": 26,
+    "paintMs": 8,
+    "styleMs": 1027,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 11,
+    "rasterMs": 0,
+    "gpuMs": 2370,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 2570ms x661",
+     "UpdateLayoutTree 1027ms x661",
+     "PrePaint 398ms x662",
+     "Commit 272ms x662",
+     "AnimationHost::TickAnimations 107ms x662",
+     "MainFrameAborted 69ms x662"
+    ]
+   },
+   "framesPerSecHeadless": 165,
+   "msPerFrame": 3.89,
+   "idleCpuPctAt60": 26,
+   "who": [
+    "2x/2s tree 554: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 553: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 509,
+    "running": 3,
+    "runningOnScreen": 2,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1",
+     "bounce @ svg.lucide.lucide-map-pin x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.bg-slate-900/95.backdrop-blur-md",
+      "div.transition-all.duration-300 (off)",
+      "button.bg-orange-600/95.backdrop-blur-md",
+      "button.bg-slate-900/90.backdrop-blur-md",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [
+      "img.leaflet-tile.leaflet-tile-loaded",
+      "img.leaflet-tile.leaflet-tile-loaded",
+      "img.leaflet-tile.leaflet-tile-loaded",
+      "img.leaflet-tile.leaflet-tile-loaded",
+      "img.leaflet-tile.leaflet-tile-loaded",
+      "img.leaflet-tile.leaflet-tile-loaded"
+     ],
+     "bigShadow": 2,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2554,
+    "jankyFrames": 0,
+    "worstFrameMs": 24
+   }
+  },
+  {
+   "settleMs": 1219,
+   "label": "Journey Plan",
+   "busyPct": 87,
+   "scriptMs": 42,
+   "styleRecalcs": 1014,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "index-8RiJaBKh.js:14:6598 x0.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.3"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.8",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 2190,
+    "frames": 661,
+    "frameMs": 2107,
+    "paints": 28,
+    "paintMs": 9,
+    "styleMs": 614,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 2350,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 2107ms x661",
+     "UpdateLayoutTree 614ms x662",
+     "PrePaint 319ms x661",
+     "Commit 256ms x661",
+     "AnimationHost::TickAnimations 106ms x662",
+     "LocalFrameView::ScheduleAnimation 74ms x666"
+    ]
+   },
+   "framesPerSecHeadless": 165,
+   "msPerFrame": 3.19,
+   "idleCpuPctAt60": 21,
+   "who": [
+    "2x/2s tree 594: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 593: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 531,
+    "running": 3,
+    "runningOnScreen": 2,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1",
+     "pulse @ svg.lucide.lucide-target x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "button.pointer-events-auto.bg-slate-900/95 (off)",
+      "button.bg-slate-800/90.backdrop-blur (off)",
+      "button.bg-slate-800/90.backdrop-blur (off)",
+      "div.flex.flex-wrap",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [
+      "img.leaflet-tile.leaflet-tile-loaded",
+      "img.leaflet-tile.leaflet-tile-loaded"
+     ],
+     "bigShadow": 4,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2572,
+    "jankyFrames": 0,
+    "worstFrameMs": 24
+   }
+  },
+  {
+   "settleMs": 358,
+   "label": "Master Vault",
+   "busyPct": 159,
+   "scriptMs": 2040,
+   "styleRecalcs": 402,
+   "layouts": 0,
+   "reactCommitsPerSec": 100.5,
+   "rafPerSec": [
+    "ResidentEvilInventory-CMsLLtV7.js:1:1792 x100.5"
+   ],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.5"
+   ],
+   "domChangesPerSec": [
+    "div.relative x100.5",
+    "span.kpm-dig-reel x1.5",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 3864,
+    "frames": 258,
+    "frameMs": 2561,
+    "paints": 28,
+    "paintMs": 12,
+    "styleMs": 975,
+    "layoutMs": 0,
+    "rafFired": 259,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 2042,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 2561ms x258",
+     "FunctionCall 1294ms x1358",
+     "SimpleWatcher::OnHandleReady 1215ms x272",
+     "UpdateLayoutTree 975ms x259",
+     "Layerize 552ms x259",
+     "FireAnimationFrame 239ms x259"
+    ]
+   },
+   "framesPerSecHeadless": 65,
+   "msPerFrame": 9.93,
+   "idleCpuPctAt60": 92,
+   "who": [
+    "168x/2s tree 49: ({product:s,isAdmin:i,onEdit:u,onDelete:n,onUpdateProduct:x})=>{const[d,k]=c.useState({x:-15,y:35}),[g,w]=c.us",
+    "3x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n",
+    "2x/2s tree 624: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 623: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use"
+   ],
+   "scan": {
+    "dom": 538,
+    "running": 6,
+    "runningOnScreen": 5,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "pulse @ span.text-[11px].font-black x4 inf onscreen 4",
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.bg-black/90.border-t-2",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 3,
+     "willChange": 2,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2606,
+    "jankyFrames": 0,
+    "worstFrameMs": 30
+   }
+  },
+  {
+   "settleMs": 44,
+   "label": "Restock Vault",
+   "busyPct": 154,
+   "scriptMs": 207,
+   "styleRecalcs": 553,
+   "layouts": 4,
+   "reactCommitsPerSec": 2.8,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "firebase-CJqMpJsG.js:1:49611 x2.3",
+    "index-8RiJaBKh.js:112:4630 x2",
+    "firebase-CJqMpJsG.js:21:23364 x1.3",
+    "firebase-CJqMpJsG.js:18:5642 x0.5"
+   ],
+   "domChangesPerSec": [
+    "div.grid.gap-x-4 x37.5",
+    "input.w-full.bg-inset x26.3",
+    "input.hidden x4.5",
+    "span.kpm-dig-reel x2.3",
+    "button.kpm-chip.kpm-clock x2"
+   ],
+   "longTasks": 1,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 3823,
+    "frames": 327,
+    "frameMs": 3384,
+    "paints": 650,
+    "paintMs": 514,
+    "styleMs": 2102,
+    "layoutMs": 9,
+    "rafFired": 0,
+    "timersFired": 17,
+    "rasterMs": 0,
+    "gpuMs": 1667,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 3384ms x327",
+     "UpdateLayoutTree 2102ms x328",
+     "Paint 514ms x650",
+     "FunctionCall 198ms x199",
+     "Commit 196ms x328",
+     "PrePaint 170ms x328"
+    ]
+   },
+   "framesPerSecHeadless": 82,
+   "msPerFrame": 10.35,
+   "idleCpuPctAt60": 73,
+   "who": [
+    "2x/2s tree 964: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 963: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 851,
+    "running": 3,
+    "runningOnScreen": 1,
+    "notComposited": [
+     "kpmNoticeBreathe @ div.overflow-x-auto.rounded-lg [borderBottomColor,borderLeftColor,borderRightColor,borderTopColor] x1 inf onscreen 0",
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 3,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2588,
+    "jankyFrames": 0,
+    "worstFrameMs": 30
+   }
+  },
+  {
+   "settleMs": 361,
+   "label": "Stock Opname",
+   "busyPct": 149,
+   "scriptMs": 36,
+   "styleRecalcs": 923,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.3"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x2",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 3806,
+    "frames": 608,
+    "frameMs": 3690,
+    "paints": 28,
+    "paintMs": 14,
+    "styleMs": 2024,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 1752,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 3690ms x608",
+     "UpdateLayoutTree 2024ms x609",
+     "PrePaint 575ms x609",
+     "Commit 291ms x609",
+     "AnimationHost::TickAnimations 103ms x609",
+     "MainFrameAborted 80ms x609"
+    ]
+   },
+   "framesPerSecHeadless": 152,
+   "msPerFrame": 6.07,
+   "idleCpuPctAt60": 39,
+   "who": [
+    "2x/2s tree 652: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 651: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 597,
+    "running": 7,
+    "runningOnScreen": 3,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "pulse @ span.bg-[var(--danger-well)].text-[var(--danger-ink)] x4 inf onscreen 1",
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1",
+     "pulse @ svg.lucide.lucide-chart-no-axes-column-increasing x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 1,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2547,
+    "jankyFrames": 0,
+    "worstFrameMs": 18
+   }
+  },
+  {
+   "settleMs": 369,
+   "label": "Receivables & Consignment",
+   "busyPct": 81,
+   "scriptMs": 31,
+   "styleRecalcs": 1009,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.3"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.5",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 2168,
+    "frames": 663,
+    "frameMs": 2067,
+    "paints": 26,
+    "paintMs": 10,
+    "styleMs": 560,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 1855,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 2067ms x663",
+     "UpdateLayoutTree 560ms x663",
+     "Commit 275ms x663",
+     "PrePaint 215ms x663",
+     "AnimationHost::TickAnimations 98ms x663",
+     "MainFrameAborted 81ms x663"
+    ]
+   },
+   "framesPerSecHeadless": 166,
+   "msPerFrame": 3.12,
+   "idleCpuPctAt60": 21,
+   "who": [
+    "2x/2s tree 514: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 513: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 466,
+    "running": 2,
+    "runningOnScreen": 1,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 1,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2520,
+    "jankyFrames": 0,
+    "worstFrameMs": 6
+   }
+  },
+  {
+   "settleMs": 364,
+   "label": "EOD Setoran",
+   "busyPct": 79,
+   "scriptMs": 33,
+   "styleRecalcs": 1017,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.5"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.8",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 1918,
+    "frames": 662,
+    "frameMs": 1830,
+    "paints": 26,
+    "paintMs": 9,
+    "styleMs": 473,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 1678,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 1830ms x662",
+     "UpdateLayoutTree 473ms x662",
+     "Commit 237ms x662",
+     "PrePaint 185ms x662",
+     "LocalFrameView::ScheduleAnimation 95ms x915",
+     "AnimationHost::TickAnimations 81ms x662"
+    ]
+   },
+   "framesPerSecHeadless": 166,
+   "msPerFrame": 2.76,
+   "idleCpuPctAt60": 19,
+   "who": [
+    "2x/2s tree 447: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 446: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 429,
+    "running": 2,
+    "runningOnScreen": 1,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 1,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2523,
+    "jankyFrames": 0,
+    "worstFrameMs": 12
+   }
+  },
+  {
+   "settleMs": 422,
+   "label": "Customers",
+   "busyPct": 83,
+   "scriptMs": 31,
+   "styleRecalcs": 1044,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.5"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.8",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 1935,
+    "frames": 662,
+    "frameMs": 1845,
+    "paints": 26,
+    "paintMs": 9,
+    "styleMs": 499,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 11,
+    "rasterMs": 0,
+    "gpuMs": 1692,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 1845ms x662",
+     "UpdateLayoutTree 499ms x662",
+     "Commit 249ms x662",
+     "PrePaint 198ms x662",
+     "AnimationHost::TickAnimations 86ms x662",
+     "LocalFrameView::ScheduleAnimation 72ms x664"
+    ]
+   },
+   "framesPerSecHeadless": 166,
+   "msPerFrame": 2.79,
+   "idleCpuPctAt60": 19,
+   "who": [
+    "3x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n",
+    "2x/2s tree 611: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 610: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c"
+   ],
+   "scan": {
+    "dom": 555,
+    "running": 2,
+    "runningOnScreen": 1,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 1,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2580,
+    "jankyFrames": 0,
+    "worstFrameMs": 18
+   }
+  },
+  {
+   "settleMs": 375,
+   "label": "Sampling",
+   "busyPct": 75,
+   "scriptMs": 40,
+   "styleRecalcs": 1007,
+   "layouts": 1,
+   "reactCommitsPerSec": 2,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "index-8RiJaBKh.js:14:6598 x0.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.5",
+    "index-8RiJaBKh.js:70:6312 x0.3",
+    "index-8RiJaBKh.js:70:6161 x0.3"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.5",
+    "button.kpm-chip.kpm-clock x1.5",
+    "div.hide-on-print.fixed x0.5",
+    "div.relative.w-32 x0.3",
+    "div.kpm-merch.kpm-merch-idle x0.3"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 1894,
+    "frames": 663,
+    "frameMs": 1790,
+    "paints": 44,
+    "paintMs": 16,
+    "styleMs": 489,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 12,
+    "rasterMs": 0,
+    "gpuMs": 1265,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 1790ms x663",
+     "UpdateLayoutTree 489ms x663",
+     "Commit 249ms x663",
+     "PrePaint 194ms x663",
+     "AnimationHost::TickAnimations 74ms x663",
+     "LocalFrameView::ScheduleAnimation 73ms x666"
+    ]
+   },
+   "framesPerSecHeadless": 166,
+   "msPerFrame": 2.7,
+   "idleCpuPctAt60": 19,
+   "who": [
+    "2x/2s tree 417: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 416: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 409,
+    "running": 2,
+    "runningOnScreen": 1,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 1,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2526,
+    "jankyFrames": 0,
+    "worstFrameMs": 24
+   }
+  },
+  {
+   "settleMs": 953,
+   "label": "Reports",
+   "busyPct": 74,
+   "scriptMs": 29,
+   "styleRecalcs": 1005,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.5"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.8",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 1904,
+    "frames": 663,
+    "frameMs": 1814,
+    "paints": 26,
+    "paintMs": 9,
+    "styleMs": 508,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 1652,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 1814ms x663",
+     "UpdateLayoutTree 508ms x663",
+     "Commit 238ms x663",
+     "PrePaint 198ms x663",
+     "AnimationHost::TickAnimations 88ms x663",
+     "LocalFrameView::ScheduleAnimation 73ms x666"
+    ]
+   },
+   "framesPerSecHeadless": 166,
+   "msPerFrame": 2.74,
+   "idleCpuPctAt60": 19,
+   "who": [
+    "2x/2s tree 550: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 549: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 520,
+    "running": 2,
+    "runningOnScreen": 1,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 3,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2526,
+    "jankyFrames": 0,
+    "worstFrameMs": 7
+   }
+  },
+  {
+   "settleMs": 338,
+   "label": "Audit Logs",
+   "busyPct": 72,
+   "scriptMs": 26,
+   "styleRecalcs": 993,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "index-8RiJaBKh.js:14:6598 x0.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.3"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.8",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 1880,
+    "frames": 662,
+    "frameMs": 1790,
+    "paints": 28,
+    "paintMs": 9,
+    "styleMs": 485,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 12,
+    "rasterMs": 0,
+    "gpuMs": 1657,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 1790ms x662",
+     "UpdateLayoutTree 485ms x663",
+     "Commit 239ms x663",
+     "PrePaint 189ms x663",
+     "AnimationHost::TickAnimations 80ms x662",
+     "MainFrameAborted 74ms x663"
+    ]
+   },
+   "framesPerSecHeadless": 166,
+   "msPerFrame": 2.7,
+   "idleCpuPctAt60": 18,
+   "who": [
+    "2x/2s tree 442: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 441: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 436,
+    "running": 2,
+    "runningOnScreen": 1,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 1,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2528,
+    "jankyFrames": 0,
+    "worstFrameMs": 6
+   }
+  },
+  {
+   "settleMs": 349,
+   "label": "Settings",
+   "busyPct": 73,
+   "scriptMs": 29,
+   "styleRecalcs": 1004,
+   "layouts": 0,
+   "reactCommitsPerSec": 1.5,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:18:5642 x0.3"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.5",
+    "button.kpm-chip.kpm-clock x1.5"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 1866,
+    "frames": 659,
+    "frameMs": 1745,
+    "paints": 28,
+    "paintMs": 9,
+    "styleMs": 482,
+    "layoutMs": 0,
+    "rafFired": 0,
+    "timersFired": 10,
+    "rasterMs": 0,
+    "gpuMs": 1626,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 1745ms x659",
+     "UpdateLayoutTree 482ms x660",
+     "Commit 239ms x660",
+     "PrePaint 188ms x661",
+     "AnimationHost::TickAnimations 83ms x660",
+     "LocalFrameView::ScheduleAnimation 71ms x664"
+    ]
+   },
+   "framesPerSecHeadless": 165,
+   "msPerFrame": 2.65,
+   "idleCpuPctAt60": 19,
+   "who": [
+    "2x/2s tree 604: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 603: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 591,
+    "running": 2,
+    "runningOnScreen": 1,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.hide-on-print.hidden (off)"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)"
+     ],
+     "blend": [],
+     "bigShadow": 1,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2524,
+    "jankyFrames": 0,
+    "worstFrameMs": 6
+   }
+  },
+  {
+   "settleMs": 497,
+   "label": "Agent Profile",
+   "busyPct": 81,
+   "scriptMs": 111,
+   "styleRecalcs": 997,
+   "layouts": 1,
+   "reactCommitsPerSec": 1.8,
+   "rafPerSec": [],
+   "timeoutsPerSec": [
+    "index-8RiJaBKh.js:112:4630 x1.5",
+    "firebase-CJqMpJsG.js:1:49611 x1",
+    "firebase-CJqMpJsG.js:18:5642 x0.8",
+    "firebase-CJqMpJsG.js:21:23364 x0.3"
+   ],
+   "domChangesPerSec": [
+    "span.kpm-dig-reel x1.8",
+    "button.kpm-chip.kpm-clock x1.5",
+    "input.hidden x0.8",
+    "div.sframe.s-bronze x0.3"
+   ],
+   "longTasks": 0,
+   "intervals": [
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "30000ms@index-8RiJaBKh.js:14:9178",
+    "800ms@firebase-CJqMpJsG.js:31:63061",
+    "3600000ms@index-8RiJaBKh.js:232:39170"
+   ],
+   "trace": {
+    "mainTaskMs": 2070,
+    "frames": 647,
+    "frameMs": 1842,
+    "paints": 33,
+    "paintMs": 13,
+    "styleMs": 471,
+    "layoutMs": 2,
+    "rafFired": 0,
+    "timersFired": 11,
+    "rasterMs": 0,
+    "gpuMs": 1821,
+    "mainTop": [
+     "ProxyMain::BeginMainFrame 1842ms x647",
+     "UpdateLayoutTree 471ms x649",
+     "Commit 270ms x647",
+     "PrePaint 192ms x648",
+     "FunctionCall 106ms x107",
+     "LocalFrameView::ScheduleAnimation 105ms x998"
+    ]
+   },
+   "framesPerSecHeadless": 162,
+   "msPerFrame": 2.85,
+   "idleCpuPctAt60": 23,
+   "who": [
+    "2x/2s tree 1068: function $0(){const[t,a]=c.useState(null),[n,s]=c.useState(!1),[r,l]=c.useState({recovery:!1,usb:!1,cloud:!1})",
+    "2x/2s tree 1067: function i0({activeTab:t,setActiveTab:a,children:n,user:s,appSettings:r,isAdmin:l,onLogin:i,userRole:u,setShow",
+    "2x/2s tree 11: function Qg({activeTab:t}){const a=$g(),[n,s]=c.useState(!1),[r,l]=c.useState(!1),[i,u]=c.useState(!1),g=c.use",
+    "2x/2s tree 7: ({notifications:t=[],onNotificationClick:a})=>{const[n,s]=c.useState(!1),r=c.useRef(null),l=c.useRef(null),i=c",
+    "2x/2s tree 88: function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(n"
+   ],
+   "scan": {
+    "dom": 814,
+    "running": 2,
+    "runningOnScreen": 1,
+    "notComposited": [
+     "kpmMerchIdle @ div.kpm-merch.kpm-merch-idle [backgroundPositionX,backgroundPositionY] x1 inf onscreen 0"
+    ],
+    "composited": [
+     "kpmEdgeBreath @ span.kpm-edge-grip x1 inf onscreen 1"
+    ],
+    "heavy": {
+     "backdrop": [
+      "div.hide-on-print.fixed (off)",
+      "div.fixed.lg:relative (off)",
+      "button.min-h-11.min-w-11",
+      "button.min-h-11.bg-black/80",
+      "button.min-h-11.bg-black/80",
+      "button.min-h-11.bg-black/80"
+     ],
+     "blur": [
+      "nav.kpm-rail-grid.grid blur(0px) (off)",
+      "div.kpm-rail-foot.mt-auto blur(0px) (off)",
+      "div.absolute.-top-40 blur(150px)",
+      "div.absolute.-right-10 blur(64px)"
+     ],
+     "blend": [],
+     "bigShadow": 7,
+     "willChange": 1,
+     "fixed": 0
+    },
+    "canvases": [],
+    "coarse": true,
+    "lite": false
+   },
+   "scroll": {
+    "ms": 2528,
+    "jankyFrames": 0,
+    "worstFrameMs": 6
+   }
+  }
+ ],
+ "errors": [],
+ "unlockTypingMsPerLetter": 1,
+ "unlockSequence": {
+  "mainTaskMs": 8324,
+  "frames": 1288,
+  "frameMs": 6936,
+  "paints": 599,
+  "paintMs": 567,
+  "styleMs": 814,
+  "layoutMs": 867,
+  "rafFired": 1261,
+  "timersFired": 532,
+  "rasterMs": 0,
+  "gpuMs": 7817,
+  "mainTop": [
+   "ProxyMain::BeginMainFrame 6936ms x1288",
+   "FunctionCall 2459ms x2791",
+   "FireAnimationFrame 1947ms x1261",
+   "Commit 992ms x1289",
+   "Layout 867ms x253",
+   "UpdateLayoutTree 814ms x1288"
+  ],
+  "framesPerSecHeadless": 129,
+  "msPerFrame": 5.39,
+  "idleCpuPctAt60": 46
+ },
+ "css": [
+  {
+   "url": "index-Cppy3vMq.css",
+   "kb": 365,
+   "usedKB": 110
+  },
+  {
+   "url": "index-Dgihpmma.css",
+   "kb": 15,
+   "usedKB": 8
+  },
+  {
+   "url": "",
+   "kb": 36,
+   "usedKB": 0
+  },
+  {
+   "url": "",
+   "kb": 36,
+   "usedKB": 3
+  }
+ ],
+ "sources": {
+  "index-8RiJaBKh.js:78:19686": "y.fillStyle=\"rgba(231,112,15,\"+Math.min(1,C).toFixed(3)+\")\",y.fill())}G>0&&O<1&&M<1&&(y.beginPath(),y.arc(H,x,G,0,6.283),y.strokeStyle=\"rgba(231,112,15,\"+(.55*(1-O)*(1-M)).toFixed(3)+\")\",y.lineWidth=1,y.stroke()),i.raf=requestAnimationFrame(D)};return i.raf=requestAnimationFrame(D),()=>{cancelAnimat",
+  "index-8RiJaBKh.js:112:4630": "\"Maret\",\"April\",\"Mei\",\"Juni\",\"Juli\",\"Agustus\",\"September\",\"Oktober\",\"November\",\"Desember\"],r0=5e3;function o0(){const[t,a]=c.useState(()=>new Date),[n,s]=c.useState(!1);c.useEffect(()=>{let i;const u=()=>{a(new Date),i=setTimeout(u,1e3-Date.now()%1e3)};return i=setTimeout(u,1e3-Date.now()%1e3),()=>c",
+  "index-8RiJaBKh.js:14:9178": "!1)};let M=!1;const H=async()=>{const O=await Yl();M||I(O)},x=()=>{f(),m()};window.addEventListener(\"online\",R),window.addEventListener(\"offline\",N),window.addEventListener(\"ghost-ledger-updated\",x),f(),m(),H();const L=setInterval(H,Lp);return()=>{M=!0,clearInterval(L),window.removeEventListener(\"on",
+  "index-8RiJaBKh.js:232:39170": ":window.location.reload())}),g.addEventListener(\"installed\",k=>{k.isUpdate||r?.()}),g.register({immediate:a}).then(k=>{i?i(\"/sw.js\",k):l?.(k)}).catch(k=>{u?.(k)})}}return y=f(),m}P0({immediate:!0,onRegisteredSW(t,a){a&&setInterval(()=>a.update(),3600*1e3)}});window.addEventListener(\"vite:preloadErro",
+  "firebase-CJqMpJsG.js:31:63061": "&&!n.has(s)&&(this.notifyListeners(s,null),t.push(s));return t}notifyListeners(e,t){this.localCache[e]=t;const n=this.listeners[e];if(n)for(const s of Array.from(n))s(t)}startPolling(){this.stopPolling(),this.pollTimer=setInterval(async()=>this._poll(),ZA)}stopPolling(){this.pollTimer&&(clearInterva",
+  "firebase-CJqMpJsG.js:18:5642": "ferred.promise),this.deferred.promise.catch((o=>{}))}get promise(){return this.deferred.promise}static createAndSchedule(e,t,n,s,i){const o=Date.now()+n,c=new au(e,t,o,s,i);return c.start(n),c}start(e){this.timerHandle=setTimeout((()=>this.handleDelayElapsed()),e)}skipDelay(){return this.handleDelay",
+  "index-8RiJaBKh.js:14:6598": "0:Math.max(0,Number(t)||0)/n},$p=\"kpm_ghost_ledger\",Pp=1,Dp=\"https://www.gstatic.com/generate_204\",Lp=3e4,Op=5e3;async function Yl(){if(typeof navigator<\"u\"&&navigator.onLine===!1)return!1;const t=new AbortController,a=setTimeout(()=>t.abort(),Op);try{return await fetch(Dp,{mode:\"no-cors\",cache:\"no-",
+  "ResidentEvilInventory-CMsLLtV7.js:1:1792": ":55,h:90,d:22}),[y,I]=c.useState(s.defaultZoom||3),[C,$]=c.useState(!1);c.useEffect(()=>{N(s.dimensions||{w:55,h:90,d:22}),I(s.defaultZoom||3)},[s]),c.useEffect(()=>{let a;const l=()=>{!g&&!v&&k(o=>({...o,y:o.y+.3})),a=requestAnimationFrame(l)};return a=requestAnimationFrame(l),()=>cancelAnimationFr",
+  "firebase-CJqMpJsG.js:1:49611": "){const l=ci();Ne(l,new sl(l,a))}an.Ja=\"timingevent\";function il(a,l){E.call(this,an.Ja,a),this.size=l}m(il,E);function $r(a,l){if(typeof a!=\"function\")throw Error(\"Fn must not be null and must be a function\");return o.setTimeout(function(){a()},l)}function zr(){this.g=!0}zr.prototype.ua=function(){",
+  "firebase-CJqMpJsG.js:21:23364": "this.muted||this.observer.next&&this.Ou(this.observer.next,e)}error(e){this.muted||(this.observer.error?this.Ou(this.observer.error,e):me(\"Uncaught Error in snapshot listener:\",e.toString()))}Nu(){this.muted=!0}Ou(e,t){setTimeout((()=>{this.muted||e(t)}),0)}}let tw=class{constructor(e){this.datastor",
+  "index-8RiJaBKh.js:70:6312": "t||S)return;let W,Y;const me=()=>{const pe=Math.random()*12e4+9e4;W=setTimeout(()=>{const oe=x.current,de=m[oe];I(de),x.current=(oe+1)%m.length,k(!0),T(!1),Y=setTimeout(()=>{J()},6e3)},pe)};let se;const J=()=>{T(!0),se=setTimeout(()=>{k(!1),T(!1),I(\"\"),me()},1e3)};return me(),()=>{clearTimeout(W),cl",
+  "index-8RiJaBKh.js:70:6161": "ntListener(\"CAPY_SUPPRESS\",W),()=>window.removeEventListener(\"CAPY_SUPPRESS\",W)},[]),c.useEffect(()=>{S&&(k(!1),T(!1),I(\"\"))},[S]),c.useEffect(()=>{if(t||S)return;let W,Y;const me=()=>{const pe=Math.random()*12e4+9e4;W=setTimeout(()=>{const oe=x.current,de=m[oe];I(de),x.current=(oe+1)%m.length,k(!0)"
+ }
+}

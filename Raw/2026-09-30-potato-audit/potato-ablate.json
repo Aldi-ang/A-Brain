@@ -1,0 +1,346 @@
+[
+ {
+  "screen": "vault gate",
+  "step": "as is",
+  "cpu60": 26,
+  "msPerFrame": 3.45,
+  "framesPerSec": 166,
+  "styleMsPerFrame": 0.47,
+  "paintsPerSec": 0,
+  "commitsPerSec": 1.8,
+  "calls": [
+   "?:6:160 492ms x663",
+   "react-DdNvOWvg.js:2:10150 At 14ms x4",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 3ms x5"
+  ]
+ },
+ {
+  "screen": "vault gate",
+  "step": "dot field loop off",
+  "cpu60": 3,
+  "msPerFrame": 2.17,
+  "framesPerSec": 5,
+  "styleMsPerFrame": 0.56,
+  "paintsPerSec": 0,
+  "commitsPerSec": 1.3,
+  "calls": [
+   "react-DdNvOWvg.js:2:10150 At 12ms x4",
+   "index-8RiJaBKh.js:15:8982 H 4ms x2",
+   "index-8RiJaBKh.js:113:4612 u 4ms x4"
+  ]
+ },
+ {
+  "screen": "Command Center",
+  "step": "as is",
+  "cpu60": 18,
+  "msPerFrame": 2.61,
+  "framesPerSec": 165,
+  "styleMsPerFrame": 0.66,
+  "paintsPerSec": 12,
+  "commitsPerSec": 1.8,
+  "calls": [
+   "react-DdNvOWvg.js:2:10150 At 14ms x5",
+   "index-8RiJaBKh.js:113:4612 u 3ms x4",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 3ms x5"
+  ]
+ },
+ {
+  "screen": "Command Center",
+  "step": "mascot sprite paused",
+  "cpu60": 2,
+  "msPerFrame": 2.64,
+  "framesPerSec": 3,
+  "styleMsPerFrame": 0.45,
+  "paintsPerSec": 0,
+  "commitsPerSec": 1.5,
+  "calls": [
+   "react-DdNvOWvg.js:2:10150 At 10ms x4",
+   "index-8RiJaBKh.js:113:4612 u 3ms x4",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 2ms x5"
+  ]
+ },
+ {
+  "screen": "Command Center",
+  "step": "clock stopped",
+  "cpu60": 17,
+  "msPerFrame": 2.52,
+  "framesPerSec": 166,
+  "styleMsPerFrame": 0.65,
+  "paintsPerSec": 11,
+  "commitsPerSec": 0,
+  "calls": [
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 2ms x5",
+   "firebase-CJqMpJsG.js:32:59526 1ms x5",
+   "react-DdNvOWvg.js:10:28499 Ic 1ms x8"
+  ]
+ },
+ {
+  "screen": "Command Center",
+  "step": "every CSS animation paused",
+  "cpu60": 0,
+  "msPerFrame": 0,
+  "framesPerSec": 0,
+  "styleMsPerFrame": 0,
+  "paintsPerSec": 0,
+  "commitsPerSec": 0,
+  "calls": [
+   "firebase-CJqMpJsG.js:32:59526 0ms x1",
+   "firebase-CJqMpJsG.js:32:63074 0ms x1"
+  ]
+ },
+ {
+  "screen": "Command Center",
+  "step": "all paused + clock stopped",
+  "cpu60": 0,
+  "msPerFrame": 0,
+  "framesPerSec": 0,
+  "styleMsPerFrame": 0,
+  "paintsPerSec": 0,
+  "commitsPerSec": 0,
+  "calls": [
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 1ms x5",
+   "firebase-CJqMpJsG.js:32:59526 0ms x1",
+   "firebase-CJqMpJsG.js:32:63074 0ms x1"
+  ]
+ },
+ {
+  "screen": "Agent Inventory",
+  "step": "as is",
+  "cpu60": 97,
+  "msPerFrame": 21.1,
+  "framesPerSec": 45,
+  "styleMsPerFrame": 14.18,
+  "paintsPerSec": 107,
+  "commitsPerSec": 0,
+  "calls": [
+   "react-DdNvOWvg.js:10:28499 Ic 7ms x62",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 4ms x5",
+   "firebase-CJqMpJsG.js:32:59526 2ms x5"
+  ]
+ },
+ {
+  "screen": "Agent Inventory",
+  "step": "coin spin paused",
+  "cpu60": 97,
+  "msPerFrame": 19.55,
+  "framesPerSec": 49,
+  "styleMsPerFrame": 13.1,
+  "paintsPerSec": 104,
+  "commitsPerSec": 0,
+  "calls": [
+   "react-DdNvOWvg.js:10:28499 Ic 6ms x42",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 4ms x5",
+   "firebase-CJqMpJsG.js:32:59526 3ms x5"
+  ]
+ },
+ {
+  "screen": "Agent Inventory",
+  "step": "sign pulse paused",
+  "cpu60": 29,
+  "msPerFrame": 4.17,
+  "framesPerSec": 162,
+  "styleMsPerFrame": 1.27,
+  "paintsPerSec": 33,
+  "commitsPerSec": 0,
+  "calls": [
+   "react-DdNvOWvg.js:10:28499 Ic 6ms x56",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 3ms x5",
+   "firebase-CJqMpJsG.js:32:59526 2ms x5"
+  ]
+ },
+ {
+  "screen": "Agent Inventory",
+  "step": "specks paused",
+  "cpu60": 97,
+  "msPerFrame": 18.14,
+  "framesPerSec": 52,
+  "styleMsPerFrame": 11.81,
+  "paintsPerSec": 121,
+  "commitsPerSec": 0,
+  "calls": [
+   "react-DdNvOWvg.js:10:28499 Ic 7ms x44",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 5ms x5",
+   "firebase-CJqMpJsG.js:32:59526 2ms x5"
+  ]
+ },
+ {
+  "screen": "Agent Inventory",
+  "step": "book bob+yaw paused",
+  "cpu60": 97,
+  "msPerFrame": 21.89,
+  "framesPerSec": 44,
+  "styleMsPerFrame": 14.99,
+  "paintsPerSec": 105,
+  "commitsPerSec": 0,
+  "calls": [
+   "react-DdNvOWvg.js:10:28499 Ic 7ms x52",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 4ms x5",
+   "firebase-CJqMpJsG.js:32:59526 2ms x5"
+  ]
+ },
+ {
+  "screen": "Agent Inventory",
+  "step": "mascot paused",
+  "cpu60": 97,
+  "msPerFrame": 21.6,
+  "framesPerSec": 44,
+  "styleMsPerFrame": 14.66,
+  "paintsPerSec": 100,
+  "commitsPerSec": 0,
+  "calls": [
+   "react-DdNvOWvg.js:10:28499 Ic 7ms x56",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 4ms x5",
+   "firebase-CJqMpJsG.js:32:59526 2ms x5"
+  ]
+ },
+ {
+  "screen": "Agent Inventory",
+  "step": "edge breath paused",
+  "cpu60": 97,
+  "msPerFrame": 20.18,
+  "framesPerSec": 47,
+  "styleMsPerFrame": 13.5,
+  "paintsPerSec": 111,
+  "commitsPerSec": 0,
+  "calls": [
+   "react-DdNvOWvg.js:10:28499 Ic 7ms x52",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 3ms x5",
+   "firebase-CJqMpJsG.js:32:59526 2ms x5"
+  ]
+ },
+ {
+  "screen": "Agent Inventory",
+  "step": "every CSS animation paused",
+  "cpu60": 0,
+  "msPerFrame": 0,
+  "framesPerSec": 0,
+  "styleMsPerFrame": 0,
+  "paintsPerSec": 0,
+  "commitsPerSec": 0,
+  "calls": [
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 2ms x5",
+   "firebase-CJqMpJsG.js:32:59526 1ms x3",
+   "firebase-CJqMpJsG.js:32:63074 0ms x2"
+  ]
+ },
+ {
+  "screen": "Master Vault",
+  "step": "as is",
+  "cpu60": 85,
+  "msPerFrame": 7.83,
+  "framesPerSec": 74,
+  "styleMsPerFrame": 1.74,
+  "paintsPerSec": 11,
+  "commitsPerSec": 125,
+  "calls": [
+   "react-DdNvOWvg.js:2:10150 At 1173ms x295",
+   "?:6:160 180ms x295",
+   "react-DdNvOWvg.js:9:124097 78ms x590"
+  ]
+ },
+ {
+  "screen": "Master Vault",
+  "step": "3D card spin loop off",
+  "cpu60": 22,
+  "msPerFrame": 3.31,
+  "framesPerSec": 165,
+  "styleMsPerFrame": 1.11,
+  "paintsPerSec": 12,
+  "commitsPerSec": 0.3,
+  "calls": [
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 3ms x5",
+   "react-DdNvOWvg.js:10:28499 Ic 3ms x42",
+   "react-DdNvOWvg.js:2:10150 At 2ms x1"
+  ]
+ },
+ {
+  "screen": "Restock Vault",
+  "step": "as is",
+  "cpu60": 45,
+  "msPerFrame": 6.83,
+  "framesPerSec": 132,
+  "styleMsPerFrame": 2.95,
+  "paintsPerSec": 268,
+  "commitsPerSec": 0,
+  "calls": [
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 5ms x5",
+   "react-DdNvOWvg.js:10:28499 Ic 2ms x16",
+   "firebase-CJqMpJsG.js:32:59526 2ms x5"
+  ]
+ },
+ {
+  "screen": "Restock Vault",
+  "step": "notice breathe paused",
+  "cpu60": 21,
+  "msPerFrame": 2.58,
+  "framesPerSec": 162,
+  "styleMsPerFrame": 0.65,
+  "paintsPerSec": 7,
+  "commitsPerSec": 0,
+  "calls": [
+   "index-8RiJaBKh.js:15:8982 H 5ms x2",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 3ms x5",
+   "firebase-CJqMpJsG.js:32:59526 2ms x5"
+  ]
+ },
+ {
+  "screen": "Restock Vault",
+  "step": "every CSS animation paused",
+  "cpu60": 0,
+  "msPerFrame": 0,
+  "framesPerSec": 0,
+  "styleMsPerFrame": 0,
+  "paintsPerSec": 0,
+  "commitsPerSec": 0,
+  "calls": [
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 2ms x5",
+   "firebase-CJqMpJsG.js:32:59526 1ms x3",
+   "firebase-CJqMpJsG.js:32:63074 0ms x2"
+  ]
+ },
+ {
+  "screen": "Stock Opname",
+  "step": "as is",
+  "cpu60": 27,
+  "msPerFrame": 3.96,
+  "framesPerSec": 163,
+  "styleMsPerFrame": 1.24,
+  "paintsPerSec": 7,
+  "commitsPerSec": 0,
+  "calls": [
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 6ms x7",
+   "react-DdNvOWvg.js:10:28499 Ic 4ms x46",
+   "firebase-CJqMpJsG.js:10:32178 J.i.onsuccess 1ms x1"
+  ]
+ },
+ {
+  "screen": "Stock Opname",
+  "step": "pulse paused",
+  "cpu60": 17,
+  "msPerFrame": 2.57,
+  "framesPerSec": 165,
+  "styleMsPerFrame": 0.63,
+  "paintsPerSec": 7,
+  "commitsPerSec": 0,
+  "calls": [
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 4ms x5",
+   "react-DdNvOWvg.js:10:28499 Ic 1ms x8",
+   "firebase-CJqMpJsG.js:32:59526 1ms x5"
+  ]
+ },
+ {
+  "screen": "Stock Opname",
+  "step": "every CSS animation paused",
+  "cpu60": 0,
+  "msPerFrame": 0,
+  "framesPerSec": 0,
+  "styleMsPerFrame": 0,
+  "paintsPerSec": 0,
+  "commitsPerSec": 0,
+  "calls": [
+   "index-8RiJaBKh.js:15:8982 H 3ms x2",
+   "firebase-CJqMpJsG.js:10:33515 r.onsuccess 2ms x5",
+   "firebase-CJqMpJsG.js:32:59526 0ms x2"
+  ]
+ }
+]

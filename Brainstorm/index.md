@@ -60,4 +60,5 @@ sit here indefinitely once it's actually decided.
 - [[2026-09-29_live-rules-review]] — his live Firestore rules == the repo baseline; our draft loses nothing; 3 live gaps (directory listable, self-approvals, T2 blocked); OPEN
 - [[2026-09-29_fleet-roster-quarantine-chests]] — Fleet & Roster quarantine chests beside the ender chest: A ender→quarantine / B two boxes per chest / C four loose / DECIDED 12:05: the ender chest holds two boxes, the van two chests
 - [[2026-09-30_customer-showcase]] - a 3D, animated showcase of KPM for customers: A web page / B video / C in-app demo; OPEN, my pick A
-- [[2026-09-30_app-feels-heavy]] - the app feels heavy on the phone: 5 findings (post-push chunk error, vault typing re-renders App, 600k-round hash delay, roster swipe moves only on release, 1.27 MB main file); OPEN, his ranking owed
+- [[2026-09-30_app-feels-heavy]] - the app feels heavy on the phone: 5 findings; BUILT 2026-09-30 18:25 (5 commits, local), 5c tutorial-book split open
+- [[2026-09-30_potato-phone-audit]] - what makes KPM heavy on a cheap phone in full animation mode: 17 screens measured at 6x-slow CPU + switch-off tests; 8 ranked fixes, all same-look; OPEN, his pick owed
