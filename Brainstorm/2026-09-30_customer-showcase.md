@@ -1,6 +1,6 @@
 ---
 date: 2026-09-30
-status: OPEN - waiting on Aldi
+status: A PICKED (web page), parked - his four answers owed
 tags: [kpm, showcase, sales, design]
 ---
 
@@ -23,3 +23,5 @@ tags: [kpm, showcase, sales, design]
 **Rejected on purpose:** none yet.
 
 **Models applied:** Opportunity Cost (a showcase session is a session not spent on the enchanting row and the push - the build finishes first, his own order "push this later to finish up everything").
+
+**2026-09-30 13:38, his answer:** *"web page looks cool but save it for later we need to continue the job and push it to vercel first"* - A picked (a web page), parked until the v24 build is live and tested. Still owed before drawing: who the customer is and which part sells it, English or Indonesian, phone or laptop.
