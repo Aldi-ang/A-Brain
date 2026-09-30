@@ -69,3 +69,13 @@ the least on approved screens), Second-Order Thinking (how B changes a boss clea
 v23 offers three doors, same motion: 1 hazard seam (dark steel, a tape strip only where the doors meet, one round seal - my pick), 2 ribbed steel (one yellow line + a square seal), 3 stone (the box's grey, a tape seam, no seal). OPEN - his pick.
 
 Rejected on purpose now: full-face hazard stripes on the doors ("too norak").
+
+## DECIDED 2026-09-30 08:30 (his answers on v23) - drawn as v24, APPROVED to build
+
+> *"door 1 looks cool but make sure that the logo is gone after its open and can u add some background for this panel sc1, so that the ender chest is little bit more visible maybe just make some ender minecraft kinda background theme u can research or find it on the internet for reference. for the quarantine vault make sure that there is animation when swapping between chest for the inventory box just for better visual everything else looks fine"*
+
+- Blast door: **1, hazard seam**. The seal must not linger: the right door rests 30 px further out and the door face is cleared once open (measured 35 px past the edge).
+- The regional warehouse's ender chest stands in **The End**: a static dark-purple sky, rising purple ender particles, a pale End stone island under the chest (reference: minecraft.wiki/w/The_End - a dark void, a starless static sky slightly purple, islands of End stone). The pale island is what makes the dark chest readable.
+- Stock Opname: switching crates, the box shrinks into the old crate and grows out of the new one.
+- "everything else looks fine" = v23's lowered book, box A on these screens, regional B + chest, Opname B are approved.
+- Still OPEN: box A on the two boxes already built.
