@@ -1428,3 +1428,7 @@ T1-T4 see the van as the chest (`LoadingBay vanOnly`, look 1, six a page, page k
 ## 2026-09-30 07:25 — the Fleet & Roster quarantine switch BUILT (kpm `8476f20`)
 
 His prototype v21 in the app: the ender chest's ONE box switches healthy <-> Quarantine on his Satisfactory hatch, blast doors over the box, the crate and the van chest take turns in one place, four squares a row at every width. Built as one shared piece (`components/QuarantineSwitch.jsx`) for the regional warehouse and Stock Opname. New hub note: [[Quarantine Chest]]. Frames and walk: `Raw/2026-09-30-quarantine-switch/`.
+
+## 2026-09-30 07:45 — his "do the 3 job": two boards + look C (kpm `b3d49ad`)
+
+Solo, on his answer ("Solo, one by one", then "no workflow"). The regional warehouse and Stock Opname chest options drawn as prototype v22 (live, the app's own hatch/doors/band), his picks owed - [[2026-09-30_quarantine-chest-warehouse-and-opname]]. The Agent Inventory crate box got look C + English words (`b3d49ad`). The enchanting-table row (v6) re-shown for his yes. Lab: `?shell&gudang` (`9d9ba19`). Hub: [[Quarantine Chest]].

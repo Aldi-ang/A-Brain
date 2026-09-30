@@ -19,10 +19,10 @@ under the box's title (look C, 2026-09-29: *"erase the text, the biohazard line 
 
 | Screen | Status | What it shows |
 |---|---|---|
-| Agent Inventory (T1-T4, `LoadingBay` vanOnly) | BUILT 2026-09-27 (v4) | the crate beside the goods chest; its box = the Quarantine tab's list (what came back damaged today, waits for EOD). The tape band on its box is still queued |
+| Agent Inventory (T1-T4, `LoadingBay` vanOnly) | BUILT 2026-09-27 (v4); look C + English 2026-09-30 `b3d49ad` | the crate beside the goods chest; its box = the Quarantine tab's list (what came back damaged today, waits for EOD), under the tape band, titled "Quarantine · in van" |
 | Fleet & Roster (`LoadingBay`, the van-loading bay) | BUILT 2026-09-30 `8476f20` (his prototype v21) | the ender chest's ONE box switches between the healthy stock and that warehouse's Quarantine on his Satisfactory hatch; the crate stands beside the van chest and its box (the van's damaged goods) takes turns with the van box |
-| Regional warehouse (`BranchWarehouseManager.jsx`) | NEXT - pictures first | no chest today; branch damage comes from the arrival check (`:811-820`) |
-| Stock Opname (`StockOpnameView.jsx`) | after that - pictures first | a full quarantine area already (facility filter, `quarantine_logs`, `PENDING_HQ_APPROVAL`); the chest is only the way in, the resolve actions and the log stay |
+| Regional warehouse (`BranchWarehouseManager.jsx`) | OPTIONS drawn 2026-09-30 (prototype v22) - his A/B owed | no chest today; branch damage comes from the arrival check (`:811-820`). A = today's cards + the switch (my pick), B = the stone box. [[2026-09-30_quarantine-chest-warehouse-and-opname]] |
+| Stock Opname (`StockOpnameView.jsx`) | OPTIONS drawn 2026-09-30 (prototype v22) - his A/B owed (A = a crate per warehouse replaces the facility list, my pick) | a full quarantine area already (facility filter, `quarantine_logs`, `PENDING_HQ_APPROVAL`); the chest is only the way in, the resolve actions and the log stay |
 
 Order decided 2026-09-29 19:30 (*"yes good order"*). The options, costs and what he turned down live in
 [[2026-09-29_warehouse-quarantine-and-account-move|the brainstorm note]].
