@@ -1,5 +1,5 @@
-// the healthy blast door (v26): each look held shut at PC (+ two at phone), one real run frozen mid-close, and the doors'
-// state read back after the run (no face left, both doors past the stage edges).
+// v27 doors: the healthy door (silver + Eye of Ender) and the quarantine door held shut at PC + phone, each seal's centre
+// and the seam's centre measured against the stage's middle, one real run frozen mid-close, the state after the run.
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -30,32 +30,44 @@ const shoot = async (name, sel, pad = 6) => {
   const shot = await send('Page.captureScreenshot', { format: 'png', clip: { ...c, scale: 1 }, captureBeyondViewport: true });
   fs.writeFileSync(file, Buffer.from(shot.result.data, 'base64')); return name;
 };
-const doorState = () => js(`(() => { const d = document.querySelector('#rwD .kpm-doors'), L = d.children[0], R = d.children[1], s = document.querySelector('#rwD .stg').getBoundingClientRect(), l = L.getBoundingClientRect(), r = R.getBoundingClientRect(), b = getComputedStyle(L, '::before');
-  return 'kind ' + (d.dataset.kind || 'none') + ' hl ' + d.dataset.hl + ' / stage ' + Math.round(s.left) + '-' + Math.round(s.right) + ' / L ' + Math.round(l.left) + '-' + Math.round(l.right) + ' R ' + Math.round(r.left) + '-' + Math.round(r.right) + ' / lock ' + b.content + ' ' + b.width + ' ' + b.transform; })()`);
+/* centres, in px from the stage's exact middle: the lock (whichever door carries it) and the seam (tape strips or teeth) */
+const centres = () => js(`(() => { const d = document.querySelector('#rwD .kpm-doors'), L = d.children[0], R = d.children[1], s = document.querySelector('#rwD .stg').getBoundingClientRect(), mid = s.left + s.width / 2;
+  const at = (el, p) => { const r = el.getBoundingClientRect(), c = getComputedStyle(el, p); return c.content === 'none' ? null : [r.left + parseFloat(c.left), r.left + parseFloat(c.left) + parseFloat(c.width)]; };
+  const lk = at(L, '::before') || at(R, '::before'), ls = at(L, '::after'), rs = at(R, '::after');
+  const f = (v) => (v >= 0 ? '+' : '') + v.toFixed(2);
+  const seam = d.dataset.kind === 'tape' ? [Math.min(ls[0], rs[0]), Math.max(ls[1], rs[1])] : ls;
+  return 'kind ' + (d.dataset.kind || 'none') + ' / stage ' + s.width.toFixed(1) + ' / lock centre ' + (lk ? f((lk[0] + lk[1]) / 2 - mid) + ' (' + (lk[1] - lk[0]).toFixed(0) + ' px)' : 'none') + ' / seam ' + f(seam[0] - mid) + '..' + f(seam[1] - mid) + ' centre ' + f((seam[0] + seam[1]) / 2 - mid); })()`);
 
 await send('Page.enable'); await send('Runtime.enable');
 const out = [];
-for (const [w, h, tag, looks] of [[1100, 900, 'pc', ['h1', 'h2', 'h3']], [430, 932, 'phone', ['h1', 'h2']]]) {
+for (const [w, h, tag] of [[1100, 900, 'pc'], [430, 932, 'phone']]) {
   await send('Emulation.setDeviceMetricsOverride', { width: w, height: h, deviceScaleFactor: 1, mobile: w < 768 });
   await send('Page.navigate', { url: URL_ });
   await sleep(1500);
   if (tag === 'phone') { await js(`document.querySelector('[data-rw-w="hp"]').click(); true`); await sleep(300); }
   await js(`document.querySelector('#rw .frame').scrollIntoView({ block: 'start' }); true`); await sleep(600);
-  for (const k of looks) {
-    await js(`document.querySelector('[data-hl="${k}"]').click(); true`); await sleep(900);
-    out.push([tag, k + ' held', await doorState()]);
+  for (const k of ['steel', 'tape']) {
+    await js(`document.querySelector('[data-see="${k}"]').click(); true`); await sleep(600);
+    out.push([tag, k + ' held', await centres()]);
     await shoot(`${tag}-${k}-shut`, '#rwBox .stg', 4);
+    if (tag === 'pc') {   /* the lock close up, 4x */
+      const c = await js(`(() => { const r = document.querySelector('#rwD .stg').getBoundingClientRect(); return { x: r.left + r.width / 2 - 40, y: r.top + scrollY + r.height / 2 - 40, width: 80, height: 80 }; })()`);
+      const file = path.join(OUT, `zoom-${k}-lock.png`); fs.rmSync(file, { force: true });
+      const shot = await send('Page.captureScreenshot', { format: 'png', clip: { ...c, scale: 4 }, captureBeyondViewport: true });
+      fs.writeFileSync(file, Buffer.from(shot.result.data, 'base64'));
+    }
   }
-  /* one real run back to healthy, frozen mid-close (the first freeze of a press is the true moment) */
-  await js(`document.querySelector('[data-hl="h1"]').click(); true`); await sleep(300);
-  await js(`document.querySelector('#rwD .kpm-hatch').click(); true`); await sleep(2300);
-  out.push([tag, 'into Q', await doorState()]);
+  /* one real run into the Quarantine and back, each frozen mid-close (a fresh press each time) */
   await js(`document.querySelector('#rwD .kpm-hatch').click(); true`);
   await js(`new Promise(res => { const t0 = performance.now(); (function f() { if (performance.now() - t0 > 300) { document.getAnimations().forEach(a => a.pause()); res(1); } else requestAnimationFrame(f); })(); })`);
-  out.push([tag, 'mid-close', await doorState()]);
-  await shoot(`${tag}-h1-closing`, '#rwBox .stg', 4);
+  await shoot(`${tag}-tape-closing`, '#rwBox .stg', 4);
+  await js(`document.getAnimations().forEach(a => { if (a.playState === 'paused') a.play(); }); true`); await sleep(2300);
+  out.push([tag, 'in Q, open', await centres().catch(() => 'n/a')]);
+  await js(`document.querySelector('#rwD .kpm-hatch').click(); true`);
+  await js(`new Promise(res => { const t0 = performance.now(); (function f() { if (performance.now() - t0 > 300) { document.getAnimations().forEach(a => a.pause()); res(1); } else requestAnimationFrame(f); })(); })`);
+  await shoot(`${tag}-steel-closing`, '#rwBox .stg', 4);
   await js(`document.getAnimations().forEach(a => { if (a.playState === 'paused') a.play(); }); true`); await sleep(1500);
-  out.push([tag, 'after run', await doorState()]);
+  out.push([tag, 'after run', await js(`(() => { const d = document.querySelector('#rwD .kpm-doors'), s = document.querySelector('#rwD .stg').getBoundingClientRect(), l = d.children[0].getBoundingClientRect(), r = d.children[1].getBoundingClientRect(); return 'kind ' + (d.dataset.kind || 'none') + ' / L right ' + Math.round(l.right - s.left) + ' R left ' + Math.round(r.left - s.right) + ' (px past the stage edges; lock 36 + teeth 14 must stay outside)'; })()`)]);
 }
 out.push(['errors', errors.length ? errors.join(' || ') : 'none']);
 console.log(out.map(r => r.join(' | ')).join('\n'));

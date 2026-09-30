@@ -56,13 +56,13 @@
     async function doors(d, toQ, swap) {
       var L = d.children[0], R = d.children[1], all = [];
       var A = function (n, kf, o) { var a = n.animate(kf, o); all.push(a); return a; };
-      d.dataset.kind = toQ ? 'tape' : 'steel'; d.dataset.look = rw.door; d.dataset.hl = rw.hl;
-      A(L, [{ transform: 'translateX(calc(-101% - 30px))' }, { transform: 'translateX(0)' }], { duration: 240, easing: IN, fill: 'forwards' });
+      d.dataset.kind = toQ ? 'tape' : 'steel'; d.dataset.look = rw.door; d.dataset.hl = 'silver';
+      A(L, [{ transform: 'translateX(calc(-101% - 44px))' }, { transform: 'translateX(0)' }], { duration: 240, easing: IN, fill: 'forwards' });
       await done(A(R, [{ transform: 'translateX(calc(101% + 30px))' }, { transform: 'translateX(0)' }], { duration: 240, easing: IN, fill: 'forwards' }), 240);
       swap();
       A(d.parentElement, [{ transform: 'translateY(0)' }, { transform: 'translateY(2px)' }, { transform: 'translateY(-1px)' }, { transform: 'translateY(0)' }], { duration: 160 });
       await wait(190);
-      A(L, [{ transform: 'translateX(0)' }, { transform: 'translateX(calc(-101% - 30px))' }], { duration: 340, easing: OUT, fill: 'forwards' });
+      A(L, [{ transform: 'translateX(0)' }, { transform: 'translateX(calc(-101% - 44px))' }], { duration: 340, easing: OUT, fill: 'forwards' });
       await done(A(R, [{ transform: 'translateX(0)' }, { transform: 'translateX(calc(101% + 30px))' }], { duration: 340, easing: OUT, fill: 'forwards' }), 340);
       all.forEach(function (a) { a.cancel(); });
       delete d.dataset.kind;   /* open = no door face at all: the seal never lingers at the edge */
@@ -79,7 +79,7 @@
     var SHELF = [['Cello Green 16', 420, '#7A8F4F', 'Paling lama di sini 12 hari · 2 kiriman'], ['Cello Merah 12', 168, '#9B3B2E', 'Paling lama di sini 5 hari'],
       ['Sigaret Kretek Tangan Premium', 54, '#A5783A', 'Paling lama di sini 19 hari'], ['Djarum Coklat 12', 0, '#7A4B22', '']];
     var QUAR = [['Cello Green 16', 12, '#7A8F4F'], ['Cello Merah 12', 4, '#9B3B2E']];
-    var rw = { opt: 'B', view: 'ok', busy: false, hp: false, open: true, door: 'd1', hl: 'h1' }, rwD = document.getElementById('rwD'), rwM = document.getElementById('rwM');
+    var rw = { opt: 'B', view: 'ok', busy: false, hp: false, open: true, door: 'd1' }, rwD = document.getElementById('rwD'), rwM = document.getElementById('rwM');
     var ENDER = '<button type="button" class="chestCell on" id="rwChest" aria-expanded="true" aria-label="Ender chest Gudang BANDUNG - open or close"><span class="c3 ender"><span class="cc"><i class="bf"></i><i class="bl"></i><i class="br"></i><i class="bt"></i><i class="it"></i><i class="if"></i><i class="iu"></i><span class="lid3"><i class="lf"></i><i class="ll"></i><i class="lr"></i><i class="lt"></i><i class="lu"></i><i class="latch"></i></span></span></span><span class="capt">Gudang BANDUNG<small>642 Bks · 16 in Quarantine</small></span></button>';
     var MOTES = '<span class="endmotes" aria-hidden="true">' + Array.from({ length: 10 }, function (_, i) { return '<i style="--mx:' + (8 + (i * 37) % 84) + '%;--md:' + (5 + (i % 4) * 1.3).toFixed(1) + 's;--mdl:-' + (i * 0.9).toFixed(1) + 's"></i>'; }).join('') + '</span>';
     var NAV = '<div class="dnav"><div class="dt"><i class="lamp"></i><span class="tt">On the shelf</span><span class="ts">per product · in Bks</span></div><div class="tabs">'
@@ -160,24 +160,24 @@
       var d = rwD.querySelector('.kpm-doors'); if (d) d.dataset.look = rw.door;
       rwM.textContent = 'Door look ' + k.textContent.trim() + ': press the big button to see it close.';
     }); });
-    /* a Healthy key shows that door SHUT and holds it (the run shows it for ~0.4 s); the big button opens it again */
-    function hold(on) {
+    /* a See key holds that door SHUT so it can be looked at (the run shows it for ~0.4 s); the big button opens it again */
+    function hold(kind) {
       var d = rwD.querySelector('.kpm-doors'); if (!d) return;
       var L = d.children[0], R = d.children[1];
-      if (on) { d.dataset.kind = 'steel'; d.dataset.look = rw.door; d.dataset.hl = rw.hl; d.dataset.hold = '1'; L.style.transform = R.style.transform = 'translateX(0)'; }
+      if (kind) { d.dataset.kind = kind; d.dataset.look = rw.door; d.dataset.hl = 'silver'; d.dataset.hold = '1'; L.style.transform = R.style.transform = 'translateX(0)'; }
       else if (d.dataset.hold) { delete d.dataset.hold; delete d.dataset.kind; L.style.transform = R.style.transform = ''; }
+      keys('data-see', kind || '');
     }
-    document.querySelectorAll('[data-hl]').forEach(function (k) { k.addEventListener('click', function () {
+    document.querySelectorAll('[data-see]').forEach(function (k) { k.addEventListener('click', function () {
       if (rw.busy || rw.opt !== 'B') return;
-      rw.hl = k.dataset.hl; keys('data-hl', rw.hl);
       if (!rw.open) document.getElementById('rwChest').click();
-      hold(false); void rwD.offsetWidth; hold(true);
-      rwM.textContent = k.textContent.trim() + ': the healthy door, held shut so you can look. Press the big button to open it.';
+      hold(false); void rwD.offsetWidth; hold(k.dataset.see);
+      rwM.textContent = (k.dataset.see === 'steel' ? 'The healthy door' : 'The quarantine door') + ', held shut so you can look. Press the big button to open it.';
     }); });
     document.querySelectorAll('[data-rw]').forEach(function (k) { k.addEventListener('click', function () { rw.opt = k.dataset.rw; keys('data-rw', rw.opt); paintRW(); }); });
     document.querySelectorAll('[data-rw-w]').forEach(function (k) { k.addEventListener('click', function () { rw.hp = k.dataset.rwW === 'hp'; document.getElementById('rwF').classList.toggle('phone', rw.hp); keys('data-rw-w', k.dataset.rwW); paintRW(); }); });
     paintRW();
-    document.getElementById('rwRec').innerHTML = '<b>Your pick: B, with the 3D ender chest under the box.</b> Press the chest to shut it: the box folds into it and keeps its room, so nothing below moves. The Quarantine view wears box <b>A</b>, the tape rim. The healthy door (going back from the Quarantine) has three looks on the <b>Healthy</b> keys - press one to see it shut; my pick 1. The cost you took: the age list under each card becomes one line when you press a square.';
+    document.getElementById('rwRec').innerHTML = '<b>Your pick: B, with the 3D ender chest under the box.</b> Press the chest to shut it: the box folds into it and keeps its room, so nothing below moves. The Quarantine view wears box <b>A</b>, the tape rim. The healthy door (going back from the Quarantine) is silver steel with the Eye of Ender as its lock; the two <b>See</b> keys hold a door shut so you can look. The cost you took: the age list under each card becomes one line when you press a square.';
 
     /* ── STOCK OPNAME, the boss's QUARANTINE tab ── */
     var FAC = [{ k: 'PUSAT', name: 'Pusat', rows: [['Djarum Coklat 12', 12, 150000, 'MASTER', '#7A4B22']] },
