@@ -56,6 +56,21 @@ the server. Firestore rules still decide every read and write.*
 *stored* and write that, rather than typing into the field. It is usually cleaner, always
 repeatable, and it keeps the boundary intact instead of arguing about it.
 
+## The BUILT app, and timing a keystroke (2026-09-30)
+
+- **The built app in the in-app browser: `kpm-preview-http`** in `.claude/launch.json` - `vite preview --mode httpdev`
+  on http 4174. The https `kpm-preview` (4173) opens as `chrome-error://chromewebdata/` there (self-signed cert), and a
+  script run on that page still "returns" - the first red test of the heavy-app session ran on it and looked like a
+  pass. Read `location.href` and the `index-*.js` name before trusting any number from a page.
+- **The emulator path, run end to end:** `firebase emulators:start --only auth,firestore --project
+  cello-inventory-manager` -> `node tools/seed-emulator.mjs` -> `kpm-dev-http` (5174) -> sign in with
+  `window.__kpmEmulatorAuth` -> `node tools/seed-emulator.mjs --uid <uid>` -> reload. Vault password `Emulator-1!`
+  (seeded in the OLD SHA-256 form; the first right login re-saves it as PBKDF2, so a second login times the real hash).
+- **Per-letter cost without a phone:** set the value with the native setter, dispatch `input`, time the
+  dispatch - React flushes a discrete event's update synchronously, so the dispatch time IS the re-render cost.
+- **A hidden pane runs no `requestAnimationFrame` and no smooth scroll.** Pace a synthetic drag with `setTimeout`,
+  and add `lite-mode` to `<html>` so `scrollTo` lands at once when the end position is what is being measured.
+
 ## A dev door onto `window` is guarded, not trusted
 
 `window.__kpmEmulatorAuth` reaching a real build is the one way this convenience becomes a

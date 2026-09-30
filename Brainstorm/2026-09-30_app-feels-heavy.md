@@ -1,6 +1,6 @@
 ---
 date: 2026-09-30
-status: OPEN - waiting on Aldi's ranking (no code changed)
+status: BUILT 2026-09-30 18:25 (local, not pushed) - 5c (tutorial-book split) OPEN, waiting on Aldi
 tags: [kpm, performance, phone, service-worker]
 ---
 
@@ -20,7 +20,24 @@ tags: [kpm, performance, phone, service-worker]
 
 **Ruled out (measured in the lab at 430):** running animations at rest are few (Fleet & Roster 4, Agent Inventory 13); only 2 elements use a backdrop blur. The music files (9.4 MB) are NOT in the offline download.
 
-**Decision:** OPEN - his ranking of 1-5 owed. My order: 1 (it looks like a broken app), 4 and 2 (what he touches most), 3, then 5.
+**Decision:** his 14:00 *"whatever the order as long as its done and i use iphone for the test"* -> all five in my order.
+
+**Results (2026-09-30 18:25, each measured before and after; the full story is in each commit message):**
+
+| # | Commit | Before | After |
+|---|---|---|---|
+| 1 | `b799704` main.jsx reloads once on `vite:preloadError` (30 s stamp, not offline, not with storage blocked) | event fired, page stayed (box until a manual refresh) | one reload; a second event 14 s later leaves the page alone |
+| 4 | `bf873d6` stageTouchMove + snap off on touch screens | 10 finger moves, stage moved 0 px | follows 20..200 px; release = next card; a 350 px drag still one card (counted from the drag's START) |
+| 2 | `ebc2329` the box keeps its own text (ref) | 13.2 ms a letter (PC dev build) | 0.2 ms a letter |
+| 3 | no code | - | "Checking…" already paints 6.7 ms after the press (`dfc2392`); PBKDF2 91 ms on the PC, off the main thread (page kept ticking) |
+| 5a | `47f6e51` manualChunks firebase / react | one 1,266 KB file renamed every push | app 639 + firebase 436 + react 188 KB; a one-word App.jsx change kept both vendor names |
+| 5b | `616b905` Customers / Settings / Audit Vault lazy | app file 639 KB | 435 KB (137 KB gz) |
+
+**The diagnosis was wrong once:** finding 3 said "show checking… at once" - it already did since `dfc2392`. Measuring before coding caught it; the handed-down finding would have been built twice.
+
+**OPEN - 5c, the tutorial-book split:** the shell's "Tutorial book" button statically imports PonderBook -> registry -> every stage -> LoadingBay (~250 KB pre-minify, roughly 125 KB of the 435). PonderOverlay is always mounted, and a lazy book would make the FIRST fly-out wait for its download - his approved animation, so his call.
+
+**Unlock wait after the right password:** the 8.5 s wave is HIS locked number (VaultGate.jsx); his iPhone has Reduce Motion on, so there it is 1 s. Not touched.
 
 **Models applied:** Inversion (what would make a fast app feel slow: an error on first open, input that answers late, a drag that does not follow the finger) - each finding maps to one of those.
 
