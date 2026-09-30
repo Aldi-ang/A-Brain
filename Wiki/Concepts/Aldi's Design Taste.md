@@ -3089,3 +3089,13 @@ Then, before any new option reached him, with a clip of Satisfactory's launch bu
 - **17:50, on v19:** *"i feels like the buttons design is not correct it is not well design here because the black mark under the button, i think u need to follow the video that i sent u earlier so that it become more realistic and HD ... steel platform that goes up when button is showing like some elevator ... must exactly like how satisfactory button look at least 3D, realistic, HD high quality"*. **When he sends a reference, match the reference, not my idea of it.** A stylised cylinder read as "not well designed"; a dark gap under the cap read as a defect. He wants the game object rendered faithfully: glossy dome with a highlight, chrome bezel, bolted steel, a label plate, and a mechanism that moves like a machine (an elevator). Built as v20.
 
 - **18:35, APPROVED:** *"i love the button now, everything else is great nothing to complain really u can continue the work"*, then *"maybe look even cooler tbh when the ender eyes is moving and blink at random lol"* - a living object (the eye glances, blinks) is his idea of "cooler", like the crate's slow sign and specks. Added as v21.
+
+## Both times he took the OBJECT over my pick; "norak" = a hazard pattern over the whole surface (2026-09-30)
+
+> *"i want u to add the 3D chest in the regional warehouse and not just the inventory panel, and for stock opname i want option B, and use box A for quarantine inventory"*
+
+> *"i want u to redesign all the blastdoor for quarantine animation because it is too norak i want it to be minimalist but cool but still shows that it is quarantine blast door"*
+
+- **The object wins again.** I recommended A twice on ergonomics (keep the age list; one press per row); he chose B twice and asked for the 3D chest on top. Same instinct as the Sheriff's Desk (2026-08-16): he buys the world. A panel without its chest reads as "just the inventory panel" to him.
+- **"Norak" (tacky) is a pattern that covers everything.** Tape stripes over both whole doors failed; the fix is to put the meaning in ONE place (the seam, a seal) and let the rest be plain material. Same rule as "a tape band is decoration enough; a word on it is one too many" and "the effect he keeps is the one he notices a moment late".
+- **"Minimalist but cool but still shows it is X"** = keep ONE unmistakable marker, delete the rest. [[2026-09-30_quarantine-chest-warehouse-and-opname]]

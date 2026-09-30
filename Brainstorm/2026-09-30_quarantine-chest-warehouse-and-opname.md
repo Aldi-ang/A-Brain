@@ -54,3 +54,18 @@ OPEN - waiting on Aldi: regional A or B, Opname A or B. Same page, third section
 
 Models applied: Opportunity Cost (what B's one box costs: the age list; B's two presses per item), Reversibility (A changes
 the least on approved screens), Second-Order Thinking (how B changes a boss clearing several damaged boxes).
+
+## DECIDED 2026-09-30 08:00 (his answers on v22) - drawn as v23
+
+> *"i want u to add the 3D chest in the regional warehouse and not just the inventory panel, and for stock opname i want option B, and use box A for quarantine inventory and make the book little bit closer to the table so that it dont float too high"*
+
+- Regional warehouse: **B + a 3D ender chest** under the box (he went past my pick A - the object over the age list).
+- Stock Opname: **B** (he went past my pick A again - the box of squares over one-press rows).
+- Quarantine boxes wear **box A** (the tape rim) on these screens; whether A also replaces C on the two built boxes is ASKED, not assumed.
+- The enchanting book: lowered 10 px (-8); at -16 it sat on the table and stopped floating.
+
+> *"i want u to redesign all the blastdoor for quarantine animation because it is too norak i want it to be minimalist but cool but still shows that it is quarantine blast door"*
+
+v23 offers three doors, same motion: 1 hazard seam (dark steel, a tape strip only where the doors meet, one round seal - my pick), 2 ribbed steel (one yellow line + a square seal), 3 stone (the box's grey, a tape seam, no seal). OPEN - his pick.
+
+Rejected on purpose now: full-face hazard stripes on the doors ("too norak").
