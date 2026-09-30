@@ -1448,3 +1448,7 @@ Each proved same-look (byte\/pixel compares, matrix maths, a touch walk) and mea
 ## 2026-10-01 01:20 — the coin spin BUILT (kpm 72101d1)
 
 Agent Inventory 30% -> 15%; [[2026-09-30_potato-phone-audit]]. A fresh emulator reads 80% everywhere for its first sync - measure warm.
+
+## 2026-10-01 06:55 — heavy-app + potato fixes PUSHED (kpm ee0b666..72101d1)
+
+Live ~25 s after on kpm-ang.vercel.app; his iPhone test owed. [[2026-09-30_potato-phone-audit]] [[2026-09-30_app-feels-heavy]]
