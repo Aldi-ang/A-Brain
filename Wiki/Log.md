@@ -1424,3 +1424,7 @@ No pulsing row, warm plain stage, no tutorial in the bay, TIM one row per van + 
 ## 2026-09-27 09:52 — the Agent Inventory chest BUILT (kpm `4f44e3d`)
 
 T1-T4 see the van as the chest (`LoadingBay vanOnly`, look 1, six a page, page keys carry their count, the damaged row under it; a drag writes only `vanLayout`); the book page Agent Inventory -> Agent Chest, 22 beats; the shut-panel speck in both book pages fixed (the book's inline opacity beat `opacity: 0`, now `visibility: hidden` after the shrink). Frames + shooter in `Raw/2026-09-27-agent-chest/`. The near-miss (a handoff naming `seesEveryRegion` for a T1-T4 rule) is on [[Fleet Captain Permission Gap]]. Next: T3 sees every region.
+
+## 2026-09-30 07:25 — the Fleet & Roster quarantine switch BUILT (kpm `8476f20`)
+
+His prototype v21 in the app: the ender chest's ONE box switches healthy <-> Quarantine on his Satisfactory hatch, blast doors over the box, the crate and the van chest take turns in one place, four squares a row at every width. Built as one shared piece (`components/QuarantineSwitch.jsx`) for the regional warehouse and Stock Opname. New hub note: [[Quarantine Chest]]. Frames and walk: `Raw/2026-09-30-quarantine-switch/`.

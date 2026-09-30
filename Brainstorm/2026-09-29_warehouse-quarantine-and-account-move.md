@@ -126,3 +126,7 @@ His words: *"btw this quarantine chest should also be available on the stock opn
 **Recommended:** build the box + hatch as ONE shared piece in the Fleet & Roster build, then the regional warehouse, then Stock Opname - pictures first for both. **Decision:** OPEN - his yes on the order. Models applied: Second-Order Thinking (Stock Opname is where damaged stock is resolved - a look-only chest there would hide the work).
 
 **DECIDED 2026-09-29 19:30:** *"yes good order"* - Fleet & Roster (the shared box + hatch) -> the regional warehouse -> Stock Opname, pictures first for the last two.
+
+## BUILT 2026-09-30 07:10 — Fleet & Roster, kpm `8476f20`
+
+His v21 as drawn, three calls made for him and told, not asked: **box change 1, blast doors** (he never picked; the page default he saw and called great); **four squares a row on the PC too** (his "can also be 4"); **page keys scroll sideways in their cell** - the prototype had one page, real stock has many, and wrapping keys would change the box's height between the two views (the one thing the band exists to prevent). Measured one height: 460x369 PC, 342x339 phone, both views. The data rule found on the way: a branch's Quarantine must come from its own rows - Fleet & Roster's `displayInventory` carries the MASTER product's `damagedStock`. Hub: [[Quarantine Chest]]. Next: the regional warehouse, pictures first.

@@ -72,6 +72,7 @@ The shape of the app everything else sits on top of.
 - [[Tier System]] — the six role levels, from Developer down to Rookie, and how delegation works.
 - [[KPM Project Facts Reference]] — the one-page cheat sheet covering both of the above, plus reusable patterns worth knowing.
 - [[Gudang Pusat (Master Vault)]] — the main warehouse. One name on screen and on paper, and the identically-spelled routing value that must not follow it.
+- [[Quarantine Chest]] — where damaged stock waits: the yellow crate and the warehouse box's healthy/Quarantine switch, screen by screen, and the one shared piece they reuse.
 - [[The Place Registry]] — every factory and warehouse is a record with a fixed address, and a delivery form that can no longer invent a place by being typed into.
 - [[Logistics and Stock Movement]] — **topic hub**: the factory→HQ→branch→van→store chain, which note answers which question, and the locked rules. Start here for anything about shipping, restock, transfers or stock levels.
 - [[One Pack Count, Many Screens]] — karton, bal, slop and bks: the one converter every screen must use, why the boxes are a calculator rather than a second unit on the line, and the two screens that still hardcode the rate and miscount today.
