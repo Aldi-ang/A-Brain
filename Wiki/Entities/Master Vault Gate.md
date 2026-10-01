@@ -106,3 +106,7 @@ His words: *"i want the other user also have password and their agent name displ
 - Source: [[../../Raw/2026-08-10_source_kpm-six-days-aug04-to-aug10|the six-day source]]
 
 **Answered 2026-10-01 ~12:10:** *"yes ive tried tier 2 having password before and it works fine before, every password first setting should be the same"* - the live rules carry vault_keys (a T2 saved a password live), so the push is safe; and the first-time screen stays ONE screen for every tier (INITIALIZE VAULT wording kept - no per-tier copy).
+
+## Fingerprint at the first password (2026-10-01, kpm a13bd53)
+
+His words: *"can u add biometric registration as well when the first password setup"*. Save Credentials also registers a passkey when the device has a sensor (prompt started inside the press - Safari refuses a cold one; canBio asked ahead of time); saved with the password in the person's own doc; cancelled = password still saved, reported. makePasskey is the one builder; its user handle is the PERSON's uid (an employee's user.uid is the boss's - two people on one phone would have shared one key). Proof: Raw/2026-09-30-potato-audit/t5-bio.mjs (Chrome virtual authenticator).
