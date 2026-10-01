@@ -66,3 +66,4 @@ sit here indefinitely once it's actually decided.
 - [[2026-10-01_intro-name-for-every-tier]] - the unlock intro + name only reaches T1/T2 (vault holders); options A as is / B same intro after sign-in / C short box, OPEN
 - [[2026-10-01_version-check-on-open]] - "is the app on the latest version?" A stamp only / B stamp + the app checks and updates itself before login (my pick) / C B + buttons wait - DECIDED B, built 9d276db
 - [[2026-10-02_master-vault-phone]] - Master Vault on the phone: measured (a finger turns nothing - 3D box and photo cropper are mouse-only), layouts A same order / B box first / C list then product (my pick) + one cropper design - DECIDED C + cropper, built 12b736f
+- [[2026-10-02_double-notification]] - the same message in the capybara bubble and the top panel (triggerCapy also notifies on isFailure); A top panel only for bad news (my pick) / B panel only when the bubble cannot be seen / C capybara only, OPEN
