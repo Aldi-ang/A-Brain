@@ -30,3 +30,9 @@ OPEN — waiting on Aldi.
 - Dropping the top panel for failures outright without his word: Chesterton's fence - it exists so a failure is never only in an 8-second bubble.
 
 Models applied: Chesterton's Fence (why the double call exists before removing it), Inversion (which choice loses a message he needed).
+
+## Answered 2026-10-02 ~01:45 — A, plus a bigger design (his)
+
+*"i choose A and i want u to make new features toward the notification, i want the top panel notification to be timed for few second then fade and also for capybara, but then i want the notification bells to have 2 segment, 1 is for the confirmation request or handsoff request and all of the urgent notification, and the other one is for temporary notification that can be cleared, this is just to record all the missed notification to make sure that the user miss nothing what do u think about this tho"*
+
+Read: the bell today = Firestore system notifications for this person + logistics (handoff) notifications (App.jsx combinedNotifications) - that IS his segment 1 already. Toast.jsx keeps failures until clicked (isSticky); his design lets everything fade because the bell's second segment records it. Verdict given: right call (transient strip + inbox is the standard shape). Costs put to him: (1) a faded failure is only safe if the bell shows an unread count on the "missed" side; (2) where the log lives - this device (free, private, instant) vs his account (follows phone<->PC, but every message becomes a database write + a rules change he publishes) - my pick device; (3) repeats (the low-stock line) merge into one entry with a count; (4) keep the last 100 / 7 days. Open: his answers on where + seconds, then the bell drawn as pictures.
