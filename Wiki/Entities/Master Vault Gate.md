@@ -114,3 +114,5 @@ His words: *"can u add biometric registration as well when the first password se
 ## OPEN: the fingerprint "resets" after every push (2026-10-01 18:50)
 
 His words: *"whenever we push a new version of the app, the biometric reset and i need to register it again and it is incovenience"*. Code read: the device list is read from the vault doc (App.jsx checkAdminStatus, getDoc once per vaultPath); nothing written at deploy time touches `passkeys`. Two suspects, different fixes: (a) he opens the new DEPLOYMENT address after a push (every Vercel deployment has its own *.vercel.app host; a passkey is locked to its host and vercel.app is a public suffix, so no shared rpId is possible) -> no code fix, always open kpm-ang.vercel.app; (b) the list is empty at load -> "No devices registered!" -> a load bug. Waiting on his observation: the address bar, and which message he sees.
+
+**Answered 2026-10-01 19:00:** *"this is the adress, and yes there is that message that no device is registered"* - suspect (b): the app's own list is empty at load (checkAdminStatus, one unguarded getDoc). Suspect (a) is out. Fix is the next session's one job.
