@@ -20,7 +20,9 @@ created: 2026-10-01
 | C. Drop `select_account` | Google stops showing the chooser when one account is signed in | he loses the account chooser (he switches tier accounts to test) |
 | D. Phone setting | Android Settings > Apps > Gmail > Open by default > "Open supported links" off | only his phone; every salesman's phone would need it |
 
-**Decision:** OPEN — waiting on his History observation + browser name (Samsung Internet or Chrome). Recommended: A before any code.
+**09:43 new evidence, his words:** *"i tried to refresh and now it said unable to process request due to missing initial state"*. That is Firebase's /__/auth/handler page: it keeps the sign-in's state in the TAB's sessionStorage, so the state is lost when the return lands in a different tab or the handler is reloaded. Same family as the Gmail jump: the POPUP is a separate tab on Samsung, and that tab loses its context mid-flow [likely]. The proxy (firebase.js PROXIED_AUTH_HOSTS, vercel.json /__/auth/*) exists precisely so a same-tab redirect works on kpm-ang.vercel.app - so B is safe there; on LAN IPs / previews (no proxy) the popup must stay.
+
+**Decision:** OPEN — recommended B on phones on the proxied host only (popup stays on PC and unproxied hosts). Waiting on his 🔴.
 
 **Rejected on purpose:** none yet.
 
