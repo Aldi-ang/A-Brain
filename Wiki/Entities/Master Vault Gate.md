@@ -110,3 +110,7 @@ His words: *"i want the other user also have password and their agent name displ
 ## Fingerprint at the first password (2026-10-01, kpm a13bd53)
 
 His words: *"can u add biometric registration as well when the first password setup"*. Save Credentials also registers a passkey when the device has a sensor (prompt started inside the press - Safari refuses a cold one; canBio asked ahead of time); saved with the password in the person's own doc; cancelled = password still saved, reported. makePasskey is the one builder; its user handle is the PERSON's uid (an employee's user.uid is the boss's - two people on one phone would have shared one key). Proof: Raw/2026-09-30-potato-audit/t5-bio.mjs (Chrome virtual authenticator).
+
+## OPEN: the fingerprint "resets" after every push (2026-10-01 18:50)
+
+His words: *"whenever we push a new version of the app, the biometric reset and i need to register it again and it is incovenience"*. Code read: the device list is read from the vault doc (App.jsx checkAdminStatus, getDoc once per vaultPath); nothing written at deploy time touches `passkeys`. Two suspects, different fixes: (a) he opens the new DEPLOYMENT address after a push (every Vercel deployment has its own *.vercel.app host; a passkey is locked to its host and vercel.app is a public suffix, so no shared rpId is possible) -> no code fix, always open kpm-ang.vercel.app; (b) the list is empty at load -> "No devices registered!" -> a load bug. Waiting on his observation: the address bar, and which message he sees.
