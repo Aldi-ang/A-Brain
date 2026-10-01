@@ -1,7 +1,7 @@
 ---
 title: The unlock intro with their name, for every tier
 type: brainstorm
-status: OPEN — waiting on Aldi
+status: DECIDED 2026-10-01 — beyond the options: a password for everyone (kpm 6857f27)
 created: 2026-10-01
 ---
 
@@ -20,8 +20,8 @@ created: 2026-10-01
 | B. Same intro after sign-in | the same dot wave + WELCOME BACK + their name, once per Google sign-in, no password | ~8.5 s once per sign-in (rare - the session stays signed in); Lite Mode shows the plain box |
 | C. Short greeting | the plain 1-second "WELCOME BACK, NAME" box (the Lite Mode one) after sign-in | quick; not the full animation |
 
-**Decision:** OPEN — my pick B (he likes the intro, and it plays only on a fresh sign-in).
+**Decision (11:20):** none of A/B/C - his *"i want the other user also have password and their agent name displayed on the intro animation"*: T3-T6 get the same gate with their own password on entry, and the intro with their name on unlock. Built kpm `6857f27`; see [[Master Vault Gate]].
 
-**Rejected on purpose:** giving T3-T6 a vault password just to get the intro (the vault guards money screens; his 2026-09-28 rule keeps the vault to who needs it).
+**Rejected on purpose:** B and C (intro without a password). And giving T3-T6 the VAULT itself - their password opens only their own app (appUnlocked), never isAdmin.
 
 Models applied: Second-order thinking (who signs in how often - a field phone stays signed in for weeks, so the cost lands rarely); Opportunity cost (C is cheaper but loses the animation he asked about).

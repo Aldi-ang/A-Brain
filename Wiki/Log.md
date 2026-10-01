@@ -1496,3 +1496,7 @@ His rule added to [[Aldi's Design Taste]]. Local commits waiting on "push": 3f53
 ## 2026-10-01 11:11 — Agent Profile opens on your own (kpm 28b5d14, local); intro-for-every-tier OPEN
 
 [[2026-10-01_intro-name-for-every-tier]]. Lab tools profile-own.mjs + idle-lite.mjs saved in Raw/2026-09-30-potato-audit.
+
+## 2026-10-01 12:04 — every person opens the app with their own password (kpm 6857f27, local)
+
+[[Master Vault Gate]] - T3-T6 meet the gate on entry; intro with their name. Push blocked on: live rules carry vault_keys (CHANGE 11)?

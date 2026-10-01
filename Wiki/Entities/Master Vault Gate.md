@@ -89,6 +89,10 @@ CONFIRMED on his Samsung after the push (~10:05): *"sign in work, no grace perio
 
 Also 2026-10-01: the unlock name vanished on the Samsung - [[A Resize Mid-Unlock Wiped the Name]].
 
+## Every person opens the app with their own password (2026-10-01, kpm 6857f27)
+
+His words: *"i want the other user also have password and their agent name displayed on the intro animation"*. T3-T6 (no vault) with a roster profile now meet the gate on entry (`entryLocked`); their password opens their OWN app (`appUnlocked`), never the vault; the unlock plays the intro with their name; their own 5-minute pass. Every unlock path goes through `openGate()`; `gateUp = showAdminLogin || entryLocked` is the one flag for "gate is up". T1/T2 unchanged. Proof on the emulator with T5 Budi (rules enforced): gate on entry, own vault_keys doc created, BUDI in dots, pass skips a reload, sign-out relocks. TRAPS met: (1) screens with their own z-[9999] (Journey Plan Fullscreen, a T5 landing tab) paint over the gate - so nothing behind the lock renders (`user && !entryLocked`); (2) 5 logicFixes + 3 audit checks pinned `showAdminLogin` text - retargeted to gateUp. RISKS before push: live rules must carry CHANGE 11 vault_keys or every T3-T6 is locked out; first unlock must be online; Forgot-password mail needs the EmailJS {{to_email}} fix; the first-time screen still says ADMINISTRATOR CREDENTIALS.
+
 ## Open against this screen
 
 - A split second of the old ACCESS GRANTED panel still shows after pressing enter-vault (phone,
