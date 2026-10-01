@@ -3111,3 +3111,7 @@ Then, before any new option reached him, with a clip of Satisfactory's launch bu
 *"im expecting the fleet and roster user card slider to be unlocked and not one by one just to make it fluid"* - he reversed his own 2026-09-26 *"make the roster slide lock 1 by 1"* after using it on a phone. Built `751d64b`: native momentum, the snap still lands a person in the middle. Lesson for proposals: a control that limits a gesture (one-per-swipe, locked drag) reads well in a spec and badly under a thumb - offer the fluid version first on touch screens.
 
 Same session: *"the welcome \"aldi\" is gone when i use my samsung"* and *"we should fix the name on the intro"* - the greeting matters to him even when animations are off; the plain unlock box now says WELCOME BACK, ALDI (`28e2cb3`).
+
+## Lite Mode freezes everything heavy, CSS or not (2026-10-01)
+
+*"yeah lite mode should freeze everything thats heavy, we can push later"* - asked whether Lite Mode should also stop the Platinum/Mythic rank-frame swirl (SVG SMIL, which the `html.lite-mode *` CSS kill cannot reach). Law 3 extends: Lite Mode is judged by what still MOVES, not by which mechanism moves it - SMIL, canvas loops and JS timers count the same as CSS. Built kpm `c64de8b` (frozen, texture kept). Sweep after it: all 17 screens 0-3% busy at 6x in Lite Mode, 0 SMIL running.

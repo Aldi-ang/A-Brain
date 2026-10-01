@@ -1488,3 +1488,7 @@ Live ~35 s later; his re-test owed.
 ## 2026-10-01 10:26 — potato open costs closed (kpm 3f53552, d62588c, local)
 
 [[2026-09-30_potato-phone-audit]] - EOD Setoran 49 -> 5%, Agent Profile 53 -> 5% (SMIL swirl asleep without its frames); Restock cells no longer rebuilt per render.
+
+## 2026-10-01 10:39 — Lite Mode freezes the rank-frame swirl (kpm c64de8b, local)
+
+His rule added to [[Aldi's Design Taste]]. Local commits waiting on "push": 3f53552 d62588c c64de8b.
