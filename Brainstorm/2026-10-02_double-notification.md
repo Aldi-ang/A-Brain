@@ -40,3 +40,22 @@ Read: the bell today = Firestore system notifications for this person + logistic
 ## Answered 2026-10-02 ~02:20 — account-wide list, 5 seconds
 
 *"phone and pc show the same thing, maybe around 5 seconds is enough"* - so: one strip time for everything (5 s, the capybara bubble too, was 8 s), and the Missed list lives on his ACCOUNT. Consequences for the build: every recorded message is a Firestore write (keep it to one doc per person with a capped array - last 100 / 7 days - so it is one write and one live read, not a collection); employees are the hijacked user (user.uid = the boss) so key the doc on the PERSON (realUid / roster profile, like vault_keys); a NEW rule block in firestore.rules (the person reads/writes only their own doc) - a DRAFT he publishes himself before the push, per the rules draft process; offline: queue in Firestore's own cache (writes replay), and a failed write must never throw into the toast path. Next: the bell as pictures (two layouts), his pick, then build.
+
+## The bell drawn, 2026-10-02 ~02:40 — A / B, his pick owed
+
+Boards: `Raw/2026-10-02-notification-bell/board-phone.png`, `board-pc.png` (real app shell through the ponder lab, `tools/lab-bell.jsx`, `?shell&bell=a|b&open`; shooter `shoot-bell.mjs`, numbers in `measure.json`).
+
+| | Phone (390) | PC (1440) | Cost |
+|---|---|---|---|
+| A (my pick on the phone) | one box, a switch on top: Needs you / Missed; opens on Needs you while it has a red number; 374 wide, keys 46 tall | same box, 380 wide | Missed is one press away |
+| B (my pick on the PC) | both lists in one scroll; Missed header starts 600 px down, at the bottom of the box | 680 wide, two columns side by side, both seen at once | on the phone you scroll to see one missed line |
+
+Same bell in both: red badge = Needs you unread (the plate lights only for this); a small gold-rim count under it = Missed not yet opened. A Missed row = the strip it came from (strip ink, red edge = failure, x4 = repeated), Clear all, kept 7 days, "Earlier" splits seen from new.
+
+**Found while drawing [certain]:** today's bell titles use `text-orange-400` / `border-orange-500/*`, which Tailwind never generates here (`tailwind.config.js` defines `orange` as ONE colour, `var(--orange)`; the built CSS has 0 `text-orange-400`). So the new-message titles in the live bell print black (rgb 0,0,0, measured) on the dark panel. The proposals use theme tokens (`--duke-amber-ink`, `--duke-edge-*`); the build fixes it either way.
+
+Models applied: Inversion (which layout hides a message he needed -> B on the phone buries Missed under the requests), Second-Order (a Missed count that never drops trains him to ignore it -> opening Missed resets it).
+
+Decision: OPEN — waiting on Aldi (phone A or B, PC A or B; recommended phone A + PC B).
+
+Rejected on purpose: a source icon per Missed row (capybara vs top panel) - who said it does not change what he does; dropped to keep rows short.

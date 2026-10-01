@@ -1,0 +1,185 @@
+{
+ "p-today": {
+  "vw": 390,
+  "vh": 844,
+  "docW": 390,
+  "bell": [
+   326,
+   82,
+   48,
+   44
+  ],
+  "panel": [
+   54,
+   138,
+   320,
+   437
+  ],
+  "missedHeadTop": null,
+  "small": []
+ },
+ "p-a": {
+  "vw": 390,
+  "vh": 844,
+  "docW": 390,
+  "bell": [
+   326,
+   82,
+   48,
+   44
+  ],
+  "panel": [
+   8,
+   138,
+   374,
+   484
+  ],
+  "missedHeadTop": null,
+  "small": [
+   [
+    "Needs you3",
+    46
+   ],
+   [
+    "Missed4",
+    46
+   ]
+  ]
+ },
+ "p-a-missed": {
+  "vw": 390,
+  "vh": 844,
+  "docW": 390,
+  "bell": [
+   326,
+   82,
+   48,
+   44
+  ],
+  "panel": [
+   8,
+   138,
+   374,
+   482
+  ],
+  "missedHeadTop": null,
+  "small": [
+   [
+    "Needs you3",
+    46
+   ],
+   [
+    "Missed4",
+    46
+   ],
+   [
+    "Clear all",
+    44
+   ]
+  ]
+ },
+ "p-b": {
+  "vw": 390,
+  "vh": 844,
+  "docW": 390,
+  "bell": [
+   326,
+   82,
+   48,
+   44
+  ],
+  "panel": [
+   8,
+   138,
+   374,
+   600
+  ],
+  "missedHeadTop": 600,
+  "small": [
+   [
+    "Clear all",
+    44
+   ]
+  ]
+ },
+ "d-today": {
+  "vw": 1440,
+  "vh": 900,
+  "docW": 1440,
+  "bell": [
+   1204,
+   38,
+   48,
+   44
+  ],
+  "panel": [
+   932,
+   94,
+   320,
+   437
+  ],
+  "missedHeadTop": null,
+  "small": []
+ },
+ "d-a": {
+  "vw": 1440,
+  "vh": 900,
+  "docW": 1440,
+  "bell": [
+   1204,
+   38,
+   48,
+   44
+  ],
+  "panel": [
+   872,
+   94,
+   380,
+   484
+  ],
+  "missedHeadTop": null,
+  "small": [
+   [
+    "Needs you3",
+    46
+   ],
+   [
+    "Missed4",
+    46
+   ]
+  ]
+ },
+ "d-b": {
+  "vw": 1440,
+  "vh": 900,
+  "docW": 1440,
+  "bell": [
+   1204,
+   38,
+   48,
+   44
+  ],
+  "panel": [
+   572,
+   94,
+   680,
+   463
+  ],
+  "missedHeadTop": 95,
+  "small": [
+   [
+    "Clear all",
+    44
+   ]
+  ]
+ },
+ "board-phone": [
+  1680,
+  1081
+ ],
+ "board-pc": [
+  2076,
+  799
+ ],
+ "errors": []
+}

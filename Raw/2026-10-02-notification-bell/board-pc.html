@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<style>
+* { box-sizing:border-box; margin:0; }
+body { background:#050403; color:#f2e6cf; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; padding:24px; width:max-content; }
+h1 { font-size:20px; letter-spacing:.12em; margin-bottom:4px; }
+.lead { font-size:13px; color:#b9a888; margin-bottom:18px; }
+.board { display:flex; gap:24px; align-items:flex-start; }
+.cap { font-size:15px; font-weight:800; margin-bottom:4px; letter-spacing:.04em; display:flex; gap:8px; align-items:center; }
+.rec { font-size:11px; font-weight:900; letter-spacing:.14em; color:#130f0a; background:#d9a441; padding:2px 7px; }
+.sub { font-size:12.5px; color:#b9a888; line-height:1.5; min-height:58px; margin-bottom:10px; }
+.sub b { color:#f2e6cf; }
+.bad { color:#e5847a; }
+.crop { height:600px; overflow:hidden; border:1px solid #2a241d; border-radius:10px; position:relative; }
+.crop img { position:absolute; top:0; display:block; }
+.col.pick .crop { outline:3px solid #d9a441; outline-offset:4px; }
+</style></head>
+<body>
+<h1>THE BELL ON THE PC (1440) - top right corner of the screen</h1>
+<p class="lead">Same bell, same two numbers. The PC has room, so B can show both lists side by side.</p>
+<div class="board">
+  <div class="col" style="width:560px">
+    <p class="cap">TODAY</p>
+    <p class="sub">Requests only, 320 wide. <span class="bad">New titles print black on black.</span></p>
+    <div class="crop" style="width:560px"><img src="d-today.png" style="left:-860px"></div>
+  </div>
+  <div class="col" style="width:560px">
+    <p class="cap">A · ONE BOX, A SWITCH</p>
+    <p class="sub">Same as the phone, 380 wide. Missed is one press away.</p>
+    <div class="crop" style="width:560px"><img src="d-a.png" style="left:-860px"></div>
+  </div>
+  <div class="col pick" style="width:860px">
+    <p class="cap">B · SIDE BY SIDE <span class="rec">RECOMMENDED ON PC</span></p>
+    <p class="sub">680 wide: Needs you on the left, Missed on the right, both seen the moment the bell opens. <b>No press needed to see what you missed.</b></p>
+    <div class="crop" style="width:860px"><img src="d-b.png" style="left:-560px"></div>
+  </div>
+</div>
+</body></html>

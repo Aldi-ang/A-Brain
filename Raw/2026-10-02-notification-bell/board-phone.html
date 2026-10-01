@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<style>
+* { box-sizing:border-box; margin:0; }
+body { background:#050403; color:#f2e6cf; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; padding:24px; width:max-content; }
+h1 { font-size:20px; letter-spacing:.12em; margin-bottom:4px; }
+.lead { font-size:13px; color:#b9a888; margin-bottom:18px; }
+.board { display:flex; gap:24px; align-items:flex-start; }
+.col { width:390px; }
+.cap { font-size:15px; font-weight:800; margin-bottom:4px; letter-spacing:.04em; display:flex; gap:8px; align-items:center; }
+.rec { font-size:11px; font-weight:900; letter-spacing:.14em; color:#130f0a; background:#d9a441; padding:2px 7px; }
+.sub { font-size:12.5px; color:#b9a888; line-height:1.5; min-height:96px; margin-bottom:10px; }
+.sub b { color:#f2e6cf; }
+.bad { color:#e5847a; }
+.phone { width:390px; height:844px; overflow:hidden; border:1px solid #2a241d; border-radius:22px; }
+.phone img { width:390px; display:block; }
+.col.pick .phone { outline:3px solid #d9a441; outline-offset:4px; }
+</style></head>
+<body>
+<h1>THE BELL ON THE PHONE (390)</h1>
+<p class="lead">Red number on the bell = needs you. Small gold number under it = missed messages you have not opened yet.</p>
+<div class="board">
+  <div class="col">
+    <p class="cap">TODAY</p>
+    <p class="sub">One list, only the requests. A top panel or capybara line that faded is gone for good.<br><span class="bad">Bug: the new-message titles print black on black</span> (fixed in A and B).</p>
+    <div class="phone"><img src="p-today.png"></div>
+  </div>
+  <div class="col pick">
+    <p class="cap">A · NEEDS YOU <span class="rec">RECOMMENDED</span></p>
+    <p class="sub">One box with a switch on top. It opens on <b>Needs you</b> while that has a red number. The box takes the whole phone width (374), the switch keys are 46 tall.</p>
+    <div class="phone"><img src="p-a.png"></div>
+  </div>
+  <div class="col pick">
+    <p class="cap">A · MISSED</p>
+    <p class="sub">Press <b>Missed</b>: every top panel and capybara line, newest first. Red edge = something failed. <b>×4</b> = the same line came 4 times. Clear all empties it; it keeps 7 days.</p>
+    <div class="phone"><img src="p-a-missed.png"></div>
+  </div>
+  <div class="col">
+    <p class="cap">B · BOTH IN ONE LIST</p>
+    <p class="sub">Needs you on top, Missed under it, one scroll. On the phone the Missed list starts at the very bottom of the box (600 px down) - <b>you scroll to see a single missed line.</b></p>
+    <div class="phone"><img src="p-b.png"></div>
+  </div>
+</div>
+</body></html>
