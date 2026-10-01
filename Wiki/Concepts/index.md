@@ -88,3 +88,4 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 - [[A sale is a closed contract — no cash goes back]] — the company does not refund; a retur is the agent's own money. Buyback off, Exchange kept. Also: the rule was forced on in two places and only the browser found the second.
 - [[capture=environment Is a Request, Not a Lock]] — the HTML attribute that looks like it forces a camera and is ignored on desktop; the tier rule for sale-proof photos built on top of it, and why the enforcement is that a field tier has no file input in the DOM at all.
 - [[Lift the Dialog, Never Push the Rest Down]] — the alarm strip painted over the confirm dialog; the obvious fix would have hidden five vault-gate reports behind an opaque screen, so the dialog was lifted instead. The rule, the layer map, and Aldi's "do 1".
+- [[The Offline Helper Ate the Sign-In Page]] - the PWA worker answered /__/auth/handler with the app; denylist /__/ (2026-10-01)

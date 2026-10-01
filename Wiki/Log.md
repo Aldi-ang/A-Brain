@@ -1460,3 +1460,7 @@ Page buttons under the hatch on phones; the name in the plain unlock box; the ro
 ## 2026-10-01 07:58 — Samsung fixes PUSHED (kpm 72101d1..751d64b)
 
 Live ~35 s later; his re-test owed.
+
+## 2026-10-01 08:05 — sign-in fixed (kpm 79b3e7d, local)
+
+[[The Offline Helper Ate the Sign-In Page]] - the service worker answered /__/auth/handler with the app.
