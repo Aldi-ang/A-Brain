@@ -1484,3 +1484,7 @@ Live ~35 s later; his re-test owed.
 ## 2026-10-01 10:05 — all three Samsung fixes CONFIRMED by him
 
 *"sign in work, no grace period work, name showing in tier 1, no duplicate tab also work"* - kpm acdb0cf (name), 0e285e6 (logout ends the pass), 216a7df (same-tab sign-in), all live.
+
+## 2026-10-01 10:26 — potato open costs closed (kpm 3f53552, d62588c, local)
+
+[[2026-09-30_potato-phone-audit]] - EOD Setoran 49 -> 5%, Agent Profile 53 -> 5% (SMIL swirl asleep without its frames); Restock cells no longer rebuilt per render.
