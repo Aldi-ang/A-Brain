@@ -106,6 +106,7 @@ What the app looks like, and what Aldi wants it to feel like.
 ## 📱 Phone & Device
 
 - [[Secure Context Requirement]] — why the app worked on his PC and did nothing on his phone for months.
+- [[A Resize Mid-Unlock Wiped the Name]] — Samsung: the keyboard closing after Enter rebuilt the dot grid and the unlock name never formed (2026-10-01).
 - [[Brainstorm/2026-09-17_customers-di-hp]] — the Customers screen measured at 375; three fixes and one question open.
 - [[Brainstorm/2026-09-18_agent-inventory-di-hp]] — the Agent Inventory measured at 375; both boards decided, shipped and CONFIRMED on his phone.
 - [[Brainstorm/2026-09-18_customers-look-dan-badge-karantina]] — the Customers look, the Quarantine count and the sideways swipe: all B, shipped; the control system grew .kpm-key / .kpm-well / .kpm-stamp / .kpm-plate / .kpm-led.

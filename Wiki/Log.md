@@ -1464,3 +1464,7 @@ Live ~35 s later; his re-test owed.
 ## 2026-10-01 08:05 — sign-in fixed (kpm 79b3e7d, local)
 
 [[The Offline Helper Ate the Sign-In Page]] - the service worker answered /__/auth/handler with the app.
+
+## 2026-10-01 08:56 — unlock name fixed (kpm acdb0cf, local)
+
+[[A Resize Mid-Unlock Wiped the Name]] - a resize mid-unlock rebuilt the dot grid; the name now re-aims. "push" owed.

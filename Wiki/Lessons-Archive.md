@@ -814,3 +814,22 @@ guard (`toast < dialog`) green either way. Caught on 2026-09-13 before the edit:
 question that bounced on wording, two turns. The version that ships is five silent reports.
 Seen: 2026-09-13
 Fired:
+
+### 2026-09-16 — "that state is unreachable" needs every WRITER of every half of the condition
+**Status:** RETIRED (2026-09-30) — never fired in 14 days; platitude as prose, its live half is the "two writers of one condition" section of A-Brain `Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md`
+**Trigger:** the moment a reply is about to say a screen, state or branch "cannot happen" or "is
+unreachable for X" — before the sentence is written.
+**Lesson:** a rendered state is a CONJUNCTION (this AND that), and its halves usually have different
+writers in different functions. Reading one function end to end proves nothing about the pair. Grep
+every setter of each half, list the pairs, and only then say unreachable. If a report from the field
+contradicts the reading, the reading is wrong, not the report.
+**Would have prevented:** 2026-09-16, the red Access Denied on Aldi's own tier-1 account. The
+sign-in listener has a developer bypass in both its try and its catch, so the reply said the red
+panel was unreachable for his email and asked which account he used. It was reachable: the role was
+left UNAUTHORIZED by the page's first onAuthStateChanged(null), and `user` was set by handleLogin
+(a second writer, 350 lines away) the instant the Google popup resolved. One wrong claim in a reply,
+one question he had to answer, and the fix landed a round later than it should have.
+Seen: 2026-09-16
+Fired:
+cd "D:/APP DEVELOPMENT/kpm inventory main FILES/A-Brain" && git add "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md" && git commit -q -m "Pattern page: the UI said NO before the server had spoken (af4d5e2) — two writers of one condition, the 'unreachable' trap, the fix shape" && git show --stat --oneline HEAD | tail -2; date "+%H:%M WIB"
+
