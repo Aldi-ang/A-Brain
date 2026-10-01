@@ -5,7 +5,7 @@ type: entity
 created: 2026-08-10
 updated: 2026-10-01
 confidence: high
-checked: 2026-10-01
+checked: 2026-10-01 (19:15, ec122c1)
 tags: [kpm, ui, auth, vault-gate, phone]
 ---
 
@@ -116,3 +116,12 @@ His words: *"can u add biometric registration as well when the first password se
 His words: *"whenever we push a new version of the app, the biometric reset and i need to register it again and it is incovenience"*. Code read: the device list is read from the vault doc (App.jsx checkAdminStatus, getDoc once per vaultPath); nothing written at deploy time touches `passkeys`. Two suspects, different fixes: (a) he opens the new DEPLOYMENT address after a push (every Vercel deployment has its own *.vercel.app host; a passkey is locked to its host and vercel.app is a public suffix, so no shared rpId is possible) -> no code fix, always open kpm-ang.vercel.app; (b) the list is empty at load -> "No devices registered!" -> a load bug. Waiting on his observation: the address bar, and which message he sees.
 
 **Answered 2026-10-01 19:00:** *"this is the adress, and yes there is that message that no device is registered"* - suspect (b): the app's own list is empty at load (checkAdminStatus, one unguarded getDoc). Suspect (a) is out. Fix is the next session's one job.
+
+**FIXED 2026-10-01 19:15, kpm `ec122c1` (local).** handleBiometricUnlock: an empty list reads the vault doc at the press (the same read the password button already makes), and the prompt is built from what was read; a non-empty list goes straight to the prompt. What was TESTED, not argued (Raw/2026-09-30-potato-audit):
+- `t5-push.mjs` - the brief's top suspect, the update swap (build A -> build B on the same address, the offline helper swaps and reloads itself): Fingerprint UNLOCKED on the old code, fast and throttled (4x CPU, 150 KB/s). The swap alone does not empty the list in the lab. Build B = `prod-emu-b.config.mjs` (only the build id differs, so the chunk hash, precache list and sw.js all change like a real push).
+- `t5-stale.mjs` - the failure class, forced: passkey off the doc, page reopens (its one read sees 0), passkey back on (doc holds 1), Fingerprint pressed. Old code: "No devices registered!", gate stays (RED). Fixed: unlocks (GREEN).
+- What emptied the open-time read on HIS phone is not reproduced. The fix covers any open-time read that misses the passkeys. **If he still sees the message after this ships, the doc itself has no passkeys** (suspect 3: something overwrote it - the only full overwrite is handleSetupSecurity's setDoc, in setup mode) -> then ask for a Console screenshot of his vault doc's `passkeys` (one entry per re-registration = never wiped).
+- Lab build note: the prod-emu config lives outside the repo, so `vite build` must run with `--configLoader runner` (without it Vite tries to write `D:\APP DEVELOPMENT\node_modules\.vite-temp` and fails EPERM).
+- Seen in passing: T5 Budi's page throws ~50 uncaught PERMISSION_DENIED write errors per second in the lab (catch-all rule, firestore.rules ~L346) - not this bug; unknown whether live.
+
+Models applied: Inversion (what would make the fix useless - a wiped doc; the message after the push now separates the two), Reversibility Test (read-only change, no data written).
