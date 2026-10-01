@@ -1,6 +1,6 @@
 ---
 date: 2026-10-02
-status: OPEN — waiting on Aldi (layout A / B / C + cropper yes)
+status: DECIDED C + cropper, built kpm 12b736f
 ---
 
 # Master Vault on the phone — measured, three layouts (2026-10-02)
@@ -35,7 +35,7 @@ Cropper (board: mv-board-cropper.png) — one design, not a choice: the photo ge
 
 ## Decision
 
-OPEN — waiting on Aldi.
+**C + the cropper as drawn — his *"c is the best one for master vault, cropper plan is great do that for now if anything extra needed i can just review it"* (2026-10-02 ~01:15). BUILT kpm `12b736f` (local).** Proof: Raw/2026-10-02-master-vault-phone/mv-walk.mjs + mv2-*.png (touch turns the box 35->95deg, list -> product -> Back, photo pans, 44px handle resizes 196->156, pinch 1.00 -> 3.00, Crop & Save on top; desk unchanged and a mouse still turns the box). Found while building: theme.css's `button:has(> svg:only-child){display:inline-flex}` outranks `lg:hidden` on a button - hide the wrapper. Still covering content app-wide (not this job): the capybara over the bottom-right (Discard on the product screen; scrolling moves it clear).
 
 ## Rejected on purpose
 
