@@ -1468,3 +1468,7 @@ Live ~35 s later; his re-test owed.
 ## 2026-10-01 08:56 — unlock name fixed (kpm acdb0cf, local)
 
 [[A Resize Mid-Unlock Wiped the Name]] - a resize mid-unlock rebuilt the dot grid; the name now re-aims. "push" owed.
+
+## 2026-10-01 09:32 — side-menu logout ends the vault pass (kpm 0e285e6, local)
+
+[[Master Vault Gate]] - "Terminate Session?" never cleared the 5-minute grace, so signing back in skipped the vault. Unlock-name fix acdb0cf PUSHED, Vercel done 09:25.

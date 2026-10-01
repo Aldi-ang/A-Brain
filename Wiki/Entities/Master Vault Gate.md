@@ -3,9 +3,9 @@ title: Master Vault Gate
 description: The master-password screen every KPM session starts at — its five modes, the numbers Aldi locked, and the decisions that are closed.
 type: entity
 created: 2026-08-10
-updated: 2026-08-15
+updated: 2026-10-01
 confidence: high
-checked: 2026-08-15
+checked: 2026-10-01
 tags: [kpm, ui, auth, vault-gate, phone]
 ---
 
@@ -80,6 +80,12 @@ refuses to run on any page showing a certificate warning, which the self-signed 
 always does. The 5-minute vault grace period (`localStorage['kpm-vault-grace']`) is the same
 per-origin shape, so "biometric is gone" and "grace is gone" reported together are one fact, not
 two bugs. Full write-up: [[The KPM Control System]].
+
+## The side-menu logout kept the 5-minute pass (2026-10-01, kpm 0e285e6)
+
+His words, Samsung: *"i sign in my google account and its skipped everything now, no master vault UI just straight inside the app"* - confirmed: *"yes i press the terminate session just now"*. Two logout handlers existed: App.jsx handleLogout (clearGrace + signOut, wired only to the lockout screens) and BiohazardTheme.jsx handleLogout (the side menu, "Terminate Session?" - signOut + reload, NO clearGrace). The kpm-vault-grace record survived the side-menu logout, so the same account signing back in within 5 min of its last tap got the vault without the password. Fixed: clearGrace() before signOut. Proof: lab ?shell&admin, pass stored -> Log out -> confirm: kept before, gone after. Guard: logicFixes "EVERY LOGOUT ENDS THE 5-MINUTE VAULT PASS" checks BOTH handlers. Lesson: a rule that says "X clears Y" must be checked against every handler that does X, not the one with the obvious name.
+
+Also 2026-10-01: the unlock name vanished on the Samsung - [[A Resize Mid-Unlock Wiped the Name]].
 
 ## Open against this screen
 
