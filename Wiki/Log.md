@@ -1492,3 +1492,7 @@ Live ~35 s later; his re-test owed.
 ## 2026-10-01 10:39 — Lite Mode freezes the rank-frame swirl (kpm c64de8b, local)
 
 His rule added to [[Aldi's Design Taste]]. Local commits waiting on "push": 3f53552 d62588c c64de8b.
+
+## 2026-10-01 11:11 — Agent Profile opens on your own (kpm 28b5d14, local); intro-for-every-tier OPEN
+
+[[2026-10-01_intro-name-for-every-tier]]. Lab tools profile-own.mjs + idle-lite.mjs saved in Raw/2026-09-30-potato-audit.
