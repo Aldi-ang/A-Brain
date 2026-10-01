@@ -624,3 +624,12 @@ for a REAL drag (Chrome turns mouse events into pointer events, so a window-list
 `Input.insertText` to type, `Page.captureScreenshot` to save. Script: Raw/2026-09-24-van-loading-bay/shoot-bay.mjs. It
 shot the van-loading bay at 2000 and 518 in both themes, and the 2000 frame caught a muatan line pushing its x out of a
 300 px column, which the pane's scaled-down view had hidden.
+
+## A CLASS USED ONLY IN tools/ DOES NOT EXIST — the lab scans one extra file (2026-10-02)
+
+The app's `tailwind.config.js` scans `index.html` and `src/**` only. A lab-only component in `tools/` that uses a class no
+`src/` file uses gets NO css for it - the bell proposal's sliding switch plate (`w-[calc(50%-4px)]`) rendered 0 px wide.
+`tools/ponder-lab.config.mjs` now runs Tailwind with the app config plus `./tools/lab-bell.jsx`; add a lab file there, or use
+inline `style` for its one-off values. The same check found a LIVE bug: `text-orange-400` is never generated (`orange` is one
+colour, `var(--orange)`), so the real bell's new-message titles compute to rgb(0,0,0). A class that compiles to nothing fails
+silently - read `getComputedStyle`, not the className. Source: `Raw/2026-10-02-notification-bell/`, kpm `1c64e8c`.
