@@ -64,3 +64,4 @@ sit here indefinitely once it's actually decided.
 - [[2026-09-30_potato-phone-audit]] - cheap-phone audit in full animation mode; fixes 1-5 BUILT 2026-10-01 (local), 6 skipped (measured 2 pts); OPEN: coin spin, Restock rest churn, EOD/Agent Profile 22%
 - [[2026-10-01_google-signin-opens-gmail]] - Samsung: choosing a Google account sometimes opens the Gmail app; KPM never links there; options A-D, OPEN (his History observation first)
 - [[2026-10-01_intro-name-for-every-tier]] - the unlock intro + name only reaches T1/T2 (vault holders); options A as is / B same intro after sign-in / C short box, OPEN
+- [[2026-10-01_version-check-on-open]] - "is the app on the latest version?" A stamp only / B stamp + the app checks and updates itself before login (my pick) / C B + buttons wait, OPEN
