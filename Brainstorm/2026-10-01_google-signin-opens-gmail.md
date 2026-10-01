@@ -27,3 +27,5 @@ created: 2026-10-01
 **Rejected on purpose:** C (he switches accounts to test tiers - keep the chooser); D (fixes one phone, not the fleet); redirect for EVERY host (LAN IPs / previews are not proxied - cross-site breaks on Brave/Safari).
 
 Models applied: Inversion (what makes Android open an app at all -> a claimed address), Reversibility (B and C change a working sign-in; A changes nothing).
+
+**CONFIRMED on his Samsung, 2026-10-01 ~10:05:** *"sign in work, no grace period work, name showing in tier 1, no duplicate tab also work"* - same-tab sign-in, no Gmail, no second tab.

@@ -85,6 +85,8 @@ two bugs. Full write-up: [[The KPM Control System]].
 
 His words, Samsung: *"i sign in my google account and its skipped everything now, no master vault UI just straight inside the app"* - confirmed: *"yes i press the terminate session just now"*. Two logout handlers existed: App.jsx handleLogout (clearGrace + signOut, wired only to the lockout screens) and BiohazardTheme.jsx handleLogout (the side menu, "Terminate Session?" - signOut + reload, NO clearGrace). The kpm-vault-grace record survived the side-menu logout, so the same account signing back in within 5 min of its last tap got the vault without the password. Fixed: clearGrace() before signOut. Proof: lab ?shell&admin, pass stored -> Log out -> confirm: kept before, gone after. Guard: logicFixes "EVERY LOGOUT ENDS THE 5-MINUTE VAULT PASS" checks BOTH handlers. Lesson: a rule that says "X clears Y" must be checked against every handler that does X, not the one with the obvious name.
 
+CONFIRMED on his Samsung after the push (~10:05): *"sign in work, no grace period work, name showing in tier 1, no duplicate tab also work"* - Terminate Session now makes the vault ask again.
+
 Also 2026-10-01: the unlock name vanished on the Samsung - [[A Resize Mid-Unlock Wiped the Name]].
 
 ## Open against this screen

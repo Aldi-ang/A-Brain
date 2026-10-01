@@ -1480,3 +1480,7 @@ Live ~35 s later; his re-test owed.
 ## 2026-10-01 09:56 — phone sign-in in the same tab (kpm 216a7df, local)
 
 [[2026-10-01_google-signin-opens-gmail]] decided B. Unlock name CONFIRMED by him on the Samsung.
+
+## 2026-10-01 10:05 — all three Samsung fixes CONFIRMED by him
+
+*"sign in work, no grace period work, name showing in tier 1, no duplicate tab also work"* - kpm acdb0cf (name), 0e285e6 (logout ends the pass), 216a7df (same-tab sign-in), all live.
