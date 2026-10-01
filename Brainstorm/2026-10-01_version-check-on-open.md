@@ -21,7 +21,7 @@ Today: the build id (`v{APP_VERSION} · {__BUILD_ID__}`) shows ONLY in the Fligh
 
 ## Decision
 
-**B — his *"b is good"* (2026-10-01 21:09). BUILT kpm `9d276db` (local).** One line under "Sign in with Google" and under the vault's Fingerprint row: "Checking for update…" -> "Latest version" / "New version found - updating…" (the helper reloads into the new build) / "Update failed - close and reopen the app" / "Offline - can't check", + the build id. Muted ink, mixed case like the Fingerprint row (a first frame on the sign-in card used the `kpm-read` box, which looked like a second button - dropped). Proof: Raw/2026-09-30-potato-audit/t5-update.mjs + t5upd-*.png (old copy: checking -> updating -> reloads -> latest with B's id; the lab serves the build itself so the download can be slowed like a phone's).
+**B — his *"b is good"* (2026-10-01 21:09). BUILT kpm `9d276db`, pushed 21:34, CONFIRMED on his Samsung 21:37: *"yes latest version it is"*.** One line under "Sign in with Google" and under the vault's Fingerprint row: "Checking for update…" -> "Latest version" / "New version found - updating…" (the helper reloads into the new build) / "Update failed - close and reopen the app" / "Offline - can't check", + the build id. Muted ink, mixed case like the Fingerprint row (a first frame on the sign-in card used the `kpm-read` box, which looked like a second button - dropped). Proof: Raw/2026-09-30-potato-audit/t5-update.mjs + t5upd-*.png (old copy: checking -> updating -> reloads -> latest with B's id; the lab serves the build itself so the download can be slowed like a phone's).
 
 ## Rejected on purpose
 
