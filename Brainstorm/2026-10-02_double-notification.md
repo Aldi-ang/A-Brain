@@ -1,6 +1,6 @@
 ---
 date: 2026-10-02
-status: OPEN — waiting on Aldi (A / B / C)
+status: DECIDED and BUILT — kpm de33030 (2026-10-02)
 ---
 
 # The same message twice: capybara bubble + top panel (2026-10-02)
@@ -59,3 +59,9 @@ Models applied: Inversion (which layout hides a message he needed -> B on the ph
 Decision: OPEN — waiting on Aldi (phone A or B, PC A or B; recommended phone A + PC B).
 
 Rejected on purpose: a source icon per Missed row (capybara vs top panel) - who said it does not change what he does; dropped to keep rows short.
+
+## Decided 2026-10-02 ~02:44 — "phone A pc B", BUILT kpm `de33030`
+
+His words: *"phone A pc B"* - the recommendation, split per width. Built: the real bell (NotificationBell.jsx) is A under lg (one box, a switch, opens on Needs you while it has a red number) and B at lg+ (both columns, 680 wide); the Missed list on the account (utils/missedLog.js, one doc per person, keyed like vault_keys, writes debounced 1 s); every strip fades at 5 s and the capybara bubble at 5 s; a failure goes to the top panel alone (his A). Rules [CHANGE 15] is a DRAFT for him to publish (before it, an employee's list does not follow them across devices; nothing breaks). Walk: `Raw/2026-10-02-notification-bell/walk-built.mjs` + `walk.json` + `built-*.png`.
+
+Not built on purpose: per-row clear (Clear all only), a source mark per row, ringing for Missed lines (every strip lands there - it would ring all day).

@@ -1,0 +1,99 @@
+{
+ "closed": {
+  "vw": 390,
+  "docW": 390,
+  "aria": "Inbox: 3 need you, 4 missed",
+  "plateOn": true,
+  "tabs": [],
+  "strips": 0,
+  "missedRows": null
+ },
+ "phoneOpen": {
+  "vw": 390,
+  "docW": 390,
+  "aria": "Inbox: 3 need you, 4 missed",
+  "plateOn": true,
+  "panel": [
+   8,
+   138,
+   374,
+   484
+  ],
+  "tabs": [
+   "Needs you3:true:46",
+   "Missed4:false:46"
+  ],
+  "needsShown": true,
+  "missedShown": false,
+  "titleInk": "rgb(255, 157, 0)",
+  "strips": 0,
+  "missedRows": 6
+ },
+ "phoneMissed": {
+  "vw": 390,
+  "docW": 390,
+  "aria": "Inbox: 3 need you, 0 missed",
+  "plateOn": true,
+  "panel": [
+   8,
+   138,
+   374,
+   482
+  ],
+  "tabs": [
+   "Needs you3:false:46",
+   "Missed:true:46"
+  ],
+  "needsShown": false,
+  "missedShown": true,
+  "titleInk": "rgb(255, 157, 0)",
+  "strips": 0,
+  "missedRows": 6
+ },
+ "phoneClosedAfterMissed": {
+  "vw": 390,
+  "docW": 390,
+  "aria": "Inbox: 3 need you, 0 missed",
+  "plateOn": true,
+  "tabs": [],
+  "strips": 0,
+  "missedRows": null
+ },
+ "strip1s": {
+  "vw": 390,
+  "docW": 390,
+  "aria": "Inbox: 3 need you, 1 missed",
+  "plateOn": true,
+  "tabs": [],
+  "strips": 1,
+  "missedRows": null
+ },
+ "strip58s": {
+  "vw": 390,
+  "docW": 390,
+  "aria": "Inbox: 3 need you, 1 missed",
+  "plateOn": true,
+  "tabs": [],
+  "strips": 0,
+  "missedRows": null
+ },
+ "pcOpen": {
+  "vw": 1440,
+  "docW": 1440,
+  "aria": "Inbox: 3 need you, 0 missed",
+  "plateOn": true,
+  "panel": [
+   572,
+   94,
+   680,
+   463
+  ],
+  "tabs": [],
+  "needsShown": true,
+  "missedShown": true,
+  "titleInk": "rgb(255, 157, 0)",
+  "strips": 0,
+  "missedRows": 6
+ },
+ "errors": []
+}
