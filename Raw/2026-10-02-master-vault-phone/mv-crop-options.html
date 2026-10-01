@@ -1,0 +1,57 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<style>
+:root { --bg:#0b0a09; --well:#0f0d0b; --edge:rgba(231,112,15,.28); --edge2:rgba(231,112,15,.55); --ink:#f2e6cf; --ink2:#b9a888; --ink3:#8a7048;
+  --gold:#d9a441; --rust:#c2410c; --mono: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+* { box-sizing:border-box; margin:0; }
+body { background:#050403; color:var(--ink); font-family:var(--mono); padding:24px; }
+.board { display:flex; gap:28px; align-items:flex-start; }
+.col { width:390px; }
+.cap { font-size:15px; font-weight:700; margin:0 0 4px; }
+.sub { font-size:12px; color:var(--ink2); margin:0 0 12px; line-height:1.45; min-height:52px; }
+.phone { width:390px; height:844px; overflow:hidden; background:var(--bg); border:1px solid #2a241d; border-radius:22px; position:relative; display:flex; flex-direction:column; }
+.phone img.today { width:390px; display:block; }
+.top { height:56px; display:flex; align-items:center; padding:0 14px; border-bottom:1px solid #221d17; font-size:13px; letter-spacing:.16em; color:var(--ink2); }
+.photo { position:relative; flex:1; background:#1a1410; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.photo .pic { position:absolute; inset:-40px; background: radial-gradient(circle at 45% 40%, #b98b5e 0 18%, #6d4a2f 19% 34%, #2a1d14 35% 100%); }
+.frame { position:relative; width:190px; height:310px; border:2px solid var(--gold); box-shadow:0 0 0 999px rgba(5,4,3,.78); }
+.h { position:absolute; width:44px; height:44px; border-radius:50%; border:2px solid var(--gold); background:#130f0a; display:flex; align-items:center; justify-content:center; font-size:14px; color:var(--gold); }
+.h.r { right:-23px; top:calc(50% - 22px); } .h.b { bottom:-23px; left:calc(50% - 22px); } .h.rb { right:-23px; bottom:-23px; background:var(--gold); color:#130f0a; }
+.hint { position:absolute; bottom:12px; left:0; right:0; text-align:center; font-size:11px; color:var(--ink2); letter-spacing:.06em; }
+.ctl { padding:12px 14px 0; }
+.lab { display:flex; justify-content:space-between; font-size:11px; color:var(--ink3); letter-spacing:.16em; margin-bottom:8px; }
+.track { height:6px; background:#2a231b; position:relative; border-radius:3px; }
+.track::after { content:""; position:absolute; left:var(--p, 18%); top:-9px; width:24px; height:24px; border-radius:50%; background:var(--gold); }
+.rot { display:flex; gap:8px; margin-top:12px; }
+.rbtn { flex:1; height:44px; border:1px solid var(--edge); display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--ink2); letter-spacing:.1em; }
+.fold { margin-top:8px; height:44px; border:1px solid var(--edge); display:flex; align-items:center; padding:0 12px; font-size:12px; color:var(--ink2); }
+.fold span { margin-left:auto; color:var(--ink3); }
+.foot { display:flex; gap:8px; padding:12px 14px 18px; }
+.btn { height:48px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; letter-spacing:.16em; }
+.btn.ghost { width:110px; border:1px solid var(--edge2); color:var(--ink2); }
+.btn.pri { flex:1; background:var(--gold); color:#130f0a; }
+</style></head>
+<body>
+<div class="board">
+  <div class="col">
+    <p class="cap">TODAY - the photo cropper</p>
+    <p class="sub">A finger cannot move the photo or the box edges. The photo area is a thin strip. The capybara covers Crop &amp; Save. Blue and white, not our colours.</p>
+    <div class="phone"><img class="today" src="mv-390-crop.png"></div>
+  </div>
+  <div class="col">
+    <p class="cap">AFTER - same tools, made for a finger</p>
+    <p class="sub">The photo gets most of the screen. Drag it with a finger, pinch to zoom, pull the round handles to size the box. 3D size folds away. Crop &amp; Save always at the bottom, capybara hidden while cropping.</p>
+    <div class="phone">
+      <div class="top">ALIGN FRONT</div>
+      <div class="photo"><div class="pic"></div><div class="frame"><div class="h r">↔</div><div class="h b">↕</div><div class="h rb">⤡</div></div><div class="hint">drag the photo · pinch to zoom</div></div>
+      <div class="ctl">
+        <div class="lab"><span>ZOOM</span><span>1.00x</span></div><div class="track"></div>
+        <div class="lab" style="margin-top:18px"><span>ROTATE</span><span>0°</span></div><div class="track" style="--p:50%"></div>
+        <div class="rot"><div class="rbtn">↺ 90°</div><div class="rbtn">↻ 90°</div></div>
+        <div class="fold">3D size  55 × 90 × 22 mm<span>›</span></div>
+      </div>
+      <div class="foot"><div class="btn ghost">CANCEL</div><div class="btn pri">CROP &amp; SAVE</div></div>
+    </div>
+  </div>
+</div>
+</body></html>

@@ -65,3 +65,4 @@ sit here indefinitely once it's actually decided.
 - [[2026-10-01_google-signin-opens-gmail]] - Samsung: choosing a Google account sometimes opens the Gmail app; KPM never links there; options A-D, OPEN (his History observation first)
 - [[2026-10-01_intro-name-for-every-tier]] - the unlock intro + name only reaches T1/T2 (vault holders); options A as is / B same intro after sign-in / C short box, OPEN
 - [[2026-10-01_version-check-on-open]] - "is the app on the latest version?" A stamp only / B stamp + the app checks and updates itself before login (my pick) / C B + buttons wait - DECIDED B, built 9d276db
+- [[2026-10-02_master-vault-phone]] - Master Vault on the phone: measured (a finger turns nothing - 3D box and photo cropper are mouse-only), layouts A same order / B box first / C list then product (my pick) + one cropper design, OPEN

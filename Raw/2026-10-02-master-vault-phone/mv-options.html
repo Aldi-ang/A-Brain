@@ -1,0 +1,132 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<style>
+:root { --bg:#0b0a09; --panel:#14110e; --well:#0f0d0b; --edge:rgba(231,112,15,.28); --edge2:rgba(231,112,15,.55); --ink:#f2e6cf; --ink2:#b9a888; --ink3:#8a7048;
+  --gold:#d9a441; --rust:#c2410c; --red:#e5484d; --mono: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+* { box-sizing:border-box; margin:0; }
+body { background:#050403; color:var(--ink); font-family:var(--mono); padding:24px; }
+.board { display:flex; gap:28px; align-items:flex-start; }
+.col { width:390px; }
+.cap { font-size:15px; font-weight:700; color:var(--ink); margin:0 0 4px; letter-spacing:.02em; }
+.sub { font-size:12px; color:var(--ink2); margin:0 0 12px; line-height:1.45; min-height:52px; }
+.phone { width:390px; height:844px; overflow:hidden; background:var(--bg); border:1px solid #2a241d; border-radius:22px; position:relative; }
+.phone img.today { width:390px; display:block; }
+.bar { height:52px; display:flex; align-items:center; gap:10px; padding:0 14px; border-bottom:1px solid #221d17; font-size:13px; letter-spacing:.18em; color:var(--ink2); }
+.pad { padding:12px 14px; }
+.search { height:44px; border:1px solid var(--edge); background:var(--well); display:flex; align-items:center; padding:0 12px; gap:8px; color:var(--ink3); font-size:13px; }
+.row2 { display:flex; gap:8px; margin-top:10px; align-items:center; }
+.chip { height:36px; padding:0 14px; border:1px solid var(--edge); display:flex; align-items:center; font-size:12px; font-weight:700; color:var(--ink2); letter-spacing:.1em; }
+.chip.on { background:var(--gold); color:#130f0a; border-color:var(--gold); }
+.add { margin-left:auto; height:36px; padding:0 12px; border:1px solid var(--edge2); color:var(--gold); display:flex; align-items:center; font-size:12px; font-weight:700; letter-spacing:.1em; }
+.item { display:flex; gap:12px; padding:12px 14px; border-bottom:1px solid #1d1914; position:relative; }
+.item.sel { background:rgba(217,164,65,.08); box-shadow: inset 3px 0 0 var(--gold); }
+.item.low::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--red); }
+.thumb { width:48px; height:48px; border:1px solid var(--edge); flex:none; display:flex; align-items:center; justify-content:center; color:var(--ink3); font-size:10px; }
+.nm { font-size:14px; font-weight:800; letter-spacing:.04em; color:var(--ink); }
+.item.low .nm { color:#f0a0a2; }
+.stk { font-size:13px; color:var(--gold); margin-top:3px; font-weight:700; }
+.item.low .stk { color:var(--red); }
+.nums { display:grid; grid-template-columns:repeat(3, auto); justify-content:start; gap:2px 14px; font-size:11px; color:var(--ink2); margin-top:4px; }
+.nums b { color:var(--ink); font-weight:700; }
+.lowb { font-size:10px; font-weight:800; color:var(--red); border:1px solid rgba(229,72,77,.5); padding:1px 5px; margin-left:6px; letter-spacing:.12em; }
+.chev { margin-left:auto; align-self:center; color:var(--ink3); font-size:20px; }
+.stage { position:relative; height:280px; background:radial-gradient(ellipse at 50% 60%, #1c1712 0%, #0b0a09 70%); border-top:1px solid #1d1914; border-bottom:2px solid var(--rust); display:flex; align-items:center; justify-content:center; }
+.box3d { width:84px; height:150px; background:linear-gradient(90deg,#cfc5b3 0 72%, #8c8170 72% 100%); transform: perspective(500px) rotateY(-24deg) rotateX(6deg); box-shadow: 0 30px 40px -20px #000; }
+.box3d.big { width:110px; height:196px; }
+.hint { position:absolute; bottom:10px; left:0; right:0; text-align:center; font-size:11px; color:var(--ink3); letter-spacing:.08em; }
+.tools { position:absolute; top:10px; right:10px; display:flex; gap:8px; }
+.tool { width:44px; height:44px; border:1px solid var(--edge); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--ink2); background:rgba(0,0,0,.4); }
+.pname { font-size:20px; letter-spacing:.14em; color:var(--gold); font-weight:700; }
+.pstk { margin-top:8px; display:inline-block; border:1px solid var(--edge2); padding:6px 10px; font-size:13px; font-weight:700; color:var(--ink); }
+.btns { display:flex; gap:8px; margin-top:12px; }
+.btn { flex:1; height:44px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; letter-spacing:.16em; }
+.btn.pri { background:var(--gold); color:#130f0a; }
+.btn.ghost { border:1px solid rgba(229,72,77,.6); color:#f0a0a2; }
+.prices { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+.pr { background:rgba(255,255,255,.04); padding:9px 10px; border-left:3px solid var(--gold); }
+.pr:nth-child(1) { border-color:var(--rust); } .pr:nth-child(3) { border-color:#8a7048; } .pr:nth-child(4) { border-color:#e7700f; }
+.pr small { display:block; font-size:10px; color:var(--ink2); letter-spacing:.14em; }
+.pr span { font-size:14px; font-weight:800; }
+.back { font-size:13px; color:var(--ink2); letter-spacing:.1em; }
+.label { font-size:10px; color:var(--ink3); letter-spacing:.2em; margin-bottom:6px; }
+.fold { margin-top:12px; height:44px; border:1px solid var(--edge); display:flex; align-items:center; padding:0 12px; font-size:12px; color:var(--ink2); }
+.fold span { margin-left:auto; color:var(--ink3); }
+</style></head>
+<body>
+<div class="board">
+
+  <div class="col">
+    <p class="cap">TODAY</p>
+    <p class="sub">Two search boxes. The list is a short box: one and a half products. The numbers slide sideways. The 3D box does not turn with a finger.</p>
+    <div class="phone"><img class="today" src="mv-390-today.png"></div>
+  </div>
+
+  <div class="col">
+    <p class="cap">A - same order, fixed</p>
+    <p class="sub">List first, box below, like today. One search. The list grows, so every product shows. Numbers wrap under the name. A finger turns the box.</p>
+    <div class="phone">
+      <div class="bar">MASTER VAULT</div>
+      <div class="pad">
+        <div class="search">⌕ Search products</div>
+        <div class="row2"><div class="chip on">ALL</div><div class="chip">MISC</div><div class="add">+ ADD</div></div>
+      </div>
+      <div class="item low sel"><div class="thumb">box</div><div><div class="nm">GUDANG GARAM FI <span class="lowb">LOW</span></div><div class="stk">96 Bks · 9.6 Slop</div><div class="nums"><span>START <b>96</b></span><span>FIELD <b>0</b></span><span>SOLD <b>0</b></span></div></div></div>
+      <div class="item low"><div class="thumb">box</div><div><div class="nm">SAMPOERNA MILD <span class="lowb">LOW</span></div><div class="stk">8 Bks · 0.8 Slop</div><div class="nums"><span>START <b>8</b></span><span>FIELD <b>0</b></span><span>SOLD <b>0</b></span></div></div></div>
+      <div class="item low"><div class="thumb">box</div><div><div class="nm">SURYA 12 <span class="lowb">LOW</span></div><div class="stk">240 Bks · 24.0 Slop</div><div class="nums"><span>START <b>240</b></span><span>FIELD <b>0</b></span><span>SOLD <b>0</b></span></div></div></div>
+      <div class="stage"><div class="tools"><div class="tool">photo</div><div class="tool">size</div></div><div class="box3d"></div><div class="hint">drag to turn</div></div>
+      <div class="pad"><div class="pname">GUDANG GARAM FI</div></div>
+    </div>
+  </div>
+
+  <div class="col">
+    <p class="cap">B - box first</p>
+    <p class="sub">The chosen product sits on top: box, stock, Edit, prices. The list is under it. Tap a product and the top changes.</p>
+    <div class="phone">
+      <div class="bar">MASTER VAULT</div>
+      <div class="stage" style="height:250px"><div class="tools"><div class="tool">photo</div><div class="tool">size</div></div><div class="box3d"></div><div class="hint">drag to turn</div></div>
+      <div class="pad">
+        <div class="pname">GUDANG GARAM FI</div>
+        <div class="pstk">96 Bks / 9.6 Slop / 0.48 Bal</div>
+        <div class="btns"><div class="btn pri">EDIT</div><div class="btn ghost">DISCARD</div></div>
+        <div class="search" style="margin-top:14px">⌕ Search products</div>
+        <div class="row2"><div class="chip on">ALL</div><div class="chip">MISC</div><div class="add">+ ADD</div></div>
+      </div>
+      <div class="item low sel"><div class="thumb">box</div><div><div class="nm">GUDANG GARAM FI <span class="lowb">LOW</span></div><div class="stk">96 Bks · 9.6 Slop</div></div></div>
+      <div class="item low"><div class="thumb">box</div><div><div class="nm">SAMPOERNA MILD <span class="lowb">LOW</span></div><div class="stk">8 Bks · 0.8 Slop</div></div></div>
+    </div>
+  </div>
+
+  <div class="col">
+    <p class="cap">C - list, then the product (1 of 2)</p>
+    <p class="sub">The phone shows only the list, full width, every number visible. Tap a product to open it on its own screen (next picture).</p>
+    <div class="phone">
+      <div class="bar">MASTER VAULT</div>
+      <div class="pad">
+        <div class="search">⌕ Search products</div>
+        <div class="row2"><div class="chip on">ALL</div><div class="chip">MISC</div><div class="add">+ ADD</div></div>
+      </div>
+      <div class="item low"><div class="thumb">box</div><div><div class="nm">GUDANG GARAM FI <span class="lowb">LOW</span></div><div class="stk">96 Bks · 9.6 Slop</div><div class="nums"><span>START <b>96</b></span><span>FIELD <b>0</b></span><span>SOLD <b>0</b></span></div></div><div class="chev">›</div></div>
+      <div class="item low"><div class="thumb">box</div><div><div class="nm">SAMPOERNA MILD <span class="lowb">LOW</span></div><div class="stk">8 Bks · 0.8 Slop</div><div class="nums"><span>START <b>8</b></span><span>FIELD <b>0</b></span><span>SOLD <b>0</b></span></div></div><div class="chev">›</div></div>
+      <div class="item low"><div class="thumb">box</div><div><div class="nm">SURYA 12 <span class="lowb">LOW</span></div><div class="stk">240 Bks · 24.0 Slop</div><div class="nums"><span>START <b>240</b></span><span>FIELD <b>0</b></span><span>SOLD <b>0</b></span></div></div><div class="chev">›</div></div>
+      <div class="item low"><div class="thumb">box</div><div><div class="nm">SURYA 16 <span class="lowb">LOW</span></div><div class="stk">180 Bks · 18.0 Slop</div><div class="nums"><span>START <b>180</b></span><span>FIELD <b>0</b></span><span>SOLD <b>0</b></span></div></div><div class="chev">›</div></div>
+    </div>
+  </div>
+
+  <div class="col">
+    <p class="cap">C - the product (2 of 2)</p>
+    <p class="sub">Its own screen: a big box a finger turns, stock, Edit / Discard, the four prices, 3D size folded away. Back returns to the list.</p>
+    <div class="phone">
+      <div class="bar"><span class="back">‹ BACK</span></div>
+      <div class="stage" style="height:330px"><div class="tools"><div class="tool">photo</div></div><div class="box3d big"></div><div class="hint">drag to turn</div></div>
+      <div class="pad">
+        <div class="pname">GUDANG GARAM FI</div>
+        <div class="pstk">96 Bks / 9.6 Slop / 0.48 Bal</div>
+        <div class="btns"><div class="btn pri">EDIT</div><div class="btn ghost">DISCARD</div></div>
+        <div class="prices"><div class="pr"><small>DIST</small><span>Rp 27.000</span></div><div class="pr"><small>RETAIL</small><span>Rp 30.500</span></div><div class="pr"><small>GROSIR</small><span>Rp 29.000</span></div><div class="pr"><small>ECER</small><span>Rp 32.000</span></div></div>
+        <div class="fold">3D size  55 × 90 × 22 mm<span>›</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body></html>
