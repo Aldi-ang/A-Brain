@@ -1476,3 +1476,7 @@ Live ~35 s later; his re-test owed.
 ## 2026-10-01 09:45 — Gmail-app jump on sign-in: diagnosed, OPEN
 
 [[2026-10-01_google-signin-opens-gmail]] - waiting on his browser History observation.
+
+## 2026-10-01 09:56 — phone sign-in in the same tab (kpm 216a7df, local)
+
+[[2026-10-01_google-signin-opens-gmail]] decided B. Unlock name CONFIRMED by him on the Samsung.

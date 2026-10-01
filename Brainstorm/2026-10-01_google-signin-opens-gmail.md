@@ -1,7 +1,7 @@
 ---
 title: Google sign-in sometimes opens the Gmail app (Samsung)
 type: brainstorm
-status: OPEN — waiting on Aldi
+status: DECIDED 2026-10-01 — B built kpm 216a7df
 created: 2026-10-01
 ---
 
@@ -22,8 +22,8 @@ created: 2026-10-01
 
 **09:43 new evidence, his words:** *"i tried to refresh and now it said unable to process request due to missing initial state"*. That is Firebase's /__/auth/handler page: it keeps the sign-in's state in the TAB's sessionStorage, so the state is lost when the return lands in a different tab or the handler is reloaded. Same family as the Gmail jump: the POPUP is a separate tab on Samsung, and that tab loses its context mid-flow [likely]. The proxy (firebase.js PROXIED_AUTH_HOSTS, vercel.json /__/auth/*) exists precisely so a same-tab redirect works on kpm-ang.vercel.app - so B is safe there; on LAN IPs / previews (no proxy) the popup must stay.
 
-**Decision:** OPEN — recommended B on phones on the proxied host only (popup stays on PC and unproxied hosts). Waiting on his 🔴.
+**Decision (09:50):** B, on his *"google sign in happen after it makes a new tab and the kpm app will be open on the second app and duplicate the tab instead we need to fix that as well"* - the duplicate tab is the third face of the same popup fault. Built kpm `216a7df`: same-tab redirect when `auth.app.options.authDomain === location.host` and `(pointer: coarse)`. Proof: built app over https, kpm-ang.vercel.app mapped to the local preview with Chrome `--host-resolver-rules` (vercel.app is HSTS - plain http fails): phone old 1 new tab -> new same tab to /__/auth/handler, 0 new tabs; PC keeps the popup. Google's own pages are unprovable headless - his phone test.
 
-**Rejected on purpose:** none yet.
+**Rejected on purpose:** C (he switches accounts to test tiers - keep the chooser); D (fixes one phone, not the fleet); redirect for EVERY host (LAN IPs / previews are not proxied - cross-site breaks on Brave/Safari).
 
 Models applied: Inversion (what makes Android open an app at all -> a claimed address), Reversibility (B and C change a working sign-in; A changes nothing).

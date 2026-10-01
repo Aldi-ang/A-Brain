@@ -22,3 +22,5 @@ checked: 2026-10-01
 **Viewing path that worked:** the in-app browser pane gave 0 animation frames (requestAnimationFrame never fired), so the proof ran in headless Chrome over CDP. The harness imports `/src/components/VaultGate.jsx` from the ponder-lab server and borrows React from the URL in that module's own import line. The lab page has no Tailwind, so add `.absolute/.inset-0/.w-full/.h-full` by hand, or the canvas grows on every resize until `getImageData` runs out of memory.
 
 Related: [[The Offline Helper Ate the Sign-In Page]] (same Samsung test, same morning) · [[Looking at the App]]
+
+**Confirmed on his phone, 2026-10-01 ~09:50:** *"agent name is there now when i use my tier 1 account"*.
