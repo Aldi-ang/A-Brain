@@ -3115,3 +3115,7 @@ Same session: *"the welcome \"aldi\" is gone when i use my samsung"* and *"we sh
 ## Lite Mode freezes everything heavy, CSS or not (2026-10-01)
 
 *"yeah lite mode should freeze everything thats heavy, we can push later"* - asked whether Lite Mode should also stop the Platinum/Mythic rank-frame swirl (SVG SMIL, which the `html.lite-mode *` CSS kill cannot reach). Law 3 extends: Lite Mode is judged by what still MOVES, not by which mechanism moves it - SMIL, canvas loops and JS timers count the same as CSS. Built kpm `c64de8b` (frozen, texture kept). Sweep after it: all 17 screens 0-3% busy at 6x in Lite Mode, 0 SMIL running.
+
+## The app tells him it is current - he does not compare numbers (2026-10-01)
+
+*"i think we should put version number somewhere so that we know that the app is already at latest version or not or do u have better option to do so?"* - offered A (a version code to compare), B (the code plus the app checks and says "Latest version" / "updating…" before he types) and C (B plus a locked Sign in), he picked B: *"b is good"*. The pattern: a status he has to interpret against outside knowledge is a chore; he wants the machine to say the answer. Built as one muted line under the door's main control, mixed case to match the Fingerprint row - a bordered readout box on the sign-in card was dropped on sight because it read as a second button. Source: [[../../Brainstorm/2026-10-01_version-check-on-open]], kpm `9d276db`.
