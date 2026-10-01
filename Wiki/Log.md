@@ -1472,3 +1472,7 @@ Live ~35 s later; his re-test owed.
 ## 2026-10-01 09:32 — side-menu logout ends the vault pass (kpm 0e285e6, local)
 
 [[Master Vault Gate]] - "Terminate Session?" never cleared the 5-minute grace, so signing back in skipped the vault. Unlock-name fix acdb0cf PUSHED, Vercel done 09:25.
+
+## 2026-10-01 09:45 — Gmail-app jump on sign-in: diagnosed, OPEN
+
+[[2026-10-01_google-signin-opens-gmail]] - waiting on his browser History observation.
