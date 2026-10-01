@@ -1500,3 +1500,7 @@ His rule added to [[Aldi's Design Taste]]. Local commits waiting on "push": 3f53
 ## 2026-10-01 12:04 — every person opens the app with their own password (kpm 6857f27, local)
 
 [[Master Vault Gate]] - T3-T6 meet the gate on entry; intro with their name. Push blocked on: live rules carry vault_keys (CHANGE 11)?
+
+## 2026-10-01 12:10 — entry-lock push cleared (rules live, his T2 test); first-time screen stays the same for all
+
+[[Master Vault Gate]].

@@ -104,3 +104,5 @@ His words: *"i want the other user also have password and their agent name displ
 
 - [[Secure Context Requirement]] · [[Silent Failure Disease]] · [[Aldi's Design Taste]]
 - Source: [[../../Raw/2026-08-10_source_kpm-six-days-aug04-to-aug10|the six-day source]]
+
+**Answered 2026-10-01 ~12:10:** *"yes ive tried tier 2 having password before and it works fine before, every password first setting should be the same"* - the live rules carry vault_keys (a T2 saved a password live), so the push is safe; and the first-time screen stays ONE screen for every tier (INITIALIZE VAULT wording kept - no per-tier copy).
