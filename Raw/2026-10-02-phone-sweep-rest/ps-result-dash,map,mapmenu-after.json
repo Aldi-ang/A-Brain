@@ -1,0 +1,154 @@
+{
+ "screens": {
+  "dash": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [],
+    "cut": [],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out"
+    ],
+    "sideScroll": [],
+    "tall": 4.6,
+    "hiddenCells": 0,
+    "tinyText": 6
+   },
+   "frames": 5,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "hiddenCells": 0,
+    "tall": 2.5
+   }
+  },
+  "map": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [
+     "+ 30x30",
+     "− 30x30",
+     "Leaflet 55x14"
+    ],
+    "cut": [],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out"
+    ],
+    "sideScroll": [],
+    "tall": 1,
+    "hiddenCells": 0,
+    "tinyText": 1
+   },
+   "frames": 1,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "hiddenCells": 0,
+    "tall": 1
+   }
+  },
+  "mapmenu": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [
+     "+ 30x30",
+     "− 30x30",
+     "Leaflet 55x14"
+    ],
+    "cut": [],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out"
+    ],
+    "sideScroll": [],
+    "tall": 1.2,
+    "hiddenCells": 0,
+    "tinyText": 1
+   },
+   "frames": 2,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "hiddenCells": 0,
+    "tall": 1
+   }
+  }
+ },
+ "save": "clicked",
+ "shell": {
+  "small": [
+   "Open navigation 14x132",
+   "Tutorial book 44x36",
+   "Switch to Light Mode 70x36"
+  ],
+  "cut": []
+ },
+ "log": []
+}

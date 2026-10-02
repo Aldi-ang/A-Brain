@@ -1,6 +1,6 @@
 ---
 date: 2026-10-02
-status: OPEN — waiting on Aldi's pick (board sent 08:50 WIB)
+status: DECIDED 08:57 ("1 and 2 first then continue") — built kpm 9fb557f (1+2) + 5f9d5c7 (3+4), local; 5 waits on his naming answer
 ---
 
 # Phone sweep — the five screens it had not reached (2026-10-02)
@@ -47,7 +47,29 @@ Not checked on his real data.
 
 ## Decision
 
-OPEN — waiting on Aldi. No app code before his pick (his diagnose-first rule).
+DECIDED 08:57, his words: *"1 and 2 first then continue"*. Built, local, not pushed:
+
+- **kpm `9fb557f` — 1 Reports + 2 Leaderboard.** With today-dated sales in the lab, Reports had MORE than the
+  board showed: the Context Analytics revenue ran off the screen and the whole page slid sideways (390 < 441); the
+  product table hid Revenue (8 cells); the store ledger (632 in 372) hid the amount and the keys; agent roster rows
+  overflowed. Fixes: title stacks over the revenue on the phone with `print:` classes pinning the PDF row; the
+  product table lost its 450 floor; the ledger is the competitor-table grid card under lg; roster rows wrap; period
+  keys 2x2 at 44 / 11 px; the range select 44. Leaderboard: names wrap, money amber-400, count white (the sheet is
+  black in light mode too — `ps-light-fame-390-0.png`, so no flipping theme token). The SIDEWAYS RATCHET is zero.
+- **kpm `5f9d5c7` — 3 backup lamps 44 under lg; 4 map menu: Show All Tiers amber-600 (the map's own active colour),
+  chips + region box 44.**
+- Proof: `ps-measure.mjs` TAG=after — 0 hidden cells, 0 sideways scroll, 0 small controls (map keeps Leaflet's
+  own ± only); the printed sheet's 67 boxes identical before/after at 718 px print media; logicFixes 2149/2149 with
+  every new guard red on the old files; audit 722/722. Board: `board-after.png` (sent).
+- **5 Settings NOT done — his call:** the heading "Command Center" inside Settings is deliberate (audit group 36 calls
+  it "the Command Center chrome"), and the dashboard's menu label is also "Command Center". Same family: every
+  page's top title is its internal tab id (`BiohazardTheme.jsx` `activeTab.replace(/_/g, ' ')`), so Reports reads
+  TRANSACTIONS. Asked as one naming question.
+
+Found in passing, not done: ~95 blue/green/purple classes across `MapMissionControl.jsx` (some may be data
+colours — stock pins, tier legend); Reports breadcrumb prints UNMAPPED PROVINSI purple and KABUPATEN pink; the
+"HEADQUARTERS" vs "Headquarters" cards come from `HistoryReportView.jsx:135-137`, which adds a hard-coded
+'Headquarters' folder for global viewers beside agents whose location is 'HEADQUARTERS'.
 
 ## Rejected on purpose
 

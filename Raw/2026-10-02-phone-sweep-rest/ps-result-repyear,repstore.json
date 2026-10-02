@@ -1,0 +1,136 @@
+{
+ "screens": {
+  "repyear": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [],
+    "cut": [],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out"
+    ],
+    "sideScroll": [
+     "print-reset flex-1 overflow-y-auto p-2 lg:p-6 scro 390<441",
+     "overflow-x-auto pb-2 308<450"
+    ],
+    "tall": 2.4,
+    "hiddenCells": 8,
+    "tinyText": 8
+   },
+   "frames": 3,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "hiddenCells": 0,
+    "tall": 1.6
+   },
+   "print": {
+    "w": 778,
+    "cells": [
+     "0,389,29",
+     "389,195,29",
+     "584,195,29",
+     "0,389,34",
+     "389,195,34",
+     "584,195,34",
+     "0,389,33",
+     "389,195,33",
+     "584,195,33",
+     "0,389,33",
+     "389,195,33",
+     "584,195,33"
+    ]
+   }
+  },
+  "repstore": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [
+     "Daily Weekly Monthly Yearly 103x42"
+    ],
+    "cut": [],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out",
+     "submit",
+     "submit",
+     "submit",
+     "submit",
+     "submit",
+     "submit"
+    ],
+    "sideScroll": [
+     "p-4 md:p-6 overflow-x-auto 372<632"
+    ],
+    "tall": 2.2,
+    "hiddenCells": 6,
+    "tinyText": 17
+   },
+   "frames": 3,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "hiddenCells": 0,
+    "tall": 1.4
+   }
+  }
+ },
+ "save": "clicked",
+ "shell": {
+  "small": [
+   "Open navigation 14x132",
+   "Tutorial book 44x36",
+   "Switch to Light Mode 70x36",
+   "TODAY 67x29",
+   "THIS WEEK 90x29",
+   "THIS MONTH 102x29",
+   "THIS YEAR 88x29"
+  ],
+  "cut": []
+ },
+ "log": []
+}

@@ -1,0 +1,30 @@
+{
+ "screens": {
+  "fame": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [],
+    "cut": [],
+    "offCanvas": [],
+    "sideScroll": [],
+    "tall": 1,
+    "hiddenCells": 0,
+    "tinyText": 9
+   },
+   "frames": 2,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "hiddenCells": 0,
+    "tall": 1
+   }
+  }
+ },
+ "save": "clicked",
+ "light": "clicked",
+ "log": []
+}

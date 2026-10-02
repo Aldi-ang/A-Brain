@@ -28,8 +28,26 @@ const SCREENS = [
   { key: 'settiers', tab: /^\s*Settings\s*$/i, then: /^\s*Tiers & Logic\s*$/i },
   { key: 'setsecurity', tab: /^\s*Settings\s*$/i, then: /^\s*Security & Data\s*$/i },
   { key: 'setarch', tab: /^\s*Settings\s*$/i, then: /^\s*Architect/i },
+  /* Reports with rows in it: the seeded sales are 2-4 days old (last month), so the range goes to Yearly first */
+  { key: 'repyear', tab: /^\s*Reports\s*$/i, print: true, thenJs: `(async () => {
+      const back = [...document.querySelectorAll('button')].find(x => /Back to Folders/i.test(x.innerText)); if (back) { back.click(); await new Promise(r => setTimeout(r, 800)); }
+      const s = [...document.querySelectorAll('select')].find(x => x.querySelector('option[value=yearly]')); if (!s) return 'no range select';
+      Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value').set.call(s, 'yearly'); s.dispatchEvent(new Event('change', { bubbles: true })); await new Promise(r => setTimeout(r, 500)); [...document.querySelectorAll('button')].find(x => /Pull Archive/i.test(x.innerText))?.click(); await new Promise(r => setTimeout(r, 2500));
+      await new Promise(r => setTimeout(r, 800)); const b = [...document.querySelectorAll('button')].find(x => /Context Analytics/i.test(x.innerText)); if (!b) return 'no analytics button'; b.click(); return 'clicked'; })()` },
+  /* one store's ledger: region -> agent -> province -> regency -> district -> store, preferring the seeded HQ shop */
+  { key: 'repstore', tab: /^\s*Reports\s*$/i, thenJs: `(async () => { const has = () => [...document.querySelectorAll('th')].some(t => /Date \\/ Time/.test(t.textContent));
+      const pref = [/\\bHEADQUARTERS\\b/, /BUDI SANTOSO/, /TOKO MAKMUR/];
+      const back = [...document.querySelectorAll('button')].find(x => /Back to Folders/i.test(x.innerText)); if (back) { back.click(); await new Promise(r => setTimeout(r, 800)); }
+      const s = [...document.querySelectorAll('select')].find(x => x.querySelector('option[value=yearly]')); if (!s) return 'no range select';
+      Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value').set.call(s, 'yearly'); s.dispatchEvent(new Event('change', { bubbles: true })); await new Promise(r => setTimeout(r, 500)); [...document.querySelectorAll('button')].find(x => /Pull Archive/i.test(x.innerText))?.click(); await new Promise(r => setTimeout(r, 2500)); await new Promise(r => setTimeout(r, 800));
+      const trail = []; for (let i = 0; i < 8 && !has(); i++) { const cards = [...document.querySelectorAll('div.cursor-pointer.rounded-2xl')].filter(d => d.getBoundingClientRect().height > 40);
+        if (!cards.length) return 'no cards at step ' + i + ': ' + trail.join(' > '); const c = pref.map(re => cards.find(d => re.test(d.innerText))).find(Boolean) || cards[0];
+        trail.push(c.innerText.trim().split('\\n')[0].slice(0, 24)); c.click(); await new Promise(r => setTimeout(r, 900)); }
+      return has() ? 'clicked' : 'no ledger: ' + trail.join(' > '); })()` },
 ].filter(s => !process.env.ONLY || process.env.ONLY.split(',').includes(s.key));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+/* TAG=after keeps a second set of frames + results beside TODAY's instead of deleting them */
+const TAG = process.env.TAG ? process.env.TAG + '-' : '';
 const TYPES = { '.js': 'text/javascript', '.css': 'text/css', '.html': 'text/html', '.json': 'application/json', '.webmanifest': 'application/manifest+json',
   '.png': 'image/png', '.ico': 'image/x-icon', '.svg': 'image/svg+xml', '.mp3': 'audio/mpeg', '.mp4': 'video/mp4', '.woff2': 'font/woff2' };
 const server = http.createServer((req, res) => {
@@ -40,7 +58,7 @@ const server = http.createServer((req, res) => {
   fs.createReadStream(f).pipe(res);
 }).listen(4175);
 
-for (const f of fs.readdirSync(HERE)) if (/^ps-.*\.png$/.test(f) && SCREENS.some(s => f.startsWith('ps-' + s.key + '-'))) fs.rmSync(path.join(HERE, f), { force: true });
+for (const f of fs.readdirSync(HERE)) if (/^ps-.*\.png$/.test(f) && SCREENS.some(s => f.startsWith('ps-' + TAG + s.key + '-'))) fs.rmSync(path.join(HERE, f), { force: true });
 const prof = path.join(HERE, 'ps-profile'); fs.rmSync(prof, { recursive: true, force: true });
 const chrome = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--remote-debugging-port=9401',
   '--user-data-dir=' + prof, '--hide-scrollbars', '--mute-audio', 'about:blank'], { stdio: 'ignore' });
@@ -61,7 +79,7 @@ const signIn = (sub, email, name) => js(`(async () => { const h = window.__kpmEm
 const click = (re) => js(`(() => { const b = [...document.querySelectorAll('button, a, [role=button]')].find(x => [(x.innerText || x.textContent || '').trim(), x.getAttribute('aria-label') || '', x.title || ''].some(t => ${re}.test(t))); if (!b) return 'none'; b.click(); return 'clicked'; })()`);
 const shot = async (name) => {
   const s = await send('Page.captureScreenshot', { format: 'png' });
-  fs.writeFileSync(path.join(HERE, 'ps-' + name + '.png'), Buffer.from(s.result.data, 'base64'));
+  fs.writeFileSync(path.join(HERE, 'ps-' + TAG + name + '.png'), Buffer.from(s.result.data, 'base64'));
 };
 const phone = async () => {
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
@@ -84,6 +102,10 @@ const audit = () => js(`(() => {
     if (r.right > vw + 1 || r.left < -1) out.cut.push(name + ' x' + Math.round(r.left) + '-' + Math.round(r.right));
   }
   for (const e of document.querySelectorAll('*')) { const cs = getComputedStyle(e); if (/(auto|scroll)/.test(cs.overflowX) && e.scrollWidth > e.clientWidth + 2 && e.clientWidth > 0) out.sideScroll.push((e.className + '').slice(0, 50) + ' ' + e.clientWidth + '<' + e.scrollWidth); }
+  /* table cells the phone does not show: past the screen edge, or past the box that clips them */
+  out.hiddenCells = 0; for (const c of document.querySelectorAll('td, th')) { const r = c.getBoundingClientRect(); if (!r.width || !r.height) continue; let lim = vw;
+    for (let p = c.parentElement; p; p = p.parentElement) if (/(auto|scroll|hidden)/.test(getComputedStyle(p).overflowX)) { lim = Math.min(lim, p.getBoundingClientRect().right); break; }
+    if (r.right > lim + 1) out.hiddenCells++; }
   const s = ${SCROLLER}; out.tall = +(s.scrollHeight / (s.clientHeight || vh)).toFixed(1);
   /* text that is too small to read on a phone: count of visible text nodes under 11 px */
   let tiny = 0; for (const e of document.querySelectorAll('body *')) { if (!e.childNodes.length || ![...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue; const r = e.getBoundingClientRect(); if (!r.width || r.bottom < 0 || r.top > s.scrollHeight) continue; if (parseFloat(getComputedStyle(e).fontSize) < 11) tiny++; }
@@ -118,12 +140,32 @@ await send('Page.navigate', { url: 'http://localhost:4175/' });
 await sleep(7000);
 const owner = await signIn('potato', 'adikaryasukses99@gmail.com', 'Lab Owner');
 execSync(`node tools/seed-emulator.mjs --uid ${owner}`, { cwd: REPO, stdio: 'ignore' });
+/* sales dated TODAY with a timestamp: the seed's are September and carry none, and the app's live query (ordered by time)
+   never loads them - Reports had no rows to measure. Long names and big sums on purpose: the phone layout must hold them. */
+{
+  const tv = (v) => typeof v === 'number' ? { integerValue: String(v) } : Array.isArray(v) ? { arrayValue: { values: v.map(tv) } }
+    : typeof v === 'object' ? { mapValue: { fields: Object.fromEntries(Object.entries(v).map(([k, x]) => [k, tv(x)])) } } : { stringValue: String(v) };
+  const today = new Date().toLocaleDateString('sv-SE');
+  const line = (productId, name, qty, price) => ({ productId, name, qty, unit: 'Bks', priceTier: 'Retail', calculatedPrice: price });
+  const sales = [
+    { id: 'lab_t1', customerName: 'TOKO MAKMUR JAYA', paymentType: 'Titip', agentId: 'm_budi', total: 12850000,
+      items: [line('p_surya12', 'SURYA 12', 240, 27500), line('p_surya16', 'SURYA 16', 120, 35000), line('p_gudgar', 'GUDANG GARAM FI', 30, 30500)] },
+    { id: 'lab_t2', customerName: 'TOKO MAKMUR JAYA', paymentType: 'Cash', agentId: 'm_budi', total: 1225000, items: [line('p_surya16', 'SURYA 16', 35, 35000)] },
+    { id: 'lab_t3', customerName: 'WARUNG BERKAH', paymentType: 'Cash', agentId: 'm_budi', total: 550000, items: [line('p_surya12', 'SURYA 12', 20, 27500)] },
+  ];
+  for (const [i, s] of sales.entries()) {
+    const f = Object.fromEntries(Object.entries({ ...s, date: today }).map(([k, x]) => [k, tv(x)]));
+    f.timestamp = { timestampValue: new Date(Date.now() - i * 3600e3).toISOString() };
+    await fetch(`${BASE}/artifacts/${APP_ID}/users/${owner}/transactions/${s.id}`, { method: 'PATCH', headers: { Authorization: 'Bearer owner', 'Content-Type': 'application/json' }, body: JSON.stringify({ fields: f }) });
+  }
+}
 await fetch(`${BASE}/artifacts/${APP_ID}/users/${owner}/settings/admin`, { method: 'DELETE', headers: { Authorization: 'Bearer owner' } });
 await js(`localStorage.removeItem('kpm-vault-grace'), 1`);
 await send('Page.reload'); await sleep(9000);
 await typeInto('CREATE MASTER PASSWORD', 'Owner-Test-1!'); await typeInto('SECRET RECOVERY WORD', 'kopi'); await sleep(300);
 out.save = await click('/Save Credentials/i');
 await sleep(3000);
+if (process.env.LIGHT) { out.light = await click('/Switch to Light Mode/i'); await sleep(1500); }
 
 for (const sc of SCREENS) {
   const o = out.screens[sc.key] = {};
@@ -147,10 +189,22 @@ await send('Page.reload'); await sleep(8000);
 for (const sc of SCREENS) {
   out.screens[sc.key].open1440 = await open(sc);
   await shot(`${sc.key}-1440`);
-  const a = await audit(); out.screens[sc.key].desk = { docW: a.docW, cut: a.cut.length, sideScroll: a.sideScroll.length, tall: a.tall };
+  const a = await audit(); out.screens[sc.key].desk = { docW: a.docW, cut: a.cut.length, sideScroll: a.sideScroll.length, hiddenCells: a.hiddenCells, tall: a.tall };
+  /* the printed PDF: A4's printable width (~718 css px at default margins - md: does NOT apply), print media - the product table's cell boxes must not move when the phone layout changes */
+  if (sc.print) {
+    await send('Emulation.setDeviceMetricsOverride', { width: 718, height: 1000, deviceScaleFactor: 1, mobile: false });
+    await send('Emulation.setEmulatedMedia', { media: 'print' }); await sleep(800);
+    /* every box in the printed sheet, relative to it: header, stat cards, product table, agent roster */
+    out.screens[sc.key].print = await js(`(() => { const p = document.querySelector('.print-container'); if (!p) return 'no print container'; const r0 = p.getBoundingClientRect();
+      return { w: Math.round(r0.width), h: Math.round(r0.height), boxes: [...p.querySelectorAll('*')].slice(0, 160).map(e => { const r = e.getBoundingClientRect();
+        return e.tagName + ' ' + [r.left - r0.left, r.top - r0.top, r.width, r.height].map(Math.round).join(','); }) }; })()`);
+    await shot(`${sc.key}-print`);
+    await send('Emulation.setEmulatedMedia', { media: '' });
+    await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  }
   if (sc.then || sc.thenJs) await send('Page.reload'), await sleep(8000);
 }
 out.log = [...new Set(log)].filter(l => !/PERMISSION_DENIED/.test(l)).slice(0, 8);
-fs.writeFileSync(path.join(HERE, process.env.ONLY ? `ps-result-${process.env.ONLY}.json` : 'ps-result.json'), JSON.stringify(out, null, 1));
+fs.writeFileSync(path.join(HERE, 'ps-result' + (process.env.ONLY ? '-' + process.env.ONLY : '') + (process.env.TAG ? '-' + process.env.TAG : '') + '.json'), JSON.stringify(out, null, 1));
 console.log(JSON.stringify(out, null, 1));
 ws.close(); chrome.kill(); server.close();
