@@ -67,3 +67,5 @@ His words: *"phone A pc B"* - the recommendation, split per width. Built: the re
 Not built on purpose: per-row clear (Clear all only), a source mark per row, ringing for Missed lines (every strip lands there - it would ring all day).
 
 2026-10-02 ~07:38: he published the rules with [CHANGE 15] (*"published"*) - the whole de33030 file pasted from the clipboard; kpm baseline synced `0217969`. The app push is still his word.
+
+2026-10-02 07:42: PUSHED (kpm `12b736f..0217969`), Vercel complete, live entry carries `0217969` and the Missed list. His test on the Samsung + PC owed.
