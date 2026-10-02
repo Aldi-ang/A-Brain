@@ -68,4 +68,6 @@ Built as a live page (https://claude.ai/artifact/FiPesjkC3kXGBzCn8r9uwW, source 
 
 **Rejected on purpose:** a real Java/Indonesia coastline (would be invented geography, and map tiles are blocked inside an artifact) - the map stays an abstract area grid marked "Data contoh".
 
+**2026-10-02 12:30, his answer:** *"A, journey map and map system is connected"* - hero A picked; the assumption (journey map = Journey Plan + Map System) confirmed. The full 10-scene page was then written (`Raw/2026-10-02-showcase-hero/showcase.html`, not yet proven or published) when he asked for the real map to show salesmen roaming like an expedition - see [[2026-10-02_expedition-map]] for the order question.
+
 **Models applied:** Opportunity Cost (three looks drawn as one shared map generator, so the loser costs one composition, not one build); Inversion (what makes the boss NOT believe "under control" - a single salesman on screen, which is why B is not the pick).
