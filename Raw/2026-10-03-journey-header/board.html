@@ -1,0 +1,143 @@
+<!doctype html><meta charset="utf-8">
+<title>Journey header board</title>
+<style>
+/* Two looks for Journey Plan's top panel (Mission Feed), on the app's real dark tokens (src/styles/theme.css) and its
+   real font stacks (the app loads no web font: --font-display falls to Arial Narrow on Windows). Phone frames are
+   390 px boxes with the phone layout forced by class, so one headless shot holds every frame. */
+:root { --ground:#0A0908; --sunk:#050403; --panel:#121110; --raised:#1B1917; --inset:#0E0D0C; --line:#26231F; --line-2:#3E3A35; --line-3:#6A645C;
+  --ink:#E8E4DE; --ink-muted:#A39B90; --ink-dim:#928B81; --gold:#D08A2E; --hi:#E4B04A; --gold-ink:#0A0908;
+  --font-display:"Barlow Condensed","Arial Narrow","Roboto Condensed",system-ui,sans-serif; --font-body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --font-mono:ui-monospace,"Cascadia Mono",Consolas,monospace; }
+* { box-sizing:border-box; }
+body { margin:0; background:#000; color:var(--ink); font:400 14px/1.4 var(--font-body); padding:28px; width:1900px; }
+h1 { margin:0 0 4px; font:900 26px/1 var(--font-mono); letter-spacing:.06em; text-transform:uppercase; }
+.intro { color:var(--ink-muted); font:600 14px/1.5 var(--font-mono); margin:0 0 22px; max-width:1500px; }
+.intro b { color:var(--ink); }
+.sec { font:900 15px/1 var(--font-mono); letter-spacing:.14em; text-transform:uppercase; margin:26px 0 10px; color:var(--ink); }
+.sec em { font-style:normal; background:var(--hi); color:var(--gold-ink); padding:3px 7px; margin-left:8px; font-size:11px; }
+.row { display:flex; gap:22px; align-items:flex-start; }
+.cap { font:700 12px/1.45 var(--font-mono); color:var(--ink-muted); margin:0 0 8px; max-width:390px; }
+.cap b { color:var(--ink); }
+.phone { width:390px; background:var(--ground); border:1px solid var(--line-2); border-radius:28px; padding:12px 8px 16px; overflow:hidden; }
+.pc { width:1440px; background:var(--ground); padding:20px 24px; border:1px solid var(--line-2); border-radius:14px; }
+.scale { transform:scale(.62); transform-origin:0 0; }
+.scalebox { width:893px; height:var(--h); overflow:hidden; }
+.mapstub { margin-top:12px; height:120px; border-radius:16px; border:1px solid var(--line-2); background:repeating-linear-gradient(135deg,#1c1b1a 0 14px,#191817 14px 28px);
+  display:grid; place-items:center; font:700 10px/1 var(--font-mono); letter-spacing:.16em; color:var(--ink-dim); text-transform:uppercase; }
+.pc .mapstub { height:150px; }
+
+/* ---- shared parts ---- */
+.card { background:var(--panel); border:1px solid var(--line-2); border-radius:16px; }
+.title { display:flex; align-items:center; gap:10px; font:900 22px/1 var(--font-display); letter-spacing:.1em; text-transform:uppercase; }
+.title i { width:20px; height:20px; border-radius:50%; border:2px solid var(--hi); position:relative; flex:none; }
+.title i::after { content:""; position:absolute; inset:4px; border-radius:50%; background:var(--hi); }
+.meta { font:700 10px/1 var(--font-mono); letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); }
+.meta b { color:var(--ink); font-weight:700; }
+.count { font:900 26px/1 var(--font-display); font-variant-numeric:tabular-nums; }
+.count small { font:700 10px/1 var(--font-mono); letter-spacing:.14em; color:var(--ink-dim); margin-left:6px; }
+.cells { display:grid; grid-template-columns:repeat(32,1fr); gap:2px; }
+.cells i { height:6px; border-radius:2px; background:var(--line-2); }
+.cells i.on { background:var(--hi); }
+.cells i.now { background:repeating-linear-gradient(90deg,var(--gold) 0 3px,transparent 3px 5px); }
+.days { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; }
+.days button { min-height:44px; border:1px solid var(--line-3); border-radius:8px; background:var(--raised); color:var(--ink-muted); font:800 11px/1 var(--font-mono);
+  letter-spacing:.06em; display:grid; place-items:center; gap:3px; padding:0; position:relative; }
+.days button.on { background:var(--inset); border-color:var(--hi); color:var(--ink); }
+.days button.today::after { content:""; position:absolute; bottom:5px; width:4px; height:4px; border-radius:50%; background:var(--hi); }
+.field { display:flex; flex-direction:column; gap:4px; min-width:0; }
+.field > span { font:700 10px/1 var(--font-mono); letter-spacing:.16em; text-transform:uppercase; color:var(--ink-muted); }
+.sel { min-height:44px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 12px; border:1px solid var(--line-2); background:var(--inset);
+  border-radius:8px; color:var(--ink); font:700 12px/1 var(--font-mono); letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; overflow:hidden; }
+.sel::after { content:"▾"; color:var(--ink-dim); }
+.sel.set { border-color:var(--gold); }
+.lamp { display:inline-flex; align-items:center; gap:7px; font:700 10px/1.2 var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--ink-muted); }
+.lamp i { width:8px; height:8px; border-radius:50%; border:1px solid var(--gold); background:radial-gradient(circle,#fff 0 1px,var(--hi) 2px); }
+.key { min-height:44px; display:flex; align-items:center; gap:10px; width:100%; }
+.key .meta { margin-left:auto; }
+.sep { width:1px; align-self:stretch; background:var(--line-2); }
+
+/* ---- look A: the strip ---- */
+.a { padding:14px 16px; display:grid; gap:12px; }
+.a .top { display:flex; align-items:center; gap:14px; }
+.a .top .count { margin-left:auto; }
+.a .controls { display:grid; grid-template-columns:330px 1px 260px 1px 1fr; gap:16px; align-items:end; }
+.a .place { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
+.phone .a { padding:10px 12px; gap:8px; }
+.phone .a .top { display:block; }
+.phone .a .controls { grid-template-columns:1fr; gap:10px; }
+.phone .a .controls .sep { display:none; }
+.phone .a .place { grid-template-columns:1fr 1fr 1fr; }
+.prog { display:flex; align-items:center; gap:10px; }
+.prog .cells { flex:1; }
+
+/* ---- look B: the day card ---- */
+.b { display:grid; grid-template-columns:minmax(0,1fr) 1px 420px; }
+.b .left { padding:16px 18px; display:grid; gap:12px; }
+.b .right { padding:16px 18px; display:grid; gap:10px; align-content:start; }
+.b .sep { margin:14px 0; }
+.b .dayname { font:900 40px/.9 var(--font-display); letter-spacing:.02em; text-transform:uppercase; }
+.b .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
+.b .stats div { border:1px solid var(--line-2); border-radius:8px; background:var(--inset); padding:8px 10px; }
+.b .stats b { display:block; font:900 20px/1 var(--font-display); font-variant-numeric:tabular-nums; }
+.b .stats small { font:700 9px/1.2 var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); }
+.b .place { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
+.phone .b { grid-template-columns:1fr; }
+.phone .b .sep { display:none; }
+.phone .b .left, .phone .b .right { padding:12px; }
+.phone .b .right { border-top:1px solid var(--line-2); }
+.phone .b .dayname { font-size:30px; }
+.hide { display:none !important; }
+</style>
+
+<h1>Journey Plan · the top panel, two looks</h1>
+<p class="intro">Today it has <b>a green salesman box and a blue day box</b> (no green, no blue), five drop-downs of different styles, and the day hidden in a list.
+Both looks keep your names (Mission Feed, Elimination status, Secured, Global Fleet), keep the phone fold you picked (the title is a 44 px key that opens the pickers),
+and add the same three working changes: <b>the day becomes 7 keys</b> (one tap, today has a dot), <b>the progress bar becomes one cell per shop</b> (like the expedition card),
+and every picker uses the app's own field style. <b>Example data</b>: Saturday, 32 shops, 11 secured.</p>
+
+<div class="sec">Phone · 390</div>
+<div class="row" id="phones"></div>
+
+<div class="sec">PC · 1440 <span class="meta" style="margin-left:10px">(shown at 62 %)</span></div>
+<div class="row" id="pcs"></div>
+
+<script>
+const DAYS = ['MON','TUE','WED','THU','FRI','SAT','SUN'], SEL = 5, TODAY = 5, DONE = 11, ALL = 32;
+const cells = () => `<div class="cells">${Array.from({length: ALL}, (_, k) => `<i class="${k < DONE ? 'on' : k === DONE ? 'now' : ''}"></i>`).join('')}</div>`;
+const days = (short) => `<div class="days">${DAYS.map((d, k) => `<button class="${k === SEL ? 'on' : ''} ${k === TODAY ? 'today' : ''}">${short ? d[0] + (d === 'THU' || d === 'TUE' ? d[1].toLowerCase() : d === 'SAT' || d === 'SUN' ? d[1].toLowerCase() : '') : d}</button>`).join('')}</div>`;
+const place = () => `<div class="field"><span>Regional command</span><div class="place"><div class="sel">All prov</div><div class="sel">All kab</div><div class="sel">All kec</div></div></div>`;
+const fleet = () => `<div class="field"><span>Operational filter</span><div class="sel">Global fleet</div></div>`;
+const dayField = (short) => `<div class="field"><span>Day</span>${days(short)}</div>`;
+
+/* A: one strip - title, count, cells; the pickers in one row under it (phone: the fold) */
+const A = (phone, open) => `<div class="card a">
+  ${phone ? `<div class="key"><span class="title"><i></i>Mission feed</span><span class="meta"><b>Sat</b> · All ${open ? '▴' : '▾'}</span></div>
+     <div class="prog">${cells()}<span class="meta"><b>${DONE}/${ALL}</b> secured</span></div>`
+   : `<div class="top"><span class="title"><i></i>Mission feed</span><span class="meta"><b>Saturday</b> · All regions · Global fleet</span><span class="count">${DONE}/${ALL}<small>SECURED</small></span></div>
+     <div class="prog"><span class="meta">Elimination status</span>${cells()}</div>`}
+  <div class="controls ${phone && !open ? 'hide' : ''}">${dayField(phone)}<span class="sep"></span>${fleet()}<span class="sep"></span>${place()}</div>
+</div>`;
+
+/* B: the day is the headline - left: the day, the count, three numbers; right: the pickers stacked (phone: day keys always out, the rest folds) */
+const B = (phone, open) => `<div class="card b">
+  <div class="left">
+    ${phone ? `<div class="key"><span class="title"><i></i>Mission feed</span><span class="meta">All ${open ? '▴' : '▾'}</span></div>` : `<span class="title"><i></i>Mission feed</span>`}
+    <div style="display:flex;align-items:flex-end;gap:12px"><span class="dayname">Saturday</span><span class="count" style="margin-left:auto">${DONE}/${ALL}<small>SECURED</small></span></div>
+    ${cells()}
+    <div class="stats"><div><b>21</b><small>shops left</small></div><div><b>3</b><small>salesmen out</small></div><div><b>4</b><small>overdue</small></div></div>
+    ${phone ? days(true) : ''}
+  </div>
+  <span class="sep"></span>
+  <div class="right ${phone && !open ? 'hide' : ''}">${phone ? '' : dayField(false)}${fleet()}${place()}</div>
+</div>`;
+
+const frame = (cls, html, cap) => `<div><p class="cap">${cap}</p><div class="${cls}">${html}<div class="mapstub">the map</div></div></div>`;
+document.getElementById('phones').innerHTML =
+  frame('phone', A(true, false), '<b>A · strip</b>, folded: title key, then one line of cells + count') +
+  frame('phone', A(true, true), '<b>A · strip</b>, opened: 7 day keys, fleet, the three places') +
+  frame('phone', B(true, false), '<b>B · day card</b>, folded: the day big, count, 3 numbers, the day keys stay out') +
+  frame('phone', B(true, true), '<b>B · day card</b>, opened: fleet + places under it');
+const pc = (look, cap, h) => `<div><p class="cap" style="max-width:893px">${cap}</p><div class="scalebox" style="--h:${h}px"><div class="scale"><div class="pc">${look}<div class="mapstub">the map + the expedition squad list</div></div></div></div></div>`;
+document.getElementById('pcs').innerHTML =
+  pc(A(false, true), '<b>A · strip</b> - three short rows: title + count, cells, every picker in one line. The map starts highest.', 245) +
+  pc(B(false, true), '<b>B · day card</b> - the day as the headline with 3 numbers (left), the pickers stacked (right). Taller, reads like the expedition card.', 330);
+</script>
