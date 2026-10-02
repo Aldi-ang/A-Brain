@@ -1,0 +1,63 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<style>
+* { box-sizing:border-box; margin:0; }
+body { background:#050403; color:#f2e6cf; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; padding:24px; width:max-content; }
+h1 { font-size:20px; letter-spacing:.12em; margin-bottom:4px; }
+.lead { font-size:13px; color:#b9a888; margin-bottom:6px; max-width:1500px; line-height:1.5; }
+.lead b { color:#f2e6cf; }
+.board { display:flex; gap:24px; align-items:flex-start; margin-top:14px; }
+.col { width:390px; }
+.scenes { width:340px; border:1px solid #2a241d; border-radius:14px; padding:14px; background:#0e0d0c; }
+.scenes h2 { font-size:13px; letter-spacing:.12em; margin-bottom:10px; }
+.scenes ol { list-style:none; padding:0; display:grid; gap:7px; }
+.scenes li { display:grid; grid-template-columns:22px 1fr auto; gap:8px; font-size:12px; line-height:1.4; color:#b9a888; padding:7px 8px; border:1px solid #2a241d; border-radius:8px; }
+.scenes li b { color:#f2e6cf; display:block; font-size:12.5px; }
+.scenes li .n { color:#d9a441; font-weight:900; }
+.scenes li.hero { border-color:#d9a441; }
+.who { font-size:10px; font-weight:900; letter-spacing:.1em; padding:2px 6px; border:1px solid #6a645c; border-radius:4px; color:#f2e6cf; align-self:start; white-space:nowrap; }
+.cap { font-size:15px; font-weight:800; margin-bottom:4px; letter-spacing:.04em; display:flex; gap:8px; align-items:center; }
+.rec { font-size:11px; font-weight:900; letter-spacing:.14em; color:#130f0a; background:#d9a441; padding:2px 7px; }
+.sub { font-size:12.5px; color:#b9a888; line-height:1.5; min-height:96px; margin-bottom:10px; }
+.sub b { color:#f2e6cf; }
+.phone { width:390px; height:844px; overflow:hidden; border:1px solid #2a241d; border-radius:22px; }
+.phone img { width:390px; display:block; }
+.col.pick .phone { outline:3px solid #d9a441; outline-offset:4px; }
+</style></head>
+<body>
+<h1>CUSTOMER SHOWCASE · THE FIRST SCREEN ON THE PHONE (390)</h1>
+<p class="lead">"Journey map" here = <b>Journey Plan</b> (each salesman's route and shops) shown together with the <b>Map System</b> (pins, money per area, goods lines). If you meant only one of them, say which.</p>
+<p class="lead">Frames are frozen mid-day. That is also exactly what Lite Mode shows. On the live link the salesmen walk, the shops light up and the bars grow.</p>
+<div class="board">
+  <div class="scenes">
+    <h2>THE PAGE, TOP TO BOTTOM</h2>
+    <ol>
+      <li class="hero"><span class="n">1</span><span><b>Peta Perjalanan</b>the journey map (this board)</span><span class="who">BOSS</span></li>
+      <li><span class="n">2</span><span><b>Rute Hari Ini</b>one salesman's shop cards, the red lamp for an overdue bill</span><span class="who">SALES</span></li>
+      <li><span class="n">3</span><span><b>Omzet Wilayah</b>money per area + the leaderboard</span><span class="who">BOSS</span></li>
+      <li><span class="n">4</span><span><b>Jalur Barang</b>Gudang Pusat to branch to motor to shop: the chest and crates</span><span class="who">BOSS</span></li>
+      <li><span class="n">5</span><span><b>Terminal Penjualan</b>the 3D boxes, the nota printed at the shop</span><span class="who">SALES</span></li>
+      <li><span class="n">6</span><span><b>Setoran Malam</b>cards fly into the letter, approved line by line, the VERIFIED seal</span><span class="who">BOSS</span></li>
+      <li><span class="n">7</span><span><b>Kartu Pemain</b>rank frame, XP, badges</span><span class="who">SALES</span></li>
+      <li><span class="n">8</span><span><b>Karantina</b>the blast doors, Stock Opname: losses get caught</span><span class="who">BOSS</span></li>
+      <li><span class="n">9</span><span><b>Aman, Tanpa Sinyal</b>works offline, Google sign-in, each company's data apart</span><span class="who">BOSS</span></li>
+      <li><span class="n">10</span><span><b>Semua Terkendali</b>the numbers, each with its BUKTI chip, measured fresh</span><span class="who">BOTH</span></li>
+    </ol>
+  </div>
+  <div class="col pick">
+    <p class="cap">A · THE COMMAND TABLE <span class="rec">MY PICK</span></p>
+    <p class="sub">All three salesmen, every shop and the goods lines on <b>one tilted table</b>. A gold bar rises on each shop a salesman has visited (taller = bought more). The boss sees "everything under control" in one look.</p>
+    <div class="phone"><img src="p-a.png"></div>
+  </div>
+  <div class="col">
+    <p class="cap">B · FOLLOW ONE SALESMAN</p>
+    <p class="sub">The camera rides with <b>one salesman</b>. His card counts the shops done and the money (the nixie tubes), and names the next shop. Best for the salesmen; the boss only sees one person.</p>
+    <div class="phone"><img src="p-b.png"></div>
+  </div>
+  <div class="col">
+    <p class="cap">C · THREE LAYERS</p>
+    <p class="sub">Routes, money per area and goods lines as <b>three stacked plates</b> that slowly close into one map. Explains the three things clearly, but each map is the smallest of the three looks on a phone.</p>
+    <div class="phone"><img src="p-c.png"></div>
+  </div>
+</div>
+</body></html>
