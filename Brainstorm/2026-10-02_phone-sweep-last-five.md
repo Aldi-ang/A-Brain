@@ -24,7 +24,7 @@ Result files: `ps-result.json`, `ps-result-fame.json`, `ps-result-dashtarget,…
 |---|---|---|---|
 | 1 Reports (title says TRANSACTIONS) | Context Analytics table: Revenue column off the right edge — scroller 308 < 450 (HistoryReportView.jsx:502, three columns w-1/2 / w-1/4 / w-1/4) | 4 period buttons 29 px tall, "This year" alone on line 2; title vs menu name | all 3 columns, no side scroll |
 | 2 Leaderboard (Agent Profile → Leaderboard) | names truncated: "SARI WULAN..." for SARI WULANDARI | `text-emerald-400` money (HallOfFameView.jsx:118), `text-blue-400` count (:122) — palette law | name cut there too |
-| 3 Command Center | Cloud / USB / Save point backup buttons 60x32, 43x32, 103x32 side by side | 4.1 screens long; target sheet scrolls itself (maxHeight 90vh, overflowY auto), Save reachable | fine |
+| 3 Command Center | Cloud / USB / Save point backup lamps 60x32, 43x32, 103x32 side by side — info only, a tap shows the lamp's meaning (SafetyStatus.jsx:80 `kpm-safety-lamp`), so a mis-tap shows the wrong hint, nothing breaks | 4.1 screens long; target sheet scrolls itself (maxHeight 90vh, overflowY auto), Save reachable | fine |
 | 4 Map System | ≡ menu: "Show All Tiers" bright blue button 211x32 (palette law); tier chips 104x33 | zoom ± 30x30 (pinch covers it); region select 161x32 | fine |
 | 5 Settings | nothing broken on the phone: 0 controls under 44 in General & Brand, nothing cut | heading reads "COMMAND CENTER" inside Settings (name clash with the dashboard); bank-details textarea grey-white unlike every other box; Tiers chip row scrolls sideways on purpose (kpm-chips 346 < 867); Architect user rows squeeze "Reset vault tries" to three lines | fine |
 
@@ -41,7 +41,7 @@ Not checked on his real data.
 |---|---|---|
 | A — Reports (my pick) | Revenue column visible at 390 (stack or drop the table's fixed widths), period buttons 44 on one row, title matches the menu | the only phone-only gap that hides money; HistoryReportView.jsx, print layout must not change |
 | B — Leaderboard | names wrap instead of truncating; money and count in the app's gold/ink | ~3 lines, but it is not a phone gap (PC cuts the name too) — could ride along with A |
-| C — Command Center | backup buttons to 44 | small; the row must stay one line at 390 |
+| C — Command Center | backup lamps to 44 | small, info only; the row must stay one line at 390 |
 | D — Map | the blue button and chips to slate/gold, chips 44 | small, palette law only |
 | E — Settings | rename the heading | wording only |
 
