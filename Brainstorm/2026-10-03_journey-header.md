@@ -1,6 +1,6 @@
 ---
 date: 2026-10-03
-status: OPEN - waiting on Aldi (look A or B), asked 01:45
+status: DECIDED 01:39 - A on the PC, B on the phone; BUILT kpm 339522f
 tags: [kpm, journey-plan, design, header]
 ---
 
@@ -26,7 +26,7 @@ Board: `Raw/2026-10-03-journey-header/board.png` (`board.html`, phone frames for
 **My pick:** B - the day is the first thing a salesman answers on this screen, and his own rule says pin only the
 first question, in one line (the day keys are one line).
 
-**Decision:** OPEN - waiting on Aldi.
+**Decision (01:39):** his *"A for pc B for phone"* - the same split he chose for the expedition (phone one thing at a time, PC everything at once). Built kpm `339522f`; frames `Raw/2026-10-03-journey-header/built-phone-390.jpg`, `built-pc-1440.png`. Found while building: this panel's own classes carry a display and load after Tailwind, so `hidden`/`lg:hidden` lost - the day keys showed twice at 390; the feed now hides its own parts (`.kx-phone`/`.kx-desk`), guarded by a check. Retired: the 2026-09-20 "one line on the phone" rule (his B replaces it).
 
 **Rejected on purpose:** renaming the labels (he kept the names 2026-10-02); hiding the place pickers behind the
 Radar Hub breadcrumb below (Chesterton's fence - not checked who uses which).

@@ -3147,3 +3147,10 @@ The expedition (salesmen roaming with their next shop) was built on Map System a
 same night. Rule: before placing a feature on a map, ask which job it serves - where SHOPS are and how AREAS sell
 (Map System) or where a SALESMAN goes today (Journey Plan). He also wants Map System redesigned later. Built: kpm
 `ccae937`; [[2026-10-02_expedition-map]].
+
+## He splits looks by width as a habit: phone = one thing at a time, PC = everything at once (2026-10-03)
+
+Twice in two days, given an A/B: the expedition (*"do your pick both looks good anyway"* -> B travel card on the phone,
+A squad list on the PC) and Journey Plan's top panel (*"A for pc B for phone"*). When drawing options for a screen that
+lives on both, draw the PC look and the phone look as separate choices from the start - he will combine them anyway.
+[[2026-10-03_journey-header]]
