@@ -1,0 +1,323 @@
+<title>KPM Expedition Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&display=swap">
+<style>
+/* Layout: the Map System as it would ship. Phone: the map on top, ONE salesman under it (his rule: phone one at a
+   time). PC: the map left, every salesman at once on the right (PC everything at once). The ground is the app's own
+   dark tiles (ground.jpg, see ground.mjs). Dark only, on purpose; colours copied from src/styles/theme.css. */
+:root {
+  color-scheme: dark;
+  --ground: #0A0908; --sunk: #050403; --panel: #121110; --raised: #1B1917; --inset: #0E0D0C;
+  --line: #26231F; --line-2: #3E3A35; --line-3: #6A645C;
+  --ink: #E8E4DE; --ink-muted: #A39B90; --ink-dim: #928B81;
+  --gold: #D08A2E; --gold-2: #E4B04A; --gold-ink: #0A0908;
+  --led-crit: #FF3B4B; --led-warn: #FFB020; --tile: #545557;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --ease-out: cubic-bezier(.23, 1, .32, 1); --ease-io: cubic-bezier(.77, 0, .175, 1);
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 15px/1.45 var(--font-body); overflow: hidden; -webkit-font-smoothing: antialiased; }
+.app { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; grid-template-columns: minmax(0, 1fr); padding-bottom: 64px; }
+.shot .app { padding-bottom: 0; }
+@media (min-width: 1024px) { .app { grid-template-columns: minmax(0, 1fr) 400px; grid-template-rows: auto minmax(0, 1fr); } .top { grid-column: 1 / -1; } .panel { grid-row: 2; grid-column: 2; border-left: 1px solid var(--line-2); border-top: 0 !important; overflow: auto; } }
+.top { display: flex; align-items: center; gap: 10px; padding: 0 16px; height: 48px; border-bottom: 1px solid var(--line-2); background: var(--panel); }
+.top h1 { margin: 0; font: 900 18px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; }
+.top .sub { font: 700 10px/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--gold-2); }
+.top .contoh { margin-left: auto; font: 700 9px/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); border: 1px solid var(--line-2); border-radius: 4px; padding: 5px 7px; }
+
+/* ---- the map ---- */
+.mapbox { position: relative; overflow: hidden; background: var(--tile); min-height: 0; }
+.world { position: absolute; left: 0; top: 0; width: 2048px; height: 1536px; transform-origin: 0 0; transition: transform 600ms var(--ease-io); }
+.world img { position: absolute; inset: 0; width: 2048px; height: 1536px; display: block; user-select: none; }
+.world svg { position: absolute; inset: 0; width: 2048px; height: 1536px; overflow: visible; }
+.attrib { position: absolute; right: 6px; bottom: 4px; font: 500 9px/1 var(--font-body); color: rgba(232,228,222,.55); pointer-events: none; }
+.plan { fill: none; stroke: rgba(232,228,222,.35); stroke-width: 2.5; stroke-dasharray: 1 7; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.trail { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.march { stroke: var(--gold-2); stroke-width: 3; stroke-dasharray: 9 7; stroke-linecap: round; vector-effect: non-scaling-stroke; transition: opacity 200ms; }
+.march.home { stroke: var(--ink-muted); }
+.moving .march { animation: flow 1.1s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -16; } }
+.dot { r: calc(7px * var(--inv)); fill: #2a2826; stroke: rgba(232,228,222,.5); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.dot.hit { fill: var(--gold-2); stroke: var(--gold); }
+.dim { opacity: .35; }
+.look-b .trail { stroke: var(--gold-2); stroke-width: 4; stroke-dasharray: 1 9; }
+.look-b .march { stroke: var(--gold-2); stroke-dasharray: 2 8; stroke-width: 4; }
+
+/* things on the map keep their screen size whatever the zoom: scale(var(--inv)) undoes the camera */
+.mk { position: absolute; left: 0; top: 0; translate: -50% -50%; transform: scale(var(--inv)); transform-origin: 50% 50%; pointer-events: none; }
+.chip { display: grid; justify-items: center; gap: 3px; transition: left 1400ms var(--ease-io), top 1400ms var(--ease-io); z-index: 3; }
+.chip b { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(160deg, #E4C98E, #B8893A); color: #2a1d08;
+  font: 900 12px/1 var(--font-mono); border: 3px solid var(--ring); outline: 2px solid var(--ground); }
+.chip span { font: 800 10px/1 var(--font-mono); letter-spacing: .1em; color: var(--ink); background: var(--ground); border: 1px solid var(--line-3); border-radius: 4px; padding: 3px 5px; white-space: nowrap; }
+.chip.sel b { outline-color: var(--gold-2); }
+.chip.off { opacity: .55; }
+.target { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--gold-2); z-index: 2; }
+.target::after { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: var(--gold-2); }
+.moving .target { animation: ping 1.8s var(--ease-out) infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(228,176,74,.55); } 100% { box-shadow: 0 0 0 14px rgba(228,176,74,0); } }
+.target.home { border-color: var(--ink-muted); } .target.home::after { background: var(--ink-muted); }
+.base { width: 30px; height: 30px; border: 2px solid var(--gold); border-radius: 6px; background: var(--raised);
+  background-image: linear-gradient(var(--gold), var(--gold)), linear-gradient(var(--gold), var(--gold)); background-size: 100% 2px, 2px 100%; background-position: 0 50%, 50% 0; background-repeat: no-repeat; z-index: 2; }
+.tag { font: 700 10px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); background: var(--ground); border: 1px solid var(--line-3); border-radius: 4px; padding: 4px 6px; white-space: nowrap; translate: -50% calc(-100% - 20px); z-index: 2; }
+.tag.gold { color: var(--gold-2); border-color: var(--gold); }
+.loc { display: grid; justify-items: center; gap: 3px; translate: -50% -11px; z-index: 2; }
+/* B: the salesman STANDS on his shop's pin (anchored at his feet), so the pin's name stays readable under him */
+.look-b .chip { translate: -50% calc(-100% - 6px); transform-origin: 50% 100%; }
+.look-b .chip::after { content: ""; width: 2px; height: 8px; background: var(--gold-2); }
+.look-b .target { display: none; }
+.look-b g:not(.dim) .dot { display: none; }   /* his own shops are the numbered pins; the plain dot under each would peek out */
+.legend { display: none; gap: 8px; margin-top: 6px; padding: 12px; border: 1px dashed var(--line-2); border-radius: 12px; }
+.legend div { display: flex; align-items: center; gap: 10px; font: 600 12px/1.35 var(--font-body); color: var(--ink-muted); }
+.legend svg { flex: none; }
+.legend b { color: var(--ink); font-weight: 700; }
+@media (min-width: 1024px) { .legend { display: grid; } }
+.loc i { width: 22px; height: 22px; border-radius: 6px 6px 50% 50%; background: var(--raised); border: 2px solid var(--line-3); display: grid; place-items: center; font: 900 10px/1 var(--font-mono); font-style: normal; color: var(--ink-muted); }
+.loc.hit i { background: var(--gold-2); border-color: var(--gold); color: var(--gold-ink); }
+.loc.hit span { display: none; }
+.loc.edge-l { justify-items: start; translate: -11px -11px; }   /* a name that would be cut by the map's edge opens inward */
+.loc.edge-r { justify-items: end; translate: calc(-100% + 11px) -11px; }   /* a shop already sold at keeps its gold number; only the shops still ahead carry a name */
+.loc.next i { border-color: var(--gold-2); color: var(--gold-2); }
+.loc span { font: 700 9px/1 var(--font-mono); letter-spacing: .08em; color: var(--ink); background: var(--ground); border: 1px solid var(--line-2); border-radius: 3px; padding: 3px 4px; white-space: nowrap; }
+
+/* ---- the panel ---- */
+.panel { border-top: 1px solid var(--line-2); background: var(--panel); padding: 12px 16px 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.ph { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.ph b { font: 900 20px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; }
+.ph span { font: 700 10px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
+.ph span em { font-style: normal; color: var(--gold-2); }
+.pick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.pick button { min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid var(--line-3); border-radius: 8px; background: var(--raised); color: var(--ink-muted); cursor: pointer;
+  font: 800 11px/1 var(--font-mono); letter-spacing: .08em; transition: transform 140ms var(--ease-out); -webkit-tap-highlight-color: transparent; }
+.pick button:active { transform: scale(.97); }
+.pick button i { width: 8px; height: 8px; border-radius: 50%; background: #000; border: 1px solid var(--line-3); }
+.pick button[aria-pressed="true"] { background: var(--inset); border-color: var(--gold); color: var(--ink); }
+.pick button[aria-pressed="true"] i { background: radial-gradient(circle, #fff 0 1px, var(--gold-2) 2px); border-color: var(--gold); }
+@media (min-width: 1024px) { .look-a .pick { display: none; } }
+
+/* look A: one row per salesman, like a squad list */
+.rows { display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid var(--line-2); border-radius: 12px; background: var(--inset); cursor: pointer; }
+.row.sel { border-color: var(--gold); }
+.av { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(160deg, #E4C98E, #B8893A); color: #2a1d08; font: 900 13px/1 var(--font-mono); border: 3px solid var(--ring); }
+.nm { font: 800 17px/1.05 var(--font-display); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.led { display: flex; align-items: center; gap: 7px; margin-top: 5px; font: 700 10px/1.2 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); min-width: 0; }
+.led > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.led i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #000; border: 1px solid var(--line-3); }
+.led.go { color: var(--gold-2); } .led.go i { background: radial-gradient(circle, #fff 0 1px, var(--gold-2) 2px); border-color: var(--gold); }
+.led.at { color: var(--led-warn); } .led.at i { background: radial-gradient(circle, #fff 0 1px, var(--led-warn) 2px); border-color: var(--led-warn); }
+.led.crit { color: var(--led-crit); } .led.crit i { background: radial-gradient(circle, #fff 0 1px, var(--led-crit) 2px); border-color: var(--led-crit); }
+.cells { display: grid; grid-template-columns: repeat(8, 1fr); gap: 3px; margin-top: 7px; }
+.cells i { height: 6px; border-radius: 2px; background: var(--line-2); transition: background 300ms; }
+.cells i.on { background: var(--gold-2); }
+.cells i.now { background: repeating-linear-gradient(90deg, var(--gold) 0 3px, transparent 3px 5px); }
+.rt { text-align: right; display: grid; gap: 4px; }
+.rt b { font: 900 22px/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.rt small { font: 700 10px/1 var(--font-mono); letter-spacing: .06em; color: var(--ink-dim); white-space: nowrap; }
+@media (max-width: 1023px) { .look-a .row:not(.sel) { display: none; } }
+
+/* look B: the travel card, like the survival game's "walk there" card */
+.travel { border: 1px solid var(--line-2); border-radius: 14px; background: linear-gradient(180deg, var(--raised), var(--sunk)); padding: 14px; display: grid; gap: 10px; }
+.tv-who { display: flex; align-items: center; gap: 12px; }
+.tv-who .av { width: 40px; height: 40px; }
+.tv-who small { display: block; font: 700 10px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); margin-top: 4px; }
+.dest small { font: 700 10px/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); }
+.dest div { font: 900 30px/.95 var(--font-display); letter-spacing: .02em; text-transform: uppercase; margin-top: 4px; }
+.pips { display: flex; align-items: center; gap: 0; margin-top: 4px; }
+.pips i { flex: none; width: 18px; height: 18px; border-radius: 6px 6px 50% 50%; background: var(--raised); border: 2px solid var(--line-3); }
+.pips i.on { background: var(--gold-2); border-color: var(--gold); }
+.pips i.nx { border-color: var(--gold-2); }
+.pips u { flex: 1; height: 2px; background: var(--line-2); text-decoration: none; }
+.pips u.on { background: var(--gold-2); }
+.pips u.go { background: repeating-linear-gradient(90deg, var(--gold-2) 0 5px, transparent 5px 9px); background-size: 9px 2px; }
+.moving .pips u.go { animation: flowx .9s linear infinite; }
+@keyframes flowx { to { background-position: 9px 0; } }
+.meta3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.meta3 div { border: 1px solid var(--line-2); border-radius: 8px; background: var(--inset); padding: 8px; }
+.meta3 b { display: block; font: 900 18px/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.meta3 small { font: 700 9px/1.2 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-dim); }
+.others { display: none; gap: 6px; }
+@media (min-width: 1024px) { .others { display: grid; } }
+.other { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--inset); cursor: pointer; }
+.other .av { width: 30px; height: 30px; font-size: 10px; border-width: 2px; }
+.other .nm { font-size: 14px; flex: 1; }
+.other .led { margin: 0; }
+
+/* ---- the option switch (this page only) ---- */
+.sw { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px)); background: var(--ground); border-top: 1px solid var(--line-2); }
+.sw button { min-height: 48px; border: 1px solid var(--line-3); border-radius: 8px; background: var(--raised); color: var(--ink-muted); cursor: pointer; font: 700 10px/1.2 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.sw button b { display: block; font: 900 18px/1 var(--font-display); color: var(--ink); }
+.sw button[aria-pressed="true"] { background: var(--inset); border-color: var(--gold); color: var(--ink); } .sw button[aria-pressed="true"] b { color: var(--gold-2); }
+@media (min-width: 1024px) { .sw { left: 50%; right: auto; translate: -50% 0; width: 520px; border: 1px solid var(--line-2); border-bottom: 0; border-radius: 12px 12px 0 0; } }
+.shot .sw { display: none; }
+:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 2px; }
+.still .world, .still .chip, .still .cells i { transition: none; }
+@media (prefers-reduced-motion: reduce) { .world, .chip, .cells i { transition: none; } }
+</style>
+
+<div class="app" id="app">
+  <header class="top"><h1>Map System</h1><span class="sub">Expedition</span><span class="contoh">Data contoh</span></header>
+  <div class="mapbox" id="mapbox">
+    <div class="world" id="world"><img src="ground.jpg" alt=""><svg id="ov" viewBox="0 0 2048 1536" aria-hidden="true"></svg><div id="mk"></div></div>
+    <span class="attrib">© Esri</span>
+  </div>
+  <aside class="panel" id="panel"></aside>
+</div>
+<nav class="sw" id="sw" aria-label="Pilih tampilan">
+  <button type="button" data-look="a"><b>A</b>Squad list</button>
+  <button type="button" data-look="b"><b>B</b>Travel card</button>
+  <button type="button" id="mv"><b>Motion</b><span id="mvL">On</span></button>
+</nav>
+
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+const $ = (s) => document.querySelector(s);
+const el = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h != null) e.innerHTML = h; return e; };
+const sv = (t, a) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
+const K = 2048 / 2000, P = ([x, y]) => ({ x: x * K, y: y * K });
+const M_PER_PX = 9.46;   /* zoom 14 at Muntilan's latitude */
+
+/* ---- example team: one branch, four salesmen, eight shops each, placed on real roads ("Data contoh") ---- */
+const BASE = P([565, 710]);
+const SHOPS = ['Toko Berkah Jaya', 'Warung Sumber Rejeki', 'Toko Makmur', 'Warung Bu Sri', 'Toko Sinar Abadi', 'Warung Pojok', 'Toko Lancar', 'Warung Barokah',
+  'Toko Maju', 'Warung Mbak Yu', 'Toko Sentosa', 'Warung Pak Kumis', 'Toko Rejeki', 'Warung Bu Tini', 'Toko Abadi', 'Warung Sederhana',
+  'Toko Murah', 'Warung Mampir', 'Toko Mulia', 'Warung Tegal', 'Toko Harapan', 'Warung Bu Darmi', 'Toko Amanah', 'Warung Kita',
+  'Toko Bintang', 'Warung Pinggir', 'Toko Jaya', 'Warung Asri', 'Toko Subur', 'Warung Nusantara', 'Toko Indah', 'Warung Bu Yati'];
+const TEAM = [
+  { ini: 'BS', name: 'Budi Santoso', rank: 'Silver', ring: '#b9c1ca', hits: 5, seen: 3, via: [], stops: [[500, 600], [440, 425], [322, 386], [240, 282], [170, 345], [95, 560], [62, 720], [80, 930]], alert: 'Overdue bill 9 days' },
+  { ini: 'AR', name: 'Ari Rahman', rank: 'Gold', ring: '#E4B04A', hits: 3, seen: 1, via: [[500, 600], [440, 425]], stops: [[600, 386], [730, 368], [850, 355], [960, 300], [1080, 262], [1230, 245], [1340, 232], [1450, 170]] },
+  { ini: 'DW', name: 'Dewi Wulandari', rank: 'Bronze', ring: '#b07a45', hits: 6, seen: 12, via: [[595, 700]], stops: [[725, 635], [790, 740], [880, 860], [960, 990], [1040, 1120], [1130, 1268], [1205, 1300], [1225, 1450]], alert: 'Visit due today' },
+  { ini: 'RS', name: 'Rini Saputri', rank: 'Silver', ring: '#b9c1ca', hits: 8, seen: 6, via: [], stops: [[470, 820], [400, 900], [330, 990], [250, 1080], [330, 1120], [420, 1160], [470, 1250], [475, 1400]] },
+];
+TEAM.forEach((s, i) => { s.via = s.via.map(P); s.stops = s.stops.map((p, k) => ({ ...P(p), name: SHOPS[i * 8 + k] })); s.start = { hits: s.hits, seen: s.seen }; });
+const km = (a, b) => Math.hypot(a.x - b.x, a.y - b.y) * M_PER_PX / 1000;
+const fmtKm = (v) => v.toFixed(1).replace('.', ',') + ' km';
+const here = (s) => s.hits ? s.stops[s.hits - 1] : BASE;
+const goal = (s) => s.hits >= 8 ? BASE : s.stops[s.hits];
+const state = (s) => s.hits >= 8 ? 'home' : s.seen <= 2 ? 'at' : 'go';
+const said = (s) => ({ home: 'Heading back to the branch', at: 'At shop · ' + here(s).name, go: 'En route → ' + goal(s).name })[state(s)];
+const ago = (m) => m < 1 ? 'just now' : m + ' min ago';
+
+let look = 'a', sel = 0, still = false, shot = false;
+const refs = [];
+
+function drawMap() {
+  const ov = $('#ov'), mk = $('#mk'); ov.innerHTML = ''; mk.innerHTML = ''; refs.length = 0;
+  const at = (node, p) => { node.style.left = p.x + 'px'; node.style.top = p.y + 'px'; mk.append(node); return node; };
+  at(el('div', 'mk base'), BASE); at(el('div', 'mk tag gold', 'Branch'), BASE);
+  TEAM.forEach((s, i) => {
+    const mine = look === 'a' || i === sel, g = sv('g', { class: mine ? '' : 'dim' });
+    const all = [BASE, ...s.via, ...s.stops];
+    g.append(sv('polyline', { points: all.map((p) => `${p.x},${p.y}`).join(' '), class: 'plan' }));
+    const trail = sv('polyline', { class: 'trail' }), march = sv('line', { class: 'march' });
+    g.append(trail, march);
+    const dots = s.stops.map((p) => { const c = sv('circle', { cx: p.x, cy: p.y, class: 'dot' }); g.append(c); return c; });
+    ov.append(g);
+    const locs = look === 'b' && i === sel ? s.stops.map((p, k) => at(el('div', 'mk loc', `<i>${k + 1}</i><span>${p.name}</span>`), p)) : [];
+    const target = at(el('div', 'mk target'), goal(s));
+    if (!mine) target.style.display = 'none';
+    const chip = at(el('div', 'mk chip' + (i === sel ? ' sel' : '') + (mine ? '' : ' off'), `<b>${s.ini}</b>${look === 'a' ? `<span>${s.ini} · ${Math.min(s.hits, 8)}/8</span>` : ''}`), here(s));
+    chip.style.setProperty('--ring', s.ring);
+    refs.push({ s, trail, march, dots, locs, target, chip, all });
+  });
+  paintMap();
+}
+function paintMap() {
+  for (const r of refs) {
+    const s = r.s, h = here(s), g = goal(s), viaN = 1 + s.via.length;
+    r.trail.setAttribute('points', r.all.slice(0, viaN + s.hits).map((p) => `${p.x},${p.y}`).join(' '));
+    Object.entries({ x1: h.x, y1: h.y, x2: g.x, y2: g.y }).forEach(([k, v]) => r.march.setAttribute(k, v));
+    r.march.classList.toggle('home', state(s) === 'home');
+    r.dots.forEach((d, k) => d.classList.toggle('hit', k < s.hits));
+    r.locs.forEach((l, k) => { l.classList.toggle('hit', k < s.hits); l.classList.toggle('next', k === s.hits); });
+    r.target.style.left = g.x + 'px'; r.target.style.top = g.y + 'px'; r.target.classList.toggle('home', state(s) === 'home');
+    r.chip.style.left = h.x + 'px'; r.chip.style.top = h.y + 'px';
+    const tag = r.chip.querySelector('span'); if (tag) tag.textContent = `${s.ini} · ${s.hits}/8`;
+  }
+}
+
+/* ---- the panel ---- */
+const cells = (s) => Array.from({ length: 8 }, (_, k) => `<i class="${k < s.hits ? 'on' : k === s.hits ? 'now' : ''}"></i>`).join('');
+const ledCls = (s) => ({ home: '', at: 'at', go: 'go' })[state(s)];
+function picker() { return `<div class="pick">${TEAM.map((s, i) => `<button type="button" data-i="${i}" aria-pressed="${i === sel}"><i></i>${s.ini} ${s.hits}/8</button>`).join('')}</div>`; }
+function drawPanel() {
+  const p = $('#panel'), done = TEAM.reduce((a, s) => a + s.hits, 0);
+  const head = `<div class="ph"><b>Expedition</b><span>${TEAM.length} out · <em>${done}/32</em> shops</span></div>`;
+  if (look === 'a') {
+    p.innerHTML = head + picker() + `<div class="rows">${TEAM.map((s, i) => `
+      <div class="row${i === sel ? ' sel' : ''}" data-i="${i}"><span class="av" style="--ring:${s.ring}">${s.ini}</span>
+        <div style="min-width:0"><div class="nm">${s.name}</div><div class="led ${ledCls(s)}"><i></i><span>${said(s)}</span></div><div class="cells">${cells(s)}</div></div>
+        <div class="rt"><b>${s.hits}/8</b><small>${fmtKm(km(here(s), goal(s)))}</small><small>${ago(s.seen)}</small></div></div>`).join('')}</div>`;
+  } else {
+    const s = TEAM[sel], st = state(s), d = km(here(s), goal(s));
+    const pips = s.stops.map((_, k) => (k ? `<u class="${k < s.hits ? 'on' : k === s.hits ? 'go' : ''}"></u>` : '') + `<i class="${k < s.hits ? 'on' : k === s.hits ? 'nx' : ''}"></i>`).join('');
+    p.innerHTML = head + picker() + `<div class="travel">
+      <div class="tv-who"><span class="av" style="--ring:${s.ring}">${s.ini}</span><div><div class="nm">${s.name}</div><small>${s.rank} · last seen ${ago(s.seen)}</small></div></div>
+      <div class="dest"><small>${st === 'home' ? 'Day done · heading to' : st === 'at' ? 'Selling at' : 'Heading to'}</small><div>${st === 'home' ? 'The branch' : st === 'at' ? here(s).name : goal(s).name}</div></div>
+      ${s.alert && st === 'go' ? `<div class="led ${s.alert.startsWith('Overdue') ? 'crit' : 'at'}" style="margin:0"><i></i><span>${s.alert}</span></div>` : ''}
+      <div class="pips">${pips}</div>
+      <div class="meta3"><div><b>${s.hits}/8</b><small>shops</small></div><div><b>${fmtKm(d)}</b><small>to go</small></div><div><b>±${Math.max(1, Math.round(d / 25 * 60))} min</b><small>by motor</small></div></div>
+    </div><div class="others">${TEAM.map((o, i) => i === sel ? '' : `<div class="other" data-i="${i}"><span class="av" style="--ring:${o.ring}">${o.ini}</span><span class="nm">${o.name}</span><span class="led ${ledCls(o)}"><i></i><span>${o.hits}/8</span></span></div>`).join('')}</div>`;
+  }
+  p.insertAdjacentHTML('beforeend', `<div class="legend">
+    <div><svg width="34" height="10"><line x1="2" y1="5" x2="32" y2="5" stroke="#E8E4DE" stroke-width="3" stroke-linecap="round"/></svg><span><b>Today's trail</b>: his sales so far, in order.</span></div>
+    <div><svg width="34" height="10"><line x1="2" y1="5" x2="32" y2="5" stroke="#E4B04A" stroke-width="3" stroke-dasharray="7 5"/></svg><span><b>Heading to</b>: the next shop on his plan.</span></div>
+    <div><svg width="34" height="10"><line x1="2" y1="5" x2="32" y2="5" stroke="rgba(232,228,222,.5)" stroke-width="2.5" stroke-dasharray="1 6" stroke-linecap="round"/></svg><span><b>Still to visit</b> today.</span></div>
+    <div><svg width="34" height="10"><circle cx="17" cy="5" r="4" fill="#E4B04A"/></svg><span><b>Last seen</b> = his last sale or the last time he opened the app. A phone sends no position while it is locked.</span></div>
+  </div>`);
+  p.querySelectorAll('[data-i]').forEach((b) => b.onclick = () => { sel = +b.dataset.i; build(); });
+}
+
+/* ---- the camera: phone frames ONE salesman's whole day; PC frames the whole team ---- */
+function camera() {
+  const box = $('#mapbox'), mw = box.clientWidth, mh = box.clientHeight, phone = innerWidth < 1024;
+  const pts = phone ? [BASE, ...TEAM[sel].via, ...TEAM[sel].stops] : [BASE, ...TEAM.flatMap((s) => [...s.via, ...s.stops])];
+  const xs = pts.map((p) => p.x), ys = pts.map((p) => p.y), pad = phone ? 60 : 90;
+  const x0 = Math.min(...xs) - pad, x1 = Math.max(...xs) + pad, y0 = Math.min(...ys) - pad, y1 = Math.max(...ys) + pad;
+  /* never zoom out past the ground picture, and never slide it off an edge */
+  const s = Math.max(Math.min(mw / (x1 - x0), mh / (y1 - y0), 1.1), mw / 2048, mh / 1536);
+  const clampT = (v, room) => Math.min(0, Math.max(room, v));
+  const tx = clampT(mw / 2 - (x0 + x1) / 2 * s, mw - 2048 * s), ty = clampT(mh / 2 - (y0 + y1) / 2 * s, mh - 1536 * s);
+  const w = $('#world'); w.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${s.toFixed(4)})`; w.style.setProperty('--inv', (1 / s).toFixed(4));
+  /* where each name lands is known now (the camera is final, not mid-move): open the edge ones inward */
+  for (const l of document.querySelectorAll('.loc')) {
+    const p = { x: parseFloat(l.style.left) * s + tx, w: l.querySelector('span').offsetWidth / 2 };
+    l.classList.toggle('edge-l', p.x - p.w < 6); l.classList.toggle('edge-r', p.x + p.w > mw - 6);
+  }
+}
+
+/* ---- motion: every few seconds one salesman's phone reports a sale; his chip glides to that shop, it lights, the
+   line re-aims at the next one. That is all the real app can know (a point per sale), so it is all this shows. ---- */
+let timer = 0, turn = 0;
+function tickPing() {
+  clearTimeout(timer); if (still) return;
+  TEAM.forEach((s) => s.seen += 1);
+  const order = [0, 2, 1, 0, 2], s = TEAM[order[turn % order.length]]; turn++;
+  if (turn > 10) { TEAM.forEach((t) => { t.hits = t.start.hits; t.seen = t.start.seen; }); turn = 0; }
+  else if (s.hits < 8) { s.hits++; s.seen = 0; }
+  paintMap(); drawPanel();
+  timer = setTimeout(tickPing, 3400);
+}
+
+function build() {
+  document.documentElement.className = (still ? 'still' : 'moving') + (shot ? ' shot' : '');
+  $('#app').className = 'app look-' + look;
+  document.querySelectorAll('.sw [data-look]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.look === look)));
+  $('#mvL').textContent = still ? 'Off' : 'On';
+  drawMap(); drawPanel(); camera();
+}
+function fromHash() {
+  const h = location.hash.slice(1); look = h[0] === 'b' ? 'b' : 'a';
+  shot = h.includes('shot'); still = shot || h.includes('still') || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  TEAM.forEach((t) => { t.hits = t.start.hits; t.seen = t.start.seen; }); turn = 0;
+  build(); clearTimeout(timer); if (!still) timer = setTimeout(tickPing, 2200);
+}
+document.querySelectorAll('.sw [data-look]').forEach((b) => b.onclick = () => { location.hash = b.dataset.look + (still ? '-still' : ''); });
+$('#mv').onclick = () => { still = !still; build(); clearTimeout(timer); if (!still) timer = setTimeout(tickPing, 1200); };
+addEventListener('hashchange', fromHash);
+addEventListener('resize', camera);
+fromHash();
+</script>

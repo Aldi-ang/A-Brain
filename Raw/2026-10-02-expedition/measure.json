@@ -1,0 +1,121 @@
+{
+ "p-a": {
+  "vw": 390,
+  "vh": 844,
+  "docW": 390,
+  "docH": 844,
+  "font": true,
+  "img": 2048,
+  "map": [
+   0,
+   48,
+   390,
+   657
+  ],
+  "panel": [
+   0,
+   657,
+   390,
+   844
+  ],
+  "panelRight": 374,
+  "panelBottom": 830,
+  "chipsOutsideMap": 5,
+  "chips": 9,
+  "html": "still shot"
+ },
+ "p-b": {
+  "vw": 390,
+  "vh": 844,
+  "docW": 390,
+  "docH": 844,
+  "font": true,
+  "img": 2048,
+  "map": [
+   0,
+   48,
+   390,
+   473
+  ],
+  "panel": [
+   0,
+   473,
+   390,
+   844
+  ],
+  "panelRight": 374,
+  "panelBottom": 830,
+  "chipsOutsideMap": 0,
+  "chips": 2,
+  "html": "still shot"
+ },
+ "p-motion": {
+  "before": "71,499,675,263 | 22/32",
+  "after": "24,499,677,263 | 24/32",
+  "html": "moving"
+ },
+ "d-a": {
+  "vw": 1440,
+  "vh": 900,
+  "docW": 1440,
+  "docH": 900,
+  "font": true,
+  "img": 2048,
+  "map": [
+   0,
+   48,
+   1040,
+   900
+  ],
+  "panel": [
+   1040,
+   48,
+   1440,
+   900
+  ],
+  "panelRight": 1424,
+  "panelBottom": 549,
+  "chipsOutsideMap": 0,
+  "chips": 9,
+  "html": "still shot"
+ },
+ "d-b": {
+  "vw": 1440,
+  "vh": 900,
+  "docW": 1440,
+  "docH": 900,
+  "font": true,
+  "img": 2048,
+  "map": [
+   0,
+   48,
+   1040,
+   900
+  ],
+  "panel": [
+   1040,
+   48,
+   1440,
+   900
+  ],
+  "panelRight": 1424,
+  "panelBottom": 717,
+  "chipsOutsideMap": 0,
+  "chips": 2,
+  "html": "still shot"
+ },
+ "d-motion": {
+  "before": "59,427,578,224 | 22/32",
+  "after": "18,427,580,224 | 24/32",
+  "html": "moving"
+ },
+ "board-phone": [
+  948,
+  1166
+ ],
+ "board-pc": [
+  1922,
+  704
+ ],
+ "errors": []
+}

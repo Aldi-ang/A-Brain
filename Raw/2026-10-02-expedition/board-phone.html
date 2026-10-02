@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<style>
+* { box-sizing:border-box; margin:0; }
+body { background:#050403; color:#f2e6cf; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; padding:24px; width:max-content; }
+h1 { font-size:20px; letter-spacing:.12em; margin-bottom:4px; }
+.lead { font-size:13px; color:#b9a888; margin-bottom:6px; max-width:900px; line-height:1.5; }
+.lead b { color:#f2e6cf; }
+.board { display:flex; gap:28px; align-items:flex-start; margin-top:14px; }
+.col { width:390px; }
+.cap { font-size:15px; font-weight:800; margin-bottom:4px; letter-spacing:.04em; display:flex; gap:8px; align-items:center; }
+.rec { font-size:11px; font-weight:900; letter-spacing:.14em; color:#130f0a; background:#d9a441; padding:2px 7px; }
+.sub { font-size:12.5px; color:#b9a888; line-height:1.5; min-height:116px; margin-bottom:10px; }
+.sub b { color:#f2e6cf; }
+.phone { width:390px; height:844px; overflow:hidden; border:1px solid #2a241d; border-radius:22px; }
+.phone img { width:390px; display:block; }
+.col.pick .phone { outline:3px solid #d9a441; outline-offset:4px; }
+</style></head>
+<body>
+<h1>EXPEDITION MAP · PHONE (390)</h1>
+<p class="lead">Today the Map System shows each salesman as <b>one blue dot</b> at his last sale. Both looks below use the same real map and the same data the app already saves: <b>a point at every sale</b>, his plan for the day, and his next shop.</p>
+<p class="lead">Frozen frames (= Lite Mode). On the live link a sale "arrives" every few seconds: the salesman glides to that shop, it lights up gold, his count goes up.</p>
+<div class="board">
+  <div class="col">
+    <p class="cap">A · SQUAD LIST</p>
+    <p class="sub">Like the squads in <b>The Walking Dead: Survivors</b>. A straight dashed march line from where he was last seen to his next shop. Under the map: tap a salesman, see one row (his shops 5/8, how far, last seen). <b>The map gets more room.</b></p>
+    <div class="phone"><img src="p-a.png"></div>
+  </div>
+  <div class="col pick">
+    <p class="cap">B · TRAVEL CARD <span class="rec">MY PICK ON PHONE</span></p>
+    <p class="sub">Like walking the map in <b>Last Day on Earth</b>. Every shop on his route is a numbered pin with its name, he stands on the one he just sold at. The card says where he is heading in big letters, warns you (red: overdue bill), shows his 8 shops as a chain, how far and how long.</p>
+    <div class="phone"><img src="p-b.png"></div>
+  </div>
+</div>
+</body></html>

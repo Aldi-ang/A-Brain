@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<style>
+* { box-sizing:border-box; margin:0; }
+body { background:#050403; color:#f2e6cf; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; padding:24px; width:max-content; }
+h1 { font-size:20px; letter-spacing:.12em; margin-bottom:4px; }
+.lead { font-size:13px; color:#b9a888; margin-bottom:18px; }
+.board { display:grid; grid-template-columns:repeat(2, 840px); gap:24px; }
+.cap { font-size:15px; font-weight:800; margin-bottom:4px; letter-spacing:.04em; display:flex; gap:8px; align-items:center; }
+.rec { font-size:11px; font-weight:900; letter-spacing:.14em; color:#130f0a; background:#d9a441; padding:2px 7px; }
+.sub { font-size:12.5px; color:#b9a888; line-height:1.5; margin-bottom:10px; min-height:38px; }
+.sub b { color:#f2e6cf; }
+.pc { width:840px; height:525px; overflow:hidden; border:1px solid #2a241d; border-radius:10px; }
+.pc img { width:840px; display:block; }
+.pick .pc { outline:3px solid #d9a441; outline-offset:4px; }
+</style></head>
+<body>
+<h1>EXPEDITION MAP · PC / TV (1440)</h1>
+<p class="lead">The boss's view: the whole team on the map at once, the list on the right. My pick is A here and B on the phone (your rule: phone one at a time, PC everything at once). Both share the same map, so the split costs one extra card, not a second map.</p>
+<div class="board">
+  <div class="pick"><p class="cap">A · SQUAD LIST <span class="rec">MY PICK ON PC</span></p><p class="sub">Four salesmen, four rows: where each is heading, <b>5/8</b> shops, how far, last seen. Tap a row and the map zooms to him.</p><div class="pc"><img src="d-a.png"></div></div>
+  <div><p class="cap">B · TRAVEL CARD</p><p class="sub">One salesman's card with his shops named on the map; the others shrink to one line each.</p><div class="pc"><img src="d-b.png"></div></div>
+</div>
+</body></html>

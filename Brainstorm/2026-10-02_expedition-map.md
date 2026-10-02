@@ -29,7 +29,28 @@ tags: [kpm, map, journey-plan, design, gps]
 | A | Expedition view in the app first (Map System + Journey Plan), then finish the showcase so its first screen shows the real thing | the showcase waits ~2-3 sessions [guessing]; touches the map, the telemetry write, maybe the rules (a new field) | the showcase stops promising a feature the app lacks; the blue dot + the unbounded trail get fixed on the way |
 | B | Finish the showcase now (10 scenes written, `Raw/2026-10-02-showcase-hero/showcase.html`, not yet proven or published), expedition after | the hero shows salesmen walking routes the real map cannot show yet - "Data contoh" covers the numbers, not the capability | the showcase ships in ~1 session |
 
-**My pick:** A. **Decision:** OPEN - waiting on Aldi. Also asked: which game he means (a screenshot is the spec - State of Decay 2's map, Fallout Shelter's wasteland list, Frostpunk's scouts all look different).
+**My pick:** A. **Decision (18:45):** A - his *"sure lets do A first"*. The expedition map is built in the app first; the showcase waits and then shows the real thing.
+
+## 2026-10-02 18:55 - his reference, researched, and two looks drawn
+
+**His words:** *"i think one of the mobile walking dead game have that expedition kinda system and also how we navigate on the last day on earth when we travel through the map, the zombie game also have that kinda features that show the progress of walking from place to places"*.
+
+**What the research found (browser; the web-search tool and firecrawl were both down):**
+- **The Walking Dead: Survivors** (Elex, mobile 4X) - squads "march" from the settlement to tiles on a world map: a straight line base -> target, the squad slides along it with a timer, a march list shows every squad; an "Expeditions" feature since Sep 2024 (their Facebook/Instagram post, 2024-09-05).
+- **Last Day on Earth: Survival** - the Global Map: tap a location, the survivor walks / runs (energy) / drives there with travel time shown; locations are named places on a painted map (fandom wiki "Global Map").
+
+**Two looks, drawn on the app's real ground** (the Map System's own Esri dark tiles around Muntilan, zoom 14, brightness 1.2 - `Raw/2026-10-02-expedition/ground.mjs`), one branch + four example salesmen on real roads, live page https://claude.ai/artifact/FCv7roDb7FSofmZig6NxWQ, boards `board-phone.png` / `board-pc.png`, shooter `shoot-exp.mjs`:
+
+| Look | Map | Panel | Costs | Buys |
+|---|---|---|---|---|
+| A squad list (TWD: Survivors) | white trail of today's sales, a gold dashed march line from his last-seen point to his next shop, a pulsing target, chips with rank rings | one row per salesman: status lamp (En route / At shop / Heading back), 8 segmented cells, km, last seen | phone shows one row; the names of shops are not on the map | the boss sees the whole team; the map gets the most room |
+| B travel card (Last Day on Earth) | his shops as numbered pins, names only on the shops still ahead, he stands on the pin of his last sale | "Heading to WARUNG POJOK" big, the shop's lamp (red: overdue bill), his 8 shops as a chain, km / ±min by motor | the map gets ~180 px less on a phone | one salesman's day reads like a journey |
+
+**My pick:** B on the phone, A on the PC (his own 2026-10-02 rule: phone one at a time, PC everything at once). Both share one map layer, so the split costs one extra card component.
+
+**Honesty rules baked into both:** the chip sits at the LAST KNOWN point (his last sale or app open) with "last seen N min ago"; motion only shows a new point arriving (glide to the shop, it lights, count +1) - never a fake live walk. English labels (new UI, his 2026-09-29 rule).
+
+**Decision:** OPEN - his pick between A, B, or the split. **Rejected on purpose:** none yet. Also asked: which game he means (a screenshot is the spec - State of Decay 2's map, Fallout Shelter's wasteland list, Frostpunk's scouts all look different).
 
 **Rejected on purpose:** none yet.
 
