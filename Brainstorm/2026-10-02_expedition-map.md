@@ -70,8 +70,15 @@ prototype's team turned back into lat/lng on the same roads.
 | Skipped: the chip's glide to a new shop, the rank ring colour, the red "overdue bill" line on the card, the Branch marker | no reliable data source in reach (no branch point, no overdue rule on the map); glide is seen only if watching at that second | he asks for one |
 | `master_owner` (the boss's own pings) is not a salesman | "Master HQ 0" row was noise | - |
 
-**OPEN for Aldi:** `pathHistory` - nothing reads it now either; stop writing it (one line in App.jsx's telemetry),
-trim it, or leave it. Asked 19:46.
+**DECIDED (20:20): `pathHistory` keeps TODAY'S points only - kpm `664b756`.** Options put to him: A stop writing it
+(my pick), B keep only today's points, C leave it growing. His words in order: *"yeah we dont need that history anyway
+we just need current position when they use the app or make sales thats all so option A is good"*, then *"wait but
+after i think maybe B is safer option"*, then *"if B is no problem in the long term or short term then use B instead"*.
+B was built so it costs nothing: the day is kept on the phone (no extra read, works offline, stored before the await so
+offline pings do not wipe the list), the first ping of a day replaces the list. Accepted edge: two phones, one man, one
+day can drop that day's earlier points (never his position or a sale). **Rejected on purpose:** C (the list grows
+toward the 1 MB record his van stock lives in). A lost only to his wish to keep today's walk for later - flips if
+the list stays unread for good. Taste note: he picks the option that keeps data when the cost is shown as zero.
 
 **Models applied:** Opportunity Cost (showcase vs feature), Second-Order Thinking (a live map of people changes what a salesman does - he may feel watched; the record exists to defend him too, his own "give the power, keep the record" rule), Pre-mortem (the boss signs up from the showcase, opens the map, sees one blue dot - the showcase oversold).
 
