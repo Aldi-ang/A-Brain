@@ -1,6 +1,6 @@
 ---
 date: 2026-10-02
-status: DECIDED and BUILT — kpm de33030 (2026-10-02)
+status: DONE — live kpm 3ce869b, CONFIRMED by Aldi 2026-10-02 08:12 ("both working great")
 ---
 
 # The same message twice: capybara bubble + top panel (2026-10-02)
@@ -77,3 +77,5 @@ Not built on purpose: per-row clear (Clear all only), a source mark per row, rin
 DECIDED 07:50: his *"A is good"*; built kpm `3ce869b` - App raises the USB-backup reminder once per sign-in after the vault gate (red top panel 5 s, one Missed row); the mascot copy is removed. His follow-up: *"if i relog again and that message is appearing is there duplication on the notification tho?"* - no: the same words stay one row, xN, moved to the top.
 
 2026-10-02 07:52: PUSHED (kpm `0217969..3ce869b`), live entry carries `3ce869b`. His test owed.
+
+2026-10-02 08:12: CONFIRMED live - his *"both working great"* (the bell and the USB reminder).

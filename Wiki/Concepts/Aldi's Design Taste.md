@@ -3127,3 +3127,5 @@ Shown Master Vault on a phone three ways - A today's order fixed, B the product 
 ## Phone one at a time, PC everything at once - he split the pick by width (2026-10-02)
 
 Shown the two-part bell as A (one box, a switch) and B (both lists at once) at 390 and 1440, with my pick drawn as "phone A, PC B", he answered in four words: *"phone A pc B"*. Same rule as his Master Vault pick the same night: on a phone each thing gets the whole screen; on a PC the room is spent showing both. When a layout question has a different best answer per width, offer the split as the recommendation - he takes it without asking for a single shape. Source: [[../../Brainstorm/2026-10-02_double-notification]], kpm `de33030`.
+
+Verdict 2026-10-02 08:12, on the built bell and the USB reminder in the top panel: *"both working great"*. Recurring-to-done in one night: he described the feature, picked from two drawn layouts per width, and approved on the live phone with no design round.
