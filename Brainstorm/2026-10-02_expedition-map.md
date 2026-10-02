@@ -80,6 +80,29 @@ day can drop that day's earlier points (never his position or a sale). **Rejecte
 toward the 1 MB record his van stock lives in). A lost only to his wish to keep today's walk for later - flips if
 the list stays unread for good. Taste note: he picks the option that keeps data when the cost is shown as zero.
 
-**Models applied:** Opportunity Cost (showcase vs feature), Second-Order Thinking (a live map of people changes what a salesman does - he may feel watched; the record exists to defend him too, his own "give the power, keep the record" rule), Pre-mortem (the boss signs up from the showcase, opens the map, sees one blue dot - the showcase oversold).
+## 2026-10-02 21:15 - region scoping: OPEN, waiting on Aldi
+
+**His words:** *"team member only can see other team member within the same regional group and dont need to see
+other team just to save some memories and performance leak on their phone also i guess"*. (Also asked where it lives:
+Map System only - Journey Plan is unchanged.)
+
+**Found (kpm `664b756`):** every phone downloads EVERY salesman of the company (`useDatabaseSync.js:68`, no filter)
+and EVERY sale of the last 7 days (`:73`, no region filter - a sale stores no region field). The rules let any
+salesman read both (`firestore.rules` motorists/transactions `allow read: if isSalesman(bossUid)`). The salesman
+list is also used across regions: a stock handoff looks up the RECEIVING region's approvers in it (`App.jsx:1991`).
+
+| # | Option | Saves | Costs / risk |
+|---|---|---|---|
+| A | The expedition shows only his region's salesmen (T3-T5); T1/T2 see everyone | clutter; the map draws fewer people | almost no memory - the phone still downloads everyone |
+| B | A + the phone downloads only its own region's salesmen | the other regions' salesman records (tens of KB [guessing], smaller still after `664b756`) | the shared list feeds ~40 places in App.jsx; the handoff approver lookup (`:1991`) would silently find nobody unless it fetches on demand - a bigger change for a small saving |
+| C | Also download only his region's sales | the biggest list after customers | impossible today: a sale has no region field; needs a new field on every sale, old sales stay unscoped |
+
+**My pick:** A now. The real phone-memory cost is elsewhere (customers carry base64 photos, "several megabytes" per
+`useDatabaseSync.js`; all-region 7-day sales) - a measured job of its own if he wants memory back.
+
+**Models applied:** Second-Order Thinking (the shared list's other readers), Opportunity Cost (A's 10 lines vs B's
+risk for KB).
+
+**Models applied (earlier):** Opportunity Cost (showcase vs feature), Second-Order Thinking (a live map of people changes what a salesman does - he may feel watched; the record exists to defend him too, his own "give the power, keep the record" rule), Pre-mortem (the boss signs up from the showcase, opens the map, sees one blue dot - the showcase oversold).
 
 Related: [[2026-09-30_customer-showcase]]
