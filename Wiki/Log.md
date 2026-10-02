@@ -1512,3 +1512,7 @@ His rule added to [[Aldi's Design Taste]]. Local commits waiting on "push": 3f53
 ## 2026-10-01 18:50 — 3 reports: fingerprint resets after push (OPEN), Master Vault phone redesign + 3D box photo on phone (next session)
 
 [[Master Vault Gate]].
+
+## 2026-10-02 19:45 — Expedition map BUILT (kpm eef2f55, local): B on the phone, A on the PC
+
+[[2026-10-02_expedition-map]] · [[Looking at the App]] (map frames: pane for 390, headless for 1440).

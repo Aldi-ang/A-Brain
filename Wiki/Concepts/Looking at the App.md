@@ -633,3 +633,13 @@ The app's `tailwind.config.js` scans `index.html` and `src/**` only. A lab-only 
 inline `style` for its one-off values. The same check found a LIVE bug: `text-orange-400` is never generated (`orange` is one
 colour, `var(--orange)`), so the real bell's new-message titles compute to rgb(0,0,0). A class that compiles to nothing fails
 silently - read `getComputedStyle`, not the className. Source: `Raw/2026-10-02-notification-bell/`, kpm `1c64e8c`.
+
+## A LEAFLET MAP: the phone frame comes from the pane, the PC frame from headless (2026-10-02)
+
+The Map System at 1440 in the pane is scaled down to fit, and Leaflet under that scale loaded tiles for a half-size
+box and framed the team for ~520 px - grey over half the map. Part of it was real (Leaflet only watches the window;
+fixed with a ResizeObserver, `eef2f55`), but a map's PC frame is proven headless (`--window-size=1440,900`,
+`Raw/2026-10-02-expedition` built-pc-1440.png). Its phone frame is the pane at 390 (mobile emulation: innerWidth
+390, scrollWidth 390, real taps) - headless at 390 is cut on the right by the ~518 px window floor above, and a
+390-wide iframe inside a headless window came back BLACK (the lab never booted inside it). Re-derived this session
+before reading the 518 section: read this note's width sections before choosing the instrument.

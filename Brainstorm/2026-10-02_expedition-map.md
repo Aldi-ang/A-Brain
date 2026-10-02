@@ -1,6 +1,6 @@
 ---
 date: 2026-10-02
-status: OPEN - waiting on Aldi (order A/B + the game screenshot), asked 12:35
+status: BUILT 2026-10-02 19:44 (kpm eef2f55, local, not pushed) - waiting on Aldi - his real-data test + the pathHistory call
 tags: [kpm, map, journey-plan, design, gps]
 ---
 
@@ -53,6 +53,25 @@ tags: [kpm, map, journey-plan, design, gps]
 **Decision (19:00):** the split - B (travel card) on the phone, A (squad list) on the PC. His words: *"do your pick both looks good anyway"*. **Rejected on purpose:** one look for both widths (he took the split; do not re-propose a single layout). Also asked: which game he means (a screenshot is the spec - State of Decay 2's map, Fallout Shelter's wasteland list, Frostpunk's scouts all look different).
 
 **Rejected on purpose:** none yet.
+
+## 2026-10-02 19:44 - BUILT (kpm `eef2f55`, local)
+
+Frames: `Raw/2026-10-02-expedition/built-phone-390.jpg` (the pane, real 390, Budi picked by a real tap) and
+`built-pc-1440.png` (headless, true 1440x900). Lab mount: `?shell&map` in `tools/ponder-lab.jsx` - the
+prototype's team turned back into lat/lng on the same roads.
+
+| Decision made while building | Why | Flips if |
+|---|---|---|
+| Trail = his SALES today at each shop's pin, not `pathHistory` | the legend says "his sales so far"; no dependency on the unbounded field; no write touched | he wants the GPS walk between shops too |
+| Round = his shops due today by the Journey Plan rule, exact name | same rule as Journey Plan; "andi" must not claim Andika's round | the real data has no `visitDay` set - then every man shows a bare count, no "/8" |
+| No round today -> next = `nextStop()` over his whole list, count shown without "/N" | a "5/6" made from one suggestion would lie | - |
+| Expedition is a SWITCH (footprints, control card), on by itself once anyone was seen today; shop pins + Drop New Pin step aside while on | the design has no shop pins; numbered pins on top of store pins doubled every marker; a T5 still needs the shop map | he wants both layers at once |
+| Shop names that collide hide; the next shop's name always stays | four names stacked unreadably at 390 | - |
+| Skipped: the chip's glide to a new shop, the rank ring colour, the red "overdue bill" line on the card, the Branch marker | no reliable data source in reach (no branch point, no overdue rule on the map); glide is seen only if watching at that second | he asks for one |
+| `master_owner` (the boss's own pings) is not a salesman | "Master HQ 0" row was noise | - |
+
+**OPEN for Aldi:** `pathHistory` - nothing reads it now either; stop writing it (one line in App.jsx's telemetry),
+trim it, or leave it. Asked 19:46.
 
 **Models applied:** Opportunity Cost (showcase vs feature), Second-Order Thinking (a live map of people changes what a salesman does - he may feel watched; the record exists to defend him too, his own "give the power, keep the record" rule), Pre-mortem (the boss signs up from the showcase, opens the map, sees one blue dot - the showcase oversold).
 
