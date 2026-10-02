@@ -34,3 +34,11 @@ Radar Hub breadcrumb below (Chesterton's fence - not checked who uses which).
 **Models applied:** Opportunity Cost (map height vs readability), Chesterton's Fence (the duplicate place controls).
 
 Related: [[2026-10-02_expedition-map]]
+
+## 2026-10-03 01:51 - the map and its keys on the theme (kpm `d321daf`)
+
+His words: *"make sure that the map also follow our theme and also the buttons as well"*. Built without options (a theme
+alignment, not a new look): one key style (`.kx-mapkey`, no display - the CSS-order trap), Leaflet controls themed,
+pins/clusters warm + gold, secured = gold, "you are here" cream, salesman ring colours without blue/green/yellow.
+Frames `Raw/2026-10-03-journey-header/map-themed-phone-390.jpg`, `map-themed-pc-1440.png`. Left for later: the store list
+under the map (emerald/blue lamps, stamps, buttons).
