@@ -1,6 +1,6 @@
 ---
 date: 2026-10-02
-status: DECIDED 08:57 ("1 and 2 first then continue") — built kpm 9fb557f (1+2) + 5f9d5c7 (3+4), local; 5 waits on his naming answer
+status: DONE — 1-4 built kpm 9fb557f + 5f9d5c7, PUSHED 10:04; 5 = his C (names stay); his Samsung test owed
 ---
 
 # Phone sweep — the five screens it had not reached (2026-10-02)
@@ -71,7 +71,14 @@ colours — stock pins, tier legend); Reports breadcrumb prints UNMAPPED PROVINS
 "HEADQUARTERS" vs "Headquarters" cards come from `HistoryReportView.jsx:135-137`, which adds a hard-coded
 'Headquarters' folder for global viewers beside agents whose location is 'HEADQUARTERS'.
 
+**10:04 — his answer to the naming question: *"C and push"*.** C = leave every name as it is: the dashboard and the
+Settings heading both stay "Command Center", and each page's big title stays its inside id (Reports reads
+TRANSACTIONS). Pushed `3ce869b..5f9d5c7` the same minute.
+
 ## Rejected on purpose
+
+- **Renaming screens (his C, 2026-10-02 10:04):** the Settings heading "Command Center", and a title map that would
+  make every page's top title its menu name. Do not re-propose either unless he raises it.
 
 - Ranking by "how bad it looks" — ranked by what the phone hides that the PC shows, then by who uses it on a phone.
 - Treating Settings' length (6.6 screens in General & Brand, 8.4 in Tiers) as a fault — it is long, nothing is
