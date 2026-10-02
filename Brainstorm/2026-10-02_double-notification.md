@@ -65,3 +65,5 @@ Rejected on purpose: a source icon per Missed row (capybara vs top panel) - who 
 His words: *"phone A pc B"* - the recommendation, split per width. Built: the real bell (NotificationBell.jsx) is A under lg (one box, a switch, opens on Needs you while it has a red number) and B at lg+ (both columns, 680 wide); the Missed list on the account (utils/missedLog.js, one doc per person, keyed like vault_keys, writes debounced 1 s); every strip fades at 5 s and the capybara bubble at 5 s; a failure goes to the top panel alone (his A). Rules [CHANGE 15] is a DRAFT for him to publish (before it, an employee's list does not follow them across devices; nothing breaks). Walk: `Raw/2026-10-02-notification-bell/walk-built.mjs` + `walk.json` + `built-*.png`.
 
 Not built on purpose: per-row clear (Clear all only), a source mark per row, ringing for Missed lines (every strip lands there - it would ring all day).
+
+2026-10-02 ~07:38: he published the rules with [CHANGE 15] (*"published"*) - the whole de33030 file pasted from the clipboard; kpm baseline synced `0217969`. The app push is still his word.
