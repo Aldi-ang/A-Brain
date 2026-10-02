@@ -3129,3 +3129,11 @@ Shown Master Vault on a phone three ways - A today's order fixed, B the product 
 Shown the two-part bell as A (one box, a switch) and B (both lists at once) at 390 and 1440, with my pick drawn as "phone A, PC B", he answered in four words: *"phone A pc B"*. Same rule as his Master Vault pick the same night: on a phone each thing gets the whole screen; on a PC the room is spent showing both. When a layout question has a different best answer per width, offer the split as the recommendation - he takes it without asking for a single shape. Source: [[../../Brainstorm/2026-10-02_double-notification]], kpm `de33030`.
 
 Verdict 2026-10-02 08:12, on the built bell and the USB reminder in the top panel: *"both working great"*. Recurring-to-done in one night: he described the feature, picked from two drawn layouts per width, and approved on the live phone with no design round.
+
+## A game reference is the spec; he takes the per-width split again (2026-10-02, 18:45-19:00)
+
+He asked for the Map System to show *"the sales team roaming around on the map with their own destination progress ... just like some survivors on game that runs an expedition"*, then named the games instead of describing them: *"one of the mobile walking dead game have that expedition kinda system and also how we navigate on the last day on earth ... i allow u to research a little bit to know what i meant i cant explain it much"*. Researched (TWD: Survivors' squad marches, Last Day on Earth's map travel), drawn as A squad list / B travel card on the app's own dark tiles at 390 + 1440, recommended B on the phone + A on the PC. His answer: *"do your pick both looks good anyway"*.
+
+- **When he says "I can't explain it", the game IS the brief** - research it, draw it in his palette, do not ask him to describe it again. Same rule as his videos and screenshots.
+- **The per-width split is now his default, three times in one day** (the bell, Master Vault, the expedition map). Offer it as the recommendation whenever phone and PC want different answers.
+- **Honesty survived the game look**: the salesman sits at his last known point with "last seen N min ago", no fake live walk - he did not push back on it. Source: [[../../Brainstorm/2026-10-02_expedition-map]].

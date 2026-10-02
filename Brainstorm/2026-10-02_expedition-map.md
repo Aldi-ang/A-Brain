@@ -50,7 +50,7 @@ tags: [kpm, map, journey-plan, design, gps]
 
 **Honesty rules baked into both:** the chip sits at the LAST KNOWN point (his last sale or app open) with "last seen N min ago"; motion only shows a new point arriving (glide to the shop, it lights, count +1) - never a fake live walk. English labels (new UI, his 2026-09-29 rule).
 
-**Decision:** OPEN - his pick between A, B, or the split. **Rejected on purpose:** none yet. Also asked: which game he means (a screenshot is the spec - State of Decay 2's map, Fallout Shelter's wasteland list, Frostpunk's scouts all look different).
+**Decision (19:00):** the split - B (travel card) on the phone, A (squad list) on the PC. His words: *"do your pick both looks good anyway"*. **Rejected on purpose:** one look for both widths (he took the split; do not re-propose a single layout). Also asked: which game he means (a screenshot is the spec - State of Decay 2's map, Fallout Shelter's wasteland list, Frostpunk's scouts all look different).
 
 **Rejected on purpose:** none yet.
 
