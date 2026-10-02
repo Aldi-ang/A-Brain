@@ -1,6 +1,6 @@
 ---
 date: 2026-10-02
-status: DECIDED C + cropper, built kpm 12b736f
+status: DONE — live kpm 12b736f, CONFIRMED by Aldi 2026-10-02 08:13 ("master vault looks good")
 ---
 
 # Master Vault on the phone — measured, three layouts (2026-10-02)
