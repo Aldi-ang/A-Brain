@@ -69,3 +69,7 @@ Not built on purpose: per-row clear (Clear all only), a source mark per row, rin
 2026-10-02 ~07:38: he published the rules with [CHANGE 15] (*"published"*) - the whole de33030 file pasted from the clipboard; kpm baseline synced `0217969`. The app push is still his word.
 
 2026-10-02 07:42: PUSHED (kpm `12b736f..0217969`), Vercel complete, live entry carries `0217969` and the Missed list. His test on the Samsung + PC owed.
+
+## Found 2026-10-02 ~07:50 - the USB-backup alert stays (his report)
+
+*"protocol alert for the usb save backup notification through the capybara is not gone within 5 seconds"*. Cause [certain]: `CapybaraMascot.jsx:39-47` sets "⚠️ PROTOCOL ALERT: TIME FOR USB SAFE BACKUP!" on the app opening (last USB backup older than 7 days) with NO hide timer - a THIRD path the 5-second change missed (speakCapy and the radio were changed). It is also a warning said by the capybara (against his A) and never recorded in Missed. Options: A (my pick) - send it to the top panel like every warning: red, 5 s, kept in Missed (one row, xN per app open); B - keep it in the capybara with the 5 s timer + record it. OPEN - waiting on Aldi.
