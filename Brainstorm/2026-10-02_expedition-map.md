@@ -80,7 +80,13 @@ day can drop that day's earlier points (never his position or a sale). **Rejecte
 toward the 1 MB record his van stock lives in). A lost only to his wish to keep today's walk for later - flips if
 the list stays unread for good. Taste note: he picks the option that keeps data when the cost is shown as zero.
 
-## 2026-10-02 21:15 - region scoping: OPEN, waiting on Aldi
+## 2026-10-02 21:15 - region scoping: DECIDED A (21:34, his *"A is wisest go with that one"*), built kpm `d206f6a`
+
+Built as: `visibleTeam()` in `src/utils/expedition.js`; "global" = Reports' own authority switch (ADMIN / DEVELOPER /
+COMPANY_OWNER or `view_reports_global`); unknown region below global = nobody (fail closed); a salesman opens on his
+own card. **Rejected on purpose:** B (download only his region - breaks the cross-region handoff approver lookup at
+`App.jsx:1991` for a saving of KB), C (needs a region on every sale). Taste note: told the memory saving was near zero,
+he still took the cleaner screen - he values "a salesman sees his own team" for itself, not only for memory.
 
 **His words:** *"team member only can see other team member within the same regional group and dont need to see
 other team just to save some memories and performance leak on their phone also i guess"*. (Also asked where it lives:
