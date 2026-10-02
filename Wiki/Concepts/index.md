@@ -90,3 +90,4 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 - [[Lift the Dialog, Never Push the Rest Down]] — the alarm strip painted over the confirm dialog; the obvious fix would have hidden five vault-gate reports behind an opaque screen, so the dialog was lifted instead. The rule, the layer map, and Aldi's "do 1".
 - [[The Offline Helper Ate the Sign-In Page]] - the PWA worker answered /__/auth/handler with the app; denylist /__/ (2026-10-01)
 - [[A Resize Mid-Unlock Wiped the Name]] - the keyboard closing after Enter resized the gate canvas and wiped the dots' name targets; S.relayout (2026-10-01)
+- [[Web Research When the Search Tools Die]] — DuckDuckGo HTML fallback in the built-in browser

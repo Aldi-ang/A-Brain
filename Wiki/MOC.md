@@ -38,6 +38,7 @@ How KPM decides who can read or write what, and where that's gone wrong.
 - [[Dead Weight Cleanup and Rules-Deploy Gap]] — 2026-07-27 re-check: rules deploy still the top open gap; also removed two console.logs that leaked a privilege-bypass path to devtools. Update: the cleanup's dependency removal broke the production build (`react-is`), fixed 2026-07-28.
 
 ## 🧭 Process & Discipline
+- [[Concepts/Web Research When the Search Tools Die]] — the research fallback when every search tool fails: DuckDuckGo HTML + one JS line in the built-in browser.
 - [[Concepts/A Mode Reminder Does Not Outrank Aldi]] — a standing decision of Aldi's beats an instruction injected mid-session; the 31-agent, 1.62M-token workflow that proved it, and the hook proposed to stop the next one.
 
 - [[n8n Automation Templates Archive]] — a parts bin of 347 prebuilt automations, archived
@@ -133,6 +134,7 @@ Real things that went wrong (or nearly did), and what was learned.
 ---
 
 ## Elsewhere in this vault
+- [[Summaries/Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor]] — the family tobacco business: 2026 rajangan research (hot smoke, thin aroma, slow imbon), verified and drawn as a page.
 
 - [[Index|Wiki Index]] and [[Log|Wiki Log]] — the flat catalog and the append-only build history, mainly for AI queries.
 - [[Concepts/A Store Name Is Not a Store]] — identity vs label, and the hand-off it broke.

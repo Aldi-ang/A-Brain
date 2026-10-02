@@ -97,7 +97,9 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[A Rect Is Painted, Not Laid Out]] — `getBoundingClientRect()` reports the screen, not the layout, so measuring through an ancestor's `scale(0.94)` returns geometry 6% small. It healed itself four seconds later, which is why it shipped.
 - [[Design Inspiration Sources]] — the 5 sites his component and animation ideas come from, and the 4 rules an idea must clear to survive in KPM
 
+- [[Web Research When the Search Tools Die]] — WebSearch, WebFetch and firecrawl all dead at once: DuckDuckGo HTML in the built-in browser plus one JS line verified 9 of 11 claims. Also how to view a private artifact without signing in.
 ## Summaries (one per ingested source, newest ingest pass first)
+- [[Summaries/Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor]] — first tobacco research ingest: why the 2026 El Niño rajangan smokes hot, smells thin and needed a 6-day imbon; 9 of 11 claims re-verified 2026-10-03; what to do with a lot at day 6.
 
 - [[n8n Automation Templates Archive]] — 347 ready-made automation workflows, saved locally
 - [[Skill Repos Evaluated 2026-08-25]] — 19 skill repos judged; why 18 were declined on catalog cost

@@ -1,0 +1,693 @@
+<title>Rajangan Jawa 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one field-notebook column; figures break out as bordered plates; sticky chip nav on top */
+:root{
+  --bg:#efeae0; --surface:#faf7f1; --ink:#2a2017; --muted:#6c5d4b; --line:#d9cdb9;
+  --gold:#b98222; --gold-soft:#ecd49c; --heat:#b4402a; --heat-soft:#f2cdbf; --leaf:#66743a; --leaf-soft:#d9dfbf;
+  --chip:#2a2017; --chip-ink:#faf7f1;
+  --f-display:"Zilla Slab", Rockwell, "Roboto Slab", Georgia, serif;
+  --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-data:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15100c; --surface:#1f1812; --ink:#f0e6d4; --muted:#b4a38b; --line:#3b2f24;
+  --gold:#e2aa45; --gold-soft:#4a3818; --heat:#ef6c50; --heat-soft:#4b2219; --leaf:#a6b26b; --leaf-soft:#2e3420;
+  --chip:#f0e6d4; --chip-ink:#15100c; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#15100c; --surface:#1f1812; --ink:#f0e6d4; --muted:#b4a38b; --line:#3b2f24;
+  --gold:#e2aa45; --gold-soft:#4a3818; --heat:#ef6c50; --heat-soft:#4b2219; --leaf:#a6b26b; --leaf-soft:#2e3420;
+  --chip:#f0e6d4; --chip-ink:#15100c; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--f-body);margin:0}
+.wrap{max-width:780px;margin:0 auto;padding-inline:16px;padding-block:0 64px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,7vw,3.4rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,4.6vw,2.15rem);font-weight:700}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+a{color:inherit;text-decoration-color:var(--gold);text-underline-offset:3px}
+.num,.mono{font-family:var(--f-data);font-variant-numeric:tabular-nums}
+.eyebrow{font:500 .78rem/1.3 var(--f-data);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+section{display:grid;gap:18px;padding-block:44px 8px;scroll-margin-top:64px}
+section+section{border-top:1px solid var(--line)}
+.prose{display:grid;gap:12px;max-width:65ch}
+
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav.top .in{max-width:780px;margin:0 auto;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.top a{flex:none;font:500 .82rem/1 var(--f-data);text-decoration:none;padding:8px 11px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--surface)}
+nav.top a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* confidence tags */
+.tag{display:inline-block;font:500 .7rem/1 var(--f-data);letter-spacing:.04em;padding:4px 7px;border-radius:4px;vertical-align:.12em;white-space:nowrap}
+.tag.pasti{background:var(--chip);color:var(--chip-ink)}
+.tag.besar{border:1.5px solid var(--gold);color:var(--ink)}
+.tag.dugaan{border:1.5px dashed var(--muted);color:var(--muted)}
+.tag.cek{background:var(--leaf-soft);color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:.88rem;color:var(--muted)}
+.legend span{display:flex;gap:7px;align-items:center}
+
+/* hero */
+header.hero{display:grid;gap:18px;padding-block:36px 8px}
+.lead{font-size:1.15rem;max-width:62ch}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.trio article{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--heat);border-radius:6px;padding:14px;display:grid;gap:8px;align-content:start}
+.trio h3{font-size:1.1rem}
+.today{background:var(--chip);color:var(--chip-ink);border-radius:8px;padding:16px 18px;display:grid;gap:8px}
+.today ol{margin:0;padding-left:1.2em;display:grid;gap:4px}
+.today a{color:inherit}
+.honest{border-left:4px solid var(--gold);padding:4px 0 4px 14px;display:grid;gap:10px}
+
+/* plates */
+.plate{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:14px;min-width:0}
+.scroll-x{overflow-x:auto;min-width:0}
+.cap{font-size:.86rem;color:var(--muted)}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:96px repeat(8,minmax(52px,1fr));gap:4px;min-width:600px;font-size:.8rem}
+.tl .h{font:500 .75rem/1 var(--f-data);color:var(--muted);text-align:center;padding:4px 0}
+.tl .lab{font:500 .74rem/1.2 var(--f-data);color:var(--muted);align-self:center}
+.tl .bar{border-radius:4px;padding:6px 7px;line-height:1.25;min-height:44px;display:flex;align-items:center}
+.b-ok{background:var(--leaf-soft)}
+.b-bad{background:var(--heat-soft);border:1.5px solid var(--heat)}
+.b-good{background:var(--gold-soft);border:1.5px solid var(--gold)}
+.b-plain{background:var(--bg);border:1px solid var(--line)}
+.b-dash{background:var(--bg);border:1.5px dashed var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.fact{border:1px solid var(--line);border-radius:6px;padding:12px;display:grid;gap:4px;background:var(--surface)}
+.fact .big{font:500 1.5rem/1.1 var(--f-data)}
+
+/* rem & gas */
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button,.tabs button{font:700 .92rem/1 var(--f-body);padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"],.tabs button[aria-selected="true"]{background:var(--chip);color:var(--chip-ink);border-color:var(--chip)}
+.meter{display:grid;gap:12px}
+.mrow{display:grid;grid-template-columns:88px 1fr 70px;gap:10px;align-items:center}
+.track{position:relative;height:22px;background:var(--bg);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.range{position:absolute;top:0;bottom:0;opacity:.35;transition:left .35s,width .35s}
+.mid{position:absolute;top:-1px;bottom:-1px;width:4px;transition:left .35s}
+.g .range,.g .mid{background:var(--gold)}
+.n .range,.n .mid{background:var(--heat)}
+.ratio{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;border-top:1px dashed var(--line);padding-top:12px}
+.ratio .big{font:500 2.2rem/1 var(--f-data)}
+.unknown{border:1.5px dashed var(--muted);border-radius:6px;padding:14px;display:grid;gap:6px}
+
+/* chain */
+.tier{display:grid;gap:8px}
+.tier .eyebrow{display:flex;gap:8px;align-items:center}
+.nodes{display:flex;flex-wrap:wrap;gap:8px}
+.node{flex:1 1 200px;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:10px 12px;font-size:.95rem;transition:opacity .25s,border-color .25s}
+.node b{display:block;font-size:1rem}
+.node.sym{border:2px solid var(--heat);background:var(--heat-soft)}
+.chain.filter .node{opacity:.28}
+.chain.filter .node.on{opacity:1;border-color:var(--heat)}
+.down{font:500 1.1rem/1 var(--f-data);color:var(--muted);text-align:center}
+
+/* imbon */
+svg{display:block}
+svg text{font-family:var(--f-data)}
+.ax{fill:var(--muted);font-size:12px}
+.gl{stroke:var(--line);stroke-width:1}
+.zone{fill:var(--heat-soft)}
+.zone-t{fill:var(--heat);font-size:11px}
+.qline{fill:none;stroke:var(--gold);stroke-width:3}
+.gline{fill:none;stroke:var(--leaf);stroke-width:2.5}
+.dot{fill:var(--surface);stroke-width:3}
+.dq{stroke:var(--gold)} .dg{stroke:var(--leaf)}
+.val{fill:var(--ink);font-size:13px}
+.cur{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:4 4}
+.ring{fill:none;stroke:var(--heat);stroke-width:2.5}
+.ring.est{stroke-dasharray:4 3}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.readout div{border:1px solid var(--line);border-radius:6px;padding:10px 12px;background:var(--bg)}
+.readout .big{font:500 1.6rem/1.1 var(--f-data)}
+input[type=range]{width:100%;accent-color:var(--gold)}
+.resp{display:grid;gap:8px}
+.rrow{display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:center}
+.rbar{height:26px;border-radius:4px;display:flex;align-items:center;padding-left:8px;font:500 .82rem/1 var(--f-data);color:var(--ink)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+
+/* minyak */
+.verdict{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+.stamp{font:700 1rem/1.1 var(--f-display);border:3px solid var(--gold);color:var(--ink);padding:10px 12px;border-radius:6px;transform:rotate(-3deg);text-align:center}
+.plant{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:16px;align-items:center}
+.stem{stroke:var(--leaf);stroke-width:5;fill:none}
+.lf{stroke:var(--leaf);stroke-width:1.5}
+.lf.oil{fill:var(--gold-soft)} .lf.half{fill:var(--leaf-soft)} .lf.b{fill:var(--heat-soft);stroke:var(--heat);stroke-width:2.5} .lf.low{fill:var(--bg)}
+.glab{fill:var(--ink);font-size:13px;font-weight:500}
+.rank{display:grid;gap:10px}
+.rk{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.rk .n{font:500 1.3rem/1 var(--f-data);color:var(--gold)}
+.likely-bar{height:8px;border-radius:4px;background:var(--line);margin-top:6px;overflow:hidden}
+.likely-bar i{display:block;height:100%;background:var(--heat)}
+
+/* years */
+.yr{display:grid;grid-template-columns:64px 1fr 1fr;gap:6px;align-items:stretch;font-size:.88rem}
+.yr .bar{border-radius:4px;padding:8px;line-height:1.3}
+.yr .k{font:500 .8rem/1 var(--f-data);color:var(--muted);align-self:center}
+.cmp{width:100%;border-collapse:collapse;font-size:.92rem;min-width:520px}
+.cmp th,.cmp td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp th{font:500 .76rem/1.2 var(--f-data);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+
+/* market */
+.mkt{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.mkt article{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;display:grid;gap:6px;align-content:start}
+.mkt .big{font:500 1.35rem/1.15 var(--f-data)}
+.counter{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:14px 16px;display:grid;gap:8px}
+
+/* actions */
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.panel{display:grid;gap:10px}
+.check{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px}
+.check input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--leaf)}
+.check label{display:grid;gap:4px;cursor:pointer}
+.check.done{opacity:.6}
+.check.stop{border:2px solid var(--heat)}
+.quote{font-style:italic}
+.progress{font:500 .85rem/1 var(--f-data);color:var(--muted)}
+
+/* caveats */
+.fixes{display:grid;gap:8px}
+.fix{display:grid;grid-template-columns:1fr;gap:4px;border:1px solid var(--line);border-radius:6px;padding:12px;background:var(--surface)}
+details{border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:12px 14px}
+summary{cursor:pointer;font:700 1rem/1.3 var(--f-display)}
+dl{display:grid;grid-template-columns:minmax(110px,max-content) 1fr;gap:8px 16px;margin:12px 0 0}
+dt{font-weight:700}
+dd{margin:0}
+.src{margin:12px 0 0;padding-left:1.1em;display:grid;gap:6px;font-size:.9rem}
+footer{padding-block:28px 0;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:28px}
+@media (max-width:520px){
+  body{font-size:16px}
+  .mrow{grid-template-columns:64px 1fr 58px}
+  .plant{grid-template-columns:1fr}
+  .plant svg{max-width:240px;justify-self:center}
+  .verdict{grid-template-columns:1fr}
+  .stamp{justify-self:start}
+  dl{grid-template-columns:1fr}
+  dd{margin-bottom:6px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<nav class="top" aria-label="Bagian halaman"><div class="in">
+  <a href="#ringkas">Ringkas</a><a href="#musim">Musim</a><a href="#remgas">Rem &amp; gas</a><a href="#rantai">Rantai sebab</a><a href="#imbon">Imbon</a><a href="#minyak">Minyak?</a><a href="#tahun">2025 vs 2026</a><a href="#pasar">Pasar</a><a href="#tindakan">Tindakan</a><a href="#belum">Belum pasti</a>
+</div></nav>
+
+<main class="wrap">
+
+<header class="hero" id="ringkas">
+  <p class="eyebrow">Catatan riset · tembakau rajangan Jawa · musim kemarau 2026</p>
+  <h1>Kenapa tembakau 2026 panas di isapan?</h1>
+  <p class="lead">Panas tahun ini datang di waktu yang salah. Waktu menjemur, panas memang membantu: warna cerah, kadar air pas, harga naik. Tapi kering yang sama sudah datang berbulan-bulan sebelumnya, saat daun masih tumbuh. Justru di fase itu gula daun dibentuk.</p>
+
+  <div class="trio">
+    <article>
+      <h3>Isapan panas, nyegrak</h3>
+      <p>Gula di daun sedikit, nikotin pekat. Gula itu rem untuk nikotin. Remnya tipis, gasnya kencang.</p>
+      <span><span class="tag besar">KEMUNGKINAN BESAR</span></span>
+    </article>
+    <article>
+      <h3>Aroma tipis</h3>
+      <p>Bau manis-gurih tembakau lahir dari gula. Gulanya sudah kurang dari ladang, lalu imbon yang lama memakan sisanya.</p>
+      <span><span class="tag besar">KEMUNGKINAN BESAR</span></span>
+    </article>
+    <article>
+      <h3>Imbon molor 3 → 6 hari</h3>
+      <p>Daun musim kering tebal dan hijaunya bandel. Udara yang terlalu kering membuat tumpukan layu, bukan matang.</p>
+      <span><span class="tag besar">KEMUNGKINAN BESAR</span></span>
+    </article>
+  </div>
+
+  <div class="today">
+    <p class="eyebrow" style="color:inherit;opacity:.75">Kalau daun Anda sekarang di hari ke-6</p>
+    <ol>
+      <li><b>Rajang hari ini.</b> Menunggu lebih kuning malah membakar gula.</li>
+      <li><b>Jemur sampai lemas</b> (kering pasar), jangan sampai getas.</li>
+      <li><b>Jangan tambah gula.</b> Djarum menolak tembakau bergula.</li>
+    </ol>
+    <a href="#tindakan" class="small">Daftar lengkap ada di bagian Tindakan →</a>
+  </div>
+
+  <div class="honest">
+    <p><b>Yang belum ada sama sekali:</b> hasil lab gula dan nikotin untuk rajangan Jawa 2026. Jadi koran yang bilang "tahun bagus" dan keluhan Anda sama-sama belum diukur. Kebanyakan kesimpulan di halaman ini berlabel kemungkinan besar, dan saya pisahkan dengan jelas mana yang sudah pasti.</p>
+    <div class="legend" aria-label="Arti label">
+      <span><span class="tag pasti">PASTI</span> ada sumbernya, sudah dicek</span>
+      <span><span class="tag besar">KEMUNGKINAN BESAR</span> atau <span class="tag besar">KB</span> disimpulkan dari riset tembakau</span>
+      <span><span class="tag dugaan">DUGAAN</span> belum ada data</span>
+      <span><span class="tag cek">DICEK 3 OKT</span> saya cek ulang malam ini</span>
+    </div>
+  </div>
+</header>
+
+<section id="musim">
+  <p class="eyebrow">1 · Musim 2026 dalam satu gambar</p>
+  <h2>Kering datang dua kali: sekali merusak, sekali membantu</h2>
+  <div class="plate">
+    <div class="scroll-x">
+      <div class="tl" role="table" aria-label="Linimasa cuaca dan tanaman 2026">
+        <div></div><div class="h">Mar</div><div class="h">Apr</div><div class="h">Mei</div><div class="h">Jun</div><div class="h">Jul</div><div class="h">Agu</div><div class="h">Sep</div><div class="h">Okt</div>
+
+        <div class="lab">Cuaca (BMKG)</div>
+        <div class="bar b-ok" style="grid-column:span 2">Masih ada hujan, La Niña lemah selesai</div>
+        <div class="bar b-plain" style="grid-column:span 2">Hujan berkurang, kemarau mulai</div>
+        <div class="bar b-bad" style="grid-column:span 4">El Niño menguat → sangat kering. Puncak kemarau Jateng sampai Oktober</div>
+
+        <div class="lab">Tanaman <span class="tag dugaan">DUGAAN</span></div>
+        <div class="bar b-plain">—</div>
+        <div class="bar b-plain">Tanam</div>
+        <div class="bar b-dash" style="grid-column:span 2">Tumbuh cepat: daun melebar, gula dibentuk</div>
+        <div class="bar b-dash" style="grid-column:span 2">Masak di pohon</div>
+        <div class="bar b-dash" style="grid-column:span 2">Petik, imbon, rajang, jemur</div>
+
+        <div class="lab">Efek kering</div>
+        <div class="bar b-plain" style="grid-column:span 2">—</div>
+        <div class="bar b-bad" style="grid-column:span 4"><b>Merugikan:</b> gula sedikit, nikotin pekat, daun tebal masak paksa</div>
+        <div class="bar b-good" style="grid-column:span 2"><b>Membantu jemur</b>, tapi imbon jadi kering</div>
+      </div>
+    </div>
+    <p class="cap">Merah = kering yang merugikan. Emas = kering yang membantu. Jadwal tanam tiap desa beda, jadi baris tanaman ini perkiraan saya dari pola "tanam akhir musim hujan, panen kemarau".</p>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><span class="big">+2,83 °C</span><span>Suhu laut Pasifik (Niño 3.4) di atas normal, akhir Agustus. BMKG menyebut El Niño "sangat kuat".</span><span><span class="tag cek">DICEK 3 OKT</span></span></div>
+    <div class="fact"><span class="big">130 hari</span><span>Hari tanpa hujan terpanjang di Jawa Tengah (Staklim Jateng, 10 Sep). Bantul, tidak jauh dari Prambanan, sampai 131 hari.</span><span><span class="tag cek">DICEK 3 OKT</span></span></div>
+    <div class="fact"><span class="big">61%</span><span>Wilayah Indonesia yang awal musim hujannya mundur. El Niño diperkirakan bertahan sampai awal 2027.</span><span><span class="tag cek">DICEK 3 OKT</span></span></div>
+  </div>
+  <p class="prose">Menurut saya ini inti seluruh masalah. Orang membaca "panas tanpa hujan" sebagai kabar baik, dan untuk panen itu benar. Untuk daun yang sedang tumbuh, panas kering di bulan Juni sampai Agustus adalah titik rusak terbesar. <span class="tag besar">KEMUNGKINAN BESAR</span></p>
+</section>
+
+<section id="remgas">
+  <p class="eyebrow">2 · Kenapa isapannya panas</p>
+  <h2>Gula itu rem, nikotin itu gas</h2>
+  <div class="prose">
+    <p>Saat rokok dibakar, gula ikut terbakar dan menghasilkan asam. Asam ini menjinakkan asap, jadi nikotin tidak langsung menggigit. Kalau gulanya sedikit, asap jadi lebih basa. Lebih banyak nikotin keluar dalam bentuk <i>bebas</i>, yaitu bentuk yang langsung terasa keras di tenggorokan. Itu yang Anda rasakan sebagai nyegrak. <span class="tag pasti">PASTI</span></p>
+    <p class="muted small">Sumber mekanisme: Leffingwell, <i>Tobacco: Production, Chemistry and Technology</i> (1999).</p>
+  </div>
+
+  <div class="plate">
+    <p class="eyebrow">Contoh nyata: tembakau Madura, lahan basah vs lahan kering</p>
+    <div class="seg" role="group" aria-label="Pilih lahan">
+      <button type="button" id="btn-sawah" aria-pressed="true" data-k="sawah">Sawah (banyak air)</button>
+      <button type="button" id="btn-tegal" aria-pressed="false" data-k="tegal">Tegal (sedikit air)</button>
+      <button type="button" id="btn-anda" aria-pressed="false" data-k="anda">Rajangan Anda 2026</button>
+    </div>
+    <div class="meter" id="meter">
+      <div class="mrow g"><span>Gula (rem)</span><div class="track"><div class="range" id="g-range"></div><div class="mid" id="g-mid"></div></div><span class="num" id="g-val"></span></div>
+      <div class="mrow n"><span>Nikotin (gas)</span><div class="track"><div class="range" id="n-range"></div><div class="mid" id="n-mid"></div></div><span class="num" id="n-val"></span></div>
+      <div class="ratio" id="ratio"><span class="big" id="r-big"></span><span id="r-text"></span></div>
+    </div>
+    <div class="unknown" id="anda-box" hidden>
+      <b>Belum diukur.</b>
+      <p>Arahnya: gula turun, nikotin naik. Jadi rajangan Anda kemungkinan bergeser dari angka sawah ke arah angka tegal. Seberapa jauh, hanya uji lab yang bisa menjawab. <span class="tag besar">KEMUNGKINAN BESAR</span></p>
+    </div>
+    <p class="cap">Pita tipis = rentang yang tercatat. Garis tebal = nilai tengahnya. Gula 0–22%, nikotin 0–5%. Angka Madura dari riset lama, bukan dari lot Anda. <span class="tag pasti">PASTI</span> untuk polanya: makin kering lahannya, gula turun dan nikotin naik.</p>
+  </div>
+
+  <div class="two">
+    <div class="plate">
+      <h3>Dua hal lain yang ikut memanaskan</h3>
+      <p>Kekeringan mengganggu serapan kalium, kalsium, dan magnesium. Ketiganya mengatur cara tembakau terbakar. <span class="tag besar">KEMUNGKINAN BESAR</span></p>
+      <p>Rajangan yang dijemur terlalu kering dan getas terbakar lebih cepat, jadi asapnya lebih panas. <span class="tag besar">KEMUNGKINAN BESAR</span></p>
+    </div>
+    <div class="plate">
+      <h3>Koreksi kecil dari analisis sebelumnya</h3>
+      <p>Ada yang bilang "gula terbakar mengasamkan asap sehingga panas". Arahnya terbalik. Asam dari gula justru meredam nikotin. Yang membuat panas adalah gula yang <b>kurang</b>. <span class="tag pasti">PASTI</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="rantai">
+  <p class="eyebrow">3 · Rantai sebab-akibat</p>
+  <h2>Dari langit sampai ke isapan</h2>
+  <p class="prose">Ketuk salah satu keluhan. Kotak yang menyala adalah penyebabnya, sisanya meredup.</p>
+  <div class="seg" role="group" aria-label="Pilih keluhan">
+    <button type="button" id="sym-all" aria-pressed="true" data-s="all">Semua</button>
+    <button type="button" id="sym-panas" aria-pressed="false" data-s="panas">Isapan panas</button>
+    <button type="button" id="sym-aroma" aria-pressed="false" data-s="aroma">Aroma tipis</button>
+    <button type="button" id="sym-imbon" aria-pressed="false" data-s="imbon">Imbon molor</button>
+  </div>
+  <div class="plate chain" id="chain">
+    <div class="tier"><p class="eyebrow">Langit</p><div class="nodes">
+      <div class="node" data-s="panas aroma imbon"><b>El Niño sangat kuat</b>Kemarau panjang, udara kering, terik.</div>
+    </div></div>
+    <div class="down" aria-hidden="true">↓</div>
+    <div class="tier"><p class="eyebrow">Tanah dan udara</p><div class="nodes">
+      <div class="node" data-s="panas aroma imbon"><b>Tanah kering saat daun tumbuh</b>Juni–Agustus, fase daun melebar dan masak.</div>
+      <div class="node" data-s="panas imbon"><b>Udara siang sangat kering</b>Agustus–Oktober, saat imbon dan jemur.</div>
+    </div></div>
+    <div class="down" aria-hidden="true">↓</div>
+    <div class="tier"><p class="eyebrow">Di dalam daun</p><div class="nodes">
+      <div class="node" data-s="panas aroma"><b>Gula sedikit</b>Fotosintesis turun, pati dan gula yang tersimpan sedikit.</div>
+      <div class="node" data-s="panas aroma"><b>Nikotin dan nitrogen pekat</b>Akar tetap membuat nikotin, daunnya lebih kecil.</div>
+      <div class="node" data-s="panas"><b>Kalium, kalsium, magnesium kurang</b>Daya bakar dan rasa terganggu.</div>
+      <div class="node" data-s="aroma imbon"><b>Daun tebal, masak paksa</b>Hijaunya bandel, pematangan tidak tuntas.</div>
+    </div></div>
+    <div class="down" aria-hidden="true">↓</div>
+    <div class="tier"><p class="eyebrow">Pengolahan</p><div class="nodes">
+      <div class="node" data-s="panas aroma imbon"><b>Imbon lambat menguning</b>Jadi 6 hari. Daun terus bernapas dan membakar sisa gula.</div>
+      <div class="node" data-s="panas"><b>Jemur terik ekstrem</b>Rajangan terlalu kering, getas, cepat terbakar.</div>
+    </div></div>
+    <div class="down" aria-hidden="true">↓</div>
+    <div class="tier"><p class="eyebrow">Yang Anda rasakan</p><div class="nodes">
+      <div class="node sym" data-s="panas"><b>Isapan panas, nyegrak</b></div>
+      <div class="node sym" data-s="aroma"><b>Aroma tipis</b></div>
+      <div class="node sym" data-s="imbon"><b>Imbon molor 3 → 6 hari</b></div>
+    </div></div>
+  </div>
+  <p class="cap">Seluruh rantai ini berlabel <span class="tag besar">KEMUNGKINAN BESAR</span>. Tiap mata rantai ada risetnya (kebanyakan tembakau Virginia dan oriental dari Tiongkok, AS, Turki), tapi belum pernah diukur pada rajangan Jawa 2026.</p>
+</section>
+
+<section id="imbon">
+  <p class="eyebrow">4 · Imbon</p>
+  <h2>Hari ke-6 sudah lewat puncak</h2>
+  <div class="plate">
+    <p class="eyebrow">Lama pemeraman vs indeks mutu · rajangan Madura (Balittas)</p>
+    <div class="scroll-x"><svg id="chart-q" viewBox="0 0 640 270" width="100%" role="img" aria-label="Indeks mutu naik dari 56,13 di hari 3 ke 73,33 di hari 5, lalu turun ke 68,83 di hari 7"></svg></div>
+    <div class="scroll-x"><svg id="chart-g" viewBox="0 0 640 170" width="100%" role="img" aria-label="Kadar gula 13,10 persen di hari 3, 14,04 di hari 5, 13,26 di hari 7"></svg></div>
+    <label for="days" class="small"><b>Geser lama imbon:</b> <span class="num" id="days-lab">6 hari</span></label>
+    <input type="range" id="days" min="3" max="7" step="1" value="6">
+    <div class="readout">
+      <div><span class="eyebrow">Indeks mutu</span><br><span class="big" id="o-q"></span></div>
+      <div><span class="eyebrow">Gula</span><br><span class="big" id="o-g"></span></div>
+      <div><span class="eyebrow">Artinya</span><br><span id="o-s"></span></div>
+    </div>
+    <p class="cap">Titik bulat penuh = hasil ukur di hari 3, 5, dan 7. Hari 4 dan 6 saya isi dengan garis lurus di antara titik, jadi itu perkiraan (tanda ≈). Nikotin hampir tidak berubah: 3,19 → 3,25 → 3,22%. Satu catatan jujur: angka Balittas ini tidak bisa saya temukan lagi di internet malam ini. Praktik umum yang tertulis di sumber lain adalah 3–4 hari. Pakai grafik ini sebagai petunjuk arah, bukan angka mati.</p>
+  </div>
+
+  <div class="two">
+    <div class="plate">
+      <h3>Imbon itu seperti ngimbu pisang</h3>
+      <p>Tiga sampai lima hari, pisang manis. Dibiarkan terus, manisnya tidak bertambah. Pisang malah lembek dan hambar. Daun tembakau sama: selama menguning ia masih hidup, masih bernapas, dan napasnya membakar gula.</p>
+    </div>
+    <div class="plate resp">
+      <h3>Tumpukan panas bernapas 2,3× lebih cepat</h3>
+      <div class="rrow"><span class="num small">27 °C</span><div class="rbar" style="width:42.6%;background:var(--gold-soft)">26,34</div></div>
+      <div class="rrow"><span class="num small">43 °C</span><div class="rbar" style="width:100%;background:var(--heat-soft)">61,87</div></div>
+      <p class="cap">mg CO₂ per menit per kg daun kering, selama menguning (Tobacco Science, 1963). Hitungan saya: pada 27 °C itu kira-kira 2,6% bobot kering hilang per hari, pada 43 °C sekitar 6%. Tiga hari tambahan imbon ≈ 6–8% bahan kering, kebanyakan gula dan pati. <span class="tag besar">KEMUNGKINAN BESAR</span></p>
+    </div>
+  </div>
+
+  <div class="plate">
+    <h3>Kenapa tahun ini lambat menguning</h3>
+    <div class="rank">
+      <div class="rk"><span class="n">1</span><p>Daun musim kering tebal, kaya nitrogen, dan hijaunya bertahan. Paten proses curing AS 5.125.420 menyebut daun musim kering butuh jadwal menguning yang lebih panjang. <span class="tag besar">KEMUNGKINAN BESAR</span></p></div>
+      <div class="rk"><span class="n">2</span><p>Udara siang terlalu kering. Lapisan luar tumpukan layu kering, bukan matang. Daun yang "mati" terlalu cepat warnanya terkunci hijau. Untuk tembakau Virginia, fase menguning dijaga di kelembapan sekitar 85%. <span class="tag besar">KEMUNGKINAN BESAR</span></p></div>
+      <div class="rk"><span class="n">3</span><p>Sebagian daun dipetik sebelum masak. Draf RSNI mengaitkan warna hijau mati dengan petik muda dan daun yang terjemur. <span class="tag besar">KEMUNGKINAN BESAR</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="minyak">
+  <p class="eyebrow">5 · Klaim "minyak alami hilang"</p>
+  <div class="verdict">
+    <div class="stamp">SEBAGIAN<br>BENAR</div>
+    <h2>Aromanya memang turun. Penyebab utamanya kemungkinan besar bukan minyak.</h2>
+  </div>
+  <div class="prose">
+    <p>Kekeringan tidak selalu menurunkan minyak daun. Tembakau oriental, jenis yang paling harum di dunia, justru ditanam dengan air terbatas. Panduan irigasi University of Georgia bahkan menyebut daun dari tanaman kurang air cenderung lebih berminyak. <span class="tag pasti">PASTI</span></p>
+    <p>Ada satu hal lagi yang sering terlewat. Kata "berminyak" di standar rajangan adalah rasa di tangan saat dipegang (tebal, lekat, mudah menggumpal), bukan hasil ukur kadar minyak. Dan grade B memang tidak disyaratkan berminyak. <span class="tag pasti">PASTI</span></p>
+  </div>
+
+  <div class="plate plant">
+    <svg viewBox="0 0 220 300" role="img" aria-label="Posisi daun di pohon dan grade-nya: F, E, D di atas berminyak; C cukup berminyak; B di tengah bawah tidak disebut berminyak">
+      <path class="stem" d="M110 290 L110 18"></path>
+      <ellipse class="lf oil" cx="78" cy="40" rx="30" ry="9" transform="rotate(-18 78 40)"></ellipse>
+      <ellipse class="lf oil" cx="144" cy="72" rx="34" ry="10" transform="rotate(16 144 72)"></ellipse>
+      <ellipse class="lf oil" cx="72" cy="106" rx="38" ry="11" transform="rotate(-14 72 106)"></ellipse>
+      <ellipse class="lf half" cx="150" cy="142" rx="42" ry="12" transform="rotate(12 150 142)"></ellipse>
+      <ellipse class="lf b" cx="66" cy="182" rx="46" ry="13" transform="rotate(-10 66 182)"></ellipse>
+      <ellipse class="lf low" cx="154" cy="222" rx="48" ry="13" transform="rotate(8 154 222)"></ellipse>
+      <ellipse class="lf low" cx="64" cy="258" rx="48" ry="13" transform="rotate(-6 64 258)"></ellipse>
+      <text class="glab" x="118" y="40">F</text>
+      <text class="glab" x="94" y="76">E</text>
+      <text class="glab" x="118" y="110">D</text>
+      <text class="glab" x="94" y="146">C</text>
+      <text class="glab" x="118" y="186">B ← Anda</text>
+    </svg>
+    <div class="prose small">
+      <p><b>F, E, D</b> (daun atas): "berminyak".</p>
+      <p><b>C</b>: "cukup berminyak".</p>
+      <p><b>B</b> (daun tengah bawah): pegangan sedang, ringan, cukup supel. Aromanya segar, halus, gurih, cukup manis, ringan. Tidak ada kata berminyak.</p>
+      <p class="muted">Sumber: draf RSNI tembakau rajangan (Boyolali). Daun paling bawah tidak saya beri grade karena tidak ada di sumber.</p>
+    </div>
+  </div>
+
+  <div class="plate">
+    <h3>Yang paling mungkin merusak aroma tahun ini</h3>
+    <div class="rank">
+      <div class="rk"><span class="n">1</span><div><b>Gula bertemu asam amino terlalu sedikit.</b> Bau manis-gurih tembakau terbentuk lewat reaksi pencoklatan, sama seperti roti yang dipanggang atau kecap yang dimasak. Bahannya gula. Gula rendah, nitrogen tinggi, baunya tipis. Ini yang paling cocok dengan keluhan "panas dan kurang harum".<div class="likely-bar"><i style="width:90%"></i></div></div></div>
+      <div class="rk"><span class="n">2</span><div><b>Pematangan tidak tuntas.</b> Zat kuning daun (karotenoid) pecah jadi senyawa harum selama masak dan imbon. Kalau masaknya dipaksa kering, warnanya kuning tapi prosesnya belum selesai.<div class="likely-bar"><i style="width:70%"></i></div></div></div>
+      <div class="rk"><span class="n">3</span><div><b>Fenol dan flavonoid turun.</b> Riset mencatat kekeringan ringan di fase masak saja sudah mengurangi zat-zat ini.<div class="likely-bar"><i style="width:50%"></i></div></div></div>
+      <div class="rk"><span class="n">4</span><div><b>Minyak dari bulu halus daun (trikoma).</b> Perannya kecil sampai sedang. Arahnya bisa naik atau turun tergantung varietas dan posisi daun.<div class="likely-bar"><i style="width:25%"></i></div></div></div>
+    </div>
+    <p class="cap">Panjang garis = seberapa kuat dugaan saya, bukan hasil ukur. Semua peringkat ini <span class="tag besar">KEMUNGKINAN BESAR</span>.</p>
+  </div>
+  <p class="prose"><b>Kenapa ini penting untuk Anda:</b> kalau yang dikejar "minyak", obatnya bisa salah. Menambah saus atau gula, menambah pupuk nitrogen, atau menunda panen tidak menyentuh masalah sebenarnya (gula rendah, nikotin tinggi, imbon kepanjangan). Sebagian malah memperburuk, dan tembakau bisa ditolak gudang.</p>
+</section>
+
+<section id="tahun">
+  <p class="eyebrow">6 · Dua musim, dua kesalahan</p>
+  <h2>2025 salah di ujung akhir, 2026 salah di ujung awal</h2>
+  <div class="plate">
+    <div class="yr">
+      <span></span><span class="eyebrow">Saat daun tumbuh</span><span class="eyebrow">Saat panen dan jemur</span>
+      <span class="k">2025</span><div class="bar b-ok">Cukup air</div><div class="bar b-bad"><b>Hujan.</b> Daun terlalu basah, kusam, rawan busuk</div>
+      <span class="k">2026</span><div class="bar b-bad"><b>Sangat kering.</b> Gula sedikit, nikotin pekat</div><div class="bar b-good">Kering, cerah, warna bagus</div>
+      <span class="k">Ideal</span><div class="bar b-ok">Tanah cukup lembap</div><div class="bar b-good">Kering dan cerah</div>
+    </div>
+  </div>
+  <div class="scroll-x">
+    <table class="cmp">
+      <thead><tr><th></th><th>2025 kemarau basah</th><th>2026 kemarau sangat kering</th></tr></thead>
+      <tbody>
+        <tr><td><b>Warna</b></td><td>Sering kusam, rawan hitam</td><td>Cerah, dipuji pasar <span class="tag pasti">PASTI</span></td></tr>
+        <tr><td><b>Gula / nikotin</b></td><td>Gula cukup, nikotin rendah–sedang <span class="tag besar">KB</span></td><td>Gula rendah, nikotin tinggi <span class="tag besar">KB</span></td></tr>
+        <tr><td><b>Rasa</b></td><td>Hambar, enteng, rawan jamur</td><td>Tipis, panas, nyegrak <span class="tag besar">KB</span></td></tr>
+        <tr><td><b>Imbon</b></td><td>Cepat kuning, risiko busuk</td><td>Lambat kuning, risiko hijau mati dan gula terbakar</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="prose">Kemarau yang ideal untuk rajangan Jawa: <b>lembap di bawah, kering di atas.</b> Tanah cukup air waktu daun tumbuh, lalu langit kering dan cerah waktu panen. <span class="tag besar">KEMUNGKINAN BESAR</span></p>
+</section>
+
+<section id="pasar">
+  <p class="eyebrow">7 · Pasar 2026</p>
+  <h2>Harga naik, tapi belum ada yang mengukur rasa</h2>
+  <div class="mkt">
+    <article><p class="eyebrow">Pamekasan, Madura</p><p class="big">Rp40.000–72.000/kg</p><p>36.836 ton terserap per 21 September, sudah melewati rencana pembelian 24.850 ton.</p><span><span class="tag cek">DICEK 3 OKT</span></span></article>
+    <article><p class="eyebrow">Temanggung</p><p class="big">Rp70.000–107.000/kg</p><p>Harga beli Djarum per grade. Kuota 5.000 ton. Grade tertentu di Lamuk sampai Rp350.000/kg.</p><span><span class="tag cek">DICEK 3 OKT</span></span></article>
+    <article><p class="eyebrow">Klaten (Kemalang)</p><p class="big">Rp7.000/kg daun basah</p><p>Tahun lalu di bawah Rp5.000. Petani menyebut panas kemarau membuat kadar air daun pas.</p><span><span class="tag cek">DICEK 3 OKT</span></span></article>
+    <article><p class="eyebrow">Bojonegoro</p><p class="big">Produksi turun separuh</p><p>Luas tanam naik ke 15.672,68 ha (2025: 12.041 ha), tapi tanaman pendek. Rajangan kering Rp32.000–37.000/kg.</p><span><span class="tag cek">DICEK 3 OKT</span></span></article>
+  </div>
+  <p class="prose">Semua kabar "tahun bagus" bicara soal warna, kadar air, dan harga. Bupati Temanggung sendiri bilang bahan bakunya baik, tapi tantangan berikutnya ada di pengolahan, karena teknik di lapangan tidak seragam. Saya belum menemukan satu berita pun yang memuat hasil uji gula atau nikotin. <span class="tag cek">DICEK 3 OKT</span></p>
+  <div class="counter">
+    <h3>Tapi Djarum menilai Temanggung 2026 lebih baik dari 2025. Bertentangan?</h3>
+    <p>Belum tentu. Grader pabrik memang mencium aroma, jadi penilaian mereka harus dihitung. Tapi Temanggung ada di lereng Sindoro–Sumbing, lebih tinggi dan lebih sejuk. Prambanan di dataran rendah, dekat Bantul yang 131 hari tanpa hujan. Grade atas Temanggung juga beda kelas dengan grade B. Pujian Djarum dan keluhan Anda bisa sama-sama benar. <span class="tag besar">KEMUNGKINAN BESAR</span></p>
+  </div>
+</section>
+
+<section id="tindakan">
+  <p class="eyebrow">8 · Tindakan</p>
+  <h2>Apa yang dilakukan, mulai hari ini</h2>
+  <div class="tabs" role="tablist" aria-label="Waktu tindakan">
+    <button type="button" role="tab" id="tab-now" aria-selected="true" aria-controls="p-now">Sekarang (hari ke-6)</button>
+    <button type="button" role="tab" id="tab-next" aria-selected="false" aria-controls="p-next">Imbon berikutnya</button>
+    <button type="button" role="tab" id="tab-season" aria-selected="false" aria-controls="p-season">Musim depan</button>
+  </div>
+
+  <div class="panel" id="p-now" role="tabpanel" aria-labelledby="tab-now">
+    <p class="progress" id="prog">0 dari 8 selesai</p>
+    <div class="check"><input type="checkbox" id="c1"><label for="c1"><b>Rajang hari ini.</b><span>Pisahkan daun yang masih belang hijau. Jangan dicampur dengan yang kuning rata, karena hijau mati dihitung cacat. <span class="tag besar">KB</span></span></label></div>
+    <div class="check"><input type="checkbox" id="c2"><label for="c2"><b>Jemur sampai lemas, bukan kering kerupuk.</b><span>Di terik ekstrem: balik rajangan lebih awal, angkat widig lebih cepat di sore hari, hindari jemur ulang yang tidak perlu. <span class="tag besar">KB</span></span></label></div>
+    <div class="check"><input type="checkbox" id="c3"><label for="c3"><b>Biarkan kena embun semalam.</b><span>Supaya lentur sebelum dikemas. Uji tarik sejumput: kalau kebanyakan putus atau remuk, terlalu kering. Tapi jangan kemas saat masih lembap, kapang dan bau apek bikin ditolak. <span class="tag besar">KB</span></span></label></div>
+    <div class="check"><input type="checkbox" id="c4"><label for="c4"><b>Simpan di keranjang, tempat teduh.</b><span>Penuaan menghaluskan rasa yang "mentah". Menahan 2–6 bulan mungkin mengurangi panasnya, tapi gula yang sudah hilang tidak kembali. <span class="tag dugaan">DUGAAN</span></span></label></div>
+    <div class="check"><input type="checkbox" id="c5"><label for="c5"><b>Campur hanya antar-lot dari asal yang sama.</b><span>Misalnya lot yang panas dengan lot lebih manis dari lahan yang lebih lembap. Catat komposisinya. Gudang menolak campuran dari luar daerah. <span class="tag pasti">PASTI</span></span></label></div>
+    <div class="check"><input type="checkbox" id="c6"><label for="c6"><b>Jual sesuai grade.</b><span>Jangan naikkan B jadi C hanya karena warnanya cerah. Grader menilai pegangan dan aroma. B yang konsisten lebih aman daripada C yang ditolak. <span class="tag besar">KB</span></span></label></div>
+    <div class="check"><input type="checkbox" id="c7"><label for="c7"><b>Uji lab, 250 g per lot.</b><span>Kadar air, klorida, nikotin, gula. Kalau gula dan nikotin ternyata normal, berarti panasnya dari pengolahan, bukan dari daun. Hasilnya juga jadi bukti saat menawar. <span class="tag pasti">PASTI</span></span></label></div>
+    <div class="check stop"><input type="checkbox" id="c8"><label for="c8"><b>Jangan tambah gula atau saus.</b><span>Djarum sudah menegaskan lagi di April 2026: mereka membeli <span class="quote">"tembakau murni, olahan tanpa campuran gula dan zat kimia lain"</span> (Dawam, Djarum). Risikonya satu keranjang ditolak, nama pemasok rusak. <span class="tag cek">DICEK 3 OKT</span></span></label></div>
+  </div>
+
+  <div class="panel" id="p-next" role="tabpanel" aria-labelledby="tab-next" hidden>
+    <div class="check"><span></span><div><b>Petik saat kuning 60–70% permukaan daun.</b> Di bawah 60% berarti kurang masak. Jangan petik muda karena panik kemarau. <span class="tag pasti">PASTI</span></div></div>
+    <div class="check"><span></span><div><b>Petik sore, sekitar pukul 16.00.</b> Studi rajangan Payakumbuh (Sumatra Barat, 1992) mendapat mutu terbaik dari jam ini. Belum diuji di Jawa. <span class="tag besar">KB</span></div></div>
+    <div class="check"><span></span><div><b>Dari ladang langsung ke teduh.</b> Imbon di hari yang sama. Jangan biarkan daun terjemur di pematang. <span class="tag besar">KB</span></div></div>
+    <div class="check"><span></span><div><b>Sortir per posisi daun dan kemasakan.</b> Daun bawah dan atas beda kecepatan menguning. <span class="tag besar">KB</span></div></div>
+    <div class="check"><span></span><div><b>Jaga tumpukan tetap lembap.</b> Ruang tertutup, tutup goni basah atau daun pisang. Siram lantai, jangan siram daun, karena air di permukaan daun memicu busuk. <span class="tag besar">KB</span></div></div>
+    <div class="check"><span></span><div><b>Tumpuk lebih rapat dari biasa, tapi raba pagi dan sore.</b> Kalau panas menyengat di tangan, bongkar dan balik. <span class="tag besar">KB</span></div></div>
+    <div class="check"><span></span><div><b>Terpal plastik boleh di lapisan luar,</b> asal tidak di bawah terik langsung. Kalau kena terik, tumpukannya terpanggang. <span class="tag besar">KB</span></div></div>
+    <div class="check"><span></span><div><b>Ethephon (zat pemercepat kuning): tidak saya sarankan.</b> Pada daun belum masak hasilnya kuning sebagian dan bisa menurunkan mutu. Pasar Jawa menuntut tembakau murni. <span class="tag besar">KB</span></div></div>
+  </div>
+
+  <div class="panel" id="p-season" role="tabpanel" aria-labelledby="tab-season" hidden>
+    <div class="check"><span></span><div><b>Pantau BMKG sebelum menentukan tanggal tanam.</b> El Niño diperkirakan bertahan sampai awal 2027, tapi bisa melemah pertengahan tahun. Jangan anggap 2027 pasti sama. <span class="tag dugaan">DUGAAN</span></div></div>
+    <div class="check"><span></span><div><b>Siapkan air untuk 30–60 hari setelah tanam.</b> Sumur, pompa, kocor, atau irigasi tetes. Hindari sumur payau, kloridanya merusak daya bakar. <span class="tag besar">KB</span></div></div>
+    <div class="check"><span></span><div><b>Mulsa jerami</b> untuk menahan lembap tanah. <span class="tag besar">KB</span></div></div>
+    <div class="check"><span></span><div><b>Pakai ZK (kalium sulfat), jangan KCl.</b> Klorida merusak bakar dan rasa. <span class="tag besar">KB</span></div></div>
+    <div class="check"><span></span><div><b>Jangan berlebihan pupuk nitrogen.</b> Nitrogen tinggi ditambah kering membuat nikotin makin pekat. <span class="tag pasti">PASTI</span> untuk arahnya.</div></div>
+    <div class="check"><span></span><div><b>Varietas Kemloko unggul untuk tahan penyakit, bukan tahan kering.</b> Tetap pakai varietas lokal yang disukai pembeli, atasi kering lewat air dan jadwal tanam. <span class="tag pasti">PASTI</span></div></div>
+  </div>
+</section>
+
+<section id="belum">
+  <p class="eyebrow">9 · Yang belum pasti</p>
+  <h2>Apa yang saya cek ulang malam ini</h2>
+  <div class="fixes">
+    <div class="fix"><b>"Indeks ENSO sekitar 2,2"</b><span>BMKG mencatat anomali Niño 3.4 akhir Agustus +2,83. El Niño-nya lebih kuat dari angka lama. <span class="tag cek">DICEK 3 OKT</span></span></div>
+    <div class="fix"><b>Data imbon Balittas 3/5/7 hari</b><span>Tidak bisa saya temukan lagi di internet. Angkanya masuk akal dan polanya (naik lalu turun) sesuai teori, tapi anggap sebagai petunjuk arah. <span class="tag dugaan">BELUM DICEK ULANG</span></span></div>
+    <div class="fix"><b>"Tinjauan Frontiers 2024: gula turun sekitar 5%"</b><span>Paper Frontiers 2024 yang saya buka mengukur ukuran daun (luas daun turun sampai sekitar 39% saat kering berat), bukan gula. Arah gula turun dan nikotin naik tetap didukung buku kimia tembakau, tapi angka 5% belum saya temukan. <span class="tag dugaan">SEBAGIAN</span></span></div>
+    <div class="fix"><b>Kutipan Bupati Temanggung soal pengolahan</b><span>Benar, ANTARA 6 September 2026. <span class="tag cek">DICEK 3 OKT</span></span></div>
+    <div class="fix"><b>Data Lumajang (&lt;7% lahan kekurangan air)</b><span>Tetap tidak terverifikasi. Tidak saya pakai di halaman ini.</span></div>
+  </div>
+  <div class="honest">
+    <p><b>Cara tercepat mengubah "kemungkinan besar" jadi "pasti":</b> kirim 2–3 sampel 250 g ke lab. Minta uji gula, nikotin, klorida, dan kadar air. Kalau bisa, sertakan satu sampel dari tahun lalu sebagai pembanding.</p>
+  </div>
+
+  <details>
+    <summary>Kamus kecil</summary>
+    <dl>
+      <dt>Imbon / pemeraman</dt><dd>Menumpuk daun hasil petik supaya menguning merata sebelum dirajang.</dd>
+      <dt>Rajangan</dt><dd>Daun yang sudah diiris tipis lalu dijemur.</dd>
+      <dt>Nikotin bebas</dt><dd>Bentuk nikotin yang langsung terasa keras di tenggorokan. Makin basa asapnya, makin banyak.</dd>
+      <dt>Reaksi pencoklatan</dt><dd>Gula bertemu asam amino saat dipanaskan, menghasilkan bau manis-gurih. Sama dengan roti dipanggang. Nama ilmiahnya reaksi Maillard.</dd>
+      <dt>Trikoma</dt><dd>Bulu halus yang lengket di permukaan daun. Sumber "minyak" dan getah daun.</dd>
+      <dt>Hijau mati</dt><dd>Warna hijau yang terkunci karena daun mati sebelum sempat menguning. Dihitung cacat.</dd>
+      <dt>Kering pasar</dt><dd>Kering sampai lemas dan lentur, belum getas.</dd>
+      <dt>HTH</dt><dd>Hari tanpa hujan berturut-turut. Di atas 60 hari = kategori ekstrem.</dd>
+      <dt>RSNI</dt><dd>Rancangan Standar Nasional Indonesia, standar mutu yang masih draf.</dd>
+    </dl>
+  </details>
+
+  <details>
+    <summary>Sumber</summary>
+    <p class="small muted" style="margin-top:10px">Dicek ulang malam ini (3 Oktober 2026):</p>
+    <ol class="src">
+      <li><a href="https://www.bmkg.go.id/siaran-pers/bmkg-el-nino-sangat-kuat-sedang-terjadi-musim-hujan-2026-2027-diprediksi-datang-lebih-lambat" target="_blank" rel="noopener">BMKG, siaran pers 22 September 2026: El Niño sangat kuat, musim hujan mundur</a></li>
+      <li><a href="https://nasional.kompas.com/read/2026/09/22/11422431/kepala-bmkg-el-nino-sangat-kuat-diprediksi-bertahan-hingga-awal-2027" target="_blank" rel="noopener">Kompas, 22 September 2026: El Niño bertahan hingga awal 2027</a></li>
+      <li><a href="https://koran-jakarta.com/2026-09-22/bmkg-el-nino-sangat-kuat-sedang-terjadi" target="_blank" rel="noopener">Koran Jakarta, 22 September 2026: anomali Niño 3.4 +2,83</a></li>
+      <li><a href="https://www.jatengnews.id/2026/09/10/jawa-tengah-alami-hari-tanpa-hujan-hingga-130-hari-diprediksi-hingga-oktober/" target="_blank" rel="noopener">Jatengnews, 10 September 2026: Jateng sampai 130 hari tanpa hujan</a></li>
+      <li><a href="https://regional.kompas.com/read/2026/09/22/111905578/bmkg-puncak-musim-kemarau-jawa-tengah-berlangsung-hingga-oktober-2026" target="_blank" rel="noopener">Kompas, 22 September 2026: puncak kemarau Jateng sampai Oktober</a></li>
+      <li><a href="https://solo.tribunnews.com/solo-raya/349974/musim-kemarau-bawa-kabar-baik-harga-tembakau-di-klaten-naik-hingga-rp-7000-dulu-di-bawah-rp5000" target="_blank" rel="noopener">Tribun Solo, 15 September 2026: harga tembakau Klaten Rp7.000</a></li>
+      <li><a href="https://beritajatim.com/36-836-ton-tembakau-pamekasan-terserap-harga-tertinggi-capai-rp72-ribu-per-kilogram" target="_blank" rel="noopener">Beritajatim, 22 September 2026: 36.836 ton terserap di Pamekasan</a></li>
+      <li><a href="https://www.suaramerdeka.com/ekonomi/0417642376/harga-tembakau-temanggung-di-djarum-rp70000-rp107000-per-kg-apti-minta-kenaikan" target="_blank" rel="noopener">Suara Merdeka, 16 September 2026: harga Djarum Rp70.000–107.000</a></li>
+      <li><a href="https://www.vartadiy.com/v-jateng/44017642309/djarum-nilai-kualitas-tembakau-temanggung-2026-lebih-baik-serapan-bisa-naik" target="_blank" rel="noopener">Varta DIY, 16 September 2026: Djarum menilai kualitas 2026 lebih baik</a></li>
+      <li><a href="https://www.antaranews.com/berita/5728247/bupati-temanggung-serapan-tembakau-tahun-ini-diyakini-maksimal" target="_blank" rel="noopener">ANTARA, 6 September 2026: Bupati Temanggung soal pengolahan</a></li>
+      <li><a href="https://cakram.net/2026/04/jaga-kualitas-tembakau-temanggung-petani-didorong-ikut-program-kemitraan/" target="_blank" rel="noopener">Cakram, 29 April 2026: Djarum membeli tembakau tanpa gula</a></li>
+      <li><a href="https://tugujatim.id/harga-jual-tembakau-petani-bojonegoro-turun-di-tengah/" target="_blank" rel="noopener">Tugu Jatim, 22 September 2026: Bojonegoro luas tanam naik, produksi turun separuh</a></li>
+      <li><a href="https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1442618/full" target="_blank" rel="noopener">Frontiers in Plant Science 2024: pertumbuhan tembakau Virginia di bawah kekeringan</a></li>
+      <li><a href="https://patents.google.com/patent/US5125420A/en" target="_blank" rel="noopener">Paten AS 5.125.420: etilen dan panas untuk mempercepat menguning</a></li>
+    </ol>
+    <p class="small muted" style="margin-top:12px">Dari riset sebelumnya, belum saya buka ulang: Leffingwell 1999; data pemeraman Balittas (rajangan Madura); draf RSNI tembakau rajangan; Tobacco Science 1963 dan 1987; panduan curing Virginia Tech; panduan irigasi University of Georgia; Wang dkk. 2021 (Industrial Crops and Products); Frontiers in Plant Science 2026 (Yunyan 87); Husniawaty 1992.</p>
+  </details>
+</section>
+
+<footer>Disusun 3 Oktober 2026. Angka cuaca dan pasar dicek ulang malam ini lewat berita dan siaran pers. Angka kimia daun berasal dari riset tembakau di luar Jawa, kecuali yang disebut Madura.</footer>
+</main>
+
+<script>
+(function(){
+  // ---- Rem & gas
+  var S={
+    sawah:{g:[17,21],gm:19,n:[0.55,1.75],nm:1.2,label:'Sawah Madura'},
+    tegal:{g:[14,18],gm:16,n:[2.00,4.73],nm:3.4,label:'Tegal Madura'}
+  };
+  var GMAX=22,NMAX=5;
+  function fmt(x,d){return x.toFixed(d).replace('.',',');}
+  function setBar(id,lo,hi,mid,max){
+    var r=document.getElementById(id+'-range'),m=document.getElementById(id+'-mid');
+    r.style.left=(lo/max*100)+'%'; r.style.width=((hi-lo)/max*100)+'%';
+    m.style.left='calc('+(mid/max*100)+'% - 2px)';
+  }
+  function showLand(k){
+    document.querySelectorAll('#remgas .seg button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.k===k));});
+    var meter=document.getElementById('meter'),box=document.getElementById('anda-box');
+    if(k==='anda'){meter.hidden=true;box.hidden=false;return;}
+    meter.hidden=false;box.hidden=true;
+    var s=S[k];
+    setBar('g',s.g[0],s.g[1],s.gm,GMAX); setBar('n',s.n[0],s.n[1],s.nm,NMAX);
+    document.getElementById('g-val').textContent='≈'+fmt(s.gm,0)+'%';
+    document.getElementById('n-val').textContent='≈'+fmt(s.nm,1)+'%';
+    var ratio=s.gm/s.nm;
+    document.getElementById('r-big').textContent='1 : '+fmt(ratio,ratio<10?1:0);
+    document.getElementById('r-text').textContent='Setiap 1 bagian nikotin ditahan oleh sekitar '+fmt(ratio,ratio<10?1:0)+' bagian gula ('+s.label+').';
+  }
+  document.querySelectorAll('#remgas .seg button').forEach(function(b){b.addEventListener('click',function(){showLand(b.dataset.k);});});
+  showLand('sawah');
+
+  // ---- Chain filter
+  var chain=document.getElementById('chain');
+  document.querySelectorAll('#rantai .seg button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var s=b.dataset.s;
+      document.querySelectorAll('#rantai .seg button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+      chain.classList.toggle('filter',s!=='all');
+      chain.querySelectorAll('.node').forEach(function(n){n.classList.toggle('on',s!=='all'&&n.dataset.s.split(' ').indexOf(s)>=0);});
+    });
+  });
+
+  // ---- Imbon charts
+  var D=[{d:3,q:56.13,g:13.10},{d:5,q:73.33,g:14.04},{d:7,q:68.83,g:13.26}];
+  function interp(d,k){
+    for(var i=0;i<D.length-1;i++){var a=D[i],b=D[i+1];if(d>=a.d&&d<=b.d){return a[k]+(b[k]-a[k])*(d-a.d)/(b.d-a.d);}}
+    return D[D.length-1][k];
+  }
+  var NS='http://www.w3.org/2000/svg';
+  function el(svg,tag,attrs,text){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;svg.appendChild(e);return e;}
+  function chart(id,key,H,y0,y1,ticks,cls,dcls,unit,zoneLabel){
+    // ponytail: redraw at the container's real width so labels stay readable on a phone
+    var svg=document.getElementById(id),W=Math.max(300,Math.round(svg.parentNode.clientWidth)),m={l:42,r:18,t:20,b:34};
+    while(svg.firstChild)svg.removeChild(svg.firstChild);
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    var x=function(d){return m.l+(d-2.5)/5*(W-m.l-m.r);};
+    var y=function(v){return m.t+(y1-v)/(y1-y0)*(H-m.t-m.b);};
+    el(svg,'rect',{class:'zone',x:x(5),y:m.t,width:x(7.5)-x(5),height:H-m.t-m.b});
+    if(zoneLabel)el(svg,'text',{class:'zone-t',x:x(5)+8,y:H-m.b-8},zoneLabel);
+    ticks.forEach(function(t){el(svg,'line',{class:'gl',x1:m.l,x2:W-m.r,y1:y(t),y2:y(t)});el(svg,'text',{class:'ax',x:m.l-8,y:y(t)+4,'text-anchor':'end'},fmt(t,unit==='%'?1:0));});
+    [3,4,5,6,7].forEach(function(d){el(svg,'text',{class:'ax',x:x(d),y:H-m.b+18,'text-anchor':'middle'},'hari '+d);});
+    el(svg,'text',{class:'ax',x:m.l,y:m.t-5},unit==='%'?'gula (%)':'indeks mutu');
+    el(svg,'path',{class:cls,d:D.map(function(p,i){return(i?'L':'M')+x(p.d)+' '+y(p[key]);}).join(' ')});
+    D.forEach(function(p){el(svg,'circle',{class:'dot '+dcls,cx:x(p.d),cy:y(p[key]),r:6});el(svg,'text',{class:'val',x:x(p.d),y:y(p[key])-12,'text-anchor':'middle'},fmt(p[key],2)+(unit==='%'?'%':''));});
+    var cur=el(svg,'line',{class:'cur',y1:m.t,y2:H-m.b});
+    var ring=el(svg,'circle',{class:'ring',r:11});
+    return function(d){var v=interp(d,key);cur.setAttribute('x1',x(d));cur.setAttribute('x2',x(d));ring.setAttribute('cx',x(d));ring.setAttribute('cy',y(v));ring.setAttribute('class','ring'+(d%2===0?' est':''));};
+  }
+  var mq,mg;
+  function drawCharts(){
+    mq=chart('chart-q','q',270,50,78,[55,60,65,70,75],'qline','dq','idx','lewat puncak');
+    mg=chart('chart-g','g',170,12.9,14.3,[13.0,13.5,14.0],'gline','dg','%',null);
+  }
+  drawCharts();
+  var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){drawCharts();upd();},150);});
+  var STATUS={3:'Belum menguning rata',4:'Mendekati matang',5:'Puncak mutu',6:'Mulai turun. Ini posisi daun Anda.',7:'Turun, gula terus terbakar'};
+  var days=document.getElementById('days');
+  function upd(){
+    var d=+days.value,est=d%2===0?'≈':'';
+    mq(d);mg(d);
+    document.getElementById('days-lab').textContent=d+' hari';
+    document.getElementById('o-q').textContent=est+fmt(interp(d,'q'),est?1:2);
+    document.getElementById('o-g').textContent=est+fmt(interp(d,'g'),2)+'%';
+    document.getElementById('o-s').textContent=STATUS[d];
+  }
+  days.addEventListener('input',upd); upd();
+
+  // ---- Tabs
+  var tabs=[['tab-now','p-now'],['tab-next','p-next'],['tab-season','p-season']];
+  tabs.forEach(function(t){document.getElementById(t[0]).addEventListener('click',function(){
+    tabs.forEach(function(u){var on=u[0]===t[0];document.getElementById(u[0]).setAttribute('aria-selected',String(on));document.getElementById(u[1]).hidden=!on;});
+  });});
+
+  // ---- Checklist (per-viewer memory)
+  var KEY='rajangan2026-checks',saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){saved={};}
+  var boxes=document.querySelectorAll('#p-now input[type=checkbox]');
+  function prog(){var n=0;boxes.forEach(function(b){b.closest('.check').classList.toggle('done',b.checked);if(b.checked)n++;});document.getElementById('prog').textContent=n+' dari '+boxes.length+' selesai';}
+  boxes.forEach(function(b){b.checked=!!saved[b.id];b.addEventListener('change',function(){saved[b.id]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}prog();});});
+  prog();
+})();
+</script>

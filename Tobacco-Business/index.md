@@ -38,3 +38,7 @@ No entries yet. First real ingest should establish whether this needs the full
 Raw/Wiki/Summaries treatment (like the KPM domain) or something lighter — tobacco work is
 seasonal and less document-heavy than software, so a simpler structure may fit better. Decide
 based on what actually gets captured, not upfront guessing.
+
+## Entries
+
+- 2026-10-03 — [[Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor]] (Wiki/Summaries) — first real ingest: 2026 El Niño rajangan research; page source in `Raw/2026-10-03_rajangan-2026-research-page.html`. Note: the no-sugar rule verified is Djarum's; Gudang Garam's is unverified.

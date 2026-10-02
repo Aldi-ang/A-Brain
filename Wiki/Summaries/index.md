@@ -37,3 +37,4 @@ should trace back to one of these.
 Created as step 2 of the `ingest` operation in [[../../CLAUDE.md|CLAUDE.md]] — always paired
 with saving the real source to [[../../Raw/index|Raw/]] first, then rippling into the relevant
 [[../Entities/index|Entities]]/[[../Concepts/index|Concepts]] pages.
+- [[Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor]] — 2026 El Niño rajangan research, verified 2026-10-03

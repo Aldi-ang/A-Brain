@@ -12,6 +12,10 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-10-03 — first tobacco ingest: rajangan 2026 research, verified and drawn
+
+Aldi pasted a research report (why 2026 rajangan smokes hot, smells thin, imbon took 6 days) and asked for it researched, simplified and drawn in Indonesian. 9 of 11 claims re-verified by DuckDuckGo in the built-in browser (WebSearch/firecrawl dead); page published as a private artifact. New: Summaries/Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor.md, Concepts/Web Research When the Search Tools Die.md, Tobacco-Business/Raw/2026-10-03_rajangan-2026-research-page.html.
+
 ## 2026-09-16 — nota scan option B shipped: pure-JS paper finder + perspective warp + corner editor
 
 kpm-inventory `a267298`. `helpers.findPaper` / `homography` / `warpQuad` / `loadNotaPhoto`;
