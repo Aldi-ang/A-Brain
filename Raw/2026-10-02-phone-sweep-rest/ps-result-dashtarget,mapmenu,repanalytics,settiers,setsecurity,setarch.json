@@ -1,0 +1,299 @@
+{
+ "screens": {
+  "dashtarget": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [
+     "CLOUD 60x32",
+     "USB 43x32",
+     "SAVE POINT 103x32"
+    ],
+    "cut": [],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out"
+    ],
+    "sideScroll": [],
+    "tall": 4.1,
+    "tinyText": 15
+   },
+   "frames": 5,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "tall": 2.1
+   }
+  },
+  "mapmenu": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [
+     "All Regions Uncategorized 161x32",
+     "Show All Tiers 211x32",
+     "👑 Mythic 104x33",
+     "🔥 Epic 104x33",
+     "⚔️ Grandmaster 104x33",
+     "🛡️ Bronze 104x33",
+     "🪵 Unranked 104x33",
+     "+ 30x30",
+     "− 30x30",
+     "Leaflet 55x14"
+    ],
+    "cut": [],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out"
+    ],
+    "sideScroll": [],
+    "tall": 1.1,
+    "tinyText": 11
+   },
+   "frames": 2,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "tall": 1
+   }
+  },
+  "repanalytics": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [
+     "TODAY 67x29",
+     "THIS WEEK 90x29",
+     "THIS MONTH 102x29",
+     "THIS YEAR 88x29"
+    ],
+    "cut": [],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out"
+    ],
+    "sideScroll": [
+     "overflow-x-auto pb-2 308<450"
+    ],
+    "tall": 2.1,
+    "tinyText": 6
+   },
+   "frames": 3,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "tall": 1.4
+   }
+  },
+  "settiers": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [],
+    "cut": [
+     "T4: REGIONAL ADMIN x346-528"
+    ],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out",
+     "T5: SALES CANVAS",
+     "T6: SALES MOTORIST"
+    ],
+    "sideScroll": [
+     "kpm-chips 346<867"
+    ],
+    "tall": 8.4,
+    "tinyText": 24
+   },
+   "frames": 6,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "tall": 6.3
+   }
+  },
+  "setsecurity": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [
+     "SIGNED IN AS ADIKARYASUKSES9 348x15"
+    ],
+    "cut": [],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out"
+    ],
+    "sideScroll": [],
+    "tall": 5.5,
+    "tinyText": 14
+   },
+   "frames": 6,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "tall": 4.4
+   }
+  },
+  "setarch": {
+   "open": "clicked",
+   "audit": {
+    "vw": 390,
+    "docW": 390,
+    "small": [
+     "RESET 87x36",
+     "— Pilih agen — Admin (Boss V 348x39"
+    ],
+    "cut": [],
+    "offCanvas": [
+     "Agent Profile",
+     "Command Center",
+     "Map System",
+     "Journey Plan",
+     "Fleet & Canvas",
+     "Master Vault",
+     "Agent Inventory",
+     "Restock Vault",
+     "Sales Terminal",
+     "Receivables & Consignment",
+     "EOD Setoran",
+     "Stock Opname",
+     "Customers",
+     "Sampling",
+     "Reports",
+     "Audit Logs",
+     "Settings",
+     "Cassette OS",
+     "Lihat sebagai tier lain",
+     "Log out"
+    ],
+    "sideScroll": [],
+    "tall": 6,
+    "tinyText": 27
+   },
+   "frames": 6,
+   "open1440": "clicked",
+   "desk": {
+    "docW": 1440,
+    "cut": 0,
+    "sideScroll": 0,
+    "tall": 4.5
+   }
+  }
+ },
+ "save": "clicked",
+ "shell": {
+  "small": [
+   "Open navigation 14x132",
+   "Tutorial book 44x36",
+   "Switch to Light Mode 70x36"
+  ],
+  "cut": []
+ },
+ "log": []
+}

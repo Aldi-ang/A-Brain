@@ -117,6 +117,7 @@ What the app looks like, and what Aldi wants it to feel like.
 - [[Brainstorm/2026-09-22_fleet-van-loading-shape]] — 🔴 OPEN, two boards sent 2026-09-22 (phone + PC): where the van-loading job lives — A a panel inside Fleet & Roster (recommended) / B its own sidebar segment; the same basket in both, and handleLoadCanvas / handleClearCanvas untouched either way.
 - [[Brainstorm/2026-09-18_customers-round-two-phone]] — Customers round two: the boss's header is the sideways cause, DEL/EDIT behind ⋯, a hold that is not the pad's lamp; sideways gone (scrollWidth 521 → 375), desk unchanged.
 - [[Brainstorm/2026-09-17_sales-terminal-di-hp]] — the Sales Terminal measured at 375 in the real shell; the two fixes on the table.
+- [[Brainstorm/2026-10-02_phone-sweep-last-five]] — the phone sweep's last five screens (Reports, Leaderboard, Command Center, Map, Settings) measured at 390 and ranked; OPEN on his pick.
 - [[Fat Documents in a Live Listener]] — why registering an outlet froze his phone and nothing on a desktop: a fat field plus a collection listener, and one write costs megabytes.
 - [[Six Days — Gate, Phone Access, Quota Meter]] — the backfill covering 2026-08-04 → 2026-08-10, including how phone access was finally fixed.
 
