@@ -3137,3 +3137,13 @@ He asked for the Map System to show *"the sales team roaming around on the map w
 - **When he says "I can't explain it", the game IS the brief** - research it, draw it in his palette, do not ask him to describe it again. Same rule as his videos and screenshots.
 - **The per-width split is now his default, three times in one day** (the bell, Master Vault, the expedition map). Offer it as the recommendation whenever phone and PC want different answers.
 - **Honesty survived the game look**: the salesman sits at his last known point with "last seen N min ago", no fake live walk - he did not push back on it. Source: [[../../Brainstorm/2026-10-02_expedition-map]].
+
+## Each map has one job: Map System = stores and areas, Journey Plan = the salesman's day (2026-10-03)
+
+> *"map mission control is used to analyze the stores distribution channel, sales performance of an aread, stores
+> level and position while the journey map is for like it said, journey of the salesman throughout the day"*
+
+The expedition (salesmen roaming with their next shop) was built on Map System and he moved it to Journey Plan the
+same night. Rule: before placing a feature on a map, ask which job it serves - where SHOPS are and how AREAS sell
+(Map System) or where a SALESMAN goes today (Journey Plan). He also wants Map System redesigned later. Built: kpm
+`ccae937`; [[2026-10-02_expedition-map]].

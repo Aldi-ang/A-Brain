@@ -80,6 +80,23 @@ day can drop that day's earlier points (never his position or a sale). **Rejecte
 toward the 1 MB record his van stock lives in). A lost only to his wish to keep today's walk for later - flips if
 the list stays unread for good. Taste note: he picks the option that keeps data when the cost is shown as zero.
 
+## 2026-10-03 01:02 - MOVED to Journey Plan (kpm `ccae937`), his call
+
+**His words:** *"i think we need to put that on the journey map instead because map mission control is used to analyze
+the stores distribution channel, sales performance of an aread, stores level and position while the journey map is for
+like it said, journey of the salesman throughout the day, we should redesign the map system as well later btw but now
+lets put that recent update on the journey map first"*.
+
+**The rule this sets (taste + product):** Map System = analysis of STORES and AREAS; Journey Plan = the SALESMAN'S DAY.
+A feature about where a salesman goes belongs on Journey Plan. I built it on Map System because the brief said
+"Map System + Journey Plan" and the prototype's header read "Map System" - the cost was one extra build round.
+
+Built as: Journey's own map gets the layer with `stops={false}` (Journey already draws every shop - the layer's own
+numbered pins doubled them on the 160 px phone strip, measured), the panel sits in the page (`.kx-page`: under the strip
+on the phone, a 400 px column beside the 500 px map on the PC); Map System keeps gold chips only (`bare`). Frames:
+`Raw/2026-10-02-expedition/built-journey-phone-390.jpg`, `built-journey-pc-1440.png`. **Queued:** the Map System
+redesign (his "later").
+
 ## 2026-10-02 21:15 - region scoping: DECIDED A (21:34, his *"A is wisest go with that one"*), built kpm `d206f6a`
 
 Built as: `visibleTeam()` in `src/utils/expedition.js`; "global" = Reports' own authority switch (ADMIN / DEVELOPER /
