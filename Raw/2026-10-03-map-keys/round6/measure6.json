@@ -1,0 +1,147 @@
+{
+ "errs": [],
+ "pcOverflow": 0,
+ "endT": {
+  "who": [
+   308,
+   782.28,
+   338,
+   824.28
+  ],
+  "chest": [
+   324,
+   790.84,
+   352,
+   824.84
+  ],
+  "gapPx": -14
+ },
+ "endA": {
+  "who": [
+   552,
+   782.26,
+   582,
+   824.26
+  ],
+  "chest": [
+   584,
+   790.84,
+   612,
+   824.84
+  ],
+  "gapPx": 2
+ },
+ "endB": {
+  "who": [
+   812,
+   782.23,
+   842,
+   824.23
+  ],
+  "chest": [
+   844,
+   790.84,
+   872,
+   824.84
+  ],
+  "gapPx": 2
+ },
+ "endC": {
+  "who": [
+   1103,
+   772.22,
+   1133,
+   814.22
+  ],
+  "chest": [
+   1104,
+   790.84,
+   1132,
+   824.84
+  ],
+  "gapPx": -29
+ },
+ "restA": {
+  "chestMoved": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "whoMoved": [
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "restB": {
+  "chestMoved": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "whoMoved": [
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "restC": {
+  "chestMoved": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "whoMoved": [
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "crate": {
+  "0": {
+   "op": 0,
+   "visBottomBelowRim": 39,
+   "boxTop": 57
+  },
+  "200": {
+   "op": 1,
+   "visBottomBelowRim": 39,
+   "boxTop": 57
+  },
+  "450": {
+   "op": 1,
+   "visBottomBelowRim": 39,
+   "boxTop": 57
+  },
+  "700": {
+   "op": 1,
+   "visBottomBelowRim": -43.8,
+   "boxTop": -25.8
+  },
+  "950": {
+   "op": 1,
+   "visBottomBelowRim": 0,
+   "boxTop": 33.3
+  },
+  "1200": {
+   "op": 1,
+   "visBottomBelowRim": 20.4,
+   "boxTop": 68.4
+  },
+  "1800": {
+   "op": 1,
+   "visBottomBelowRim": 0,
+   "boxTop": 48
+  }
+ },
+ "liteRunning": 0,
+ "phoneHoverNone": true,
+ "phoneOverflow": 0,
+ "phoneGroundCols": "178px 178px"
+}

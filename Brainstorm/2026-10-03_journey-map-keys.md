@@ -1,6 +1,6 @@
 ---
 date: 2026-10-03
-status: BUILT 13:42 - kpm aaf6a7e (local, not pushed). Keys icon acts + new layout; shop = 14x14 chest, dark inside, lit sign per outcome; slot bubbles; full pixel salesman. PARKED - players customising their own character.
+status: ROUND 6 DRAWN 22:40 - crowd on the bubble + selling scenes A/B/C, his pick OPEN. Earlier - BUILT 13:42 - kpm aaf6a7e (local, not pushed). Keys icon acts + new layout; shop = 14x14 chest, dark inside, lit sign per outcome; slot bubbles; full pixel salesman. PARKED - players customising their own character.
 tags: [kpm, journey-plan, design, map, motion]
 ---
 
@@ -9,6 +9,50 @@ their own as well lets use that for now"* - A (the full pixel person) wins over 
 salesman customising his own character (skin, hair, shirt) - "maybe in future update" is his PARKED marker
 (2026-09-23 rule). If it comes back: the sprite is already split into palette letters (`PERSON(hair, shirt)`), so a
 picker only has to store three colours per profile.
+
+## Round 6 (22:00-22:40) - the crowd on the bubble + selling scenes A / B / C drawn; his pick OPEN
+
+Page: https://claude.ai/artifact/EW5vnHMQUWYEyt9sk9MGvf (source `Raw/2026-10-03-map-keys/round6/crowd-sell-r6.html`,
+frames + `board6.png` + `measure6.json` from `shoot6.mjs`).
+
+**Problem, his words (20:15):** *"i want this animation so that chest and 8 bit character not colliding but combined
+into one animation instead"*.
+
+| Option | What plays (merged with the chest's own secure moment) | Last picture (= Lite, = map opened later) |
+|---|---|---|
+| A Restock | he kneels, the lid swings up, a box of goods arcs from his hands into the chest and sinks behind the front edge (clip line held on the rim), chest jumps, sign plants | kneeling at the open chest, 2 px clear of it |
+| B Paid | the chest jumps, the lid pops, a coin is tossed up out of it and caught in his raised hands, sign plants | both hands up holding the coin, name tag lifted above it |
+| C Stall | he walks round behind the chest, opens it from there like a shop counter, sign plants (no chest jump) | his head and shoulders above his open chest |
+
+Costs, each measured: all three end with the chest exactly where it rested (0.00 px before vs after a replay), the man
+2 px clear of the chest in A and B (TODAY: 14 px overlap), Lite = 0 running animations, no sideways scroll at 390.
+Three new poses only (kneel, arms up, both feet down) on the app's 10 x 14 rows - no new sprite system. ~1.5-1.8 s,
+once per sale.
+
+**Decided by me, said in the reply:** the scene REPLACES the chest's own secure moment when both fire together (the
+sale and the `at` detection arrive in the same location stamp) - his "Norak" rule, one moment one animation. The crowd
+is STILL (cached pictures, no loop) - the 17:53 lag fix. Which bubble a salesman belongs to: put his marker INSIDE the
+MarkerClusterGroup, so Leaflet's own clustering puts him in exactly one bubble at every zoom (walking ones too), and the
+bubble icon draws the crowd from `getAllChildMarkers()` with the shop count excluding salesmen.
+not-chosen: screen-space hit test after the map settles (perf/mock-badge.mjs BADGE) - lost on a second pass per zoom and
+a man drawn in a bubble his spot is only near. Flips if the cluster plugin cannot hold two marker kinds without
+breaking spiderfy. not-chosen: "a salesman at shop X joins X's bubble" - lost on walking salesmen belonging nowhere.
+
+**Mistakes caught before he saw it:** (1) crowd and slot chests invisible - a `background:` shorthand in the page CSS
+came after the injected sprite style and reset the picture, and an inline `style="...url("...")"` broke its attribute;
+(2) B's coin flew through the name tag; (3) C's chest jump grew over the head of the man behind it - jump removed in C;
+(4) the first phone numbers were from a 980 px layout (local copy without the publish skeleton's viewport meta) and
+still read "0 overflow".
+
+**REJECTED ON PURPOSE:** the brief's "c) he carries a crate in and the lid shuts" - a shut lid means NOT visited on this
+map (his round-2 complaint that two states must read different), so C became the stall. Crowd figures that walk or
+breathe zoomed out (lag). Name tags on crowd figures (the crowd itself is the count).
+
+DECISION: OPEN - waiting on Aldi's pick A / B / C.
+
+Models applied: Inversion (what would make the scene wrong: two animations on one moment; the chest covering the man),
+Pre-mortem (C's jump swallowing him was found by freezing 1.20 s), Second-Order Thinking (a crowd that animates in every
+bubble costs the phone the lag fixed at 17:53).
 
 ## 20:15 - his answer to A/B: a GROUP of 8-bit characters on the bubble + a SELLING ANIMATION (design next session)
 

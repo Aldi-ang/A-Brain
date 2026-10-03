@@ -1,0 +1,352 @@
+<title>Journey Crowd Scene</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Silkscreen:wght@400;700&display=swap">
+<style>
+/* Journey Plan round 6 (2026-10-03, his 20:15 ask): salesmen as a CROWD of 8-bit people standing on a bubble when
+   zoomed out, and the SELLING SCENE where the man and the shop's chest become one picture. One dark look on purpose
+   (the app's dark theme); a game object keeps its own colours (his rule 2026-09-22). Every animated element's RESTING
+   style is its last frame, so Lite Mode (the app's kill list) and a fresh page show the end picture. */
+:root {
+  color-scheme: dark;
+  --ground: #0A0908; --panel: #121110; --raised: #1B1917;
+  --line-2: #3E3A35; --line-3: #6A645C;
+  --ink: #E8E4DE; --ink-muted: #A39B90;
+  --gold-2: #E4B04A; --on-gold: #1B1408;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-pixel: "Silkscreen", ui-monospace, Consolas, monospace;
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+  --slow: 1;
+}
+html[data-slow="3"] { --slow: 3; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 15px/1.45 var(--font-body); -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; }
+main { max-width: 1060px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 48px; display: grid; gap: 16px; }
+h1 { margin: 0; font: 800 28px/1.05 var(--font-display); letter-spacing: .02em; text-transform: uppercase; text-wrap: balance; }
+h1 small { display: block; margin-top: 6px; font: 400 14px/1.4 var(--font-body); text-transform: none; letter-spacing: 0; color: var(--ink-muted); }
+h2 { margin: 8px 0 0; font: 800 20px/1.1 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--gold-2); text-wrap: balance; }
+.note { margin: 0; max-width: 70ch; color: var(--ink-muted); font-size: 14px; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; flex-wrap: wrap; gap: 8px; padding-block: 10px; background: var(--ground); }
+.tog { min-height: 40px; padding: 0 14px; border: 1px solid var(--line-3); border-radius: 10px; background: var(--panel); cursor: pointer; transition: transform 140ms var(--ease-out); }
+.tog[aria-pressed="true"] { border-color: var(--gold-2); color: var(--gold-2); }
+.tog.go { background: var(--gold-2); border-color: var(--gold-2); color: var(--on-gold); font-weight: 700; }
+.tog:active { transform: scale(.97); }
+.tog:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 2px; }
+
+/* ================= 1 · ZOOMED OUT: the crowd on the bubble ================= */
+.ground { border: 1px solid var(--line-2); border-radius: 16px; overflow: hidden; background: #545557 url(ground.jpg) 50% 46% / 2048px auto;
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.spot { position: relative; height: 220px; }
+html[data-size="3"] .spot { height: 330px; }
+.spot .pin { position: absolute; left: 50%; top: 60%; width: 0; height: 0; }
+html[data-size="3"] .spot .pin { scale: 2; top: 62%; }
+.spot .lab { position: absolute; left: 8px; right: 8px; bottom: 8px; padding: 4px 6px; border-radius: 6px; background: rgba(10, 9, 8, .78);
+  color: var(--ink); font: 600 12px/1.25 var(--font-body); text-align: center; text-wrap: balance; }
+@media (max-width: 760px) { .ground { grid-template-columns: repeat(2, minmax(0, 1fr)); } .spot:last-child { grid-column: 1 / -1; } }
+
+/* the bubble = the app's inventory slot (src/styles/expedition.css .kx-slot), anchored at its centre like the app (21, 21) */
+.kx-slot { position: absolute; left: -21px; top: -21px; width: 42px; height: 51px; }
+.kx-slot .hop { position: relative; width: 42px; height: 42px; background: #8B8B8B; border: 3px solid; border-color: #373737 #FFFFFF #FFFFFF #373737; display: grid; place-items: center; }
+.kx-slot .kx-c5 { position: relative; width: 28px; height: 34px; }
+.kx-slot .cnt { position: absolute; right: 2px; bottom: 1px; font: 900 16px/1 var(--font-display); color: #FFFFFF; z-index: 1; }
+.kx-slot .cnt::before { content: attr(data-n); position: absolute; left: 2px; top: 2px; color: #3F3F3F; z-index: -1; }
+.kx-slot .dur { position: absolute; left: 0; right: 0; top: 46px; height: 5px; background: #0A0908; border: 1px solid #0A0908; }
+.kx-slot .dur i { position: absolute; inset: 0; background: #E4B04A; transform-origin: 0 50%; transform: scaleX(var(--f)); }
+.kx-slot.full .hop::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(186, 120, 255, .35) 46%, rgba(255, 214, 140, .30) 54%, transparent 70%); }
+.kx-spr { position: absolute; left: 0; bottom: 0; width: 28px; height: 34px; background-position: center; background-size: 100% 100%; background-repeat: no-repeat; }
+/* the crowd: one cached picture per figure (never inline pixel squares - the 17:53 lag fix), feet on the slot's top edge;
+   front row of up to 3, a back row of up to 2 peeking between them, then "+N" */
+.crowd { position: absolute; left: 0; width: 0; height: 0; }
+.crowd i { position: absolute; bottom: 0; width: 20px; height: 28px; margin-left: -10px; background-position: center; background-size: 100% 100%; background-repeat: no-repeat; image-rendering: pixelated; }
+.crowd i.back { bottom: 6px; }
+.crowd .more { position: absolute; left: 25px; bottom: 7px; padding: 3px 3px 2px; background: rgba(10, 9, 8, .82); color: #FFFFFF; font: 700 11px/1 var(--font-pixel); }
+.gshadow { position: absolute; left: -30px; top: -5px; width: 60px; height: 10px; border-radius: 50%; background: rgba(0, 0, 0, .45); }
+
+/* ================= 2 · ZOOMED IN: the selling scene ================= */
+.scenes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+html[data-size="3"] .scenes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) { .scenes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .scenes, html[data-size="3"] .scenes { grid-template-columns: minmax(0, 1fr); } }
+.card { border: 1px solid var(--line-2); border-radius: 14px; background: var(--panel); overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.card.today { opacity: .9; }
+.tile { position: relative; height: 180px; overflow: hidden; background: #545557 url(ground.jpg) 38% 52% / 4096px auto; }
+html[data-size="3"] .tile { height: 340px; }
+.stage { position: absolute; left: calc(50% + 8px); top: 74%; width: 0; height: 0; }
+html[data-size="3"] .stage { scale: 3; left: calc(50% + 22px); top: 80%; }
+.txt { padding: 10px 12px 12px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.txt h3 { margin: 0; font: 800 18px/1.1 var(--font-display); letter-spacing: .03em; text-transform: uppercase; }
+.txt h3 b { color: var(--gold-2); margin-right: 6px; }
+.txt p { margin: 0; font-size: 13.5px; color: var(--ink-muted); }
+.txt .tog { justify-self: start; min-height: 36px; }
+
+.px { shape-rendering: crispEdges; display: block; overflow: visible; }
+.scene { position: absolute; left: 0; top: 0; }
+/* the man: 10 x 14 pixels at 3 px each, exactly the app's .kx-sm; the pin (0, 0) is the shop, he stands just left of it */
+.who { position: absolute; left: -46px; top: -42px; width: 30px; height: 42px; }
+.who .shadow { position: absolute; left: 50%; bottom: -4px; width: 28px; height: 8px; translate: -50% 0; border-radius: 50%; background: rgba(0, 0, 0, .5); }
+.who .body { position: absolute; inset: 0; animation: breathe calc(2600ms * var(--slow)) ease-in-out infinite; }
+.who .body > svg { position: absolute; left: 0; bottom: 0; width: 30px; height: 42px; }
+@keyframes breathe { 50% { transform: translateY(-1px); } }
+.who .tag { position: absolute; bottom: calc(100% + 5px); left: 50%; translate: -50% 0; white-space: nowrap; padding: 3px 5px 2px; background: rgba(10, 9, 8, .72);
+  color: #FFFFFF; font: 400 11px/1 var(--font-pixel); display: flex; align-items: center; gap: 5px; }
+.who .tag i { width: 7px; height: 7px; background: var(--c); }
+.legsB { opacity: 0; }
+
+/* the shop's chest = the app's .kx-c5 (src/utils/mapSprites.js CHEST5), resting state = visited: lid up, dark inside, lit sign */
+.c5 { position: absolute; left: -14px; top: -34px; width: 28px; height: 34px; isolation: isolate; }
+.c5 .art, .c5 .hop { position: absolute; inset: 0; }
+.c5 .hop { transform-origin: 50% 100%; }
+.c5 svg.chest { position: absolute; left: 0; bottom: 0; width: 28px; height: 34px; }
+.c5 .lidF, .c5 .lidU { transform-box: fill-box; transform-origin: 50% 100%; }
+.c5 .lidF { opacity: 0; transform: translateY(-3px) scaleY(.15); }
+.c5 .lidU { opacity: 1; }
+.c5 .ring { position: absolute; left: 50%; bottom: -5px; width: 36px; height: 12px; translate: -50% 0; border-radius: 50%; border: 2px solid #E4B04A; background: rgba(10, 9, 8, .55); z-index: -1; }
+.c5 .sign5 { position: absolute; left: 19px; bottom: -8px; width: 22px; height: 22px; transform-origin: 50% 100%; }
+.c5 .sign5 svg { position: relative; width: 22px; height: 22px; }
+.c5 .sign5 .lamp { position: absolute; left: -11px; top: -12px; width: 44px; height: 36px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 214, 140, .62), rgba(228, 176, 74, .22) 55%, transparent); }
+.fx { position: absolute; left: 0; top: -30px; width: 0; height: 0; pointer-events: none; }
+.fx i { position: absolute; width: 4px; height: 4px; background: #FFE2A0; opacity: 0; }
+.fx i:nth-child(2n) { background: #E4B04A; width: 3px; height: 3px; }
+
+/* ---- the shared chest moment, timed per version: --lid (the lid swings up), --hop (the chest jumps), --sign, --fx ---- */
+.scene { --lid: 300ms; --hop: 1050ms; --sign: 1150ms; --fx: 1080ms; }
+.scene.play .c5 .bright { animation: fade-in calc(240ms * var(--slow)) ease calc((var(--lid) - 60ms) * var(--slow)) both; }
+.scene.play .c5 .lidF { animation: lid-tilt5 calc(190ms * var(--slow)) cubic-bezier(.5, 0, .9, .6) calc(var(--lid) * var(--slow)) both; }
+.scene.play .c5 .lidU { animation: lid-unfold calc(340ms * var(--slow)) var(--spring) calc((var(--lid) + 180ms) * var(--slow)) both; }
+.scene.play .c5 .hop { animation: hop2 calc(600ms * var(--slow)) calc(var(--hop) * var(--slow)) both; }
+.scene.play .c5 .sign5 { animation: plant calc(380ms * var(--slow)) var(--spring) calc(var(--sign) * var(--slow)) both; }
+.scene.play .c5 .sign5 .lamp { animation: lamp-on calc(520ms * var(--slow)) var(--ease-out) calc((var(--sign) + 280ms) * var(--slow)) both; }
+.scene.play .fx i { animation: spark calc(680ms * var(--slow)) var(--ease-out) calc(var(--fx) * var(--slow)); }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes lid-tilt5 { from { opacity: 1; transform: translateY(3px); } 92% { opacity: 1; } to { opacity: 0; transform: translateY(-3px) scaleY(.15); } }
+@keyframes lid-unfold { from { opacity: 1; transform: scaleY(0); } to { opacity: 1; transform: none; } }
+@keyframes hop2 {
+  0%   { transform: none; animation-timing-function: cubic-bezier(.3, 0, .5, 1); }
+  16%  { transform: scale(1.14, .84); animation-timing-function: cubic-bezier(.2, .6, .35, 1); }
+  44%  { transform: translateY(-9px) scale(.94, 1.08); animation-timing-function: cubic-bezier(.55, 0, .85, .35); }
+  64%  { transform: scale(1.1, .9); animation-timing-function: cubic-bezier(.2, .8, .3, 1); }
+  82%  { transform: scale(.98, 1.02); }
+  100% { transform: none; }
+}
+@keyframes plant { from { opacity: 0; transform: translateY(-12px) rotate(-8deg); } }
+@keyframes lamp-on { from { opacity: 0; transform: scale(.4); } 45% { opacity: 1; transform: scale(1.25); } }
+@keyframes spark { 0% { opacity: 1; transform: translate(0, 0) scale(1); } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(.4); } }
+/* a pose switch: shown (or hidden) from a moment on, one hard cut like a sprite frame */
+@keyframes showAt { from { opacity: 0; } to { opacity: 1; } }
+@keyframes hideAt { from { opacity: 1; } to { opacity: 0; } }
+
+/* ---- TODAY: two markers. The man is drawn 30 px left of his own point, the chest on the shop; 150 m apart at most,
+        so at street zoom they land on each other ---- */
+.sT .who { left: -30px; z-index: 2; }
+
+/* ---- A · RESTOCK: he kneels, the lid swings up, a box of goods arcs from his hands into the chest and sinks in ---- */
+.sA .p-stand { opacity: 0; }
+.sA.play .p-stand { animation: hideAt calc(160ms * var(--slow)) steps(1, end) both; }
+.sA.play .p-kneel { animation: showAt calc(160ms * var(--slow)) steps(1, end) both; }
+.cx { position: absolute; left: -26px; top: -15px; width: 12px; height: 10px; }
+.cy { opacity: 0; }
+.cy svg { width: 12px; height: 10px; }
+.sA.play .cx { animation: crX calc(900ms * var(--slow)) linear calc(160ms * var(--slow)) both; }
+.sA.play .cy { animation: crY calc(900ms * var(--slow)) linear calc(160ms * var(--slow)) both; }
+@keyframes crX { 0%, 33% { transform: none; } 75%, 100% { transform: translateX(20px); } }
+/* up eases out, down eases in = one arc; from 75 % the box sinks below the chest's front edge and the clip eats it at
+   exactly the rate it falls, so the cut line stays on the rim */
+@keyframes crY {
+  0%   { opacity: 0; transform: none; clip-path: inset(0 0 0 0); }
+  1%   { opacity: 1; }
+  33%  { transform: none; animation-timing-function: cubic-bezier(.2, .7, .4, 1); }
+  55%  { transform: translateY(-28px); animation-timing-function: cubic-bezier(.6, 0, .8, .4); }
+  75%  { transform: translateY(-13px); clip-path: inset(0 0 0 0); }
+  100% { opacity: 1; transform: translateY(-3px); clip-path: inset(0 0 10px 0); }
+}
+
+/* ---- B · PAID: the chest jumps, the lid pops, a coin shoots up out of it and lands in his raised hands ---- */
+.sB { --lid: 380ms; --hop: 250ms; --sign: 1120ms; --fx: 1060ms; }
+.sB .p-stand { opacity: 0; }
+.sB.play .p-stand { animation: hideAt calc(1000ms * var(--slow)) steps(1, end) both; }
+.sB.play .p-arms { animation: showAt calc(1000ms * var(--slow)) steps(1, end) both; }
+.sB .tag { bottom: calc(100% + 18px); }
+.sB .fx { left: -31px; top: -49px; }
+.kx { position: absolute; left: 9px; top: -13px; width: 12px; height: 12px; }
+.kx svg { width: 12px; height: 12px; }
+.sB.play .kx { animation: cnX calc(450ms * var(--slow)) linear calc(600ms * var(--slow)) both; }
+.sB.play .ky { animation: cnY calc(450ms * var(--slow)) linear calc(600ms * var(--slow)) both; }
+@keyframes cnX { from { transform: translateX(31px); } to { transform: none; } }
+@keyframes cnY {
+  0%   { opacity: 0; transform: translateY(27px); animation-timing-function: cubic-bezier(.2, .7, .4, 1); }
+  3%   { opacity: 1; }
+  70%  { transform: translateY(-4px); animation-timing-function: cubic-bezier(.6, 0, .8, .4); }   /* tossed up, caught at the top: stays under his name tag */
+  100% { opacity: 1; transform: none; }
+}
+
+/* ---- C · STALL: he walks round behind the chest and opens it from there, like a shopkeeper at his counter ---- */
+.sC { --lid: 650ms; --hop: 900ms; --sign: 1080ms; --fx: 930ms; }
+.sC .who { transform: translate(31px, -10px); }
+.sC.play .who { animation: walkC calc(600ms * var(--slow)) linear both; }
+@keyframes walkC { from { transform: none; } }
+.sC.play .legsA { animation: stepA calc(300ms * var(--slow)) steps(1) 2; }
+.sC.play .legsB { animation: stepB calc(300ms * var(--slow)) steps(1) 2; }
+@keyframes stepA { 50% { opacity: 0; } }
+@keyframes stepB { 50% { opacity: 1; } }
+/* no chest jump in C: a jumping chest grows over the head of the man standing behind it */
+.sC.play .c5 .hop { animation: none; }
+
+/* Lite Mode = the app's kill list; reduced motion gets the same end pictures */
+html.lite *, html.lite *::before, html.lite *::after { animation: none !important; transition: none !important; box-shadow: none !important; text-shadow: none !important; filter: none !important; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<main>
+  <h1>Journey Plan · the crowd and the selling scene
+    <small>Round 6. Every animation shows its last picture first, the same as when the map is opened. Press Replay to watch it, Slow ×3 to judge the motion, Lite to see what a slow phone shows.</small></h1>
+
+  <div class="bar" role="toolbar" aria-label="Page controls">
+    <button class="tog go" id="playAll" type="button">▶ Play all</button>
+    <button class="tog" id="slow" type="button" aria-pressed="false">Slow ×3</button>
+    <button class="tog" id="size" type="button" aria-pressed="false">Zoom in ×3</button>
+    <button class="tog" id="lite" type="button" aria-pressed="false">Lite</button>
+  </div>
+
+  <h2>1 · Zoomed out: the salesmen stand on the bubble</h2>
+  <p class="note">Every salesman inside a bubble's area stands on top of it in his team colour. Up to five are drawn; more show as +N. They stand still here, so the map stays fast. Zoom in and the bubble opens: each man stands at his own spot, as now. A man whose End of Day is finished leaves the map.</p>
+  <div class="ground" id="ground"></div>
+
+  <h2>2 · Zoomed in: he is selling at a shop. Pick A, B or C</h2>
+  <p class="note">Plays once, at the moment his sale arrives while the map is open. It takes the place of the chest's own pop, so only one animation plays. Opening the map later shows the last picture only. While he stays at the shop he just breathes.</p>
+  <div class="scenes" id="scenes"></div>
+</main>
+
+<script>
+/* ---- copied from src/utils/mapSprites.js (kpm 7b770be), so the page draws exactly the app's pixels ---- */
+const px = (rows, pal) => {
+  let out = '';
+  rows.forEach((row, y) => {
+    for (let x = 0; x < row.length;) {
+      const ch = row[x]; let w = 1;
+      while (row[x + w] === ch) w++;
+      if (ch !== '.') out += `<rect x="${x}" y="${y}" width="${w}" height="1" ${pal[ch]}/>`;
+      x += w;
+    }
+  });
+  return out;
+};
+const at = (rows, y0) => Array(y0).fill('').concat(rows);
+const darker = (hex, k = 0.7) => '#' + [1, 3, 5].map((i) => Math.round(parseInt(hex.slice(i, i + 2), 16) * k).toString(16).padStart(2, '0')).join('');
+const W5DIM = { O: 'fill="#160E07"', H: 'fill="#7A5A38"', W: 'fill="#644629"', M: 'fill="#53391F"', D: 'fill="#3F2A15"', S: 'fill="#2C1C0D"', k: 'fill="#1C1814"', L: 'fill="#A8A296"', l: 'fill="#6E6A62"', K: 'fill="#0D0804"' };
+const W5 = { O: 'fill="#24160A"', H: 'fill="#E0A55C"', W: 'fill="#BF8240"', M: 'fill="#9C6630"', D: 'fill="#74481C"', S: 'fill="#4E3012"', k: 'fill="#2A2622"', L: 'fill="#F2EEE4"', l: 'fill="#A9A49A"', K: 'fill="#120A04"' };
+const BODY5 = ['OSSSSSSSSSSSSO', 'OHHHHHHHHHHHHO', 'OWWWWWWWWWWWMO', 'OMWWWWWWWWWWMO', 'OSSSSSSSSSSSSO', 'OHWWWWWWWWWWWO', 'OMWWWWWWWWWWMO', 'ODDDDDDDDDDDDO', '.OOOOOOOOOOOO.'];
+const LID5 = ['.OOOOOOOOOOOO.', 'OHHHHHHHHHHHHO', 'OWWWWWWWWWWWMO', 'OMWWWkkkkWWWMO', 'ODDDDkLLkDDDDO', '.....kLlk.....', '.....kllk.....', '.....kkkk.....'];
+const UNDER5 = ['.OOOOOOOOOOOO.', 'ODDDDDDDDDDDDO', 'ODMMMMMMMMMMDO', 'ODSSSSSSSSSSDO', 'ODDDDDDDDDDDDO'];
+const INSIDE5 = ['.OOOOOOOOOOOO.', 'OKKKKKKKKKKKKO', 'OKKKKKKKKKKKKO'];
+const CHEST5 = `<svg class="px chest" viewBox="0 0 14 17" width="28" height="34">`
+  + `<g>${px(at(BODY5, 8), W5DIM)}</g><g class="bright">${px(at(BODY5, 8), W5)}</g>`
+  + `<g>${px(at(INSIDE5, 5), W5)}</g><g class="lidU">${px(UNDER5, W5)}</g>`
+  + `<g class="lidF"><g>${px(LID5, W5DIM)}</g><g class="bright">${px(LID5, W5)}</g></g></svg>`;
+const SP5 = { O: 'fill="#3F2C18"', w: 'fill="#F0E2BC"', v: 'fill="#D9C597"', P: 'fill="#5B3F22"', K: 'fill="#221509"', R: 'fill="#B3261E"', G: 'fill="#E2A12E"', Y: 'fill="#FFF4CF"', b: 'fill="#A8743A"' };
+const BOARD5 = ['.OOOOOOOOO.', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OvvvvvvvvvO', '.OOOOOOOOO.', '.....P.....', '.....P.....', '....PPP....'];
+const SOLD = ['...KKK...', '..KGGGK..', '.KGYGGGK.', '.KGGGGGK.', '..KGGGK..', '...KKK...'];
+const SIGN_SOLD = `<svg class="px" viewBox="0 0 11 11" width="22" height="22">${px(BOARD5, SP5)}${px(['...........'].concat(SOLD.map((r) => '.' + r + '.')), SP5)}</svg>`;
+const STILL = {
+  shut: px(at(BODY5, 8), W5) + px(at(INSIDE5, 5), W5) + px(at(LID5, 3), W5),
+  open: px(at(BODY5, 8), W5) + px(at(INSIDE5, 5), W5) + px(UNDER5, W5),
+};
+const uri = (body, w, h) => `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" shape-rendering="crispEdges">${body}</svg>`)}")`;
+const spriteCss = Object.entries(STILL).map(([k, b]) => `.kx-spr-${k}{background-image:${uri(b, 14, 17)}}`);
+const slotHtml = (n, visited) =>
+  `<div class="kx-slot${n && visited === n ? ' full' : ''}" style="--f:${n ? (visited / n).toFixed(3) : 0}"><div class="hop">`
+  + `<span class="kx-c5"><i class="kx-spr kx-spr-${n && visited === n ? 'open' : 'shut'}"></i></span><b class="cnt" data-n="${n}">${n}</b></div><i class="dur"><i></i></i></div>`;
+const SPARKS = '<span class="fx">' + [[-14, -16], [12, -18], [-6, -24], [16, -6], [-17, -4], [5, -27]].map(([dx, dy]) => `<i style="--dx:${dx}px;--dy:${dy}px"></i>`).join('') + '</span>';
+
+/* ---- the man: the app's rows, plus three NEW poses for the scenes ---- */
+const HEAD = ['..OOOOOO..', '.OhhhhhhO.', '.OhsssshO.', '.OsessesO.', '.OsszzssO.'];
+const TORSO = ['OccccccccO', 'OcCccccCcO', 'OcCccccCcO', 'OsCccccCsO', 'OOppppppOO'];
+const LEGS_A = ['.OppOOppO.', '.OppOOffO.', '.OffO.OO..', '.OOOO.....'];
+const LEGS_B = ['.OppOOppO.', '.OffOOppO.', '..OO.OffO.', '.....OOOO.'];
+const LEGS_S = ['.OppOOppO.', '.OppOOppO.', '.OffO.OffO', '.OOOO.OOOO'];               /* NEW: both feet down */
+const STAND = HEAD.concat(TORSO, LEGS_S);
+const KNEEL = at(HEAD.concat(TORSO, ['OffppppffO']), 3);                                  /* NEW: down on his knees */
+const ARMS = ['s.OOOOOO.s', 'cOhhhhhhOc', 'cOhsssshOc', 'cOsessesOc', 'cOsszzssOc',     /* NEW: both hands up */
+  'OccccccccO', 'OcCccccCcO', 'OcCccccCcO', 'OcCccccCcO', 'OOppppppOO'].concat(LEGS_S);
+const pal = (hair, shirt) => ({ O: 'fill="#0A0908"', h: `fill="${hair}"`, s: 'fill="#E2AE80"', z: 'fill="#C48C5E"', e: 'fill="#2A1A10"',
+  c: `fill="${shirt}"`, C: `fill="${darker(shirt)}"`, p: 'fill="#3A3530"', f: 'fill="#17130F"' });
+const pose = (rows, hair, shirt, cls = '') => `<svg class="px ${cls}" viewBox="0 0 10 14" width="30" height="42">${px(rows, pal(hair, shirt))}</svg>`;
+const walker = (hair, shirt) => { const P = pal(hair, shirt);   /* = the app's personSvg: two leg frames */
+  return `<svg class="px" viewBox="0 0 10 14" width="30" height="42"><g class="legsA">${px(at(LEGS_A, 10), P)}</g><g class="legsB">${px(at(LEGS_B, 10), P)}</g><g>${px(HEAD.concat(TORSO), P)}</g></svg>`; };
+
+/* a crowd figure is ONE cached picture per look, the way the app caches chests (SPRITE_CSS) */
+const figCache = new Map();
+const figCls = ([hair, shirt]) => {
+  const k = hair + shirt;
+  if (!figCache.has(k)) { figCache.set(k, 'fg' + figCache.size); spriteCss.push(`.${figCache.get(k)}{background-image:${uri(px(STAND, pal(hair, shirt)), 10, 14)}}`); }
+  return figCache.get(k);
+};
+const FRONT = { 1: [0], 2: [-7, 7], 3: [-14, 0, 14] }, BACK = { 1: [-7], 2: [-7, 7] };
+const crowdHtml = (list, feetY) => {
+  const f = list.slice(0, 3), b = list.slice(3, 5), more = list.length - 5;
+  const fig = (p, x, back) => `<i class="${figCls(p)}${back ? ' back' : ''}" style="left:${x}px"></i>`;
+  return `<div class="crowd" style="top:${feetY}px">${b.map((p, i) => fig(p, BACK[b.length][i], 1)).join('')}`
+    + `${f.map((p, i) => fig(p, FRONT[f.length][i])).join('')}${more > 0 ? `<b class="more">+${more}</b>` : ''}</div>`;
+};
+
+/* ---- 1 · the ground with five bubbles ---- */
+const SQUAD = ['#a855f7', '#ec4899', '#C9B38B', '#C2553A', '#E8E4DE', '#D08A2E', '#8E8A84'];
+const HAIRS = ['#2B1A0E', '#151210', '#5A3418'];
+const ppl = (k, from = 0) => Array.from({ length: k }, (_, i) => [HAIRS[(i + from) % 3], SQUAD[(i + from) % SQUAD.length]]);
+const SPOTS = [
+  { k: 1, n: 6, v: 2, lab: '1 salesman · 6 shops' },
+  { k: 3, n: 14, v: 9, lab: '3 salesmen · 14 shops' },
+  { k: 5, n: 11, v: 11, lab: '5 salesmen · all 11 visited' },
+  { k: 7, n: 20, v: 4, lab: '7 salesmen · 5 drawn, +2' },
+  { k: 2, n: 0, v: 0, lab: '2 salesmen at the branch, no shop near' },
+];
+document.getElementById('ground').innerHTML = SPOTS.map((s, i) =>
+  `<div class="spot"><div class="pin">${s.n ? slotHtml(s.n, s.v) : '<i class="gshadow"></i>'}${crowdHtml(ppl(s.k, i), s.n ? -21 : 0)}</div><span class="lab">${s.lab}</span></div>`).join('');
+/* the cached pictures go in AFTER the page's own styles, so no shorthand above can reset them */
+document.body.insertAdjacentHTML('beforeend', `<style>${spriteCss.join('\n')}</style>`);
+
+/* ---- 2 · the scenes ---- */
+const HAIR = '#2B1A0E', SHIRT = '#a855f7';
+const CHEST = `<div class="c5"><i class="ring"></i><div class="art"><div class="hop">${CHEST5}</div></div><i class="sign5"><i class="lamp"></i>${SIGN_SOLD}</i></div>`;
+const CRATE = `<div class="cx"><div class="cy"><svg class="px" viewBox="0 0 6 5" width="12" height="10">${px(['OOOOOO', 'OTTTTO', 'OttttO', 'OTTTTO', 'OOOOOO'], { O: 'fill="#3B2410"', T: 'fill="#C9A36A"', t: 'fill="#8C6B3A"' })}</svg></div></div>`;
+const COIN = `<div class="kx"><div class="ky"><svg class="px" viewBox="0 0 6 6" width="12" height="12">${px(['.OOOO.', 'OGYGGO', 'OYGGGO', 'OGGGDO', 'OGGDDO', '.OOOO.'], { O: 'fill="#5B3A10"', G: 'fill="#E2A12E"', Y: 'fill="#FFF4CF"', D: 'fill="#B87A1E"' })}</svg></div></div>`;
+const TAG = '<span class="tag"><i></i>BS · 5/8</span>';
+const BODY = {
+  T: walker(HAIR, SHIRT),
+  A: pose(STAND, HAIR, SHIRT, 'p-stand') + pose(KNEEL, HAIR, SHIRT, 'p-kneel'),
+  B: pose(STAND, HAIR, SHIRT, 'p-stand') + pose(ARMS, HAIR, SHIRT, 'p-arms') + COIN,
+  C: walker(HAIR, SHIRT),
+};
+const sceneHtml = (v) => `<div class="scene s${v}" style="--c:${SHIRT}"><div class="who"><i class="shadow"></i><div class="body">${BODY[v]}</div>${TAG}</div>`
+  + CHEST + (v === 'A' ? CRATE : '') + (v === 'T' ? '' : SPARKS) + '</div>';
+const CARDS = [
+  { v: 'T', t: 'Today', p: 'Two markers: the man and the chest bump into each other.' },
+  { v: 'A', t: 'Restock', p: 'He kneels, opens the lid and puts a box of goods in. Last picture: kneeling at the open chest.' },
+  { v: 'B', t: 'Paid', p: 'The chest jumps open and a coin flies out into his hands. Last picture: the coin held up high.' },
+  { v: 'C', t: 'Stall', p: 'He walks behind the chest and opens it like a shop counter. Last picture: him behind his open chest.' },
+];
+document.getElementById('scenes').innerHTML = CARDS.map((c) =>
+  `<article class="card${c.v === 'T' ? ' today' : ''}"><div class="tile"><div class="stage">${sceneHtml(c.v)}</div></div>`
+  + `<div class="txt"><h3>${c.v === 'T' ? '' : `<b>${c.v}</b>`}${c.t}</h3><p>${c.p}</p>`
+  + (c.v === 'T' ? '' : `<button class="tog" type="button" data-play="${c.v}">↻ Replay</button>`) + '</div></article>').join('');
+
+/* ---- controls ---- */
+const play = (el) => { el.classList.remove('play'); void el.offsetWidth; el.classList.add('play'); };
+const scenes = () => [...document.querySelectorAll('.scene:not(.sT)')];
+document.getElementById('scenes').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-play]'); if (b) play(document.querySelector(`.s${b.dataset.play}`));
+});
+document.getElementById('playAll').addEventListener('click', () => scenes().forEach(play));
+const flip = (id, fn) => document.getElementById(id).addEventListener('click', (e) => {
+  const on = e.currentTarget.getAttribute('aria-pressed') !== 'true';
+  e.currentTarget.setAttribute('aria-pressed', on); fn(on);
+});
+flip('slow', (on) => { document.documentElement.dataset.slow = on ? '3' : '1'; scenes().forEach(play); });
+flip('size', (on) => { document.documentElement.dataset.size = on ? '3' : '1'; });
+flip('lite', (on) => { document.documentElement.classList.toggle('lite', on); });
+setTimeout(() => scenes().forEach(play), 700);
+</script>
