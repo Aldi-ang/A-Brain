@@ -3170,3 +3170,8 @@ gold kept only for "secured") and three key motions (corner brackets, the icon a
   thing happens (a hop, a pop, light), not a nicer still. Same rule as "the object wins" (2026-09-30): offer things he
   could name from a game - a chest, a banner - not tasteful shapes. Round 2 drawn as banner / chest / beacon with a
   secure moment each; his pick owed. [[../../Brainstorm/2026-10-03_journey-map-keys]]
+- **08:45, round 2:** *"chest is kinda cool tbh but since it is small, secured stores and unvisited stores looks almost
+  the same"* - the object won again (the chest), and he judges a MAP mark at map size: two states that differ only in
+  a detail (a squashed lid) read as one. A state on a small mark needs shape + brightness + light together; check it
+  in grey at real size before showing him. He also asks what a design element is FOR (*"what is the purpose of the
+  filled and unfilled hexagon"*) - a mark whose meaning he cannot read is decoration to him.

@@ -1,0 +1,72 @@
+{
+ "pc-today": {
+  "vw": 1440,
+  "docW": 1440,
+  "pixel": true,
+  "marks": 20,
+  "outside": 0,
+  "tooSmall": 0
+ },
+ "pc-chest": {
+  "vw": 1440,
+  "docW": 1440,
+  "pixel": true,
+  "marks": 20,
+  "outside": 0,
+  "tooSmall": 0
+ },
+ "pc-chest2": {
+  "vw": 1440,
+  "docW": 1440,
+  "pixel": true,
+  "marks": 20,
+  "outside": 0,
+  "tooSmall": 0
+ },
+ "phone-today": {
+  "vw": 390,
+  "docW": 390,
+  "pixel": true,
+  "marks": 20,
+  "outside": 0,
+  "tooSmall": 0
+ },
+ "phone-chest": {
+  "vw": 390,
+  "docW": 390,
+  "pixel": true,
+  "marks": 20,
+  "outside": 0,
+  "tooSmall": 0
+ },
+ "phone-chest2": {
+  "vw": 390,
+  "docW": 390,
+  "pixel": true,
+  "marks": 20,
+  "outside": 0,
+  "tooSmall": 0
+ },
+ "luminance": {
+  "beforeClosed": 0.132,
+  "beforeOpen": 0.132,
+  "fixedClosed": 0.051,
+  "fixedOpen": 0.246,
+  "heightClosed": 22,
+  "heightOpen": 28
+ },
+ "moment-chest-0": 13,
+ "moment-chest-100": 13,
+ "moment-chest-220": 13,
+ "moment-chest-380": 11,
+ "moment-chest-600": 11,
+ "moment-chest-1400": 11,
+ "moment-chest2-0": 13,
+ "moment-chest2-100": 13,
+ "moment-chest2-220": 13,
+ "moment-chest2-380": 13,
+ "moment-chest2-600": 13,
+ "moment-chest2-1400": 13,
+ "lite-chest2": 0,
+ "errs": []
+}

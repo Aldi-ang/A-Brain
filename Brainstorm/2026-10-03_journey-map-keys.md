@@ -4,6 +4,23 @@ status: KEYS DECIDED (2 Icon acts, 08:25); MARKS round 2 drawn (1 Banner / 2 Che
 tags: [kpm, journey-plan, design, map, motion]
 ---
 
+## Round 3 (08:45-08:56) - the chest, fixed
+
+> *"chest is kinda cool tbh but since it is small, secured stores and unvisited stores looks almost the same here tho
+> make it harder to differentiate, it is what the most downside i see, other beacon and banner i dont like it, beacon
+> is also satisfying but what is the purpose of the filled and unfilled hexagon tho?"*
+
+- **Chest = his direction.** Banner and Beacon rejected (Beacon called satisfying but its meaning unclear - the reply
+  explains: big hex = a bubble, lit edges = its secured share; small hex = one shop).
+- **The fault was real and measurable:** v2's closed and open chest used the SAME wood (mean luminance 0.132 both) and
+  the same 22 px box - only the lid squashed and a 1 px glow row changed. At 24 px that is invisible.
+- **Fix = three signals at once:** SHAPE (open is a separate sprite, 28 px tall, the lid standing up), BRIGHTNESS
+  (closed = dim wood, luminance 0.051; open = bright wood, 0.246 - about 4.8x), LIGHT (a beam + a warm pool on the
+  ground). The board has a real-size crop and a GREY copy of it: closed = dark box, open = light box, so brightness
+  alone separates them.
+- The sprite swap is a state (`opacity` with a 150 ms transition DELAY, no animation), so Lite shows the end at once.
+- Board `Raw/2026-10-03-map-keys/round3/board.png`; page v3. His verdict owed; key layout still unanswered.
+
 ## Round 2 (08:25-08:40) - his answer to round 1
 
 > *"icon acts is the best, i dont like all the marks can u redesign it to make it more satisfying and cool and game
