@@ -26,8 +26,11 @@ into one animation instead"*.
   arcs into his hand; he carries a crate in and the lid shuts. Each must end on a readable still (Lite).
 - Rejected now: A (standing on the bubble) and B (heads only) - his "combine them into one".
 - 20:20, his words: *"well actually their animation should be gone when EOD is finished so that its considered as job
-  done for the day right"* - DECIDED: a finished End of Day stops every animation of that salesman. OPEN: does he stay
-  on the map still, or leave it; does "EOD finished" replace the two-hour LIVE_MIN rule?
+  done for the day right"* - DECIDED: a finished End of Day stops every animation of that salesman.
+- 20:25, his words: *"after EOD then character will leave the map, EOD finished should replace 2 hours rule, and EOD is
+  must to close that day job"* - DECIDED: on the map = seen today and no finished EOD today; EOD done = he leaves the
+  map; LIVE_MIN (two hours, kpm 7b770be) goes. Cost told to him: a forgotten EOD keeps him at his last spot until
+  midnight (also shows who has not closed). REJECTED: the two-hour clock; "stay on the map standing still".
 
 ## FIXED SPOT + OFFLINE HIDDEN 2026-10-03 20:08 - kpm 7b770be (local, not pushed); zoomed-out look OPEN
 
