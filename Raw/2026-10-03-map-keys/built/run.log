@@ -1,0 +1,98 @@
+{
+  "pc": {
+    "keys": [
+      "129x40",
+      "129x40",
+      "129x40",
+      "129x40"
+    ],
+    "labels": [
+      "block:FULLSCREEN",
+      "block:BORDERS",
+      "block:SET HOME",
+      "block:FLY HOME"
+    ],
+    "chests": 1,
+    "visited": 0,
+    "slots": 8,
+    "people": [
+      "kx-sm idle",
+      "kx-sm idle sel",
+      "kx-sm walk",
+      "kx-sm idle",
+      "kx-sm off"
+    ],
+    "dock": 0,
+    "docW": 1440
+  },
+  "pcBrush": [
+    "44:DISABLE BRUSH",
+    "44:Unassign",
+    "44:Adi Nugroho",
+    "44:Ari Rahman",
+    "44:Budi Santoso",
+    "44:Cahyo Putra",
+    "44:Dedi Kurniawan",
+    "44:Dewi Wulandari",
+    "44:Rina Wijaya",
+    "44:Rini Saputri",
+    "44:Rizky Aditama"
+  ],
+  "phone": {
+    "docW": 390,
+    "dock": [
+      "58x58 BRUSH",
+      "58x58 BORDERS",
+      "58x58 SET HOME",
+      "58x58 FLY HOME",
+      "58x58 LOCATE",
+      "58x58 EXIT"
+    ],
+    "labelsFit": true,
+    "dockBottomGap": 23,
+    "topKeysShown": "none",
+    "roundLocateShown": "none"
+  },
+  "phoneBrush": {
+    "gapAboveDock": 22,
+    "left": 11,
+    "right": 11,
+    "rows": "44,44,44,44,44,44,44,44,44,44,44",
+    "namesClipped": 0
+  },
+  "moment": {
+    "cls": "kx-c5 v burst",
+    "restBefore": -597,
+    "restAfter": -597,
+    "moved": 0,
+    "swappedToStill": true,
+    "lidOpenAfter": "1",
+    "signAfter": true,
+    "runningKxAt1400": 6,
+    "dy": "0:0.0 75:0.0 117:-1.1 159:-6.1 202:-8.1 244:-8.9 287:-9.0 329:-8.2 372:-5.2 415:0.0 456:0.0 499:0.0 543:0.0 584:0.0 626:0.0 669:0.0 711:0.0 754:0.0 795:0.0 840:0.0 881:0.0 923:0.0 966:0.0 1008:0.0 1051:0.0 1092:0.0 1135:0.0 1177:0.0 1220:0.0 1260:0.0 1301:0.0 1344:0.0 1390:0.0"
+  },
+  "moment2": {
+    "cls": "kx-c5 v shut burst",
+    "restBefore": -28,
+    "restAfter": -28,
+    "moved": 0,
+    "swappedToStill": true,
+    "lidOpenAfter": "0",
+    "signAfter": true,
+    "runningKxAt1400": 6,
+    "dy": "0:0.0 71:0.0 112:-0.2 157:-6.1 199:-8.1 242:-8.9 287:-9.0 327:-8.2 370:-5.2 411:0.0 454:0.0 497:0.0 539:0.0 581:0.0 624:0.0 666:0.0 708:0.0 751:0.0 793:0.0 838:0.0 878:0.0 921:0.0 963:0.0 1005:0.0 1048:0.0 1091:0.0 1133:0.0 1175:0.0 1218:0.0 1260:0.0 1303:0.0 1345:0.0 1387:0.0"
+  },
+  "lite": {
+    "cls": "kx-c5 v burst",
+    "restBefore": -597,
+    "restAfter": -597,
+    "moved": 0,
+    "swappedToStill": true,
+    "lidOpenAfter": "1",
+    "signAfter": true,
+    "runningKxAt1400": 0,
+    "dy": "0:0.0 73:0.0 125:0.0 172:0.0 218:0.0 265:0.0 307:0.0 359:0.0 405:0.0 452:0.0 500:0.0 546:0.0 593:0.0 639:0.0 684:0.0 730:0.0 777:0.0 824:0.0 871:0.0 918:0.0 965:0.0 1011:0.0 1058:0.0 1105:0.0 1151:0.0 1198:0.0 1245:0.0 1292:0.0 1338:0.0 1385:0.0"
+  },
+  "liteRunning": [],
+  "errors": []
+}

@@ -1524,3 +1524,7 @@ His rule added to [[Aldi's Design Taste]]. Local commits waiting on "push": 3f53
 ## 2026-10-02 19:45 — Expedition map BUILT (kpm eef2f55, local): B on the phone, A on the PC
 
 [[2026-10-02_expedition-map]] · [[Looking at the App]] (map frames: pane for 390, headless for 1440).
+
+## 2026-10-03 13:42 — Journey map design BUILT (kpm aaf6a7e, local)
+
+[[2026-10-03_journey-map-keys]] (BUILT section: frames, numbers, five build traps) · frames in Raw/2026-10-03-map-keys/built/.

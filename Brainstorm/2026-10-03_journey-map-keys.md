@@ -1,6 +1,6 @@
 ---
 date: 2026-10-03
-status: DECIDED 09:55 - keys icon acts; shop = 14x14 chest, dark inside, lit sign per outcome; salesman = full pixel person (A); key layout new. BUILD owed (kpm NEXT-SESSION.md 09:55). PARKED - players customising their own character.
+status: BUILT 13:42 - kpm aaf6a7e (local, not pushed). Keys icon acts + new layout; shop = 14x14 chest, dark inside, lit sign per outcome; slot bubbles; full pixel salesman. PARKED - players customising their own character.
 tags: [kpm, journey-plan, design, map, motion]
 ---
 
@@ -9,6 +9,25 @@ their own as well lets use that for now"* - A (the full pixel person) wins over 
 salesman customising his own character (skin, hair, shirt) - "maybe in future update" is his PARKED marker
 (2026-09-23 rule). If it comes back: the sprite is already split into palette letters (`PERSON(hair, shirt)`), so a
 picker only has to store three colours per profile.
+
+## BUILT 2026-10-03 13:42 - kpm aaf6a7e (local, not pushed)
+
+Frames + numbers: `Raw/2026-10-03-map-keys/built/` (`measure-built.json`, shooter `shoot-built.mjs`; lab
+`?shell&journey&exp&admin&visits`, `&tick` = one more shop visited every 2.5 s). Rest position before vs after the
+moment 0.00 px (hop peak -9 px); Lite = 0 px and 0 kx animations running; dock 6 x 58x58; brush rows 44; a bubble's
+bar refreshed 2/3 -> 3/3 live without a zoom.
+
+**Traps found while building (each cost a reshoot):**
+- Leaflet's own `.leaflet-map-pane svg { z-index: 200 }` lifts every sprite svg inside a marker above its HTML
+  siblings - the bubble count went behind the chest (white digit invisible). Fix: `.kx-mk .px { z-index: auto }`,
+  pinned in logicFixes.
+- The app's global `button:has(> svg:only-child)` centres any button whose only ELEMENT child is an icon - a bare
+  text node does not count. Fix: wrap the label in a span.
+- Motion sampled in the Browser pane read 0 px: the hidden pane's `document.timeline` does not advance (same cause
+  as [[Looking at the App]], 2026-09-04). Motion proof = headless only.
+- StrictMode runs a useMemo twice in dev: a "what changed" flag returned from the memo is false on the second
+  run. Keep it in a ref.
+- Dock labels at 12 px measured 57 in a 57 px key at 390 - shipped at 11 (the floor).
 
 ## Round 5 (09:32-09:47) - every visit dark inside, the light in the sign; 14 px chest; the salesman model
 
