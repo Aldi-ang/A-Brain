@@ -10,6 +10,25 @@ salesman customising his own character (skin, hair, shirt) - "maybe in future up
 (2026-09-23 rule). If it comes back: the sprite is already split into palette letters (`PERSON(hair, shirt)`), so a
 picker only has to store three colours per profile.
 
+## FIXED SPOT + OFFLINE HIDDEN 2026-10-03 20:08 - kpm 7b770be (local, not pushed); zoomed-out look OPEN
+
+His words (20:00, with a screenshot of seven salesmen at 0 sales ringed round one bubble): *"why these agent position
+is changed when i zoom in and out when it supposed to be fix tho, need improvement on this and also there should be no
+data for their location right now because they are offline and not working right"*.
+
+- The 17:53 step-aside picked a new free spot after every zoom -> he saw them jump. REMOVED. A salesman now stands at a
+  constant offset (feet 30 px left of his spot, clear of his shop's chest) - measured -30 px over five zoom changes.
+- "Out" meant "sent a position at any time today" (an app open at the branch at 07:00 counted at 20:00). There is no
+  online signal in the data (a point is sent only with a sale or an app open), so `LIVE_MIN = 120`: on the map only
+  while his last point is under two hours old. The panel still lists everyone. Map System chips follow the same rule.
+- **OPEN - waiting on Aldi:** fixed spots and "never on a bubble" cannot both hold when zoomed out (4 of 4 lab salesmen
+  stand on the bubble holding their shop). A = as now, standing on it; B = while his spot is inside a bubble, his small
+  head sits on that bubble's top-left corner, the full person back when the bubble opens. Frames
+  `Raw/2026-10-03-map-keys/perf/mock-a-out1.png` / `mock-b-out1.png` (mock script `mock-badge.mjs`). My pick B.
+- **REJECTED ON PURPOSE:** any screen-space step-aside (moves with zoom - his complaint); hiding salesmen when zoomed
+  out (he loses who is where).
+- ❓ also asked: is two hours right for "working right now"?
+
 ## LAG + COLLISIONS FIXED 2026-10-03 17:53 - kpm eabda69 (local, not pushed)
 
 His words (17:30): *"make sure that the chest and person not colliding with one another when the map is zoomed out

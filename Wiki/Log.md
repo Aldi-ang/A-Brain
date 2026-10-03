@@ -1532,3 +1532,7 @@ His rule added to [[Aldi's Design Taste]]. Local commits waiting on "push": 3f53
 ## 2026-10-03 17:53 — Journey map lag + salesman collisions FIXED (kpm eabda69, local)
 
 [[2026-10-03_journey-map-keys]] (LAG + COLLISIONS section: measured table, rejected options) · probe + frames in Raw/2026-10-03-map-keys/perf/.
+
+## 2026-10-03 20:10 — Journey map: salesmen fixed to their spot, offline off the map (kpm 7b770be); zoomed-out A/B OPEN
+
+[[2026-10-03_journey-map-keys]] (FIXED SPOT section) · mock frames Raw/2026-10-03-map-keys/perf/mock-*.png.
