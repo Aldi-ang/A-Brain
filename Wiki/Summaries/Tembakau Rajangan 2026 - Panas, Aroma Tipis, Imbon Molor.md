@@ -93,8 +93,15 @@ What changed on the page because of it:
 
 ## Decision
 OPEN - waiting on Aldi. Recommended: rajang now + lab test 2-3 samples (+ one 2025 sample).
-Open question: his buyer is Gudang Garam (per `Tobacco-Business/index.md`); the no-sugar rule
-verified is DJARUM's. Gudang Garam's rule is unverified.
+
+**Answered 2026-10-03, his words:** *"gudang garam dont refuse sugar but not buying muntilan
+prambanan tobacco this year"*. So: Djarum refuses sugar, Gudang Garam accepts it, but GG is out
+of Muntilan and Prambanan in 2026. Verified context (DuckDuckGo, 2026-10-03): GG also skips
+Temanggung for the third year (Komunitas Kretek, Sep 2026) and has postponed buying from
+Probolinggo farmers until about 2030, citing abundant stock and a falling market (TIMES
+Indonesia). Reading: GG's absence fits its stock and sales, not 2026 leaf quality [likely].
+Consequence: the Prambanan 2026 lot must go to other buyers, so added sugar = worse taste AND
+fewer buyers. Page v5 carries this (market card + "Gudang Garam absen karena mutu 2026?").
 
 ## Rejected on purpose
 - Chasing "oil" (sauce, sugar, extra N, delaying harvest): wrong medicine, can make it worse.

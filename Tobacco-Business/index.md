@@ -41,4 +41,4 @@ based on what actually gets captured, not upfront guessing.
 
 ## Entries
 
-- 2026-10-03 — [[Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor]] (Wiki/Summaries) — first real ingest: 2026 El Niño rajangan research; page source in `Raw/2026-10-03_rajangan-2026-research-page.html`. Note: the no-sugar rule verified is Djarum's; Gudang Garam's is unverified.
+- 2026-10-03 — [[Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor]] (Wiki/Summaries) — first real ingest: 2026 El Niño rajangan research; page source in `Raw/2026-10-03_rajangan-2026-research-page.html`. Gudang Garam accepts sugar but is not buying Muntilan or Prambanan tobacco in 2026 (his words); Djarum refuses sugar.
