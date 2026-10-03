@@ -24,8 +24,9 @@ that it is easier to understand for me and use indonesian language"* - about the
 Dry heat helped the harvest and jemur (bright colour, right moisture, price up) but hit EARLIER,
 while leaves were growing (Jun-Aug): less sugar formed, nicotine/N concentrated, K/Ca/Mg uptake
 down, thick force-ripened leaves. Then a slow imbon (6 days) burned more sugar by respiration.
-- Hot smoke: burning sugar makes acid that tames nicotine; low sugar -> more alkaline smoke ->
-  more free nicotine -> harsh (Leffingwell 1999). Over-dried rajangan burns faster and hotter.
+- Jedug (v1-v3 wrongly called it "hot smoke", see his correction below): burning sugar makes acid
+  that tames nicotine; low sugar -> more alkaline smoke -> more free nicotine -> direct punch
+  (Leffingwell 1999). Heat itself comes from burning sugar and over-dried rajangan.
 - Thin aroma: sweet-savoury notes come from sugar x amino acid browning (Maillard) and carotenoid
   breakdown during ripening/imbon. "Oil lost" is only PARTLY true: drought does not reliably cut
   leaf oil (oriental tobacco is grown dry), and "berminyak" in the RSNI is a handling descriptor;
@@ -50,6 +51,37 @@ down, thick force-ripened leaves. Then a slow imbon (6 days) burned more sugar b
 
 Own check: 26.34 mg CO2/min/kg at 27 °C -> ~2.6% dry matter/day; 61.87 at 43 °C -> ~6.1%/day.
 Three extra imbon days ≈ 6-8% dry matter, mostly sugar and starch.
+
+## His field knowledge (2026-10-03, verbatim) — page v4 rebuilt on it
+*"as i smoked for decades, gula is the one that makes the tobacco hotter to smokes, and less anteb
+or impactful"* · *"the imbon time is different between areas because the product, tobacco type is
+different as well as their jenis bibit and grades, higher grade tobacco in prambanan might takes a
+long time as the leaves position on the tobacco trees goes up, rewosan and daun bawah might take
+less time than tenggok or protol"* · *"imbon lama matang or tidak matang is also happening because
+sometimes petani use pupuk urea and their leaves cant be mateng on imbon"* · *"penjual daun just
+dont care about quality and want to sell the daun basah at higher price and shortest time period
+possible, they petik the leaves without waiting for the tobacco to be menua di lapangan"* ·
+*"boyolali anteb is njedug or on the nose feel impactful directly just like hitting a wall of
+impact while temanggung is halus ... anteb is going up slowly ... this year all the tobacco is
+mostly just having jedug impact and not halus, even weleri loss their aromatic essence this year"*
+
+What changed on the page because of it:
+- **Correction:** v1-v3 said "low sugar = hot smoke". That mixed two feelings. Now three: PANAS
+  (temperature; from burning sugar, esp. added sugar, and over-dry rajangan), JEDUG (direct punch;
+  low sugar + high nicotine = the 2026 profile), HALUS-ANTEB (slow rise; needs sugar, a leaf aged
+  on the plant, a finished imbon). Science agrees on "sugar = less anteb" (acid tames nicotine);
+  pipe-smoker sources say high-sugar leaf burns hotter when puffed fast. H1 is now "jedug dan
+  kurang harum", not "panas".
+- **Imbon length** is per leaf position (Prambanan: rewosan/daun bawah faster, tenggok/protol
+  slower), per area, type, seed and grade. The Madura 5-day peak is labelled as Madura only.
+- **Two new causes** in the chain (tagged LAPANGAN): heavy urea, and picking before the leaf ages
+  in the field. My link (tagged as inference): Klaten wet-leaf price rose to Rp7,000/kg in 2026,
+  which rewards fast picking.
+- **New section "Anteb tiap daerah":** impact-shape curves (Boyolali wall, Temanggung slow rise,
+  2026 dashed wall) + Temanggung/Muntilan/Weleri/Boyolali cards. Region-wide flattening points
+  at weather + market, not one village's processing.
+- Leaf names rewosan/tenggok/protol are NOT online; used from his words only. I did not add a
+  "daun tengah" rung (his law: only he names his trade's categories).
 
 ## Options for the lot at day 6 (and their cost)
 | Option | Cost |
