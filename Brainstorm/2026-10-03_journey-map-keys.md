@@ -48,7 +48,15 @@ still read "0 overflow".
 map (his round-2 complaint that two states must read different), so C became the stall. Crowd figures that walk or
 breathe zoomed out (lag). Name tags on crowd figures (the crowd itself is the count).
 
-DECISION: OPEN - waiting on Aldi's pick A / B / C.
+DECISION (23:05), his words: *"B paid but change that into coin animation that used on the agent inventory and
+receipt"* - B, with the app's own `.kpm-coin` (the 8-frame `coin-sprite.png` spin of Agent Inventory's revenue line and
+its receipt rows) instead of the page's drawn coin. BUILT 23:25, kpm `41e308b` (local, not pushed): crowd on the bubble,
+scene B with the spinning inventory coin (Lite = front face), EOD sent = off the map, LIVE_MIN gone. Timing changed
+from the page on purpose: the scene rides the chest's existing burst (lid 220-740 ms) instead of a "sell" variant of
+the chest, so one moment stays one animation and a location that arrives after the sale still plays the coin alone.
+Proof: `Raw/2026-10-03-map-keys/built6/` (frames, `measure-built6.json`) + `perf/perf-crowd6.json` (120 ms busy per
+3 s at rest, was 279-308; longest zoom frame 73 ms).
+OPEN, asked: does "EOD finished" mean SENT by him (built) or APPROVED by the boss?
 
 Models applied: Inversion (what would make the scene wrong: two animations on one moment; the chest covering the man),
 Pre-mortem (C's jump swallowing him was found by freezing 1.20 s), Second-Order Thinking (a crowd that animates in every

@@ -3186,3 +3186,19 @@ gold kept only for "secured") and three key motions (corner brackets, the icon a
   sign carries the meaning, so it carries the light); he judges pixel art zoomed in, so a sprite must hold up at 6x,
   not only at map size; and a stock map pin is "too standard" - every marker on his maps should be an object from
   the world (a chest for a shop, a person for a salesman).
+
+## A reward that already exists in the app beats a new drawing of the same thing (2026-10-03, 23:05)
+
+Shown three selling scenes for the Journey map (A restock, B paid, C stall), each with a coin or box drawn for the page,
+he picked B and swapped its coin for the app's own:
+
+> *"B paid but change that into coin animation that used on the agent inventory and receipt"*
+
+- **The meaning he picked is money coming in** (the coin into the salesman's hands), over giving goods (A) or keeping
+  a stall (C) - the map is for watching sales happen.
+- **He wants one coin across the app, not one per screen.** The spinning `.kpm-coin` of Agent Inventory and its receipt
+  rows is already "the coin" to him; a second, prettier coin drawn for the map would be a stranger. Rule: before
+  drawing a reward object (coin, chest, gem, star), check whether the app already has one and reuse it, motion included.
+- Earlier the same night: *"make it into group of 8bit character instead looks kinda cool right"* - zoomed out, men
+  are shown as a crowd standing on the bubble, not as heads or as a count. Built kpm `41e308b`;
+  [[../../Brainstorm/2026-10-03_journey-map-keys]] "Round 6".
