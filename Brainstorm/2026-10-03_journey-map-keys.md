@@ -25,6 +25,9 @@ into one animation instead"*.
   he is detected selling (expedition state `at`). Candidates to draw: kneel + lid lifts + goods rise; lid opens + coin
   arcs into his hand; he carries a crate in and the lid shuts. Each must end on a readable still (Lite).
 - Rejected now: A (standing on the bubble) and B (heads only) - his "combine them into one".
+- 20:20, his words: *"well actually their animation should be gone when EOD is finished so that its considered as job
+  done for the day right"* - DECIDED: a finished End of Day stops every animation of that salesman. OPEN: does he stay
+  on the map still, or leave it; does "EOD finished" replace the two-hour LIVE_MIN rule?
 
 ## FIXED SPOT + OFFLINE HIDDEN 2026-10-03 20:08 - kpm 7b770be (local, not pushed); zoomed-out look OPEN
 
