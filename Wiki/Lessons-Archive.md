@@ -833,3 +833,20 @@ Seen: 2026-09-16
 Fired:
 cd "D:/APP DEVELOPMENT/kpm inventory main FILES/A-Brain" && git add "Wiki/Concepts/UI-Says-Yes-Server-Says-No Pattern.md" && git commit -q -m "Pattern page: the UI said NO before the server had spoken (af4d5e2) — two writers of one condition, the 'unreachable' trap, the fix shape" && git show --stat --oneline HEAD | tail -2; date "+%H:%M WIB"
 
+
+### 2026-09-19 — a phone measurement is taken as the tier with the MOST keys, or the overflow hides
+**Status:** RETIRED (2026-10-02) — never fired in 13 days of phone sweeps: the lab mounts used since take `&admin` by default, so the T5-only measurement it guards against no longer happens; the rule lives on as that habit, not as prose
+**Trigger:** before writing "fine" or "✓" against any control while measuring a screen at 375 — the
+moment a header or a row with an admin-only key is measured as a plain tier.
+**Lesson:** the boss's tier adds keys to the same row (New Sample beside View Analytics, Edit Folder
+beside Back, pencil and bin beside the qty). A row that fits as T5 is the row with the fewest things
+in it; measure it as the boss first, and only then note what the plain tier loses. Also: a "fix" that
+puts a row on one line is not a fix until the longest real name is checked at the phone width with
+every key present — a three-column table plus two 44 px keys leaves ~70 px for the name.
+**Would have prevented:** 2026-09-19 13:30, the Sampling measurement: "View Analytics 148 × 64
+(fine)" — as T5. The board shot as the boss showed the two gold keys running off the phone; the
+finding came two boards and six hours later, and the first board A (the one-line table) had to be
+re-captioned as a failure after it cut "Cello Green 16" to "Cello Gr…".
+Seen: 2026-09-19
+Fired:
+

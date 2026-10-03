@@ -1,0 +1,544 @@
+{
+ "pc-today": {
+  "vw": 1440,
+  "docW": 1440,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "full",
+    "w": 42,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 42,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 42,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 42,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "brush",
+    "w": 151,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 46,
+    "h": 46,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "pc-a": {
+  "vw": 1440,
+  "docW": 1440,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "full",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "brush",
+    "w": 167,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 46,
+    "h": 46,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "pc-b": {
+  "vw": 1440,
+  "docW": 1440,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "full",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "brush",
+    "w": 167,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 46,
+    "h": 46,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "pc-c": {
+  "vw": 1440,
+  "docW": 1440,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "full",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "brush",
+    "w": 167,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 46,
+    "h": 46,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "pc-today-brush": {
+  "vw": 1440,
+  "docW": 1440,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "full",
+    "w": 42,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 42,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 42,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 42,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "brush",
+    "w": 151,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 46,
+    "h": 46,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "pc-a-brush": {
+  "vw": 1440,
+  "docW": 1440,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "full",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 145,
+    "h": 40,
+    "clipped": false
+   },
+   {
+    "k": "brush",
+    "w": 167,
+    "h": 42,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 46,
+    "h": 46,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "phone-today": {
+  "vw": 390,
+  "docW": 390,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "full",
+    "w": 44,
+    "h": 44,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 44,
+    "h": 44,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 44,
+    "h": 44,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 44,
+    "h": 44,
+    "clipped": false
+   },
+   {
+    "k": "brush",
+    "w": 151,
+    "h": 44,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 46,
+    "h": 46,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "phone-a": {
+  "vw": 390,
+  "docW": 390,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "brush",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "full",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "phone-b": {
+  "vw": 390,
+  "docW": 390,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "brush",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "full",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "phone-c": {
+  "vw": 390,
+  "docW": 390,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "brush",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "full",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "phone-today-brush": {
+  "vw": 390,
+  "docW": 390,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "full",
+    "w": 44,
+    "h": 44,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 44,
+    "h": 44,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 44,
+    "h": 44,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 44,
+    "h": 44,
+    "clipped": false
+   },
+   {
+    "k": "brush",
+    "w": 151,
+    "h": 44,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 46,
+    "h": 46,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "phone-a-brush": {
+  "vw": 390,
+  "docW": 390,
+  "font": true,
+  "img": "url(\"file:///C:/Users/ASUS/App",
+  "keys": [
+   {
+    "k": "brush",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "bord",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "home",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "fly",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "loc",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   },
+   {
+    "k": "full",
+    "w": 58,
+    "h": 58,
+    "clipped": false
+   }
+  ],
+  "outside": 0
+ },
+ "liteAnims": 0,
+ "errs": []
+}

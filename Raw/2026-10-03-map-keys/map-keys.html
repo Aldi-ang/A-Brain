@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en" data-view="pc" data-marks="a" data-keys="lamp" data-ergo="new">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Journey Map Keys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&display=swap">
+<style>
+/* Journey Plan's map: shop marks, key motion, key layout. Colours copied from src/styles/theme.css (dark).
+   The map is the app's own dark tiles (ground.jpg). Lite = what html.lite-mode does in the app:
+   no animation, no transition, no box-shadow, no filter. */
+:root {
+  color-scheme: dark;
+  --ground: #0A0908; --sunk: #050403; --panel: #121110; --raised: #1B1917; --inset: #0E0D0C;
+  --line: #26231F; --line-2: #3E3A35; --line-3: #6A645C;
+  --ink: #E8E4DE; --ink-muted: #A39B90; --ink-dim: #928B81;
+  --gold: #D08A2E; --gold-2: #E4B04A;
+  --lamp-on: #FF9D00; --lamp-rim: #8a6e14; --lamp-off: rgba(245, 230, 200, .14);
+  --led-crit: #FF3B4B; --led-warn: #FFB020;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  --slow: 1;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--ground); color: var(--ink); font: 400 15px/1.45 var(--font-body); -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; }
+
+/* ---- the chooser (not app UI) ---- */
+.top { padding: 14px 16px 10px; display: grid; gap: 10px; border-bottom: 1px solid var(--line-2); background: var(--panel); }
+.top h1 { margin: 0; font: 900 22px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; }
+.top h1 small { font: 700 11px/1 var(--font-mono); letter-spacing: .14em; color: var(--ink-dim); margin-left: 10px; }
+.rows { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.grp { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.grp > span { font: 700 11px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); min-width: 74px; }
+.seg { display: flex; border: 1px solid var(--line-3); border-radius: 8px; overflow: hidden; }
+.seg button { min-height: 38px; padding: 0 12px; background: var(--raised); border: 0; border-left: 1px solid var(--line-2); cursor: pointer;
+  font: 800 12px/1 var(--font-mono); letter-spacing: .06em; color: var(--ink-muted); white-space: nowrap; }
+.seg button:first-child { border-left: 0; }
+.seg button[aria-pressed="true"] { background: var(--inset); color: var(--ink); box-shadow: inset 0 -2px 0 var(--gold-2); }
+.tog { min-height: 38px; padding: 0 12px; border: 1px solid var(--line-3); border-radius: 8px; background: var(--raised); cursor: pointer;
+  font: 800 12px/1 var(--font-mono); letter-spacing: .06em; color: var(--ink-muted); }
+.tog[aria-pressed="true"] { color: var(--ink); border-color: var(--gold-2); }
+.pick { border-color: var(--gold); color: var(--ink); }
+
+.wrap { padding: 16px; display: grid; gap: 14px; justify-items: center; }
+.note { max-width: 1000px; width: 100%; margin: 0; font-size: 14px; color: var(--ink-muted); }
+.note b { color: var(--ink); }
+
+/* ---- the map ---- */
+.map { position: relative; overflow: hidden; border: 1px solid var(--line-2); border-radius: 16px; background: #545557 url(ground.jpg) 50% 46% / 2048px auto;
+  transition: background-position calc(900ms * var(--slow)) var(--ease-out); width: min(1000px, 100%); height: 500px; }
+html[data-view="phone"] .map { width: min(390px, 100%); height: 760px; border-radius: 22px; }
+.map.flown { background-position: 44% 40%; }
+.layer { position: absolute; inset: 0; }
+.borders { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity calc(240ms * var(--slow)) ease; pointer-events: none; }
+.map.bordered .borders { opacity: 1; }
+.trail { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* leaflet's zoom, on the theme (as kpm d321daf) */
+.zoom { position: absolute; top: 16px; left: 16px; display: grid; border: 1px solid var(--line-3); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.45); }
+.zoom i { width: 34px; height: 34px; display: grid; place-items: center; background: var(--panel); color: var(--ink); font: 700 20px/1 var(--font-body); font-style: normal; }
+.zoom i + i { border-top: 1px solid var(--line-2); }
+.attrib { position: absolute; right: 0; bottom: 0; padding: 2px 6px; background: rgba(10,9,8,.72); color: var(--ink-dim); font: 11px/1.3 var(--font-body); }
+
+/* salesman chips (the expedition, unchanged in every look) */
+.chip { position: absolute; width: 36px; height: 48px; translate: -50% -100%; display: grid; justify-items: center; align-content: start; }
+.chip b { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(160deg, #E4C98E, #B8893A);
+  color: #2a1d08; font: 900 12px/1 var(--font-mono); border: 3px solid #A39B90; outline: 2px solid #0A0908; }
+.chip > i { width: 2px; height: 10px; background: #E4B04A; }
+.chip span { position: absolute; left: 42px; top: 9px; font: 800 10px/1 var(--font-mono); letter-spacing: .1em; color: #E8E4DE;
+  background: #0A0908; border: 1px solid #6A645C; border-radius: 4px; padding: 3px 5px; white-space: nowrap; }
+
+/* ================= SHOP MARKS ================= */
+.m { position: absolute; translate: -50% -50%; cursor: pointer; }
+.m svg.ic { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* --- TODAY: what kpm d321daf draws --- */
+.t-cl { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: rgba(18,17,16,.95); border: 2px solid #D08A2E;
+  color: #E4B04A; font: 900 14px/1 monospace; box-shadow: 0 0 20px rgba(249,115,22,.5); }
+.t-pin { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: #1B1917; border: 2px solid var(--c);
+  font-size: 12px; box-shadow: 0 0 10px color-mix(in srgb, var(--c) 50%, transparent); }
+
+/* --- A · LAMP: a shop is a small lamp; it is LIT when the shop is secured today --- */
+.a-pin { width: 16px; height: 16px; }
+.a-pin::before { content: ""; position: absolute; inset: -12px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, color-mix(in srgb, var(--c) 22%, transparent) 0, transparent 68%);
+  transition: transform calc(220ms * var(--slow)) var(--ease-out); }
+.a-pin > b { position: absolute; inset: 0; border-radius: 50%; background: #1B1917; border: 2px solid var(--c);
+  transition: transform calc(200ms * var(--slow)) var(--ease-out); }
+.a-pin > b::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--c); opacity: .55; }
+.a-pin.lit::before { inset: -22px; background: radial-gradient(circle, rgba(255,196,110,.55) 0, rgba(228,176,74,.20) 32%, transparent 68%); }
+.a-pin.lit > b { border-color: #6B3400; background: radial-gradient(circle at 42% 38%, #FFF7E6 0 2px, #FFD48A 4px, #E9A93C 8px); }
+.a-pin.lit > b::after { display: none; }
+.a-pin .st, .b-pin .st, .c-pin .st { position: absolute; left: calc(100% + 1px); bottom: calc(100% - 5px); width: 17px; height: 17px; border-radius: 5px;
+  display: grid; place-items: center; background: #0A0908; border: 1px solid var(--line-3); color: var(--ink); }
+.st.crit { color: var(--led-crit); border-color: #7a2a30; }
+.st.warn { color: var(--led-warn); }
+@media (hover: hover) and (pointer: fine) {
+  .a-pin:hover::before { transform: scale(1.35); }
+  .a-pin:hover > b { transform: scale(1.18); }
+}
+.a-cl { width: 46px; height: 46px; }
+.a-cl::before { content: ""; position: absolute; inset: -6px; border-radius: 50%; background: radial-gradient(circle, rgba(0,0,0,.55) 40%, transparent 70%); }
+.a-cl.done::before { inset: -18px; background: radial-gradient(circle, rgba(255,196,110,.40) 0, rgba(228,176,74,.14) 40%, transparent 70%); }
+.a-cl svg { position: absolute; inset: 0; width: 46px; height: 46px; rotate: -90deg; }
+.a-cl em { position: absolute; inset: 0; display: grid; place-items: center; font: 900 19px/1 var(--font-display); font-style: normal; color: var(--ink); letter-spacing: .02em; }
+
+/* --- B · SURVEY: map-maker's marks; a shop is a survey diamond, a bubble is a bezel with one tick per shop --- */
+.b-pin { width: 26px; height: 14px; }
+.b-pin::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: color-mix(in srgb, var(--c) 55%, transparent); }
+.b-pin > b { position: absolute; left: 50%; top: 50%; width: 11px; height: 11px; translate: -50% -50%; rotate: 45deg; background: #0A0908; border: 2px solid var(--c);
+  transition: scale calc(200ms * var(--slow)) var(--ease-out); }
+.b-pin.lit::before { background: #E4B04A; }
+.b-pin.lit > b { border-color: #E4B04A; background: radial-gradient(circle, #E4B04A 0 2px, #0A0908 2.5px); }
+.b-pin .st { left: calc(100% - 4px); }
+@media (hover: hover) and (pointer: fine) { .b-pin:hover > b { scale: 1.25; } }
+.b-cl { width: 50px; height: 50px; }
+.b-cl svg { position: absolute; inset: 0; width: 50px; height: 50px; }
+.b-cl em { position: absolute; inset: 0; display: grid; place-items: center; font: 900 17px/1 var(--font-display); font-style: normal; color: var(--ink); }
+
+/* --- C · TOKEN: board-game pieces; the edge under each piece is a shape, not a shadow, so Lite keeps the depth --- */
+.c-pin { width: 22px; height: 22px; }
+.c-pin::before { content: ""; position: absolute; inset: 0; translate: 0 3px; border-radius: 50%; background: #050403; border: 2px solid color-mix(in srgb, var(--c) 45%, #050403); }
+.c-pin > b { position: absolute; inset: 0; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(165deg, #34302B, #141210 70%);
+  border: 2px solid var(--c); color: var(--c); transition: translate calc(200ms * var(--slow)) var(--ease-out); }
+.c-pin > b::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.c-pin.lit > b { border-color: #E4B04A; color: #E4B04A; }
+.c-pin.lit > b::after { display: none; }
+.c-pin.lit::before { border-color: #6B3400; }
+@media (hover: hover) and (pointer: fine) { .c-pin:hover > b { translate: 0 -3px; } }
+.c-cl { width: 42px; height: 48px; }
+.c-cl i { position: absolute; left: 0; width: 42px; height: 42px; border-radius: 50%; background: #0A0908; border: 2px solid #3E3A35; }
+.c-cl i:nth-child(1) { top: 6px; } .c-cl i:nth-child(2) { top: 3px; background: #141210; }
+.c-cl > b { position: absolute; left: 0; top: 0; width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(165deg, #34302B, #141210 70%); border: 2px solid #6A645C; }
+.c-cl svg { position: absolute; left: 0; top: 0; width: 42px; height: 42px; rotate: -90deg; }
+.c-cl em { position: absolute; left: 0; top: 0; width: 42px; height: 42px; display: grid; place-items: center; font: 900 18px/1 var(--font-display); font-style: normal; color: var(--ink); }
+
+/* ================= KEYS ================= */
+.key { position: relative; display: flex; align-items: center; gap: 8px; padding: 10px; border-radius: 12px; border: 1px solid var(--line-3); background: var(--panel);
+  color: var(--ink-muted); box-shadow: 0 6px 20px rgba(0,0,0,.45); cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform calc(140ms * var(--slow)) var(--ease-out), border-color calc(140ms * var(--slow)) ease, color calc(140ms * var(--slow)) ease; }
+.key svg.k { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.key:active { transform: scale(.97); }
+.key.on { color: var(--ink); border-color: var(--gold); background: var(--inset); }
+.key:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.key > span { font: 800 10px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+@media (hover: hover) and (pointer: fine) { .key:hover { color: var(--ink); border-color: var(--gold); } }
+.key.round { border-radius: 50%; padding: 12px; }
+.lamp { display: none; }
+
+/* the keys column, top right (today's layout) */
+.keys { position: absolute; top: 16px; right: 16px; display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
+.keys .key > span { display: none; }
+@media (hover: hover) and (pointer: fine) { .keys .key:hover > span { display: block; } }
+html[data-view="phone"] .keys .key { min-width: 44px; min-height: 44px; justify-content: center; }
+.brushwrap { position: absolute; left: 16px; bottom: 16px; display: flex; flex-direction: column-reverse; gap: 8px; align-items: flex-start; }
+.brushkey > span { color: var(--ink); font-size: 10px; }
+.brushkey .k.br { color: var(--gold); }
+.brushkey .chev { width: 14px; height: 14px; color: var(--ink-dim); transition: rotate calc(200ms * var(--slow)) var(--ease-out); }
+.brushwrap.open .chev { rotate: 180deg; }
+html[data-view="phone"] .brushkey { min-height: 44px; }
+.locate { position: absolute; right: 16px; bottom: 24px; }
+.dock { display: none; }
+
+/* PC, NEW: one toolbar with the words always on, instead of four floating keys whose names show only under the mouse */
+html[data-view="pc"][data-ergo="new"] .keys { gap: 0; border: 1px solid var(--line-3); border-radius: 14px; background: var(--panel); box-shadow: 0 6px 20px rgba(0,0,0,.45); padding: 4px; align-items: stretch; }
+html[data-view="pc"][data-ergo="new"] .keys .key { border: 1px solid transparent; box-shadow: none; background: none; padding: 9px 30px 9px 10px; border-radius: 10px; gap: 10px; }
+html[data-view="pc"][data-ergo="new"] .keys .key > span { display: block; }
+html[data-view="pc"][data-ergo="new"] .keys .key + .key { margin-top: 2px; }
+html[data-view="pc"][data-ergo="new"] .keys .key.on { background: var(--inset); border-color: var(--gold); }
+
+/* PHONE, NEW: every map key in one dock at the bottom, under the thumb; the brush list opens as a sheet above it */
+html[data-view="phone"][data-ergo="new"] .keys,
+html[data-view="phone"][data-ergo="new"] .brushkey,
+html[data-view="phone"][data-ergo="new"] .locate { display: none; }
+html[data-view="phone"][data-ergo="new"] .dock { position: absolute; left: 10px; right: 10px; bottom: 22px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 2px;
+  padding: 4px; border: 1px solid var(--line-3); border-radius: 18px; background: var(--panel); box-shadow: 0 10px 30px rgba(0,0,0,.6); }
+.dock .key { flex-direction: column; justify-content: center; gap: 5px; min-height: 58px; padding: 6px 2px; border: 1px solid transparent; background: none; box-shadow: none; border-radius: 14px; }
+.dock .key > span { display: block; font: 800 12px/1 var(--font-display); letter-spacing: .06em; }
+.dock .key.on { background: var(--inset); border-color: var(--gold); }
+.dock .key .k.br { color: var(--gold); }
+html[data-view="phone"][data-ergo="new"] .brushwrap { left: 10px; right: 10px; bottom: 112px; }
+html[data-view="phone"][data-ergo="new"] .attrib { bottom: 0; }
+
+/* ---- the brush list ---- */
+.brush { background: rgba(18,17,16,.96); border: 1px solid var(--line-3); padding: 10px; border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,.8);
+  display: flex; flex-direction: column; gap: 6px; width: max-content; max-height: 330px; overflow: auto; }
+.brushwrap:not(.open) .brush { display: none; }
+.row { display: flex; align-items: center; gap: 8px; }
+.pen { flex: 1; display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: 12px; border: 1px solid transparent; background: rgba(27,25,23,.6);
+  color: var(--ink-muted); font: 700 12px/1 var(--font-body); cursor: pointer; text-align: left; }
+.pen .sw { width: 12px; height: 12px; border-radius: 50%; background: var(--c); flex: none; }
+.pen .nm { max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pen.sel { background: var(--raised); color: var(--ink); border-color: var(--c); }
+.pen.off { justify-content: center; text-transform: uppercase; letter-spacing: .14em; font: 900 10px/1 var(--font-mono); }
+.pen.off.sel { background: #ea580c; color: #fff; border-color: #f97316; }   /* today: an orange slab */
+.swatch { width: 32px; height: 32px; flex: none; border-radius: 8px; border: 1px solid #475569; background: var(--c); }
+
+/* brush list, NEW (any look but Today's): bigger rows, whole names, the pick shown with a rim, no orange slab */
+html:not([data-keys="today"]) .brush, html[data-ergo="new"] .brush { gap: 4px; }
+html[data-ergo="new"] .pen { min-height: 44px; padding: 0 12px; gap: 12px; font-size: 14px; }
+html[data-ergo="new"] .pen .sw { width: 20px; height: 20px; box-shadow: inset 0 0 0 2px rgba(0,0,0,.35); }
+html[data-ergo="new"] .pen .nm { max-width: 170px; }
+html[data-ergo="new"] .pen.off { justify-content: flex-start; font-size: 11px; }
+html[data-ergo="new"] .pen.off.sel { background: var(--inset); color: var(--ink); border-color: var(--gold-2); }
+html[data-view="pc"][data-ergo="new"] .brush { max-height: 380px; }
+html[data-ergo="new"] .swatch { width: 44px; height: 44px; border-radius: 10px; border-color: var(--line-3); }
+html[data-view="phone"][data-ergo="new"] .brush { width: 100%; max-height: 360px; }
+html[data-view="phone"][data-ergo="new"] .pen .nm { max-width: none; }
+
+/* the list's entrance: from its key, not from nowhere (every look except Today) */
+html:not([data-keys="today"]) .brushwrap.open .brush { transform-origin: bottom left; animation: sheet-in calc(220ms * var(--slow)) var(--ease-out) both; }
+html:not([data-keys="today"]) .brushwrap.open .row { animation: row-in calc(240ms * var(--slow)) var(--ease-out) both; animation-delay: calc(var(--i) * 28ms * var(--slow)); }
+@keyframes sheet-in { from { opacity: 0; transform: translateY(8px) scale(.96); } }
+@keyframes row-in { from { opacity: 0; transform: translateX(-6px); } }
+html[data-keys="today"] .brushwrap.open .brush { animation: fade-up calc(300ms * var(--slow)) ease-out both; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(10px); } }
+
+/* ================= KEY MOTION ================= */
+/* 1 · LOCK-ON: four corner brackets close in on the key, like a sight finding its target */
+html[data-keys="bracket"] .key::after { content: ""; position: absolute; inset: -5px; pointer-events: none; opacity: 0; transform: scale(1.22);
+  --k: var(--ink-muted);
+  background:
+    linear-gradient(var(--k), var(--k)) left top / 9px 2px no-repeat, linear-gradient(var(--k), var(--k)) left top / 2px 9px no-repeat,
+    linear-gradient(var(--k), var(--k)) right top / 9px 2px no-repeat, linear-gradient(var(--k), var(--k)) right top / 2px 9px no-repeat,
+    linear-gradient(var(--k), var(--k)) left bottom / 9px 2px no-repeat, linear-gradient(var(--k), var(--k)) left bottom / 2px 9px no-repeat,
+    linear-gradient(var(--k), var(--k)) right bottom / 9px 2px no-repeat, linear-gradient(var(--k), var(--k)) right bottom / 2px 9px no-repeat;
+  transition: opacity calc(120ms * var(--slow)) ease, transform calc(260ms * var(--slow)) var(--ease-out); }
+html[data-keys="bracket"] .key.on::after { --k: #E4B04A; opacity: 1; transform: scale(1); }
+html[data-keys="bracket"] .key:focus-visible::after { opacity: 1; transform: scale(1); }
+html[data-keys="bracket"] .key:active::after { opacity: 1; transform: scale(.94); --k: #E4B04A; transition-duration: calc(90ms * var(--slow)); }
+@media (hover: hover) and (pointer: fine) { html[data-keys="bracket"] .key:hover::after { opacity: 1; transform: scale(1); } }
+html[data-keys="bracket"][data-ergo="new"] .keys .key::after,
+html[data-keys="bracket"] .dock .key::after { inset: 0; }
+
+/* 2 · THE ICON ACTS: each picture does its own job for a moment - the corners open, the sheet lifts, the pin drops, the arrow flies */
+html[data-keys="icon"] .key svg.k * { transform-box: fill-box; transform-origin: center; transition: transform calc(240ms * var(--slow)) var(--ease-out); }
+html[data-keys="icon"] .key svg.k { transition: rotate calc(240ms * var(--slow)) var(--ease-out); }
+html[data-keys="icon"] .k-full:is(:active, .act) path:nth-child(1) { transform: translate(-2px, -2px); }
+html[data-keys="icon"] .k-full:is(:active, .act) path:nth-child(2) { transform: translate(2px, -2px); }
+html[data-keys="icon"] .k-full:is(:active, .act) path:nth-child(3) { transform: translate(-2px, 2px); }
+html[data-keys="icon"] .k-full:is(:active, .act) path:nth-child(4) { transform: translate(2px, 2px); }
+html[data-keys="icon"] .k-bord:is(:active, .act) path:nth-child(1) { transform: translateY(-3px); }
+html[data-keys="icon"] .k-bord:is(:active, .act) path:nth-child(3) { transform: translateY(1.5px); }
+html[data-keys="icon"] .k-home.act svg.k { animation: pin-drop calc(460ms * var(--slow)) var(--ease-out); }
+@keyframes pin-drop { 0% { transform: translateY(-6px); } 55% { transform: translateY(0); } 75% { transform: translateY(-2px); } 100% { transform: translateY(0); } }
+html[data-keys="icon"] .k-fly:is(:active, .act) polygon { transform: translate(3px, -3px); }
+html[data-keys="icon"] .k-loc:is(:active, .act) circle:last-child { transform: scale(.4); }
+html[data-keys="icon"] .k-loc:is(:active, .act) circle:nth-last-child(2) { transform: scale(.82); }
+html[data-keys="icon"] .k-brush:is(:active, .act) svg.k.br, html[data-keys="icon"] .brushwrap.open .k.br { rotate: -16deg; }
+@media (hover: hover) and (pointer: fine) {
+  html[data-keys="icon"] .k-full:hover path:nth-child(1) { transform: translate(-1.5px, -1.5px); }
+  html[data-keys="icon"] .k-full:hover path:nth-child(2) { transform: translate(1.5px, -1.5px); }
+  html[data-keys="icon"] .k-full:hover path:nth-child(3) { transform: translate(-1.5px, 1.5px); }
+  html[data-keys="icon"] .k-full:hover path:nth-child(4) { transform: translate(1.5px, 1.5px); }
+  html[data-keys="icon"] .k-bord:hover path:nth-child(1) { transform: translateY(-2.5px); }
+  html[data-keys="icon"] .k-home:hover svg.k { animation: pin-drop calc(460ms * var(--slow)) var(--ease-out); }
+  html[data-keys="icon"] .k-fly:hover polygon { transform: translate(2px, -2px); }
+  html[data-keys="icon"] .k-loc:hover circle:last-child { transform: scale(.55); }
+  html[data-keys="icon"] .k-brush:hover svg.k.br { rotate: -12deg; }
+}
+
+/* 3 · LAMP: a small indicator light in each key, the same lamp the sidebar already wears.
+   It flashes on a press and fades out; it stays lit while the key's thing is ON. */
+html[data-keys="lamp"] .lamp { display: block; position: absolute; top: 6px; right: 6px; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--lamp-off); box-shadow: inset 0 0 0 1px rgba(0,0,0,.6); transition: background-color calc(520ms * var(--slow)) ease-out; }
+html[data-keys="lamp"] .key.round .lamp { top: 4px; right: 50%; translate: 50% 0; }
+html[data-keys="lamp"][data-ergo="new"] .keys .lamp,
+html[data-keys="lamp"] .brushkey .lamp { top: 50%; translate: 0 -50%; right: 12px; }
+html[data-keys="lamp"] .brushkey { padding-right: 26px; }
+html[data-keys="lamp"] .dock .lamp { top: 7px; right: 50%; translate: 50% 0; }
+html[data-keys="lamp"] .key:active .lamp, html[data-keys="lamp"] .key.flash .lamp { background: var(--lamp-on); box-shadow: inset 0 0 0 1px var(--lamp-rim), 0 0 8px rgba(255,157,0,.8); transition-duration: 0s; }
+html[data-keys="lamp"] .key.on .lamp, html[data-keys="lamp"] .brushwrap.open .lamp { background: var(--lamp-on); box-shadow: inset 0 0 0 1px var(--lamp-rim), 0 0 8px rgba(255,157,0,.8); }
+@media (hover: hover) and (pointer: fine) { html[data-keys="lamp"] .key:hover .lamp { background: #6b5320; } }
+
+/* the user's own dot, after Locate */
+.me { position: absolute; width: 14px; height: 14px; translate: -50% -50%; border-radius: 50%; background: #E8E4DE; border: 2px solid #0A0908; display: none; }
+.me::before { content: ""; position: absolute; inset: -6px; border-radius: 50%; background: rgba(232,228,222,.3); animation: ring calc(2s * var(--slow)) infinite; }
+@keyframes ring { from { transform: scale(.6); opacity: 1; } to { transform: scale(1.8); opacity: 0; } }
+.map.located .me { display: block; }
+
+/* the report every action makes */
+.report { position: absolute; left: 50%; top: 16px; translate: -50% 0; padding: 9px 14px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line-3);
+  font: 800 11px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); opacity: 0; transform: translateY(-6px);
+  transition: opacity calc(160ms * var(--slow)) ease, transform calc(220ms * var(--slow)) var(--ease-out); pointer-events: none; white-space: nowrap; }
+.report.show { opacity: 1; transform: none; }
+
+/* ---- Lite: exactly the app's kill list ---- */
+html.lite *, html.lite *::before, html.lite *::after { animation: none !important; transition: none !important; box-shadow: none !important; filter: none !important; }
+
+@media (max-width: 700px) { .grp > span { min-width: 0; width: 100%; } .wrap { padding: 12px 0; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Journey Plan · map keys <small>KPM · try every switch</small></h1>
+  <div class="rows">
+    <div class="grp"><span>Screen</span><div class="seg" data-set="view"><button data-v="pc">PC</button><button data-v="phone">Phone (full map)</button></div></div>
+    <div class="grp"><span>Shop marks</span><div class="seg" data-set="marks"><button data-v="today">Today</button><button data-v="a">A Lamp</button><button data-v="b">B Survey</button><button data-v="c">C Token</button></div></div>
+    <div class="grp"><span>Key motion</span><div class="seg" data-set="keys"><button data-v="today">Today</button><button data-v="bracket">1 Lock-on</button><button data-v="icon">2 Icon acts</button><button data-v="lamp">3 Lamp</button></div></div>
+    <div class="grp"><span>Key layout</span><div class="seg" data-set="ergo"><button data-v="today">Today</button><button data-v="new">New</button></div></div>
+    <div class="grp"><span>Check</span><button class="tog" id="lite" aria-pressed="false">Lite Mode</button><button class="tog" id="slow" aria-pressed="false">Slow ×4</button><button class="tog pick" id="mine">My pick</button></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="map" id="map">
+    <svg class="borders" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M8 22 L30 18 L44 26 L52 20 L66 24 L72 38 L64 50 L70 64 L58 80 L40 84 L26 74 L14 60 L18 42 Z" fill="rgba(208,138,46,.05)" stroke="#D08A2E" stroke-width=".35" stroke-dasharray="1.6 1" vector-effect="non-scaling-stroke"/>
+      <path d="M44 26 L48 46 L64 50" fill="none" stroke="#A39B90" stroke-width=".3" stroke-dasharray="1.2 1" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <svg class="trail" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M37 30 L39 39 L45 45" fill="none" stroke="#E8E4DE" stroke-width="2" vector-effect="non-scaling-stroke" opacity=".8"/>
+      <path d="M45 45 L57 47" fill="none" stroke="#E4B04A" stroke-width="2" stroke-dasharray="5 4" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <div class="layer" id="marks"></div>
+    <div class="me" style="left:52%;top:58%"></div>
+
+    <div class="zoom" aria-hidden="true"><i>+</i><i>−</i></div>
+
+    <div class="keys">
+      <button class="key k-full" data-act="full" title="Fullscreen map"><svg class="k" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg><span class="lbl-full">Fullscreen</span><i class="lamp"></i></button>
+      <button class="key k-bord" data-act="bord" title="Regional borders" aria-pressed="false"><svg class="k" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg><span>Borders</span><i class="lamp"></i></button>
+      <button class="key k-home" data-act="home" title="Save this view as home"><svg class="k" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Set Home</span><i class="lamp"></i></button>
+      <button class="key k-fly" data-act="fly" title="Fly back to home"><svg class="k" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg><span>Fly Home</span><i class="lamp"></i></button>
+    </div>
+
+    <div class="brushwrap" id="brushwrap">
+      <button class="key brushkey k-brush" data-act="brush" aria-expanded="false"><svg class="k br" viewBox="0 0 24 24"><path d="m14.622 17.897-10.68-2.913"/><path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z"/><path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15"/></svg><span>Paintbrush</span><svg class="k chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg><i class="lamp"></i></button>
+      <div class="brush" id="brush"></div>
+    </div>
+
+    <button class="key round locate k-loc" data-act="loc" title="Locate me"><svg class="k" viewBox="0 0 24 24"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg><i class="lamp"></i></button>
+
+    <nav class="dock" aria-label="Map keys">
+      <button class="key k-brush" data-act="brush"><svg class="k br" viewBox="0 0 24 24"><path d="m14.622 17.897-10.68-2.913"/><path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z"/><path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15"/></svg><span>Brush</span><i class="lamp"></i></button>
+      <button class="key k-bord" data-act="bord"><svg class="k" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg><span>Borders</span><i class="lamp"></i></button>
+      <button class="key k-home" data-act="home"><svg class="k" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Set Home</span><i class="lamp"></i></button>
+      <button class="key k-fly" data-act="fly"><svg class="k" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg><span>Fly Home</span><i class="lamp"></i></button>
+      <button class="key k-loc" data-act="loc"><svg class="k" viewBox="0 0 24 24"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg><span>Locate</span><i class="lamp"></i></button>
+      <button class="key k-full on" data-act="full"><svg class="k" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg><span>Exit</span><i class="lamp"></i></button>
+    </nav>
+
+    <div class="report" id="report"></div>
+    <div class="attrib">Leaflet | © Esri</div>
+  </div>
+  <p class="note" id="note"></p>
+</main>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const root = document.documentElement;
+const ICON = {
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  box: '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
+  full: '<polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><path d="M8 12h8"/>',
+  issue: '<path d="M12 4v10"/><path d="M12 20h.01"/>',
+  request: '<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+  closed: '<rect width="16" height="11" x="4" y="11" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+};
+const EMOJI = { open: '📍', claimed: '✅', box: '📦', full: '🛑', issue: '⚠️', request: '📝', closed: '🔒' };
+/* the shop's state after today's visit: claimed / box (consignment) / full (stock full) / issue / request / closed. open = not visited */
+const PINS = [
+  { x: 29, y: 52, st: 'open', c: '#a855f7' }, { x: 37, y: 30, st: 'claimed', c: '#E8E4DE' }, { x: 57, y: 47, st: 'box', c: '#ec4899' },
+  { x: 63, y: 30, st: 'open', c: '#C9B38B' }, { x: 41, y: 67, st: 'full', c: '#a855f7' }, { x: 71, y: 62, st: 'issue', c: '#C2553A' },
+  { x: 77, y: 47, st: 'request', c: '#E8E4DE' }, { x: 33, y: 80, st: 'closed', c: '#ec4899' }, { x: 19, y: 68, st: 'open', c: '#6A645C' },
+  { x: 74, y: 76, st: 'claimed', c: '#C9B38B' }, { x: 64, y: 86, st: 'open', c: '#a855f7' }, { x: 22, y: 30, st: 'open', c: '#C2553A' },
+];
+const CLUSTERS = [
+  { x: 37, y: 36, n: 3, s: 1 }, { x: 48, y: 57, n: 5, s: 2 }, { x: 54, y: 33, n: 4, s: 4 }, { x: 60, y: 63, n: 3, s: 0 },
+  { x: 31, y: 63, n: 5, s: 3 }, { x: 72, y: 36, n: 7, s: 2 }, { x: 46, y: 74, n: 2, s: 2 }, { x: 24, y: 44, n: 12, s: 5 },
+];
+const CHIPS = [{ x: 45, y: 45, ini: 'BS', lab: 'BS · 5/8' }, { x: 55, y: 84, ini: 'RS', lab: 'RS · 8/8' }];
+const AGENTS = [['Ari Rahman', '#E8E4DE'], ['Budi Santoso', '#a855f7'], ['Dewi Wulandari', '#ec4899'], ['Rini Saputri', '#C9B38B'], ['Cahyo Putra', '#C2553A']];
+
+const lit = (st) => st !== 'open' && st !== 'closed';
+const stPlate = (st) => (st === 'open' || st === 'claimed') ? '' :
+  `<i class="st ${st === 'closed' ? 'crit' : st === 'issue' ? 'warn' : ''}"><svg class="ic" viewBox="0 0 24 24">${ICON[st]}</svg></i>`;
+const arc = (r, frac, w) => { const C = 2 * Math.PI * r; return `<circle cx="50%" cy="50%" r="${r}" fill="none" stroke="#3E3A35" stroke-width="${w}"/>`
+  + (frac > 0 ? `<circle cx="50%" cy="50%" r="${r}" fill="none" stroke="#E4B04A" stroke-width="${w}" stroke-linecap="round" stroke-dasharray="${(C * frac).toFixed(1)} ${C.toFixed(1)}"/>` : ''); };
+const ticks = (n, s) => { const T = Math.min(n, 12), on = Math.round(s / n * T); let out = '';
+  for (let i = 0; i < T; i++) { const a = (i / T) * 2 * Math.PI - Math.PI / 2, c = Math.cos(a), d = Math.sin(a);
+    out += `<line x1="${25 + 18.5 * c}" y1="${25 + 18.5 * d}" x2="${25 + 23.5 * c}" y2="${25 + 23.5 * d}" stroke="${i < on ? '#E4B04A' : '#6A645C'}" stroke-width="2.6" stroke-linecap="round"/>`; }
+  return out + '<circle cx="25" cy="25" r="15.5" fill="#121110" stroke="#3E3A35" stroke-width="1"/>'; };
+
+function drawMarks() {
+  const look = root.dataset.marks; let h = '';
+  for (const p of PINS) {
+    const pos = `left:${p.x}%;top:${p.y}%;--c:${p.st === 'closed' ? '#6A645C' : p.c}`;
+    if (look === 'today') h += `<div class="m t-pin" style="${pos};--c:${lit(p.st) ? '#E4B04A' : p.c}">${EMOJI[p.st]}</div>`;
+    else h += `<div class="m ${look}-pin ${lit(p.st) ? 'lit' : ''}" style="${pos}"><b></b>${stPlate(p.st)}</div>`;
+  }
+  for (const c of CLUSTERS) {
+    const pos = `left:${c.x}%;top:${c.y}%`;
+    if (look === 'today') h += `<div class="m t-cl" style="${pos}">${c.n}</div>`;
+    if (look === 'a') h += `<div class="m a-cl ${c.s === c.n ? 'done' : ''}" style="${pos}"><svg viewBox="0 0 46 46">${arc(20, c.s / c.n, 2.5)}</svg><em>${c.n}</em></div>`;
+    if (look === 'b') h += `<div class="m b-cl" style="${pos}"><svg viewBox="0 0 50 50">${ticks(c.n, c.s)}</svg><em>${c.n}</em></div>`;
+    if (look === 'c') h += `<div class="m c-cl" style="${pos}"><i></i><i></i><b></b><svg viewBox="0 0 42 42">${arc(17, c.s / c.n, 2.5).replace('#3E3A35', 'transparent')}</svg><em>${c.n}</em></div>`;
+  }
+  for (const k of CHIPS) h += `<div class="chip" style="left:${k.x}%;top:${k.y}%"><b>${k.ini}</b><i></i><span>${k.lab}</span></div>`;
+  $('#marks').innerHTML = h;
+}
+let brush = 'Budi Santoso';
+function drawBrush() {
+  const rows = [`<div class="row" style="--i:0"><button class="pen off ${brush === null ? 'sel' : ''}" data-pen="">✕ Disable brush</button></div>`,
+    `<div class="row" style="--i:1"><button class="pen ${brush === 'Unassigned' ? 'sel' : ''}" data-pen="Unassigned" style="--c:#6A645C"><i class="sw"></i><span class="nm">Unassign</span></button></div>`]
+    .concat(AGENTS.map(([n, c], i) => `<div class="row" style="--i:${i + 2}"><button class="pen ${brush === n ? 'sel' : ''}" data-pen="${n}" style="--c:${c}"><i class="sw"></i><span class="nm">${root.dataset.ergo === 'new' ? n : n.split(' ')[0]}</span></button><i class="swatch" style="--c:${c}" title="Change colour"></i></div>`));
+  $('#brush').innerHTML = rows.join('');
+}
+const NOTES = {
+  marks: { today: 'Today: gold number + gold ring + orange glow on every bubble, emoji pins.',
+    a: '<b>A Lamp</b> - a shop is a small lamp, LIT when it is secured today. A bubble shows its count in white and an amber arc for how many inside are secured. Gold only where it means "done".',
+    b: '<b>B Survey</b> - map-maker marks. A shop is a survey diamond on a thin line; a bubble is a dial with one tick per shop, amber ticks = secured.',
+    c: '<b>C Token</b> - board-game pieces with a real edge under them. A bubble is a small stack; the amber arc = secured.' },
+  keys: { today: 'Keys today: a small squeeze on press, names only under the mouse.',
+    bracket: '<b>1 Lock-on</b> - four corner brackets close in on the key you point at; they stay on a key that is ON.',
+    icon: '<b>2 Icon acts</b> - each picture does its own job: corners open, the sheet lifts, the pin drops, the arrow flies.',
+    lamp: '<b>3 Lamp</b> - a small light in each key, the same lamp as the sidebar. Flashes on a press and fades; stays lit while ON.' },
+  ergo: { today: 'Layout today.', new: '<b>New layout</b> - PC: the words always show. Phone: every key in one bar at the bottom, under the thumb; brush list with bigger rows and whole names.' },
+};
+function sync() {
+  for (const seg of document.querySelectorAll('.seg')) for (const b of seg.children) b.setAttribute('aria-pressed', String(root.dataset[seg.dataset.set] === b.dataset.v));
+  $('#note').innerHTML = [NOTES.marks[root.dataset.marks], NOTES.keys[root.dataset.keys], NOTES.ergo[root.dataset.ergo]].join(' ');
+  drawMarks(); drawBrush();
+}
+document.addEventListener('click', (e) => {
+  const s = e.target.closest('.seg button'); if (s) { root.dataset[s.parentElement.dataset.set] = s.dataset.v; sync(); return; }
+  const pen = e.target.closest('[data-pen]'); if (pen) { brush = pen.dataset.pen || null; drawBrush(); say(brush ? 'Brush: ' + (brush === 'Unassigned' ? 'unassign' : brush.split(' ')[0]) : 'Brush off'); return; }
+  const k = e.target.closest('.key'); if (!k) return;
+  k.classList.remove('act', 'flash'); void k.offsetWidth; k.classList.add('act', 'flash'); setTimeout(() => k.classList.remove('act', 'flash'), 480);
+  const map = $('#map'), act = k.dataset.act;
+  if (act === 'bord') { const on = map.classList.toggle('bordered'); document.querySelectorAll('[data-act="bord"]').forEach((b) => b.classList.toggle('on', on)); say(on ? 'Borders on' : 'Borders off'); }
+  if (act === 'home') say('This view saved as home');
+  if (act === 'fly') { map.classList.toggle('flown'); say('Flying home'); }
+  if (act === 'loc') { map.classList.add('located'); say('You are here'); }
+  if (act === 'brush') { const w = $('#brushwrap'), open = !w.classList.contains('open'); w.classList.toggle('open', open); document.querySelectorAll('[data-act="brush"]').forEach((b) => b.classList.toggle('on', open)); if (open) drawBrush(); }
+  if (act === 'full') { const on = !k.classList.contains('on'); if (root.dataset.view === 'pc') { k.classList.toggle('on', on); $('.lbl-full').textContent = on ? 'Exit Fullscreen' : 'Fullscreen'; say(on ? 'Fullscreen' : 'Back to the page'); } else say('Back to the page'); }
+});
+let t; function say(msg) { const r = $('#report'); r.textContent = msg; r.classList.add('show'); clearTimeout(t); t = setTimeout(() => r.classList.remove('show'), 1600); }
+$('#lite').onclick = (e) => { const on = root.classList.toggle('lite'); e.target.setAttribute('aria-pressed', on); };
+$('#slow').onclick = (e) => { const on = root.style.getPropertyValue('--slow') !== '4'; root.style.setProperty('--slow', on ? '4' : '1'); e.target.setAttribute('aria-pressed', on); };
+$('#mine').onclick = () => { Object.assign(root.dataset, { marks: 'a', keys: 'lamp', ergo: 'new' }); sync(); };
+if (matchMedia('(max-width: 700px)').matches) root.dataset.view = 'phone';
+sync();
+</script>
+</body>
+</html>
