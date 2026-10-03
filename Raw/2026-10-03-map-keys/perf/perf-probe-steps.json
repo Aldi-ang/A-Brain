@@ -1,0 +1,103 @@
+{
+  "label": "probe-steps",
+  "outSteps": 1,
+  "variants": {
+    "base": {
+      "idle3s": {
+        "taskMs": 2913,
+        "scriptMs": 15,
+        "layoutMs": 0,
+        "styleMs": 667
+      },
+      "zoomInOut": {
+        "taskMs": 4339,
+        "scriptMs": 263,
+        "layoutMs": 18,
+        "styleMs": 1293,
+        "frames": {
+          "n": 427,
+          "max": 255,
+          "over50": 5,
+          "over100": 2
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 1907,
+        "rects": 1704,
+        "icons": 14,
+        "slots": 8,
+        "chests": 1,
+        "people": 5,
+        "peopleOnThings": 5,
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-flow:3 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "docNodes": 12639
+    },
+    "marchSteps": {
+      "idle3s": {
+        "taskMs": 1721,
+        "scriptMs": 15,
+        "layoutMs": 0,
+        "styleMs": 704
+      },
+      "zoomInOut": {
+        "taskMs": 3078,
+        "scriptMs": 261,
+        "layoutMs": 17,
+        "styleMs": 1298,
+        "frames": {
+          "n": 565,
+          "max": 224,
+          "over50": 4,
+          "over100": 2
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 1907,
+        "rects": 1704,
+        "icons": 14,
+        "slots": 8,
+        "chests": 1,
+        "people": 5,
+        "peopleOnThings": 5,
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-flow:3 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "docNodes": 8776
+    },
+    "pausedInZoom": {
+      "idle3s": {
+        "taskMs": 2933,
+        "scriptMs": 13,
+        "layoutMs": 0,
+        "styleMs": 631
+      },
+      "zoomInOut": {
+        "taskMs": 4355,
+        "scriptMs": 266,
+        "layoutMs": 18,
+        "styleMs": 1385,
+        "frames": {
+          "n": 447,
+          "max": 255,
+          "over50": 6,
+          "over100": 5
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 1907,
+        "rects": 1704,
+        "icons": 14,
+        "slots": 8,
+        "chests": 1,
+        "people": 5,
+        "peopleOnThings": 5,
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-flow:3 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "docNodes": 9595
+    }
+  },
+  "errors": []
+}

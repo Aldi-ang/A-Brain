@@ -1528,3 +1528,7 @@ His rule added to [[Aldi's Design Taste]]. Local commits waiting on "push": 3f53
 ## 2026-10-03 13:42 — Journey map design BUILT (kpm aaf6a7e, local)
 
 [[2026-10-03_journey-map-keys]] (BUILT section: frames, numbers, five build traps) · frames in Raw/2026-10-03-map-keys/built/.
+
+## 2026-10-03 17:53 — Journey map lag + salesman collisions FIXED (kpm eabda69, local)
+
+[[2026-10-03_journey-map-keys]] (LAG + COLLISIONS section: measured table, rejected options) · probe + frames in Raw/2026-10-03-map-keys/perf/.

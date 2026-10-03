@@ -1,0 +1,52 @@
+{
+  "label": "dbg-out2",
+  "outSteps": 2,
+  "variants": {
+    "base": {
+      "idle3s": {
+        "taskMs": 259,
+        "scriptMs": 13,
+        "layoutMs": 0,
+        "styleMs": 81
+      },
+      "zoomInOut": {
+        "taskMs": 3100,
+        "scriptMs": 234,
+        "layoutMs": 20,
+        "styleMs": 1223,
+        "frames": {
+          "n": 622,
+          "max": 97,
+          "over50": 2,
+          "over100": 0
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 489,
+        "rects": 390,
+        "icons": 8,
+        "slots": 3,
+        "chests": 0,
+        "people": 5,
+        "peopleOnThings": 1,
+        "onWhat": "kx-sm off dim",
+        "peopleOnPeople": 2,
+        "running": "kpmEdgeBreath:1 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "dom2": {
+        "markerPaneNodes": 489,
+        "rects": 390,
+        "icons": 8,
+        "slots": 3,
+        "chests": 0,
+        "people": 5,
+        "peopleOnThings": 1,
+        "onWhat": "kx-sm off dim",
+        "peopleOnPeople": 2,
+        "running": "kpmEdgeBreath:1 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "docNodes": 3808
+    }
+  },
+  "errors": []
+}

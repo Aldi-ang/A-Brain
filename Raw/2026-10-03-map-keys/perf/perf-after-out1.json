@@ -1,0 +1,56 @@
+{
+  "label": "after-out1",
+  "outSteps": 1,
+  "variants": {
+    "base": {
+      "idle3s": {
+        "taskMs": 271,
+        "scriptMs": 15,
+        "layoutMs": 0,
+        "styleMs": 83
+      },
+      "zoomInOut": {
+        "taskMs": 3014,
+        "scriptMs": 229,
+        "layoutMs": 20,
+        "styleMs": 1174,
+        "frames": {
+          "n": 623,
+          "max": 97,
+          "over50": 2,
+          "over100": 0
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 535,
+        "rects": 390,
+        "icons": 14,
+        "slots": 8,
+        "chests": 1,
+        "people": 5,
+        "allPeople": "kx-sm idle dim moved @0px -48px box 253,286,283,350 || kx-sm idle sel moved @0px -48px box 166,285,196,349 || kx-sm walk dim moved @36px -48px box 325,403,355,467 || kx-sm idle dim moved @-72px 48px box 133,516,163,580 || kx-sm off dim moved @-108px box 108,380,138,444",
+        "allThings": "157,394,185,428 285,496,327,538 310,360,352,402 192,490,234,532 167,450,209,492 250,443,292,485 254,373,296,415 169,375,211,417 208,405,250,447",
+        "peopleOnThings": 0,
+        "onWhat": "",
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "dom2": {
+        "markerPaneNodes": 535,
+        "rects": 390,
+        "icons": 14,
+        "slots": 8,
+        "chests": 1,
+        "people": 5,
+        "allPeople": "kx-sm idle dim moved @0px -48px box 253,286,283,349 || kx-sm idle sel moved @0px -48px box 166,285,196,348 || kx-sm walk dim moved @36px -48px box 325,403,355,467 || kx-sm idle dim moved @-72px 48px box 133,516,163,579 || kx-sm off dim moved @-108px box 108,380,138,444",
+        "allThings": "157,394,185,428 285,496,327,538 310,360,352,402 192,490,234,532 167,450,209,492 250,443,292,485 254,373,296,415 169,375,211,417 208,405,250,447",
+        "peopleOnThings": 0,
+        "onWhat": "",
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "docNodes": 4396
+    }
+  },
+  "errors": []
+}

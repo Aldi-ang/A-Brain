@@ -1,0 +1,56 @@
+{
+  "label": "after-out3",
+  "outSteps": 3,
+  "variants": {
+    "base": {
+      "idle3s": {
+        "taskMs": 279,
+        "scriptMs": 12,
+        "layoutMs": 0,
+        "styleMs": 87
+      },
+      "zoomInOut": {
+        "taskMs": 3071,
+        "scriptMs": 227,
+        "layoutMs": 17,
+        "styleMs": 1190,
+        "frames": {
+          "n": 633,
+          "max": 55,
+          "over50": 2,
+          "over100": 0
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 473,
+        "rects": 390,
+        "icons": 6,
+        "slots": 1,
+        "chests": 0,
+        "people": 5,
+        "allPeople": "kx-sm idle dim moved @72px box 270,351,300,414 || kx-sm idle sel moved @0px -48px box 176,303,206,366 || kx-sm walk dim moved @-72px box 135,381,165,445 || kx-sm idle dim moved @72px 48px box 258,433,288,496 || kx-sm off dim moved @-72px -48px box 117,315,147,379",
+        "allThings": "186,407,228,449",
+        "peopleOnThings": 0,
+        "onWhat": "",
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "dom2": {
+        "markerPaneNodes": 473,
+        "rects": 390,
+        "icons": 6,
+        "slots": 1,
+        "chests": 0,
+        "people": 5,
+        "allPeople": "kx-sm idle dim moved @72px box 270,351,300,415 || kx-sm idle sel moved @0px -48px box 176,303,206,367 || kx-sm walk dim moved @-72px box 135,381,165,445 || kx-sm idle dim moved @72px 48px box 258,433,288,497 || kx-sm off dim moved @-72px -48px box 117,315,147,379",
+        "allThings": "186,407,228,449",
+        "peopleOnThings": 0,
+        "onWhat": "",
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "docNodes": 3788
+    }
+  },
+  "errors": []
+}

@@ -45,7 +45,7 @@ await js(`document.querySelector('.kx-map').scrollIntoView({ block: 'center' });
 out.pc = await js(`(() => { const r = (s) => [...document.querySelectorAll(s)].map((e) => { const b = e.getBoundingClientRect(); return Math.round(b.width) + 'x' + Math.round(b.height); });
   return { keys: r('.kx-keys .kx-mapkey'), labels: [...document.querySelectorAll('.kx-keys .kx-mapkey > span')].map((s) => getComputedStyle(s).display + ':' + s.innerText),
     chests: document.querySelectorAll('.leaflet-marker-icon .kx-c5:not(.kx-slot .kx-c5)').length, visited: document.querySelectorAll('.kx-c5.v').length, slots: document.querySelectorAll('.kx-slot').length,
-    people: [...document.querySelectorAll('.kx-sm')].map((e) => e.className), dock: document.querySelectorAll('.kx-dock').length, docW: document.documentElement.scrollWidth }; })()`);
+    people: [...document.querySelectorAll('.kx-sm')].map((e) => e.className), dock: document.querySelectorAll('.kx-dock').length, flowOnPc: document.getAnimations().filter((a) => a.animationName === 'kx-flow').length, docW: document.documentElement.scrollWidth }; })()`);
 await shot('pc-1440-map.png', await clipOf('.kx-map', 8));
 await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 3, mobile: false }); await sleep(600);
 await shot('pc-1440-slot-3x.png', await js(`(() => { const all = [...document.querySelectorAll('.leaflet-marker-icon')].map((m) => m.getBoundingClientRect()); const hit = (a, b) => a !== b && a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top; const s = [...document.querySelectorAll('.kx-slot')].map((e) => e.getBoundingClientRect()).sort((a, b) => all.filter((r) => hit(r, a) && !(r.x === a.x && r.y === a.y)).length - all.filter((r) => hit(r, b) && !(r.x === b.x && r.y === b.y)).length)[0]; return { x: s.left - 14, y: s.top - 14, width: s.width + 28, height: s.height + 28 }; })()`));
@@ -96,10 +96,36 @@ out.phoneBrush = await js(`(() => { const b = document.querySelector('.kx-brush'
 await shot('phone-390-brush.png');
 await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
 
+/* ---- the cached still chest (one picture) must be pixel-identical to the animated chest's last frame, or the swap
+   after the moment would jump. Both drawn on the same solid ground at 3x, the animated one finished, then compared. ---- */
+await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 3, mobile: false });
+await load(LAB);
+await js(`(async () => { const { chestHtml } = await import('/src/utils/mapSprites.js');
+  const box = document.createElement('div'); box.id = 'cmp'; box.className = 'kx-mk';
+  box.style.cssText = 'position:fixed;left:0;top:0;z-index:99999;background:#333;display:grid;grid-template-columns:repeat(3,80px);grid-auto-rows:70px;padding:10px';
+  for (const o of ['order', 'closed', 'sold']) for (const play of ['burst', '']) { const c = document.createElement('div'); c.style.cssText = 'position:relative;width:80px;height:70px'; c.innerHTML = '<div style="position:absolute;left:20px;top:18px">' + chestHtml(o, '#a855f7', play) + '</div>'; c.dataset.k = o + (play ? '-anim' : '-still'); box.append(c); }
+  document.body.append(box); await new Promise((r) => setTimeout(r, 300)); box.getAnimations({ subtree: true }).forEach((a) => a.finish()); await new Promise((r) => setTimeout(r, 300)); return 1; })()`);
+const same = {};
+for (const o of ['order', 'closed', 'sold']) {
+  const pick = (k) => js(`(() => { const b = document.querySelector('#cmp [data-k="${k}"]').getBoundingClientRect(); return { x: b.left, y: b.top, width: b.width, height: b.height }; })()`);
+  const a = await send('Page.captureScreenshot', { format: 'png', clip: { ...(await pick(o + '-anim')), scale: 1 } });
+  const b = await send('Page.captureScreenshot', { format: 'png', clip: { ...(await pick(o + '-still')), scale: 1 } });
+  /* decoded and compared pixel by pixel: two encodings of the same picture need not be the same bytes */
+  same[o] = await js(`(async () => { const img = async (d) => { const i = new Image(); i.src = 'data:image/png;base64,' + d; await i.decode(); return i; };
+    const [p, q] = await Promise.all([img(${JSON.stringify(a.result.data)}), img(${JSON.stringify(b.result.data)})]);
+    const px = (i) => { const c = document.createElement('canvas'); c.width = i.width; c.height = i.height; const g = c.getContext('2d'); g.drawImage(i, 0, 0); return g.getImageData(0, 0, i.width, i.height).data; };
+    const A = px(p), B = px(q); let diff = 0, max = 0;
+    for (let k = 0; k < A.length; k += 4) { const d = Math.max(Math.abs(A[k] - B[k]), Math.abs(A[k + 1] - B[k + 1]), Math.abs(A[k + 2] - B[k + 2])); if (d > 0) diff++; if (d > max) max = d; }
+    return { pixels: A.length / 4, differ: diff, maxChannelDelta: max }; })()`);
+  if (same[o].differ) { fs.writeFileSync(path.join(HERE, `cmp-${o}-anim.png`), Buffer.from(a.result.data, 'base64')); fs.writeFileSync(path.join(HERE, `cmp-${o}-still.png`), Buffer.from(b.result.data, 'base64')); }
+}
+out.stillEqualsMomentEnd = same;
+await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+
 /* ---- the secure moment, live: &tick visits one more of Budi's shops every 2.5 s ---- */
 const probe = (label) => js(`(async () => {
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  const snap = () => { const m = {}; document.querySelectorAll('.leaflet-marker-icon .kx-c5:not(.kx-slot .kx-c5)').forEach((c) => { m[c.closest('.leaflet-marker-icon').style.transform] = c.querySelector('svg.chest').getBoundingClientRect().bottom; }); return m; };
+  const snap = () => { const m = {}; document.querySelectorAll('.leaflet-marker-icon .kx-c5:not(.kx-slot .kx-c5)').forEach((c) => { m[c.closest('.leaflet-marker-icon').style.transform] = c.querySelector('svg.chest, .kx-spr').getBoundingClientRect().bottom; }); return m; };
   let pre = snap(), found = null; const t0 = performance.now();
   while (performance.now() - t0 < 9000) { found = document.querySelector('.kx-c5.burst'); if (found) break; pre = snap(); await new Promise((r) => requestAnimationFrame(r)); }
   if (!found) return 'no burst within 9 s';
@@ -109,7 +135,7 @@ const probe = (label) => js(`(async () => {
   await sleep(600);
   const now = snap()[T], el = [...document.querySelectorAll('.leaflet-marker-icon .kx-c5:not(.kx-slot .kx-c5)')].find((c) => c.closest('.leaflet-marker-icon').style.transform === T);
   return { cls: found.className, restBefore: rest, restAfter: now, moved: +(now - rest).toFixed(2), swappedToStill: el !== found && !/burst|resign/.test(el?.className || ''),
-    lidOpenAfter: el ? getComputedStyle(el.querySelector('.lidU')).opacity : null, signAfter: !!el?.querySelector('.sign5'), runningKxAt1400: runningKx, dy: dy.join(' ') };
+    stillPicture: el?.querySelector('.kx-spr')?.className || null, signAfter: !!el?.querySelector('.sign5'), runningKxAt1400: runningKx, dy: dy.join(' ') };
 })()`);
 await load(LAB + '&tick');
 await js(`document.querySelector('.kx-keys .k-full').click(); 1`); await sleep(900); await zoomIn(2);

@@ -1,0 +1,71 @@
+{
+  "label": "probe-one",
+  "outSteps": 1,
+  "variants": {
+    "marchOne": {
+      "idle3s": {
+        "taskMs": 2863,
+        "scriptMs": 14,
+        "layoutMs": 0,
+        "styleMs": 623
+      },
+      "zoomInOut": {
+        "taskMs": 4320,
+        "scriptMs": 246,
+        "layoutMs": 18,
+        "styleMs": 1234,
+        "frames": {
+          "n": 462,
+          "max": 224,
+          "over50": 4,
+          "over100": 2
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 1907,
+        "rects": 1704,
+        "icons": 14,
+        "slots": 8,
+        "chests": 1,
+        "people": 5,
+        "peopleOnThings": 5,
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-flow:1 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "docNodes": 10140
+    },
+    "noLoopsPeople": {
+      "idle3s": {
+        "taskMs": 2538,
+        "scriptMs": 13,
+        "layoutMs": 0,
+        "styleMs": 420
+      },
+      "zoomInOut": {
+        "taskMs": 3974,
+        "scriptMs": 252,
+        "layoutMs": 15,
+        "styleMs": 966,
+        "frames": {
+          "n": 571,
+          "max": 218,
+          "over50": 4,
+          "over100": 2
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 1907,
+        "rects": 1704,
+        "icons": 14,
+        "slots": 8,
+        "chests": 1,
+        "people": 5,
+        "peopleOnThings": 5,
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-flow:3"
+      },
+      "docNodes": 9155
+    }
+  },
+  "errors": []
+}

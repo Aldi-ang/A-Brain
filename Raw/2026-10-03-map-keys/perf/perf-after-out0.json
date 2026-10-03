@@ -1,0 +1,56 @@
+{
+  "label": "after-out0",
+  "outSteps": 0,
+  "variants": {
+    "base": {
+      "idle3s": {
+        "taskMs": 392,
+        "scriptMs": 20,
+        "layoutMs": 1,
+        "styleMs": 136
+      },
+      "zoomInOut": {
+        "taskMs": 3083,
+        "scriptMs": 249,
+        "layoutMs": 21,
+        "styleMs": 1188,
+        "frames": {
+          "n": 610,
+          "max": 109,
+          "over50": 3,
+          "over100": 1
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 574,
+        "rects": 390,
+        "icons": 19,
+        "slots": 5,
+        "chests": 9,
+        "people": 5,
+        "allPeople": "kx-sm idle dim moved @0px -48px box 326,264,356,328 || kx-sm idle sel moved @-36px box 116,309,146,373 || kx-sm walk dim @0 box 397,546,427,610 || kx-sm idle dim moved @36px -48px box 266,531,296,595 || kx-sm off dim moved @-72px box 181,403,211,467",
+        "allThings": "133,397,161,431 129,492,157,526 125,438,153,472 229,464,257,498 263,353,291,387 222,363,250,397 237,408,265,442 206,565,248,607 186,517,228,559 326,485,368,527 319,351,361,393 164,350,206,392 231,612,259,646 295,417,323,451",
+        "peopleOnThings": 0,
+        "onWhat": "",
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "dom2": {
+        "markerPaneNodes": 574,
+        "rects": 390,
+        "icons": 19,
+        "slots": 5,
+        "chests": 9,
+        "people": 5,
+        "allPeople": "kx-sm idle dim moved @0px -48px box 326,264,356,328 || kx-sm idle sel moved @-36px box 116,309,146,373 || kx-sm walk dim @0 box 397,546,427,610 || kx-sm idle dim moved @36px -48px box 266,531,296,595 || kx-sm off dim moved @-72px box 181,403,211,467",
+        "allThings": "133,397,161,431 129,492,157,526 125,438,153,472 229,464,257,498 263,353,291,387 222,363,250,397 237,408,265,442 206,565,248,607 186,517,228,559 326,485,368,527 319,351,361,393 164,350,206,392 231,612,259,646 295,417,323,451",
+        "peopleOnThings": 0,
+        "onWhat": "",
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1 kx-breathe:3 kx-quest:1 kx-bob:1 kx-stepA:1 kx-stepB:1"
+      },
+      "docNodes": 4293
+    }
+  },
+  "errors": []
+}

@@ -10,6 +10,26 @@ salesman customising his own character (skin, hair, shirt) - "maybe in future up
 (2026-09-23 rule). If it comes back: the sprite is already split into palette letters (`PERSON(hair, shirt)`), so a
 picker only has to store three colours per profile.
 
+## LAG + COLLISIONS FIXED 2026-10-03 17:53 - kpm eabda69 (local, not pushed)
+
+His words (17:30): *"make sure that the chest and person not colliding with one another when the map is zoomed out
+usually its making so much lag as well on the phone maybe u could do something about that?"*
+
+Measured first, `Raw/2026-10-03-map-keys/perf/` (`perf.mjs`: production lab build, headless 390 x 844, touch media,
+CPU 6x slower, zoomed out 0-3 steps, one suspect switched off per run; `perf-*.json`, `zoomed-out-before-out1.png` vs
+`zoomed-out-after-out1.png`):
+
+| suspect | cost before | fix | after |
+|---|---|---|---|
+| flowing "heading to" line (stroke-dashoffset) | ~85% of the main thread at rest; one line = three lines (whole Leaflet line layer repaints per frame); stepped ants only -41% | flows only with a mouse (`@media (hover: hover) and (pointer: fine)`); phone = still dashed line | rest 2,874-2,935 -> 261-392 ms busy per 3 s |
+| chests/bubbles as ~146 pixel squares each | 1,704-2,621 squares rebuilt per zoom, frames up to 236-346 ms | one cached picture per still look (SVG data URI, same pixel rows); full parts only for the element playing the moment | longest zoom frame 55-109 ms; picture vs the moment's last frame max 1/255 colour |
+| salesmen on bubbles | 4-5 of 5 when zoomed out | step aside to the nearest free spot (9 x 7 grid, up to 144 px) after the map settles + a thin line back to the true spot | 0 of 5 on things, 0 on each other, all four zooms |
+
+**REJECTED ON PURPOSE:** stepped "marching ants" on the phone (still 59% of the cost); removing the flow everywhere
+(the PC can afford it, his approved look stays there); hiding salesmen when zoomed out (he asked for no collisions,
+not fewer salesmen). A 72 px search radius was tried first and left 1-2 salesmen stuck in a block of nine bubbles.
+**Models applied:** Inversion (what makes the phone slow at REST, not just on zoom), ablation one suspect at a time.
+
 ## BUILT 2026-10-03 13:42 - kpm aaf6a7e (local, not pushed)
 
 Frames + numbers: `Raw/2026-10-03-map-keys/built/` (`measure-built.json`, shooter `shoot-built.mjs`; lab
