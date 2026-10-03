@@ -1,8 +1,33 @@
 ---
 date: 2026-10-03
-status: OPEN - waiting on Aldi's pick (marks A/B/C, key motion 1/2/3, new layout per width)
+status: KEYS DECIDED (2 Icon acts, 08:25); MARKS round 2 drawn (1 Banner / 2 Chest / 3 Beacon), his pick owed; layout new/today still unanswered
 tags: [kpm, journey-plan, design, map, motion]
 ---
+
+## Round 2 (08:25-08:40) - his answer to round 1
+
+> *"icon acts is the best, i dont like all the marks can u redesign it to make it more satisfying and cool and game
+> related u can do research on this"*
+
+- **Keys: 2 Icon acts - DECIDED.** Lock-on and Lamp dropped from the page.
+- **Marks: A Lamp, B Survey, C Token all rejected.** Read: they were abstract shapes with no MOMENT. Round 2 = game
+  objects, each with a secure moment that plays only when a shop becomes secured while the map is open (on load,
+  the end state shows still - "it refreshed" is his word for a replayed entrance, 2026-09-22).
+- Research: Minecraft wiki, Map page (read 2026-10-03): *a banner mark takes the color of the banner's base colour and
+  shows its name* - so a salesman's colour IS his banner. Game "juice" (squash, a hop, a few particles, one beat per
+  reward) from game-design knowledge [likely, not re-read]. WebSearch and firecrawl both down today.
+- **No sound**: [[Sounds Come From Aldi]] - a sound is a file he picks; offered as one line, not built.
+
+| Look | Not visited | Secured moment | Bubble | Costs |
+|---|---|---|---|---|
+| 1 Banner | a rolled-up Minecraft banner in the salesman's colour | unrolls (spring), waves, tip turns amber, dust pops | inventory slot: banner item, count like an item stack, amber bar fills, enchant shine when full | smallest mark (20x34), reads least at a glance |
+| 2 Chest | a closed brown chest on a ring in the salesman's colour | hops (squash), lid pops open, warm light, pixel sparks | slot with a chest; full = the chest opens + shine | brown wood = his object exemption (2026-09-22); needs a pixel font for the count (Silkscreen) |
+| 3 Beacon | a dark hex, edge in the salesman's colour | ring of light rushes out, the edge powers up round the hex, light pillar | big hex, one edge lights amber per sixth secured, number decodes | least "game object", most "tech" |
+
+My pick: **2 Chest** - his object (he picked a chest every time one was offered), and open-vs-closed reads at 24 px.
+not-chosen: 3 Beacon - lost on being a shape again (what round 1 lost on); flips if he wants tech over game.
+Frames: `Raw/2026-10-03-map-keys/round2/` (board.png, m-*.png = the moment frozen at 0/100/220/380/600/1400 ms).
+Rejected on purpose (round 1): A Lamp, B Survey, C Token; key motions Lock-on and Lamp.
 
 # Journey Plan's map - key motion, key ergonomics, a more artistic shop mark
 
