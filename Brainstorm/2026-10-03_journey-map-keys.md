@@ -4,6 +4,30 @@ status: KEYS DECIDED (2 Icon acts, 08:25); MARKS round 2 drawn (1 Banner / 2 Che
 tags: [kpm, journey-plan, design, map, motion]
 ---
 
+## Round 5 (09:32-09:47) - every visit dark inside, the light in the sign; 14 px chest; the salesman model
+
+> *"yes open with dark inside but light sign and all the visited should be dark and i want u to make the chest more
+> detailed even when it is zoomed its still look like a good 8bit chest and also i want u to make some better
+> animation or model for the salesman location because pinpoint is just too standard"*
+
+- **Read as:** every visited chest = lid open, DARK inside (sales too); the light moves into the SIGN (a pale board
+  with a warm glow behind it, lit ~0.3 s after it is planted). Unvisited = dim closed chest, no sign. Told to him as
+  my reading in one line. Superseded: round 4's "light only where money came in" and its No-sale switch.
+- **Chest 14 x 14** (Minecraft's own chest front is 14 wide), drawn at 2 px: highlight edge, two plank seams, side
+  shading, an iron latch that rides on the lid; 28 x 28 closed, 28 x 34 open. Signs 11 x 11 with 9 x 6 pictures.
+  Board shows 3x and 6x crops.
+- **Lid hinge fixed again (measured):** the front face now tilts up INTO the back rim, the line the inside face rises
+  from; collapsing it onto the front edge left a 3-row jump between the faces (-5.7 px in one 20 ms step -> -0.9).
+- **Salesman = a pixel person** (10 x 14 at 3 px = 30 x 42): head, shirt in his colour, a Minecraft name tag
+  (initials · shops done, pixel font), a shadow; walking to his next shop = two leg frames + 1 px bob (steps), at a
+  shop = a slow 1 px breath, picked = an amber quest arrow bobbing over the tag, not out today = 50 % faded. Look B =
+  the floating head only. First drawn at 2 px (20 x 28) and scaled up: smaller than the chests, he was not the thing
+  the eye finds first. In the app the face could be his photo pixelated - not built, not asked.
+- Proof: rest 0 px before / after / -3 px under the mouse; Lite = 0 running, lid open, sign lit; tags 0 clipped.
+  Page v5; `Raw/2026-10-03-map-keys/round5/` (`map-chest-r5.html`: `.c5`, `chest5()`, `sign5Svg()`, `.sm`,
+  `personSvg()`, `headSvg()`).
+- Owed by him: Player (A) or Head (B); then build.
+
 ## Round 4 (09:00-09:35) - the chest with signs; the motion made correct
 
 > *"looks okay but make sure the animation is smooth and correct, lets continue with the chest instead, but there

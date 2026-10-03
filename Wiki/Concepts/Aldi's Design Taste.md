@@ -3180,3 +3180,9 @@ gold kept only for "secured") and three key motions (corner brackets, the icon a
   reasons that we have"* - a map mark must carry the visit's OUTCOME, not just visited / not visited: he manages by
   the reason a shop did not buy. And "correct" motion = physically right (a lid swings on a hinge, a jump slows at
   the top), not only smooth; he noticed v3's motion was off before I did.
+- **09:32, round 4:** *"open with dark inside but light sign and all the visited should be dark ... make the chest
+  more detailed even when it is zoomed its still look like a good 8bit chest ... better animation or model for the
+  salesman location because pinpoint is just too standard"* - he moved the light off the object onto the LABEL (the
+  sign carries the meaning, so it carries the light); he judges pixel art zoomed in, so a sprite must hold up at 6x,
+  not only at map size; and a stock map pin is "too standard" - every marker on his maps should be an object from
+  the world (a chest for a shop, a person for a salesman).
