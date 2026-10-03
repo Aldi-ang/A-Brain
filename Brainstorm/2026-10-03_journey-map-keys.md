@@ -10,6 +10,22 @@ salesman customising his own character (skin, hair, shirt) - "maybe in future up
 (2026-09-23 rule). If it comes back: the sprite is already split into palette letters (`PERSON(hair, shirt)`), so a
 picker only has to store three colours per profile.
 
+## 20:15 - his answer to A/B: a GROUP of 8-bit characters on the bubble + a SELLING ANIMATION (design next session)
+
+His words: *"well just combine them into one but make it into group of 8bit character instead looks kinda cool right,
+later our customized character will be displayed there in the group on the future update, when zoom closely then
+individual character should all be showed and i feel like we need animation for 8 bit character that just detected
+doing its sales job on the stores, i want this animation so that chest and 8 bit character not colliding but combined
+into one animation instead"*.
+
+- DECIDED: zoomed out = the salesmen whose spot is inside a bubble stand ON it as a small crowd of full 8-bit
+  characters (not B's head row); zoomed in = individuals at their fixed spots. The group is where customised
+  characters (PARKED) will appear later.
+- OPEN - to draw next session (kpm NEXT-SESSION.md 20:15): the selling animation, character + chest as ONE scene when
+  he is detected selling (expedition state `at`). Candidates to draw: kneel + lid lifts + goods rise; lid opens + coin
+  arcs into his hand; he carries a crate in and the lid shuts. Each must end on a readable still (Lite).
+- Rejected now: A (standing on the bubble) and B (heads only) - his "combine them into one".
+
 ## FIXED SPOT + OFFLINE HIDDEN 2026-10-03 20:08 - kpm 7b770be (local, not pushed); zoomed-out look OPEN
 
 His words (20:00, with a screenshot of seven salesmen at 0 sales ringed round one bubble): *"why these agent position
