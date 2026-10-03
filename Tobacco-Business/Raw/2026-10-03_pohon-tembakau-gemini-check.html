@@ -145,10 +145,10 @@ footer{padding-block:28px 0;font-size:.85rem;color:var(--muted);border-top:1px s
   <div class="plate">
     <p class="eyebrow">Hasil cek riset Gemini: 24 klaim</p>
     <div class="score">
-      <div><span class="n">4</span><span class="small">benar</span></div>
+      <div><span class="n">5</span><span class="small">benar</span></div>
       <div><span class="n">7</span><span class="small">sebagian benar</span></div>
       <div><span class="n">6</span><span class="small">salah</span></div>
-      <div><span class="n">3</span><span class="small">belum ada bukti</span></div>
+      <div><span class="n">2</span><span class="small">belum ada bukti</span></div>
       <div><span class="n">4</span><span class="small">jangan dilakukan</span></div>
     </div>
     <p class="small">Dua kesalahan terbesarnya: Gemini bilang daun 2026 <b>rendah nikotin</b> dan <b>tinggi gula</b>. Riset kekeringan menunjukkan kebalikannya, dan rasa jedug yang Anda rasakan juga menunjukkan kebalikannya.</p>
@@ -242,8 +242,8 @@ footer{padding-block:28px 0;font-size:.85rem;color:var(--muted);border-top:1px s
       <div class="lever"><input type="checkbox" id="t-kering" checked><label for="t-kering"><b>Kemarau saat daun tumbuh</b><span class="small muted">Juni–Agustus 2026</span></label></div>
       <div class="lever"><input type="checkbox" id="t-urea"><label for="t-urea"><b>Pupuk urea berlebihan</b><span class="small muted">tergantung petani</span></label></div>
       <div class="lever"><input type="checkbox" id="t-muda" checked><label for="t-muda"><b>Petik sebelum tua</b><span class="small muted">kejar harga daun basah</span></label></div>
-      <div class="lever"><input type="checkbox" id="t-imbon" checked><label for="t-imbon"><b>Imbon lewat dari waktunya</b><span class="small muted">napas daun membakar gula</span></label></div>
-      <div class="lever"><input type="checkbox" id="t-jemur" checked><label for="t-jemur"><b>Jemur terik sampai ngrapak</b><span class="small muted">rajangan getas</span></label></div>
+      <div class="lever"><input type="checkbox" id="t-imbon" checked><label for="t-imbon"><b>Imbon lewat dari waktunya</b><span class="small muted">sampai keluwasen, gula terbakar</span></label></div>
+      <div class="lever"><input type="checkbox" id="t-jemur" checked><label for="t-jemur"><b>Jemur terik sampai ngrapak</b><span class="small muted">terasa garing saat dipegang</span></label></div>
       <div class="lever"><input type="checkbox" id="t-gula"><label for="t-gula"><b>Gula disemprot</b><span class="small muted">dilakukan sebagian penjual</span></label></div>
     </div>
     <p class="eyebrow">Isi daun</p>
@@ -260,10 +260,10 @@ footer{padding-block:28px 0;font-size:.85rem;color:var(--muted);border-top:1px s
   <p class="prose small muted">Sumber: percakapan Gemini 3.6 Flash, 21 September 2026, yang Anda kirim. Saya cek dengan riset yang bisa saya baca malam ini dan dengan pengalaman lapangan Anda.</p>
   <div class="filters" role="group" aria-label="Saring menurut hasil">
     <button type="button" data-f="all" aria-pressed="true">Semua 24</button>
-    <button type="button" data-f="benar" aria-pressed="false">Benar 4</button>
+    <button type="button" data-f="benar" aria-pressed="false">Benar 5</button>
     <button type="button" data-f="sebagian" aria-pressed="false">Sebagian 7</button>
     <button type="button" data-f="salah" aria-pressed="false">Salah 6</button>
-    <button type="button" data-f="belum" aria-pressed="false">Belum ada bukti 3</button>
+    <button type="button" data-f="belum" aria-pressed="false">Belum ada bukti 2</button>
     <button type="button" data-f="jangan" aria-pressed="false">Jangan 4</button>
   </div>
   <div class="ledger" id="ledger">
@@ -281,7 +281,7 @@ footer{padding-block:28px 0;font-size:.85rem;color:var(--muted);border-top:1px s
     <div class="claim" data-v="sebagian"><div class="top"><q>Pati yang tidak berubah jadi gula membuat pahit</q><span class="v sebagian">SEBAGIAN</span></div><p class="small">Pati sisa yang tinggi memang tanda mutu buruk: gula dan bahan aroma jadi kurang (studi curing 2026). Bahwa pati sendiri yang terasa pahit belum saya temukan sumbernya.</p></div>
     <div class="claim" data-v="benar"><div class="top"><q>Warna bagus tapi pahit, karena warna dan rasa itu dua proses berbeda</q><span class="v benar">BENAR</span></div><p class="small">Kuning berarti hijau daun sudah hancur. Itu tidak menjamin gula dan aroma ikut jadi. Jemur yang cepat juga mengunci warna. <span class="tag pasti">PASTI</span></p></div>
     <div class="claim" data-v="sebagian"><div class="top"><q>Kemarau membuat nitrogen dan fenol pekat, jadi pahit</q><span class="v sebagian">SEBAGIAN</span></div><p class="small">Nitrogen naik itu benar. Fenol tidak: tinjauan riset mencatat kekeringan saat masak justru mengurangi fenol.</p></div>
-    <div class="claim" data-v="belum"><div class="top"><q>Arti keluwasen dan ngrapak menurut Gemini</q><span class="v belum">BELUM DICEK</span></div><p class="small">Dua istilah ini tidak ada di internet. Itu istilah dagang Anda, jadi arti yang benar ada pada Anda, bukan pada Gemini.</p></div>
+    <div class="claim" data-v="benar"><div class="top"><q>Arti keluwasen dan ngrapak</q><span class="v benar">BENAR</span></div><p class="small">Dikonfirmasi oleh Anda. Keluwasen: daun kedaluwarsa karena imbon terlalu lama. Ngrapak: rajangan yang terasa garing saat dipegang. Versi pertama halaman ini menyebut definisi itu karangan Gemini, dan itu keliru. <span class="tag lap">LAPANGAN</span></p></div>
     <div class="claim" data-v="sebagian"><div class="top"><q>Suhu imbon 30–35 °C ideal, di atas 45 °C enzim mati</q><span class="v sebagian">SEBAGIAN</span></div><p class="small">Suhu memang mempercepat napas daun: pada 43 °C sekitar 2,3 kali lebih cepat dari 27 °C (Tobacco Science 1963). Angka batas 45 °C tidak ada sumbernya.</p></div>
     <div class="claim" data-v="jangan"><div class="top"><q>Semprot gula atau saus untuk menghilangkan pahit</q><span class="v jangan">JANGAN</span></div><p class="small">Djarum menolak gula. Gudang Garam menerima gula, tapi tahun ini tidak membeli Muntilan dan Prambanan. Dan menurut pengalaman Anda, gula membuat isapan lebih panas dan kurang anteb. <span class="tag lap">LAPANGAN</span></p></div>
     <div class="claim" data-v="jangan"><div class="top"><q>Semprot sehalus embun lalu peram lagi supaya tidak terlihat pabrik</q><span class="v jangan">JANGAN</span></div><p class="small">Ini menyembunyikan bahan dari pembeli. Kalau grader menemukannya, satu lot ditolak dan nama pemasok rusak untuk musim berikutnya.</p></div>
@@ -301,8 +301,8 @@ footer{padding-block:28px 0;font-size:.85rem;color:var(--muted);border-top:1px s
     <div><span class="n">1</span><p><b>Kemarau saat daun tumbuh.</b> Gula sedikit, nikotin dan nitrogen pekat. Hasilnya jedug. <span class="tag pasti">PASTI</span> untuk arahnya.</p></div>
     <div><span class="n">2</span><p><b>Urea berlebihan di sebagian lahan.</b> Masak terlambat, nikotin naik, daun susah matang di imbon. <span class="tag lap">LAPANGAN</span> <span class="tag pasti">PASTI</span></p></div>
     <div><span class="n">3</span><p><b>Petik sebelum tua.</b> Harga daun basah naik ke Rp7.000/kg di Klaten, jadi ada dorongan untuk cepat jual. Daun muda masih tinggi protein dan rendah pati. <span class="tag lap">LAPANGAN</span> <span class="tag besar">KB</span></p></div>
-    <div><span class="n">4</span><p><b>Imbon tidak tuntas atau kelewatan.</b> Gula dibakar napas daun, aroma tidak sempat terbentuk. <span class="tag pasti">PASTI</span></p></div>
-    <div><span class="n">5</span><p><b>Jemur terik sampai ngrapak.</b> Rajangan getas, terbakar cepat dan panas. <span class="tag besar">KB</span></p></div>
+    <div><span class="n">4</span><p><b>Imbon tidak tuntas atau kelewatan sampai keluwasen.</b> Gula dibakar napas daun, aroma tidak sempat terbentuk. <span class="tag pasti">PASTI</span></p></div>
+    <div><span class="n">5</span><p><b>Jemur terik sampai ngrapak.</b> Rajangan terasa garing saat dipegang, terbakar cepat dan panas. <span class="tag besar">KB</span></p></div>
     <div><span class="n">6</span><p><b>Gula yang disemprot sebagian penjual.</b> Isapan lebih panas dan kurang anteb. <span class="tag lap">LAPANGAN</span></p></div>
   </div>
   <p class="prose">Yang tidak masuk daftar: angin yang meniup nikotin, minyak yang menguap di ladang, dan daun yang "kekurangan nitrogen". Tiga cerita itu dari Gemini dan tidak didukung bukti. Penjelasan lengkap soal gejala dan tindakannya ada di halaman pertama: <a href="https://claude.ai/artifact/UTesEw7Y1SaB7gxAssk7vX" target="_blank" rel="noopener">Rajangan Jawa 2026</a>.</p>
@@ -313,7 +313,6 @@ footer{padding-block:28px 0;font-size:.85rem;color:var(--muted);border-top:1px s
   <h2>Yang belum bisa saya jawab</h2>
   <div class="prose">
     <p><b>Angin.</b> Saya tidak menemukan riset yang mengukur bulu daun patah karena angin, atau data angin di Jawa Tengah selama musim 2026. Kalau tahun ini anginnya memang lebih kencang dari biasa, itu pengamatan lapangan yang belum ada angkanya. <span class="tag dugaan">DUGAAN</span></p>
-    <p><b>Keluwasen dan ngrapak.</b> Istilah Anda. Saya tidak memakai definisi Gemini di halaman ini sampai Anda menjelaskannya.</p>
     <p><b>Kadar gula dan nikotin lot Anda.</b> Tetap belum diukur. Uji lab 250 g per lot (gula, nikotin, klorida, kadar air) tetap cara paling murah untuk mengubah dugaan jadi pasti.</p>
   </div>
   <details>

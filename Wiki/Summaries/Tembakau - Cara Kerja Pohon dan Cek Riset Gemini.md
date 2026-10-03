@@ -32,7 +32,13 @@ keluwasen, and a sugar-casing "lesson".
 | Top/flower | topping -> wound hormone -> more nicotine, thicker upper leaves; excess N grows more suckers (NC State) | |
 
 ## Gemini fact-check: 24 claims
-4 true · 7 partly · 6 false · 3 no evidence · 4 do-not-do.
+5 true · 7 partly · 6 false · 2 no evidence · 4 do-not-do (was 4 / 3 before his definitions).
+
+**His trade terms, his words (2026-10-03):** *"keluwasen is expired leaves, happens when imbon is
+too long, ngrapak means when touched it is crisp feeling"*. He also corrected me: *"its not gemini
+own meaning"* - I had written that Gemini made the definitions up. Gemini's meanings matched his;
+the claim moved from "not checked" to "true". Lesson for the vault: a term that is not online is
+his to define, but a matching definition elsewhere is not automatically invented.
 Biggest errors: says 2026 leaf is LOW nicotine and HIGH sugar - drought research says the
 opposite and so does his "jedug". It also contradicts itself (N-starved for nicotine, nitrate-rich
 for ammonia; leaf too dry for enzymes yet wet enough to rot).
@@ -48,8 +54,8 @@ for ammonia; leaf too dry for enzymes yet wet enough to rot).
 - His own idea in that chat (shade the widig 11-14 without moving the rajangan) = correct.
 
 ## Decision
-Nothing owed. Open: his meaning of "keluwasen" and "ngrapak" (not online; Gemini's definitions not
-used). No wind data for Central Java 2026 found.
+Nothing owed. Keluwasen and ngrapak now defined by him (see above; also in page 1's glossary).
+Still open: no wind data for Central Java 2026 found.
 
 ## Rejected on purpose
 - Wind as a main 2026 cause (no evidence; dry hard soil argues against lodging).

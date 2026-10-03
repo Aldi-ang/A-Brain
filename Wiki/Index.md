@@ -99,7 +99,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 
 - [[Web Research When the Search Tools Die]] — WebSearch, WebFetch and firecrawl all dead at once: DuckDuckGo HTML in the built-in browser plus one JS line verified 9 of 11 claims. Also how to view a private artifact without signing in.
 ## Summaries (one per ingested source, newest ingest pass first)
-- [[Summaries/Tembakau - Cara Kerja Pohon dan Cek Riset Gemini]] — how the tobacco plant makes nicotine, sugar and aroma gum, what shifts it, and a 24-claim check of a Gemini chat (4 true, 7 partly, 6 false, 3 no evidence, 4 do-not-do).
+- [[Summaries/Tembakau - Cara Kerja Pohon dan Cek Riset Gemini]] — how the tobacco plant makes nicotine, sugar and aroma gum, what shifts it, and a 24-claim check of a Gemini chat (5 true, 7 partly, 6 false, 2 no evidence, 4 do-not-do).
 - [[Summaries/Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor]] — first tobacco research ingest: why the 2026 El Niño rajangan smokes hot, smells thin and needed a 6-day imbon; 9 of 11 claims re-verified 2026-10-03; what to do with a lot at day 6.
 
 - [[n8n Automation Templates Archive]] — 347 ready-made automation workflows, saved locally
