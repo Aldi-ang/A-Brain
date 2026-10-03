@@ -31,6 +31,10 @@ into one animation instead"*.
   must to close that day job"* - DECIDED: on the map = seen today and no finished EOD today; EOD done = he leaves the
   map; LIVE_MIN (two hours, kpm 7b770be) goes. Cost told to him: a forgotten EOD keeps him at his last spot until
   midnight (also shows who has not closed). REJECTED: the two-hour clock; "stay on the map standing still".
+- 20:30, his words, with a phone screenshot of the shop popup (Toko Anugrah): *"and also i want u to redesign this panel
+  just to make it better and on theme with these"* - QUEUED (kpm NEXT-SESSION.md, block under the one job). Seen:
+  location path under the EDIT button; slate-blue NO PHONE / ADJUST PIN fills (palette law); a full red CRITICAL slab;
+  five unrelated box styles; purple-on-purple salesman badge. OPEN - to draw.
 
 ## FIXED SPOT + OFFLINE HIDDEN 2026-10-03 20:08 - kpm 7b770be (local, not pushed); zoomed-out look OPEN
 
