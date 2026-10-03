@@ -134,6 +134,7 @@ Real things that went wrong (or nearly did), and what was learned.
 ---
 
 ## Elsewhere in this vault
+- [[Summaries/Tembakau - Cara Kerja Pohon dan Cek Riset Gemini]] — tobacco plant physiology and a fact-check of Gemini's 2026 rajangan chat.
 - [[Summaries/Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor]] — the family tobacco business: 2026 rajangan research (hot smoke, thin aroma, slow imbon), verified and drawn as a page.
 
 - [[Index|Wiki Index]] and [[Log|Wiki Log]] — the flat catalog and the append-only build history, mainly for AI queries.

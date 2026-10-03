@@ -12,6 +12,10 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-10-03 (later) — tobacco plant physiology + Gemini fact-check
+
+Aldi asked for deeper research on how the tobacco plant works and a check of a Gemini 3.6 Flash chat. 24 claims judged (4 true, 7 partly, 6 false, 3 no evidence, 4 do-not-do); biggest error: Gemini says 2026 leaf is low-nicotine/high-sugar, research says the opposite. Also found the Frontiers 2024 sugar -5% source that page 1 had marked unverified. New: Summaries/Tembakau - Cara Kerja Pohon dan Cek Riset Gemini.md; page https://claude.ai/artifact/B7ZgHk8WEPpd9t9reez8sG.
+
 ## 2026-10-03 — first tobacco ingest: rajangan 2026 research, verified and drawn
 
 Aldi pasted a research report (why 2026 rajangan smokes hot, smells thin, imbon took 6 days) and asked for it researched, simplified and drawn in Indonesian. 9 of 11 claims re-verified by DuckDuckGo in the built-in browser (WebSearch/firecrawl dead); page published as a private artifact. New: Summaries/Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor.md, Concepts/Web Research When the Search Tools Die.md, Tobacco-Business/Raw/2026-10-03_rajangan-2026-research-page.html.

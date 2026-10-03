@@ -46,7 +46,7 @@ down, thick force-ripened leaves. Then a slow imbon (6 days) burned more sugar b
 | Djarum buys no-sugar tobacco | TRUE - Dawam, 29 Apr 2026: pure tobacco, no sugar or other chemicals |
 | Bojonegoro output halved | TRUE - planted 15,672.68 ha (2025: 12,041), output down by half, Rp32-37k/kg |
 | Balittas imbon 3/5/7-day data (index 56.13 / 73.33 / 68.83) | NOT re-found online; common practice in other sources is 3-4 days. Used as direction only |
-| "Frontiers 2024 review: sugar -5%" | The Frontiers 2024 paper found measures leaf SIZE (area down ~39% under severe drought), not sugar. Direction (sugar down, nicotine up) still stands from tobacco chemistry texts |
+| "Frontiers 2024 review: sugar -5%" | TRUE, found later the same day: fpls.2024.1489993 (heat + drought review) says drought lowers sugar, raises nicotine, ~5% avg sugar drop non-irrigated. The first paper opened (fpls.2024.1442618) was a different one, about leaf size |
 | US patent 5,125,420 | Exists (ethylene + heat to speed yellowing); the "dry weather tobacco" sentence not read first-hand |
 
 Own check: 26.34 mg CO2/min/kg at 27 °C -> ~2.6% dry matter/day; 61.87 at 43 °C -> ~6.1%/day.
