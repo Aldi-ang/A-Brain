@@ -3154,3 +3154,19 @@ Twice in two days, given an A/B: the expedition (*"do your pick both looks good 
 A squad list on the PC) and Journey Plan's top panel (*"A for pc B for phone"*). When drawing options for a screen that
 lives on both, draw the PC look and the phone look as separate choices from the start - he will combine them anyway.
 [[2026-10-03_journey-header]]
+
+## A mark with no moment is not "artistic"; an icon that acts out its job is "high tech but simple" (2026-10-03, 08:25)
+
+Shown three looks for the Journey map's shop marks (a lamp bead, a survey diamond, a game token - all abstract shapes,
+gold kept only for "secured") and three key motions (corner brackets, the icon acting out its job, a small lamp):
+
+> *"icon acts is the best, i dont like all the marks can u redesign it to make it more satisfying and cool and game
+> related u can do research on this"*
+
+- **The key motion he took is the one that MEANS something**: the fullscreen corners open, the pin drops, the arrow
+  flies. A generic effect (brackets, a lamp) lost to motion that explains the button - and the lamp lost even though
+  it was the sidebar's own vocabulary, so "reuse the app's control" did not outrank "the icon tells you what it does".
+- **All three marks lost because none was a game OBJECT and none had a MOMENT.** "Satisfying" = a reward beat when the
+  thing happens (a hop, a pop, light), not a nicer still. Same rule as "the object wins" (2026-09-30): offer things he
+  could name from a game - a chest, a banner - not tasteful shapes. Round 2 drawn as banner / chest / beacon with a
+  secure moment each; his pick owed. [[../../Brainstorm/2026-10-03_journey-map-keys]]
