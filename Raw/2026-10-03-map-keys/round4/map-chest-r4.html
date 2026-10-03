@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en" data-view="pc" data-marks="chest3" data-keys="icon" data-ergo="new" data-glow="sale">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Journey Map Keys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Silkscreen:wght@400;700&display=swap">
+<style>
+/* Journey Plan's map, round 2 (2026-10-03): the keys keep his pick ("icon acts"); the shop marks are game objects
+   with a SECURE MOMENT. Colours from src/styles/theme.css (dark); a game object may keep its own colours (his rule,
+   2026-09-22: "i like the brown color chest dont need to follow the theme"). Lite = the app's kill list: no animation,
+   no transition, no box-shadow, no text-shadow, no filter - every mark must still read in its end state. */
+:root {
+  color-scheme: dark;
+  --ground: #0A0908; --sunk: #050403; --panel: #121110; --raised: #1B1917; --inset: #0E0D0C;
+  --line: #26231F; --line-2: #3E3A35; --line-3: #6A645C;
+  --ink: #E8E4DE; --ink-muted: #A39B90; --ink-dim: #928B81;
+  --gold: #D08A2E; --gold-2: #E4B04A;
+  --led-crit: #FF3B4B; --led-warn: #FFB020;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --font-pixel: "Silkscreen", var(--font-mono);
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+  --slow: 1;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--ground); color: var(--ink); font: 400 15px/1.45 var(--font-body); -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; }
+
+/* ---- the chooser (not app UI) ---- */
+.top { padding: 14px 16px 10px; display: grid; gap: 10px; border-bottom: 1px solid var(--line-2); background: var(--panel); }
+.top h1 { margin: 0; font: 900 22px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; }
+.top h1 small { font: 700 11px/1 var(--font-mono); letter-spacing: .14em; color: var(--ink-dim); margin-left: 10px; }
+.rows { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.grp { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.grp > span { font: 700 11px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); min-width: 74px; }
+.seg { display: flex; border: 1px solid var(--line-3); border-radius: 8px; overflow: hidden; }
+.seg button { min-height: 38px; padding: 0 12px; background: var(--raised); border: 0; border-left: 1px solid var(--line-2); cursor: pointer;
+  font: 800 12px/1 var(--font-mono); letter-spacing: .06em; color: var(--ink-muted); white-space: nowrap; }
+.seg button:first-child { border-left: 0; }
+.seg button[aria-pressed="true"] { background: var(--inset); color: var(--ink); box-shadow: inset 0 -2px 0 var(--gold-2); }
+.tog { min-height: 38px; padding: 0 12px; border: 1px solid var(--line-3); border-radius: 8px; background: var(--raised); cursor: pointer;
+  font: 800 12px/1 var(--font-mono); letter-spacing: .06em; color: var(--ink-muted); }
+.tog[aria-pressed="true"] { color: var(--ink); border-color: var(--gold-2); }
+.go { border-color: var(--gold); color: var(--ink); }
+
+.wrap { padding: 16px; display: grid; gap: 14px; justify-items: center; }
+.note { max-width: 1000px; width: 100%; margin: 0; font-size: 14px; color: var(--ink-muted); }
+.note b { color: var(--ink); }
+
+/* ---- the map ---- */
+.map { position: relative; overflow: hidden; border: 1px solid var(--line-2); border-radius: 16px; background: #545557 url(ground.jpg) 50% 46% / 2048px auto;
+  transition: background-position calc(900ms * var(--slow)) var(--ease-out); width: min(1000px, 100%); height: 500px; }
+html[data-view="phone"] .map { width: min(390px, 100%); height: 760px; border-radius: 22px; }
+.map.flown { background-position: 44% 40%; }
+.layer { position: absolute; inset: 0; }
+.borders { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity calc(240ms * var(--slow)) ease; pointer-events: none; }
+.map.bordered .borders { opacity: 1; }
+.trail { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.zoom { position: absolute; top: 16px; left: 16px; display: grid; border: 1px solid var(--line-3); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.45); }
+.zoom i { width: 34px; height: 34px; display: grid; place-items: center; background: var(--panel); color: var(--ink); font: 700 20px/1 var(--font-body); font-style: normal; }
+.zoom i + i { border-top: 1px solid var(--line-2); }
+.attrib { position: absolute; right: 0; bottom: 0; padding: 2px 6px; background: rgba(10,9,8,.72); color: var(--ink-dim); font: 11px/1.3 var(--font-body); }
+
+/* salesman chips (the expedition, unchanged) */
+.chip { position: absolute; width: 36px; height: 48px; translate: -50% -100%; display: grid; justify-items: center; align-content: start; pointer-events: none; }
+.chip b { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(160deg, #E4C98E, #B8893A);
+  color: #2a1d08; font: 900 12px/1 var(--font-mono); border: 3px solid #A39B90; outline: 2px solid #0A0908; }
+.chip > i { width: 2px; height: 10px; background: #E4B04A; }
+.chip span { position: absolute; left: 42px; top: 9px; font: 800 10px/1 var(--font-mono); letter-spacing: .1em; color: #E8E4DE;
+  background: #0A0908; border: 1px solid #6A645C; border-radius: 4px; padding: 3px 5px; white-space: nowrap; }
+
+/* ================= SHOP MARKS ================= */
+.m { position: absolute; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.m .art { transition: transform calc(180ms * var(--slow)) var(--ease-out); transform-origin: 50% 100%; }
+.m .hop { transform-origin: 50% 100%; }
+@media (hover: hover) and (pointer: fine) { .m:hover .art { transform: translateY(-3px); } }
+.m:active .art { transform: scale(.92); transition-duration: calc(80ms * var(--slow)); }
+/* the hop every look plays at its secure moment: squash, jump, land */
+.m.burst .hop { animation: hop calc(560ms * var(--slow)) var(--ease-out); }
+@keyframes hop { 0% { transform: none; } 18% { transform: scale(1.16, .8); } 42% { transform: translateY(-8px) scale(.92, 1.1); } 68% { transform: scale(1.08, .93); } 100% { transform: none; } }
+.px { shape-rendering: crispEdges; display: block; overflow: visible; }
+/* sparks: pixel squares that fly out once - decoration of the moment, never the state */
+.fx { position: absolute; left: 50%; top: 2px; width: 0; height: 0; pointer-events: none; }
+.fx i { position: absolute; width: 4px; height: 4px; background: #FFE2A0; opacity: 0; }
+.fx i:nth-child(2n) { background: #E4B04A; width: 3px; height: 3px; }
+.m.burst .fx i { animation: spark calc(680ms * var(--slow)) var(--ease-out) calc(120ms * var(--slow)); }
+@keyframes spark { 0% { opacity: 1; transform: translate(0, 0) scale(1); } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(.4); } }
+.st { position: absolute; width: 17px; height: 17px; border-radius: 5px; display: grid; place-items: center; background: #0A0908; border: 1px solid var(--line-3); color: var(--ink); }
+.st svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.st.crit { color: var(--led-crit); border-color: #7a2a30; }
+.st.warn { color: var(--led-warn); }
+
+/* --- TODAY: what kpm d321daf draws --- */
+.t-cl { translate: -50% -50%; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: rgba(18,17,16,.95); border: 2px solid #D08A2E;
+  color: #E4B04A; font: 900 14px/1 monospace; box-shadow: 0 0 20px rgba(249,115,22,.5); }
+.t-pin { translate: -50% -50%; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: #1B1917; border: 2px solid var(--c);
+  font-size: 12px; box-shadow: 0 0 10px color-mix(in srgb, var(--c) 50%, transparent); }
+
+/* --- 1 · BANNER: a Minecraft map banner. The cloth is the salesman's colour (the game's own rule: a banner's mark
+       takes the banner's colour). Furled = not visited; secured = the banner is RAISED, its tip turns amber. --- */
+.ban-pin { width: 20px; height: 34px; translate: -3px -100%; }             /* the pole's foot sits on the shop */
+.ban-pin svg { width: 20px; height: 34px; }
+.ban-pin .cloth { transform-box: fill-box; transform-origin: 50% 0; transform: scaleY(.3); transition: transform calc(460ms * var(--slow)) var(--spring); }
+.ban-pin.lit .cloth { transform: scaleY(1); }
+.ban-pin .fin { fill: #8A8178; transition: fill calc(200ms * var(--slow)) ease; }
+.ban-pin.lit .fin { fill: #E4B04A; }
+.ban-pin .cc { fill: var(--c); } .ban-pin .cs { fill: color-mix(in srgb, var(--c) 62%, #000); }
+.ban-pin.burst .cloth { animation: wave calc(760ms * var(--slow)) ease-in-out calc(400ms * var(--slow)); }
+@keyframes wave { 0%, 100% { transform: scaleY(1) skewY(0); } 30% { transform: scaleY(1) skewY(-7deg); } 62% { transform: scaleY(1) skewY(4deg); } 84% { transform: scaleY(1) skewY(-1.5deg); } }
+.ban-pin .fx { left: 4px; top: 31px; }
+.ban-pin .st { left: 17px; top: 0; }
+
+/* --- 2 · CHEST: a shop is a chest; secured = the chest stands OPEN with warm light inside. The ring under it is
+       the salesman's colour, like a selected unit in a strategy game. --- */
+.chest-pin { width: 24px; height: 22px; translate: -50% -80%; }
+.chest-pin svg { width: 24px; height: 22px; position: relative; }
+.chest-pin .ring { position: absolute; left: 50%; bottom: -5px; width: 32px; height: 12px; translate: -50% 0; border-radius: 50%; border: 2px solid var(--c);
+  background: rgba(10,9,8,.5); z-index: -1; }
+.chest-pin .lid { transform-box: fill-box; transform-origin: 50% 0; transition: transform calc(340ms * var(--slow)) var(--spring); }
+.chest-pin.lit .lid { transform: translateY(-2.6px) scaleY(.48); }
+.chest-pin .glow, .chest-pin .beam { opacity: 0; transition: opacity calc(260ms * var(--slow)) ease; }
+.chest-pin .beam { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(.2); transition: opacity calc(260ms * var(--slow)) ease, transform calc(460ms * var(--slow)) var(--ease-out); }
+.chest-pin.lit .glow { opacity: 1; }
+.chest-pin.lit .beam { opacity: .9; transform: scaleY(1); }
+.chest-pin.closed svg { opacity: .55; }
+.chest-pin .st { left: 19px; top: -9px; }
+
+/* --- CHEST, FIXED (his note: "since it is small, secured stores and unvisited stores looks almost the same"). Three
+       signals instead of one: SHAPE (open = a taller chest, the lid standing up), BRIGHTNESS (closed = dim wood, open =
+       bright wood with light inside) and LIGHT (a beam above + a warm pool on the ground). The swap of the two sprites
+       is a state, not an animation, so Lite shows the open chest at once. --- */
+.ch2 { width: 24px; height: 28px; translate: -50% -88%; }
+.ch2 .spr { position: absolute; left: 0; bottom: 0; width: 24px; }
+.ch2 .open { opacity: 0; }
+.ch2.lit .shut { opacity: 0; transition: opacity 0s linear calc(150ms * var(--slow)); }
+.ch2.lit .open { opacity: 1; transition: opacity 0s linear calc(150ms * var(--slow)); }
+.ch2 .ring { position: absolute; left: 50%; bottom: -5px; width: 30px; height: 11px; translate: -50% 0; border-radius: 50%; border: 2px solid var(--c); background: rgba(10,9,8,.55); z-index: -1; }
+.ch2 .pool { position: absolute; left: 50%; bottom: -12px; width: 54px; height: 24px; translate: -50% 0; border-radius: 50%; z-index: -2; opacity: 0;
+  background: radial-gradient(closest-side, rgba(255,205,120,.75), rgba(228,176,74,.28) 55%, transparent); transition: opacity calc(320ms * var(--slow)) ease calc(150ms * var(--slow)); }
+.ch2.lit .pool { opacity: 1; }
+.ch2 .beam { position: absolute; left: 1px; right: 1px; bottom: 14px; height: 22px; clip-path: polygon(14% 100%, 86% 100%, 100% 0, 0 0); transform-origin: 50% 100%;
+  background: linear-gradient(to top, rgba(255,220,150,.85), rgba(255,200,110,0)); opacity: 0; transform: scaleY(.15);
+  transition: opacity calc(240ms * var(--slow)) ease calc(150ms * var(--slow)), transform calc(480ms * var(--slow)) var(--ease-out) calc(150ms * var(--slow)); }
+.ch2.lit .beam { opacity: .8; transform: none; }
+.ch2.burst .open { animation: pop calc(380ms * var(--slow)) var(--spring) calc(150ms * var(--slow)); transform-origin: 50% 100%; }
+@keyframes pop { 0% { transform: scale(.85, 1.15); } 100% { transform: none; } }
+.ch2.burst .fx { top: -4px; }
+.ch2.closed .shut { opacity: .6; }
+.ch2 .st { left: 20px; top: -4px; }
+.slot .item.two { position: relative; width: 24px; height: 28px; }
+.slot .item.two svg { position: absolute; left: 0; bottom: 0; }
+.slot .item.two .open, .slot.full .item.two .shut { opacity: 0; }
+.slot.full .item.two .open { opacity: 1; }
+
+/* --- CHEST v4 (his OK of the chest + "make sure the animation is smooth and correct" + a sign for the store's
+       status). ONE sprite whose lid LIFTS (no picture swap), a sign planted beside it with the visit's outcome, and a
+       hop eased like gravity: slows on the way up, speeds up on the way down, squashes on landing.
+       The END state is the plain style; the moment is keyframes FROM the closed values. That is also how it must ship:
+       Leaflet replaces a marker's element when its icon changes, so only a fresh element's animation can play - here
+       every state change replaces the element too. Lite: no animation, the end state shows at once. --- */
+.ch3 { width: 24px; height: 28px; translate: -50% -88%; }
+/* the wrappers must be as big as the mark: a transform (the hop, the hover lift) makes the wrapper the box the chest is
+   placed against, and a 0-height wrapper threw the chest 28 px up for as long as the hop's fill lasted (seen in the
+   round-3 frames, 2026-10-03) */
+.ch3 .art, .ch3 .hop { position: absolute; inset: 0; }
+.ch3 svg.chest { position: absolute; left: 0; bottom: 0; width: 24px; height: 28px; overflow: visible; }
+/* the lid swings on its hinge: its front face tilts away (rises, gets shorter, goes edge-on), then the lid's dark
+   INSIDE face unfolds upward - the way a 2D game fakes a 3D turn. Open = the inside face standing up. */
+.ch3 .lidF, .ch3 .lidU { transform-box: fill-box; transform-origin: 50% 100%; }
+.ch3 .lidF { transform: translateY(3px); }
+.ch3 .lidU { opacity: 0; }
+.ch3.v:not(.shut) .lidF { opacity: 0; transform: scaleY(.15); }
+.ch3.v:not(.shut) .lidU { opacity: 1; }
+.ch3 .bright { opacity: 0; } .ch3.v .bright { opacity: 1; }
+.ch3 .gin { opacity: 0; } .ch3.sale .gin { opacity: 1; }
+.ch3 .ring { position: absolute; left: 50%; bottom: -5px; width: 30px; height: 11px; translate: -50% 0; border-radius: 50%; border: 2px solid var(--c); background: rgba(10,9,8,.55); z-index: -1; }
+.ch3 .pool { position: absolute; left: 50%; bottom: -12px; width: 54px; height: 24px; translate: -50% 0; border-radius: 50%; z-index: -2; opacity: 0;
+  background: radial-gradient(closest-side, rgba(255,205,120,.75), rgba(228,176,74,.28) 55%, transparent); }
+.ch3.sale .pool { opacity: 1; }
+.ch3 .beam { position: absolute; left: 1px; right: 1px; bottom: 14px; height: 22px; clip-path: polygon(14% 100%, 86% 100%, 100% 0, 0 0); transform-origin: 50% 100%;
+  background: linear-gradient(to top, rgba(255,220,150,.85), rgba(255,200,110,0)); opacity: 0; }
+.ch3.sale .beam { opacity: .8; }
+.ch3 .sign { position: absolute; left: 14px; bottom: -7px; width: 18px; height: 18px; display: none; transform-origin: 50% 100%; }
+.ch3.v .sign { display: block; }
+.ch3 .sign svg { width: 18px; height: 18px; display: block; }
+.ch3:not(.sale) .fx { display: none; }
+.ch3.burst .hop { animation: hop2 calc(600ms * var(--slow)) both; }
+@keyframes hop2 {
+  0%   { transform: none; animation-timing-function: cubic-bezier(.3, 0, .5, 1); }
+  16%  { transform: scale(1.14, .84); animation-timing-function: cubic-bezier(.2, .6, .35, 1); }
+  44%  { transform: translateY(-9px) scale(.94, 1.08); animation-timing-function: cubic-bezier(.55, 0, .85, .35); }
+  64%  { transform: scale(1.1, .9); animation-timing-function: cubic-bezier(.2, .8, .3, 1); }
+  82%  { transform: scale(.98, 1.02); }
+  100% { transform: none; }
+}
+.ch3.burst:not(.shut) .lidF { animation: lid-tilt calc(190ms * var(--slow)) cubic-bezier(.5, 0, .9, .6) calc(220ms * var(--slow)) both; }
+@keyframes lid-tilt { from { opacity: 1; transform: translateY(3px); } 92% { opacity: 1; } to { opacity: 0; transform: scaleY(.15); } }
+.ch3.burst:not(.shut) .lidU { animation: lid-unfold calc(340ms * var(--slow)) var(--spring) calc(400ms * var(--slow)) both; }
+@keyframes lid-unfold { from { opacity: 1; transform: scaleY(0); } to { opacity: 1; transform: none; } }
+.ch3.burst .bright { animation: fade-in calc(240ms * var(--slow)) ease calc(150ms * var(--slow)) both; }
+.ch3.burst .gin { animation: fade-in calc(200ms * var(--slow)) ease calc(280ms * var(--slow)) both; }
+.ch3.burst .beam { animation: beam-up calc(480ms * var(--slow)) var(--ease-out) calc(300ms * var(--slow)) both; }
+.ch3.burst .pool { animation: fade-in calc(320ms * var(--slow)) ease calc(300ms * var(--slow)) both; }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes beam-up { from { opacity: 0; transform: scaleY(.15); } }
+.ch3.burst .fx i { animation-delay: calc(300ms * var(--slow)); }
+.ch3.burst .sign { animation: plant calc(380ms * var(--slow)) var(--spring) calc(540ms * var(--slow)) both; }
+.ch3.resign .sign { animation: plant calc(380ms * var(--slow)) var(--spring) both; }
+.ch3.resign .beam { animation: beam-up calc(480ms * var(--slow)) var(--ease-out) both; }
+.ch3.resign .pool, .ch3.resign .gin { animation: fade-in calc(300ms * var(--slow)) ease both; }
+@keyframes plant { from { opacity: 0; transform: translateY(-12px) rotate(-8deg); } }
+
+/* the legend under the map (prototype only - in the app the meaning lives in the store's own card and the ponder book) */
+.legend { max-width: 1000px; width: 100%; display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 12px 14px; border: 1px solid var(--line-2); border-radius: 12px; background: var(--panel); }
+.legend div { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-muted); }
+.legend b { color: var(--ink); font-weight: 700; }
+.legend svg { width: 27px; height: 27px; }
+
+/* --- 3 · BEACON: a dormant hex switches ON - a ring of light rushes out, the edge powers up round the hex, a short
+       pillar of light stands on it (Division's map, a game waypoint). --- */
+.bea-pin { width: 24px; height: 24px; translate: -50% -50%; }
+.bea-pin svg { width: 24px; height: 24px; display: block; overflow: visible; position: relative; }
+.bea-pin .body { fill: rgba(14,13,12,.92); }
+.bea-pin .seg line { stroke: var(--c); stroke-width: 2.4; stroke-linecap: round; }
+.bea-pin .core { fill: #3E3A35; transform-box: fill-box; transform-origin: center; transition: fill calc(200ms * var(--slow)) ease; }
+.bea-pin.lit .core { fill: #FFD48A; }
+.bea-pin .halo { position: absolute; inset: -14px; border-radius: 50%; opacity: 0; background: radial-gradient(circle, rgba(255,196,110,.5) 0, rgba(228,176,74,.16) 38%, transparent 68%);
+  transition: opacity calc(300ms * var(--slow)) ease; }
+.bea-pin.lit .halo { opacity: 1; }
+.bea-pin .pillar { position: absolute; left: 50%; bottom: 50%; width: 4px; height: 24px; margin-left: -2px; border-radius: 2px; transform-origin: 50% 100%; transform: scaleY(0);
+  background: linear-gradient(to top, rgba(255,214,140,.95), rgba(255,200,110,0)); transition: transform calc(420ms * var(--slow)) var(--spring); }
+.bea-pin.lit .pillar { transform: scaleY(1); }
+.bea-pin .shock { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+.bea-pin .shock polygon { fill: none; stroke: #FFD48A; stroke-width: 1.4; }
+.bea-pin.burst .shock { animation: shock calc(680ms * var(--slow)) var(--ease-out); }
+@keyframes shock { 0% { opacity: .95; transform: scale(1); } 100% { opacity: 0; transform: scale(2.9); } }
+.bea-pin.burst .seg line { animation: power calc(420ms * var(--slow)) ease-out both; animation-delay: calc(var(--i) * 45ms * var(--slow)); }
+@keyframes power { 0% { stroke: #FFF4DC; stroke-width: 3.6; } 100% { stroke: var(--c); stroke-width: 2.4; } }
+.bea-pin.burst .core { animation: core calc(420ms * var(--slow)) var(--spring); }
+@keyframes core { 0% { transform: scale(.3); } 60% { transform: scale(1.35); } 100% { transform: scale(1); } }
+.bea-pin.burst .hop { animation: none; }
+.bea-pin .st { left: 20px; top: -8px; }
+
+/* --- clusters for BANNER and CHEST: a Minecraft inventory slot holding the item, the shop count bottom-right like a
+       stack, and a bar under it that fills amber as the shops inside are secured. Full = the item's enchant shine. --- */
+.slot { translate: -50% -50%; }
+.slot .hop { position: relative; width: 42px; height: 42px; background: #8B8B8B; border: 3px solid; border-color: #373737 #FFFFFF #FFFFFF #373737; display: grid; place-items: center; }
+.slot .item { display: block; }
+.slot .cnt { position: absolute; right: 1px; bottom: -2px; font: 700 15px/1 var(--font-pixel); color: #FFFFFF; z-index: 1; }
+.slot .cnt::before { content: attr(data-n); position: absolute; left: 2px; top: 2px; color: #3F3F3F; z-index: -1; }
+.slot .dur { position: absolute; left: 0; right: 0; top: calc(100% + 4px); height: 5px; background: #0A0908; border: 1px solid #0A0908; }
+.slot .dur i { position: absolute; inset: 0; background: #E4B04A; transform-origin: 0 50%; transform: scaleX(var(--f)); transition: transform calc(420ms * var(--slow)) var(--ease-out); }
+.slot.full .hop::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 30%, rgba(186,120,255,.35) 46%, rgba(255,214,140,.30) 54%, transparent 70%);
+  background-size: 300% 100%; background-position: 0 0; pointer-events: none; }
+.slot.full.burst .hop::after { animation: glint calc(900ms * var(--slow)) ease-in-out; }
+@keyframes glint { from { background-position: 100% 0; } to { background-position: 0 0; } }
+.slot.bump .hop { animation: bump calc(260ms * var(--slow)) var(--ease-out); }
+@keyframes bump { 40% { transform: scale(1.12); } }
+.slot.full .item .lid { transform: translateY(-2.6px) scaleY(.48); }
+.slot.full .item .glow { opacity: 1; }
+
+/* --- cluster for BEACON: a big hex; one edge lights amber per sixth of the shops secured; the number decodes on a tap --- */
+.hexcl { translate: -50% -50%; width: 48px; height: 48px; }
+.hexcl svg { width: 48px; height: 48px; display: block; overflow: visible; }
+.hexcl .body { fill: rgba(14,13,12,.94); }
+.hexcl .seg line { stroke: #6A645C; stroke-width: 3; stroke-linecap: round; transition: stroke calc(240ms * var(--slow)) ease; }
+.hexcl .seg line.on { stroke: #E4B04A; }
+.hexcl em { position: absolute; inset: 0; display: grid; place-items: center; font: 900 19px/1 var(--font-display); font-style: normal; color: var(--ink); font-variant-numeric: tabular-nums; }
+.hexcl .halo { position: absolute; inset: -16px; border-radius: 50%; opacity: 0; background: radial-gradient(circle, rgba(255,196,110,.42) 0, rgba(228,176,74,.12) 40%, transparent 68%); }
+.hexcl.full .halo { opacity: 1; }
+.hexcl.bump .hop { animation: bump calc(260ms * var(--slow)) var(--ease-out); }
+
+/* ================= KEYS (his pick: the icon acts) ================= */
+.key { position: relative; display: flex; align-items: center; gap: 8px; padding: 10px; border-radius: 12px; border: 1px solid var(--line-3); background: var(--panel);
+  color: var(--ink-muted); box-shadow: 0 6px 20px rgba(0,0,0,.45); cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform calc(140ms * var(--slow)) var(--ease-out), border-color calc(140ms * var(--slow)) ease, color calc(140ms * var(--slow)) ease; }
+.key svg.k { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.key:active { transform: scale(.97); }
+.key.on { color: var(--ink); border-color: var(--gold); background: var(--inset); }
+.key:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.key > span { font: 800 10px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+@media (hover: hover) and (pointer: fine) { .key:hover { color: var(--ink); border-color: var(--gold); } }
+.key.round { border-radius: 50%; padding: 12px; }
+.key svg.k * { transform-box: fill-box; transform-origin: center; transition: transform calc(240ms * var(--slow)) var(--ease-out); }
+.key svg.k { transition: rotate calc(240ms * var(--slow)) var(--ease-out); }
+.k-full:is(:active, .act) path:nth-child(1) { transform: translate(-2px, -2px); }
+.k-full:is(:active, .act) path:nth-child(2) { transform: translate(2px, -2px); }
+.k-full:is(:active, .act) path:nth-child(3) { transform: translate(-2px, 2px); }
+.k-full:is(:active, .act) path:nth-child(4) { transform: translate(2px, 2px); }
+.k-bord:is(:active, .act) path:nth-child(1) { transform: translateY(-3px); }
+.k-bord:is(:active, .act) path:nth-child(3) { transform: translateY(1.5px); }
+.k-home.act svg.k { animation: pin-drop calc(460ms * var(--slow)) var(--ease-out); }
+@keyframes pin-drop { 0% { transform: translateY(-6px); } 55% { transform: translateY(0); } 75% { transform: translateY(-2px); } 100% { transform: translateY(0); } }
+.k-fly:is(:active, .act) polygon { transform: translate(3px, -3px); }
+.k-loc:is(:active, .act) circle:last-child { transform: scale(.4); }
+.k-loc:is(:active, .act) circle:nth-last-child(2) { transform: scale(.82); }
+.k-brush:is(:active, .act) svg.k.br, .brushwrap.open .k.br { rotate: -16deg; }
+@media (hover: hover) and (pointer: fine) {
+  .k-full:hover path:nth-child(1) { transform: translate(-1.5px, -1.5px); }
+  .k-full:hover path:nth-child(2) { transform: translate(1.5px, -1.5px); }
+  .k-full:hover path:nth-child(3) { transform: translate(-1.5px, 1.5px); }
+  .k-full:hover path:nth-child(4) { transform: translate(1.5px, 1.5px); }
+  .k-bord:hover path:nth-child(1) { transform: translateY(-2.5px); }
+  .k-home:hover svg.k { animation: pin-drop calc(460ms * var(--slow)) var(--ease-out); }
+  .k-fly:hover polygon { transform: translate(2px, -2px); }
+  .k-loc:hover circle:last-child { transform: scale(.55); }
+  .k-brush:hover svg.k.br { rotate: -12deg; }
+}
+
+.keys { position: absolute; top: 16px; right: 16px; display: flex; flex-direction: column; gap: 12px; align-items: flex-end; z-index: 5; }
+.keys .key > span { display: none; }
+@media (hover: hover) and (pointer: fine) { .keys .key:hover > span { display: block; } }
+html[data-view="phone"] .keys .key { min-width: 44px; min-height: 44px; justify-content: center; }
+.brushwrap { position: absolute; left: 16px; bottom: 16px; display: flex; flex-direction: column-reverse; gap: 8px; align-items: flex-start; z-index: 5; }
+.brushkey > span { color: var(--ink); font-size: 10px; }
+.brushkey .k.br, .dock .k.br { color: var(--gold); }
+.brushkey .chev { width: 14px; height: 14px; color: var(--ink-dim); transition: rotate calc(200ms * var(--slow)) var(--ease-out); }
+.brushwrap.open .chev { rotate: 180deg; }
+html[data-view="phone"] .brushkey { min-height: 44px; }
+.locate { position: absolute; right: 16px; bottom: 24px; z-index: 5; }
+.dock { display: none; }
+html[data-view="pc"][data-ergo="new"] .keys { gap: 0; border: 1px solid var(--line-3); border-radius: 14px; background: var(--panel); box-shadow: 0 6px 20px rgba(0,0,0,.45); padding: 4px; align-items: stretch; }
+html[data-view="pc"][data-ergo="new"] .keys .key { border: 1px solid transparent; box-shadow: none; background: none; padding: 9px 14px 9px 10px; border-radius: 10px; gap: 10px; }
+html[data-view="pc"][data-ergo="new"] .keys .key > span { display: block; }
+html[data-view="pc"][data-ergo="new"] .keys .key + .key { margin-top: 2px; }
+html[data-view="pc"][data-ergo="new"] .keys .key.on { background: var(--inset); border-color: var(--gold); }
+html[data-view="phone"][data-ergo="new"] .keys,
+html[data-view="phone"][data-ergo="new"] .brushkey,
+html[data-view="phone"][data-ergo="new"] .locate { display: none; }
+html[data-view="phone"][data-ergo="new"] .dock { position: absolute; left: 10px; right: 10px; bottom: 22px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 2px; z-index: 5;
+  padding: 4px; border: 1px solid var(--line-3); border-radius: 18px; background: var(--panel); box-shadow: 0 10px 30px rgba(0,0,0,.6); }
+.dock .key { flex-direction: column; justify-content: center; gap: 5px; min-height: 58px; padding: 6px 2px; border: 1px solid transparent; background: none; box-shadow: none; border-radius: 14px; }
+.dock .key > span { display: block; font: 800 12px/1 var(--font-display); letter-spacing: .06em; }
+.dock .key.on { background: var(--inset); border-color: var(--gold); }
+html[data-view="phone"][data-ergo="new"] .brushwrap { left: 10px; right: 10px; bottom: 112px; }
+
+/* ---- the brush list ---- */
+.brush { background: rgba(18,17,16,.96); border: 1px solid var(--line-3); padding: 10px; border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,.8);
+  display: flex; flex-direction: column; gap: 6px; width: max-content; max-height: 330px; overflow: auto; }
+.brushwrap:not(.open) .brush { display: none; }
+.row { display: flex; align-items: center; gap: 8px; }
+.pen { flex: 1; display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: 12px; border: 1px solid transparent; background: rgba(27,25,23,.6);
+  color: var(--ink-muted); font: 700 12px/1 var(--font-body); cursor: pointer; text-align: left; }
+.pen .sw { width: 12px; height: 12px; border-radius: 50%; background: var(--c); flex: none; }
+.pen .nm { max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pen.sel { background: var(--raised); color: var(--ink); border-color: var(--c); }
+.pen.off { justify-content: center; text-transform: uppercase; letter-spacing: .14em; font: 900 10px/1 var(--font-mono); }
+.pen.off.sel { background: #ea580c; color: #fff; border-color: #f97316; }
+.swatch { width: 32px; height: 32px; flex: none; border-radius: 8px; border: 1px solid #475569; background: var(--c); }
+html[data-ergo="new"] .brush { gap: 4px; }
+html[data-ergo="new"] .pen { min-height: 44px; padding: 0 12px; gap: 12px; font-size: 14px; }
+html[data-ergo="new"] .pen .sw { width: 20px; height: 20px; }
+html[data-ergo="new"] .pen .nm { max-width: 170px; }
+html[data-ergo="new"] .pen.off { justify-content: flex-start; font-size: 11px; }
+html[data-ergo="new"] .pen.off.sel { background: var(--inset); color: var(--ink); border-color: var(--gold-2); }
+html[data-view="pc"][data-ergo="new"] .brush { max-height: 380px; }
+html[data-ergo="new"] .swatch { width: 44px; height: 44px; border-radius: 10px; border-color: var(--line-3); }
+html[data-view="phone"][data-ergo="new"] .brush { width: 100%; max-height: 360px; }
+html[data-view="phone"][data-ergo="new"] .pen .nm { max-width: none; }
+.brushwrap.open .brush { transform-origin: bottom left; animation: sheet-in calc(220ms * var(--slow)) var(--ease-out) both; }
+.brushwrap.open .row { animation: row-in calc(240ms * var(--slow)) var(--ease-out) both; animation-delay: calc(var(--i) * 28ms * var(--slow)); }
+@keyframes sheet-in { from { opacity: 0; transform: translateY(8px) scale(.96); } }
+@keyframes row-in { from { opacity: 0; transform: translateX(-6px); } }
+
+.me { position: absolute; width: 14px; height: 14px; translate: -50% -50%; border-radius: 50%; background: #E8E4DE; border: 2px solid #0A0908; display: none; }
+.map.located .me { display: block; }
+.report { position: absolute; left: 50%; top: 16px; translate: -50% 0; padding: 9px 14px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line-3); z-index: 9;
+  font: 800 11px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); opacity: 0; transform: translateY(-6px);
+  transition: opacity calc(160ms * var(--slow)) ease, transform calc(220ms * var(--slow)) var(--ease-out); pointer-events: none; white-space: nowrap; }
+.report.show { opacity: 1; transform: none; }
+
+html.lite *, html.lite *::before, html.lite *::after { animation: none !important; transition: none !important; box-shadow: none !important; text-shadow: none !important; filter: none !important; }
+@media (max-width: 700px) { .grp > span { min-width: 0; width: 100%; } .wrap { padding: 12px 0; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Journey Plan · the chest <small>tap a shop · tap a bubble</small></h1>
+  <div class="rows">
+    <div class="grp"><span>Screen</span><div class="seg" data-set="view"><button data-v="pc">PC</button><button data-v="phone">Phone (full map)</button></div></div>
+    <div class="grp"><span>Shop marks</span><div class="seg" data-set="marks"><button data-v="today">Today</button><button data-v="chest3">Chest</button></div></div>
+    <div class="grp"><span>No-sale visits</span><div class="seg" data-set="glow"><button data-v="sale">Dark inside</button><button data-v="all">Glow too</button></div></div>
+    <div class="grp"><span>Key layout</span><div class="seg" data-set="ergo"><button data-v="today">Today</button><button data-v="new">New</button></div></div>
+    <div class="grp"><span>Play</span><button class="tog go" id="secure">▶ Secure a shop</button><button class="tog" id="reset">Reset</button><button class="tog" id="lite" aria-pressed="false">Lite Mode</button><button class="tog" id="slow" aria-pressed="false">Slow ×4</button></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="map" id="map">
+    <svg class="borders" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M8 22 L30 18 L44 26 L52 20 L66 24 L72 38 L64 50 L70 64 L58 80 L40 84 L26 74 L14 60 L18 42 Z" fill="rgba(208,138,46,.05)" stroke="#D08A2E" stroke-width=".35" stroke-dasharray="1.6 1" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <svg class="trail" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M37 30 L39 39 L45 45" fill="none" stroke="#E8E4DE" stroke-width="2" vector-effect="non-scaling-stroke" opacity=".8"/>
+      <path d="M45 45 L57 47" fill="none" stroke="#E4B04A" stroke-width="2" stroke-dasharray="5 4" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <div class="layer" id="marks"></div>
+    <div class="me" style="left:52%;top:58%"></div>
+    <div class="zoom" aria-hidden="true"><i>+</i><i>−</i></div>
+
+    <div class="keys">
+      <button class="key k-full" data-act="full" title="Fullscreen map"><svg class="k" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg><span class="lbl-full">Fullscreen</span></button>
+      <button class="key k-bord" data-act="bord" title="Regional borders"><svg class="k" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg><span>Borders</span></button>
+      <button class="key k-home" data-act="home" title="Save this view as home"><svg class="k" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Set Home</span></button>
+      <button class="key k-fly" data-act="fly" title="Fly back to home"><svg class="k" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg><span>Fly Home</span></button>
+    </div>
+
+    <div class="brushwrap" id="brushwrap">
+      <button class="key brushkey k-brush" data-act="brush"><svg class="k br" viewBox="0 0 24 24"><path d="m14.622 17.897-10.68-2.913"/><path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z"/><path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15"/></svg><span>Paintbrush</span><svg class="k chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="brush" id="brush"></div>
+    </div>
+
+    <button class="key round locate k-loc" data-act="loc" title="Locate me"><svg class="k" viewBox="0 0 24 24"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></button>
+
+    <nav class="dock" aria-label="Map keys">
+      <button class="key k-brush" data-act="brush"><svg class="k br" viewBox="0 0 24 24"><path d="m14.622 17.897-10.68-2.913"/><path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z"/><path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15"/></svg><span>Brush</span></button>
+      <button class="key k-bord" data-act="bord"><svg class="k" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg><span>Borders</span></button>
+      <button class="key k-home" data-act="home"><svg class="k" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Set Home</span></button>
+      <button class="key k-fly" data-act="fly"><svg class="k" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg><span>Fly Home</span></button>
+      <button class="key k-loc" data-act="loc"><svg class="k" viewBox="0 0 24 24"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg><span>Locate</span></button>
+      <button class="key k-full on" data-act="full"><svg class="k" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg><span>Exit</span></button>
+    </nav>
+
+    <div class="report" id="report"></div>
+    <div class="attrib">Leaflet | © Esri</div>
+  </div>
+  <p class="note" id="note"></p>
+  <div class="legend" id="legend"></div>
+</main>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const root = document.documentElement;
+const ICON = {
+  box: '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
+  full: '<polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><path d="M8 12h8"/>',
+  issue: '<path d="M12 4v10"/><path d="M12 20h.01"/>',
+  request: '<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+  closed: '<rect width="16" height="11" x="4" y="11" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+};
+const EMOJI = { open: '📍', claimed: '✅', sold: '✅', routine: '✅', box: '📦', order: '📦', full: '🛑', issue: '⚠️', request: '📝', closed: '🔒' };
+const PINS0 = [
+  { x: 29, y: 52, st: 'open', c: '#a855f7', n: 'Toko Sentosa' }, { x: 37, y: 30, st: 'sold', c: '#E8E4DE', n: 'Toko Sinar Abadi' }, { x: 57, y: 47, st: 'order', c: '#ec4899', n: 'Warung Bu Darmi' },
+  { x: 63, y: 30, st: 'open', c: '#C9B38B', n: 'Toko Makmur' }, { x: 41, y: 67, st: 'full', c: '#a855f7', n: 'Toko Jaya' }, { x: 71, y: 62, st: 'issue', c: '#C2553A', n: 'Warung Pojok' },
+  { x: 77, y: 47, st: 'request', c: '#E8E4DE', n: 'Toko Berkah' }, { x: 33, y: 80, st: 'closed', c: '#ec4899', n: 'Toko Lestari' }, { x: 19, y: 68, st: 'open', c: '#6A645C', n: 'Warung Mbak Sri' },
+  { x: 74, y: 76, st: 'routine', c: '#C9B38B', n: 'Toko Rejeki' }, { x: 64, y: 86, st: 'open', c: '#a855f7', n: 'Toko Murah' }, { x: 22, y: 30, st: 'open', c: '#C2553A', n: 'Toko Abadi' },
+];
+const CL0 = [
+  { x: 37, y: 36, n: 3, s: 1, c: '#E8E4DE' }, { x: 48, y: 57, n: 5, s: 2, c: '#a855f7' }, { x: 54, y: 33, n: 4, s: 4, c: '#C9B38B' }, { x: 60, y: 63, n: 3, s: 0, c: '#C2553A' },
+  { x: 31, y: 63, n: 5, s: 3, c: '#ec4899' }, { x: 72, y: 36, n: 7, s: 2, c: '#E8E4DE' }, { x: 46, y: 74, n: 2, s: 2, c: '#a855f7' }, { x: 24, y: 44, n: 12, s: 5, c: '#C9B38B' },
+];
+let PINS = PINS0.map((p) => ({ ...p })), CL = CL0.map((c) => ({ ...c }));
+const CHIPS = [{ x: 45, y: 45, ini: 'BS', lab: 'BS · 5/8' }, { x: 55, y: 84, ini: 'RS', lab: 'RS · 8/8' }];
+const AGENTS = [['Ari Rahman', '#E8E4DE'], ['Budi Santoso', '#a855f7'], ['Dewi Wulandari', '#ec4899'], ['Rini Saputri', '#C9B38B'], ['Cahyo Putra', '#C2553A']];
+const lit = (st) => st !== 'open' && st !== 'closed';
+
+/* pixel art: one letter per pixel, '.' = empty; runs of one colour become one rect */
+function px(rows, pal) {
+  let out = '';
+  rows.forEach((row, y) => { for (let x = 0; x < row.length;) { const ch = row[x]; let w = 1; while (row[x + w] === ch) w++; if (ch !== '.') out += `<rect x="${x}" y="${y}" width="${w}" height="1" ${pal[ch]}/>`; x += w; } });
+  return out;
+}
+const WOOD = { O: 'fill="#2B1A0B"', W: 'fill="#B57D3E"', M: 'fill="#8E5C27"', D: 'fill="#5E3B16"', L: 'fill="#DCD6C8"', l: 'fill="#6F6A63"', K: 'fill="#160D05"' };
+const CHEST_BODY = ['............', '............', '............', '............', 'OKKKKKKKKKKO', 'OWWWWWWWWWWO', 'OWWWWWWWWWWO', 'OMWWWWWWWWMO', 'OMMMMMMMMMMO', 'ODDDDDDDDDDO', '.OOOOOOOOOO.'];
+const CHEST_LID = ['.OOOOOOOOOO.', 'OWWWWWWWWWWO', 'OMWWWWWWWWMO', 'OMMMMLLMMMMO', '.....ll.....'];
+const chestSvg = (cls = 'px') => `<svg class="${cls}" viewBox="0 0 12 11" width="24" height="22">`
+  + `<polygon class="beam" points="2,4.2 10,4.2 13,-7 -1,-7" fill="url(#beamg)"/>`
+  + px(CHEST_BODY, WOOD) + `<rect class="glow" x="1" y="4" width="10" height="1" fill="#FFC86A"/>`
+  + `<g class="lid">${px(CHEST_LID, WOOD)}</g></svg>`;
+/* the fixed chest: two sprites. SHUT = dim wood (not visited yet); OPEN = taller, bright wood, light inside */
+const DIM = { O: 'fill="#1A120A"', W: 'fill="#6B4E30"', M: 'fill="#563B1F"', D: 'fill="#3D2914"', L: 'fill="#9A948A"', l: 'fill="#5A554F"', K: 'fill="#120B05"' };
+const BRIGHT = { O: 'fill="#2B1A0B"', W: 'fill="#D69249"', M: 'fill="#A86C2C"', D: 'fill="#70451A"', L: 'fill="#F1EBDD"', l: 'fill="#7C766E"', K: 'fill="#2A1608"',
+  G: 'fill="#FFD27A"', Y: 'fill="#FFF3CC"', g: 'fill="#E9A53A"' };
+const SHUT = ['.OOOOOOOOOO.', 'OWWWWWWWWWWO', 'OMWWWWWWWWMO', 'OMMMMLLMMMMO', 'OKKKKllKKKKO', 'OWWWWWWWWWWO', 'OWWWWWWWWWWO', 'OMWWWWWWWWMO', 'OMMMMMMMMMMO', 'ODDDDDDDDDDO', '.OOOOOOOOOO.'];
+const OPEN = ['.OOOOOOOOOO.', 'OWWWWWWWWWWO', 'OMWWWWWWWWMO', 'OMMMMMMMMMMO', 'OKKKKLLKKKKO', '.OOOOOOOOOO.', 'OgGGYYYYGGgO', 'OGYYYYYYYYGO',
+  'OWWWWWWWWWWO', 'OWWWWWWWWWWO', 'OMWWWWWWWWMO', 'OMMMMMMMMMMO', 'ODDDDDDDDDDO', '.OOOOOOOOOO.'];
+const shutSvg = (pal = DIM) => `<svg class="px spr shut" viewBox="0 0 12 11" width="24" height="22">${px(SHUT, pal)}</svg>`;
+const openSvg = () => `<svg class="px spr open" viewBox="0 0 12 14" width="24" height="28">${px(OPEN, BRIGHT)}</svg>`;
+/* v4 chest: one 12 x 14 sprite. Body at rows 8-13, the inside at rows 5-7, the lid (rows 0-4) drawn LAST so that
+   when it sits 3 rows lower (closed) it covers the inside. Dim and bright copies cross-fade. */
+const BODY = ['OWWWWWWWWWWO', 'OWWWWWWWWWWO', 'OMWWWWWWWWMO', 'OMMMMMMMMMMO', 'ODDDDDDDDDDO', '.OOOOOOOOOO.'];
+const LID = ['.OOOOOOOOOO.', 'OWWWWWWWWWWO', 'OMWWWWWWWWMO', 'OMMMMLLMMMMO', 'OKKKKllKKKKO'];
+const LID_UNDER = ['.OOOOOOOOOO.', 'ODDDDDDDDDDO', 'ODMMMMMMMMDO', 'ODDDDDDDDDDO', 'OKKKKKKKKKKO'];   /* the lid's inside face */
+const INSIDE_DARK =['.OOOOOOOOOO.', 'OKKKKKKKKKKO', 'OKKKKKKKKKKO'];
+const INSIDE_GLOW = ['............', 'OgGGYYYYGGgO', 'OGYYYYYYYYGO'];
+const at = (rows, y0) => Array(y0).fill('').concat(rows);
+const chest4 = () => `<svg class="px chest" viewBox="0 0 12 14" width="24" height="28">`
+  + `<g>${px(at(BODY, 8), DIM)}</g><g class="bright">${px(at(BODY, 8), BRIGHT)}</g>`
+  + `<g>${px(at(INSIDE_DARK, 5), BRIGHT)}</g><g class="gin">${px(at(INSIDE_GLOW, 5), BRIGHT)}</g>`
+  + `<g class="lidU">${px(LID_UNDER, BRIGHT)}</g>`
+  + `<g class="lidF"><g>${px(LID, DIM)}</g><g class="bright">${px(LID, BRIGHT)}</g></g></svg>`;
+/* the sign: an oak board on a post, a 7 x 5 picture in ink. One per visit outcome the app records (QUICK_TAGS in
+   src/JourneyView.jsx, plus a real sale through the terminal today) */
+const SIGNPAL = { O: 'fill="#4A3420"', w: 'fill="#D2AC6E"', P: 'fill="#5B3F22"', K: 'fill="#241608"', R: 'fill="#A3201A"', G: 'fill="#E4A93A"', Y: 'fill="#FFF0C2"' };
+const BOARD = ['.OOOOOOO.', 'OwwwwwwwO', 'OwwwwwwwO', 'OwwwwwwwO', 'OwwwwwwwO', 'OwwwwwwwO', '.OOOOOOO.', '....P....', '....P....'];
+const SIGNS = {
+  sold:    { pic: ['..KKK..', '.KGGGK.', '.KGYGK.', '.KGGGK.', '..KKK..'], name: 'Sold today', what: 'a real sale through the terminal' },
+  order:   { pic: ['KKKKKKK', 'K..K..K', 'KKKKKKK', 'K.....K', 'KKKKKKK'], name: 'Repeat order', what: 'the store ordered again' },
+  routine: { pic: ['......K', '.....K.', 'K...K..', '.K.K...', '..K....'], name: 'Routine check', what: 'visited, all fine' },
+  full:    { pic: ['K.K.K.K', 'K.K.K.K', 'KKKKKKK', 'K.K.K.K', 'KKKKKKK'], name: 'Stock full', what: 'no order - our product is still on their shelf' },
+  issue:   { pic: ['...R...', '...R...', '...R...', '.......', '...R...'], name: 'Competitor issue', what: 'a competitor problem' },
+  request: { pic: ['.KKKKK.', 'K.....K', 'K.K.K.K', 'K.....K', '.KKKK..'], name: 'New request', what: 'the store asked for something' },
+  closed:  { pic: ['..RRR..', '.R...R.', 'RRRRRRR', 'RRR.RRR', 'RRRRRRR'], name: 'Store closed', what: 'visited, the store was shut' },
+};
+const signSvg = (st) => `<svg class="px" viewBox="0 0 9 9" width="18" height="18">${px(BOARD, SIGNPAL)}${px(['.........'].concat(SIGNS[st].pic.map((r) => '.' + r + '.')), SIGNPAL)}</svg>`;
+const SALE = new Set(['sold', 'order']);
+const BAN = { P: 'fill="#3B2A1B"', p: 'fill="#6E5236"', F: 'class="fin"', C: 'class="cc"', c: 'class="cs"', S: 'fill="#2A2724"' };
+const BAN_POLE = ['.F........', '.PPPPPPPP.', '.P........', '.P........', '.P........', '.P........', '.P........', '.P........', '.P........', '.P........', '.P........', '.P........', '.P........', '.p........', '.p........', '.p........', 'SSS.......'];
+const BAN_CLOTH = ['..cCCCCCc.', '..cCCCCCc.', '..cCCcCCc.', '..cCcCcCc.', '..cCCcCCc.', '..cCCCCCc.', '..cCCCCCc.', '..cCCCCCc.', '..cCC.CCc.', '..cc...cc.'];
+/* the cloth hangs from row 2 */
+const banSvg2 = () => `<svg class="px" viewBox="0 0 10 17" width="20" height="34">${px(BAN_POLE, BAN)}<g class="cloth">${px(['..........', '..........'].concat(BAN_CLOTH), BAN)}</g></svg>`;
+const HEX = (cx, cy, r) => [0, 1, 2, 3, 4, 5].map((i) => { const a = (Math.PI / 3) * i - Math.PI / 2; return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; });
+const hexSegs = (cx, cy, r, gap, cls) => { const P = HEX(cx, cy, r); return P.map((p, i) => { const q = P[(i + 1) % 6], dx = q[0] - p[0], dy = q[1] - p[1], L = Math.hypot(dx, dy), k = gap / L;
+  return `<line style="--i:${i}" ${cls ? `class="${cls(i)}"` : ''} x1="${(p[0] + dx * k).toFixed(2)}" y1="${(p[1] + dy * k).toFixed(2)}" x2="${(q[0] - dx * k).toFixed(2)}" y2="${(q[1] - dy * k).toFixed(2)}"/>`; }).join(''); };
+const hexPoly = (cx, cy, r) => HEX(cx, cy, r).map((p) => p.map((v) => v.toFixed(2)).join(',')).join(' ');
+const stPlate = (st) => (st === 'open' || st === 'claimed') ? '' : `<i class="st ${st === 'closed' ? 'crit' : st === 'issue' ? 'warn' : ''}"><svg viewBox="0 0 24 24">${ICON[st]}</svg></i>`;
+const sparks = '<span class="fx">' + [[-14, -16], [12, -18], [-6, -24], [16, -6], [-17, -4], [5, -27]].map(([dx, dy]) => `<i style="--dx:${dx}px;--dy:${dy}px"></i>`).join('') + '</span>';
+
+function pinHtml(p, i, look, extra = '') {
+  if (look === 'chest3') {
+    const v = p.st !== 'open', sale = SALE.has(p.st) || (v && p.st !== 'closed' && root.dataset.glow === 'all');
+    const cls = `${v ? 'v' : ''} ${sale ? 'sale' : ''} ${p.st === 'closed' ? 'shut' : ''} ${extra}`;
+    return `<div class="m ch3 ${cls}" data-p="${i}" style="left:${p.x}%;top:${p.y}%;--c:${p.c}"><i class="pool"></i><i class="ring"></i><div class="art"><div class="hop"><i class="beam"></i>${chest4()}</div></div>`
+      + `${sparks}${v ? `<i class="sign">${signSvg(p.st)}</i>` : ''}</div>`;
+  }
+  const pos = `left:${p.x}%;top:${p.y}%;--c:${p.st === 'closed' ? '#3E3A35' : p.c}`;
+  const cls = `${lit(p.st) ? 'lit' : ''} ${p.st === 'closed' ? 'closed' : ''}`;
+  if (look === 'today') return `<div class="m t-pin" data-p="${i}" style="${pos};--c:${p.st !== 'open' ? '#E4B04A' : p.c}">${EMOJI[p.st]}</div>`;
+  if (look === 'banner') return `<div class="m ban-pin ${cls}" data-p="${i}" style="${pos}"><div class="art"><div class="hop">${banSvg2()}</div></div>${sparks}${stPlate(p.st)}</div>`;
+  if (look === 'chest2') return `<div class="m ch2 ${cls}" data-p="${i}" style="${pos}"><i class="pool"></i><i class="ring"></i><i class="beam"></i><div class="art"><div class="hop">${shutSvg()}${openSvg()}</div></div>${sparks}${stPlate(p.st)}</div>`;
+  if (look === 'chest') return `<div class="m chest-pin ${cls}" data-p="${i}" style="${pos}"><i class="ring"></i><div class="art"><div class="hop">${chestSvg()}</div></div>${sparks}${stPlate(p.st)}</div>`;
+  return `<div class="m bea-pin ${cls}" data-p="${i}" style="${pos}"><i class="halo"></i><div class="art"><div class="hop"><i class="pillar"></i><svg viewBox="0 0 24 24"><polygon class="body" points="${hexPoly(12, 12, 10)}"/><g class="seg">${hexSegs(12, 12, 10, 1.2)}</g><circle class="core" cx="12" cy="12" r="3.4"/></svg><svg class="shock" viewBox="0 0 24 24"><polygon points="${hexPoly(12, 12, 10)}"/></svg></div></div>${stPlate(p.st)}</div>`;
+}
+function clHtml(c, i, look) {
+  const pos = `left:${c.x}%;top:${c.y}%`, full = c.s === c.n ? 'full' : '';
+  if (look === 'today') return `<div class="m t-cl" data-c="${i}" style="${pos}">${c.n}</div>`;
+  if (look === 'banner' || look === 'chest' || look === 'chest2' || look === 'chest3') {
+    const item = look === 'chest2' || look === 'chest3' ? `<span class="item two">${shutSvg(BRIGHT)}${openSvg()}</span>` : look === 'chest' ? chestSvg('px item') : `<svg class="px item" viewBox="0 0 10 17" width="16" height="27" style="--c:${c.c}"><g>${px(BAN_POLE, BAN).replace('class="fin"', 'fill="#E4B04A"')}</g><g>${px(['..........', '..........'].concat(BAN_CLOTH), BAN).replace(/class="cc"/g, `fill="${c.c}"`).replace(/class="cs"/g, `fill="color-mix(in srgb, ${c.c} 62%, #000)"`)}</g></svg>`;
+    return `<div class="m slot ${full}" data-c="${i}" style="${pos};--f:${(c.s / c.n).toFixed(3)}"><div class="art"><div class="hop">${item}<b class="cnt" data-n="${c.n}">${c.n}</b></div></div><i class="dur"><i></i></i></div>`;
+  }
+  const on = Math.round(c.s / c.n * 6);
+  return `<div class="m hexcl ${full}" data-c="${i}" style="${pos}"><i class="halo"></i><div class="art"><div class="hop"><svg viewBox="0 0 48 48"><polygon class="body" points="${hexPoly(24, 24, 21)}"/><g class="seg">${hexSegs(24, 24, 21, 1.8, (k) => k < on ? 'on' : '')}</g></svg><em>${c.n}</em></div></div></div>`;
+}
+function drawMarks() {
+  const look = root.dataset.marks;
+  let h = '<svg width="0" height="0" style="position:absolute"><defs><linearGradient id="beamg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFD48A" stop-opacity=".95"/><stop offset="1" stop-color="#FFC86A" stop-opacity="0"/></linearGradient></defs></svg>';
+  PINS.forEach((p, i) => { h += pinHtml(p, i, look); });
+  CL.forEach((c, i) => { h += clHtml(c, i, look); });
+  for (const k of CHIPS) h += `<div class="chip" style="left:${k.x}%;top:${k.y}%"><b>${k.ini}</b><i></i><span>${k.lab}</span></div>`;
+  $('#marks').innerHTML = h;
+}
+const play = (el, cls = 'burst', ms = 1300) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); setTimeout(() => el.classList.remove(cls), ms * (+root.style.getPropertyValue('--slow') || 1)); };
+/* tapping a chest walks it through every outcome; each change REPLACES the element, exactly as Leaflet's setIcon does */
+const CYCLE = ['open', 'sold', 'order', 'routine', 'full', 'issue', 'request', 'closed'];
+function securePin(i, to) {
+  const p = PINS[i], el = document.querySelector(`[data-p="${i}"]`);
+  if (root.dataset.marks === 'chest3' || root.dataset.marks === 'today') {
+    const from = p.st; p.st = to || CYCLE[(CYCLE.indexOf(from) + 1) % CYCLE.length];
+    el.outerHTML = pinHtml(p, i, root.dataset.marks, from === 'open' ? 'burst' : p.st === 'open' ? '' : 'resign');
+    say(p.st === 'open' ? p.n + ' - not visited' : p.n + ' - ' + SIGNS[p.st].name);
+    return;
+  }
+  if (p.st === 'closed') { say(p.n + ' is closed today'); return; }
+  if (p.st === 'open') { p.st = 'claimed'; if (root.dataset.marks === 'today') { el.outerHTML = pinHtml(p, i, 'today'); } else { el.classList.add('lit'); play(el); } say(p.n + ' secured'); }
+  else if (p.st === 'claimed') { p.st = 'open'; el.classList.remove('lit', 'burst'); if (root.dataset.marks === 'today') el.outerHTML = pinHtml(p, i, 'today'); say(p.n + ' - undone'); }
+  else { play(el); say(p.n + ' secured'); }
+}
+function bumpCluster(i) {
+  const c = CL[i]; let el = document.querySelector(`[data-c="${i}"]`);
+  if (c.s < c.n) c.s++; else { c.s = 0; }
+  const look = root.dataset.marks;
+  if (look === 'today') { say(`${c.s}/${c.n} secured here`); return; }
+  if (look === 'beacon') {
+    const on = Math.round(c.s / c.n * 6); el.querySelectorAll('.seg line').forEach((l, k) => l.classList.toggle('on', k < on));
+    decode(el.querySelector('em'), c.n);
+  } else el.style.setProperty('--f', (c.s / c.n).toFixed(3));
+  el.classList.toggle('full', c.s === c.n);
+  play(el, 'bump', 300); if (c.s === c.n) play(el, 'burst', 1000);
+  say(c.s === c.n ? `All ${c.n} shops here secured` : `${c.s}/${c.n} secured here`);
+}
+function decode(em, n) {   /* the number scrambles and lands, like decoding text (his v17 favourite) */
+  if (root.classList.contains('lite')) return;
+  let k = 0; const t = setInterval(() => { em.textContent = k++ < 6 ? String(Math.floor(Math.random() * (n < 10 ? 10 : 90)) + (n < 10 ? 0 : 10)) : n; if (k > 6) clearInterval(t); }, 45 * (+root.style.getPropertyValue('--slow') || 1));
+}
+let brush = 'Budi Santoso';
+function drawBrush() {
+  const rows = [`<div class="row" style="--i:0"><button class="pen off ${brush === null ? 'sel' : ''}" data-pen="">✕ Disable brush</button></div>`,
+    `<div class="row" style="--i:1"><button class="pen ${brush === 'Unassigned' ? 'sel' : ''}" data-pen="Unassigned" style="--c:#6A645C"><i class="sw"></i><span class="nm">Unassign</span></button></div>`]
+    .concat(AGENTS.map(([n, c], i) => `<div class="row" style="--i:${i + 2}"><button class="pen ${brush === n ? 'sel' : ''}" data-pen="${n}" style="--c:${c}"><i class="sw"></i><span class="nm">${root.dataset.ergo === 'new' ? n : n.split(' ')[0]}</span></button><i class="swatch" style="--c:${c}"></i></div>`));
+  $('#brush').innerHTML = rows.join('');
+}
+const NOTES = {
+  today: 'Today: gold number + gold ring + orange glow on every bubble, emoji pins.',
+  chest3: '<b>Chest</b> - not visited = a dim closed chest, no sign. Visited = the lid lifts and a SIGN is planted beside it with what happened (list below). Light pours out only where money came in (sold / repeat order) - switch "No-sale visits" to compare. A closed store keeps its lid down.',
+  chest2: '<b>Chest, fixed</b> - not visited = a DIM closed chest. Secured = a taller OPEN chest in bright wood, light pouring up out of it and a warm pool of light on the ground. Shape, brightness and light all change, so the two read apart even small.',
+  banner: '<b>1 Banner</b> - Minecraft map banners: the cloth is the salesman\'s colour. Not visited = the banner is rolled up. Secured = it UNROLLS, waves, the tip turns amber, dust pops. A bubble is an inventory slot: the count like an item stack, a bar that fills amber as shops inside are secured, a shine when all are done.',
+  chest: '<b>Chest, before</b> - a shop is a chest; the ring under it is the salesman\'s colour. Secured = the chest hops, the lid pops OPEN, warm light comes out, sparks fly. A bubble is an inventory slot with a chest in it; all secured = the slot\'s chest opens and shines.',
+  beacon: '<b>3 Beacon</b> - a shop is a dormant hex in the salesman\'s colour. Secured = a ring of light rushes out, the edge powers up round the hex, a short pillar of light stands on it. A bubble lights one edge per sixth secured; its number decodes when it changes.',
+};
+function sync() {
+  for (const seg of document.querySelectorAll('.seg')) for (const b of seg.children) b.setAttribute('aria-pressed', String(root.dataset[seg.dataset.set] === b.dataset.v));
+  $('#note').innerHTML = NOTES[root.dataset.marks] + ' <b>Keys:</b> your pick, the icon acts. <b>Tap a chest</b> to walk it through every outcome, <b>tap a bubble</b> to fill it.';
+  $('#legend').innerHTML = Object.entries(SIGNS).map(([k, s]) => `<div>${signSvg(k)}<span><b>${s.name}</b> - ${s.what}</span></div>`).join('');
+  drawMarks(); drawBrush();
+}
+document.addEventListener('click', (e) => {
+  const s = e.target.closest('.seg button'); if (s) { root.dataset[s.parentElement.dataset.set] = s.dataset.v; sync(); return; }
+  const pin = e.target.closest('[data-p]'); if (pin) { securePin(+pin.dataset.p); return; }
+  const cl = e.target.closest('[data-c]'); if (cl) { bumpCluster(+cl.dataset.c); return; }
+  const pen = e.target.closest('[data-pen]'); if (pen) { brush = pen.dataset.pen || null; drawBrush(); say(brush ? 'Brush: ' + (brush === 'Unassigned' ? 'unassign' : brush.split(' ')[0]) : 'Brush off'); return; }
+  const k = e.target.closest('.key'); if (!k) return;
+  k.classList.remove('act'); void k.offsetWidth; k.classList.add('act'); setTimeout(() => k.classList.remove('act'), 480);
+  const map = $('#map'), act = k.dataset.act;
+  if (act === 'bord') { const on = map.classList.toggle('bordered'); document.querySelectorAll('[data-act="bord"]').forEach((b) => b.classList.toggle('on', on)); say(on ? 'Borders on' : 'Borders off'); }
+  if (act === 'home') say('This view saved as home');
+  if (act === 'fly') { map.classList.toggle('flown'); say('Flying home'); }
+  if (act === 'loc') { map.classList.add('located'); say('You are here'); }
+  if (act === 'brush') { const w = $('#brushwrap'), open = !w.classList.contains('open'); w.classList.toggle('open', open); document.querySelectorAll('[data-act="brush"]').forEach((b) => b.classList.toggle('on', open)); if (open) drawBrush(); }
+  if (act === 'full') { const on = !k.classList.contains('on'); if (root.dataset.view === 'pc') { k.classList.toggle('on', on); $('.lbl-full').textContent = on ? 'Exit Fullscreen' : 'Fullscreen'; say(on ? 'Fullscreen' : 'Back to the page'); } else say('Back to the page'); }
+});
+let t; function say(msg) { const r = $('#report'); r.textContent = msg; r.classList.add('show'); clearTimeout(t); t = setTimeout(() => r.classList.remove('show'), 1600); }
+$('#secure').onclick = () => { const i = PINS.findIndex((p) => p.st === 'open'); if (i < 0) say('Every shop is secured - press Reset'); else securePin(i); };
+$('#reset').onclick = () => { PINS = PINS0.map((p) => ({ ...p })); CL = CL0.map((c) => ({ ...c })); drawMarks(); say('Reset'); };
+$('#lite').onclick = (e) => { const on = root.classList.toggle('lite'); e.target.setAttribute('aria-pressed', on); };
+$('#slow').onclick = (e) => { const on = root.style.getPropertyValue('--slow') !== '4'; root.style.setProperty('--slow', on ? '4' : '1'); e.target.setAttribute('aria-pressed', on); };
+if (matchMedia('(max-width: 700px)').matches) root.dataset.view = 'phone';
+sync();
+</script>
+</body>
+</html>

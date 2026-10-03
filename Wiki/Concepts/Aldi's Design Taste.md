@@ -3175,3 +3175,8 @@ gold kept only for "secured") and three key motions (corner brackets, the icon a
   a detail (a squashed lid) read as one. A state on a small mark needs shape + brightness + light together; check it
   in grey at real size before showing him. He also asks what a design element is FOR (*"what is the purpose of the
   filled and unfilled hexagon"*) - a mark whose meaning he cannot read is decoration to him.
+- **09:00, round 3:** *"looks okay but make sure the animation is smooth and correct ... there should be sign on the
+  chest for the stores status, sometimes stores dont buy because our product is still on their shelf or many other
+  reasons that we have"* - a map mark must carry the visit's OUTCOME, not just visited / not visited: he manages by
+  the reason a shop did not buy. And "correct" motion = physically right (a lid swings on a hinge, a jump slows at
+  the top), not only smooth; he noticed v3's motion was off before I did.

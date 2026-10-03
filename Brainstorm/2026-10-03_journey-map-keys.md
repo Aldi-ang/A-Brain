@@ -4,6 +4,30 @@ status: KEYS DECIDED (2 Icon acts, 08:25); MARKS round 2 drawn (1 Banner / 2 Che
 tags: [kpm, journey-plan, design, map, motion]
 ---
 
+## Round 4 (09:00-09:35) - the chest with signs; the motion made correct
+
+> *"looks okay but make sure the animation is smooth and correct, lets continue with the chest instead, but there
+> should be sign on the chest for the stores status, sometimes stores dont buy because our product is still on their
+> shelf or many other reasons that we have"*
+
+- **The reasons are the app's own** (`QUICK_TAGS`, `src/JourneyView.jsx:821`): Routine Check, Repeat Order 📦, Stock
+  Full (No Order) 🛑 (his example - product still on the shelf), Competitor Issue ⚠️, New Request 📝, Store Closed 🔒;
+  plus a real sale through the terminal today (`hasLiveTxToday`). Each = an oak sign on a post beside the chest with a
+  7x5 pixel picture (coin / box / tick / full shelf / red ! / speech bubble / red lock). No new reasons invented.
+- **New rule proposed, his answer owed:** light pours out of the chest only where MONEY came in (sold today, repeat
+  order); other visits open the lid with a dark inside. Switch "No-sale visits: dark / glow" on the page. A closed
+  store keeps its lid down (visited, sign = lock).
+- **Motion made correct:** (1) the lid swings on a hinge - the front face tilts edge-on, then the lid's dark inside
+  face unfolds up (v3 floated the lid straight up: two stacked boxes at 3x); (2) the hop is eased like gravity per
+  keyframe (slows to the top, speeds up falling, squashes on landing); (3) **a bug v3 shipped to him:** the tapped
+  chest jumped 28 px above its ring for as long as the hop's fill lasted - a transform on a 0-height wrapper became the
+  box the chest was placed against. Fix: the wrappers are `inset: 0`. Proof: rest position before the tap = at frame
+  0 = after (0 px), under the mouse -3 px (the lift only); every 20 ms step <= 3.7 px for the chest.
+- **How it must ship:** Leaflet replaces a marker's element when its icon changes, so the end state is the plain
+  style and the moment is keyframes FROM the closed values on a fresh element - the prototype does the same.
+- Page v4; board `Raw/2026-10-03-map-keys/round4/board.png`; code `round4/map-chest-r4.html` (`.ch3`, `chest4()`,
+  `SIGNS`, `signSvg()`); numbers `round4/measure4.json`.
+
 ## Round 3 (08:45-08:56) - the chest, fixed
 
 > *"chest is kinda cool tbh but since it is small, secured stores and unvisited stores looks almost the same here tho
