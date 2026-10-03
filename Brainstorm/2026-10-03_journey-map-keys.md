@@ -56,7 +56,9 @@ from the page on purpose: the scene rides the chest's existing burst (lid 220-74
 the chest, so one moment stays one animation and a location that arrives after the sale still plays the coin alone.
 Proof: `Raw/2026-10-03-map-keys/built6/` (frames, `measure-built6.json`) + `perf/perf-crowd6.json` (120 ms busy per
 3 s at rest, was 279-308; longest zoom frame 73 ms).
-OPEN, asked: does "EOD finished" mean SENT by him (built) or APPROVED by the boss?
+ANSWERED 23:33, his words: *"leave map after approval"* - BUILT kpm `aa7b1d3`: off the map once every EOD doc he sent
+today is VERIFIED and the cash/stock one is among them (a part sent back keeps him; a bounty alone is not a closed day).
+REJECTED ON PURPOSE: "leaves when he sends it" (built first in `41e308b`, replaced).
 
 Models applied: Inversion (what would make the scene wrong: two animations on one moment; the chest covering the man),
 Pre-mortem (C's jump swallowing him was found by freezing 1.20 s), Second-Order Thinking (a crowd that animates in every
