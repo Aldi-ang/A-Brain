@@ -42,3 +42,11 @@ alignment, not a new look): one key style (`.kx-mapkey`, no display - the CSS-or
 pins/clusters warm + gold, secured = gold, "you are here" cream, salesman ring colours without blue/green/yellow.
 Frames `Raw/2026-10-03-journey-header/map-themed-phone-390.jpg`, `map-themed-pc-1440.png`. Left for later: the store list
 under the map (emerald/blue lamps, stamps, buttons).
+
+## 2026-10-03 02:00 - OPEN: motion, ergonomics, and he does not like the gold
+
+His words: *"animation for the paintbrush and other button should also improves to looks like high tech but simple kinda
+animation and also we should increase the ergonomic from this features, and i feels like i dont like that gold color on
+the font and stores marked there i feels like it is missing something artistic can u improve it as well make sure that
+animation is fully here without being heavy just simple but elegant"*. Taste signal: gold on EVERYTHING (cluster numbers,
+secured rings, tags) reads flat to him - gold should stay rare. Options not drawn yet - next session (NEXT-SESSION 02:00).
