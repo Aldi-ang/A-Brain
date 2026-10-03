@@ -1,8 +1,14 @@
 ---
 date: 2026-10-03
-status: KEYS DECIDED (2 Icon acts, 08:25); MARKS round 2 drawn (1 Banner / 2 Chest / 3 Beacon), his pick owed; layout new/today still unanswered
+status: DECIDED 09:55 - keys icon acts; shop = 14x14 chest, dark inside, lit sign per outcome; salesman = full pixel person (A); key layout new. BUILD owed (kpm NEXT-SESSION.md 09:55). PARKED - players customising their own character.
 tags: [kpm, journey-plan, design, map, motion]
 ---
+
+**Decision (09:55), his words:** *"full pixel is kinda cool, maybe in future update we can allow users to customized
+their own as well lets use that for now"* - A (the full pixel person) wins over B (the head). **PARKED, not queued:** a
+salesman customising his own character (skin, hair, shirt) - "maybe in future update" is his PARKED marker
+(2026-09-23 rule). If it comes back: the sprite is already split into palette letters (`PERSON(hair, shirt)`), so a
+picker only has to store three colours per profile.
 
 ## Round 5 (09:32-09:47) - every visit dark inside, the light in the sign; 14 px chest; the salesman model
 
