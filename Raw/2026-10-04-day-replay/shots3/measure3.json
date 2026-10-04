@@ -1,0 +1,99 @@
+{
+ "errs": [],
+ "pc": {
+  "set": "B",
+  "board": {
+   "cells": 32,
+   "signs": 64,
+   "words": 16,
+   "on": "B"
+  },
+  "boardBytes": 729283,
+  "greyBytes": 610208,
+  "overlap": {
+   "today": {
+    "max": 1,
+    "pair": "sold/order"
+   },
+   "B": {
+    "max": 0.86,
+    "pair": "sold/request"
+   }
+  },
+  "momentsLive": {
+   "connected": true,
+   "anims": 182,
+   "running": 0
+  },
+  "momentsBytes": 867027,
+  "mapB": {
+   "signs": 8,
+   "acts": [
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2
+   ]
+  },
+  "mapC": {
+   "signs": 8,
+   "acts": [
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2
+   ]
+  },
+  "maptoday": {
+   "signs": 8,
+   "acts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "lite": {
+   "running": 0
+  },
+  "bright_today": {
+   "frames": 1805,
+   "meanMin": 83.1,
+   "meanMax": 84.5,
+   "worstFrameShare": 0.024
+  },
+  "bright_B": {
+   "frames": 1912,
+   "meanMin": 83.1,
+   "meanMax": 84.5,
+   "worstFrameShare": 0.036
+  }
+ },
+ "phone": {
+  "hoverNone": true,
+  "phoneClass": true,
+  "layout": {
+   "innerWidth": 390,
+   "overflow": 0,
+   "cols": "92px 112px 112px",
+   "shown": [
+    "today",
+    "B"
+   ],
+   "sectionRight": 374
+  },
+  "boardBytes": 462639
+ }
+}

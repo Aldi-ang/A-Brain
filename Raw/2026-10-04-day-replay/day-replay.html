@@ -58,8 +58,10 @@ body.phone .mapbox { aspect-ratio: 390 / 430; }
 .otag i { width: 7px; height: 7px; background: var(--c); }
 .stop.future .otag { opacity: .62; }
 .sign { position: absolute; left: 19px; top: 20px; width: 22px; height: 22px; }
-.sign .lamp { position: absolute; left: -11px; top: -12px; width: 44px; height: 36px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 214, 140, .5), rgba(228, 176, 74, .18) 55%, transparent); }
-.sign svg { position: relative; width: 22px; height: 22px; }
+.sign .lamp { position: absolute; left: -11px; top: -12px; width: 44px; height: 36px; border-radius: 50%; background: radial-gradient(closest-side, var(--l1, rgba(255, 214, 140, .5)), var(--l2, rgba(228, 176, 74, .18)) 55%, transparent); }
+.sign .sgv { position: relative; display: block; }
+.sign .sgv > svg { position: relative; width: 22px; height: 22px; }
+.sign .sgv > svg.s12 { width: 24px; height: 24px; margin: -2px 0 0 -1px; }
 .prop { position: absolute; left: 0; top: 0; pointer-events: none; }
 .prop svg { display: block; }
 .spark { position: absolute; left: 12px; top: 8px; width: 3px; height: 3px; background: var(--gold-2); }
@@ -98,11 +100,11 @@ html.lite .kpm-coin::before, .kpm-coin.still::before { animation: none; transfor
 .tl .track { position: absolute; left: 0; right: 0; top: 30px; height: 8px; border-radius: 4px; background: var(--inset); border: 1px solid var(--line-2); }
 .tl .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 4px; background: linear-gradient(90deg, rgba(228, 176, 74, .35), var(--gold)); }
 .tl .notch { position: absolute; top: 2px; width: 22px; height: 26px; translate: -50% 0; padding: 0; border: 0; background: none; cursor: pointer; display: grid; justify-items: center; }
-.tl .notch svg { width: 16px; height: 16px; transition: transform 160ms var(--ease-out); }
+.tl .notch > svg { width: 16px; height: 16px; transition: transform 160ms var(--ease-out); }
 .tl .notch::after { content: ''; width: 2px; height: 8px; margin-top: 2px; background: var(--line-3); }
 .tl .notch.done::after { background: var(--gold); }
-.tl .notch.now svg { transform: translateY(-2px) scale(1.15); }
-@media (hover: hover) and (pointer: fine) { .tl .notch:hover svg { transform: translateY(-2px) scale(1.15); } }
+.tl .notch.now > svg { transform: translateY(-2px) scale(1.15); }
+@media (hover: hover) and (pointer: fine) { .tl .notch:hover > svg { transform: translateY(-2px) scale(1.15); } }
 .tl .head { position: absolute; top: 24px; width: 2px; height: 20px; translate: -50% 0; background: var(--gold-2); box-shadow: 0 0 0 1px #0A0908; pointer-events: none; }
 .hours { position: relative; height: 14px; color: var(--ink-faint); font: 700 9px/1 var(--font-pixel); }
 .hours span { position: absolute; translate: -50% 0; }
@@ -208,6 +210,49 @@ body.phone.shopopen .card { display: none; }
 .sheet .sig { width: 220px; text-align: center; }
 .sheet .sig b { display: block; margin-top: 56px; padding-top: 4px; border-top: 1px solid #94a3b8; color: #000000; text-transform: uppercase; }
 
+/* ---------------- the visit signs: three looks beside today's (his 2026-10-04 17:10 ask) ---------------- */
+.signs { display: grid; gap: 12px; padding: 14px; border: 1px solid var(--line-2); border-radius: 16px; background: var(--panel); }
+.signs h2 { margin: 0; font: 800 22px/1.05 var(--font-display); letter-spacing: .03em; text-transform: uppercase; }
+.signs h2 small { display: block; margin-top: 6px; max-width: 82ch; font: 400 13.5px/1.45 var(--font-body); text-transform: none; letter-spacing: 0; color: var(--ink-muted); }
+.sgrid { display: grid; grid-template-columns: 150px repeat(4, minmax(0, 1fr)); gap: 6px; }
+.sgrid .hd { padding: 2px 6px 7px; border-bottom: 2px solid var(--line-2); }
+.sgrid .hd b { display: block; font: 800 16px/1.05 var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
+.sgrid .hd small { display: block; margin-top: 3px; color: var(--ink-muted); font-size: 12px; line-height: 1.3; }
+.sgrid .hd.on { border-bottom-color: var(--gold); }
+.sgrid .hd.on b { color: var(--gold); }
+.rec { display: inline-block; margin-left: 6px; padding: 3px 5px 2px; border-radius: 5px; background: var(--gold); color: var(--on-gold); font: 700 9px/1 var(--font-pixel); letter-spacing: .03em; vertical-align: 3px; }
+.sname { display: grid; align-content: center; gap: 3px; padding: 6px 9px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--inset); text-align: left; cursor: pointer; transition: transform 140ms var(--ease-out), border-color 140ms ease; }
+.sname:active { transform: scale(.98); }
+@media (hover: hover) and (pointer: fine) { .sname:hover { border-color: var(--line-3); } }
+.sname b { font: 800 15px/1.1 var(--font-display); letter-spacing: .03em; text-transform: uppercase; }
+.sname b::before { content: '▶'; margin-right: 6px; color: var(--gold); font-size: 10px; vertical-align: 1px; }
+.sname span { font-size: 12px; line-height: 1.3; color: var(--ink-muted); }
+.cell { display: flex; align-items: center; justify-content: space-evenly; gap: 6px; min-height: 96px; padding: 6px; border: 1px solid var(--line-2); border-radius: 10px; background: #3A3A3C url(ground.jpg) -760px -520px / 1640px auto no-repeat; cursor: pointer; }
+.cell.on { border-color: var(--gold); }
+.mv { position: relative; flex: none; width: 50px; height: 62px; }
+.mv svg.chest { position: absolute; left: 0; top: 4px; width: 28px; height: 34px; }
+.mv .sign { top: 24px; }
+.zv { flex: none; }
+.sg .m, .sg .x, .sg .coinw { transform-box: fill-box; }   /* each part turns about its own box (the shutter rolls from its top, not the sign's) */
+.zv .sgv { display: grid; justify-items: center; gap: 5px; }
+.zv .sgv > svg.s11 { width: 66px; height: 66px; }
+.zv .sgv > svg.s12 { width: 72px; height: 72px; }
+/* C: the status in words, the name tag's own style (his "Name tags is easier to see") */
+.sw { position: absolute; left: 50%; top: calc(100% + 2px); translate: -50% 0; white-space: nowrap; padding: 2px 3px 1px; background: rgba(10, 9, 8, .86); color: #FFFFFF; font: 400 8px/1 var(--font-pixel); }
+.zv .sw { position: static; translate: none; padding: 3px 5px 2px; font-size: 13px; }
+.lg { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0; font-size: 12.5px; color: var(--ink-muted); }
+.lg span { display: inline-flex; align-items: center; gap: 7px; }
+.lg i { width: 18px; height: 18px; border: 1px solid var(--line-3); border-radius: 50%; background: radial-gradient(closest-side, var(--l1), var(--l2) 60%, #121110); }
+.signs.grey .sgrid, .signs.grey .lg { filter: grayscale(1); }
+body.phone .sgrid { grid-template-columns: 92px repeat(2, minmax(0, 1fr)); }
+body.phone .sgrid [data-set]:not([data-set="today"]):not(.on) { display: none; }
+body.phone .cell { flex-direction: column; gap: 4px; min-height: 0; padding: 6px 4px; }
+body.phone .zv .sgv > svg.s11 { width: 44px; height: 44px; }
+body.phone .zv .sgv > svg.s12 { width: 48px; height: 48px; }
+body.phone .zv .sw { font-size: 8px; }
+body.phone .sname { padding: 6px 7px; }
+body.phone .sname b { font-size: 13px; }
+
 html.lite *, html.lite *::before, html.lite *::after { transition: none !important; }
 html.lite .shopcard { animation: none; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } .kpm-coin::before { animation: none; transform: translateX(-54px); } }
@@ -217,6 +262,22 @@ html.lite .shopcard { animation: none; }
 <main>
   <h1>Journey Plan · replay a salesman's day <span class="sample">SAMPLE DAY</span>
     <small>Budi's Sunday, from the regional warehouse to his last shop. Each stop plays what happened there: a sale, stock still full, an exchange, a competitor, a request, a closed shop. Tap a row, a mark on the timeline, or drag along it to jump.</small></h1>
+
+  <section class="signs" aria-label="Visit signs">
+    <h2>Visit signs · three new looks
+      <small>Every visit plants a sign by the shop's chest. Today all 7 pictures sit on the same cream board, so at map size Sale, Repeat Order, Stock Full and Exchange look alike. Each look below is shown at real map size (beside a chest) and zoomed in. Press a status to play its moment: every sign acts out its word once, then stands still.</small></h2>
+    <div class="bar" role="toolbar" aria-label="Signs on the replay map">
+      <b>On map</b>
+      <button class="tog" type="button" data-pick="today" aria-pressed="false">Today</button>
+      <button class="tog" type="button" data-pick="A" aria-pressed="false">A</button>
+      <button class="tog" type="button" data-pick="B" aria-pressed="true">B</button>
+      <button class="tog" type="button" data-pick="C" aria-pressed="false">C</button>
+      <button class="tog" type="button" id="playall">Play all</button>
+      <button class="tog" type="button" id="grey" aria-pressed="false">No colour</button>
+    </div>
+    <div class="sgrid" id="sgrid"></div>
+    <p class="lg"><span><i style="--l1:rgba(255,214,140,.75);--l2:rgba(228,176,74,.35)"></i>B and C: gold light = money in</span><span><i style="--l1:rgba(240,226,188,.5);--l2:rgba(240,226,188,.16)"></i>pale light = visited, no sale</span><span><i style="--l1:rgba(224,88,58,.75);--l2:rgba(179,38,30,.3)"></i>red light = a problem</span><span><i style="--l1:#121110;--l2:#121110"></i>no light = closed</span></p>
+  </section>
 
   <div class="bar" role="toolbar" aria-label="Camera">
     <b>Camera</b>
@@ -308,7 +369,126 @@ const PIC5 = {
   /* the start row's mark: the ender chest's eye */
   start:   ['.EEEEEEE.', 'EEEEEEEEE', 'EEEeeeEEE', 'EEEeeeEEE', 'EEEEEEEEE', '.EEEEEEE.'],
 };
-const sign = (k) => `<svg class="px" viewBox="0 0 11 11">${px(BOARD5, SP5)}${px(['...........'].concat(PIC5[k].map((r) => '.' + r + '.')), SP5)}</svg>`;
+const sign = (k) => `<svg class="px sg s11" viewBox="0 0 11 11">${px(BOARD5, SP5)}${px(['...........'].concat(PIC5[k].map((r) => '.' + r + '.')), SP5)}</svg>`;
+
+/* ===== VISIT SIGNS, three looks (his 2026-10-04 17:10: "better sign and animation for the repeat order, stock full and all
+   of those status just to make it more clear to understand and memorize"). A = today's board, coloured by family, bolder
+   pictures. B = no board: each status is its own object (silhouette first, so it reads without colour), its lamp says the
+   family. C = B + the word. Each sign ACTS OUT its word once when it plants (parts .m / .x), then stands still. ===== */
+const SGP = Object.fromEntries(Object.entries({ K: '#0A0908', w: '#F0E2BC', v: '#D9C597', W: '#FFF8E6', G: '#E2A12E', Y: '#FFF4CF', g: '#9C6A1E',
+  R: '#B3261E', r: '#E0473C', b: '#C98A4A', B: '#8A5A2C', s: '#A9A49A', S: '#6E6A62', t: '#E8E4DC', d: '#2A2622', e: '#E8D9A8', y: '#E4B04A' }).map(([k, v]) => [k, `fill="${v}"`]));
+const KINDS = ['sold', 'order', 'full', 'issue', 'request', 'closed', 'routine', 'swap'];
+const FAM = { sold: 'money', order: 'money', full: 'plain', request: 'plain', routine: 'plain', issue: 'problem', swap: 'problem', closed: 'closed' };
+const LAMP = { money: ['rgba(255,214,140,.62)', 'rgba(228,176,74,.26)'], plain: ['rgba(240,226,188,.34)', 'rgba(240,226,188,.1)'], problem: ['rgba(224,88,58,.55)', 'rgba(179,38,30,.2)'], closed: ['transparent', 'transparent'] };
+const WORD = { sold: 'SALE', order: 'ORDER', full: 'FULL', issue: 'COMPETITOR', request: 'REQUEST', closed: 'CLOSED', routine: 'CHECK', swap: 'EXCHANGE' };
+const NAMES = { sold: ['Sale', 'Sold today · money in'], order: ['Repeat Order', 'Buys again · deliver later'], full: ['Stock Full', 'Last stock still on the shelf'],
+  issue: ['Competitor Issue', 'Another brand pushing in'], request: ['New Request', 'Asked for something new'], closed: ['Store Closed', 'Shop shut · nobody there'],
+  routine: ['Routine Check', 'Checked · all fine'], swap: ['Exchange (retur)', 'Bad packs swapped · to Quarantine'] };
+const E = Array(12).fill('............');
+const rowsAt = (rows, y0, h = 12) => E.slice(0, y0).concat(rows, E.slice(0, Math.max(0, h - y0 - rows.length)));
+/* crossed swords for the competitor, drawn by rule so both blades are true mirrors */
+const sword = (flip) => { const G2 = E.map((r) => r.split('')); const put = (x, y, c) => { G2[y][flip ? 11 - x : x] = c; };
+  for (let i = 0; i <= 6; i++) { put(i, i, 't'); put(i + 1, i, 'S'); if (i < 6) put(i, i + 1, 'K'); }
+  put(8, 6, 'G'); put(7, 7, 'G'); put(6, 8, 'G'); put(8, 8, 'B'); put(9, 9, 'B'); put(10, 10, 'R'); put(11, 11, 'K');
+  return G2.map((r) => r.join('')); };
+/* B: 12 x 12 objects. m / x = the parts that move; mo / xo = where each one turns from; xHide = gone at rest */
+const BPIC = {
+  order: { m: ['............', '...KKK.KKK..', 'KK.KGK.KYK..', '.K.KGK.KGK..', '.KKKKKKKKKKK', '.KbbbbbbbbbK', '.KbBbBbBbBbK', '..KbbbbbbbK.', '..KKKKKKKKK.', '.KKK....KKK.', '.KsK....KsK.', '.KKK....KKK.'] },
+  full: { m: ['KKKKKKKKKKKK', 'KBBKBBKBBKBK', 'KwwKwwKwwKwK', 'KwwKwwKwwKwK', 'KbbbbbbbbbbK', 'KBBKBBKBBKBK', 'KwwKwwKwwKwK', 'KwwKwwKwwKwK', 'KbbbbbbbbbbK', 'KKKKKKKKKKKK', 'KbK......KbK', 'KKK......KKK'],
+    x: ['KKK', 'KBK', 'KwK', 'KwK', 'KKK'], xAt: [-3, 0], xHide: true },
+  issue: { m: sword(true), mo: '0% 100%', x: sword(false), xo: '100% 100%' },
+  request: { m: ['............', '..KKKKKKKK..', '..KwwwwwwK..', '..KwSSSSwK..', '..KwwwwwwK..', '..KwSSSSwK..', '..KwwwwwwK..', '..KwSSSwwK..', '..KwwwwwvK..', '..KwwwwvKK..', '..KKKKKKK...', '............'], mo: '50% 0%',
+    x: rowsAt(['.....rr.....', '.....RR.....'], 0) },
+  /* a little shop under its roof (the roof keeps it from reading as the full shelf), shutter down, padlock on */
+  closed: { body: ['.....KK.....', '....KBBK....', '...KBbbBK...', '..KBbbbbBK..', '.KKKKKKKKKK.'].concat(Array(6).fill('.K........K.'), ['.KKKKKKKKKK.']),
+    m: rowsAt(['..ssssssss..', '..SSSSSSSS..', '..ssssssss..', '..SSSSSSSS..', '..ssssssss..', '..SSSSSSSS..'], 5), mo: '50% 0%',
+    x: rowsAt(['....KKKK....', '....K..K....', '...KGGGGK...', '...KGKKGK...', '...KGGGGK...', '...KKKKKK...'], 6), xo: '50% 0%' },
+  routine: { m: ['...KKKK.....', '..KWwwwK....', '.KWwwwwwK...', '.KwwwwwwK...', '.KwwwwwwK...', '.KwwwwwvK...', '..KwwvvKK...', '...KKKKBBK..', '.......KBBK.', '........KBBK', '.........KBK', '..........K.'], mo: '50% 50%',
+    x: rowsAt(['......g.....', '...g.g......', '....g.......'], 3) },
+  /* the taped crate goes out (down arrow), a clean one comes in (up arrow) */
+  swap: { body: ['.........w..', '.........w..', '.........w..', '.......wwwww', '........www.', '.........w..', '..w.........', '.www........', 'wwwww.......', '..w.........', '..w.........', '..w.........'],
+    m: rowsAt(['KKKKKKK', 'KbbbbbK', 'KyKyKyK', 'KKyKyKK', 'KBBBBBK', 'KKKKKKK'].map((r) => r + '.....'), 0),
+    x: rowsAt(['KKKKKKK', 'KbbbbbK', 'KBBBBBK', 'KbbbbbK', 'KBBBBBK', 'KKKKKKK'].map((r) => '.....' + r), 6) },
+};
+/* the app's own coin (Agent Inventory + receipt rows, his "one coin across the app"): one 32 px frame of the strip */
+const COIN = `<svg class="px sg s12" viewBox="0 0 12 12"><g class="coinw" style="transform-origin:50% 100%"><svg x="0" y="0" width="12" height="12" viewBox="0 0 32 32" style="width:12px;height:12px"><image class="cs" href="coin-sprite.png" width="256" height="32" preserveAspectRatio="none" style="image-rendering:pixelated;transform:translateX(-96px)"/></svg></g></svg>`;
+const part = (cls, rows, o, at2, hide) => `<g${at2 ? ` transform="translate(${at2[0]} ${at2[1]})"` : ''}><g class="${cls}" style="transform-origin:${o || '50% 100%'}${hide ? ';opacity:0' : ''}">${px(rows, SGP)}</g></g>`;
+const svgB = (k) => { if (k === 'sold') return COIN; const p = BPIC[k];
+  return `<svg class="px sg s12" viewBox="0 0 12 12">${p.body ? px(p.body, SGP) : ''}${part('m', p.m, p.mo)}${p.x ? part('x', p.x, p.xo, p.xAt, p.xHide) : ''}</svg>`; };
+/* A: today's 11 x 11 board, its face coloured by family; 9 x 6 pictures drawn bolder */
+const AB = { money: ['#3F2C18', '#E4B04A', '#C48A2C'], plain: ['#3F2C18', '#F0E2BC', '#D9C597'], problem: ['#B3261E', '#F0E2BC', '#D9C597'], closed: ['#0A0908', '#2A2622', '#1C1814'] };
+const APIC = {
+  sold: { m: ['..KKKKK..', '.KYYYYYK.', '.KYYYYgK.', '.KYYYggK.', '.KYggggK.', '..KKKKK..'], mo: '50% 50%' },
+  order: { m: ['K........', 'KKKKKKKKK', '.KYKYKYKK', '..KKKKKK.', '..K....K.', '.KKK..KKK'] },
+  full: { m: ['KKKKKKKKK', 'KBKBKBKBK', 'KwKwKwKwK', 'KKKKKKKKK', 'KBKBKBKBK', 'KwKwKwKwK'], x: ['KKK', 'KBK', 'KwK', 'KKK'], xAt: [-4, 0], xHide: true },
+  issue: { m: ['....R....', '...RRR...', '..RRwRR..', '.RRRwRRR.', 'RRRRRRRRR', 'RRRRwRRRR'], mo: '50% 50%' },
+  request: { m: ['.........', '.KKK.KKK.', '.K.....K.', '.K.KKK.K.', '.K.....K.', '.KKKKKKK.'], mo: '50% 0%', x: ['....R....', '....R....'] },
+  closed: { m: ['..eeeee..', '..e...e..', '.eeeeeee.', '.eeedeee.', '.eeedeee.', '.eeeeeee.'], mo: '50% 0%' },
+  routine: { m: ['.......KK', '......KK.', 'KK...KK..', '.KK.KK...', '..KKK....', '...K.....'], mo: '50% 50%' },
+  swap: { m: ['.....R...', 'RRRRRRR..', '.....R...', '.........', '.........', '.........'], x: ['.........', '.........', '.........', '...R.....', '..RRRRRRR', '...R.....'] },
+};
+const svgA = (k) => { const p = APIC[k], [f, face, sh] = AB[FAM[k]];
+  return `<svg class="px sg s11" viewBox="0 0 11 11">${px(BOARD5, { O: `fill="${f}"`, w: `fill="${face}"`, v: `fill="${sh}"`, P: 'fill="#5B3F22"' })}<g transform="translate(1 1)">${part('m', p.m, p.mo)}${p.x ? part('x', p.x, p.xo, p.xAt, p.xHide) : ''}</g></svg>`; };
+const SETS = { today: { svg: sign, lamp: false }, A: { svg: svgA, lamp: false }, B: { svg: svgB, lamp: true }, C: { svg: svgB, lamp: true, word: true } };
+let SET = 'B';
+const sgvHtml = (s, k) => SETS[s].svg(k) + (SETS[s].word ? `<b class="sw">${WORD[k]}</b>` : '');
+const lampVars = (s, k) => SETS[s].lamp && LAMP[FAM[k]] ? `--l1:${LAMP[FAM[k]][0]};--l2:${LAMP[FAM[k]][1]}` : '';
+
+/* the acts: offsets over one 700 ms moment. On the board they play when pressed; on the replay map the same frames run
+   inside the stop's scene, from the moment the sign plants (1.3 s) to its end (2.0 s) */
+const ACT_MS = 700, E_OUT = 'cubic-bezier(.23,1,.32,1)', E_IN = 'cubic-bezier(.55,0,1,.45)';
+const PLANT = [{ transform: 'translateY(6px)', opacity: 0, offset: 0, easing: E_OUT }, { transform: 'none', opacity: 1, offset: .43 }, { transform: 'none', opacity: 1, offset: 1 }];
+const DROP_LOCK = (a) => [{ transform: 'translateY(-5px)', opacity: 0, offset: 0 }, { transform: 'translateY(-5px)', opacity: 0, offset: a, easing: 'ease-in' }, { transform: 'none', opacity: 1, offset: a + .17, easing: 'ease-in-out' },
+  { transform: 'rotate(-10deg)', opacity: 1, offset: a + .25, easing: 'ease-in-out' }, { transform: 'rotate(6deg)', opacity: 1, offset: a + .33, easing: 'ease-in-out' }, { transform: 'none', opacity: 1, offset: a + .41 }, { transform: 'none', opacity: 1, offset: 1 }];
+function ACT(set, k) {
+  if (set === 'today') return [['', PLANT]];
+  const obj = set !== 'A';
+  if (k === 'sold') return obj
+    /* the coin jumps up out of the ground and spins one turn (the app's own 8-frame spin), then shows its face */
+    ? [['.coinw', [{ transform: 'translateY(5px)', opacity: 0, offset: 0, easing: 'ease-out' }, { transform: 'translateY(-2px)', opacity: 1, offset: .28, easing: 'ease-in-out' }, { transform: 'none', opacity: 1, offset: .42 }, { transform: 'none', opacity: 1, offset: 1 }]],
+      ['.cs', [{ transform: 'translateX(-96px)', offset: 0 }, { transform: 'translateX(-96px)', offset: .1 }, { transform: 'translateX(0px)', offset: .1, easing: 'steps(8, end)' }, { transform: 'translateX(-256px)', offset: .92 }, { transform: 'translateX(-96px)', offset: .92 }, { transform: 'translateX(-96px)', offset: 1 }]]]
+    : [['.m', [{ transform: 'scaleX(1)', offset: 0, easing: 'ease-in-out' }, { transform: 'scaleX(.12)', offset: .2, easing: 'ease-in-out' }, { transform: 'scaleX(1)', offset: .4, easing: 'ease-in-out' }, { transform: 'scaleX(.12)', offset: .6, easing: 'ease-in-out' }, { transform: 'scaleX(1)', offset: .8 }, { transform: 'scaleX(1)', offset: 1 }]]];
+  /* repeat order: the cart rolls away and comes back round for more */
+  if (k === 'order') return [['.m', [{ transform: 'none', opacity: 1, offset: 0 }, { transform: 'none', opacity: 1, offset: .12, easing: 'ease-in' }, { transform: 'translateX(9px)', opacity: 0, offset: .42 }, { transform: 'translateX(-9px)', opacity: 0, offset: .5, easing: E_OUT }, { transform: 'none', opacity: 1, offset: .86 }, { transform: 'none', opacity: 1, offset: 1 }]]];
+  /* stock full: one more pack is pushed in, there is no room, it bounces back out and falls away */
+  if (k === 'full') return [['.x', [{ transform: 'translate(-6px,0)', opacity: 0, offset: 0 }, { transform: 'translate(-4px,0)', opacity: 1, offset: .15, easing: 'ease-in' }, { transform: 'translate(0,0)', opacity: 1, offset: .35, easing: E_OUT },
+      { transform: 'translate(-4px,-3px)', opacity: 1, offset: .55, easing: 'ease-in' }, { transform: 'translate(-6px,5px)', opacity: 0, offset: .85 }, { transform: 'translate(-6px,5px)', opacity: 0, offset: 1 }]],
+    ['.m', [{ transform: 'none', offset: 0 }, { transform: 'none', offset: .34 }, { transform: 'translateX(.7px)', offset: .4 }, { transform: 'none', offset: .5 }, { transform: 'none', offset: 1 }]]];
+  /* competitor: two swords swing in and clash (B, C); the warning shakes (A) */
+  if (k === 'issue') return obj
+    ? [['.m', [{ transform: 'rotate(-38deg)', opacity: 0, offset: 0 }, { transform: 'rotate(-38deg)', opacity: 1, offset: .15, easing: E_IN }, { transform: 'rotate(5deg)', opacity: 1, offset: .45, easing: 'ease-out' }, { transform: 'none', opacity: 1, offset: .62 }, { transform: 'none', opacity: 1, offset: 1 }]],
+      ['.x', [{ transform: 'rotate(38deg)', opacity: 0, offset: 0 }, { transform: 'rotate(38deg)', opacity: 1, offset: .15, easing: E_IN }, { transform: 'rotate(-5deg)', opacity: 1, offset: .45, easing: 'ease-out' }, { transform: 'none', opacity: 1, offset: .62 }, { transform: 'none', opacity: 1, offset: 1 }]]]
+    : [['.m', [{ transform: 'translateY(-3px)', opacity: 0, offset: 0, easing: E_OUT }, { transform: 'none', opacity: 1, offset: .25 }, { transform: 'translateX(-.8px)', offset: .37 }, { transform: 'translateX(.8px)', offset: .47 }, { transform: 'translateX(-.8px)', offset: .57 }, { transform: 'none', offset: .67 }, { transform: 'none', offset: 1 }]]];
+  /* new request: a note drops onto the board, the pin presses it in, it swings from the pin */
+  if (k === 'request') return [['.m', [{ transform: 'translateY(-5px) rotate(-8deg)', opacity: 0, offset: 0, easing: E_OUT }, { transform: 'rotate(-8deg)', opacity: 1, offset: .3 }, { transform: 'rotate(-8deg)', opacity: 1, offset: .45, easing: 'ease-in-out' },
+      { transform: 'rotate(5deg)', offset: .62, easing: 'ease-in-out' }, { transform: 'rotate(-2deg)', offset: .78, easing: 'ease-in-out' }, { transform: 'none', offset: .9 }, { transform: 'none', offset: 1 }]],
+    ['.x', [{ transform: 'translateY(-4px)', opacity: 0, offset: 0 }, { transform: 'translateY(-4px)', opacity: 0, offset: .28 }, { transform: 'translateY(-2px)', opacity: 1, offset: .34, easing: 'ease-in' }, { transform: 'none', opacity: 1, offset: .44 }, { transform: 'none', opacity: 1, offset: 1 }]]];
+  /* store closed: the shutter rolls down, then the lock drops on and swings (B, C); the lock drops on the dark board (A) */
+  if (k === 'closed') return obj
+    ? [['.m', [{ transform: 'scaleY(.12)', offset: 0 }, { transform: 'scaleY(.12)', offset: .05, easing: E_IN }, { transform: 'none', offset: .45 }, { transform: 'scaleY(.93)', offset: .51 }, { transform: 'none', offset: .58 }, { transform: 'none', offset: 1 }]], ['.x', DROP_LOCK(.55)]]
+    : [['.m', DROP_LOCK(.1)]];
+  /* routine check: the glass sweeps over the shop, then a tick shows inside it (B, C); the tick pops (A) */
+  if (k === 'routine') return obj
+    ? [['.m', [{ transform: 'translateX(-3px)', opacity: 0, offset: 0 }, { transform: 'translateX(-3px)', opacity: 1, offset: .15, easing: 'ease-in-out' }, { transform: 'translateX(2px)', offset: .45, easing: 'ease-in-out' }, { transform: 'translateX(-1px)', offset: .68, easing: 'ease-in-out' }, { transform: 'none', offset: .82 }, { transform: 'none', offset: 1 }]],
+      ['.x', [{ opacity: 0, offset: 0 }, { opacity: 0, offset: .78 }, { opacity: 1, offset: .9 }, { opacity: 1, offset: 1 }]]]
+    : [['.m', [{ transform: 'scale(.6)', opacity: 0, offset: 0, easing: E_OUT }, { transform: 'scale(1.12)', opacity: 1, offset: .35, easing: 'ease-in-out' }, { transform: 'none', opacity: 1, offset: .52 }, { transform: 'none', opacity: 1, offset: 1 }]]];
+  /* exchange: the taped crate and a clean one trade places (B, C); the two arrows slide in opposite ways (A) */
+  if (k === 'swap') return obj
+    ? [['.m', [{ transform: 'translate(5px,6px)', opacity: 0, offset: 0 }, { transform: 'translate(5px,6px)', opacity: 1, offset: .12, easing: 'ease-in-out' }, { transform: 'translate(5px,-2px)', opacity: 1, offset: .4, easing: 'ease-in-out' }, { transform: 'none', opacity: 1, offset: .75 }, { transform: 'none', opacity: 1, offset: 1 }]],
+      ['.x', [{ transform: 'translate(-5px,-6px)', opacity: 0, offset: 0 }, { transform: 'translate(-5px,-6px)', opacity: 1, offset: .12, easing: 'ease-in-out' }, { transform: 'translate(-5px,2px)', opacity: 1, offset: .4, easing: 'ease-in-out' }, { transform: 'none', opacity: 1, offset: .75 }, { transform: 'none', opacity: 1, offset: 1 }]]]
+    : [['.m', [{ transform: 'translateX(-4px)', opacity: 0, offset: 0, easing: E_OUT }, { transform: 'none', opacity: 1, offset: .45 }, { transform: 'none', opacity: 1, offset: 1 }]],
+      ['.x', [{ transform: 'translateX(4px)', opacity: 0, offset: 0 }, { transform: 'translateX(4px)', opacity: 0, offset: .2, easing: E_OUT }, { transform: 'none', opacity: 1, offset: .65 }, { transform: 'none', opacity: 1, offset: 1 }]]];
+  return [];
+}
+/* map = squeeze the act into the scene's 1.3 -> 2.0 s and leave it paused for render(t); a root-level act is skipped there
+   (the stop's own sign already plants) */
+const inScene = (fr) => { const a = 1300 / 2000, b = 1; return [{ ...fr[0], offset: 0 }, ...fr.map((f) => ({ ...f, offset: a + f.offset * (b - a) }))]; };
+const runAct = (root, set, k, { map = false, delay = 0 } = {}) => ACT(set, k).filter(([sel]) => !(map && !sel)).map(([sel, fr]) => {
+  const el = sel ? root.querySelector(sel) : root; if (!el) return null;
+  const a = el.animate(map ? inScene(fr) : fr, { duration: map ? 2000 : ACT_MS, delay: map ? 0 : delay, fill: 'both' });
+  if (map) { a.pause(); a.currentTime = 0; }
+  return a;
+}).filter(Boolean);
 
 /* the person (10 x 14): legs A / B walk, S stands; arms up holds something over his head */
 const HEAD = ['..OOOOOO..', '.OhhhhhhO.', '.OhsssshO.', '.OsessesO.', '.OsszzssO.'];
@@ -383,7 +563,7 @@ let html = `<div class="stop warehouse" data-k="0" role="button" tabindex="0" ar
 STOPS.forEach((s, i) => {
   const k = i + 1;
   html += `<div class="stop future" id="s${k}" data-k="${k}" role="button" tabindex="0" aria-label="${s.name}, ${s.label} at ${s.time}" style="left:${s.x - 14}px;top:${s.y - 31}px;--c:${MAN.shirt}"><i class="ring"></i>${chestSvg()}`
-    + `<span class="otag"><i></i>${MAN.ini} · ${k}</span><i class="sign" style="opacity:0"><i class="lamp"></i>${sign(s.kind)}</i>`
+    + `<span class="otag"><i></i>${MAN.ini} · ${k}</span><i class="sign" style="opacity:0"><i class="lamp"></i><span class="sgv"></span></i>`
     + `<span class="prop p1"></span><span class="prop p2"></span><span class="prop p3"></span><span class="prop p4"></span>`
     + Array.from({ length: 6 }, (_, j) => `<i class="spark sp${j}" style="opacity:0"></i>`).join('') + `</div>`;
 });
@@ -493,15 +673,49 @@ STOPS.forEach((s, i) => {
 
 /* ===== the panel: Day Log rows (PC), chips + one card (phone), notches on the timeline ===== */
 const EVENTS = [{ ...START, kind: 'start', label: 'Day starts' }, ...STOPS];
-const SIGN_HTML = (k) => sign(k);
-document.getElementById('rows').innerHTML = EVENTS.map((e, i) => `<li class="rowwrap"><button class="row future${e.nota ? ' has-rc' : ''}" type="button" data-k="${i}"><span class="t">${e.time}</span>${SIGN_HTML(e.kind)}<span class="s"><b>${e.name}</b><span>${e.result}</span><em>${e.note}</em></span></button>`
-  + (e.nota ? `<button class="rc" type="button" data-rc="${i}">Receipt</button>` : '') + '</li>').join('');
+const SIGN_HTML = (k) => k === 'start' ? sign(k) : SETS[SET].svg(k);   /* the look picked above, everywhere a status is drawn */
 const sold = STOPS.filter((s) => s.kind === 'sold').length, noOrder = STOPS.filter((s) => ['full', 'issue', 'request', 'routine'].includes(s.kind)).length;
 document.getElementById('stats').innerHTML = `<div><b>Rp 250.000</b><small>${sold} sale + 1 order</small></div><div><b>${noOrder}</b><small>visits, no order</small></div><div><b>3 h 25 m</b><small>07:45 to 11:10</small></div>`;
 const card = document.getElementById('card');
-card.innerHTML = '<div class="head2" id="chead"></div><p id="cres"></p><p class="n" id="cnote"></p><div class="acts2" id="cacts"></div><div class="chips" id="chips">'
-  + EVENTS.map((e, i) => `<button class="chip future" type="button" data-k="${i}">${SIGN_HTML(e.kind)}${e.time}</button>`).join('') + '</div>';
-document.getElementById('notches').innerHTML = EVENTS.map((e, i) => `<button class="notch" type="button" data-k="${i}" aria-label="${e.time} ${e.name}" style="left:${((T[i] - DAY0) / (DAY1 - DAY0) * 100).toFixed(3)}%">${SIGN_HTML(e.kind)}</button>`).join('');
+card.innerHTML = '<div class="head2" id="chead"></div><p id="cres"></p><p class="n" id="cnote"></p><div class="acts2" id="cacts"></div><div class="chips" id="chips"></div>';
+function buildLists() {
+  document.getElementById('rows').innerHTML = EVENTS.map((e, i) => `<li class="rowwrap"><button class="row future${e.nota ? ' has-rc' : ''}" type="button" data-k="${i}"><span class="t">${e.time}</span>${SIGN_HTML(e.kind)}<span class="s"><b>${e.name}</b><span>${e.result}</span><em>${e.note}</em></span></button>`
+    + (e.nota ? `<button class="rc" type="button" data-rc="${i}">Receipt</button>` : '') + '</li>').join('');
+  document.getElementById('chips').innerHTML = EVENTS.map((e, i) => `<button class="chip future" type="button" data-k="${i}">${SIGN_HTML(e.kind)}${e.time}</button>`).join('');
+  document.getElementById('notches').innerHTML = EVENTS.map((e, i) => `<button class="notch" type="button" data-k="${i}" aria-label="${e.time} ${e.name}" style="left:${((T[i] - DAY0) / (DAY1 - DAY0) * 100).toFixed(3)}%">${SIGN_HTML(e.kind)}</button>`).join('');
+}
+buildLists();
+/* the map's signs in the picked look, each with its act inside the stop's scene */
+const SIGNA = {};
+function paintSigns() {
+  STOPS.forEach((s, i) => {
+    const k = i + 1, sg = document.querySelector(`#s${k} .sign`), v = sg.querySelector('.sgv');
+    (SIGNA[k] || []).forEach((a) => a.cancel());
+    v.innerHTML = sgvHtml(SET, s.kind);
+    sg.style.removeProperty('--l1'); sg.style.removeProperty('--l2');
+    if (SETS[SET].lamp) { sg.style.setProperty('--l1', LAMP[FAM[s.kind]][0]); sg.style.setProperty('--l2', LAMP[FAM[s.kind]][1]); }
+    SIGNA[k] = runAct(v.querySelector('svg.sg'), SET, s.kind, { map: true });
+  });
+}
+/* the board: every status x every look, at map size beside a chest and zoomed */
+const chestStill = (open) => `<svg class="px chest" viewBox="0 0 14 17">${open ? px(UNDER5, W5) : ''}${px(at(INSIDE5, 5), W5)}${px(at(BODY5, 8), W5)}${open ? '' : px(at(LID5, 3), W5)}</svg>`;
+const SETCOLS = [['today', 'Today', 'The app now: one cream board, a small dark picture'], ['A', 'A · Colour boards', 'Same board; its colour says money, no sale, problem or closed'],
+  ['B', 'B · Objects', 'No board: each status is its own thing; its light says the family'], ['C', 'C · Objects + word', 'B, with the word under it']];
+function buildBoard() {
+  document.getElementById('sgrid').innerHTML = '<div class="hd"></div>' + SETCOLS.map(([s, n, d]) => `<div class="hd" data-set="${s}"><b>${n}${s === 'B' ? '<span class="rec">MY PICK</span>' : ''}</b><small>${d}</small></div>`).join('')
+    + KINDS.map((k) => `<button class="sname" type="button" data-play="${k}"><b>${NAMES[k][0]}</b><span>${NAMES[k][1]}</span></button>`
+      + SETCOLS.map(([s]) => `<div class="cell" data-set="${s}" data-play="${k}"><span class="mv">${chestStill(k !== 'closed')}<i class="sign" style="${lampVars(s, k)}"><i class="lamp"></i><span class="sgv">${sgvHtml(s, k)}</span></i></span>`
+        + `<span class="zv"><span class="sgv">${sgvHtml(s, k)}</span></span></div>`).join('')).join('');
+}
+const playRow = (k, delay = 0) => { if (lite) return; document.querySelectorAll(`.cell[data-play="${k}"]`).forEach((c) => c.querySelectorAll('svg.sg').forEach((svg) => {
+  svg.getAnimations({ subtree: true }).forEach((a) => a.cancel()); runAct(svg, c.dataset.set, k, { delay }); })); };
+const playAll = () => KINDS.forEach((k, i) => playRow(k, i * 260));
+function setSet(v) {
+  SET = v;
+  document.querySelectorAll('[data-pick]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.pick === v));
+  document.querySelectorAll('.sgrid [data-set]').forEach((c) => c.classList.toggle('on', c.dataset.set === v));
+  paintSigns(); buildLists(); lastK = -1; render(t, true);
+}
 document.getElementById('hours').innerHTML = [8, 9, 10, 11].map((h) => `<span style="left:${((h * 60 - DAY0) / (DAY1 - DAY0) * 100).toFixed(3)}%">${String(h).padStart(2, '0')}:00</span>`).join('');
 
 /* ===== render(t): everything on screen is a function of t ===== */
@@ -524,7 +738,7 @@ function render(t, snap) {
   /* stops: before his scene = closed; after = its end picture; during = the scene at its own time */
   STOPS.forEach((_, i) => {
     const k = i + 1, ss = sceneSeg(k), lt = t >= ss.t1 ? SCENE : t < ss.t0 ? 0 : (lite ? SCENE : t - ss.t0);
-    ANIMS[k].forEach((a) => { a.currentTime = Math.min(SCENE - 0.01, lt); });
+    ANIMS[k].concat(SIGNA[k] || []).forEach((a) => { a.currentTime = Math.min(SCENE - 0.01, lt); });
     document.getElementById('s' + k).classList.toggle('future', t < ss.t0);
   });
   /* him */
@@ -619,7 +833,7 @@ function openCard(i) {
   document.querySelectorAll('.stop').forEach((s) => s.classList.toggle('picked', +s.dataset.k === i));
   const tag = i === 0 ? 'Warehouse' : `${MAN.ini} · stop ${i}`;
   const by = i === 0 ? `His first position of the day, ${e.time}` : e.nota || e.kind === 'swap' ? `Recorded by the terminal at ${e.time} · ${MAN.name}` : `Visit Report by ${MAN.name} at ${e.time}`;
-  shopcard.innerHTML = `<div class="sc-top">${sign(e.kind)}<div><b>${e.name}</b><small>${tag} · ${e.time}</small></div><button class="sc-x" type="button" aria-label="Close">×</button></div>`
+  shopcard.innerHTML = `<div class="sc-top">${SIGN_HTML(e.kind)}<div><b>${e.name}</b><small>${tag} · ${e.time}</small></div><button class="sc-x" type="button" aria-label="Close">×</button></div>`
     + `<p class="sc-status" style="--tone:${TONE[e.kind]}"><i></i>${e.result}</p><p class="sc-note">"${e.note}"</p>`
     + (e.extra ? `<p class="sc-extra">${e.extra}</p>` : '') + `<p class="sc-by">${by}</p>`
     + `<div class="sc-acts">${e.nota ? `<button class="tog gold" type="button" data-rc="${i}">Review receipt</button>` : ''}<button class="tog" type="button" data-from="${i}">Play from here</button></div>`;
@@ -677,13 +891,23 @@ press('[data-cam]', 'cam', (v) => { camMode = v; });
 press('[data-lay]', 'lay', (v) => { document.body.classList.toggle('phone', v === 'phone'); setCam(v === 'phone' ? 'follow' : 'whole'); placeCard(); lastK = -1; });
 setCam('whole');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-const setLite = (v) => { lite = v || reduce.matches; document.documentElement.classList.toggle('lite', lite); document.getElementById('lite').setAttribute('aria-pressed', lite); render(t, true); };
+const setLite = (v) => { lite = v || reduce.matches; document.documentElement.classList.toggle('lite', lite); document.getElementById('lite').setAttribute('aria-pressed', lite);
+  if (lite) document.querySelectorAll('.sgrid svg.sg').forEach((s) => s.getAnimations({ subtree: true }).forEach((a) => a.finish()));   /* Lite = the still end pictures */
+  render(t, true); };
 document.getElementById('lite').addEventListener('click', () => setLite(!lite));
 if (matchMedia('(max-width: 640px)').matches) { document.body.classList.add('phone'); document.querySelectorAll('[data-lay]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.lay === 'phone')); setCam('follow'); }
 placeCard();
+buildBoard();
+document.getElementById('sgrid').addEventListener('click', (e) => { const p = e.target.closest('[data-play]'); if (p) playRow(p.dataset.play); });
+document.querySelectorAll('[data-pick]').forEach((b) => b.addEventListener('click', () => setSet(b.dataset.pick)));
+document.getElementById('playall').addEventListener('click', playAll);
+document.getElementById('grey').addEventListener('click', (e) => { const on = e.currentTarget.getAttribute('aria-pressed') !== 'true'; e.currentTarget.setAttribute('aria-pressed', on); document.querySelector('.signs').classList.toggle('grey', on); });
+setSet('B');
 new ResizeObserver(() => render(t, true)).observe(box);
 setLite(false);
-window.__replay = { seek: (ms) => seek(ms, false), get t() { return t; }, get playing() { return playing; }, get cam() { return camMode; }, TOTAL, SEGS, sceneSeg, setLite, play: () => setPlaying(true), pause: () => setPlaying(false) };   /* for the lab's frozen frames */
+document.fonts.ready.then(playAll);
+window.__replay = { seek: (ms) => seek(ms, false), get t() { return t; }, get playing() { return playing; }, get cam() { return camMode; }, TOTAL, SEGS, sceneSeg, setLite, play: () => setPlaying(true), pause: () => setPlaying(false),
+  setSet, playRow, get set() { return SET; } };   /* for the lab's frozen frames */
 render(0, true);
 requestAnimationFrame(frame);
 </script>
