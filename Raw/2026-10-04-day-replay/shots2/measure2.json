@@ -1,0 +1,109 @@
+{
+ "errs": [],
+ "pc": {
+  "cam": "whole",
+  "cards": [
+   {
+    "name": "Regional warehouse",
+    "status": "Day starts · van loaded",
+    "note": "\"40 slop on the van\"",
+    "receipt": false,
+    "playing": false,
+    "picked": "0"
+   },
+   {
+    "name": "Toko Berkah Jaya",
+    "status": "Sale · Rp 250.000",
+    "note": "\"Bayar cash, minta nota\"",
+    "receipt": true,
+    "playing": false,
+    "picked": "1"
+   },
+   {
+    "name": "Warung Sumber Rejeki",
+    "status": "Stock full · no order",
+    "note": "\"Stok minggu lalu masih 6 slop\"",
+    "receipt": false,
+    "playing": false,
+    "picked": "2"
+   },
+   {
+    "name": "Toko Makmur",
+    "status": "Exchange · 2 packs to Quarantine",
+    "note": "\"Kemasan penyok, tukar 2 bungkus\"",
+    "receipt": false,
+    "playing": false,
+    "picked": "3"
+   },
+   {
+    "name": "Warung Bu Sri",
+    "status": "Competitor issue",
+    "note": "\"Ada promo merek lain, beli 2 gratis 1\"",
+    "receipt": false,
+    "playing": false,
+    "picked": "4"
+   },
+   {
+    "name": "Toko Sinar Abadi",
+    "status": "Repeat order · 15 slop",
+    "note": "\"Minta dikirim hari Kamis\"",
+    "receipt": false,
+    "playing": false,
+    "picked": "5"
+   },
+   {
+    "name": "Warung Pojok",
+    "status": "New request",
+    "note": "\"Minta rasa menthol\"",
+    "receipt": false,
+    "playing": false,
+    "picked": "6"
+   },
+   {
+    "name": "Toko Lancar",
+    "status": "Store closed",
+    "note": "\"Tutup, pemilik ke pasar\"",
+    "receipt": false,
+    "playing": false,
+    "picked": "7"
+   },
+   {
+    "name": "Warung Barokah",
+    "status": "Routine check · stock OK",
+    "note": "\"Stok aman\"",
+    "receipt": false,
+    "playing": false,
+    "picked": "8"
+   }
+  ],
+  "receipt": {
+   "open": true,
+   "rows": 3,
+   "total": "TOTALRp 250.000",
+   "sheetW": 560
+  },
+  "receiptClosedByEsc": true,
+  "playFromHere": {
+   "playing": true,
+   "cardHidden": true,
+   "now": "Toko Berkah Jaya"
+  },
+  "rowReceipt": true
+ },
+ "phone": {
+  "cam": "follow",
+  "card": {
+   "name": "Toko Berkah Jaya",
+   "status": "Sale · Rp 250.000",
+   "note": "\"Bayar cash, minta nota\"",
+   "receipt": true,
+   "playing": false,
+   "picked": "1"
+  },
+  "receipt": {
+   "open": true,
+   "overflow": 0,
+   "sheetW": 358
+  }
+ }
+}

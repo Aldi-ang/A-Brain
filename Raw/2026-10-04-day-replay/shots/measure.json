@@ -17,10 +17,10 @@
  },
  "rowNow": "Toko Makmur",
  "brightness": {
-  "frames": 1134,
+  "frames": 1033,
   "meanMin": "81.7",
   "meanMax": "84.4",
-  "worstFrameShare": "0.062"
+  "worstFrameShare": "0.057"
  },
  "phone": {
   "phoneClass": true,

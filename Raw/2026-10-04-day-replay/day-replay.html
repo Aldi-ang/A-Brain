@@ -158,7 +158,58 @@ body.phone .card { display: grid; }
 .chip.now { border-color: var(--gold); color: var(--gold); }
 .chip.future { opacity: .5; }
 
+/* ---------------- every shop answers a press: its card (his "all the stores is interactable when press") ---------------- */
+.stop { cursor: pointer; }
+.stop::after { content: ''; position: absolute; left: -10px; right: -16px; top: -8px; bottom: -10px; }   /* a bigger finger target than the 28 px chest */
+.stop.picked .ring { border-color: var(--gold-2); border-width: 3px; }
+@media (hover: hover) and (pointer: fine) { .stop:hover .ring { border-color: var(--gold-2); } }
+/* the card never sits ON the map (a real press on the next shop hit the card instead): top of the Day Log on a PC,
+   under the timeline on a phone, where it stands in for the event card */
+.shopcard { display: grid; gap: 8px; padding: 12px; border: 1px solid var(--gold); border-radius: 14px; background: var(--raised); animation: sc-in 180ms var(--ease-out) both; }
+.shopcard[hidden] { display: none; }
+@keyframes sc-in { from { opacity: 0; transform: translateY(6px); } }
+body.phone.shopopen .card { display: none; }
+.sc-top { display: grid; grid-template-columns: 34px minmax(0, 1fr) 40px; gap: 10px; align-items: center; }
+.sc-top > svg { width: 34px; height: 34px; }
+.sc-top b { display: block; font: 800 19px/1.05 var(--font-display); letter-spacing: .03em; text-transform: uppercase; overflow-wrap: anywhere; }
+.sc-top small { color: var(--ink-muted); font: 700 10px/1.5 var(--font-pixel); }
+.sc-x { width: 40px; height: 40px; border: 1px solid var(--line-3); border-radius: 10px; background: var(--raised); cursor: pointer; font-size: 18px; line-height: 1; }
+.sc-status { margin: 0; display: flex; align-items: center; gap: 8px; font: 800 15px/1.15 var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
+.sc-status i { width: 9px; height: 9px; flex: none; background: var(--tone); box-shadow: 0 0 0 2px rgba(10, 9, 8, .9); }
+.sc-note { margin: 0; padding: 8px 10px; border-left: 3px solid var(--line-3); background: var(--inset); border-radius: 0 8px 8px 0; font-size: 14px; }
+.sc-extra, .sc-by { margin: 0; font-size: 12.5px; color: var(--ink-muted); }
+.sc-acts { display: flex; flex-wrap: wrap; gap: 8px; }
+.sc-acts .tog { min-height: 44px; }
+.tog.gold { border-color: var(--gold); color: var(--on-gold); background: var(--gold); font-weight: 700; }
+.rowwrap { position: relative; }
+.rc { position: absolute; right: 8px; top: 8px; min-height: 30px; padding: 0 9px; border: 1px solid var(--gold); border-radius: 8px; background: var(--raised); color: var(--gold); cursor: pointer; font: 700 9.5px/1 var(--font-pixel); }
+.row.has-rc { padding-right: 84px; }
+.card .acts2 { display: flex; gap: 8px; }
+
+/* ---------------- the receipt: KPM's nota keeps the company blue (the palette law stops at the sheet's edge) ---------------- */
+.rcpt { position: fixed; inset: 0; z-index: 50; display: grid; place-items: start center; align-content: start; gap: 10px; padding: 16px; overflow-y: auto; background: rgba(5, 4, 3, .88); }
+.rcpt[hidden] { display: none; }
+.rcpt .bar2 { width: min(560px, 100%); display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.rcpt .bar2 span { color: var(--ink-muted); font: 700 10px/1.4 var(--font-pixel); }
+.sheetbox { width: min(560px, 100%); overflow: hidden; border-radius: 4px; box-shadow: 0 20px 50px rgba(0, 0, 0, .6); }
+.sheet { width: 794px; transform-origin: 0 0; background: #ffffff; color: #000000; padding: 48px; font: 400 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.sheet .lh { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; padding-bottom: 16px; margin-bottom: 20px; border-bottom: 4px solid #1e40af; }
+.sheet .lh h3 { margin: 0; font: 900 28px/1.1 system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #1e3a8a; }
+.sheet .lh p { margin: 4px 0 0; font-weight: 700; font-size: 13px; color: #334155; }
+.sheet .lh h4 { margin: 0; font: 700 22px/1.1 system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #1e40af; text-align: right; }
+.sheet .lh small { display: block; text-align: right; margin-top: 4px; font-size: 11px; font-weight: 700; color: #64748b; letter-spacing: .06em; }
+.sheet .samp { margin-bottom: 18px; padding: 10px; text-align: center; font-weight: 900; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; border: 2px dashed #b91c1c; color: #b91c1c; }
+.sheet .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; margin-bottom: 18px; font-size: 13.5px; color: #1e293b; }
+.sheet table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 14px; }
+.sheet th, .sheet td { padding: 10px 12px; border: 2px solid #1e293b; }
+.sheet th { background: #eff6ff; color: #1e3a8a; font-weight: 900; }
+.sheet .tot td { font-weight: 900; }
+.sheet .ft { display: flex; justify-content: space-between; gap: 32px; font-size: 13.5px; color: #334155; }
+.sheet .sig { width: 220px; text-align: center; }
+.sheet .sig b { display: block; margin-top: 56px; padding-top: 4px; border-top: 1px solid #94a3b8; color: #000000; text-transform: uppercase; }
+
 html.lite *, html.lite *::before, html.lite *::after { transition: none !important; }
+html.lite .shopcard { animation: none; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } .kpm-coin::before { animation: none; transform: translateX(-54px); } }
 @media (max-width: 900px) { .replay { grid-template-columns: minmax(0, 1fr); } }
 </style>
@@ -185,6 +236,7 @@ html.lite *, html.lite *::before, html.lite *::after { transition: none !importa
         <div class="cam" id="cam"><div class="world"></div><svg class="route" id="route" viewBox="0 0 600 420"></svg><div id="things"></div></div>
         <span class="clockbig" id="clock">07:45</span>
         <span class="mapnote">Walk drawn between stops, not tracked</span>
+        <section class="shopcard" id="shopcard" aria-live="polite" hidden></section>
       </div>
       <section class="player" aria-label="Replay">
         <div class="tl" id="tl" role="slider" aria-label="Time of day" aria-valuemin="0" aria-valuemax="100" tabindex="0">
@@ -212,6 +264,12 @@ html.lite *, html.lite *::before, html.lite *::after { transition: none !importa
     </aside>
   </div>
 
+  <div class="rcpt" id="rcpt" role="dialog" aria-modal="true" aria-label="Receipt" hidden>
+    <div class="bar2"><span>Sample nota · the sale at Toko Berkah Jaya</span><button class="tog" type="button" id="rcptx">Close</button></div>
+    <div class="sheetbox" id="sheetbox"><div class="sheet" id="sheet"></div></div>
+  </div>
+
+  <p class="note"><b>Press any shop on the map</b> to see what happened there, his note and the time; a sale has its receipt. Pressing a shop pauses the replay; "Play from here" carries on from that shop.</p>
   <p class="note"><b>Why the walk is drawn:</b> a phone sends its position only when he sells or opens the app, so the line between two stops is the straight way from one to the next, not his real road.</p>
   <p class="note"><b>Where each line comes from in the app:</b> a sale and an exchange are the terminal's own records (with their time). Stock full, competitor, request, closed and check are the Visit Report he sends from Journey Plan; the app already keeps each one with its time in the activity log. The time shown is when he pressed Report, not when he arrived.</p>
 </main>
@@ -277,11 +335,14 @@ const MAN = { ini: 'BS', name: 'Budi Santoso', hair: '#2B1A0E', shirt: '#a855f7'
 const m = (hm) => { const [h, mi] = hm.split(':').map(Number); return h * 60 + mi; };
 const START = { x: 78, y: 360, time: '07:45', name: 'Regional warehouse', result: 'Day starts · van loaded', note: '40 slop on the van' };
 const STOPS = [
-  { x: 168, y: 318, time: '08:12', name: 'Toko Berkah Jaya',     kind: 'sold',    label: 'Sale',                  result: 'Sale · Rp 250.000',               note: 'Ambil 10 slop, bayar cash' },
+  { x: 168, y: 318, time: '08:12', name: 'Toko Berkah Jaya',     kind: 'sold',    label: 'Sale',                  result: 'Sale · Rp 250.000',               note: 'Bayar cash, minta nota',
+    nota: 'PJ-041026-0812', pay: 'Cash', items: [['Djarum Coklat 12', '1 slop', 'Rp 170.000'], ['Sampoerna Mild 16', '3 bungkus', 'Rp 80.000']] },
   { x: 246, y: 352, time: '08:41', name: 'Warung Sumber Rejeki', kind: 'full',    label: 'Stock Full (No Order)', result: 'Stock full · no order',            note: 'Stok minggu lalu masih 6 slop' },
-  { x: 302, y: 268, time: '09:05', name: 'Toko Makmur',          kind: 'swap',    label: 'Exchange (retur)',      result: 'Exchange · 2 packs to Quarantine', note: 'Kemasan penyok, tukar 2 bungkus' },
+  { x: 302, y: 268, time: '09:05', name: 'Toko Makmur',          kind: 'swap',    label: 'Exchange (retur)',      result: 'Exchange · 2 packs to Quarantine', note: 'Kemasan penyok, tukar 2 bungkus',
+    extra: 'Back with him: 2 bungkus Gudang Garam Surya 12, dented packs, booked into Quarantine.' },
   { x: 222, y: 212, time: '09:31', name: 'Warung Bu Sri',        kind: 'issue',   label: 'Competitor Issue',      result: 'Competitor issue',                 note: 'Ada promo merek lain, beli 2 gratis 1' },
-  { x: 304, y: 146, time: '09:58', name: 'Toko Sinar Abadi',     kind: 'order',   label: 'Repeat Order',          result: 'Repeat order · 15 slop',           note: 'Minta dikirim hari Kamis' },
+  { x: 304, y: 146, time: '09:58', name: 'Toko Sinar Abadi',     kind: 'order',   label: 'Repeat Order',          result: 'Repeat order · 15 slop',           note: 'Minta dikirim hari Kamis',
+    extra: 'An order, not a sale yet: 15 slop to deliver on Thursday.' },
   { x: 400, y: 186, time: '10:24', name: 'Warung Pojok',         kind: 'request', label: 'New Request',           result: 'New request',                      note: 'Minta rasa menthol' },
   { x: 472, y: 262, time: '10:47', name: 'Toko Lancar',          kind: 'closed',  label: 'Store Closed',          result: 'Store closed',                     note: 'Tutup, pemilik ke pasar' },
   { x: 540, y: 196, time: '11:10', name: 'Warung Barokah',       kind: 'routine', label: 'Routine Check',         result: 'Routine check · stock OK',         note: 'Stok aman' },
@@ -318,10 +379,10 @@ const hm = (c) => { const h = Math.floor(c / 60), mi = Math.floor(c % 60); retur
 
 /* ===== build the world ===== */
 const things = document.getElementById('things'), route = document.getElementById('route');
-let html = `<div class="stop warehouse" style="left:${START.x - 14}px;top:${START.y - 31}px;--c:#8A6BB0"><i class="ring"></i>${chestSvg(WEND, WEND).replace('class="lfd"', 'class="lfd" style="opacity:0"').replace('class="lfb" style="opacity:0"', 'class="lfb"').replace('class="bd"', 'class="bd" style="opacity:0"').replace('class="bb" style="opacity:0"', 'class="bb"')}<span class="otag"><i></i>Warehouse</span></div>`;
+let html = `<div class="stop warehouse" data-k="0" role="button" tabindex="0" aria-label="Regional warehouse, day starts 07:45" style="left:${START.x - 14}px;top:${START.y - 31}px;--c:#8A6BB0"><i class="ring"></i>${chestSvg(WEND, WEND).replace('class="lfd"', 'class="lfd" style="opacity:0"').replace('class="lfb" style="opacity:0"', 'class="lfb"').replace('class="bd"', 'class="bd" style="opacity:0"').replace('class="bb" style="opacity:0"', 'class="bb"')}<span class="otag"><i></i>Warehouse</span></div>`;
 STOPS.forEach((s, i) => {
   const k = i + 1;
-  html += `<div class="stop future" id="s${k}" style="left:${s.x - 14}px;top:${s.y - 31}px;--c:${MAN.shirt}"><i class="ring"></i>${chestSvg()}`
+  html += `<div class="stop future" id="s${k}" data-k="${k}" role="button" tabindex="0" aria-label="${s.name}, ${s.label} at ${s.time}" style="left:${s.x - 14}px;top:${s.y - 31}px;--c:${MAN.shirt}"><i class="ring"></i>${chestSvg()}`
     + `<span class="otag"><i></i>${MAN.ini} · ${k}</span><i class="sign" style="opacity:0"><i class="lamp"></i>${sign(s.kind)}</i>`
     + `<span class="prop p1"></span><span class="prop p2"></span><span class="prop p3"></span><span class="prop p4"></span>`
     + Array.from({ length: 6 }, (_, j) => `<i class="spark sp${j}" style="opacity:0"></i>`).join('') + `</div>`;
@@ -433,11 +494,12 @@ STOPS.forEach((s, i) => {
 /* ===== the panel: Day Log rows (PC), chips + one card (phone), notches on the timeline ===== */
 const EVENTS = [{ ...START, kind: 'start', label: 'Day starts' }, ...STOPS];
 const SIGN_HTML = (k) => sign(k);
-document.getElementById('rows').innerHTML = EVENTS.map((e, i) => `<li><button class="row future" type="button" data-k="${i}"><span class="t">${e.time}</span>${SIGN_HTML(e.kind)}<span class="s"><b>${e.name}</b><span>${e.result}</span><em>${e.note}</em></span></button></li>`).join('');
+document.getElementById('rows').innerHTML = EVENTS.map((e, i) => `<li class="rowwrap"><button class="row future${e.nota ? ' has-rc' : ''}" type="button" data-k="${i}"><span class="t">${e.time}</span>${SIGN_HTML(e.kind)}<span class="s"><b>${e.name}</b><span>${e.result}</span><em>${e.note}</em></span></button>`
+  + (e.nota ? `<button class="rc" type="button" data-rc="${i}">Receipt</button>` : '') + '</li>').join('');
 const sold = STOPS.filter((s) => s.kind === 'sold').length, noOrder = STOPS.filter((s) => ['full', 'issue', 'request', 'routine'].includes(s.kind)).length;
 document.getElementById('stats').innerHTML = `<div><b>Rp 250.000</b><small>${sold} sale + 1 order</small></div><div><b>${noOrder}</b><small>visits, no order</small></div><div><b>3 h 25 m</b><small>07:45 to 11:10</small></div>`;
 const card = document.getElementById('card');
-card.innerHTML = '<div class="head2" id="chead"></div><p id="cres"></p><p class="n" id="cnote"></p><div class="chips" id="chips">'
+card.innerHTML = '<div class="head2" id="chead"></div><p id="cres"></p><p class="n" id="cnote"></p><div class="acts2" id="cacts"></div><div class="chips" id="chips">'
   + EVENTS.map((e, i) => `<button class="chip future" type="button" data-k="${i}">${SIGN_HTML(e.kind)}${e.time}</button>`).join('') + '</div>';
 document.getElementById('notches').innerHTML = EVENTS.map((e, i) => `<button class="notch" type="button" data-k="${i}" aria-label="${e.time} ${e.name}" style="left:${((T[i] - DAY0) / (DAY1 - DAY0) * 100).toFixed(3)}%">${SIGN_HTML(e.kind)}</button>`).join('');
 document.getElementById('hours').innerHTML = [8, 9, 10, 11].map((h) => `<span style="left:${((h * 60 - DAY0) / (DAY1 - DAY0) * 100).toFixed(3)}%">${String(h).padStart(2, '0')}:00</span>`).join('');
@@ -481,7 +543,8 @@ function render(t, snap) {
   man.style.transform = `translate(${p.x - 15 + dx}px, ${p.y - 42 + dy}px)`;
   fig.style.transform = p.flip ? 'scaleX(-1)' : '';
   man.dataset.legs = p.legs; man.dataset.held = held; man.classList.toggle('up', up);
-  man.classList.toggle('busy', !lite && s.kind === 'scene' && local > 250 && local < 1850);
+  /* while he stands at a shop (its scene, the first steps away, the day's end) the shop's own tag is the label - his would sit on it */
+  man.classList.toggle('busy', (s.kind === 'scene' && (lite || local > 250)) || s.kind === 'end' || (s.kind === 'walk' && s.k > 1 && (t - s.t0) / (s.t1 - s.t0) < 0.3));
   const visited = STOPS.filter((_, i) => { const ss = sceneSeg(i + 1); return t >= ss.t0 + (lite ? 0 : 1300); }).length;
   document.getElementById('mantag').textContent = `${MAN.ini} · ${visited}/${STOPS.length}`;
   /* the trail */
@@ -509,6 +572,7 @@ function render(t, snap) {
     document.getElementById('chead').innerHTML = `${SIGN_HTML(e.kind)}<div><b>${e.name}</b><small>${e.time} · ${e.label || ''}</small></div>`;
     document.getElementById('cres').textContent = e.result;
     document.getElementById('cnote').textContent = '"' + e.note + '"';
+    document.getElementById('cacts').innerHTML = e.nota ? `<button class="tog gold" type="button" data-rc="${cur}">Review receipt</button>` : '';
     document.getElementById('now').innerHTML = `${e.name}<small>${e.time} · ${e.result}</small>`;
   }
   /* the camera: the whole day framed, or his spot followed */
@@ -542,7 +606,55 @@ const curIdx = () => { const s = segAt(t); return s.kind === 'walk' ? s.k - 1 : 
 document.getElementById('prev').addEventListener('click', () => { const s = segAt(t), i = curIdx(); jumpTo(s.kind === 'scene' && t - s.t0 > 600 ? i : Math.max(0, i - 1)); });
 document.getElementById('next').addEventListener('click', () => jumpTo(Math.min(STOPS.length, curIdx() + 1)));
 document.querySelectorAll('[data-sp]').forEach((b) => b.addEventListener('click', () => { speed = +b.dataset.sp; document.querySelectorAll('[data-sp]').forEach((x) => x.setAttribute('aria-pressed', x === b)); }));
-document.addEventListener('click', (e) => { const b = e.target.closest('.row, .chip, .notch'); if (b) jumpTo(+b.dataset.k); });
+document.addEventListener('click', (e) => {
+  const rc = e.target.closest('[data-rc]'); if (rc) { openReceipt(+rc.dataset.rc); return; }
+  const b = e.target.closest('.row, .chip, .notch'); if (b) jumpTo(+b.dataset.k);
+});
+
+/* ===== a pressed shop: its card - what happened, his note, the time, the receipt of a sale. Pressing pauses the replay ===== */
+const shopcard = document.getElementById('shopcard');
+const TONE = { sold: 'var(--gold)', order: 'var(--gold)', routine: 'var(--ink)', full: '#C98A4A', request: '#C98A4A', swap: '#C98A4A', issue: 'var(--crit)', closed: 'var(--crit)', start: '#8A6BB0' };
+function openCard(i) {
+  const e = EVENTS[i]; setPlaying(false);
+  document.querySelectorAll('.stop').forEach((s) => s.classList.toggle('picked', +s.dataset.k === i));
+  const tag = i === 0 ? 'Warehouse' : `${MAN.ini} · stop ${i}`;
+  const by = i === 0 ? `His first position of the day, ${e.time}` : e.nota || e.kind === 'swap' ? `Recorded by the terminal at ${e.time} · ${MAN.name}` : `Visit Report by ${MAN.name} at ${e.time}`;
+  shopcard.innerHTML = `<div class="sc-top">${sign(e.kind)}<div><b>${e.name}</b><small>${tag} · ${e.time}</small></div><button class="sc-x" type="button" aria-label="Close">×</button></div>`
+    + `<p class="sc-status" style="--tone:${TONE[e.kind]}"><i></i>${e.result}</p><p class="sc-note">"${e.note}"</p>`
+    + (e.extra ? `<p class="sc-extra">${e.extra}</p>` : '') + `<p class="sc-by">${by}</p>`
+    + `<div class="sc-acts">${e.nota ? `<button class="tog gold" type="button" data-rc="${i}">Review receipt</button>` : ''}<button class="tog" type="button" data-from="${i}">Play from here</button></div>`;
+  shopcard.hidden = false; document.body.classList.add('shopopen');
+  shopcard.querySelector('.sc-x').focus({ preventScroll: true });
+  const b = shopcard.getBoundingClientRect(); if (b.bottom > innerHeight || b.top < 0) shopcard.scrollIntoView({ block: 'nearest', behavior: lite ? 'auto' : 'smooth' });
+}
+function closeCard() { shopcard.hidden = true; document.body.classList.remove('shopopen'); document.querySelectorAll('.stop.picked').forEach((s) => s.classList.remove('picked')); }
+const placeCard = () => { if (document.body.classList.contains('phone')) document.querySelector('.player').after(shopcard); else document.querySelector('.log').prepend(shopcard); };
+things.addEventListener('click', (ev) => { const st = ev.target.closest('.stop'); if (st) openCard(+st.dataset.k); });
+things.addEventListener('keydown', (ev) => { const st = ev.target.closest('.stop'); if (st && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); openCard(+st.dataset.k); } });
+shopcard.addEventListener('click', (ev) => {
+  if (ev.target.closest('.sc-x')) closeCard();
+  const f = ev.target.closest('[data-from]'); if (f) { const i = +f.dataset.from; closeCard(); jumpTo(i); setPlaying(true); }
+});
+
+/* ===== the receipt of a sale: KPM's own nota (company blue - not app UI), marked as a sample ===== */
+const rcpt = document.getElementById('rcpt'), sheet = document.getElementById('sheet'), sheetbox = document.getElementById('sheetbox');
+const fitSheet = () => { const sc = sheetbox.clientWidth / 794; sheet.style.transform = `scale(${sc})`; sheetbox.style.height = Math.ceil(sheet.offsetHeight * sc) + 'px'; };
+function openReceipt(i) {
+  const e = EVENTS[i]; if (!e?.nota) return; setPlaying(false);
+  sheet.innerHTML = `<div class="lh"><div><h3>PT Karyamega Putera Mandiri</h3><p>Jl. Raya Magelang - Purworejo Km. 11</p></div><div><h4>Nota Penjualan</h4><small>No. ${e.nota}</small></div></div>`
+    + `<div class="samp">Sample only · not a real transaction</div>`
+    + `<div class="meta"><span><b>Kepada:</b> ${e.name}</span><span><b>Tanggal:</b> Minggu, 4 Oktober 2026 · ${e.time}</span><span><b>Sales:</b> ${MAN.name}</span><span><b>Pembayaran:</b> ${e.pay}</span></div>`
+    + `<table><thead><tr><th style="width:52px">NO</th><th style="text-align:left">MACAM BARANG</th><th style="width:120px">QTY</th><th style="width:160px;text-align:right">JUMLAH</th></tr></thead><tbody>`
+    + e.items.map((it, j) => `<tr><td style="text-align:center">${j + 1}</td><td>${it[0]}</td><td style="text-align:center">${it[1]}</td><td style="text-align:right">${it[2]}</td></tr>`).join('')
+    + `<tr class="tot"><td colspan="3" style="text-align:right">TOTAL</td><td style="text-align:right">${e.result.split('· ')[1]}</td></tr></tbody></table>`
+    + `<div class="ft"><div>Rekening: as set in Settings</div><div class="sig">Hormat kami,<b>Admin</b></div></div>`;
+  rcpt.querySelector('.bar2 span').textContent = `Sample nota · the sale at ${e.name}, ${e.time}`;
+  rcpt.hidden = false; fitSheet(); document.getElementById('rcptx').focus({ preventScroll: true });
+}
+function closeReceipt() { rcpt.hidden = true; }
+document.getElementById('rcptx').addEventListener('click', closeReceipt);
+rcpt.addEventListener('click', (ev) => { if (ev.target === rcpt) closeReceipt(); });
+addEventListener('resize', () => { if (!rcpt.hidden) fitSheet(); });
 /* scrub: press and drag anywhere along the timeline (the notches jump instead) */
 const tl = document.getElementById('tl');
 let scrubbing = false, wasPlaying = false;
@@ -552,21 +664,26 @@ tl.addEventListener('pointermove', (e) => { if (scrubbing) seek(tAtClock(toClock
 tl.addEventListener('pointerup', () => { if (!scrubbing) return; scrubbing = false; if (wasPlaying) setPlaying(true); });
 document.addEventListener('keydown', (e) => {
   if (e.target.closest('input, textarea')) return;
-  if (e.key === ' ' && !e.target.closest('button')) { e.preventDefault(); setPlaying(!playing); }
+  if (e.key === 'Escape') { if (!rcpt.hidden) closeReceipt(); else if (!shopcard.hidden) closeCard(); return; }
+  if (e.key === ' ' && !e.target.closest('button, [role="button"]')) { e.preventDefault(); setPlaying(!playing); }
   if (e.key === 'ArrowRight') jumpTo(Math.min(STOPS.length, curIdx() + 1));
   if (e.key === 'ArrowLeft') jumpTo(Math.max(0, curIdx() - 1));
 });
 /* toggles */
 const press = (sel, attr, fn) => document.querySelectorAll(sel).forEach((b) => b.addEventListener('click', () => { document.querySelectorAll(sel).forEach((x) => x.setAttribute('aria-pressed', x === b)); fn(b.dataset[attr]); render(t, true); }));
+/* his call 2026-10-04: "see as a whole in pc and follow on phone" - each layout opens on its own camera; the switch stays */
+const setCam = (v) => { camMode = v; document.querySelectorAll('[data-cam]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.cam === v)); };
 press('[data-cam]', 'cam', (v) => { camMode = v; });
-press('[data-lay]', 'lay', (v) => { document.body.classList.toggle('phone', v === 'phone'); lastK = -1; });
+press('[data-lay]', 'lay', (v) => { document.body.classList.toggle('phone', v === 'phone'); setCam(v === 'phone' ? 'follow' : 'whole'); placeCard(); lastK = -1; });
+setCam('whole');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 const setLite = (v) => { lite = v || reduce.matches; document.documentElement.classList.toggle('lite', lite); document.getElementById('lite').setAttribute('aria-pressed', lite); render(t, true); };
 document.getElementById('lite').addEventListener('click', () => setLite(!lite));
-if (matchMedia('(max-width: 640px)').matches) { document.body.classList.add('phone'); document.querySelectorAll('[data-lay]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.lay === 'phone')); }
+if (matchMedia('(max-width: 640px)').matches) { document.body.classList.add('phone'); document.querySelectorAll('[data-lay]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.lay === 'phone')); setCam('follow'); }
+placeCard();
 new ResizeObserver(() => render(t, true)).observe(box);
 setLite(false);
-window.__replay = { seek: (ms) => seek(ms, false), get t() { return t; }, TOTAL, SEGS, sceneSeg, setLite, play: () => setPlaying(true), pause: () => setPlaying(false) };   /* for the lab's frozen frames */
+window.__replay = { seek: (ms) => seek(ms, false), get t() { return t; }, get playing() { return playing; }, get cam() { return camMode; }, TOTAL, SEGS, sceneSeg, setLite, play: () => setPlaying(true), pause: () => setPlaying(false) };   /* for the lab's frozen frames */
 render(0, true);
 requestAnimationFrame(frame);
 </script>

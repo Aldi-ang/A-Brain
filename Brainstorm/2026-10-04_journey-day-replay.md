@@ -87,3 +87,17 @@ OPEN - his pick owed: camera Follow him / Whole day; and any scene that does not
 
 Models applied: Inversion (what makes the replay lie - the drawn walk, the report time), Second-Order Thinking
 (salesmen behave differently once every visit is checkable), Opportunity Cost (the popup redesign waits).
+
+## v2 2026-10-04 16:40 - his answer built (same link)
+
+His words, 16:10: *"make sure that all the stores is interactable when press and make sure that we now what them notes or
+status are on each of the stores ... button to review the receipt from that sales ... maybe see as a whole in pc and follow
+on phone?"* Built: every shop (and the warehouse) opens a card - status, his note, the time and who recorded it, an
+order's or an exchange's detail, "Play from here"; pressing pauses the replay. A sale's card and its Day Log row carry
+"Review receipt" -> the app's nota (company blue, SAMPLE banner, the bank line left to Settings - no real account copied).
+Camera: PC opens on Whole day, phone on Follow him; the switch stays.
+**Measured (shoot-v2.mjs, REAL mouse/touch presses):** all 9 cards name the shop pressed; receipt 2 items + total; Esc
+closes it; Play from here plays from that shop; phone receipt 358 px, 0 sideways scroll; 0 errors; brightness 81.7-84.4.
+**Found by the real presses:** the card first floated over the map and covered shops 1 and 2 - a press on them hit the
+card. Moved off the map. And his tag sat on the shop's own tag while he stood there - his steps aside then.
+OPEN: nothing owed on the drawing; next = build (NEXT-SESSION.md).

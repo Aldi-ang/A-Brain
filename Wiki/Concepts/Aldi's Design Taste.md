@@ -3218,3 +3218,17 @@ own name tag "BS · 3" on each chest, C his 8-bit head with the number), each ch
 - His original complaint stands as the rule: *"a clearer indicator that the chest is theirs to collect not just color
   ... especially for the people who color blinds"* - ownership is never carried by colour alone.
   [[../../Brainstorm/2026-10-03_journey-map-keys]] "Round 7".
+
+## A replay must be readable at the sprite's size; every object he sees is something he can press (2026-10-04, 16:10)
+
+Shown the Day Replay prototype (a salesman's day replayed on the pixel map, a scene per visit outcome):
+
+> *"that is really cool bro make sure that all the stores is interactable when press and make sure that we now what them notes or status are on each of the stores we, and better if there is button to review the receipt from that sales , well looks like follow him is more visible because the map can be large and it will make the 8 bit model small and hard to see especially on phone, maybe see as a whole in pc and follow on phone?"*
+
+- **The camera split by width again** - Whole day on the PC, Follow him on the phone - and the reason is size: the
+  8-bit model must stay big enough to read. Same habit as the expedition (2026-10-02) and the header (2026-10-03).
+- **Anything drawn on the map is a door.** A shop he can see but not press is a dead object to him; each one must open
+  its status, the salesman's note and, for a sale, the receipt. The receipt is the app's own nota (company blue).
+- Built into v2 of https://claude.ai/artifact/WnjonLSqjNZYpoMBbXSdSz. The card lives OFF the map (beside it on the
+  PC, under it on the phone) - over the map it covered the next shop he wanted to press (measured with real presses).
+  [[../../Brainstorm/2026-10-04_journey-day-replay]]
