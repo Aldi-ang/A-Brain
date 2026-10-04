@@ -10,6 +10,42 @@ salesman customising his own character (skin, hair, shirt) - "maybe in future up
 (2026-09-23 rule). If it comes back: the sprite is already split into palette letters (`PERSON(hair, shirt)`), so a
 picker only has to store three colours per profile.
 
+## Round 7 (2026-10-04 08:50) - his account missing from Expedition + "whose chest, which way"; his picks OPEN
+
+**Problem, his words:** *"i put master admin here on headquarters team , my account, but it is not there while all
+other team is there, and another problem is when i press paintbrush and give the chest their marked and press those
+side button to see stores assigned for that salesman, there is no clear indicator of the way or roadmap for their
+destination it is just unclear small chest undermark this is not visible, im expecting when i press the expedition team
+there will be a roadmap for them and a clearer indicator that the chest is theirs to collect not just color, because
+when just color is in there it is hard to differentiate, especially for the people who color blinds lol"*
+
+**Problem 1, diagnosed (no code yet - his "diagnose before changing" rule):** `src/utils/expedition.js:68` drops
+`master_owner` on purpose ("the boss's own pings are not a salesman", kpm eef2f55, 2026-10-02). And every app open
+rewrites his record's name to "Master HQ" (`App.jsx:1810`, the location ping's `setDoc` merge), so if shown he would
+read "Master HQ", not his name. Fix waiting on his yes: remove the exclusion; write his own name, not "Master HQ".
+
+**Problem 2, drawn:** https://claude.ai/artifact/WsAq3SsF9XdVMGMkx1NjFu (`Raw/2026-10-03-map-keys/round7/`,
+`board7.png`, `measure7.json`). Today: pressing a salesman changes nothing; only the ring colour under a chest says whose.
+
+| Look | His chests get | Road | Everyone else |
+|---|---|---|---|
+| A Quest flags | a black flag with the stop number, his colour only as the flag's edge | gold dashed line + arrows | fades to 28 % |
+| B Name tags | his own name tag "BS · 3" (the tag over his head) | cream line + arrows | fades |
+| C His face | his 8-bit head + the stop number | pixel footsteps | fades |
+
+Costs: all three say "his" without colour (number / text / face + brightness), checked in a red-green colour-blind
+view where purple Budi and pink Ari become the same colour. A is the quietest; B repeats text he already reads over
+the salesman; C's footsteps are faint at map size. Each is a few marker classes on chests he already has plus one
+polyline - no new data.
+
+DECISION: OPEN - his pick A / B / C; and asked: road through TODAY's shops only, or every shop assigned to him?
+
+REJECTED ON PURPOSE: a thicker or brighter ring (still colour only - his complaint); a different chest per salesman
+(the chest means "a shop", his settled design).
+
+Models applied: Inversion (what makes ownership unreadable: colour as the only signal), Chesterton's Fence (the
+master_owner exclusion was put in for a reason - report it before removing it).
+
 ## Round 6 (22:00-22:40) - the crowd on the bubble + selling scenes A / B / C drawn; his pick OPEN
 
 Page: https://claude.ai/artifact/EW5vnHMQUWYEyt9sk9MGvf (source `Raw/2026-10-03-map-keys/round6/crowd-sell-r6.html`,

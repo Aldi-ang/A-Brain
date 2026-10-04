@@ -1,0 +1,31 @@
+{
+ "errs": [],
+ "A": {
+  "marked": 5,
+  "mine": 5,
+  "otherMarked": 0,
+  "faded": true,
+  "roadParts": 7
+ },
+ "B": {
+  "marked": 5,
+  "mine": 5,
+  "otherMarked": 0,
+  "faded": true,
+  "roadParts": 7
+ },
+ "C": {
+  "marked": 5,
+  "mine": 5,
+  "otherMarked": 0,
+  "faded": true,
+  "roadParts": 27
+ },
+ "liteRunning": 0,
+ "pcOverflow": 0,
+ "phone": {
+  "overflow": 0,
+  "squadCols": "114px 114px 114px",
+  "mapW": 356
+ }
+}

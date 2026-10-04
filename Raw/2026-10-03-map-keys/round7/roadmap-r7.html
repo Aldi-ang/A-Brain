@@ -1,0 +1,223 @@
+<title>Journey Roadmap Marks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Silkscreen:wght@400;700&display=swap">
+<style>
+/* Journey Plan round 7 (2026-10-04, his ask): press a salesman -> his ROAD through his shops, and a mark that says
+   "this chest is his" in more than colour (his "especially for the people who color blinds"). One dark look on purpose
+   (the app's dark theme). Every revealed mark's resting style is its last frame, so Lite shows it at once. */
+:root {
+  color-scheme: dark;
+  --ground: #0A0908; --panel: #121110; --raised: #1B1917;
+  --line-2: #3E3A35; --line-3: #6A645C;
+  --ink: #E8E4DE; --ink-muted: #A39B90;
+  --gold-2: #E4B04A; --on-gold: #1B1408;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-pixel: "Silkscreen", ui-monospace, Consolas, monospace;
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 15px/1.45 var(--font-body); -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; }
+main { max-width: 1060px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 48px; display: grid; gap: 14px; }
+h1 { margin: 0; font: 800 28px/1.05 var(--font-display); letter-spacing: .02em; text-transform: uppercase; text-wrap: balance; }
+h1 small { display: block; margin-top: 6px; font: 400 14px/1.4 var(--font-body); text-transform: none; letter-spacing: 0; color: var(--ink-muted); }
+.note { margin: 0; max-width: 72ch; color: var(--ink-muted); font-size: 14px; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bar b { font: 800 13px/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin-right: 2px; }
+.tog { min-height: 40px; padding: 0 14px; border: 1px solid var(--line-3); border-radius: 10px; background: var(--panel); cursor: pointer; transition: transform 140ms var(--ease-out); }
+.tog[aria-pressed="true"] { border-color: var(--gold-2); color: var(--gold-2); }
+.tog:active { transform: scale(.97); }
+.tog:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 2px; }
+.cap { margin: 0; min-height: 3em; padding: 10px 12px; border-left: 3px solid var(--gold-2); background: var(--panel); border-radius: 0 10px 10px 0; font-size: 14.5px; }
+.cap b { color: var(--gold-2); }
+
+.wrap { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 12px; align-items: start; }
+@media (max-width: 760px) { .wrap { grid-template-columns: minmax(0, 1fr); } }
+/* the squad list = the Expedition rows / Paintbrush pens: press one to see his road */
+.squad { display: grid; gap: 8px; }
+.row { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 8px 12px; border: 1px solid var(--line-2); border-radius: 12px; background: var(--panel); cursor: pointer; text-align: left; transition: transform 140ms var(--ease-out), border-color 140ms ease; }
+.row:active { transform: scale(.98); }
+.row[aria-pressed="true"] { border-color: var(--gold-2); background: var(--raised); }
+.row i { width: 12px; height: 12px; border-radius: 3px; background: var(--c); flex: none; }
+.row span { font: 800 17px/1.1 var(--font-display); letter-spacing: .03em; text-transform: uppercase; }
+.row small { margin-left: auto; color: var(--ink-muted); font: 700 12px/1 var(--font-pixel); }
+@media (max-width: 760px) { .squad { grid-template-columns: repeat(3, minmax(0, 1fr)); } .row small { display: none; } .row { min-height: 46px; padding: 8px; } }
+
+/* the map: a fixed 520 x 420 stage, scaled to the box (JS), so every mark sits where it is placed */
+.mapbox { position: relative; border: 1px solid var(--line-2); border-radius: 16px; overflow: hidden; background: #545557 url(ground.jpg) 40% 50% / 1600px auto; aspect-ratio: 520 / 420; max-width: 100%; }
+.stage { position: absolute; left: 0; top: 0; width: 520px; height: 420px; transform-origin: 0 0; }
+html.cb .stage { filter: url(#deut); }
+.route { position: absolute; inset: 0; width: 520px; height: 420px; overflow: visible; pointer-events: none; }
+.mk { position: absolute; width: 28px; height: 34px; transition: opacity 220ms ease; }
+.mk svg.px { position: absolute; left: 0; bottom: 0; width: 28px; height: 34px; }
+.px { shape-rendering: crispEdges; display: block; overflow: visible; }
+.mk .ring { position: absolute; left: 50%; bottom: -5px; width: 36px; height: 12px; translate: -50% 0; border-radius: 50%; border: 2px solid var(--c); background: rgba(10, 9, 8, .55); z-index: -1; }
+.mk { isolation: isolate; }
+.mk .sign { position: absolute; left: 19px; bottom: -8px; width: 22px; height: 22px; }
+.mk .sign .lamp { position: absolute; left: -11px; top: -12px; width: 44px; height: 36px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 214, 140, .55), rgba(228, 176, 74, .2) 55%, transparent); }
+.mk .sign svg { position: relative; width: 22px; height: 22px; }
+/* focus: only HIS chests stay bright - brightness is a cue that needs no colour at all */
+.stage.focus .mk:not(.mine) { opacity: .28; }
+.stage.focus .who:not(.mine) { opacity: .28; }
+
+/* the salesman at his spot (the road starts from him) */
+.who { position: absolute; width: 30px; height: 42px; transition: opacity 220ms ease; }
+.who svg { position: absolute; left: 0; bottom: 0; width: 30px; height: 42px; }
+.who .sh { position: absolute; left: 50%; bottom: -4px; width: 28px; height: 8px; translate: -50% 0; border-radius: 50%; background: rgba(0, 0, 0, .5); }
+.who .tag, .otag { position: absolute; left: 50%; translate: -50% 0; white-space: nowrap; padding: 3px 5px 2px; background: rgba(10, 9, 8, .82);
+  color: #FFFFFF; font: 800 12px/1 var(--font-display); letter-spacing: .06em; display: flex; align-items: center; gap: 5px; }
+.who .tag { bottom: calc(100% + 5px); }
+.who .tag i, .otag i { width: 7px; height: 7px; background: var(--c); }
+
+/* ---- the marks a look adds to HIS chests; resting style = last frame ---- */
+.add { position: absolute; pointer-events: none; animation: plant 380ms var(--spring) both; animation-delay: calc(var(--k) * 70ms); }
+@keyframes plant { from { opacity: 0; transform: translateY(-10px); } }
+/* A · quest flag: a black pennant with the stop number, his colour only as its edge */
+.flag { left: -13px; top: -26px; width: 22px; height: 30px; }
+.flag .pole { position: absolute; left: 0; top: 0; width: 3px; height: 30px; background: #2A1E12; border: 1px solid #0A0908; }
+.flag .cloth { position: absolute; left: 3px; top: 1px; min-width: 19px; height: 16px; padding: 0 3px; background: #0A0908; border: 2px solid var(--c);
+  color: #FFFFFF; font: 700 11px/12px var(--font-pixel); text-align: center; }
+/* B · owner tag: the salesman's own name tag, on each of his chests, with the stop number */
+.otag { bottom: calc(100% + 4px); }
+.otagw { left: 14px; top: 0; width: 0; height: 0; }
+/* C · his face: the 8-bit head over each of his chests, the stop number beside it */
+.face { left: 4px; top: -16px; width: 20px; height: 12px; }
+.face svg { width: 20px; height: 10px; }
+.face b { position: absolute; left: 20px; top: -4px; padding: 2px 3px 1px; background: #0A0908; color: #FFFFFF; font: 700 10px/1 var(--font-pixel); border: 1px solid var(--c); }
+
+/* the road: drawn under the chests; A dashed gold + arrows, B solid cream + arrows, C footprints */
+.route .road { fill: none; stroke-linecap: round; stroke-linejoin: round; animation: road-in 320ms ease both; }
+@keyframes road-in { from { opacity: 0; } }
+.route .arrow { animation: road-in 320ms ease both; animation-delay: calc(var(--k) * 70ms); }
+.route .step { animation: road-in 200ms ease both; animation-delay: calc(var(--k) * 18ms); }
+
+html.lite *, html.lite *::before, html.lite *::after { animation: none !important; transition: none !important; box-shadow: none !important; text-shadow: none !important; filter: none !important; }
+html.lite.cb .stage { filter: url(#deut) !important; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="deut" color-interpolation-filters="linearRGB"><feColorMatrix type="matrix" values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0"/></filter>
+</defs></svg>
+
+<main>
+  <h1>Journey Plan · whose chest, which way
+    <small>Round 7. Press a salesman on the right (the Expedition row or his Paintbrush pen). Switch the look, then turn on Colour-blind view to see which marks still work without colour.</small></h1>
+
+  <div class="bar" role="toolbar" aria-label="Look">
+    <b>Look</b>
+    <button class="tog" type="button" data-look="T" aria-pressed="false">Today</button>
+    <button class="tog" type="button" data-look="A" aria-pressed="true">A · Quest flags</button>
+    <button class="tog" type="button" data-look="B" aria-pressed="false">B · Name tags</button>
+    <button class="tog" type="button" data-look="C" aria-pressed="false">C · His face</button>
+  </div>
+  <div class="bar" role="toolbar" aria-label="View">
+    <b>View</b>
+    <button class="tog" id="cb" type="button" aria-pressed="false">Colour-blind view</button>
+    <button class="tog" id="lite" type="button" aria-pressed="false">Lite</button>
+  </div>
+  <p class="cap" id="cap"></p>
+
+  <div class="wrap">
+    <div class="mapbox" id="mapbox"><div class="stage" id="stage"><svg class="route" id="route" viewBox="0 0 520 420"></svg><div id="marks"></div></div></div>
+    <div class="squad" id="squad"></div>
+  </div>
+</main>
+
+<script>
+/* the app's pixels (src/utils/mapSprites.js) */
+const px = (rows, pal) => { let out = ''; rows.forEach((row, y) => { for (let x = 0; x < row.length;) { const ch = row[x]; let w = 1; while (row[x + w] === ch) w++; if (ch !== '.') out += `<rect x="${x}" y="${y}" width="${w}" height="1" ${pal[ch]}/>`; x += w; } }); return out; };
+const at = (rows, y0) => Array(y0).fill('').concat(rows);
+const darker = (hex, k = 0.7) => '#' + [1, 3, 5].map((i) => Math.round(parseInt(hex.slice(i, i + 2), 16) * k).toString(16).padStart(2, '0')).join('');
+const W5DIM = { O: 'fill="#160E07"', H: 'fill="#7A5A38"', W: 'fill="#644629"', M: 'fill="#53391F"', D: 'fill="#3F2A15"', S: 'fill="#2C1C0D"', k: 'fill="#1C1814"', L: 'fill="#A8A296"', l: 'fill="#6E6A62"', K: 'fill="#0D0804"' };
+const W5 = { O: 'fill="#24160A"', H: 'fill="#E0A55C"', W: 'fill="#BF8240"', M: 'fill="#9C6630"', D: 'fill="#74481C"', S: 'fill="#4E3012"', k: 'fill="#2A2622"', L: 'fill="#F2EEE4"', l: 'fill="#A9A49A"', K: 'fill="#120A04"' };
+const BODY5 = ['OSSSSSSSSSSSSO', 'OHHHHHHHHHHHHO', 'OWWWWWWWWWWWMO', 'OMWWWWWWWWWWMO', 'OSSSSSSSSSSSSO', 'OHWWWWWWWWWWWO', 'OMWWWWWWWWWWMO', 'ODDDDDDDDDDDDO', '.OOOOOOOOOOOO.'];
+const LID5 = ['.OOOOOOOOOOOO.', 'OHHHHHHHHHHHHO', 'OWWWWWWWWWWWMO', 'OMWWWkkkkWWWMO', 'ODDDDkLLkDDDDO', '.....kLlk.....', '.....kllk.....', '.....kkkk.....'];
+const UNDER5 = ['.OOOOOOOOOOOO.', 'ODDDDDDDDDDDDO', 'ODMMMMMMMMMMDO', 'ODSSSSSSSSSSDO', 'ODDDDDDDDDDDDO'];
+const INSIDE5 = ['.OOOOOOOOOOOO.', 'OKKKKKKKKKKKKO', 'OKKKKKKKKKKKKO'];
+const CHEST = {
+  closed: `<svg class="px" viewBox="0 0 14 17">${px(at(BODY5, 8), W5DIM) + px(at(INSIDE5, 5), W5) + px(at(LID5, 3), W5DIM)}</svg>`,
+  open: `<svg class="px" viewBox="0 0 14 17">${px(at(BODY5, 8), W5) + px(at(INSIDE5, 5), W5) + px(UNDER5, W5)}</svg>`,
+};
+const SP5 = { O: 'fill="#3F2C18"', w: 'fill="#F0E2BC"', v: 'fill="#D9C597"', P: 'fill="#5B3F22"', K: 'fill="#221509"', G: 'fill="#E2A12E"', Y: 'fill="#FFF4CF"', b: 'fill="#A8743A"' };
+const BOARD5 = ['.OOOOOOOOO.', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OvvvvvvvvvO', '.OOOOOOOOO.', '.....P.....', '.....P.....', '....PPP....'];
+const PIC = { sold: ['...KKK...', '..KGGGK..', '.KGYGGGK.', '.KGGGGGK.', '..KGGGK..', '...KKK...'], order: ['.KKKKKKK.', '.KbbKbbK.', '.KKKKKKK.', '.KbbbbbK.', '.KbbbbbK.', '.KKKKKKK.'],
+  routine: ['........K', '.......KK', '.K....KK.', '.KK..KK..', '..KKKK...', '...KK....'] };
+const SIGN = (k) => `<svg class="px" viewBox="0 0 11 11">${px(BOARD5, SP5)}${px(['...........'].concat(PIC[k].map((r) => '.' + r + '.')), SP5)}</svg>`;
+const HEAD = ['..OOOOOO..', '.OhhhhhhO.', '.OhsssshO.', '.OsessesO.', '.OsszzssO.'];
+const TORSO = ['OccccccccO', 'OcCccccCcO', 'OcCccccCcO', 'OsCccccCsO', 'OOppppppOO'];
+const LEGS = ['.OppOOppO.', '.OppOOppO.', '.OffO.OffO', '.OOOO.OOOO'];
+const pal = (hair, shirt) => ({ O: 'fill="#0A0908"', h: `fill="${hair}"`, s: 'fill="#E2AE80"', z: 'fill="#C48C5E"', e: 'fill="#2A1A10"', c: `fill="${shirt}"`, C: `fill="${darker(shirt)}"`, p: 'fill="#3A3530"', f: 'fill="#17130F"' });
+
+/* three salesmen, colours from the database (purple and pink: the pair a colour-blind boss cannot tell apart) */
+const TEAM = [
+  { id: 'BS', name: 'Budi Santoso', c: '#a855f7', hair: '#2B1A0E', at: [40, 384], shops: [[92, 334, 'sold'], [150, 262, 'order'], [232, 302, null], [272, 212, null], [352, 244, null]] },
+  { id: 'AR', name: 'Ari Rahman', c: '#ec4899', hair: '#151210', at: [58, 96], shops: [[112, 152, 'sold'], [202, 112, null], [302, 84, null], [400, 134, null], [196, 196, null]] },
+  { id: 'DW', name: 'Dewi Wulandari', c: '#C9B38B', hair: '#5A3418', at: [482, 384], shops: [[424, 334, 'routine'], [470, 252, null], [330, 372, null], [254, 392, null]] },
+];
+const LOOK = {
+  T: '<b>Today:</b> pressing a salesman changes nothing on the map. Only the ring colour under a chest says whose it is, and purple and pink look the same to a colour-blind eye.',
+  A: '<b>A · Quest flags:</b> every one of his chests gets a black flag with its stop number (1, 2, 3...), a gold road joins them in order with arrows, everyone else fades. His colour is only the flag\'s edge.',
+  B: '<b>B · Name tags:</b> every one of his chests wears his own name tag, the same black tag as over his head (BS · 3 = Budi\'s 3rd stop), a cream road with arrows joins them, everyone else fades.',
+  C: '<b>C · His face:</b> his 8-bit head floats over each of his chests with the stop number beside it, pixel footsteps walk from one to the next, everyone else fades.',
+};
+let look = 'A', sel = 'BS';
+
+const stage = document.getElementById('stage'), marks = document.getElementById('marks'), route = document.getElementById('route');
+function draw() {
+  const s = TEAM.find((t) => t.id === sel), on = look !== 'T' && !!s;
+  stage.classList.toggle('focus', on);
+  let h = '';
+  TEAM.forEach((t) => {
+    const mine = on && t.id === sel;
+    h += `<div class="who${mine ? ' mine' : ''}" style="left:${t.at[0] - 15}px;top:${t.at[1] - 42}px;--c:${t.c}"><i class="sh"></i>${`<svg class="px" viewBox="0 0 10 14">${px(HEAD.concat(TORSO, LEGS), pal(t.hair, t.c))}</svg>`}<span class="tag"><i></i>${t.id}</span></div>`;
+    t.shops.forEach(([x, y, out], k) => {
+      let add = '';
+      if (mine && look === 'A') add = `<span class="add flag" style="--k:${k}"><i class="pole"></i><b class="cloth">${k + 1}</b></span>`;
+      if (mine && look === 'B') add = `<span class="add otagw" style="--k:${k}"><span class="otag"><i></i>${t.id} · ${k + 1}</span></span>`;
+      if (mine && look === 'C') add = `<span class="add face" style="--k:${k}"><svg class="px" viewBox="0 0 10 5">${px(HEAD, pal(t.hair, t.c))}</svg><b>${k + 1}</b></span>`;
+      h += `<div class="mk${mine ? ' mine' : ''}" style="left:${x - 14}px;top:${y - 31}px;--c:${t.c}"><i class="ring"></i>${CHEST[out ? 'open' : 'closed']}`
+        + (out ? `<i class="sign"><i class="lamp"></i>${SIGN(out)}</i>` : '') + add + '</div>';
+    });
+  });
+  marks.innerHTML = h;
+  /* the road: from where he stands through his shops in stop order */
+  let r = '';
+  if (on) {
+    const pts = [s.at, ...s.shops.map(([x, y]) => [x, y])];
+    const d = 'M' + pts.map((p) => p.join(' ')).join(' L');
+    if (look === 'A') r += `<path class="road" d="${d}" stroke="#0A0908" stroke-width="6" opacity=".55"/><path class="road" d="${d}" stroke="#E4B04A" stroke-width="3" stroke-dasharray="8 6"/>`;
+    if (look === 'B') r += `<path class="road" d="${d}" stroke="#0A0908" stroke-width="6" opacity=".55"/><path class="road" d="${d}" stroke="#E8E4DE" stroke-width="3"/>`;
+    for (let i = 1; i < pts.length; i++) {
+      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], ang = Math.atan2(y1 - y0, x1 - x0) * 180 / Math.PI, len = Math.hypot(x1 - x0, y1 - y0);
+      if (look === 'A' || look === 'B') {
+        const mx = (x0 + x1) / 2, my = (y0 + y1) / 2, col = look === 'A' ? '#E4B04A' : '#E8E4DE';
+        r += `<g class="arrow" style="--k:${i}" transform="translate(${mx} ${my}) rotate(${ang})"><path d="M-5 -6 L4 0 L-5 6" fill="none" stroke="#0A0908" stroke-width="6" stroke-linecap="square"/><path d="M-5 -6 L4 0 L-5 6" fill="none" stroke="${col}" stroke-width="3" stroke-linecap="square"/></g>`;
+      }
+      if (look === 'C') {   /* footprints: pairs of pixel feet every 13 px, left and right of the path */
+        const n = Math.floor(len / 13);
+        for (let j = 1; j < n; j++) {
+          const f = j / n, x = x0 + (x1 - x0) * f, y = y0 + (y1 - y0) * f, side = j % 2 ? 3 : -3;
+          r += `<g class="step" style="--k:${i * 8 + j}" transform="translate(${x} ${y}) rotate(${ang})"><rect x="-3" y="${side - 1.5}" width="5" height="3" fill="#0A0908"/><rect x="-2" y="${side - .5}" width="3" height="1.4" fill="#E8E4DE"/></g>`;
+        }
+      }
+    }
+  }
+  route.innerHTML = r;
+  document.getElementById('cap').innerHTML = LOOK[look];
+  document.querySelectorAll('[data-look]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.look === look));
+  document.querySelectorAll('.row').forEach((b) => b.setAttribute('aria-pressed', b.dataset.id === sel));
+}
+document.getElementById('squad').innerHTML = TEAM.map((t) => `<button class="row" type="button" data-id="${t.id}" style="--c:${t.c}"><i></i><span>${t.name.split(' ')[0]}</span><small>${t.shops.length} shops</small></button>`).join('');
+document.getElementById('squad').addEventListener('click', (e) => { const b = e.target.closest('.row'); if (!b) return; sel = sel === b.dataset.id ? null : b.dataset.id; draw(); });
+document.querySelectorAll('[data-look]').forEach((b) => b.addEventListener('click', () => { look = b.dataset.look; draw(); }));
+const flip = (id, fn) => document.getElementById(id).addEventListener('click', (e) => { const v = e.currentTarget.getAttribute('aria-pressed') !== 'true'; e.currentTarget.setAttribute('aria-pressed', v); fn(v); });
+flip('cb', (v) => document.documentElement.classList.toggle('cb', v));
+flip('lite', (v) => document.documentElement.classList.toggle('lite', v));
+const fit = () => { const box = document.getElementById('mapbox'); stage.style.transform = `scale(${box.clientWidth / 520})`; };
+new ResizeObserver(fit).observe(document.getElementById('mapbox'));
+fit(); draw();
+</script>
