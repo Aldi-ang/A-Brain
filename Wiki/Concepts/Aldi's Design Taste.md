@@ -3202,3 +3202,19 @@ he picked B and swapped its coin for the app's own:
 - Earlier the same night: *"make it into group of 8bit character instead looks kinda cool right"* - zoomed out, men
   are shown as a crowd standing on the bubble, not as heads or as a count. Built kpm `41e308b`;
   [[../../Brainstorm/2026-10-03_journey-map-keys]] "Round 6".
+
+## To mark whose thing it is, he picks the words he can read (2026-10-04, 09:05)
+
+Shown three ways to mark a salesman's chests when he is pressed (A a black flag with the stop number, B the salesman's
+own name tag "BS · 3" on each chest, C his 8-bit head with the number), each checked in a colour-blind view:
+
+> *"Name tags is easier to see,"*
+
+- **For identifying an owner, readable text beat the game object.** The flag (A) and the face (C) were more "game";
+  he took the one he can READ at map size. Same root as "what is the purpose of the filled and unfilled hexagon"
+  (2026-10-03): a mark whose meaning he has to decode is decoration to him.
+- **Reuse wins again:** B is the exact tag already floating over the salesman, so the chest and the man now speak the
+  same label. Pairs with "a reward that already exists in the app beats a new drawing" (2026-10-03, the coin).
+- His original complaint stands as the rule: *"a clearer indicator that the chest is theirs to collect not just color
+  ... especially for the people who color blinds"* - ownership is never carried by colour alone.
+  [[../../Brainstorm/2026-10-03_journey-map-keys]] "Round 7".

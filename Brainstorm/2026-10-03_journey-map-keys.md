@@ -38,7 +38,8 @@ view where purple Budi and pink Ari become the same colour. A is the quietest; B
 the salesman; C's footsteps are faint at map size. Each is a few marker classes on chests he already has plus one
 polyline - no new data.
 
-DECISION: OPEN - his pick A / B / C; and asked: road through TODAY's shops only, or every shop assigned to him?
+DECISION (09:05), his words: *"Name tags is easier to see,"* - B. REJECTED: A quest flags, C his face.
+Still OPEN: road through TODAY's shops only, or every shop assigned to him?
 
 **08:57 add, his words:** *"and also i want the expedition to be visible but smaller on fullscreen as well"*. Cause:
 the panel is part of the page under the map; fullscreen (fixed, inset 0) covers it. Drawn (same page, "Fullscreen"),
