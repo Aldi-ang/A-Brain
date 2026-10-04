@@ -3248,4 +3248,7 @@ the word), each at map size and zoomed, in a grey view, each acting out its word
   to persist until it is done - a mark with a lifetime (open until closed), not a moment. Expect the same for anything
   that is a promise to a shop (an order waiting for delivery).
 - He proposed a FLAG; the map already has a red one (nobody's shop). Drawn as his banner (A) beside a game "!" (B).
+  19:25: *"B is good"* - he dropped his own flag for the game "!" once both stood side by side with the red flag: shown
+  the clash, he picks the distinct shape (the object rule again, and the colour-blind rule from round 7). He answers only
+  the part he cares about (the look); a rule question left unanswered is his "use your pick".
   [[../../Brainstorm/2026-10-04_visit-signs]]

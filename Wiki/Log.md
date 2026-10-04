@@ -12,6 +12,11 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-10-04 19:37 — Journey map: an open request keeps a "!" until Request done (kpm 635c62e)
+
+His 19:25 *"B is good"*. A New Request now writes `openRequest` on the shop; the "!" stays (chest + bubble) until the
+Request done key (asks, logs, reports) clears it. Lab probe with real presses: `Raw/2026-10-04-signs-built/probe-req.mjs`.
+
 ## 2026-10-04 19:10 — Journey map: visit signs in his look C (kpm bcae573) + Map System flash fixed (kpm 9006958)
 
 His 18:30 *"C is the best because it is really clear ... yes please fix the map flash as well"*. Look C built: each

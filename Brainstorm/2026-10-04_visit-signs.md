@@ -1,6 +1,6 @@
 ---
 date: 2026-10-04
-status: C DECIDED + BUILT (kpm bcae573); round 2 OPEN - request mark A banner / B "!" + what clears it, drawn on v4
+status: C DECIDED + BUILT (kpm bcae573); round 2 DECIDED B + BUILT (kpm 635c62e)
 tags: [kpm, journey-plan, map, signs, animation, design, brainstorm, open]
 ---
 
@@ -65,6 +65,13 @@ reports, the log keeps who/when); (2) the next sale at that shop (automatic, but
 request nobody delivered); (3) the next visit of any kind. Also asked: does Repeat Order (an order waiting for delivery)
 get the same mark - his "until order is fullfilled" could mean it. Firestore rules for the store update must be read
 before building (a salesman may not be allowed to write a new field).
+
+**DECIDED 19:25 - B.** His words: *"B is good"* (the "!", my pick). He did not answer what clears it; built with my
+default (1, a "Request done" press - nothing clears it by itself) and New Request only, both said in the reply as
+changeable. **Built kpm `635c62e`** (19:37): `openRequest { note, day, by }` on the store, written by a New Request report,
+taken back by undoing today's request, cleared only by the Request done key (card + map popup; asks, logs REQUEST_DONE,
+reports). No rules change (customers update has no field list). Lab probe with real presses: "!" on 3 chests + bubbles,
+0 clashes, Cancel writes nothing, Confirm one update (`Raw/2026-10-04-signs-built/probe-req.mjs`, `req-map.png`).
 
 Rejected on purpose: the selected-salesman marker (gold chevron over the pressed man) - it already means "this is the man
 you pressed"; a second red flag (colour-only difference, his round-7 colour-blind rule).

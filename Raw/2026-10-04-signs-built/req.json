@@ -1,0 +1,29 @@
+{
+ "errs": [],
+ "atLoad": {
+  "onChests": 0,
+  "onBubbles": 4,
+  "clash": 0,
+  "newOnes": 0
+ },
+ "zoomed": {
+  "onChests": 3,
+  "onBubbles": 2,
+  "clash": 0,
+  "newOnes": 3
+ },
+ "popup": {
+  "text": "! REQUEST OPEN · PRESS WHEN DONE \"Minta rasa menthol\" · Budi Santoso · 2026-10-04",
+  "h": 72
+ },
+ "dialog": "CONFIRM Request done at Warung Pinggir? \"Minta rasa menthol\" (asked 2026-10-04 by Budi Santoso) CANCEL CONFIRM",
+ "afterCancel": 0,
+ "afterConfirm": 1,
+ "lastWrite": {
+  "path": "c-3-1",
+  "keys": [
+   "openRequest",
+   "updatedAt"
+  ]
+ }
+}
