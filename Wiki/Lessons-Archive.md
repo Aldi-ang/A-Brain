@@ -850,3 +850,31 @@ re-captioned as a failure after it cut "Cello Green 16" to "Cello Gr…".
 Seen: 2026-09-19
 Fired:
 
+
+### 2026-09-20 — the context percentage is a READING from the hook, never a number carried forward
+**Status:** RETIRED (2026-10-03) — platitude: the hook already prints the real figure; nothing structural to add
+**Trigger:** before writing any context-percentage or "/clear now" line in a reply.
+**Lesson:** the context-watch hook prints only at 55 % and above, from the transcript's real usage line. If it
+printed nothing this turn, the context is UNDER 55 % — say so or say nothing. Never add the turn's guessed cost
+to an earlier figure; the figure right after a compaction is the PRE-compaction request and drops on the next
+turn. His own panel (the context pill in the app) is the truth when in doubt; ask for it before demanding a clear.
+**Would have prevented:** 2026-09-20 00:20–00:40 — three replies in a row demanded "/clear now" at "82 %",
+"84 %", "86 %" while the hook had been silent since the resume; Aldi answered with a screenshot: 261.3k / 1M
+(26 %). Three asks he had to refuse, and the next job stalled behind them.
+Seen: 2026-09-20
+Fired:
+
+### 2026-09-20 — a backslash escape typed into a tool input arrives as the character it names
+**Status:** RETIRED (2026-10-03) — never fired in 13 days; the fix (script + placeholder) is a habit, not a check
+**Trigger:** before writing an Edit / Write needle or a pairs file for source that contains a
+`\uXXXX` (or any backslash escape) inside a string literal — the moment the needle is composed.
+**Lesson:** the tool layer converts `•` in what you type into `•` before it reaches the file, so
+a needle that must match the source's literal `•` never matches, and a replacement meant to
+KEEP the escape lands as the character. Write such text through a script with a placeholder
+(`@@BUL@@`) expanded by `String.fromCharCode(92) + 'u2022'`, never through the tool input itself.
+**Would have prevented:** 2026-09-20 14:05 — handleVerifyEOD's confirm message carries `•`
+and `—`; the first Edit failed ("neither form matched"), the pairs script then failed on the
+same line with the needle showing `•`, a debug script had to be written to see why — three tool
+turns and one wrong guess (CRLF) before the cause was the input conversion, not the file.
+Seen: 2026-09-20
+Fired:
