@@ -1,0 +1,82 @@
+{
+ "errs": [],
+ "pcRest": {
+  "words": 18,
+  "visible": [],
+  "visibleIds": [],
+  "popups": 0
+ },
+ "pcPicked": {
+  "x": 568,
+  "y": 501.5,
+  "word": "FULL"
+ },
+ "pcHover": {
+  "words": 18,
+  "visible": [
+   "FULL"
+  ],
+  "visibleIds": [
+   "picked"
+  ],
+  "popups": 0
+ },
+ "pcAway": {
+  "words": 18,
+  "visible": [],
+  "visibleIds": [],
+  "popups": 0
+ },
+ "pcClick": {
+  "words": 16,
+  "visible": [],
+  "visibleIds": [],
+  "popups": 1
+ },
+ "phoneMedia": true,
+ "phRest": {
+  "words": 4,
+  "visible": [],
+  "visibleIds": [],
+  "popups": 0
+ },
+ "phPicked": {
+  "x": 309,
+  "y": 434,
+  "word": "SALE"
+ },
+ "phHolding": {
+  "words": 4,
+  "visible": [
+   "SALE"
+  ],
+  "visibleIds": [
+   "picked"
+  ],
+  "popups": 0
+ },
+ "phReleased": {
+  "words": 4,
+  "visible": [],
+  "visibleIds": [],
+  "popups": 0
+ },
+ "phTap": {
+  "words": 6,
+  "visible": [],
+  "visibleIds": [],
+  "popups": 1
+ },
+ "pass": {
+  "pcRest0": true,
+  "pcHoverOnlyIts": true,
+  "pcAway0": true,
+  "pcClickPopup": true,
+  "phoneMedia": true,
+  "phRest0": true,
+  "phHoldOnlyIts": true,
+  "phHoldNoPopup": true,
+  "phTapPopupNoWord": true,
+  "noErrors": true
+ }
+}

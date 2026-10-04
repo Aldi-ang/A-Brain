@@ -79,6 +79,31 @@ you pressed"; a second red flag (colour-only difference, his round-7 colour-blin
 Models applied (round 2): Reversibility Test (a new stored field is a one-way door - ask before writing it), Second-Order
 (auto-clear on sale silently drops a request).
 
+## Round 3 - the word only on hover or hold (his 19:45) - BUILT 2026-10-05, kpm `15f21ce`
+
+His words: *"i think it will looks better when the request, sales and any other description on the chest indicator is only
+showing when hovered or hold that way it looks cleaner"*. No options drawn - the ask named the mechanism; my defaults, his to
+change:
+
+| Call | Picked | Why |
+|---|---|---|
+| What hides | only the word | the sign object, its lamp and the request "!" stay (he asked for the "!" to be MORE visible, 18:30) |
+| PC | mouse hover, CSS only | inside `(hover: hover) and (pointer: fine)`, so a phone never gets a sticky hover |
+| Phone | a hold of 350 ms (`FOLDER_HOLD_MS`) shows that chest's word | his folder-day rule: hold is a preview, tap is the commit |
+| When it hides | on release, no delay | same as the folder: open while the finger stays, shut on release |
+| The shown word | rises over its neighbours | with the overlap hider gone, a neighbour chest could cover it |
+| Overlap hider (`SignWords`) | removed | one word at a time has nothing to collide with |
+
+The trap the brief named was real: on the old build a held finger's release opened the popup (measured). The click after a
+hold is swallowed on the map container in the capture phase, before Leaflet's own listener on the same container.
+
+Proof: `Raw/2026-10-05-sign-hold/probe-hold.mjs` (real CDP mouse + touch on the production lab build) - before: 18 words at
+rest, hold opened the popup; after: 10/10 (`hold.json`, frames `pc-hover.png`, `ph-hold.png`, `ph-tap.png`).
+
+Found on the way, NOT caused by this: `test-journey.mjs` "Selling moment: 4 frozen frames" fails 16/16 retakes on the code
+before this change too (05:50 WIB, 2026-10-05). Cause not found; [guessing] the lab's sale times vs the early-morning clock.
+The other 48 pass.
+
 ## Rejected on purpose
 
 - **A rival FLAG for Competitor** (in the brief): the red pixel flag already means "nobody's shop" on the same map
