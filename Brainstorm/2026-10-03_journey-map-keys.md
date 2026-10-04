@@ -45,6 +45,17 @@ fulscreen looks good"* - road = today by default + an "All shops" switch; the ow
 "T1 · OVERSEER" (Settings' own word for Tier 1); fullscreen as drawn. BUILT 10:05, kpm `64c4c5e` (local, not pushed);
 proof `Raw/2026-10-03-map-keys/built7/`. A pressed man = his Expedition row/chip OR his Paintbrush pen.
 
+**10:20, his words, after testing:** *"if i press one of the expedition user just show the stores that is being assigned
+for him instead even when zoomed out, right now when i zoom out it still show everything, and i want u to give some mark
+on the stores that havent been assigned by anyone on red flag marked so that we now that the stores is still not assigned
+to any team members and i still cant see the team list when fullscreen btw i think it is a bug"*. BUILT kpm `7b8002e`:
+pressed in Expedition = only his shops on the map (bubbles count his only); with a Paintbrush pen the others only fade
+(hiding them would leave nothing to paint - my call, said in the reply); a red pixel flag on nobody's shops and on a
+bubble holding one; the fullscreen list = the whole team, men not out dimmed.
+**MISTAKE (mine), cost one round with him:** the small fullscreen list showed only men out today ("only the men on the
+map"), and the lab always had men out, so every check passed - his real Saturday morning had nobody out, so it showed
+"0 OUT" and no names. A list filtered to "active now" must be checked on the empty case before it ships.
+
 **08:57 add, his words:** *"and also i want the expedition to be visible but smaller on fullscreen as well"*. Cause:
 the panel is part of the page under the map; fullscreen (fixed, inset 0) covers it. Drawn (same page, "Fullscreen"),
 ported from his settled split (PC = everything at once, phone = one thing at a time): PC = the squad list as 26 px rows

@@ -1,5 +1,37 @@
 {
  "errs": [],
+ "free": {
+  "tags": "",
+  "mine": 0,
+  "others": 1,
+  "othersFaded": false,
+  "road": 0,
+  "arrows": 0,
+  "focus": false,
+  "sw": "",
+  "boss": "AAldiT1 · OVERSEEREn route → Warung Bu Sri01,4 km5 min ago",
+  "chestsOnMap": 1,
+  "inBubbles": 31,
+  "redFlags": 0,
+  "bubbleFlags": 5,
+  "flagPicture": true
+ },
+ "freeZoom": {
+  "tags": "",
+  "mine": 0,
+  "others": 28,
+  "othersFaded": false,
+  "road": 0,
+  "arrows": 0,
+  "focus": false,
+  "sw": "",
+  "boss": "AAldiT1 · OVERSEEREn route → Warung Bu Sri01,4 km5 min ago",
+  "chestsOnMap": 28,
+  "inBubbles": 4,
+  "redFlags": 3,
+  "bubbleFlags": 2,
+  "flagPicture": true
+ },
  "before": {
   "tags": "",
   "mine": 0,
@@ -9,40 +41,60 @@
   "arrows": 0,
   "focus": false,
   "sw": "",
-  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago"
+  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago",
+  "chestsOnMap": 1,
+  "inBubbles": 31,
+  "redFlags": 0,
+  "bubbleFlags": 0,
+  "flagPicture": null
  },
  "budiToday": {
   "tags": "BS · 6 | BS · 8 | BS · 7 | BS · 2 | BS · 1",
   "mine": 5,
-  "others": 6,
-  "othersFaded": true,
+  "others": 0,
+  "othersFaded": false,
   "road": 1,
   "arrows": 8,
   "focus": true,
   "sw": "Today:true All shops:false",
-  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago"
+  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago",
+  "chestsOnMap": 5,
+  "inBubbles": 3,
+  "redFlags": 0,
+  "bubbleFlags": 0,
+  "flagPicture": null
  },
  "budiAll": {
   "tags": "BS · 1 | BS · 2 | BS · 6 | BS · 7 | BS · 8",
   "mine": 5,
-  "others": 6,
-  "othersFaded": true,
+  "others": 0,
+  "othersFaded": false,
   "road": 1,
   "arrows": 7,
   "focus": true,
   "sw": "Today:false All shops:true",
-  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago"
+  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago",
+  "chestsOnMap": 5,
+  "inBubbles": 3,
+  "redFlags": 0,
+  "bubbleFlags": 0,
+  "flagPicture": null
  },
  "letGo": {
   "tags": "",
   "mine": 0,
-  "others": 1,
+  "others": 0,
   "othersFaded": false,
   "road": 0,
   "arrows": 0,
   "focus": false,
   "sw": "",
-  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago"
+  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago",
+  "chestsOnMap": 0,
+  "inBubbles": 32,
+  "redFlags": 0,
+  "bubbleFlags": 0,
+  "flagPicture": null
  },
  "pen": {
   "tags": "BS · 6",
@@ -53,23 +105,30 @@
   "arrows": 7,
   "focus": true,
   "sw": "Today:false All shops:true",
-  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago"
+  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago",
+  "chestsOnMap": 1,
+  "inBubbles": 31,
+  "redFlags": 0,
+  "bubbleFlags": 0,
+  "flagPicture": null
  },
  "fsPc": {
-  "rows": 5,
-  "off": "+1 not out today",
+  "rows": 6,
+  "dimRows": 1,
+  "team": 6,
+  "head": "Expedition5 out · 1 not",
   "rect": [
    1218,
    188,
    1418,
-   464
+   479
   ],
   "underKeys": true,
   "focus": true
  },
  "hoverNone": true,
  "fsPhone": {
-  "chips": 5,
+  "chips": 6,
   "line": "Budi Santososelling atToko Sinar Abadi5/8",
   "rect": [
    61,

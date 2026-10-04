@@ -45,12 +45,22 @@ const STATE = `(() => { const r = (e) => e.getBoundingClientRect();
     othersFaded: others.length > 0 && others.every((e) => +getComputedStyle(e).opacity < .3), road: document.querySelectorAll('path.kx-road').length,
     arrows: document.querySelectorAll('.kx-arrow').length, focus: !!document.querySelector('.kx-map.kx-focus'),
     sw: [...document.querySelectorAll('.kx-roadsw button')].map((b) => b.textContent + ':' + b.getAttribute('aria-pressed')).join(' '),
-    boss: [...document.querySelectorAll('.kx-row')].map((e) => e.textContent).find((t) => /Aldi/.test(t)) || null }; })()`;
+    boss: [...document.querySelectorAll('.kx-row')].map((e) => e.textContent).find((t) => /Aldi/.test(t)) || null,
+    chestsOnMap: document.querySelectorAll('.leaflet-marker-icon > .kx-c5').length, inBubbles: [...document.querySelectorAll('.kx-slot .cnt')].reduce((n, e) => n + +e.dataset.n, 0),
+    redFlags: document.querySelectorAll('.leaflet-marker-icon > .kx-c5 > .kx-free').length, bubbleFlags: document.querySelectorAll('.kx-slot > .kx-free').length,
+    flagPicture: (() => { const f = document.querySelector('.kx-free'); return f ? getComputedStyle(f).backgroundImage.startsWith('url(') : null; })() }; })()`;
 const out = { errs };
 await send('Page.enable'); await send('Runtime.enable');
 
 /* ---- PC ---- */
 await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+/* nobody's shops (&free = every 7th shop unassigned): red flags on the chests and on the bubbles that hold them */
+await send('Page.navigate', { url: BASE + '&free' }); await waitFor('!!document.querySelector(".kx-keys .k-full")', 20000); await sleep(1800);
+out.free = await js(STATE);
+await shot('pc-free.png', await clipOf('.kx-map'));
+for (let k = 0; k < 2; k++) { await js(`document.querySelector('.leaflet-control-zoom-in').click(); 1`); await sleep(900); }
+out.freeZoom = await js(STATE);
+await shot('pc-free-zoom.png', await clipOf('.kx-map'));
 await load();
 out.before = await js(STATE);
 await js(`[...document.querySelectorAll('.kx-row')].find((e) => /Budi/.test(e.textContent)).click(); 1`); await sleep(1500);
@@ -75,7 +85,7 @@ await js(`[...document.querySelectorAll('.kx-pen')].find((e) => /Disable/.test(e
 await js(`document.querySelector('.kx-keys .k-full').click(); 1`); await sleep(1500);
 await js(`[...document.querySelectorAll('.kx-mrow')].find((e) => /Budi/.test(e.textContent))?.click(); 1`); await sleep(1200);
 out.fsPc = await js(`(() => { const m = document.querySelector('.kx-mini'); if (!m) return null; const b = m.getBoundingClientRect(); const keys = [...document.querySelectorAll('.kx-keys > button')].map((e) => e.getBoundingClientRect());
-  return { rows: m.querySelectorAll('.kx-mrow').length, off: m.querySelector('.kx-moff')?.textContent, rect: [b.left, b.top, b.right, b.bottom].map(Math.round), underKeys: keys.every((k) => k.bottom <= b.top + 1), focus: !!document.querySelector('.kx-map.kx-focus') }; })()`);
+  return { rows: m.querySelectorAll('.kx-mrow').length, dimRows: m.querySelectorAll('.kx-mrow.off').length, team: document.querySelectorAll('.kx-panel .kx-row').length, head: m.querySelector('header')?.textContent, rect: [b.left, b.top, b.right, b.bottom].map(Math.round), underKeys: keys.every((k) => k.bottom <= b.top + 1), focus: !!document.querySelector('.kx-map.kx-focus') }; })()`);
 await shot('pc-fullscreen.png');
 
 /* ---- phone ---- */
