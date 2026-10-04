@@ -1,6 +1,6 @@
 ---
 date: 2026-10-04
-status: OPEN - waiting on Aldi (which comes first: drawing the replay, or the shop popup redesign)
+status: DRAWN - live page v1, his pick owed (camera Follow him or Whole day; scenes that do not read)
 tags: [kpm, journey-plan, expedition, replay, ponder, design, brainstorm, open]
 ---
 
@@ -55,9 +55,28 @@ scene with the app's own `.kpm-coin` (41e308b), the walking pixel person.
 
 ## Decision
 
-OPEN - waiting on Aldi: draw the replay first (a live page: panel + map + 3-4 scenes, PC and phone as separate picks,
-his habit) or do the queued shop popup redesign first. My pick: draw the replay first - it decides what the popup
-must show (the popup is one stop of the same day).
+DECIDED 2026-10-04 15:50, his words: *"sure do replay first i want to see it"*.
+
+## DRAWN 2026-10-04 16:00 - live page https://claude.ai/artifact/WnjonLSqjNZYpoMBbXSdSz (v1)
+
+Source + frames: `Raw/2026-10-04-day-replay/` (`day-replay.html`, `shoot-replay.mjs`, `shots/`). Budi's sample Sunday:
+the ender-chest warehouse 07:45, then 8 stops, one per outcome - sale (the app's coin rises into his raised hands),
+stock full (last week's packs pop over the rim and settle; he shakes his head), exchange (a crate in Quarantine's tape
+comes up into his hands), competitor (a grey crate with a red band + a red "!"), repeat order (a crate drops into the
+chest), new request (a speech bubble folds into a note he takes), closed (he knocks twice, the lid stays down, the lock
+sign), routine check (he looks in; the tick sign). Every scene ends on the chest's own lit sign.
+**How it is built (port this, do not re-invent):** the whole replay is ONE function of time t - walking time follows
+the real gap between reports (55 ms per minute at 1x, 0.9-2.4 s), each scene holds the clock 2 s; every scene is Web
+Animations created PAUSED with one shared duration, so one `currentTime` drives a stop (scrub backwards is free - the
+Ponder rule). Timeline = clock time (07:30-11:30) with a notch per event carrying its sign; drag anywhere to scrub.
+Camera: "Follow him" (window 250 x 200 around him) or "Whole day". PC = map + Day Log rows; phone = map + one event
+card + a chip strip. Lite = cuts between end pictures, 0 animations running (measured).
+**Measured:** 0 console errors; brightness over 12 s of playback 81.7-84.4, worst frame 6.2 % of the map changed (the
+camera panning) - no flash; phone 390: 0 sideways scroll.
+**Fixed before sending:** his name tag hid what the shop hands him (crate, "!", bubble) -> the tag steps aside during a
+scene; the warehouse label sat under his start tag -> moved below the chest; the map note wrapped to 3 lines on the
+phone -> one short line, the full reason under the map.
+OPEN - his pick owed: camera Follow him / Whole day; and any scene that does not read.
 
 ## Rejected on purpose (by me, flip conditions given)
 

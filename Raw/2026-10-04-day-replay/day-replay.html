@@ -1,0 +1,572 @@
+<title>Salesman Day Replay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Silkscreen:wght@400;700&display=swap">
+<style>
+/* Journey Plan - replay a salesman's day (his ask 2026-10-04: "this chain of events is replay able"). Layout: the map
+   (a camera over the app's pixel world) with the day's timeline under it; the Day Log beside it on a PC, one event card
+   under it on a phone (his habit: PC everything at once, phone one thing at a time). One dark world on purpose - the
+   app's dark theme. The whole replay is a pure function of one time value, so play, pause, scrub and jump back are free
+   (the Ponder engine's rule). Nothing flashes; Lite = cuts between end pictures, nothing moving. */
+:root {
+  color-scheme: dark;
+  --ground: #0A0908; --panel: #121110; --raised: #1B1917; --inset: #0F0E0D;
+  --line-2: #3E3A35; --line-3: #6A645C;
+  --ink: #E8E4DE; --ink-muted: #A39B90; --ink-faint: #6E685F;
+  --gold: #E4B04A; --gold-2: #FFE2A0; --on-gold: #1B1408; --crit: #E0583A;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-pixel: "Silkscreen", ui-monospace, Consolas, monospace;
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 15px/1.45 var(--font-body); -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; }
+main { max-width: 1180px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 48px; display: grid; gap: 14px; }
+h1 { margin: 0; font: 800 28px/1.05 var(--font-display); letter-spacing: .02em; text-transform: uppercase; text-wrap: balance; }
+h1 small { display: block; margin-top: 6px; max-width: 80ch; font: 400 14px/1.45 var(--font-body); text-transform: none; letter-spacing: 0; color: var(--ink-muted); }
+.sample { display: inline-block; margin-left: 8px; padding: 3px 7px 2px; border: 1px solid var(--line-3); border-radius: 6px; font: 700 10px/1 var(--font-pixel); letter-spacing: .04em; color: var(--ink-muted); vertical-align: 4px; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bar b { font: 800 13px/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin-right: 2px; min-width: 58px; }
+.tog { min-height: 40px; padding: 0 14px; border: 1px solid var(--line-3); border-radius: 10px; background: var(--panel); cursor: pointer; transition: transform 140ms var(--ease-out), border-color 140ms ease; }
+.tog[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
+.tog:active { transform: scale(.97); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.note { margin: 0; max-width: 80ch; color: var(--ink-muted); font-size: 13.5px; }
+.note b { color: var(--ink); font-weight: 600; }
+
+.replay { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 14px; align-items: start; }
+body.phone .replay { grid-template-columns: minmax(0, 390px); justify-content: center; }
+.left { display: grid; gap: 10px; min-width: 0; }
+
+/* ---------------- the map: a 600 x 420 world under a camera ---------------- */
+.mapbox { position: relative; aspect-ratio: 600 / 420; max-width: 100%; border: 1px solid var(--line-2); border-radius: 16px; overflow: hidden; background: #474749; touch-action: manipulation; }
+body.phone .mapbox { aspect-ratio: 390 / 430; }
+.cam { position: absolute; left: 0; top: 0; width: 600px; height: 420px; transform-origin: 0 0; will-change: transform; }
+.world { position: absolute; left: -520px; top: -400px; width: 1640px; height: 1230px; background: #474749 url(ground.jpg) center / 1640px auto no-repeat; }
+.route { position: absolute; left: 0; top: 0; width: 600px; height: 420px; overflow: visible; pointer-events: none; }
+.px { shape-rendering: crispEdges; display: block; overflow: visible; }
+.mapnote { position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px); padding: 5px 8px; border: 1px solid var(--line-2); border-radius: 8px; background: rgba(18, 17, 16, .88); color: var(--ink-muted); font: 700 9.5px/1.35 var(--font-pixel); }
+.clockbig { position: absolute; right: 10px; top: 10px; padding: 6px 9px 5px; border: 1px solid var(--line-3); border-radius: 9px; background: rgba(18, 17, 16, .92); font: 700 15px/1 var(--font-pixel); color: var(--gold); font-variant-numeric: tabular-nums; }
+
+/* a stop: the app's 14 x 17 chest at 2x, its ring in his colour, his name tag with the stop number, the lit sign */
+.stop { position: absolute; width: 28px; height: 34px; isolation: isolate; }
+.stop .ring { position: absolute; left: 50%; bottom: -5px; width: 36px; height: 12px; translate: -50% 0; border-radius: 50%; border: 2px solid var(--c); background: rgba(10, 9, 8, .55); z-index: -1; }
+.stop svg.chest { position: absolute; left: 0; bottom: 0; width: 28px; height: 34px; }
+.chest g { transform-box: fill-box; transform-origin: 50% 100%; }
+.otag { position: absolute; left: 50%; bottom: calc(100% + 6px); translate: -50% 0; white-space: nowrap; padding: 3px 5px 2px; background: rgba(10, 9, 8, .84); color: #FFFFFF; font: 800 12px/1 var(--font-display); letter-spacing: .06em; display: flex; align-items: center; gap: 5px; }
+.otag i { width: 7px; height: 7px; background: var(--c); }
+.stop.future .otag { opacity: .62; }
+.sign { position: absolute; left: 19px; top: 20px; width: 22px; height: 22px; }
+.sign .lamp { position: absolute; left: -11px; top: -12px; width: 44px; height: 36px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 214, 140, .5), rgba(228, 176, 74, .18) 55%, transparent); }
+.sign svg { position: relative; width: 22px; height: 22px; }
+.prop { position: absolute; left: 0; top: 0; pointer-events: none; }
+.prop svg { display: block; }
+.spark { position: absolute; left: 12px; top: 8px; width: 3px; height: 3px; background: var(--gold-2); }
+.warehouse .otag { background: rgba(10, 9, 8, .9); }
+
+/* the salesman: the app's pixel person; legs, arms and the held thing switch by data attributes, never by a loop */
+.man { position: absolute; left: 0; top: 0; width: 30px; height: 42px; will-change: transform; z-index: 5; }
+.man .sh { position: absolute; left: 50%; bottom: -4px; width: 28px; height: 8px; translate: -50% 0; border-radius: 50%; background: rgba(0, 0, 0, .5); }
+.man .fig { position: absolute; left: 0; bottom: 0; width: 30px; height: 42px; }
+.man .fig svg { width: 30px; height: 42px; }
+.man .fig g { display: none; }
+.man[data-legs="A"] .legsA, .man[data-legs="B"] .legsB, .man[data-legs="S"] .legsS { display: inline; }
+.man:not(.up) .upper { display: inline; }
+.man.up .arms { display: inline; }
+.man.up .legsA, .man.up .legsB, .man.up .legsS { display: none; }
+.man .held { position: absolute; left: 6px; top: -17px; width: 18px; height: 18px; display: none; }
+.man.up .held { display: block; }
+.man .held > * { display: none; }
+.man[data-held="coin"] .held .kpm-coin, .man[data-held="crate"] .held .hcrate, .man[data-held="note"] .held .hnote { display: block; }
+.man .tag { position: absolute; left: 50%; bottom: calc(100% + 5px); translate: -50% 0; white-space: nowrap; padding: 3px 5px 2px; background: rgba(10, 9, 8, .84); color: #FFFFFF; font: 800 12px/1 var(--font-display); letter-spacing: .06em; display: flex; align-items: center; gap: 5px; }
+.man.up .tag { bottom: calc(100% + 22px); }
+.man .tag i { width: 7px; height: 7px; background: var(--c); }
+.man .tag { transition: opacity 160ms ease; }
+.man.busy .tag { opacity: 0; }   /* during a scene the space over him belongs to what the shop hands him */
+.warehouse .otag { bottom: auto; top: calc(100% + 9px); }
+
+/* Agent Inventory's coin (src/styles/theme.css .kpm-coin): an 18 px window over the 8-frame strip */
+.kpm-coin { display: inline-block; width: 18px; height: 18px; overflow: hidden; position: relative; }
+.kpm-coin::before { content: ''; position: absolute; left: 0; top: 0; width: 144px; height: 18px; background: url(coin-sprite.png) 0 0 / 144px 18px no-repeat; image-rendering: pixelated; animation: kpmCoinSpin .72s steps(8, end) infinite; }
+@keyframes kpmCoinSpin { to { transform: translateX(-144px); } }
+html.lite .kpm-coin::before, .kpm-coin.still::before { animation: none; transform: translateX(-54px); }
+
+/* ---------------- the timeline (Ponder's bar: a notch per event, the playhead, scrub anywhere) ---------------- */
+.player { display: grid; gap: 8px; padding: 10px 12px 12px; border: 1px solid var(--line-2); border-radius: 14px; background: var(--panel); }
+.tl { position: relative; height: 54px; touch-action: none; cursor: pointer; user-select: none; }
+.tl .track { position: absolute; left: 0; right: 0; top: 30px; height: 8px; border-radius: 4px; background: var(--inset); border: 1px solid var(--line-2); }
+.tl .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 4px; background: linear-gradient(90deg, rgba(228, 176, 74, .35), var(--gold)); }
+.tl .notch { position: absolute; top: 2px; width: 22px; height: 26px; translate: -50% 0; padding: 0; border: 0; background: none; cursor: pointer; display: grid; justify-items: center; }
+.tl .notch svg { width: 16px; height: 16px; transition: transform 160ms var(--ease-out); }
+.tl .notch::after { content: ''; width: 2px; height: 8px; margin-top: 2px; background: var(--line-3); }
+.tl .notch.done::after { background: var(--gold); }
+.tl .notch.now svg { transform: translateY(-2px) scale(1.15); }
+@media (hover: hover) and (pointer: fine) { .tl .notch:hover svg { transform: translateY(-2px) scale(1.15); } }
+.tl .head { position: absolute; top: 24px; width: 2px; height: 20px; translate: -50% 0; background: var(--gold-2); box-shadow: 0 0 0 1px #0A0908; pointer-events: none; }
+.hours { position: relative; height: 14px; color: var(--ink-faint); font: 700 9px/1 var(--font-pixel); }
+.hours span { position: absolute; translate: -50% 0; }
+.ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.ib { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line-3); border-radius: 12px; background: var(--raised); cursor: pointer; transition: transform 140ms var(--ease-out), border-color 140ms ease; }
+.ib:active { transform: scale(.96); }
+.ib svg { width: 18px; height: 18px; }
+.ib.play { width: 56px; border-color: var(--gold); color: var(--gold); }
+.speed { display: flex; border: 1px solid var(--line-3); border-radius: 12px; overflow: hidden; }
+.speed button { min-width: 44px; height: 42px; border: 0; background: var(--raised); cursor: pointer; font: 700 11px/1 var(--font-pixel); color: var(--ink-muted); }
+.speed button + button { border-left: 1px solid var(--line-2); }
+.speed button[aria-pressed="true"] { background: var(--inset); color: var(--gold); }
+.ctl .now { margin-left: auto; min-width: 0; text-align: right; font: 800 15px/1.15 var(--font-display); letter-spacing: .03em; text-transform: uppercase; }
+.ctl .now small { display: block; color: var(--ink-muted); font: 400 12.5px/1.3 var(--font-body); text-transform: none; letter-spacing: 0; }
+
+/* ---------------- the Day Log (PC: the whole day as rows) ---------------- */
+.log { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--line-2); border-radius: 16px; background: var(--panel); }
+.who2 { display: flex; align-items: center; gap: 10px; }
+.who2 .av { width: 40px; height: 40px; border: 1px solid var(--line-3); border-radius: 10px; background: var(--inset); display: grid; place-items: center; }
+.who2 .av svg { width: 20px; height: 10px; }
+.who2 b { display: block; font: 800 20px/1 var(--font-display); letter-spacing: .03em; text-transform: uppercase; }
+.who2 small { color: var(--ink-muted); font-size: 12.5px; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.stats div { padding: 7px 8px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--inset); }
+.stats b { display: block; font: 800 17px/1.05 var(--font-display); color: var(--gold); font-variant-numeric: tabular-nums; }
+.stats small { color: var(--ink-muted); font-size: 11.5px; }
+.rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; max-height: 560px; overflow-y: auto; scrollbar-width: thin; }
+.row { width: 100%; display: grid; grid-template-columns: 44px 26px minmax(0, 1fr); gap: 8px; align-items: start; padding: 8px 9px; border: 1px solid var(--line-2); border-radius: 12px; background: var(--inset); text-align: left; cursor: pointer; transition: opacity 200ms ease, border-color 160ms ease, transform 140ms var(--ease-out); }
+.row:active { transform: scale(.985); }
+.row .t { font: 700 11px/1.6 var(--font-pixel); color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+.row svg { width: 22px; height: 22px; }
+.row .s { min-width: 0; }
+.row .s b { display: block; font: 800 15px/1.1 var(--font-display); letter-spacing: .03em; text-transform: uppercase; }
+.row .s span { display: block; font-size: 13px; color: var(--ink); }
+.row .s em { display: block; margin-top: 2px; font-style: normal; font-size: 12.5px; color: var(--ink-muted); }
+.row.future { opacity: .5; }
+.row.now { border-color: var(--gold); background: var(--raised); }
+.row.now .t { color: var(--gold); }
+body.phone .log { display: none; }
+
+/* ---------------- phone: one event at a time + the day as a strip of chips ---------------- */
+.card { display: none; gap: 8px; padding: 12px; border: 1px solid var(--line-2); border-radius: 16px; background: var(--panel); }
+body.phone .card { display: grid; }
+.card .head2 { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 10px; align-items: center; }
+.card .head2 svg { width: 38px; height: 38px; }
+.card .head2 b { display: block; font: 800 19px/1.05 var(--font-display); letter-spacing: .03em; text-transform: uppercase; }
+.card .head2 small { color: var(--gold); font: 700 11px/1.4 var(--font-pixel); }
+.card p { margin: 0; font-size: 14px; }
+.card p.n { color: var(--ink-muted); font-size: 13px; }
+.chips { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.chip { flex: none; display: grid; justify-items: center; gap: 3px; width: 50px; padding: 6px 0 5px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--inset); cursor: pointer; font: 700 9px/1 var(--font-pixel); color: var(--ink-muted); }
+.chip svg { width: 18px; height: 18px; }
+.chip.now { border-color: var(--gold); color: var(--gold); }
+.chip.future { opacity: .5; }
+
+html.lite *, html.lite *::before, html.lite *::after { transition: none !important; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } .kpm-coin::before { animation: none; transform: translateX(-54px); } }
+@media (max-width: 900px) { .replay { grid-template-columns: minmax(0, 1fr); } }
+</style>
+
+<main>
+  <h1>Journey Plan · replay a salesman's day <span class="sample">SAMPLE DAY</span>
+    <small>Budi's Sunday, from the regional warehouse to his last shop. Each stop plays what happened there: a sale, stock still full, an exchange, a competitor, a request, a closed shop. Tap a row, a mark on the timeline, or drag along it to jump.</small></h1>
+
+  <div class="bar" role="toolbar" aria-label="Camera">
+    <b>Camera</b>
+    <button class="tog" type="button" data-cam="follow" aria-pressed="true">Follow him</button>
+    <button class="tog" type="button" data-cam="whole" aria-pressed="false">Whole day</button>
+  </div>
+  <div class="bar" role="toolbar" aria-label="Layout">
+    <b>Layout</b>
+    <button class="tog" type="button" data-lay="pc" aria-pressed="true">PC</button>
+    <button class="tog" type="button" data-lay="phone" aria-pressed="false">Phone</button>
+    <button class="tog" id="lite" type="button" aria-pressed="false">Lite</button>
+  </div>
+
+  <div class="replay">
+    <div class="left">
+      <div class="mapbox" id="box">
+        <div class="cam" id="cam"><div class="world"></div><svg class="route" id="route" viewBox="0 0 600 420"></svg><div id="things"></div></div>
+        <span class="clockbig" id="clock">07:45</span>
+        <span class="mapnote">Walk drawn between stops, not tracked</span>
+      </div>
+      <section class="player" aria-label="Replay">
+        <div class="tl" id="tl" role="slider" aria-label="Time of day" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+          <div class="track"><i class="fill" id="fill"></i></div>
+          <div id="notches"></div>
+          <i class="head" id="head"></i>
+        </div>
+        <div class="hours" id="hours"></div>
+        <div class="ctl">
+          <button class="ib" type="button" id="restart" aria-label="Restart"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9a5 5 0 1 0 1.5-3.6"/><path d="M4 3v3.4h3.4"/></svg></button>
+          <button class="ib" type="button" id="prev" aria-label="Previous stop"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M4 3h2v12H4zM15 3v12L7 9z"/></svg></button>
+          <button class="ib play" type="button" id="play" aria-label="Pause"><svg viewBox="0 0 18 18" fill="currentColor" id="playicon"><path d="M4 3h4v12H4zM10 3h4v12h-4z"/></svg></button>
+          <button class="ib" type="button" id="next" aria-label="Next stop"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M12 3h2v12h-2zM3 3v12l8-6z"/></svg></button>
+          <div class="speed" role="group" aria-label="Speed"><button type="button" data-sp="1" aria-pressed="true">1x</button><button type="button" data-sp="2" aria-pressed="false">2x</button><button type="button" data-sp="4" aria-pressed="false">4x</button></div>
+          <div class="now" id="now"></div>
+        </div>
+      </section>
+      <section class="card" id="card" aria-live="polite"></section>
+    </div>
+
+    <aside class="log" aria-label="Day Log">
+      <div class="who2"><span class="av" id="av"></span><div><b>Budi Santoso</b><small>Sunday 4 Oct · 8 shops on his round</small></div></div>
+      <div class="stats" id="stats"></div>
+      <ol class="rows" id="rows"></ol>
+    </aside>
+  </div>
+
+  <p class="note"><b>Why the walk is drawn:</b> a phone sends its position only when he sells or opens the app, so the line between two stops is the straight way from one to the next, not his real road.</p>
+  <p class="note"><b>Where each line comes from in the app:</b> a sale and an exchange are the terminal's own records (with their time). Stock full, competitor, request, closed and check are the Visit Report he sends from Journey Plan; the app already keeps each one with its time in the activity log. The time shown is when he pressed Report, not when he arrived.</p>
+</main>
+
+<script>
+/* ===== the app's pixels (src/utils/mapSprites.js), one letter per pixel ===== */
+const px = (rows, pal) => { let out = ''; rows.forEach((row, y) => { for (let x = 0; x < row.length;) { const ch = row[x]; let w = 1; while (row[x + w] === ch) w++; if (ch !== '.') out += `<rect x="${x}" y="${y}" width="${w}" height="1" ${pal[ch]}/>`; x += w; } }); return out; };
+const at = (rows, y0) => Array(y0).fill('').concat(rows);
+const darker = (hex, k = 0.7) => '#' + [1, 3, 5].map((i) => Math.round(parseInt(hex.slice(i, i + 2), 16) * k).toString(16).padStart(2, '0')).join('');
+const W5DIM = { O: 'fill="#160E07"', H: 'fill="#7A5A38"', W: 'fill="#644629"', M: 'fill="#53391F"', D: 'fill="#3F2A15"', S: 'fill="#2C1C0D"', k: 'fill="#1C1814"', L: 'fill="#A8A296"', l: 'fill="#6E6A62"', K: 'fill="#0D0804"' };
+const W5 = { O: 'fill="#24160A"', H: 'fill="#E0A55C"', W: 'fill="#BF8240"', M: 'fill="#9C6630"', D: 'fill="#74481C"', S: 'fill="#4E3012"', k: 'fill="#2A2622"', L: 'fill="#F2EEE4"', l: 'fill="#A9A49A"', K: 'fill="#120A04"' };
+/* the regional warehouse = the app's ender chest (his "ender chest is the general chest"): obsidian, purple specks, a pale eye */
+const WEND = { O: 'fill="#050308"', H: 'fill="#3A2852"', W: 'fill="#231634"', M: 'fill="#1A1028"', D: 'fill="#0E0818"', S: 'fill="#120A1E"', k: 'fill="#0A0510"', L: 'fill="#E8D9A8"', l: 'fill="#9C8A5E"', K: 'fill="#05030A"' };
+const BODY5 = ['OSSSSSSSSSSSSO', 'OHHHHHHHHHHHHO', 'OWWWWWWWWWWWMO', 'OMWWWWWWWWWWMO', 'OSSSSSSSSSSSSO', 'OHWWWWWWWWWWWO', 'OMWWWWWWWWWWMO', 'ODDDDDDDDDDDDO', '.OOOOOOOOOOOO.'];
+const LID5 = ['.OOOOOOOOOOOO.', 'OHHHHHHHHHHHHO', 'OWWWWWWWWWWWMO', 'OMWWWkkkkWWWMO', 'ODDDDkLLkDDDDO', '.....kLlk.....', '.....kllk.....', '.....kkkk.....'];
+const UNDER5 = ['.OOOOOOOOOOOO.', 'ODDDDDDDDDDDDO', 'ODMMMMMMMMMMDO', 'ODSSSSSSSSSSDO', 'ODDDDDDDDDDDDO'];
+const INSIDE5 = ['.OOOOOOOOOOOO.', 'OKKKKKKKKKKKKO', 'OKKKKKKKKKKKKO'];
+/* a chest in layers, so a stop can be dim and shut (not visited), bright and open (visited) or bright and shut (closed) */
+const chestSvg = (P = W5, PD = W5DIM) => `<svg class="px chest" viewBox="0 0 14 17">`
+  + `<g class="lu" style="opacity:0">${px(UNDER5, P)}</g><g class="in">${px(at(INSIDE5, 5), P)}</g>`
+  + `<g class="bd">${px(at(BODY5, 8), PD)}</g><g class="bb" style="opacity:0">${px(at(BODY5, 8), P)}</g>`
+  + `<g class="lfd">${px(at(LID5, 3), PD)}</g><g class="lfb" style="opacity:0">${px(at(LID5, 3), P)}</g></svg>`;
+
+const SP5 = { O: 'fill="#3F2C18"', w: 'fill="#F0E2BC"', v: 'fill="#D9C597"', P: 'fill="#5B3F22"', K: 'fill="#221509"', R: 'fill="#B3261E"', G: 'fill="#E2A12E"', Y: 'fill="#FFF4CF"', b: 'fill="#A8743A"', E: 'fill="#3A2852"', e: 'fill="#E8D9A8"' };
+const BOARD5 = ['.OOOOOOOOO.', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OwwwwwwwwwO', 'OvvvvvvvvvO', '.OOOOOOOOO.', '.....P.....', '.....P.....', '....PPP....'];
+const PIC5 = {
+  sold:    ['...KKK...', '..KGGGK..', '.KGYGGGK.', '.KGGGGGK.', '..KGGGK..', '...KKK...'],
+  order:   ['.KKKKKKK.', '.KbbKbbK.', '.KKKKKKK.', '.KbbbbbK.', '.KbbbbbK.', '.KKKKKKK.'],
+  routine: ['........K', '.......KK', '.K....KK.', '.KK..KK..', '..KKKK...', '...KK....'],
+  full:    ['.K.K.K.K.', '.K.K.K.K.', 'KKKKKKKKK', '.K.K.K.K.', '.K.K.K.K.', 'KKKKKKKKK'],
+  issue:   ['....R....', '...RKR...', '..RRKRR..', '..RRKRR..', '.RRRRRRR.', 'RRRRKRRRR'],
+  request: ['.KKKKKKK.', 'K.......K', 'K.K.K.K.K', 'K.......K', '.KKKKKKK.', '..KK.....'],
+  closed:  ['...RRR...', '..R...R..', '..R...R..', '.RRRRRRR.', '.RRRKRRR.', '.RRRRRRR.'],
+  /* NEW - an exchange (retur): two arrows, one going back */
+  swap:    ['..K......', '.KKKKKKK.', '..K......', '......K..', '.KKKKKKK.', '......K..'],
+  /* the start row's mark: the ender chest's eye */
+  start:   ['.EEEEEEE.', 'EEEEEEEEE', 'EEEeeeEEE', 'EEEeeeEEE', 'EEEEEEEEE', '.EEEEEEE.'],
+};
+const sign = (k) => `<svg class="px" viewBox="0 0 11 11">${px(BOARD5, SP5)}${px(['...........'].concat(PIC5[k].map((r) => '.' + r + '.')), SP5)}</svg>`;
+
+/* the person (10 x 14): legs A / B walk, S stands; arms up holds something over his head */
+const HEAD = ['..OOOOOO..', '.OhhhhhhO.', '.OhsssshO.', '.OsessesO.', '.OsszzssO.'];
+const TORSO = ['OccccccccO', 'OcCccccCcO', 'OcCccccCcO', 'OsCccccCsO', 'OOppppppOO'];
+const LEGS_A = ['.OppOOppO.', '.OppOOffO.', '.OffO.OO..', '.OOOO.....'];
+const LEGS_B = ['.OppOOppO.', '.OffOOppO.', '..OO.OffO.', '.....OOOO.'];
+const LEGS_S = ['.OppOOppO.', '.OppOOppO.', '.OffO.OffO', '.OOOO.OOOO'];
+const ARMS = ['s.OOOOOO.s', 'cOhhhhhhOc', 'cOhsssshOc', 'cOsessesOc', 'cOsszzssOc', 'OccccccccO', 'OcCccccCcO', 'OcCccccCcO', 'OcCccccCcO', 'OOppppppOO'].concat(LEGS_S);
+const pal = (hair, shirt) => ({ O: 'fill="#0A0908"', h: `fill="${hair}"`, s: 'fill="#E2AE80"', z: 'fill="#C48C5E"', e: 'fill="#2A1A10"', c: `fill="${shirt}"`, C: `fill="${darker(shirt)}"`, p: 'fill="#3A3530"', f: 'fill="#17130F"' });
+
+/* the things a scene uses (small pixel props) */
+const CR = { O: 'fill="#24160A"', b: 'fill="#C98A4A"', B: 'fill="#8A5A2C"', y: 'fill="#E4B04A"', K: 'fill="#120A04"', g: 'fill="#9A958E"', G: 'fill="#5E5A55"', R: 'fill="#B3261E"', w: 'fill="#F2EEE4"', r: 'fill="#C8342A"' };
+const CRATE = ['OOOOOOOO', 'ObbbbbbO', 'OBBBBBBO', 'ObbbbbbO', 'OBBBBBBO', 'ObbbbbbO', 'OOOOOOOO'];
+const HAZARD = ['OOOOOOOO', 'ObbbbbbO', 'OyKyKyKO', 'OKyKyKyO', 'ObbbbbbO', 'OBBBBBBO', 'OOOOOOOO'];   /* Quarantine's tape band */
+const RIVAL = ['OOOOOOOO', 'OggggggO', 'ORRRRRRO', 'OGGGGGGO', 'OggggggO', 'OGGGGGGO', 'OOOOOOOO'];
+const PACK = ['OOOO', 'OrrO', 'OwwO', 'OwwO', 'OwwO', 'OOOO'];
+const BANG = ['RR', 'RR', 'RR', 'RR', '..', 'RR'];
+const BUBBLE = ['.OOOOOOOOO.', 'OwwwwwwwwwO', 'OwKwwKwwKwO', 'OwwwwwwwwwO', '.OOOwOOOOO.', '...Ow......', '...O.......'];
+const NOTE = ['OOOOOOO', 'OwwwwwO', 'OwKKKwO', 'OwwwwwO', 'OwKKwwO', 'OOOOOOO'];
+const svgOf = (rows, scale = 2) => `<svg class="px" viewBox="0 0 ${rows[0].length} ${rows.length}" width="${rows[0].length * scale}" height="${rows.length * scale}">${px(rows, CR)}</svg>`;
+
+/* ===== the day (sample data, shaped exactly like the app's records) ===== */
+const MAN = { ini: 'BS', name: 'Budi Santoso', hair: '#2B1A0E', shirt: '#a855f7' };
+const m = (hm) => { const [h, mi] = hm.split(':').map(Number); return h * 60 + mi; };
+const START = { x: 78, y: 360, time: '07:45', name: 'Regional warehouse', result: 'Day starts · van loaded', note: '40 slop on the van' };
+const STOPS = [
+  { x: 168, y: 318, time: '08:12', name: 'Toko Berkah Jaya',     kind: 'sold',    label: 'Sale',                  result: 'Sale · Rp 250.000',               note: 'Ambil 10 slop, bayar cash' },
+  { x: 246, y: 352, time: '08:41', name: 'Warung Sumber Rejeki', kind: 'full',    label: 'Stock Full (No Order)', result: 'Stock full · no order',            note: 'Stok minggu lalu masih 6 slop' },
+  { x: 302, y: 268, time: '09:05', name: 'Toko Makmur',          kind: 'swap',    label: 'Exchange (retur)',      result: 'Exchange · 2 packs to Quarantine', note: 'Kemasan penyok, tukar 2 bungkus' },
+  { x: 222, y: 212, time: '09:31', name: 'Warung Bu Sri',        kind: 'issue',   label: 'Competitor Issue',      result: 'Competitor issue',                 note: 'Ada promo merek lain, beli 2 gratis 1' },
+  { x: 304, y: 146, time: '09:58', name: 'Toko Sinar Abadi',     kind: 'order',   label: 'Repeat Order',          result: 'Repeat order · 15 slop',           note: 'Minta dikirim hari Kamis' },
+  { x: 400, y: 186, time: '10:24', name: 'Warung Pojok',         kind: 'request', label: 'New Request',           result: 'New request',                      note: 'Minta rasa menthol' },
+  { x: 472, y: 262, time: '10:47', name: 'Toko Lancar',          kind: 'closed',  label: 'Store Closed',          result: 'Store closed',                     note: 'Tutup, pemilik ke pasar' },
+  { x: 540, y: 196, time: '11:10', name: 'Warung Barokah',       kind: 'routine', label: 'Routine Check',         result: 'Routine check · stock OK',         note: 'Stok aman' },
+];
+const T = [m(START.time), ...STOPS.map((s) => m(s.time))];
+const feet = (s) => ({ x: s.x - 31, y: s.y + 3 });   /* he stands 2 px left of the chest, feet on its line (the app's selling scene) */
+const PTS = [feet(START), ...STOPS.map(feet)];
+
+/* ===== the timeline: walking time follows the real gap (compressed), each scene holds the clock ===== */
+const SCENE = 2000, START_HOLD = 700, END_HOLD = 1200, MS_PER_MIN = 55;
+const SEGS = [{ kind: 'start', k: 0, t0: 0, t1: START_HOLD }];
+let acc = START_HOLD;
+STOPS.forEach((s, i) => {
+  const k = i + 1, walk = Math.max(900, Math.min(2400, (T[k] - T[k - 1]) * MS_PER_MIN));
+  SEGS.push({ kind: 'walk', k, t0: acc, t1: acc + walk }); acc += walk;
+  SEGS.push({ kind: 'scene', k, t0: acc, t1: acc + SCENE }); acc += SCENE;
+});
+SEGS.push({ kind: 'end', k: STOPS.length, t0: acc, t1: acc + END_HOLD });
+const TOTAL = acc + END_HOLD;
+const sceneSeg = (k) => SEGS.find((s) => s.kind === 'scene' && s.k === k);
+const segAt = (t) => SEGS.find((s) => t < s.t1) || SEGS[SEGS.length - 1];
+const DAY0 = m('07:30'), DAY1 = m('11:30');
+const clockAt = (t) => { const s = segAt(t); if (s.kind === 'walk') return T[s.k - 1] + (T[s.k] - T[s.k - 1]) * Math.min(1, (t - s.t0) / (s.t1 - s.t0)); return T[s.kind === 'start' ? 0 : s.k]; };
+const tAtClock = (c) => {
+  if (c <= T[0]) return 0;
+  for (let k = 1; k < T.length; k++) {
+    const w = SEGS.find((s) => s.kind === 'walk' && s.k === k);
+    if (c < T[k] - 1) return w.t0 + (c - T[k - 1]) / (T[k] - T[k - 1]) * (w.t1 - w.t0);
+    if (c <= T[k] + 1) return sceneSeg(k).t0;
+  }
+  return SEGS[SEGS.length - 1].t0;
+};
+const hm = (c) => { const h = Math.floor(c / 60), mi = Math.floor(c % 60); return `${String(h).padStart(2, '0')}:${String(mi).padStart(2, '0')}`; };
+
+/* ===== build the world ===== */
+const things = document.getElementById('things'), route = document.getElementById('route');
+let html = `<div class="stop warehouse" style="left:${START.x - 14}px;top:${START.y - 31}px;--c:#8A6BB0"><i class="ring"></i>${chestSvg(WEND, WEND).replace('class="lfd"', 'class="lfd" style="opacity:0"').replace('class="lfb" style="opacity:0"', 'class="lfb"').replace('class="bd"', 'class="bd" style="opacity:0"').replace('class="bb" style="opacity:0"', 'class="bb"')}<span class="otag"><i></i>Warehouse</span></div>`;
+STOPS.forEach((s, i) => {
+  const k = i + 1;
+  html += `<div class="stop future" id="s${k}" style="left:${s.x - 14}px;top:${s.y - 31}px;--c:${MAN.shirt}"><i class="ring"></i>${chestSvg()}`
+    + `<span class="otag"><i></i>${MAN.ini} · ${k}</span><i class="sign" style="opacity:0"><i class="lamp"></i>${sign(s.kind)}</i>`
+    + `<span class="prop p1"></span><span class="prop p2"></span><span class="prop p3"></span><span class="prop p4"></span>`
+    + Array.from({ length: 6 }, (_, j) => `<i class="spark sp${j}" style="opacity:0"></i>`).join('') + `</div>`;
+});
+const P = pal(MAN.hair, MAN.shirt);
+html += `<div class="man" id="man" data-legs="S" style="--c:${MAN.shirt}"><i class="sh"></i><div class="fig" id="fig"><svg class="px" viewBox="0 0 10 14">`
+  + `<g class="legsA">${px(at(LEGS_A, 10), P)}</g><g class="legsB">${px(at(LEGS_B, 10), P)}</g><g class="legsS">${px(at(LEGS_S, 10), P)}</g>`
+  + `<g class="upper">${px(HEAD.concat(TORSO), P)}</g><g class="arms">${px(ARMS, P)}</g></svg></div>`
+  + `<span class="held"><i class="kpm-coin"></i><span class="hcrate">${svgOf(HAZARD, 2.25)}</span><span class="hnote">${svgOf(NOTE, 2.5)}</span></span>`
+  + `<span class="tag"><i></i><span id="mantag">${MAN.ini} · 0/8</span></span></div>`;
+things.innerHTML = html;
+document.getElementById('av').innerHTML = `<svg class="px" viewBox="0 0 10 5">${px(HEAD, P)}</svg>`;
+
+/* the road: faint dots for the whole day, a solid trail where he has already walked */
+const legLen = PTS.slice(1).map((p, i) => Math.hypot(p.x - PTS[i].x, p.y - PTS[i].y));
+const ROAD_LEN = legLen.reduce((a, b) => a + b, 0);
+const d = 'M' + PTS.map((p) => `${p.x} ${p.y}`).join(' L');
+let r = `<path d="${d}" fill="none" stroke="rgba(232,228,222,.5)" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round"/>`
+  + `<path id="trailU" d="${d}" fill="none" stroke="#0A0908" stroke-opacity=".55" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 ${ROAD_LEN + 10}"/>`
+  + `<path id="trail" d="${d}" fill="none" stroke="#E8E4DE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 ${ROAD_LEN + 10}"/>`;
+PTS.slice(1).forEach((p, i) => {
+  const a = PTS[i], ang = Math.atan2(p.y - a.y, p.x - a.x) * 180 / Math.PI;
+  r += `<g class="arrow" id="ar${i + 1}" opacity=".45" transform="translate(${(a.x + p.x) / 2} ${(a.y + p.y) / 2}) rotate(${ang})"><path d="M-4 -5 L3 0 L-4 5" fill="none" stroke="#0A0908" stroke-width="5" stroke-linecap="square"/><path d="M-4 -5 L3 0 L-4 5" fill="none" stroke="#E8E4DE" stroke-width="2.5" stroke-linecap="square"/></g>`;
+});
+route.innerHTML = r;
+
+/* ===== each stop's scene: Web Animations created paused, every one SCENE long, so one currentTime drives them all ===== */
+const o = (ms) => ms / SCENE;
+const ANIMS = {};
+const add = (k, el, frames) => { const a = el.animate(frames, { duration: SCENE, fill: 'both' }); a.pause(); a.currentTime = 0; (ANIMS[k] ||= []).push(a); };
+STOPS.forEach((s, i) => {
+  const k = i + 1, el = document.getElementById('s' + k), q = (c) => el.querySelector(c);
+  const open = s.kind !== 'closed', tO = s.kind === 'closed' ? 950 : 350, tE = s.kind === 'closed' ? 1050 : 520;
+  /* the chest: brightens, then its lid tips back into the rim (the app's own lid move) - or stays down at a closed shop */
+  add(k, q('.bd'), [{ opacity: 1, offset: 0 }, { opacity: 1, offset: o(tO) }, { opacity: 0, offset: o(tE) }, { opacity: 0, offset: 1 }]);
+  add(k, q('.bb'), [{ opacity: 0, offset: 0 }, { opacity: 0, offset: o(tO) }, { opacity: 1, offset: o(tE) }, { opacity: 1, offset: 1 }]);
+  if (open) {
+    add(k, q('.lfd'), [{ opacity: 1, transform: 'none', offset: 0 }, { opacity: 1, transform: 'none', offset: o(380) }, { opacity: 0, transform: 'translateY(-3px) scaleY(.15)', offset: o(520) }, { opacity: 0, transform: 'translateY(-3px) scaleY(.15)', offset: 1 }]);
+    add(k, q('.lu'), [{ opacity: 0, offset: 0 }, { opacity: 0, offset: o(440) }, { opacity: 1, offset: o(520) }, { opacity: 1, offset: 1 }]);
+  } else {
+    add(k, q('.lfd'), [{ opacity: 1, offset: 0 }, { opacity: 1, offset: o(tO) }, { opacity: 0, offset: o(tE) }, { opacity: 0, offset: 1 }]);
+    add(k, q('.lfb'), [{ opacity: 0, offset: 0 }, { opacity: 0, offset: o(tO) }, { opacity: 1, offset: o(tE) }, { opacity: 1, offset: 1 }]);
+    /* he knocks: the shut chest gives twice */
+    add(k, q('svg.chest'), [{ transform: 'none', offset: 0 }, { transform: 'none', offset: o(470) }, { transform: 'translateX(1.5px)', offset: o(520) }, { transform: 'none', offset: o(580) },
+      { transform: 'none', offset: o(700) }, { transform: 'translateX(1.5px)', offset: o(750) }, { transform: 'none', offset: o(810) }, { transform: 'none', offset: 1 }]);
+  }
+  /* the tag steps aside while the scene uses the space over the chest; the sign plants and its lamp warms */
+  add(k, q('.otag'), [{ opacity: 1, offset: 0 }, { opacity: 1, offset: o(250) }, { opacity: 0, offset: o(380) }, { opacity: 0, offset: o(1650) }, { opacity: 1, offset: o(1850) }, { opacity: 1, offset: 1 }]);
+  add(k, q('.sign'), [{ opacity: 0, transform: 'translateY(6px)', offset: 0 }, { opacity: 0, transform: 'translateY(6px)', offset: o(1300), easing: 'cubic-bezier(.23,1,.32,1)' }, { opacity: 1, transform: 'none', offset: o(1600) }, { opacity: 1, transform: 'none', offset: 1 }]);
+  add(k, q('.lamp'), [{ opacity: 0, offset: 0 }, { opacity: 0, offset: o(1450) }, { opacity: 1, offset: o(1850) }, { opacity: 1, offset: 1 }]);
+
+  const p1 = q('.p1'), p2 = q('.p2'), p3 = q('.p3'), p4 = q('.p4');
+  const hide = (el2, from, to, keep = []) => add(k, el2, [{ opacity: 0, offset: 0 }, { opacity: 0, offset: o(from) }, ...keep, { opacity: 0, offset: o(to) }, { opacity: 0, offset: 1 }]);
+  if (s.kind === 'sold') {
+    /* SALE (his pick B "paid", with the app's coin): the coin rises out of the chest in an arc into his raised hands */
+    p1.innerHTML = '<i class="kpm-coin"></i>';
+    add(k, p1, [{ opacity: 0, transform: 'translate(5px,12px) scale(.7)', offset: 0 }, { opacity: 0, transform: 'translate(5px,12px) scale(.7)', offset: o(560) },
+      { opacity: 1, transform: 'translate(2px,-6px) scale(1)', offset: o(720), easing: 'ease-in-out' }, { opacity: 1, transform: 'translate(-12px,-22px)', offset: o(900), easing: 'ease-in' },
+      { opacity: 1, transform: 'translate(-26px,-25px)', offset: o(1040) }, { opacity: 0, transform: 'translate(-26px,-25px)', offset: o(1060) }, { opacity: 0, transform: 'translate(-26px,-25px)', offset: 1 }]);
+    el.querySelectorAll('.spark').forEach((sp, j) => {
+      const ang = (j / 6) * Math.PI * 2 + 0.3, dx = Math.cos(ang) * 14, dy = Math.sin(ang) * 10;
+      add(k, sp, [{ opacity: 0, transform: 'translate(-26px,-20px)', offset: 0 }, { opacity: 0, transform: 'translate(-26px,-20px)', offset: o(1050) },
+        { opacity: .9, transform: `translate(${-26 + dx * .5}px,${-20 + dy * .5}px)`, offset: o(1150) }, { opacity: 0, transform: `translate(${-26 + dx}px,${-20 + dy}px)`, offset: o(1500) }, { opacity: 0, offset: 1 }]);
+    });
+  } else if (s.kind === 'order') {
+    /* REPEAT ORDER: a crate drops into the open chest - the shop takes more */
+    p1.innerHTML = svgOf(CRATE);
+    add(k, p1, [{ opacity: 0, transform: 'translate(6px,-44px)', offset: 0 }, { opacity: 0, transform: 'translate(6px,-44px)', offset: o(540) },
+      { opacity: 1, transform: 'translate(6px,-38px)', offset: o(600), easing: 'cubic-bezier(.55,0,1,.45)' }, { opacity: 1, transform: 'translate(6px,4px)', offset: o(900), easing: 'ease-out' },
+      { opacity: 1, transform: 'translate(6px,0px)', offset: o(980), easing: 'ease-in' }, { opacity: 1, transform: 'translate(6px,4px)', offset: o(1060) },
+      { opacity: 0, transform: 'translate(6px,12px)', offset: o(1260) }, { opacity: 0, transform: 'translate(6px,12px)', offset: 1 }]);
+  } else if (s.kind === 'full') {
+    /* STOCK FULL: last week's packs pop up over the rim - still there, unsold - then settle back; he shakes his head */
+    [p1, p2, p3].forEach((pp, j) => {
+      pp.innerHTML = svgOf(PACK, 1.75);
+      const x = 3 + j * 8;
+      add(k, pp, [{ opacity: 0, transform: `translate(${x}px,10px)`, offset: 0 }, { opacity: 0, transform: `translate(${x}px,10px)`, offset: o(560 + j * 50) },
+        { opacity: 1, transform: `translate(${x}px,-4px)`, offset: o(760 + j * 50), easing: 'cubic-bezier(.23,1,.32,1)' }, { opacity: 1, transform: `translate(${x}px,-4px)`, offset: o(1180) },
+        { opacity: 0, transform: `translate(${x}px,8px)`, offset: o(1380) }, { opacity: 0, transform: `translate(${x}px,8px)`, offset: 1 }]);
+    });
+  } else if (s.kind === 'swap') {
+    /* EXCHANGE (retur): a crate in Quarantine's tape comes out of the chest and up into his hands - it goes back with him */
+    p1.innerHTML = svgOf(HAZARD, 2.25);
+    add(k, p1, [{ opacity: 0, transform: 'translate(5px,10px)', offset: 0 }, { opacity: 0, transform: 'translate(5px,10px)', offset: o(560) },
+      { opacity: 1, transform: 'translate(5px,-8px)', offset: o(780), easing: 'cubic-bezier(.23,1,.32,1)' }, { opacity: 1, transform: 'translate(-27px,-25px)', offset: o(1040), easing: 'ease-in-out' },
+      { opacity: 0, transform: 'translate(-27px,-25px)', offset: o(1060) }, { opacity: 0, offset: 1 }]);
+  } else if (s.kind === 'issue') {
+    /* COMPETITOR: another brand's crate is in his shop's chest, and a red mark goes up */
+    p1.innerHTML = svgOf(RIVAL); p2.innerHTML = svgOf(BANG, 2.5);
+    add(k, p1, [{ opacity: 0, transform: 'translate(6px,10px)', offset: 0 }, { opacity: 0, transform: 'translate(6px,10px)', offset: o(560) },
+      { opacity: 1, transform: 'translate(6px,-6px)', offset: o(780), easing: 'cubic-bezier(.23,1,.32,1)' }, { opacity: 1, transform: 'translate(6px,-6px)', offset: o(1450) },
+      { opacity: 0, transform: 'translate(6px,8px)', offset: o(1650) }, { opacity: 0, offset: 1 }]);
+    add(k, p2, [{ opacity: 0, transform: 'translate(12px,-30px) scale(.9)', offset: 0 }, { opacity: 0, transform: 'translate(12px,-30px) scale(.9)', offset: o(820) },
+      { opacity: 1, transform: 'translate(12px,-34px) scale(1)', offset: o(960), easing: 'cubic-bezier(.23,1,.32,1)' }, { opacity: 1, transform: 'translate(12px,-34px)', offset: o(1450) },
+      { opacity: 0, transform: 'translate(12px,-34px)', offset: o(1600) }, { opacity: 0, offset: 1 }]);
+  } else if (s.kind === 'request') {
+    /* NEW REQUEST: the shop speaks (a bubble), it folds into a note, and the note goes to him */
+    p1.innerHTML = svgOf(BUBBLE); p2.innerHTML = svgOf(NOTE, 2.5);
+    add(k, p1, [{ opacity: 0, transform: 'translate(-6px,-28px) scale(.92)', offset: 0 }, { opacity: 0, transform: 'translate(-6px,-28px) scale(.92)', offset: o(560) },
+      { opacity: 1, transform: 'translate(-6px,-30px) scale(1)', offset: o(720), easing: 'cubic-bezier(.23,1,.32,1)' }, { opacity: 1, transform: 'translate(-6px,-30px)', offset: o(1000) },
+      { opacity: 0, transform: 'translate(-6px,-30px) scale(.92)', offset: o(1100) }, { opacity: 0, offset: 1 }]);
+    add(k, p2, [{ opacity: 0, transform: 'translate(-2px,-26px)', offset: 0 }, { opacity: 0, transform: 'translate(-2px,-26px)', offset: o(1060) },
+      { opacity: 1, transform: 'translate(-2px,-26px)', offset: o(1120) }, { opacity: 1, transform: 'translate(-25px,-23px)', offset: o(1240), easing: 'ease-in-out' },
+      { opacity: 0, transform: 'translate(-25px,-23px)', offset: o(1260) }, { opacity: 0, offset: 1 }]);
+  }
+  hide(p4, 0, SCENE);
+});
+
+/* ===== the panel: Day Log rows (PC), chips + one card (phone), notches on the timeline ===== */
+const EVENTS = [{ ...START, kind: 'start', label: 'Day starts' }, ...STOPS];
+const SIGN_HTML = (k) => sign(k);
+document.getElementById('rows').innerHTML = EVENTS.map((e, i) => `<li><button class="row future" type="button" data-k="${i}"><span class="t">${e.time}</span>${SIGN_HTML(e.kind)}<span class="s"><b>${e.name}</b><span>${e.result}</span><em>${e.note}</em></span></button></li>`).join('');
+const sold = STOPS.filter((s) => s.kind === 'sold').length, noOrder = STOPS.filter((s) => ['full', 'issue', 'request', 'routine'].includes(s.kind)).length;
+document.getElementById('stats').innerHTML = `<div><b>Rp 250.000</b><small>${sold} sale + 1 order</small></div><div><b>${noOrder}</b><small>visits, no order</small></div><div><b>3 h 25 m</b><small>07:45 to 11:10</small></div>`;
+const card = document.getElementById('card');
+card.innerHTML = '<div class="head2" id="chead"></div><p id="cres"></p><p class="n" id="cnote"></p><div class="chips" id="chips">'
+  + EVENTS.map((e, i) => `<button class="chip future" type="button" data-k="${i}">${SIGN_HTML(e.kind)}${e.time}</button>`).join('') + '</div>';
+document.getElementById('notches').innerHTML = EVENTS.map((e, i) => `<button class="notch" type="button" data-k="${i}" aria-label="${e.time} ${e.name}" style="left:${((T[i] - DAY0) / (DAY1 - DAY0) * 100).toFixed(3)}%">${SIGN_HTML(e.kind)}</button>`).join('');
+document.getElementById('hours').innerHTML = [8, 9, 10, 11].map((h) => `<span style="left:${((h * 60 - DAY0) / (DAY1 - DAY0) * 100).toFixed(3)}%">${String(h).padStart(2, '0')}:00</span>`).join('');
+
+/* ===== render(t): everything on screen is a function of t ===== */
+const man = document.getElementById('man'), fig = document.getElementById('fig'), cam = document.getElementById('cam'), box = document.getElementById('box');
+const ease = (u) => (1 - Math.cos(Math.PI * u)) / 2;
+let lite = false, camMode = 'follow', camNow = null, lastK = -1;
+function manAt(t) {
+  const s = segAt(t);
+  if (s.kind === 'walk') {
+    const u = Math.min(1, (t - s.t0) / (s.t1 - s.t0)), a = PTS[s.k - 1], b = PTS[s.k];
+    if (lite) return { ...a, legs: 'S', flip: false };
+    const e = ease(u);
+    return { x: a.x + (b.x - a.x) * e, y: a.y + (b.y - a.y) * e, legs: Math.floor((t - s.t0) / 130) % 2 ? 'B' : 'A', flip: b.x < a.x, walkDone: legLen.slice(0, s.k - 1).reduce((x, y) => x + y, 0) + legLen[s.k - 1] * e };
+  }
+  const k = s.kind === 'start' ? 0 : s.k;
+  return { ...PTS[k], legs: 'S', flip: false };
+}
+function render(t, snap) {
+  const s = segAt(t), local = s.kind === 'scene' ? (lite ? SCENE : t - s.t0) : 0;
+  /* stops: before his scene = closed; after = its end picture; during = the scene at its own time */
+  STOPS.forEach((_, i) => {
+    const k = i + 1, ss = sceneSeg(k), lt = t >= ss.t1 ? SCENE : t < ss.t0 ? 0 : (lite ? SCENE : t - ss.t0);
+    ANIMS[k].forEach((a) => { a.currentTime = Math.min(SCENE - 0.01, lt); });
+    document.getElementById('s' + k).classList.toggle('future', t < ss.t0);
+  });
+  /* him */
+  const p = manAt(t);
+  let dx = 0, dy = 0, up = false, held = '';
+  if (s.kind === 'scene') {
+    const kind = STOPS[s.k - 1].kind;
+    if (kind === 'sold' && local >= 1050) { up = true; held = 'coin'; }
+    if (kind === 'swap' && local >= 1050) { up = true; held = 'crate'; }
+    if (kind === 'request' && local >= 1250) { up = true; held = 'note'; }
+    if (kind === 'closed' && !lite && ((local > 450 && local < 560) || (local > 680 && local < 790))) dx = 2;     /* knock */
+    if (kind === 'full' && !lite && local > 820 && local < 1180) dx = Math.floor((local - 820) / 70) % 2 ? -1 : 1; /* shakes his head */
+    if (kind === 'routine' && !lite && local > 600 && local < 1100) dy = 1;                                        /* looks inside */
+  }
+  if (s.kind === 'end') { const kind = STOPS[STOPS.length - 1].kind; up = kind === 'sold'; held = up ? 'coin' : ''; }
+  man.style.transform = `translate(${p.x - 15 + dx}px, ${p.y - 42 + dy}px)`;
+  fig.style.transform = p.flip ? 'scaleX(-1)' : '';
+  man.dataset.legs = p.legs; man.dataset.held = held; man.classList.toggle('up', up);
+  man.classList.toggle('busy', !lite && s.kind === 'scene' && local > 250 && local < 1850);
+  const visited = STOPS.filter((_, i) => { const ss = sceneSeg(i + 1); return t >= ss.t0 + (lite ? 0 : 1300); }).length;
+  document.getElementById('mantag').textContent = `${MAN.ini} · ${visited}/${STOPS.length}`;
+  /* the trail */
+  const done = p.walkDone ?? legLen.slice(0, s.kind === 'start' ? 0 : s.k).reduce((x, y) => x + y, 0);
+  for (const id of ['trail', 'trailU']) document.getElementById(id).setAttribute('stroke-dasharray', `${done} ${ROAD_LEN + 10}`);
+  PTS.slice(1).forEach((_, i) => document.getElementById('ar' + (i + 1)).setAttribute('opacity', done >= legLen.slice(0, i + 1).reduce((x, y) => x + y, 0) / 1.0001 - legLen[i] / 2 ? 1 : .45));
+  /* the clock, the timeline, the current event */
+  const c = clockAt(t), pct = (c - DAY0) / (DAY1 - DAY0) * 100;
+  document.getElementById('clock').textContent = hm(c);
+  document.getElementById('fill').style.width = pct + '%';
+  document.getElementById('head').style.left = pct + '%';
+  document.getElementById('tl').setAttribute('aria-valuenow', pct.toFixed(0));
+  document.getElementById('tl').setAttribute('aria-valuetext', hm(c));
+  const cur = s.kind === 'walk' ? s.k - 1 : s.kind === 'start' ? 0 : s.k;      /* walking = still under the last stop's line */
+  const curDone = s.kind === 'scene' ? s.k : cur;
+  document.querySelectorAll('.notch').forEach((n, i) => { n.classList.toggle('done', i <= curDone); n.classList.toggle('now', i === cur); });
+  if (cur !== lastK) {
+    lastK = cur;
+    const e = EVENTS[cur];
+    document.querySelectorAll('.row, .chip').forEach((b) => { const i = +b.dataset.k; b.classList.toggle('now', i === cur); b.classList.toggle('future', i > cur); });
+    const row = document.querySelector(`.row[data-k="${cur}"]`), list = document.getElementById('rows');
+    if (row && list.scrollHeight > list.clientHeight) list.scrollTo({ top: row.parentElement.offsetTop - list.offsetTop - 40, behavior: lite ? 'auto' : 'smooth' });
+    const chip = document.querySelector(`.chip[data-k="${cur}"]`), strip = document.getElementById('chips');
+    if (chip) strip.scrollTo({ left: chip.offsetLeft - strip.offsetLeft - 60, behavior: lite ? 'auto' : 'smooth' });
+    document.getElementById('chead').innerHTML = `${SIGN_HTML(e.kind)}<div><b>${e.name}</b><small>${e.time} · ${e.label || ''}</small></div>`;
+    document.getElementById('cres').textContent = e.result;
+    document.getElementById('cnote').textContent = '"' + e.note + '"';
+    document.getElementById('now').innerHTML = `${e.name}<small>${e.time} · ${e.result}</small>`;
+  }
+  /* the camera: the whole day framed, or his spot followed */
+  const bw = box.clientWidth, bh = box.clientHeight;
+  let tgt;
+  if (camMode === 'whole') { const R = { x: 28, y: 104, w: 566, h: 290 }, sc = Math.min(bw / R.w, bh / R.h); tgt = { s: sc, x: (bw - R.w * sc) / 2 - R.x * sc, y: (bh - R.h * sc) / 2 - R.y * sc }; }
+  else { const sc = Math.min(bw / 250, bh / 200), cx = p.x + 22, cy = p.y - 24; tgt = { s: sc, x: bw / 2 - cx * sc, y: bh / 2 - cy * sc }; }
+  if (!camNow || snap || lite) camNow = tgt;
+  else { const f = 0.14; camNow = { s: camNow.s + (tgt.s - camNow.s) * f, x: camNow.x + (tgt.x - camNow.x) * f, y: camNow.y + (tgt.y - camNow.y) * f }; }
+  cam.style.transform = `translate(${camNow.x}px, ${camNow.y}px) scale(${camNow.s})`;
+}
+
+/* ===== the player ===== */
+let t = 0, playing = true, speed = 1, prevNow = null;
+const playBtn = document.getElementById('play'), playIcon = document.getElementById('playicon');
+const setPlaying = (v) => { playing = v; if (playing && t >= TOTAL - 1) t = 0; playIcon.innerHTML = playing ? '<path d="M4 3h4v12H4zM10 3h4v12h-4z"/>' : '<path d="M5 3v12l10-6z"/>'; playBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play'); prevNow = null; };
+function frame(now) {
+  if (playing) {
+    if (prevNow != null) t = Math.min(TOTAL, t + (now - prevNow) * speed);
+    prevNow = now;
+    if (t >= TOTAL) setPlaying(false);
+  }
+  render(t, false);
+  requestAnimationFrame(frame);
+}
+const seek = (nt, keepPlaying = playing) => { t = Math.max(0, Math.min(TOTAL - 1, nt)); prevNow = null; render(t, true); if (!keepPlaying) setPlaying(false); };
+const jumpTo = (i) => seek(i === 0 ? 0 : sceneSeg(i).t0, playing);
+playBtn.addEventListener('click', () => setPlaying(!playing));
+document.getElementById('restart').addEventListener('click', () => { seek(0, true); setPlaying(true); });
+const curIdx = () => { const s = segAt(t); return s.kind === 'walk' ? s.k - 1 : s.kind === 'start' ? 0 : s.k; };
+document.getElementById('prev').addEventListener('click', () => { const s = segAt(t), i = curIdx(); jumpTo(s.kind === 'scene' && t - s.t0 > 600 ? i : Math.max(0, i - 1)); });
+document.getElementById('next').addEventListener('click', () => jumpTo(Math.min(STOPS.length, curIdx() + 1)));
+document.querySelectorAll('[data-sp]').forEach((b) => b.addEventListener('click', () => { speed = +b.dataset.sp; document.querySelectorAll('[data-sp]').forEach((x) => x.setAttribute('aria-pressed', x === b)); }));
+document.addEventListener('click', (e) => { const b = e.target.closest('.row, .chip, .notch'); if (b) jumpTo(+b.dataset.k); });
+/* scrub: press and drag anywhere along the timeline (the notches jump instead) */
+const tl = document.getElementById('tl');
+let scrubbing = false, wasPlaying = false;
+const toClock = (ev) => { const r = tl.getBoundingClientRect(); return DAY0 + Math.max(0, Math.min(1, (ev.clientX - r.left) / r.width)) * (DAY1 - DAY0); };
+tl.addEventListener('pointerdown', (e) => { if (e.target.closest('.notch')) return; scrubbing = true; wasPlaying = playing; tl.setPointerCapture(e.pointerId); seek(tAtClock(toClock(e)), false); });
+tl.addEventListener('pointermove', (e) => { if (scrubbing) seek(tAtClock(toClock(e)), false); });
+tl.addEventListener('pointerup', () => { if (!scrubbing) return; scrubbing = false; if (wasPlaying) setPlaying(true); });
+document.addEventListener('keydown', (e) => {
+  if (e.target.closest('input, textarea')) return;
+  if (e.key === ' ' && !e.target.closest('button')) { e.preventDefault(); setPlaying(!playing); }
+  if (e.key === 'ArrowRight') jumpTo(Math.min(STOPS.length, curIdx() + 1));
+  if (e.key === 'ArrowLeft') jumpTo(Math.max(0, curIdx() - 1));
+});
+/* toggles */
+const press = (sel, attr, fn) => document.querySelectorAll(sel).forEach((b) => b.addEventListener('click', () => { document.querySelectorAll(sel).forEach((x) => x.setAttribute('aria-pressed', x === b)); fn(b.dataset[attr]); render(t, true); }));
+press('[data-cam]', 'cam', (v) => { camMode = v; });
+press('[data-lay]', 'lay', (v) => { document.body.classList.toggle('phone', v === 'phone'); lastK = -1; });
+const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+const setLite = (v) => { lite = v || reduce.matches; document.documentElement.classList.toggle('lite', lite); document.getElementById('lite').setAttribute('aria-pressed', lite); render(t, true); };
+document.getElementById('lite').addEventListener('click', () => setLite(!lite));
+if (matchMedia('(max-width: 640px)').matches) { document.body.classList.add('phone'); document.querySelectorAll('[data-lay]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.lay === 'phone')); }
+new ResizeObserver(() => render(t, true)).observe(box);
+setLite(false);
+window.__replay = { seek: (ms) => seek(ms, false), get t() { return t; }, TOTAL, SEGS, sceneSeg, setLite, play: () => setPlaying(true), pause: () => setPlaying(false) };   /* for the lab's frozen frames */
+render(0, true);
+requestAnimationFrame(frame);
+</script>

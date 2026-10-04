@@ -1,0 +1,31 @@
+{
+ "errs": [],
+ "total": 29175,
+ "heldAt": {
+  "sold": "coin up",
+  "full": "",
+  "swap": "crate up",
+  "issue": "",
+  "order": "",
+  "request": "note up",
+  "closed": "",
+  "routine": ""
+ },
+ "lite": {
+  "running": 0,
+  "held": "coin"
+ },
+ "rowNow": "Toko Makmur",
+ "brightness": {
+  "frames": 1134,
+  "meanMin": "81.7",
+  "meanMax": "84.4",
+  "worstFrameShare": "0.062"
+ },
+ "phone": {
+  "phoneClass": true,
+  "overflow": 0,
+  "hoverNone": true,
+  "logHidden": true
+ }
+}
