@@ -1,6 +1,6 @@
 ---
 date: 2026-10-04
-status: DRAWN - live page v3 (https://claude.ai/artifact/WnjonLSqjNZYpoMBbXSdSz), his pick owed (Today / A / B / C)
+status: C DECIDED + BUILT (kpm bcae573); round 2 OPEN - request mark A banner / B "!" + what clears it, drawn on v4
 tags: [kpm, journey-plan, map, signs, animation, design, brainstorm, open]
 ---
 
@@ -37,9 +37,40 @@ brightness unchanged 83.1-84.5 - no flash.
 
 ## Decision
 
-**OPEN - waiting on Aldi** (his pick of Today / A / B / C). Then: port the picked set into `mapSprites.js` (`PIC5` /
-`SIGN5` / `signFor`, + a `swap` sign for RETUR, which today has no sign in the app) with a logicFixes guard that every
-QUICK_TAG has a sign; the Day Replay build waits behind it.
+**DECIDED 18:30 - C.** His words: *"C is the best because it is really clear"*. He took the WORDS over my pick B (the
+objects alone) - the same choice as the name tags on 2026-10-04 09:05: readable words beat a picture he has to decode.
+**Built kpm `bcae573`** (19:05): `mapSprites.js` PIC6 / SIGN5 / SIGN_FAMILY / SIGN_WORD / `kindByShop`, acts as CSS
+keyframes in `expedition.css` (kx-a-*), words decluttered like Expedition's shop names (`SignWords` in JourneyView).
+Found on the way: every transaction today counted as a sale, so an exchange-only shop showed the Sale coin - fixed.
+Checked: logicFixes 2194/2194, map test 49/49, the 8 built signs frozen at 7 moments inside real markers
+(`Raw/2026-10-04-signs-built/moments-built.png`, rest = one cached picture each, 0 squares).
+
+## Round 2 - the open-request mark (his 18:30)
+
+> *"btw for request since it is very important we need more visible compared to other maybe add some flag on that stores
+> until order is fullfilled"*
+
+Drawn on the same page (v4), top right of the chest (the red "nobody's shop" flag owns the top left), on a shop, a
+pressed shop (0 clashes with the name tag after a 6 px move), a nobody's shop and a bubble:
+
+| | What | Cost |
+|---|---|---|
+| **A · Banner flag (his idea)** | cream swallow-tail banner with the note's lines, raised up its pole once | still a FLAG next to the red flag; colour, notch and lines tell them apart - weaker in the grey view |
+| **B · The "!" (my pick)** | a game's "!" block (gold, dark "!"), drops in once | a new shape to learn; reads as "this shop wants something" in any game |
+
+What clears it needs DATA: today a visit report overwrites `lastVisitTag`, so a request is forgotten at the next
+visit. "Until fulfilled" = a new field on the store (e.g. `openRequest: { note, at, by }`) set by a New Request report
+and cleared by... **OPEN - his answer owed**: (1) a "Request done" press on the shop popup (recommended - exact, it
+reports, the log keeps who/when); (2) the next sale at that shop (automatic, but a normal sale would clear a menthol
+request nobody delivered); (3) the next visit of any kind. Also asked: does Repeat Order (an order waiting for delivery)
+get the same mark - his "until order is fullfilled" could mean it. Firestore rules for the store update must be read
+before building (a salesman may not be allowed to write a new field).
+
+Rejected on purpose: the selected-salesman marker (gold chevron over the pressed man) - it already means "this is the man
+you pressed"; a second red flag (colour-only difference, his round-7 colour-blind rule).
+
+Models applied (round 2): Reversibility Test (a new stored field is a one-way door - ask before writing it), Second-Order
+(auto-clear on sale silently drops a request).
 
 ## Rejected on purpose
 

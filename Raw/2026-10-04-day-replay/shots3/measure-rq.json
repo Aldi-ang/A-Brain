@@ -1,0 +1,24 @@
+{
+ "errs": [],
+ "pc": {
+  "marks": 10,
+  "clashes": [],
+  "overflow": 0
+ },
+ "pcBytes": 380674,
+ "greyBytes": 308856,
+ "mid": {
+  "anims": 10,
+  "connected": true
+ },
+ "midBytes": 382787,
+ "phone": {
+  "hoverNone": true,
+  "phoneClass": true,
+  "cols": "328px",
+  "marks": 10,
+  "clashes": [],
+  "overflow": 0
+ },
+ "phoneBytes": 523072
+}

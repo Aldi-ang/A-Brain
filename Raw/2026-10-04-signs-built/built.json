@@ -1,0 +1,91 @@
+{
+ "errs": [],
+ "T": [
+  0,
+  560,
+  650,
+  760,
+  900,
+  1050,
+  1250
+ ],
+ "frozen": {
+  "connected": true,
+  "anims": 819,
+  "running": 0
+ },
+ "parts": {
+  "sold": {
+   "mid": "coin:1.00:1.0 0.0 0.0 1.0 0.0 -3.5",
+   "end": "coin:1.00:NaN"
+  },
+  "order": {
+   "mid": "m:0.51:1.0 0.0 0.0 1.0 4.4 0.0",
+   "end": "m:1.00:NaN"
+  },
+  "full": {
+   "mid": "m:1.00:NaN | x:1.00:1.0 0.0 0.0 1.0 -1.1 0.0",
+   "end": "m:1.00:NaN | x:0.00:1.0 0.0 0.0 1.0 -6.0 5.0"
+  },
+  "issue": {
+   "mid": "m:1.00:0.9 -0.5 0.5 0.9 0.0 0.0 | x:1.00:0.9 0.5 -0.5 0.9 0.0 0.0",
+   "end": "m:1.00:NaN | x:1.00:NaN"
+  },
+  "request": {
+   "mid": "m:1.00:1.0 -0.1 0.1 1.0 0.0 0.0 | x:0.86:1.0 0.0 0.0 1.0 0.0 -2.3",
+   "end": "m:1.00:NaN | x:1.00:NaN"
+  },
+  "closed": {
+   "mid": "m:1.00:1.0 0.0 0.0 0.3 0.0 0.0 | x:0.00:1.0 0.0 0.0 1.0 0.0 -5.0",
+   "end": "m:1.00:NaN | x:1.00:NaN"
+  },
+  "routine": {
+   "mid": "m:1.00:1.0 0.0 0.0 1.0 -0.1 0.0 | x:0.00:NaN",
+   "end": "m:1.00:NaN | x:1.00:NaN"
+  },
+  "swap": {
+   "mid": "m:1.00:1.0 0.0 0.0 1.0 5.0 -0.4 | x:1.00:1.0 0.0 0.0 1.0 -5.0 0.4",
+   "end": "m:1.00:NaN | x:1.00:NaN"
+  }
+ },
+ "boardBytes": 418511,
+ "rest": {
+  "shown": 8,
+  "rects": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pic": [
+   "coin matrix(1, 0, 0, 1, -72, 0)",
+   "url(\"data:image/svg+xml,",
+   "url(\"data:image/svg+xml,",
+   "url(\"data:image/svg+xml,",
+   "url(\"data:image/svg+xml,",
+   "url(\"data:image/svg+xml,",
+   "url(\"data:image/svg+xml,",
+   "url(\"data:image/svg+xml,"
+  ],
+  "words": [
+   "SALE",
+   "ORDER",
+   "FULL",
+   "COMPETITOR",
+   "REQUEST",
+   "CLOSED",
+   "CHECK",
+   "EXCHANGE"
+  ],
+  "running": 0
+ },
+ "restBytes": 107474,
+ "lite": {
+  "running": 0,
+  "coin": "matrix(1, 0, 0, 1, -72, 0)"
+ }
+}

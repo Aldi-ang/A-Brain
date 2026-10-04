@@ -12,6 +12,14 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-10-04 19:10 — Journey map: visit signs in his look C (kpm bcae573) + Map System flash fixed (kpm 9006958)
+
+His 18:30 *"C is the best because it is really clear ... yes please fix the map flash as well"*. Look C built: each
+status its own 12 x 12 object + family lamp + word, acting out its word once on the chest's moment; an exchange (RETUR)
+no longer shows the Sale coin (`kindByShop`). Map System: the empty map follows the picked base map (dark 79,79,81 /
+satellite 84,84,80 / light maps #ddd) - light share on a slow zoom 15.7 % -> 0.4 %. Frames: `Raw/2026-10-04-signs-built/`,
+`Raw/2026-10-04-map-flash/`. His request-mark ask drawn (A banner / B "!"), OPEN - `Brainstorm/2026-10-04_visit-signs.md`.
+
 ## 2026-10-04 — Journey map: light flash on salesman switch fixed (kpm aa87cd1)
 
 His epilepsy concern. Leaflet's default `#ddd` showed while tiles loaded after a camera move; the map background is now

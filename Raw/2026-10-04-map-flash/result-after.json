@@ -1,0 +1,74 @@
+{
+ "label": "after",
+ "up": true,
+ "box": {
+  "x": 0,
+  "y": 0,
+  "w": 1440,
+  "h": 1000
+ },
+ "groundAtLoad": "rgb(79, 79, 81)",
+ "maps": [
+  {
+   "name": "Dark Canvas (Esri)",
+   "picked": true,
+   "groundNow": "rgb(79, 79, 81)",
+   "settled": {
+    "mean": 78.8,
+    "light": 0.003,
+    "rgb": [
+     79,
+     79,
+     81
+    ]
+   },
+   "frames": 360,
+   "meanMin": 79.4,
+   "meanMax": 86,
+   "lightMax": 0.004,
+   "bigMax": 0.053,
+   "lightFramesOver5pct": 0
+  },
+  {
+   "name": "Google Maps (Hybrid)",
+   "picked": true,
+   "groundNow": "rgb(84, 84, 80)",
+   "settled": {
+    "mean": 84.2,
+    "light": 0.016,
+    "rgb": [
+     75,
+     88,
+     69
+    ]
+   },
+   "frames": 146,
+   "meanMin": 77.1,
+   "meanMax": 84.2,
+   "lightMax": 0.021,
+   "bigMax": 0.265,
+   "lightFramesOver5pct": 0
+  },
+  {
+   "name": "Light Canvas (Esri)",
+   "picked": true,
+   "groundNow": "rgb(221, 221, 221)",
+   "settled": {
+    "mean": 236.4,
+    "light": 0.983,
+    "rgb": [
+     236,
+     236,
+     237
+    ]
+   },
+   "frames": 351,
+   "meanMin": 234.8,
+   "meanMax": 236.4,
+   "lightMax": 0.983,
+   "bigMax": 0.002,
+   "lightFramesOver5pct": 0
+  }
+ ],
+ "errs": []
+}

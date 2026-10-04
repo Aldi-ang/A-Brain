@@ -243,7 +243,35 @@ body.phone.shopopen .card { display: none; }
 .lg { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0; font-size: 12.5px; color: var(--ink-muted); }
 .lg span { display: inline-flex; align-items: center; gap: 7px; }
 .lg i { width: 18px; height: 18px; border: 1px solid var(--line-3); border-radius: 50%; background: radial-gradient(closest-side, var(--l1), var(--l2) 60%, #121110); }
-.signs.grey .sgrid, .signs.grey .lg { filter: grayscale(1); }
+.signs.grey .sgrid, .signs.grey .lg, .signs.grey .rq { filter: grayscale(1); }
+/* ---------------- the open-request mark (his 18:30 "for request since it is very important we need more visible ... maybe add
+   some flag on that stores until order is fullfilled"): two looks, each on a shop, a pressed shop, a nobody's shop, a bubble ---------------- */
+.rqh { margin: 6px 0 0; font: 800 18px/1.1 var(--font-display); letter-spacing: .03em; text-transform: uppercase; }
+.rqh small { display: block; margin-top: 4px; max-width: 82ch; font: 400 13px/1.45 var(--font-body); text-transform: none; letter-spacing: 0; color: var(--ink-muted); }
+.rq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+body.phone .rq { grid-template-columns: minmax(0, 1fr); }
+.rqcol { display: grid; gap: 8px; align-content: start; padding: 10px; border: 1px solid var(--line-2); border-radius: 12px; background: var(--inset); }
+.rqcol.pick { border-color: var(--gold); }
+.rqcol > b { font: 800 16px/1.05 var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
+.rqcol > small { color: var(--ink-muted); font-size: 12.5px; line-height: 1.4; }
+.rqrow { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-around; gap: 6px; padding: 14px 6px 8px; border-radius: 10px; background: #3A3A3C url(ground.jpg) -760px -520px / 1640px auto no-repeat; cursor: pointer; }
+.rqc { position: relative; width: 80px; height: 106px; }
+.rqc > small { position: absolute; left: 0; right: 0; bottom: -2px; text-align: center; font: 700 9px/1.2 var(--font-pixel); color: #E8E4DE; text-shadow: 0 1px 0 #0A0908; }
+.rqc .box { position: absolute; left: 18px; top: 34px; width: 28px; height: 34px; }
+.rqc .box svg.chest { position: absolute; left: 0; top: 0; width: 28px; height: 34px; }
+.rqc .ring { position: absolute; left: 50%; bottom: -5px; width: 36px; height: 12px; translate: -50% 0; border-radius: 50%; border: 2px solid #a855f7; background: rgba(10, 9, 8, .55); z-index: -1; }
+.rqc .box { isolation: isolate; }
+.rqc .free { position: absolute; left: -9px; top: -6px; width: 14px; height: 20px; z-index: 1; }
+.rqc .mk { position: absolute; z-index: 2; }
+.rqc .mk.a { left: 42px; top: -8px; width: 18px; height: 32px; }
+.rqc .mk.b { left: 42px; top: -10px; width: 16px; height: 24px; }
+.rqc .slot { position: absolute; left: 14px; top: 26px; width: 42px; height: 42px; background: #8B8B8B; border: 3px solid; border-color: #373737 #FFFFFF #FFFFFF #373737; display: grid; place-items: center; }
+.rqc .slot .cnt { position: absolute; right: 2px; bottom: 1px; font: 900 16px/1 var(--font-display); color: #FFFFFF; text-shadow: 2px 2px 0 #3F3F3F; }
+.rqc .slot .free { left: -12px; top: 19px; }
+.rqc .slot .mk.a { left: 28px; top: -20px; }
+.rqc .slot .mk.b { left: 28px; top: -16px; }
+.rqz { display: flex; justify-content: center; padding: 8px; border-radius: 10px; background: #3A3A3C url(ground.jpg) -760px -520px / 1640px auto no-repeat; }
+.rqz .rqc { width: 80px; height: 92px; transform: scale(2.4); transform-origin: 50% 0; margin-bottom: 130px; }
 body.phone .sgrid { grid-template-columns: 92px repeat(2, minmax(0, 1fr)); }
 body.phone .sgrid [data-set]:not([data-set="today"]):not(.on) { display: none; }
 body.phone .cell { flex-direction: column; gap: 4px; min-height: 0; padding: 6px 4px; }
@@ -277,6 +305,9 @@ html.lite .shopcard { animation: none; }
     </div>
     <div class="sgrid" id="sgrid"></div>
     <p class="lg"><span><i style="--l1:rgba(255,214,140,.75);--l2:rgba(228,176,74,.35)"></i>B and C: gold light = money in</span><span><i style="--l1:rgba(240,226,188,.5);--l2:rgba(240,226,188,.16)"></i>pale light = visited, no sale</span><span><i style="--l1:rgba(224,88,58,.75);--l2:rgba(179,38,30,.3)"></i>red light = a problem</span><span><i style="--l1:#121110;--l2:#121110"></i>no light = closed</span></p>
+    <h3 class="rqh">Open request mark · two looks
+      <small>Your ask: a New Request should stand out more and keep a mark on the shop until it is done. The red flag already means "nobody's shop" (top left of a chest), so both looks sit top right and are not red. Each one is shown on a shop, on a pressed shop with its name tag, on a nobody's shop that also has a request, and on a bubble of 5 shops. Press a row to see the mark arrive; after that it stands still.</small></h3>
+    <div class="rq" id="rq"></div>
   </section>
 
   <div class="bar" role="toolbar" aria-label="Camera">
@@ -710,6 +741,36 @@ function buildBoard() {
 const playRow = (k, delay = 0) => { if (lite) return; document.querySelectorAll(`.cell[data-play="${k}"]`).forEach((c) => c.querySelectorAll('svg.sg').forEach((svg) => {
   svg.getAnimations({ subtree: true }).forEach((a) => a.cancel()); runAct(svg, c.dataset.set, k, { delay }); })); };
 const playAll = () => KINDS.forEach((k, i) => playRow(k, i * 260));
+
+/* the open-request mark: A = his flag, a cream banner (not the red nobody's flag) with the note's lines, raised up its pole;
+   B = a game's "!" - this shop wants something from you - dropping in. Both stay until the request is done */
+const MKP = { O: 'fill="#0A0908"', P: 'fill="#5B3F22"', w: 'fill="#F0E2BC"', K: 'fill="#3F2C18"', G: 'fill="#E2A12E"', Y: 'fill="#FFF4CF"', R: 'fill="#B3261E"', r: 'fill="#E0473C"' };
+const POLE = ['OO', 'OP', 'OP', 'OP', 'OP', 'OP', 'OP', 'OP', 'OP', 'OP', 'OP', 'OP', 'OP', 'OP', 'OP', 'OO'];
+const BANNER = ['.OOOOOOO', '.GGGGGGO', '.wwwwwwO', '.wKKKKwO', '.wwwwwO.', '.wKKKO..', '.wwwwwO.', '.wKKKKwO', '.wwwwwwO', '.GGGGGGO', '.OOOOOOO'];
+const BANG2 = ['.OOOOOO.', 'OYGGGGGO', 'OGGOOGGO', 'OGGOOGGO', 'OGGOOGGO', 'OGGOOGGO', 'OGGGGGGO', 'OGGOOGGO', 'OGGGGGGO', '.OOOOOO.', '...OO...', '....O...'];
+const FREE2 = ['OOOOOO.', 'OPrRRRO', 'OPRRRRO', 'OPRRRO.', 'OPOOO..', 'OP.....', 'OP.....', 'OP.....', 'OP.....', 'OO.....'];
+const MARK = {
+  a: `<svg class="px" viewBox="0 0 9 16" width="18" height="32">${px(POLE, MKP)}<g class="bn" style="transform-box:fill-box">${px(at(BANNER.map((r) => '.' + r), 1), MKP)}</g></svg>`,
+  b: `<svg class="px" viewBox="0 0 8 12" width="16" height="24"><g class="bg" style="transform-box:fill-box;transform-origin:50% 100%">${px(BANG2, MKP)}</g></svg>`,
+};
+const RQ = [['a', 'A · Banner flag (your idea)', 'A cream banner with the note\'s lines on a pole, raised once when the request is sent. It is still a flag, like the red one; colour, the notch and the lines tell them apart.'],
+  ['b', 'B · The "!" (my pick)', 'A game\'s "!": this shop wants something from you. It drops in once when the request is sent. No other mark on the map has this shape.']];
+function buildRq() {
+  const reqChest = chestStill(true) + `<i class="sign" style="${lampVars('C', 'request')}"><i class="lamp"></i><span class="sgv">${sgvHtml('C', 'request')}</span></i>`;
+  const cell = (m, inner, label) => `<span class="rqc">${inner}<small>${label}</small></span>`;
+  const shop = (m, extra = '') => `<span class="box"><i class="ring"></i>${reqChest}${extra}<i class="mk ${m}">${MARK[m]}</i></span>`;
+  document.getElementById('rq').innerHTML = RQ.map(([m, n, d]) => `<div class="rqcol${m === 'b' ? ' pick' : ''}" data-mk="${m}"><b>${n}</b><small>${d}</small><div class="rqrow" data-mk="${m}">`
+    + cell(m, shop(m), 'shop')
+    + cell(m, shop(m, `<span class="otag" style="--c:#a855f7"><i></i>BS · 6</span>`), 'pressed')
+    + cell(m, shop(m, `<svg class="px free" viewBox="0 0 7 10">${px(FREE2, MKP)}</svg>`), 'nobody\'s')
+    + cell(m, `<span class="slot"><span class="cnt">5</span><svg class="px free" viewBox="0 0 7 10">${px(FREE2, MKP)}</svg><i class="mk ${m}">${MARK[m]}</i></span>`, 'bubble')
+    + `</div><div class="rqz" data-mk="${m}">${cell(m, shop(m), '')}</div></div>`).join('');
+}
+const RQ_ACT = {
+  a: ['.bn', [{ transform: 'translateY(9px) scaleY(.2)', opacity: 0, offset: 0, easing: 'cubic-bezier(.23,1,.32,1)' }, { transform: 'translateY(0) scaleY(1.06)', opacity: 1, offset: .6, easing: 'ease-in-out' }, { transform: 'none', opacity: 1, offset: .8 }, { transform: 'none', opacity: 1, offset: 1 }]],
+  b: ['.bg', [{ transform: 'translateY(-8px)', opacity: 0, offset: 0, easing: 'cubic-bezier(.55,0,1,.45)' }, { transform: 'translateY(0) scale(1.1,.88)', opacity: 1, offset: .45, easing: 'ease-out' }, { transform: 'translateY(-2px) scale(.96,1.05)', opacity: 1, offset: .65, easing: 'ease-in-out' }, { transform: 'none', opacity: 1, offset: .82 }, { transform: 'none', opacity: 1, offset: 1 }]],
+};
+const playRq = (m) => { if (lite) return; document.querySelectorAll(`[data-mk="${m}"] .mk`).forEach((el) => { const p = el.querySelector(RQ_ACT[m][0]); p.getAnimations().forEach((a) => a.cancel()); p.animate(RQ_ACT[m][1], { duration: 600, fill: 'both' }); }); };
 function setSet(v) {
   SET = v;
   document.querySelectorAll('[data-pick]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.pick === v));
@@ -892,20 +953,22 @@ press('[data-lay]', 'lay', (v) => { document.body.classList.toggle('phone', v ==
 setCam('whole');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 const setLite = (v) => { lite = v || reduce.matches; document.documentElement.classList.toggle('lite', lite); document.getElementById('lite').setAttribute('aria-pressed', lite);
-  if (lite) document.querySelectorAll('.sgrid svg.sg').forEach((s) => s.getAnimations({ subtree: true }).forEach((a) => a.finish()));   /* Lite = the still end pictures */
+  if (lite) document.querySelectorAll('.sgrid svg.sg, .rq .mk svg').forEach((s) => s.getAnimations({ subtree: true }).forEach((a) => a.finish()));   /* Lite = the still end pictures */
   render(t, true); };
 document.getElementById('lite').addEventListener('click', () => setLite(!lite));
 if (matchMedia('(max-width: 640px)').matches) { document.body.classList.add('phone'); document.querySelectorAll('[data-lay]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.lay === 'phone')); setCam('follow'); }
 placeCard();
 buildBoard();
+buildRq();
 document.getElementById('sgrid').addEventListener('click', (e) => { const p = e.target.closest('[data-play]'); if (p) playRow(p.dataset.play); });
+document.getElementById('rq').addEventListener('click', (e) => { const p = e.target.closest('.rqrow, .rqz'); if (p) playRq(p.dataset.mk); });
 document.querySelectorAll('[data-pick]').forEach((b) => b.addEventListener('click', () => setSet(b.dataset.pick)));
 document.getElementById('playall').addEventListener('click', playAll);
 document.getElementById('grey').addEventListener('click', (e) => { const on = e.currentTarget.getAttribute('aria-pressed') !== 'true'; e.currentTarget.setAttribute('aria-pressed', on); document.querySelector('.signs').classList.toggle('grey', on); });
 setSet('B');
 new ResizeObserver(() => render(t, true)).observe(box);
 setLite(false);
-document.fonts.ready.then(playAll);
+document.fonts.ready.then(() => { playAll(); playRq('a'); playRq('b'); });
 window.__replay = { seek: (ms) => seek(ms, false), get t() { return t; }, get playing() { return playing; }, get cam() { return camMode; }, TOTAL, SEGS, sceneSeg, setLite, play: () => setPlaying(true), pause: () => setPlaying(false),
   setSet, playRow, get set() { return SET; } };   /* for the lab's frozen frames */
 render(0, true);

@@ -3232,3 +3232,20 @@ Shown the Day Replay prototype (a salesman's day replayed on the pixel map, a sc
 - Built into v2 of https://claude.ai/artifact/WnjonLSqjNZYpoMBbXSdSz. The card lives OFF the map (beside it on the
   PC, under it on the phone) - over the map it covered the next shop he wanted to press (measured with real presses).
   [[../../Brainstorm/2026-10-04_journey-day-replay]]
+
+## The object AND the word: he picks the look he can read (2026-10-04, 18:30)
+
+Shown four sign looks for the 8 visit statuses (Today's cream board, A colour boards, B objects - my pick, C objects +
+the word), each at map size and zoomed, in a grey view, each acting out its word:
+
+> *"C is the best because it is really clear, btw for request since it is very important we need more visible compared
+> to other maybe add some flag on that stores until order is fullfilled"*
+
+- **Words won again** - the third time a readable label beat a picture alone (name tags 09:05 today; "what is the
+  purpose of the filled and unfilled hexagon" 2026-10-03). When a mark must be MEMORISED, put its word next to it; the
+  object makes it findable, the word makes it certain. My pick (B, objects only) lost on exactly that.
+- **Importance is a property of a status, not only of its picture.** He ranks New Request above the others and wants it
+  to persist until it is done - a mark with a lifetime (open until closed), not a moment. Expect the same for anything
+  that is a promise to a shop (an order waiting for delivery).
+- He proposed a FLAG; the map already has a red one (nobody's shop). Drawn as his banner (A) beside a game "!" (B).
+  [[../../Brainstorm/2026-10-04_visit-signs]]
