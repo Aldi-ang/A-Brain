@@ -1,0 +1,559 @@
+[
+ {
+  "name": "PC page: every shop counted (chests + bubble counts = 32)",
+  "pass": true,
+  "data": {
+   "total": 32,
+   "chests": 1,
+   "inBubbles": 31
+  }
+ },
+ {
+  "name": "PC owner row = name + title",
+  "pass": true,
+  "data": [
+   "AldiT1 · OVERSEER | No shop left to suggest",
+   "Ari Rahman | At shop · Toko Sentosa",
+   "Budi Santoso | At shop · Toko Sinar Abadi (pressed)",
+   "Dewi Wulandari | En route → Toko Amanah",
+   "Rini Saputri | Round done",
+   "Cahyo Putra | Not out today (off)"
+  ]
+ },
+ {
+  "name": "PC panel header counts 5 out (4 men + owner; Cahyo seen yesterday)",
+  "pass": true,
+  "data": "Expedition5 out · 22/32 shops"
+ },
+ {
+  "name": "PC zoomed out: men stand on bubbles as a crowd, none loose, 5 figures",
+  "pass": true,
+  "data": {
+   "crowds": 4,
+   "figs": 5,
+   "loose": []
+  }
+ },
+ {
+  "name": "PC zoomed out: every shop counted",
+  "pass": true,
+  "data": {
+   "total": 32
+  }
+ },
+ {
+  "name": "PC zoomed in (fullscreen, z16): at least 2 men in view, no man on a chest, no man on a man",
+  "pass": true,
+  "data": {
+   "men": [
+    "A · 0",
+    "BS · 5/8 (sell)"
+   ],
+   "manOnChest": 0,
+   "manOnMan": 0,
+   "bubbles": 0
+  }
+ },
+ {
+  "name": "EOD approved: Rini off the map, her row says Day closed",
+  "pass": true,
+  "data": {
+   "riniA": "Rini Saputri | Day closed",
+   "figs": 3,
+   "head": "Expedition4 out · 22/32 shops"
+  }
+ },
+ {
+  "name": "EOD sent, not approved: Rini still on the map",
+  "pass": true,
+  "data": {
+   "riniW": "Rini Saputri | Round done",
+   "figs": 4
+  }
+ },
+ {
+  "name": "Press Budi: only his shops on the map (chests + bubbles = 8, his round)",
+  "pass": true,
+  "data": {
+   "total": 8,
+   "chests": 5,
+   "inBubbles": 3,
+   "othersShown": 0
+  }
+ },
+ {
+  "name": "Press Budi: road + arrows from him through his stops (9 points, 8 arrows)",
+  "pass": true,
+  "data": {
+   "road": 1,
+   "roadPts": 9,
+   "arrows": 8
+  }
+ },
+ {
+  "name": "Press Budi: switch shows Today pressed",
+  "pass": true,
+  "data": "Today:true All shops:false"
+ },
+ {
+  "name": "Press Budi: the other men's march lines and target rings fade (one at full strength: his)",
+  "pass": true,
+  "data": {
+   "march": [
+    0.35,
+    1,
+    0.35
+   ],
+   "targets": [
+    0.35,
+    1,
+    0.35
+   ]
+  }
+ },
+ {
+  "name": "Press Budi, zooming in: his tags read BS · 1..8, no gap, no extra",
+  "pass": true,
+  "data": {
+   "union": [
+    "BS · 6",
+    "BS · 8",
+    "BS · 7",
+    "BS · 2",
+    "BS · 1",
+    "BS · 4",
+    "BS · 3",
+    "BS · 5"
+   ]
+  }
+ },
+ {
+  "name": "Budi All shops: tags 1..8, 7 arrows (the road starts at stop 1, not at him)",
+  "pass": true,
+  "data": {
+   "union": [
+    "BS · 2",
+    "BS · 1",
+    "BS · 6",
+    "BS · 8",
+    "BS · 7",
+    "BS · 4",
+    "BS · 3",
+    "BS · 5"
+   ],
+   "arrows": 7,
+   "sw": "Today:false All shops:true"
+  }
+ },
+ {
+  "name": "Tap Budi again: everything back (32 shops, no road, no tags, no fade)",
+  "pass": true,
+  "data": {
+   "total": 32,
+   "road": 0,
+   "tags": 0,
+   "focus": false
+  }
+ },
+ {
+  "name": "Press Ari next: opens on Today (switch does not carry over)",
+  "pass": true,
+  "data": "Today:true All shops:false"
+ },
+ {
+  "name": "Pen Budi: others fade, nothing hidden (32 shops), tags on his",
+  "pass": true,
+  "data": {
+   "total": 32,
+   "othersShown": 21,
+   "othersFaded": true,
+   "mine": 7,
+   "tags": [
+    "BS · 1",
+    "BS · 2",
+    "BS · 3",
+    "BS · 4",
+    "BS · 6",
+    "BS · 7",
+    "BS · 8"
+   ]
+  }
+ },
+ {
+  "name": "Pen Budi: a painted shop changes owner (its ring turns his colour)",
+  "pass": true,
+  "data": {
+   "was": "#8b5cf6",
+   "now": "#A39B90",
+   "budi": "#A39B90"
+  }
+ },
+ {
+  "name": "Pen Budi + All shops: the painted shop wears his tag (one more than before)",
+  "pass": true,
+  "data": {
+   "before": 7,
+   "after": 8,
+   "tags": [
+    "BS · 1",
+    "BS · 2",
+    "BS · 3",
+    "BS · 4",
+    "BS · 6",
+    "BS · 7",
+    "BS · 8",
+    "BS · 9"
+   ]
+  }
+ },
+ {
+  "name": "Free: red flag on bubbles holding a nobody-shop (zoomed out)",
+  "pass": true,
+  "data": {
+   "redFlags": 0,
+   "bubbleFlags": 4
+  }
+ },
+ {
+  "name": "Free, zoomed in: a red flag on every nobody-shop chest (grey ring) and on no other",
+  "pass": true,
+  "data": {
+   "redFlags": 2,
+   "greyRings": 2,
+   "bubbleFlags": 2,
+   "chests": 28
+  }
+ },
+ {
+  "name": "Fullscreen PC: whole team (6) under the keys, Cahyo dimmed",
+  "pass": true,
+  "data": {
+   "rows": 6,
+   "dim": 1,
+   "head": "Expedition5 out · 1 not",
+   "underKeys": true,
+   "rect": [
+    1218,
+    188,
+    1418,
+    435
+   ],
+   "fitsScreen": true
+  }
+ },
+ {
+  "name": "Fullscreen PC: a mini row press = only his shops + road",
+  "pass": true,
+  "data": {
+   "total": 8,
+   "road": 1
+  }
+ },
+ {
+  "name": "Seller (Budi at Toko Sinar Abadi): holds the coin over his head, tag above it, not on the chest",
+  "pass": true,
+  "data": {
+   "scene": {
+    "coinOverHead": 1,
+    "tagOverCoin": 2
+   },
+   "manOnChest": 0
+  }
+ },
+ {
+  "name": "Selling moment: 4 frozen frames, each on one live element (0 / 600 / 1050 / 1500 ms)",
+  "pass": true,
+  "data": {
+   "moments": {
+    "0": {
+     "coinY": -8.4
+    },
+    "600": {
+     "coinY": -8.4
+    },
+    "1050": {
+     "coinY": 1
+    },
+    "1500": {
+     "coinY": 1
+    }
+   },
+   "rebuiltRetakes": 0
+  }
+ },
+ {
+  "name": "Selling moment ends: back to the still held coin, no moment running",
+  "pass": true,
+  "data": {
+   "play": false,
+   "running": 0
+  }
+ },
+ {
+  "name": "Lite: 0 animations running on the map",
+  "pass": true,
+  "data": {
+   "running": 0,
+   "names": []
+  }
+ },
+ {
+  "name": "Break · nobody out: no man on the map, panel 0 out, fullscreen lists all 5 dimmed, shops still 32",
+  "pass": true,
+  "data": {
+   "head": "Expedition0 out · 0/0 shops",
+   "mini": {
+    "rows": 5,
+    "dim": 5,
+    "head": "Expedition0 out · 5 not"
+   },
+   "figs": 0,
+   "total": 32
+  }
+ },
+ {
+  "name": "Break · only the owner out: the camera keeps the shops in view (32), no dive to zoom 16 on him",
+  "pass": true,
+  "data": {
+   "total": 32,
+   "head": "Expedition1 out · 0/0 shops"
+  }
+ },
+ {
+  "name": "Break · no round today, 3 sales off-schedule: every stop on Ari's road has a chest on the map",
+  "pass": true,
+  "data": {
+   "stopsOnRoad": 4,
+   "taggedChests": [
+    "AR · 4",
+    "AR · 1",
+    "AR · 2",
+    "AR · 3"
+   ],
+   "total": 4,
+   "ariRow": "Ari Rahman | At shop · Toko Sentosa (pressed)"
+  }
+ },
+ {
+  "name": "Break · no pin: map loads, no crash (pinless shops drawn at the sanitizer's default spot)",
+  "pass": true,
+  "data": {
+   "total": 32,
+   "errs": []
+  }
+ },
+ {
+  "name": "Break · no pin: Budi's road skips the two pinless stops (him + 6 pinned = 6 arrows)",
+  "pass": true,
+  "data": {
+   "tags": [
+    "BS · 6",
+    "BS · 7",
+    "BS · 2",
+    "BS · 1"
+   ],
+   "arrows": 6,
+   "total": 8
+  }
+ },
+ {
+  "name": "Break · a pile of shops alone (the 2 pinless shops on one spot, no man) still spiderfies when tapped",
+  "pass": true,
+  "data": {
+   "legsAt": {
+    "150": 2,
+    "400": 2,
+    "800": 2,
+    "1500": 0
+   },
+   "pile": {
+    "n": "2",
+    "d": 0
+   }
+  }
+ },
+ {
+  "name": "Break · two men on one spot: side by side, never on each other or on a chest",
+  "pass": true,
+  "data": {
+   "men": [
+    "AR · 3/8",
+    "BS · 5/8 (sell)"
+   ],
+   "manOnMan": 0,
+   "manOnChest": 0
+  }
+ },
+ {
+  "name": "Break · press Budi while the Ari pen is on: the pen moves to Budi, so the tags on screen are the man the brush paints for",
+  "pass": true,
+  "data": {
+   "pen": "Budi Santoso",
+   "tags": [
+    "BS · 1",
+    "BS · 2",
+    "BS · 6",
+    "BS · 7"
+   ],
+   "total": 32,
+   "othersFaded": true
+  }
+ },
+ {
+  "name": "Break · Ari pen picked while Budi is pressed: Ari's tags on screen (the camera goes back to the team)",
+  "pass": true,
+  "data": {
+   "pen": "Ari Rahman",
+   "road": 1,
+   "union": [
+    "AR · 5",
+    "AR · 1",
+    "AR · 8",
+    "AR · 7",
+    "AR · 6",
+    "AR · 4",
+    "AR · 2"
+   ]
+  }
+ },
+ {
+  "name": "Break · tap him again: let go, pen off, 32 shops, no tags",
+  "pass": true,
+  "data": {
+   "pen": "Disable Brush",
+   "tags": 0,
+   "total": 32
+  }
+ },
+ {
+  "name": "Break · another day picked, Budi pressed: no road through shops that are not on the map",
+  "pass": true,
+  "data": {
+   "day": "Monday",
+   "shopsThatDay": 32,
+   "total": 8,
+   "tags": [
+    "BS · 6",
+    "BS · 8",
+    "BS · 7",
+    "BS · 2",
+    "BS · 1"
+   ],
+   "road": 1,
+   "arrows": 8
+  }
+ },
+ {
+  "name": "Break · exit fullscreen with Budi pressed: map back to 500 px, still only his shops, his row pressed, switch shown",
+  "pass": true,
+  "data": {
+   "mapSize": [
+    976,
+    500
+   ],
+   "total": 8,
+   "budiRow": "Budi Santoso | At shop · Toko Sinar Abadi (pressed)",
+   "sw": "Today:true All shops:false"
+  }
+ },
+ {
+  "name": "Phone: touch media live ((hover: none) true)",
+  "pass": true,
+  "data": true
+ },
+ {
+  "name": "Phone page: 160 px strip framing the picked man, his card under it, no sideways scroll",
+  "pass": true,
+  "data": {
+   "mapSize": [
+    374,
+    160
+   ],
+   "inView": 24,
+   "overflow": 0,
+   "card": "Budi Santoso"
+  }
+ },
+ {
+  "name": "Phone zoomed out: crowds, 5 figures, none loose",
+  "pass": true,
+  "data": {
+   "figs": 5,
+   "loose": [],
+   "crowds": 2
+  }
+ },
+ {
+  "name": "Phone fullscreen: 6 chips (Cahyo dim) + one line, clear of the zoom keys and the dock",
+  "pass": true,
+  "data": {
+   "chips": 6,
+   "dimChips": 1,
+   "line": "Budi Santososelling atToko Sinar Abadi5/8",
+   "overZoom": false,
+   "overDock": false,
+   "overflow": 0
+  }
+ },
+ {
+  "name": "Phone fullscreen: chip press = only Budi's shops + road + Today/All",
+  "pass": true,
+  "data": {
+   "total": 8,
+   "road": 1,
+   "sw": "Today:true All shops:false Today:true All shops:false"
+  }
+ },
+ {
+  "name": "Phone: the Today/All switch clears the dock and the zoom keys, buttons >= 32 px tall",
+  "pass": true,
+  "data": {
+   "overDock": false,
+   "overZoom": false,
+   "h": 32,
+   "btnH": 32
+  }
+ },
+ {
+  "name": "Phone: tapping the bubble Budi sells in zooms in, never spiderfies him (no legs, no man on a chest, no bubble left)",
+  "pass": true,
+  "data": {
+   "spiderLegs": 0,
+   "manOnChest": 0,
+   "bubbles": 0,
+   "men": [
+    "BS · 5/8 (sell)"
+   ]
+  }
+ },
+ {
+  "name": "Phone zoomed in with Budi pressed: tags BS · 1..8",
+  "pass": true,
+  "data": {
+   "union": [
+    "BS · 6",
+    "BS · 8",
+    "BS · 7",
+    "BS · 2",
+    "BS · 1",
+    "BS · 4",
+    "BS · 3",
+    "BS · 5"
+   ]
+  }
+ },
+ {
+  "name": "Phone: tap the chip again = everything back (no road, no tags, the others' chests back)",
+  "pass": true,
+  "data": {
+   "total": 1,
+   "road": 0,
+   "othersShown": 1
+  }
+ },
+ {
+  "name": "0 console errors / exceptions over the whole run",
+  "pass": true,
+  "data": []
+ }
+]

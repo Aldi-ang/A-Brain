@@ -12,6 +12,12 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-10-04 — Journey map tested end to end: 9 bugs fixed (kpm 8e38420)
+
+His "test it yourself". 49 headless checks on the production lab build (PC + phone + break cases); root causes and the
+two traps in `Brainstorm/2026-10-03_journey-map-keys.md` (TESTED END TO END); test and board in
+`Raw/2026-10-03-map-keys/built8/`.
+
 ## 2026-10-03 (later) — tobacco plant physiology + Gemini fact-check
 
 Aldi asked for deeper research on how the tobacco plant works and a check of a Gemini 3.6 Flash chat. 24 claims judged (4 true, 7 partly, 6 false, 3 no evidence, 4 do-not-do); biggest error: Gemini says 2026 leaf is low-nicotine/high-sugar, research says the opposite. Also found the Frontiers 2024 sugar -5% source that page 1 had marked unverified. New: Summaries/Tembakau - Cara Kerja Pohon dan Cek Riset Gemini.md; page https://claude.ai/artifact/B7ZgHk8WEPpd9t9reez8sG.

@@ -1,0 +1,56 @@
+{
+  "label": "test1004b",
+  "outSteps": 3,
+  "variants": {
+    "base": {
+      "idle3s": {
+        "taskMs": 116,
+        "scriptMs": 10,
+        "layoutMs": 0,
+        "styleMs": 2
+      },
+      "zoomInOut": {
+        "taskMs": 2434,
+        "scriptMs": 278,
+        "layoutMs": 11,
+        "styleMs": 627,
+        "frames": {
+          "n": 652,
+          "max": 97,
+          "over50": 2,
+          "over100": 0
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 30,
+        "rects": 0,
+        "icons": 3,
+        "slots": 3,
+        "chests": 0,
+        "people": 0,
+        "allPeople": "",
+        "allThings": "229,445,271,487 242,377,284,419 188,409,230,451",
+        "peopleOnThings": 0,
+        "onWhat": "",
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1"
+      },
+      "dom2": {
+        "markerPaneNodes": 30,
+        "rects": 0,
+        "icons": 3,
+        "slots": 3,
+        "chests": 0,
+        "people": 0,
+        "allPeople": "",
+        "allThings": "229,445,271,487 242,377,284,419 188,409,230,451",
+        "peopleOnThings": 0,
+        "onWhat": "",
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1"
+      },
+      "docNodes": 4535
+    }
+  },
+  "errors": []
+}

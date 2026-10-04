@@ -10,6 +10,32 @@ salesman customising his own character (skin, hair, shirt) - "maybe in future up
 (2026-09-23 rule). If it comes back: the sprite is already split into palette letters (`PERSON(hair, shirt)`), so a
 picker only has to store three colours per profile.
 
+## TESTED END TO END 2026-10-04 11:15 - kpm 8e38420 (local, not pushed) - 9 bugs found and fixed, 49/49 pass
+
+His ask, 10:20: *"i want u to test it yourself after reset"*. The four commits (41e308b, aa7b1d3, 64c4c5e, 7b8002e)
+driven headless on the production lab build, 1440 + 390 with touch media, plus break cases. Test + frames + board:
+`Raw/2026-10-03-map-keys/built8/` (`test-journey.mjs`, `results.json`, `board.png`). Full story per fix: the kpm commit
+message. Root causes, one line each:
+
+| # | Bug | Root cause |
+|---|---|---|
+| 1 | "All shops" carried to the next man pressed | `roadAll` was a bare boolean; now the name it belongs to |
+| 2 | only the owner out -> camera dived to z16 on him | team `fitBounds` on ONE point; the team frame needs two |
+| 3 | stander + seller on one shop overlapped 12 px | seller row anchor mixed with the centred shift |
+| 4 | pen Ari + Budi pressed = Budi on screen, paint for Ari | `focusName` let the press win silently; now one pick |
+| 5 | phone: tap the seller's bubble -> he lands on the sign | identical points never split -> markercluster spiderfies at its max zoom |
+| 6 | pressed: others' lines bright, pointing at hidden shops | `wide` made everyone "mine" in ExpeditionLayer |
+| 7 | expedition round != Journey Plan's list | raw `visitFreq === 7` vs the sanitizer's missing = 7 |
+| 8 | off-schedule sale: road bends at empty ground | the map draws only the day's route |
+| 9 | no round: next shop = the one he is selling in | nextStop over his whole list, today's sales not skipped |
+
+**TRAPS (for the next map change):** a person marker inside the cluster group at a shop's EXACT point can only be
+separated at `disableClusteringAtZoom` - never let markercluster spiderfy it (`noSpiderOnMen`, JourneyView); a browser
+check that counts what is in VIEW passes 0 === 0 when the view holds nothing - every count check needs a floor (two did,
+first run); the lab's tick folds an open spider within 1.5 s (read it at 150-800 ms).
+**Not fixed, on purpose:** a pinless shop is drawn at Muntilan centre (sanitizer default) - the boss reaches pinless
+shops through that pile. Real app not looked at (npm run dev was down).
+
 ## Round 7 (2026-10-04 08:50) - his account missing from Expedition + "whose chest, which way"; his picks OPEN
 
 **Problem, his words:** *"i put master admin here on headquarters team , my account, but it is not there while all

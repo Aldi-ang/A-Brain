@@ -1,0 +1,56 @@
+{
+  "label": "test1004",
+  "outSteps": 3,
+  "variants": {
+    "base": {
+      "idle3s": {
+        "taskMs": 104,
+        "scriptMs": 9,
+        "layoutMs": 0,
+        "styleMs": 2
+      },
+      "zoomInOut": {
+        "taskMs": 2331,
+        "scriptMs": 265,
+        "layoutMs": 9,
+        "styleMs": 608,
+        "frames": {
+          "n": 661,
+          "max": 67,
+          "over50": 1,
+          "over100": 0
+        }
+      },
+      "dom": {
+        "markerPaneNodes": 13,
+        "rects": 0,
+        "icons": 1,
+        "slots": 1,
+        "chests": 0,
+        "people": 0,
+        "allPeople": "",
+        "allThings": "186,407,228,449",
+        "peopleOnThings": 0,
+        "onWhat": "",
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1"
+      },
+      "dom2": {
+        "markerPaneNodes": 13,
+        "rects": 0,
+        "icons": 1,
+        "slots": 1,
+        "chests": 0,
+        "people": 0,
+        "allPeople": "",
+        "allThings": "186,407,228,449",
+        "peopleOnThings": 0,
+        "onWhat": "",
+        "peopleOnPeople": 0,
+        "running": "kpmEdgeBreath:1"
+      },
+      "docNodes": 4266
+    }
+  },
+  "errors": []
+}
