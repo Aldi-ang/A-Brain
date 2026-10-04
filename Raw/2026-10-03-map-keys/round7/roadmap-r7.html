@@ -94,6 +94,43 @@ html.cb .stage { filter: url(#deut); }
 .route .arrow { animation: road-in 320ms ease both; animation-delay: calc(var(--k) * 70ms); }
 .route .step { animation: road-in 200ms ease both; animation-delay: calc(var(--k) * 18ms); }
 
+/* ================= FULLSCREEN: the Expedition, smaller (his 08:57 ask) ================= */
+h2 { margin: 18px 0 0; font: 800 20px/1.1 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--gold-2); }
+.fsrow { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; align-items: start; }
+@media (max-width: 860px) { .fsrow { grid-template-columns: minmax(0, 1fr); } }
+.fs { position: relative; border: 1px solid var(--line-2); border-radius: 14px; overflow: hidden; background: #545557 url(ground.jpg) 46% 46% / 1400px auto; }
+.fs.pc { aspect-ratio: 16 / 10; }
+.fs.ph { width: 100%; max-width: 300px; aspect-ratio: 390 / 760; justify-self: center; }
+.fswrap { display: grid; gap: 6px; min-width: 0; }
+.fswrap > b { font: 800 14px/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+/* mock map furniture, as the app draws it now */
+.k { position: absolute; display: flex; align-items: center; gap: 6px; padding: 0 9px; height: 26px; border: 1px solid var(--line-3); border-radius: 8px; background: rgba(18, 17, 16, .92); color: var(--ink); font: 700 10px/1 var(--font-pixel); }
+.zoom { position: absolute; left: 10px; top: 10px; width: 26px; height: 50px; border: 1px solid var(--line-3); border-radius: 8px; background: rgba(18, 17, 16, .92); }
+.dock { position: absolute; left: 8px; right: 8px; bottom: 10px; height: 44px; border: 1px solid var(--line-3); border-radius: 14px; background: rgba(18, 17, 16, .94); }
+.mini-c5 { position: absolute; width: 14px; height: 17px; }
+.mini-c5 svg { width: 14px; height: 17px; }
+/* PC: the squad list, shrunk to its rows, under the keys on the right */
+.xmini { position: absolute; right: 10px; top: 128px; width: 190px; padding: 6px; border: 1px solid var(--line-3); border-radius: 10px; background: rgba(18, 17, 16, .94); display: grid; gap: 4px; }
+.xmini header { display: flex; justify-content: space-between; align-items: baseline; padding: 0 3px 3px; font: 800 12px/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; }
+.xmini header small { color: var(--ink-muted); font: 700 9px/1 var(--font-pixel); text-transform: none; letter-spacing: 0; }
+.xr { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 6px; border: 1px solid var(--line-2); border-radius: 7px; background: var(--panel); }
+.xr.sel { border-color: var(--gold-2); }
+.xr i { width: 8px; height: 8px; border-radius: 2px; background: var(--c); flex: none; }
+.xr span { font: 800 12px/1 var(--font-display); letter-spacing: .03em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.xr em { margin-left: auto; font: 700 9px/1 var(--font-pixel); font-style: normal; color: var(--gold-2); }
+.xr u { width: 6px; height: 6px; border-radius: 50%; background: #E4B04A; text-decoration: none; flex: none; }
+.xr u.at { background: #FFE2A0; }
+.xmini .more { padding: 2px 4px 0; color: var(--ink-muted); font: 700 9px/1.3 var(--font-pixel); }
+/* phone: the pick chips as a top bar + ONE line of the picked man's travel card */
+.xbar { position: absolute; left: 44px; right: 8px; top: 10px; display: grid; gap: 5px; }
+.xchips { display: flex; gap: 5px; overflow: hidden; }
+.xchips b { flex: none; display: flex; align-items: center; gap: 4px; height: 24px; padding: 0 7px; border: 1px solid var(--line-3); border-radius: 7px; background: rgba(18, 17, 16, .94); font: 700 9px/1 var(--font-pixel); }
+.xchips b.sel { border-color: var(--gold-2); color: var(--gold-2); }
+.xchips b i { width: 7px; height: 7px; border-radius: 2px; background: var(--c); }
+.xline { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 8px; border: 1px solid var(--line-3); border-radius: 7px; background: rgba(18, 17, 16, .94); font: 800 11px/1 var(--font-display); letter-spacing: .03em; text-transform: uppercase; white-space: nowrap; overflow: hidden; }
+.xline small { color: var(--ink-muted); font: 700 8px/1 var(--font-pixel); text-transform: none; }
+.xline em { margin-left: auto; font-style: normal; color: var(--gold-2); font: 700 9px/1 var(--font-pixel); }
+
 html.lite *, html.lite *::before, html.lite *::after { animation: none !important; transition: none !important; box-shadow: none !important; text-shadow: none !important; filter: none !important; }
 html.lite.cb .stage { filter: url(#deut) !important; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -124,6 +161,13 @@ html.lite.cb .stage { filter: url(#deut) !important; }
   <div class="wrap">
     <div class="mapbox" id="mapbox"><div class="stage" id="stage"><svg class="route" id="route" viewBox="0 0 520 420"></svg><div id="marks"></div></div></div>
     <div class="squad" id="squad"></div>
+  </div>
+
+  <h2>Fullscreen: the Expedition, smaller</h2>
+  <p class="note">Today, fullscreen covers the Expedition panel. The smaller version keeps the two layouts you already picked: the squad list on the PC, one salesman's card on the phone. It lists only the men on the map; the rest are counted as "not out". Tapping a name does what it does on the full panel and draws his road.</p>
+  <div class="fsrow">
+    <div class="fswrap"><b>PC fullscreen</b><figure class="fs pc" id="fspc" style="margin:0"></figure></div>
+    <div class="fswrap"><b>Phone fullscreen</b><figure class="fs ph" id="fsph" style="margin:0"></figure></div>
   </div>
 </main>
 
@@ -220,4 +264,16 @@ flip('lite', (v) => document.documentElement.classList.toggle('lite', v));
 const fit = () => { const box = document.getElementById('mapbox'); stage.style.transform = `scale(${box.clientWidth / 520})`; };
 new ResizeObserver(fit).observe(document.getElementById('mapbox'));
 fit(); draw();
+
+/* the two fullscreen mocks: the app's map furniture where it is now, plus the smaller Expedition */
+const chestsMini = [[18, 62], [30, 44], [44, 55], [52, 36], [64, 48], [72, 64], [38, 70], [60, 26], [26, 30]]
+  .map(([x, y], k) => `<span class="mini-c5" style="left:${x}%;top:${y}%">${CHEST[k % 3 ? 'closed' : 'open']}</span>`).join('');
+const rows = [['BS', 'Budi', '#a855f7', '2/5', 'at'], ['AR', 'Ari', '#ec4899', '1/5', ''], ['DW', 'Dewi', '#C9B38B', '1/4', '']];
+document.getElementById('fspc').insertAdjacentHTML('afterbegin', chestsMini + '<i class="zoom"></i>'
+  + ['Exit fullscreen', 'Borders', 'Set home', 'Fly home'].map((t, k) => `<span class="k" style="right:10px;top:${10 + k * 29}px">${t}</span>`).join('')
+  + '<span class="k" style="left:10px;bottom:10px">Paintbrush</span><span class="k" style="right:10px;bottom:10px">◎</span>'
+  + `<div class="xmini"><header>Expedition <small>3 out</small></header>${rows.map(([id, nm, c, n, st], k) => `<div class="xr${k === 0 ? ' sel' : ''}" style="--c:${c}"><i></i><span>${nm}</span><u class="${st}"></u><em>${n}</em></div>`).join('')}<div class="more">+4 not out today</div></div>`);
+document.getElementById('fsph').insertAdjacentHTML('afterbegin', chestsMini + '<i class="zoom" style="top:10px"></i><i class="dock"></i>'
+  + `<div class="xbar"><div class="xchips">${rows.map(([id, nm, c, n], k) => `<b class="${k === 0 ? 'sel' : ''}" style="--c:${c}"><i></i>${id} ${n}</b>`).join('')}</div>`
+  + '<div class="xline">Budi <small>selling at</small> Toko Makmur <em>2/5</em></div></div>');
 </script>

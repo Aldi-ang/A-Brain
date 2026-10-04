@@ -52,12 +52,14 @@ for (const l of ['A', 'B', 'C']) {
 await js(`document.getElementById('lite').click(); document.querySelector('[data-look="A"]').click(); 1`); await sleep(200);
 out.liteRunning = await js(`document.getAnimations().filter((a) => a.playState === 'running').length`);
 out.pcOverflow = await js('document.documentElement.scrollWidth - innerWidth');
+await shot('f-fs-pc.png', await clipOf('#fspc'), 1);
 
 await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
 await send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 5 });
 await send('Emulation.setEmulatedMedia', { features: [{ name: 'hover', value: 'none' }, { name: 'pointer', value: 'coarse' }] });
 await load();
 out.phone = await js(`({ overflow: document.documentElement.scrollWidth - innerWidth, squadCols: getComputedStyle(document.getElementById('squad')).gridTemplateColumns, mapW: document.getElementById('mapbox').clientWidth })`);
+await shot('f-fs-phone.png', await clipOf('#fsph'), 1);
 const h = await js('document.documentElement.scrollHeight');
 await shot('f-phone.png', { x: 0, y: 0, width: 390, height: h }, 1);
 

@@ -40,6 +40,13 @@ polyline - no new data.
 
 DECISION: OPEN - his pick A / B / C; and asked: road through TODAY's shops only, or every shop assigned to him?
 
+**08:57 add, his words:** *"and also i want the expedition to be visible but smaller on fullscreen as well"*. Cause:
+the panel is part of the page under the map; fullscreen (fixed, inset 0) covers it. Drawn (same page, "Fullscreen"),
+ported from his settled split (PC = everything at once, phone = one thing at a time): PC = the squad list as 26 px rows
+under the keys at the right, men on the map only + "+N not out today"; phone = the pick chips as a top bar right of the
+zoom keys + one line of the picked man's card. One look per width on purpose - both are his earlier picks, shrunk.
+REJECTED: a bottom bar on the PC (the Paintbrush key and Locate sit at both bottom corners). OPEN - his yes.
+
 REJECTED ON PURPOSE: a thicker or brighter ring (still colour only - his complaint); a different chest per salesman
 (the chest means "a shop", his settled design).
 
