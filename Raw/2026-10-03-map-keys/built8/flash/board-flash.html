@@ -1,0 +1,12 @@
+<!doctype html><meta charset="utf-8"><style>
+body { margin:0; background:#121110; color:#E8E4DE; font:18px/1.4 system-ui, Segoe UI, sans-serif; width:1480px; padding:20px; box-sizing:border-box }
+h1 { font-size:28px; margin:0 0 4px } .sub { color:#A39B90; margin-bottom:14px }
+.row { display:grid; grid-template-columns:1fr 1fr; gap:16px } figure { margin:0; background:#1B1917; border:1px solid #2E2A26 }
+img { width:100%; display:block } figcaption { padding:10px 12px } b.bad { color:#E0583A } b.ok { color:#E4B04A }
+</style>
+<h1>Changing the pressed salesman: the light flash is gone</h1>
+<div class="sub">PC, the moment after pressing Ari while Budi was pressed. The map moves to Ari; until the dark tiles load, the empty map used to show a light grey.</div>
+<div class="row">
+<figure><img src="pc-before-f62-71ms.jpg"><figcaption><b class="bad">BEFORE</b> · 0.07 s after the press · map brightness 68 → <b class="bad">146</b> · 54 % of the map jumped</figcaption></figure>
+<figure><img src="pc-after-f64-102ms.jpg"><figcaption><b class="ok">AFTER</b> · same moment · brightness stays 68–70 · under 4 % of the map changes per frame</figcaption></figure>
+</div>

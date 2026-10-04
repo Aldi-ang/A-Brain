@@ -10,6 +10,20 @@ salesman customising his own character (skin, hair, shirt) - "maybe in future up
 (2026-09-23 rule). If it comes back: the sprite is already split into palette letters (`PERSON(hair, shirt)`), so a
 picker only has to store three colours per profile.
 
+## FLASH FIXED 2026-10-04 12:55 - kpm aa87cd1 (local, not pushed)
+
+His words, 12:30: *"the flash where i change the expedition user must be fix, because people with epilepsy may suffer
+from that"*. Cause (measured, screencast brightness per frame, `Raw/2026-10-03-map-keys/built8/probe-flash.mjs`): the
+camera flies to the new man and, until the dark tiles arrive, the empty map shows **Leaflet's own `#ddd`** - PC page 68 ->
+146 brightness for ~40 ms over 54 % of the map, PC fullscreen ~370 ms. Fix: Journey's MapContainer background = the
+basemap's land colour `#474749` (World_Dark_Gray_Base, measured 71,71,73). After: 68-70, < 4 % per frame, also on a
+throttled phone connection. Board: `built8/flash/board-flash.png`.
+**TRAP:** any dark basemap over Leaflet's default background flashes light on every camera move. Map System
+(`MapMissionControl.jsx` ~2426) has the same `#ddd` under its dark default (with `brightness(1.2)`, so ~#555557) but also
+offers light maps - the background must follow the chosen base layer (`baselayerchange`). OPEN - asked him 12:55.
+**The phone lab run did not flash** because that switch only panned at the same zoom (tiles already in the buffer); a
+zoom change is what exposes empty map.
+
 ## TESTED END TO END 2026-10-04 11:15 - kpm 8e38420 (local, not pushed) - 9 bugs found and fixed, 49/49 pass
 
 His ask, 10:20: *"i want u to test it yourself after reset"*. The four commits (41e308b, aa7b1d3, 64c4c5e, 7b8002e)

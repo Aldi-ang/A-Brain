@@ -12,6 +12,12 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-10-04 — Journey map: light flash on salesman switch fixed (kpm aa87cd1)
+
+His epilepsy concern. Leaflet's default `#ddd` showed while tiles loaded after a camera move; the map background is now
+the dark basemap's land colour. Measured before/after in `Brainstorm/2026-10-03_journey-map-keys.md` (FLASH FIXED);
+Map System has the same trap, OPEN.
+
 ## 2026-10-04 — Journey map tested end to end: 9 bugs fixed (kpm 8e38420)
 
 His "test it yourself". 49 headless checks on the production lab build (PC + phone + break cases); root causes and the
