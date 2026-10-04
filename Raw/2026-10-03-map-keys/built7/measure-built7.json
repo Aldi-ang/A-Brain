@@ -1,0 +1,86 @@
+{
+ "errs": [],
+ "before": {
+  "tags": "",
+  "mine": 0,
+  "others": 1,
+  "othersFaded": false,
+  "road": 0,
+  "arrows": 0,
+  "focus": false,
+  "sw": "",
+  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago"
+ },
+ "budiToday": {
+  "tags": "BS · 6 | BS · 8 | BS · 7 | BS · 2 | BS · 1",
+  "mine": 5,
+  "others": 6,
+  "othersFaded": true,
+  "road": 1,
+  "arrows": 8,
+  "focus": true,
+  "sw": "Today:true All shops:false",
+  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago"
+ },
+ "budiAll": {
+  "tags": "BS · 1 | BS · 2 | BS · 6 | BS · 7 | BS · 8",
+  "mine": 5,
+  "others": 6,
+  "othersFaded": true,
+  "road": 1,
+  "arrows": 7,
+  "focus": true,
+  "sw": "Today:false All shops:true",
+  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago"
+ },
+ "letGo": {
+  "tags": "",
+  "mine": 0,
+  "others": 1,
+  "othersFaded": false,
+  "road": 0,
+  "arrows": 0,
+  "focus": false,
+  "sw": "",
+  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago"
+ },
+ "pen": {
+  "tags": "BS · 6",
+  "mine": 1,
+  "others": 0,
+  "othersFaded": false,
+  "road": 1,
+  "arrows": 7,
+  "focus": true,
+  "sw": "Today:false All shops:true",
+  "boss": "AAldiT1 · OVERSEERNo shop left to suggest0-5 min ago"
+ },
+ "fsPc": {
+  "rows": 5,
+  "off": "+1 not out today",
+  "rect": [
+   1218,
+   188,
+   1418,
+   464
+  ],
+  "underKeys": true,
+  "focus": true
+ },
+ "hoverNone": true,
+ "fsPhone": {
+  "chips": 5,
+  "line": "Budi Santososelling atToko Sinar Abadi5/8",
+  "rect": [
+   61,
+   13,
+   377,
+   117
+  ],
+  "overZoom": false,
+  "overDock": false,
+  "overflow": 0,
+  "focus": true
+ },
+ "noticeHidden": true
+}

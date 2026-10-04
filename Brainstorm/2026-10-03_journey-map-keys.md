@@ -39,7 +39,11 @@ the salesman; C's footsteps are faint at map size. Each is a few marker classes 
 polyline - no new data.
 
 DECISION (09:05), his words: *"Name tags is easier to see,"* - B. REJECTED: A quest flags, C his face.
-Still OPEN: road through TODAY's shops only, or every shop assigned to him?
+ANSWERED 09:45, his words: *"shop assigned today, but also add option on all shop assigned for users, and change the
+master owner to be my tier 1 name instead but add some title on that name to show his position/tier in the company.
+fulscreen looks good"* - road = today by default + an "All shops" switch; the owner listed under his own name with
+"T1 · OVERSEER" (Settings' own word for Tier 1); fullscreen as drawn. BUILT 10:05, kpm `64c4c5e` (local, not pushed);
+proof `Raw/2026-10-03-map-keys/built7/`. A pressed man = his Expedition row/chip OR his Paintbrush pen.
 
 **08:57 add, his words:** *"and also i want the expedition to be visible but smaller on fullscreen as well"*. Cause:
 the panel is part of the page under the map; fullscreen (fixed, inset 0) covers it. Drawn (same page, "Fullscreen"),
