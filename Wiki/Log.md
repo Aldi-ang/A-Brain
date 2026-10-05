@@ -12,6 +12,10 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-10-05 (later) — Consensus connected; 13 prompts run, evidence page built
+
+Aldi connected the Consensus connector. Ran P1-P13 sequentially (free tier rate-limits parallel calls). 39 papers used; 5 strong, 5 moderate, 3 weak answers; 7 of his field claims supported. Corrections: ngrapak = faster burn + more NH3, not a hotter coal; tegal dryness can be good, rapid-growth drought is the damage. Page https://claude.ai/artifact/HBX62nSw7YRrraUWLeGby9.
+
 ## 2026-10-05 — tobacco: research brief + 13 prompts for Consensus
 
 Aldi wants Consensus to do the literature research and Claude to build the visuals. Wrote an English research brief PDF (verified facts, field knowledge, working explanation, 13 open questions, 13 prompts with one table format, chart plan, glossary) and a plain-text prompt file. Consensus has a Claude connector (directory uuid 65247229-...) that is not connected here; connecting it would let Claude run the prompts directly.
