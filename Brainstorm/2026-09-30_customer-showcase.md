@@ -71,3 +71,7 @@ Built as a live page (https://claude.ai/artifact/FiPesjkC3kXGBzCn8r9uwW, source 
 **2026-10-02 12:30, his answer:** *"A, journey map and map system is connected"* - hero A picked; the assumption (journey map = Journey Plan + Map System) confirmed. The full 10-scene page was then written (`Raw/2026-10-02-showcase-hero/showcase.html`, not yet proven or published) when he asked for the real map to show salesmen roaming like an expedition - see [[2026-10-02_expedition-map]] for the order question.
 
 **Models applied:** Opportunity Cost (three looks drawn as one shared map generator, so the loser costs one composition, not one build); Inversion (what makes the boss NOT believe "under control" - a single salesman on screen, which is why B is not the pick).
+
+## 2026-10-05 20:48 - his order: the showcase is next after the fullscreen replay + a push
+
+*"push after we build the fullscreen replay bro then customer presentation"* (his week quota ~30%). Scope agreed by default: prove + finish the 10 written scenes and add the Day Replay as a scene; no new 3D work this week. The popup redesign and the store-list colours wait for next week.
