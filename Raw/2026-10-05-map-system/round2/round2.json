@@ -1,0 +1,21 @@
+{
+ "errs": [],
+ "fonts": {
+  "pcA": "\"Barlow Condensed\", \"Arial Narrow\", \"Roboto Condensed\", system-ui, sans-serif",
+  "pcB": "3 faces loaded",
+  "pcC": "3 faces loaded",
+  "phA": "\"Barlow Condensed\", \"Arial Narrow\", \"Roboto Condensed\", system-ui, sans-serif",
+  "phB": "3 faces loaded",
+  "phC": "3 faces loaded"
+ },
+ "acts": {
+  "borders": "matrix(0.35, 0, 0, 1, 0, 0)",
+  "heat": "matrix(1, 0, 0, 1.22, 0, 0)",
+  "supply": "matrix(1.35, 0, 0, 1.35, 0, 0)",
+  "catchment": "matrix(3, 0, 0, 3, 0, 0)",
+  "tier": "matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)",
+  "setup": "matrix(1, 0, 0, 1, 0, 3)",
+  "sector": "matrix(1, 0, 0, 1, 2, -2)",
+  "liteSupply": "running 0, transition 0.001s"
+ }
+}

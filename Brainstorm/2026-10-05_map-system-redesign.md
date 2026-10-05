@@ -1,6 +1,6 @@
 ---
 date: 2026-10-05
-status: BUILT 2026-10-05 10:55 - kpm 57abe25 (local, not pushed); phone A, PC B
+status: BUILT 2026-10-05 10:55 (kpm 57abe25); round 2 motion BUILT 11:41 (b93540f); round 2 font / hub / unranked OPEN - his picks owed
 page: https://claude.ai/artifact/WxW6xpYd3dhLhyEwZ6Gn8u
 source: Raw/2026-10-05-map-system/map-system-redesign.html (frames: pc-*.png, ph-*.png, states.json)
 ---
@@ -62,6 +62,40 @@ Status: decided, not built - the build is the next ONE JOB (kpm `.claude/NEXT-SE
 - Proof: `Raw/2026-10-05-map-system/built/` (shoot-built.mjs, built.json, frames pc-* / pc1024-* / pcsales-* / ph-*):
   0 overlaps, 0 spilled text, 0 sideways scroll, 0 phone targets under 44 px, one-sheet rule holds, 0 console errors;
   logicFixes 2210/2210, audit 722/722, Journey test 49/49.
+
+## Round 2 (2026-10-05 11:24) - font, hub mark, Unranked logo, motion
+
+**The problem, his words** (with a screenshot of the totals bar: 152 / Rp 45 rb / 151): *"the fonts is really bad i want
+u to change it, make sure all the animation is on theme with ours, and make sure that symbol for wholesale hub is more
+visible than other stores and i think i need new logo for unranked tier"*.
+
+**Root cause of the font** [certain]: `--font-display` names "Barlow Condensed" but nothing loads it (no Google Fonts
+link, no @font-face, no package) - Windows has `ARIALN.TTF`, so every big number and title in the app is Arial Narrow.
+Every drawing he approved loaded the real Barlow, so the app never looked like its drawings. App-wide, not Map System.
+
+| | Font | Wholesale hub | Unranked |
+|---|---|---|---|
+| A | today (Arial Narrow) | bigger + gold ring | log |
+| B | Barlow Condensed loaded, labels stay mono (MY PICK) | warehouse roof | sprout (MY PICK) |
+| C | Rajdhani for numbers AND labels | roof + the word HUB (MY PICK) | raw ore |
+
+**Costs.** Font B/C change every screen's big numbers and titles (and C every label and number table too); widths
+measured so far were measured in Arial Narrow, so a tight key may need re-measuring after the switch; the font must
+ship inside the app (offline PWA), e.g. the @fontsource package + woff2 in the precache. Hub C = two extra elements on
+the pin (roof + word), a taller hit box. Unranked: the log reads like a camera at 14 px, the ore like a blob.
+
+**Built without asking (conformance, not a choice):** motion on Journey's theme - kpm `b93540f` (every key acts out
+its job, no bounce, no forever-pulse; the new-shop form no longer lands half off-centre).
+
+**Decision:** OPEN - waiting on Aldi. Page: https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti (source
+`Raw/2026-10-05-map-system/round2/map-system-round2.html`, frames `font-*.png`, `ground.png`, shooter `shoot-round2.mjs`).
+
+**Rejected on purpose:** an amber FILL roof or HUB tag (palette law: amber is an edge and an ink) - both are drawn as
+a gold edge on the dark plate; a green sprout (no green); pins scaled down to fit the page (the page crops the map
+instead, so every pin is shown at its real pixel size).
+
+Models applied: Inversion (what makes a hub invisible: same size, same shape, a thin ring), Second-Order Thinking (a
+font fix ripples to every screen and to every width measured in the wrong font).
 
 ## Rejected on purpose
 

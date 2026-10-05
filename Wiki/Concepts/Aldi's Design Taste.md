@@ -3280,3 +3280,16 @@ the word), each at map size and zoomed, in a grey view, each acting out its word
   an analysis map, the map itself is the thing he wants room for. The per-width split is his habit, fifth time.
 - He left the shop-card question unanswered: as before, that is "use your pick".
   [[../../Brainstorm/2026-10-05_map-system-redesign]]
+
+## "The fonts is really bad" - the app never loaded its own font (2026-10-05, 11:20)
+
+> *"the fonts is really bad i want u to change it, make sure all the animation is on theme with ours, and make sure that
+> symbol for wholesale hub is more visible than other stores and i think i need new logo for unranked tier"*
+
+- **He judges the font he SEES, and what he saw was a fallback.** The app's display face (Barlow Condensed) was never
+  loaded, so his PC drew Arial Narrow; every drawing he approved used the real face. When he calls a font bad, first
+  check `document.fonts` / the computed family on his screen before proposing a new face.
+- **"On theme with ours" = Journey's motion**: a key's icon acts out its job, nothing bounces, nothing pulses forever.
+  He expects one motion language across both maps.
+- **A special shop must out-shout the rest at map size** (the hub), and **every level needs a picture he can name** -
+  a plain grey dot for Unranked is not a logo to him. [[../../Brainstorm/2026-10-05_map-system-redesign]] round 2

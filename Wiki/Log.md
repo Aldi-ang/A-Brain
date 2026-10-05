@@ -1575,3 +1575,8 @@ His rule added to [[Aldi's Design Taste]]. Local commits waiting on "push": 3f53
 His "A for phone B for PC": phone = Journey's dock (Areas / Levels / Layers / Locate), PC = the full map with floating
 totals, top areas, level chips and a layer dock. Areas ranked by the shop's own city field. [[2026-10-05_map-system-redesign]]
 (Built section) · proof Raw/2026-10-05-map-system/built/.
+
+## 2026-10-05 11:45 — Map System round 2: motion BUILT (kpm b93540f); font / hub / unranked drawn, picks OPEN
+
+Font root cause: Barlow Condensed never loaded, the app draws Arial Narrow everywhere. Page
+https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti · [[2026-10-05_map-system-redesign]] (Round 2).

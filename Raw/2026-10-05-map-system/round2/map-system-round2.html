@@ -1,0 +1,239 @@
+<title>Map System Round 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&display=swap">
+<style>
+/* Layout: one decision page in KPM's own dark "Ark Lab" palette (deliberately single-theme, like the app's map) -
+   the font as real frames, then the hub mark and the Unranked logo drawn with the app's own pin code on a real map
+   patch (map size, zoomed, in grey), then the key motion that is already built, then the three asks. */
+:root {
+  color-scheme: dark;
+  --ground: #0A0908; --panel: #121110; --raised: #1B1917; --inset: #0E0D0C;
+  --line: #26231F; --line2: #3E3A35; --line3: #6A645C;
+  --ink: #E8E4DE; --muted: #A39B90; --dim: #928B81;
+  --gold: #D08A2E; --gold2: #E4B04A; --rust: #C4551E; --red: #E0583A; --cream: #F0E2BC; --bronze: #A0703C;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font: 15px/1.5 var(--body); padding-inline: 16px; padding-block: 24px 64px; }
+main { max-width: 1120px; margin: 0 auto; display: grid; gap: 48px; }
+h1, h2, h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: .04em; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(34px, 6vw, 54px); line-height: .95; }
+h2 { font-size: 28px; line-height: 1; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+h2 small { font: 600 13px/1.3 var(--mono); letter-spacing: .08em; color: var(--muted); }
+p { margin: 0; max-width: 70ch; color: var(--muted); }
+p b, li b, figcaption b { color: var(--ink); }
+.ask { font-size: 18px; color: var(--ink); font-weight: 700; }
+.note { font: 600 12px/1.4 var(--mono); color: var(--dim); letter-spacing: .04em; }
+section { display: grid; gap: 16px; }
+.opts { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); align-items: start; }
+figure { margin: 0; display: grid; gap: 8px; min-width: 0; padding: 12px; border: 1px solid var(--line2); border-radius: 12px; background: var(--panel); }
+figure.pick { border-color: var(--gold); }
+figcaption { font-size: 14px; color: var(--muted); }
+figcaption b:first-child { font-family: var(--display); font-size: 20px; letter-spacing: .04em; text-transform: uppercase; margin-right: 6px; }
+.tag { display: inline-block; font: 700 11px/1 var(--mono); letter-spacing: .1em; color: var(--gold2); border: 1px solid var(--gold); padding: 4px 6px 3px; border-radius: 4px; vertical-align: 3px; }
+img.frame { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--line2); }
+#unranked { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.pair { display: grid; grid-template-columns: 1.9fr 1fr; gap: 8px; align-items: start; }
+@media (max-width: 520px) { .pair { grid-template-columns: 1fr; } }
+
+/* ---- the app's own pin (src/styles/expedition.css .ms-mk), copied ---- */
+.mk { position: relative; width: 24px; height: 24px; border-radius: 6px; display: grid; place-items: center; flex: none;
+  background: #14110e; border: 2px solid var(--c); box-shadow: 0 2px 0 rgba(0,0,0,.55); color: var(--c); }
+.mk svg { width: 14px; height: 14px; fill: var(--c); overflow: visible; }
+.mk .st { position: absolute; right: -5px; top: -5px; width: 9px; height: 9px; border-radius: 50%; border: 2px solid #14110e; }
+.mk .st.late { background: var(--red); } .mk .st.soon { background: var(--gold2); }
+/* hub A: bigger + a gold second ring */
+.mk.hubA { width: 34px; height: 34px; border-radius: 8px; box-shadow: 0 0 0 2px #14110e, 0 0 0 4px var(--gold2), 0 4px 0 4px rgba(0,0,0,.5); }
+.mk.hubA svg { width: 20px; height: 20px; }
+/* hub B: a warehouse roof over a bigger badge */
+.mk.hubB, .mk.hubC { width: 30px; height: 30px; border-radius: 5px; margin-top: 10px; }
+.mk.hubB svg.lv, .mk.hubC svg.lv { width: 17px; height: 17px; }
+.mk .roof { position: absolute; left: -7px; right: -7px; top: -14px; height: 13px; width: auto; fill: #14110e; stroke: var(--gold2); stroke-width: 2.2; stroke-linejoin: round; }
+/* hub C: the roof + the word */
+.mk .word { position: absolute; top: calc(100% + 4px); left: 50%; translate: -50% 0; font: 800 10px/1 var(--display); letter-spacing: .12em; color: var(--cream);
+  background: #14110e; border: 1.5px solid var(--gold2); border-radius: 3px; padding: 2px 4px 1px 5px; white-space: nowrap; }
+.zoom3 { transform: scale(3); transform-origin: center; }
+
+/* ---- a map patch with pins ---- */
+/* real size: the patch is cropped to the column, never scaled, so a pin here is the pixel size it is on the map */
+.stage { position: relative; width: 100%; height: 280px; overflow: hidden; border-radius: 8px; border: 1px solid var(--line2); background: #4F4F51; }
+.stage > .scr { position: absolute; left: 50%; top: 50%; width: 720px; height: 360px; translate: -50% -50%; background: url(ground.png) 0 0 / 720px 360px; }
+.stage .pin { position: absolute; translate: -50% -50%; }
+.row { display: flex; gap: 22px; align-items: center; justify-content: center; flex-wrap: wrap; padding: 14px 8px; border-radius: 8px; background: var(--inset); border: 1px solid var(--line); }
+.row.grey { filter: grayscale(1); }
+.row .lbl { font: 700 10px/1 var(--mono); letter-spacing: .1em; color: var(--dim); text-transform: uppercase; width: 100%; text-align: center; }
+.big { display: grid; place-items: center; min-height: 250px; overflow: hidden; border-radius: 8px; background: var(--inset); border: 1px solid var(--line); }
+
+/* ---- the keys, as built (the app's .kx-mapkey + the acts in expedition.css) ---- */
+.keys { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line3); }
+.key { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 12px; border-radius: 10px; border: 1px solid transparent; background: none; color: var(--muted);
+  font: 800 10px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: transform 140ms cubic-bezier(.23,1,.32,1), border-color 140ms ease, color 140ms ease; }
+.key:active { transform: scale(.97); }
+.key:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.key svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.key svg * { transform-box: fill-box; transform-origin: center; transition: transform 240ms cubic-bezier(.23, 1, .32, 1); }
+@keyframes drop { 0% { transform: translateY(-6px); } 55% { transform: translateY(0); } 75% { transform: translateY(-2px); } 100% { transform: translateY(0); } }
+.key.m-bord:is(:active,.act) path:nth-child(2) { transform: scaleX(.35); }
+.key.m-heat:is(:active,.act) path { transform-origin: 50% 100%; transform: scaleY(1.22); }
+.key.m-supply:is(:active,.act) circle:first-child { transform: translate(3px,-3px) scale(.6); }
+.key.m-supply:is(:active,.act) circle:last-of-type { transform: scale(1.35); }
+.key.m-catch:is(:active,.act) circle:first-child { transform: scale(1.14); }
+.key.m-catch:is(:active,.act) circle:last-child { transform: scale(3); }
+.key.m-tier:is(:active,.act) path { transform: rotate(60deg); }
+.key.m-imp:is(:active,.act) path:nth-child(1), .key.m-imp:is(:active,.act) path:nth-child(3) { transform: translateY(3px); }
+.key.m-sector:is(:active,.act) path { transform: translate(2px,-2px); }
+.key.m-drop.act svg { animation: drop 460ms cubic-bezier(.23,1,.32,1); }
+.key.m-areas:is(:active,.act) path:nth-child(n+2) { transform-origin: 50% 100%; transform: scaleY(1.3); }
+.key.m-levels:is(:active,.act) path:first-child { transform: translateY(-3px); }
+.key.k-bord:is(:active,.act) path:nth-child(1) { transform: translateY(-3px); }
+.key.k-bord:is(:active,.act) path:nth-child(3) { transform: translateY(1.5px); }
+.key.k-loc:is(:active,.act) circle:last-child { transform: scale(.4); }
+.key.k-loc:is(:active,.act) circle:nth-last-child(2) { transform: scale(.82); }
+@media (hover: hover) and (pointer: fine) {
+  .key:hover { color: var(--ink); border-color: var(--gold); }
+  .key.m-bord:hover path:nth-child(2) { transform: scaleX(.6); }
+  .key.m-heat:hover path { transform-origin: 50% 100%; transform: scaleY(1.1); }
+  .key.m-supply:hover circle:last-of-type { transform: scale(1.2); }
+  .key.m-catch:hover circle:last-child { transform: scale(2); }
+  .key.m-tier:hover path { transform: rotate(30deg); }
+  .key.m-imp:hover path:nth-child(1), .key.m-imp:hover path:nth-child(3) { transform: translateY(2px); }
+  .key.m-sector:hover path { transform: translate(1.5px,-1.5px); }
+  .key.m-drop:hover svg { animation: drop 460ms cubic-bezier(.23,1,.32,1); }
+}
+@media (prefers-reduced-motion: reduce) { .key svg *, .key svg { transition: none !important; animation: none !important; } }
+ul.done { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--muted); max-width: 80ch; }
+
+.decide { border: 1px solid var(--gold); border-radius: 12px; padding: 18px; display: grid; gap: 14px; background: #15110c; }
+.decide ol { margin: 0; padding-left: 22px; display: grid; gap: 12px; }
+.decide li { color: var(--muted); }
+</style>
+
+<main>
+  <header style="display:grid;gap:12px">
+    <span class="note">KPM · MAP SYSTEM · ROUND 2 · 2026-10-05</span>
+    <h1>Map System Round 2</h1>
+    <p class="ask">🔴 Three picks at the bottom: the font, the wholesale hub mark, and the Unranked logo. The motion is already fixed.</p>
+    <p>Your words: <b>"the fonts is really bad i want u to change it, make sure all the animation is on theme with ours, and make sure that symbol for wholesale hub is more visible than other stores and i think i need new logo for unranked tier"</b>. The shop names and numbers are the test data, not your shops.</p>
+  </header>
+
+  <section>
+    <h2>1 · The font <small>real frames of the app</small></h2>
+    <p><b>Why it looks bad:</b> the app asks for a font called Barlow Condensed for its big numbers and titles, but it never loads it. Your PC then uses the closest font it has, Arial Narrow, which is the squashed look in your screenshot. This is on <b>every screen</b> with big numbers or titles, not only the map. Every drawing you approved was made with the real Barlow Condensed.</p>
+    <div class="opts">
+      <figure>
+        <div class="pair"><img class="frame" src="font-A-pc.png" alt="Map System on a PC, today's font (Arial Narrow)" loading="lazy"><img class="frame" src="font-A-ph.png" alt="Map System's Areas sheet on a phone, today's font" loading="lazy"></div>
+        <figcaption><b>A · Today</b>Arial Narrow, squashed, because the real font is missing.</figcaption>
+      </figure>
+      <figure class="pick">
+        <div class="pair"><img class="frame" src="font-B-pc.png" alt="Map System on a PC with Barlow Condensed loaded" loading="lazy"><img class="frame" src="font-B-ph.png" alt="Map System's Areas sheet on a phone with Barlow Condensed" loading="lazy"></div>
+        <figcaption><b>B · Barlow Condensed</b><span class="tag">MY PICK</span> The font the app already asks for, loaded for real. Big numbers and titles get thicker and clearer on every screen, the way your approved drawings looked. Small labels keep today's typewriter look. The font file ships inside the app, so it works with no signal.</figcaption>
+      </figure>
+      <figure>
+        <div class="pair"><img class="frame" src="font-C-pc.png" alt="Map System on a PC with Rajdhani for numbers and labels" loading="lazy"><img class="frame" src="font-C-ph.png" alt="Map System's Areas sheet on a phone with Rajdhani" loading="lazy"></div>
+        <figcaption><b>C · Rajdhani</b>A squarer, game-style font for the big numbers <b>and</b> the small labels. Bigger change: every label in the app changes too, including tables of numbers.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>2 · The wholesale hub <small>on a real map patch</small></h2>
+    <p>Today a hub is a normal shop pin with a thin second ring, so it gets lost. Each option keeps the hub's level picture inside (here: Epic, the flame) and makes the hub the biggest thing on the map. Below each map: the hub at 3x, then every pin in grey to check that the <b>shape</b> still tells them apart without colour.</p>
+    <div class="opts" id="hubs"></div>
+  </section>
+
+  <section>
+    <h2>3 · The Unranked logo <small>next to the other four levels</small></h2>
+    <p>Today Unranked is a plain grey dot, the weakest pin on the map. Each option is a raw thing from a game world, the lowest step under the shield, swords, flame and crown. Each row shows real size, then grey.</p>
+    <div class="opts" id="unranked"></div>
+  </section>
+
+  <section>
+    <h2>4 · The motion <small>already built, try the keys</small></h2>
+    <p>Every Map System key now acts out its job like Journey's keys: once when pressed, and a little when a mouse hovers. Same speed and curve as Journey. Lite Mode keeps them still. Press them here:</p>
+    <div class="keys" id="keys"></div>
+    <ul class="done">
+      <li><b>Gone:</b> the bouncing "Drop New Pin" pin and its bouncing "DRAG ME" label, and the four lights on the Sector board that pulsed forever. Nothing on this screen loops on its own any more, except your live location dot and the supply lines while that layer is on.</li>
+      <li><b>Fixed:</b> the new-shop form opened shifted half off-centre because of a wrong slide. It now appears in place.</li>
+      <li><b>The pin you drag</b> when placing a shop is now a gold-edged plate with a drawn pin, not an orange emoji ball.</li>
+    </ul>
+  </section>
+
+  <section class="decide">
+    <h2>Your call</h2>
+    <ol>
+      <li><b>🔴 Font: A, B or C?</b> I pick <b>B</b>: it is the font your approved drawings already use, so every screen starts looking like its drawing. It changes the big numbers and titles on every screen, not only the map. Example answer: "B".</li>
+      <li><b>🔴 Wholesale hub: A, B or C?</b> I pick <b>C</b>: the warehouse roof is a thing you can name from a game, and the word HUB says it in plain text. You picked "the object and the word" for the visit signs too. Example: "C".</li>
+      <li><b>🔴 Unranked: A, B or C?</b> I pick <b>B, the sprout</b>: at real map size it is the clearest of the three (the log can look like a camera, the ore like a blob), and it says "a new shop that can still grow". Example: "B", or "A but bigger".</li>
+    </ol>
+    <p class="note">Built and tested already: the motion above (kpm, local, not pushed). Nothing in sections 1 to 3 is in the app yet.</p>
+  </section>
+</main>
+
+<script>
+/* the level pictures - the app's LEVEL_LOOKS in src/MapMissionControl.jsx */
+const LV = {
+  mythic: ['#E4B04A', '<path d="M2 12h12l1-8-4 3-3-5-3 5-4-3z"/>'],
+  epic: ['#C4551E', '<path d="M8 1c1 3 4 4 4 8a4 4 0 0 1-8 0c0-2 1-3 2-4 0 2 1 3 2 3-1-3 0-5 0-7z"/>'],
+  gm: ['#F0E2BC', '<path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M3 3l10 10M13 3L3 13M1.5 10.5l4 4M10.5 14.5l4-4"/>'],
+  bronze: ['#A0703C', '<path d="M8 1l6 2v5c0 4-3 6-6 7-3-1-6-3-6-7V3z"/>'],
+  none: ['#6A645C', '<circle cx="8" cy="8" r="4"/>'],
+};
+/* the three Unranked options: lighter stone greys so the lowest level still reads on the dark map */
+const UN = {
+  A: ['Log', '#B3A593', '<rect x="1" y="5" width="10.5" height="6" rx="1.2"/><circle cx="11.5" cy="8" r="3.4"/><circle cx="11.5" cy="8" r="1.5" fill="#14110e"/><path d="M4.5 5V3h2.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>',
+    'A wooden log with its rings showing: raw material, not crafted yet. Your old tier settings used a log for Unranked.'],
+  B: ['Sprout', '#B8B0A4', '<path d="M8 15V8.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 9.2C8 5.6 5.6 3.4 2 3.4c0 3.6 2.4 5.8 6 5.8z"/><path d="M8 8.4c0-3.1 2.3-5.1 6-5.1 0 3.3-2.3 5.1-6 5.1z"/>',
+    'Two leaves on a stem: a new shop that can still grow. Grey, never green (the palette law).'],
+  C: ['Raw ore', '#A9A196', '<path d="M3 6l4-3.5 6 2 1.5 5-4 4.5-6-1L2 9.5z"/><circle cx="7" cy="7" r="1.2" fill="#14110e"/><circle cx="10.2" cy="9.8" r="1.1" fill="#14110e"/><circle cx="6" cy="11" r=".9" fill="#14110e"/>',
+    'A rough stone with specks of metal in it: unrefined, the step before bronze.'],
+};
+const mk = ([c, pic], { st = '', cls = '', extra = '' } = {}) => `<i class="mk ${cls}" style="--c:${c}">${extra}<svg class="lv" viewBox="0 0 16 16">${pic}</svg>${st ? `<i class="st ${st}"></i>` : ''}</i>`;
+const ROOF = '<svg class="roof" viewBox="0 0 44 13" preserveAspectRatio="none"><path d="M2 12L22 2l20 10"/></svg>';
+const HUB = {
+  A: ['Bigger + gold ring', (lv, st) => mk(lv, { st, cls: 'hubA' }), 'The hub pin is 40% bigger and wears a gold ring. Simple, but it is still "a shop, only bigger".'],
+  B: ['Warehouse roof', (lv, st) => mk(lv, { st, cls: 'hubB', extra: ROOF }), 'A gold warehouse roof over a bigger pin. It reads as a building, the place goods come from.'],
+  C: ['Roof + the word', (lv, st) => mk(lv, { st, cls: 'hubC', extra: ROOF + '<b class="word">HUB</b>' }), 'The warehouse roof plus the word HUB under it. The object and the word, like your visit signs.'],
+};
+/* a fixed scatter of shops on the 720 x 360 patch; the hub sits in the middle */
+const PINS = [[250, 110, 'bronze', 'late'], [300, 250, 'gm'], [320, 150, 'none', 'late'], [470, 120, 'mythic', 'soon'], [450, 240, 'bronze'], [410, 270, 'none'], [270, 190, 'epic'], [500, 180, 'gm', 'late'], [130, 140, 'none'], [600, 230, 'epic']];
+const scene = (hubHtml, unPic) => `<div class="stage"><div class="scr">${PINS.map(([x, y, t, st]) => `<span class="pin" style="left:${x}px;top:${y}px">${mk(t === 'none' && unPic ? unPic : LV[t], { st: st || '' })}</span>`).join('')}${hubHtml ? `<span class="pin" style="left:380px;top:190px">${hubHtml}</span>` : ''}</div></div>`;
+const legend = (unPic) => ['mythic', 'epic', 'gm', 'bronze'].map((t) => mk(LV[t])).join('') + mk(unPic);
+
+document.getElementById('hubs').innerHTML = Object.entries(HUB).map(([k, [name, draw, cap]]) => `<figure class="${k === 'C' ? 'pick' : ''}">
+  ${scene(draw(LV.epic, 'soon'))}
+  <div class="big"><div class="zoom3">${draw(LV.epic, 'soon')}</div></div>
+  <div class="row grey"><span class="lbl">In grey</span>${mk(LV.bronze)}${mk(LV.gm)}${draw(LV.epic, '')}${mk(LV.mythic)}${mk(LV.none)}</div>
+  <figcaption><b>${k} · ${name}</b>${k === 'C' ? '<span class="tag">MY PICK</span> ' : ''}${cap}</figcaption></figure>`).join('');
+
+document.getElementById('unranked').innerHTML = [['Today', ['#6A645C', LV.none[1]], 'The grey dot: the weakest pin on the map, and it is not a thing you can name.']].concat(Object.entries(UN).map(([k, [name, c, pic, cap]]) => [`${k} · ${name}`, [c, pic], cap]))
+  .map(([title, look, cap], i) => `<figure class="${i === 2 ? 'pick' : ''}">
+  ${scene(null, look)}
+  <div class="row"><span class="lbl">Real size, with the four levels above it</span>${legend(look)}</div>
+  <div class="big"><div class="zoom3">${mk(look)}</div></div>
+  <div class="row grey"><span class="lbl">In grey</span>${legend(look)}</div>
+  <figcaption><b>${title}</b>${i === 2 ? '<span class="tag">MY PICK</span> ' : ''}${cap}</figcaption></figure>`).join('');
+
+/* the keys, drawn with the app's own icons (lucide) and acts */
+const P = (d) => `<path d="${d}"/>`, C = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}"/>`;
+const KEYS = [
+  ['m-bord', 'Borders', C(12, 12, 10) + P('M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20') + P('M2 12h20')],
+  ['m-heat', 'Sales heat', P('M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4')],
+  ['m-supply', 'Supply lines', C(6, 19, 3) + P('M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15') + C(18, 5, 3)],
+  ['m-catch', 'Catchment', C(12, 12, 10) + C(12, 12, 1)],
+  ['k-loc', 'Locate', '<line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/>' + C(12, 12, 7) + C(12, 12, 3)],
+  ['m-tier', 'Tier rules', P('M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915') + C(12, 12, 3)],
+  ['m-imp', 'Borders setup', P('M12 15V3') + P('M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4') + P('m7 10 5 5 5-5')],
+  ['m-sector', 'Sector board', P('M16 7h6v6') + P('m22 7-8.5 8.5-5-5L2 17')],
+  ['m-drop', 'New pin', P('M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0') + C(12, 10, 3)],
+  ['m-drop', 'Set home', P('M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8') + P('M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z')],
+  ['m-areas', 'Areas', P('M3 3v16a2 2 0 0 0 2 2h16') + P('M18 17V9') + P('M13 17V5') + P('M8 17v-3')],
+  ['m-levels', 'Levels', P('M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z') + P('M5 21h14')],
+  ['k-bord', 'Layers', P('M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z') + P('M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12') + P('M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17')],
+];
+const keys = document.getElementById('keys');
+keys.innerHTML = KEYS.map(([cls, label, svg]) => `<button type="button" class="key ${cls}"><svg viewBox="0 0 24 24" aria-hidden="true">${svg}</svg>${label}</button>`).join('');
+keys.addEventListener('click', (e) => { const b = e.target.closest('.key'); if (!b) return; b.classList.remove('act'); void b.offsetWidth; b.classList.add('act'); setTimeout(() => b.classList.remove('act'), 480); });
+
+</script>
