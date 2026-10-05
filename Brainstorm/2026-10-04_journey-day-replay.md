@@ -155,3 +155,5 @@ Rejected on purpose: hiding the controls behind a key (a replay you cannot drive
 card over the map on the PC (v2's real presses showed it covers the next shop).
 Models applied: Opportunity Cost (the popup redesign waits one more session), Inversion (what makes fullscreen
 unplayable - controls off screen, a pick that does nothing).
+
+**ANSWERED 19:50 (swap):** *"swap means change other people daily recording when press like on the sc1 there should be some button to view the exact features we viewed on the expedition when not fullscreen"* = reading 1 (press another person -> his day replays) + the small fullscreen Expedition list gets the same Replay key. His shot also shows that list cut off with a sideways scrollbar (long names) - fixed in the same job. Still OPEN: look A or B.
