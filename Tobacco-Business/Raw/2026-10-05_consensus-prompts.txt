@@ -1,0 +1,56 @@
+CONSENSUS PROMPTS - Java rajangan tobacco 2026
+Paste ONE block at a time into consensus.app. Each block already ends with the answer format.
+When Consensus answers, copy the whole answer (with its citations) and paste it back to Claude with: "visualize P_".
+Use the deeper analysis mode, if Consensus offers it, for P1, P3, P6 and P10.
+
+==================== P1 - drought ====================
+Does water deficit during the rapid-growth stage of tobacco (Nicotiana tabacum) decrease reducing sugars and increase nicotine and total nitrogen in cured leaves? Include studies on sun-cured, air-cured, oriental and flue-cured tobacco, and report results by drought severity and growth stage.
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P2 - heat ====================
+How does high air temperature (above 35 °C) during tobacco leaf maturation affect reducing sugars, nicotine and aroma compounds such as neophytadiene, carotenoid degradation products and Maillard products?
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P3 - nitrogen and urea ====================
+What is the effect of nitrogen fertilizer rate, including urea, on tobacco leaf maturity timing, curing (yellowing) duration, nicotine and reducing sugar? Give dose-response numbers in kg N per hectare where available.
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P4 - early picking ====================
+How does harvesting tobacco leaves before physiological maturity affect yellowing time during curing, residual starch, protein, reducing sugar and aroma quality, compared with harvesting at maturity?
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P5 - leaf position ====================
+How does stalk (leaf) position on the tobacco plant affect nicotine, reducing sugar, leaf thickness and the time needed for yellowing during curing?
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P6 - yellowing time and sugar ====================
+How do the duration and temperature of the yellowing stage of tobacco curing affect respiration losses, starch degradation, reducing sugar and final quality? Quantify sugar or dry-matter loss per day and identify the optimum duration.
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P7 - humidity during yellowing ====================
+What relative humidity during the yellowing stage prevents green-fixed tobacco leaves, and how does low humidity affect leaf colour and sugar content in sun-cured or air-cured tobacco?
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P8 - over-long yellowing (keluwasen) ====================
+Does prolonged yellowing or over-fermentation of tobacco leaves increase protein degradation, free amino acids and ammonia, and does that increase smoke irritation or pungency?
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P9 - drying speed (ngrapak) ====================
+How does the drying rate of cut or shredded tobacco (sun intensity, temperature, air humidity) affect brittleness, moisture retention, burn rate, smoke temperature and harshness?
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P10 - sugar-to-nicotine ratio ====================
+Is the sugar-to-nicotine ratio of tobacco associated with perceived smoke harshness, impact and smoothness? Report the role of smoke pH and free (unprotonated) nicotine.
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P11 - added sugar ====================
+Does adding sugar to tobacco (casing) raise combustion temperature or tongue bite, and does it lower perceived nicotine impact? Compare natural leaf sugar with added sugar.
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P12 - leaf-surface gum ====================
+How do drought, heat, wind and rain affect glandular trichome density and leaf-surface exudates (cembranoids, labdanoids, sucrose esters) in tobacco, and how do these exudates relate to aroma and smoke flavour?
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).
+
+==================== P13 - Indonesian studies ====================
+What do studies on Indonesian sun-cured shredded (rajangan) tobacco from Temanggung, Madura, Boyolali or Klaten report about the duration of pemeraman (yellowing) and its effect on quality index, reducing sugar and nicotine?
+Present the results as a table with these columns: Study (author, year) | Country | Tobacco type | Treatment or condition | Outcome measured | Direction (increase / decrease / no effect) | Size of effect (% or units) | Design and sample size | Link. Then give a three-sentence bottom line and rate how strong the evidence is (strong / moderate / weak).

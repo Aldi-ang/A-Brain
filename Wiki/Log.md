@@ -12,6 +12,10 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-10-05 — tobacco: research brief + 13 prompts for Consensus
+
+Aldi wants Consensus to do the literature research and Claude to build the visuals. Wrote an English research brief PDF (verified facts, field knowledge, working explanation, 13 open questions, 13 prompts with one table format, chart plan, glossary) and a plain-text prompt file. Consensus has a Claude connector (directory uuid 65247229-...) that is not connected here; connecting it would let Claude run the prompts directly.
+
 ## 2026-10-04 19:37 — Journey map: an open request keeps a "!" until Request done (kpm 635c62e)
 
 His 19:25 *"B is good"*. A New Request now writes `openRequest` on the shop; the "!" stays (chest + bubble) until the
