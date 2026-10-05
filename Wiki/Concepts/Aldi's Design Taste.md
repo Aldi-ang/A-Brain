@@ -3311,3 +3311,17 @@ the word), each at map size and zoomed, in a grey view, each acting out its word
 - **12:30 - 12:40:** *"rank medal is cool but i dont like the mythic logo"* then *"A is good"* - he rejected the busiest drawing
   (a crown in a medallion with feathered wings) for the plainest strong one (a big crown alone). At the top of a ladder he wants
   ONE bold object, not decoration around it.
+
+## Small type he "cannot see" is a bug, not a taste call (2026-10-05)
+
+His words, the same evening, two screens: *"this font for notification is not visible i think it is too small"* (a
+stock-low notification) and *"why is this so small man please fix that"* (a phone shot of Map System's Unranked sprouts
+with their overdue dots). One hidden cause behind both: a size chosen for one font or one box, kept after the thing
+around it changed. The notification was 11 px "mono" - and since the font switch (kpm `7f88984`) mono IS Rajdhani, a
+narrow face that reads about two sizes smaller; the sprout was a r 9 dot in the middle of its own 32-grid box, so making
+the box bigger still drew a dot. Fixed in kpm `3c28e68`: 15 px semibold in the app's ink; Map System pins x 1.4 (Unranked
+31 px ... Mythic 45 px); the sprout fills its box like every other level.
+
+**Rules:** after any font change, re-measure every size under 12 px - the px number did not change, what he sees did. On
+the map a symbol FILLS its hit box; a symbol sitting in its box as a dot reads as "too small" however big the box is.
+Proof: `Raw/2026-10-05-small-type/` (9/9, both widths).

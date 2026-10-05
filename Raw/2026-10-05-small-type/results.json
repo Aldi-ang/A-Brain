@@ -1,0 +1,95 @@
+[
+ {
+  "name": "pc: a notification shows",
+  "pass": true
+ },
+ {
+  "name": "pc: the notification text is 15 px semibold in the app's ink, inside the screen",
+  "pass": true,
+  "data": {
+   "px": 15,
+   "weight": "600",
+   "color": "rgb(232, 228, 222)",
+   "family": "Rajdhani",
+   "text": "24 stores are assigned to a name not on the roster (Ari Rahman, Dewi Wulandari, Rini Saputri). Open each store and pick a current salesman.",
+   "box": {
+    "x": 488,
+    "y": 4,
+    "width": 464,
+    "height": 99.875
+   },
+   "right": 944,
+   "vw": 1440
+  }
+ },
+ {
+  "name": "pc: every map pin is at least 31 px (Unranked was 22)",
+  "pass": true,
+  "data": {
+   "n": 32,
+   "min": 31,
+   "max": 51,
+   "sizes": [
+    31,
+    34,
+    36,
+    39,
+    45,
+    51
+   ]
+  }
+ },
+ {
+  "name": "ph: the touch media is live",
+  "pass": true
+ },
+ {
+  "name": "ph: a notification shows",
+  "pass": true
+ },
+ {
+  "name": "ph: the notification text is 15 px semibold in the app's ink, inside the screen",
+  "pass": true,
+  "data": {
+   "px": 15,
+   "weight": "600",
+   "color": "rgb(232, 228, 222)",
+   "family": "Rajdhani",
+   "text": "24 stores are assigned to a name not on the roster (Ari Rahman, Dewi Wulandari, Rini Saputri). Open each store and pick a current salesman.",
+   "box": {
+    "x": 4,
+    "y": 4,
+    "width": 382,
+    "height": 99.875
+   },
+   "right": 378,
+   "vw": 390
+  }
+ },
+ {
+  "name": "ph: Areas -> an area flies to its shops",
+  "pass": true
+ },
+ {
+  "name": "ph: every map pin is at least 31 px (Unranked was 22)",
+  "pass": true,
+  "data": {
+   "n": 19,
+   "min": 31,
+   "max": 51,
+   "sizes": [
+    31,
+    34,
+    36,
+    39,
+    45,
+    51
+   ]
+  }
+ },
+ {
+  "name": "no page errors",
+  "pass": true,
+  "data": []
+ }
+]

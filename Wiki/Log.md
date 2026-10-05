@@ -1604,3 +1604,7 @@ https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti · [[2026-10-05_map-system-red
 ## 2026-10-05 16:20 — Journey Plan: the Day Replay BUILT (kpm a4afcf2, local); his test owed
 
 [[2026-10-04_journey-day-replay]] "BUILT" section: parts, decisions, the five defects the proof caught, known limits. Proof: `Raw/2026-10-05-day-replay-built/` (38/38). New KPM fact: a divIcon reuses its element. Next: the shop popup redesign (kpm NEXT-SESSION.md).
+
+## 2026-10-05 18:25 — Too small to read: notification text + Map System pins (kpm 3c28e68)
+
+His two "too small" reports fixed and measured; rule written into [[Aldi's Design Taste]] ("Small type he cannot see is a bug"). Proof: `Raw/2026-10-05-small-type/`. He asked for a demo account: the lab (?shell&journey&exp&admin) is the demo - opened for him in the browser pane.
