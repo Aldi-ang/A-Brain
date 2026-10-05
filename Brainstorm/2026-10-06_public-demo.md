@@ -1,6 +1,6 @@
 ---
 date: 2026-10-06
-status: DECIDED 00:25 - C (shared real backend) + updates first; after the presentation
+status: DECIDED 00:15 - C (shared real backend) + updates first; after the presentation
 tags: [kpm, demo, showcase, vercel]
 ---
 
@@ -27,13 +27,13 @@ tags: [kpm, demo, showcase, vercel]
 
 **Already decided elsewhere:** 2026-10-02 the customer PRESENTATION was picked as a web page (A) over a video and over "a demo mode inside the app" - that was about the presentation's format. This ask is a separate thing (people TRY the app); the presentation stays a web page and can end with a "Try it yourself" link to this demo.
 
-**Decision:** see "00:25 - his answers" below.
+**Decision:** see "00:15 - his answers" below.
 
 **Rejected on purpose:** putting the demo inside the real site (same address, a "demo" button on the real login) - one wrong switch shows real data to a stranger, or demo data to his salesmen.
 
 **Models applied:** Inversion (what makes a demo backfire: a Save that does nothing, a stranger near real data, a customer seeing a crash); Opportunity Cost (week quota ~30% on 2026-10-05 - the presentation was the next job).
 
-## 2026-10-06 00:25 - his answers (three questions, his picks)
+## 2026-10-06 00:15 - his answers (three questions, his picks)
 
 | Question | His pick |
 |---|---|
