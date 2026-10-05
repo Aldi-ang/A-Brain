@@ -35,6 +35,13 @@ figcaption { font-size: 14px; color: var(--muted); }
 figcaption b:first-child { font-family: var(--display); font-size: 20px; letter-spacing: .04em; text-transform: uppercase; margin-right: 6px; }
 .tag { display: inline-block; font: 700 11px/1 var(--mono); letter-spacing: .1em; color: var(--gold2); border: 1px solid var(--gold); padding: 4px 6px 3px; border-radius: 4px; vertical-align: 3px; }
 img.frame { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--line2); }
+#tiersets { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+.tstrip { position: relative; height: 96px; border-radius: 8px; border: 1px solid var(--line2); background: #4F4F51 url(ground.png) -150px -120px / 720px 360px; display: flex; align-items: center; justify-content: space-around; padding: 0 10px; }
+.trow { display: flex; align-items: center; justify-content: space-around; gap: 6px; padding: 14px 6px; border-radius: 8px; background: var(--inset); border: 1px solid var(--line); flex-wrap: wrap; }
+.trow.grey { filter: grayscale(1); }
+.tsym { display: grid; justify-items: center; gap: 4px; }
+.tsym small { font: 700 10px/1 var(--mono); letter-spacing: .08em; color: var(--dim); text-transform: uppercase; }
+.tsym svg { overflow: visible; filter: drop-shadow(0 2px 0 rgba(0,0,0,.55)); }
 #groups { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
 #unranked { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
 .bigfonts { display: grid; gap: 16px; }
@@ -140,15 +147,15 @@ ul.done { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--m
   <header style="display:grid;gap:12px">
     <span class="note">KPM · MAP SYSTEM · ROUND 2 · 2026-10-05</span>
     <h1>Map System Round 2</h1>
-    <p class="ask">🔴 One pick: the new group symbol (section 0, right below). The font (C), the hub (C) and Unranked (the sprout) are built.</p>
+    <p class="ask">🔴 One pick: a new set of tier symbols (section 0, right below). The market-town groups (B), the font (C), the hub (C) and the sprout are built.</p>
     <p>Your words: <b>"the fonts is really bad i want u to change it, make sure all the animation is on theme with ours, and make sure that symbol for wholesale hub is more visible than other stores and i think i need new logo for unranked tier"</b>. The shop names and numbers are the test data, not your shops.</p>
   </header>
 
   <section>
-    <h2>0 · The group symbol <small>new, your pick owed</small></h2>
-    <p>Your words: <b>"now i want u to change the circle and number to better symbol for the stores"</b>. When you zoom out, nearby shops join into one group. Today a group is a dark circle with a number. Each option below is a thing from the map's world, keeps the number (how many shops are inside), and is shown on a real map patch at its <b>real size</b> - groups of 3, 9, 29 and 152 shops - then one group 3x, then in grey.</p>
-    <div class="opts" id="groups"></div>
-    <p class="note">Done since the last version: your font C is now the app's font on every screen; the hub hides inside the groups when zoomed out; the hub is C and Unranked is the sprout (all built, local, not pushed).</p>
+    <h2>0 · New tier symbols <small>your pick owed</small></h2>
+    <p>Your words: <b>"B is better but we need set of of new tier symbol as well to better show their exclusiveness"</b>. Each set is a ladder: the higher the tier, the bigger, richer and rarer it looks. Unranked stays your sprout in every set. Each one is shown on the map at <b>real size</b> (Unranked 22 px up to Mythic 32 px), then at 2x, then in grey to check that the shapes alone tell the tiers apart.</p>
+    <div class="opts" id="tiersets"></div>
+    <p class="note">Built since the last version: groups of shops are now your B, the little market town (its roof takes the colour of the best shop inside). Local, not pushed.</p>
   </section>
 
   <section>
@@ -197,7 +204,8 @@ ul.done { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--m
   <section class="decide">
     <h2>Your call</h2>
     <ol>
-      <li><b>🔴 Group symbol: A, B or C?</b> I pick <b>A, the badge stack</b>: on an analysis map the group should say what is inside, not only how many - the best levels show before you zoom in. Example answer: "A", or "C but show the level too".</li>
+      <li><b>🔴 Tier symbols: A, B or C?</b> I pick <b>B, rank medals</b>: every tier becomes a different game object (a medal, a shield, a gem, a winged crown), so the ladder reads at a glance and Mythic clearly looks the rarest. Example answer: "B", or "A but with B's Mythic".</li>
+      <li><b>✅ Group symbol:</b> your B (market town) is built. <s> I pick <b>A, the badge stack</b>: on an analysis map the group should say what is inside, not only how many - the best levels show before you zoom in. Example answer: "A", or "C but show the level too".</s></li>
       <li><b>✅ Font:</b> your C is built. <s>A, B or C?</s> I pick <b>B</b>: it is the font your approved drawings already use, so every screen starts looking like its drawing. It changes the big numbers and titles on every screen, not only the map. Example answer: "B".</li>
       <li><b>🔴 Wholesale hub: A, B or C?</b> I pick <b>C</b>: the warehouse roof is a thing you can name from a game, and the word HUB says it in plain text. You picked "the object and the word" for the visit signs too. Example: "C".</li>
       <li><b>🔴 Unranked: A, B or C?</b> I pick <b>B, the sprout</b>: at real map size it is the clearest of the three (the log can look like a camera, the ore like a blob), and it says "a new shop that can still grow". Example: "B", or "A but bigger".</li>
@@ -250,6 +258,46 @@ document.getElementById('unranked').innerHTML = [['Today', ['#6A645C', LV.none[1
   <div class="row grey"><span class="lbl">In grey</span>${legend(look)}</div>
   <figcaption><b>${title}</b>${i === 2 ? '<span class="tag">MY PICK</span> ' : ''}${cap}</figcaption></figure>`).join('');
 
+/* round 4: tier symbol sets on a 32 x 32 grid; the picture inside is the app's own (LV), placed by a nested svg */
+LV.none = ['#B8B0A4', '<path d="M8 15V8.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 9.2C8 5.6 5.6 3.4 2 3.4c0 3.6 2.4 5.8 6 5.8z"/><path d="M8 8.4c0-3.1 2.3-5.1 6-5.1 0 3.3-2.3 5.1-6 5.1z"/>'];   /* his sprout, built */
+const TIERS = ['none', 'bronze', 'gm', 'epic', 'mythic'], NAMES = { none: 'Unranked', bronze: 'Bronze', gm: 'Grandmaster', epic: 'Epic', mythic: 'Mythic' };
+const SIZE = { none: 22, bronze: 24, gm: 26, epic: 28, mythic: 32 };
+const pic = (t, x, y, w) => `<svg x="${x}" y="${y}" width="${w}" height="${w}" viewBox="0 0 16 16" style="fill:${LV[t][0]};color:${LV[t][0]}">${LV[t][1]}</svg>`;
+const D = '#14110e';
+const SETS = {
+  T: ['Today', 'One plate for every tier, only the picture and colour change - nothing says "rare".', (t, c) => `<rect x="4" y="4" width="24" height="24" rx="6" fill="${D}" stroke="${c}" stroke-width="2.5"/>${pic(t, 9, 9, 14)}`, true],
+  A: ['Forged plates', 'Today\'s pictures, but the frame grows with the tier: a bare plate, a rim, a double rim, a studded hexagon, and for Mythic a crowned plate with laurel wings.', (t, c) => ({
+    none: `<rect x="7" y="7" width="18" height="18" rx="4" fill="${D}" stroke="${c}" stroke-opacity=".7" stroke-width="1.5"/>${pic(t, 10, 10, 12)}`,
+    bronze: `<rect x="5" y="5" width="22" height="22" rx="4" fill="${D}" stroke="${c}" stroke-width="2"/><rect x="7.8" y="7.8" width="16.4" height="16.4" rx="2.5" fill="none" stroke="${c}" stroke-opacity=".45"/>${pic(t, 9.5, 9.5, 13)}`,
+    gm: `<rect x="2.5" y="2.5" width="27" height="27" rx="6" fill="${D}" stroke="${c}" stroke-width="1.3"/><rect x="5.5" y="5.5" width="21" height="21" rx="4" fill="none" stroke="${c}" stroke-width="2"/>${pic(t, 9, 9, 14)}`,
+    epic: `<path d="M16 2l12 7v14l-12 7-12-7V9z" fill="${D}" stroke="${c}" stroke-width="2" stroke-linejoin="round"/>${[[16, 2], [28, 9], [28, 23], [16, 30], [4, 23], [4, 9]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="1.7" fill="${c}"/>`).join('')}${pic(t, 8.5, 8.5, 15)}`,
+    mythic: `<path d="M5 13c-3 4-2 11 4 13M27 13c3 4 2 11-4 13" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round"/><path d="M2.5 16.5l3 1M2.8 21.5l3.4-.3M29.5 16.5l-3 1M29.2 21.5l-3.4-.3" stroke="${c}" stroke-width="1.6" stroke-linecap="round"/><path d="M8 10l2.7-5.5 2.6 3.2L16 2.5l2.7 5.2 2.6-3.2L24 10v17H8z" fill="${D}" stroke="${c}" stroke-width="2" stroke-linejoin="round"/>${pic(t, 9.5, 12, 13)}`,
+  })[t]],
+  B: ['Rank medals', 'Every tier becomes a different game object: a sprout on a plain ring, a bronze medal on a ribbon, a silver kite shield, an ember gem, and a winged golden crown for Mythic.', (t, c) => ({
+    none: `<circle cx="16" cy="16" r="9" fill="${D}" stroke="${c}" stroke-opacity=".55" stroke-width="1.3"/>${pic(t, 9.5, 9.5, 13)}`,
+    bronze: `<path d="M11 20l-3 10 4.5-2.5 3 3.5 1-10M21 20l3 10-4.5-2.5-3 3.5-1-10" fill="${D}" stroke="${c}" stroke-width="1.6" stroke-linejoin="round"/><circle cx="16" cy="13" r="10" fill="${D}" stroke="${c}" stroke-width="2"/><circle cx="16" cy="13" r="7" fill="none" stroke="${c}" stroke-opacity=".5"/>${pic(t, 10, 7, 12)}`,
+    gm: `<path d="M16 2l11 4v9c0 8-5 12-11 15C10 27 5 23 5 15V6z" fill="${D}" stroke="${c}" stroke-width="2" stroke-linejoin="round"/><path d="M16 5.6l7.8 2.9v6.6c0 5.8-3.4 9-7.8 11.4" fill="none" stroke="${c}" stroke-opacity=".45"/>${pic(t, 9, 8, 14)}`,
+    epic: `<path d="M8.5 4h15l6 8L16 30 2.5 12z" fill="${D}" stroke="${c}" stroke-width="2" stroke-linejoin="round"/><path d="M2.5 12h27M11.5 4l-3 8L16 30l7.5-18-3-8" fill="none" stroke="${c}" stroke-opacity=".5" stroke-width="1.2" stroke-linejoin="round"/>${pic(t, 11, 10, 10)}`,
+    mythic: `<path d="M10 20C6 20 2 17 1 11M10 17C7 16 4.5 13 4 9M11 14.2C9 13 8 10.5 8 8M22 20c4 0 8-3 9-9M22 17c3-1 5.5-4 6-8M21 14.2c2-1.2 3-3.7 3-6.2" fill="none" stroke="${c}" stroke-width="1.9" stroke-linecap="round"/><path d="M10.5 12.5l1.8-4.5 1.9 2.4L16 6l1.8 4.4 1.9-2.4 1.8 4.5" fill="none" stroke="${c}" stroke-width="1.8" stroke-linejoin="round"/><circle cx="16" cy="20" r="8" fill="${D}" stroke="${c}" stroke-width="2"/>${pic(t, 10.5, 14.5, 11)}`,
+  })[t]],
+  C: ['Gem ladder', 'The pictures give way to cut gems: the sprout, then a round bronze, a square pearl, a five-sided ember, and a gold star for Mythic - the shape alone climbs the ladder.', (t, c) => ({
+    none: `<circle cx="16" cy="16" r="9" fill="${D}" stroke="${c}" stroke-opacity=".55" stroke-width="1.3"/>${pic(t, 9.5, 9.5, 13)}`,
+    bronze: `<circle cx="16" cy="16" r="10.5" fill="${D}" stroke="${c}" stroke-width="2"/><circle cx="16" cy="16" r="5" fill="${c}" fill-opacity=".85"/><path d="M16 5.5v5.5M16 21v5.5M5.5 16H11M21 16h5.5" stroke="${c}" stroke-opacity=".55"/>`,
+    gm: `<rect x="5" y="5" width="22" height="22" rx="2" fill="${D}" stroke="${c}" stroke-width="2"/><rect x="11" y="11" width="10" height="10" fill="${c}" fill-opacity=".85"/><path d="M5 5l6 6M27 5l-6 6M5 27l6-6M27 27l-6-6" stroke="${c}" stroke-opacity=".55"/>`,
+    epic: `<path d="M16 2.5l12.5 9.2-4.8 15.8H8.3L3.5 11.7z" fill="${D}" stroke="${c}" stroke-width="2" stroke-linejoin="round"/><path d="M16 10l6 4.4-2.3 7.1h-7.4L10 14.4z" fill="${c}" fill-opacity=".85"/><path d="M16 2.5V10M28.5 11.7L22 14.4M23.7 27.5l-4-6M8.3 27.5l4-6M3.5 11.7l6.5 2.7" stroke="${c}" stroke-opacity=".55"/>`,
+    mythic: `<path d="M16 1l3.9 9.2 9.9.9-7.5 6.5 2.2 9.7L16 22.2l-8.5 5.1 2.2-9.7-7.5-6.5 9.9-.9z" fill="${D}" stroke="${c}" stroke-width="2" stroke-linejoin="round"/><path d="M16 8.5l2.2 5.1 5.5.5-4.2 3.6 1.3 5.4L16 20.3l-4.8 2.8 1.3-5.4-4.2-3.6 5.5-.5z" fill="${c}" fill-opacity=".9"/>`,
+  })[t]],
+};
+const sym = (draw, t, k = 1) => `<svg width="${SIZE[t] * k}" height="${SIZE[t] * k}" viewBox="0 0 32 32" aria-label="${NAMES[t]}">${draw(t, LV[t][0])}</svg>`;
+const symToday = (draw, t, k = 1) => `<svg width="${24 * k}" height="${24 * k}" viewBox="0 0 32 32" aria-label="${NAMES[t]}">${draw(t, LV[t][0])}</svg>`;
+document.getElementById('tiersets').innerHTML = Object.entries(SETS).map(([k, [name, cap, draw, today]]) => {
+  const one = (t, m) => (today ? symToday : sym)(draw, t, m);
+  return `<figure class="${k === 'B' ? 'pick' : ''}">
+  <div class="tstrip">${TIERS.map((t) => one(t, 1)).join('')}</div>
+  <div class="trow">${TIERS.map((t) => `<span class="tsym">${one(t, 2)}<small>${NAMES[t]}</small></span>`).join('')}</div>
+  <div class="trow grey">${TIERS.map((t) => one(t, 1.5)).join('')}</div>
+  <figcaption><b>${k === 'T' ? 'Today' : k + ' · ' + name}</b>${k === 'B' ? '<span class="tag">MY PICK</span> ' : ''}${cap}</figcaption></figure>`; }).join('');
+
 /* round 3: the groups. Each group knows its shops' levels: the best ones lead the symbol */
 LV.none = ['#B8B0A4', '<path d="M8 15V8.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 9.2C8 5.6 5.6 3.4 2 3.4c0 3.6 2.4 5.8 6 5.8z"/><path d="M8 8.4c0-3.1 2.3-5.1 6-5.1 0 3.3-2.3 5.1-6 5.1z"/>'];
 const GROUPS = [[200, 120, 3, ['bronze', 'none', 'none']], [470, 110, 9, ['epic', 'gm', 'bronze']], [300, 240, 29, ['mythic', 'epic', 'gm']], [560, 250, 152, ['mythic', 'epic', 'bronze']]];
@@ -263,7 +311,7 @@ const G = {
     'A wooden crate with the count stencilled on it; its edge is the colour of the best level inside. The simplest object, the number stays the biggest thing.'],
 };
 const gscene = (draw) => `<div class="stage"><div class="scr">${PINS.slice(0, 5).map(([x, y, t, st]) => `<span class="pin" style="left:${x + 40}px;top:${y}px">${mk(LV[t], { st: st || '' })}</span>`).join('')}${GROUPS.map(([x, y, n, lv]) => `<span class="pin" style="left:${x}px;top:${y}px">${draw(n, lv)}</span>`).join('')}</div></div>`;
-document.getElementById('groups').innerHTML = Object.entries(G).map(([k, [name, draw, cap]]) => `<figure class="${k === 'A' ? 'pick' : ''}">
+if (document.getElementById('groups')) document.getElementById('groups').innerHTML = Object.entries(G).map(([k, [name, draw, cap]]) => `<figure class="${k === 'A' ? 'pick' : ''}">
   ${gscene(draw)}
   <div class="big"><div class="zoom3">${draw(29, ['mythic', 'epic', 'gm'])}</div></div>
   <div class="row grey"><span class="lbl">In grey</span>${GROUPS.map(([, , n, lv]) => draw(n, lv)).join('')}</div>

@@ -3303,3 +3303,7 @@ the word), each at map size and zoomed, in a grey view, each acting out its word
   font your drawings used" (B): the game feel beats consistency with old drawings. Then *"make sure that the hub is hidden also
   when zoom out"* - a special shop must stand out when you can see it, but must not break the clean zoomed-out picture; and
   *"change the circle and number to better symbol"* - even a counter on his map must be an object, not a plain shape.
+
+- **12:15:** *"B is better but we need set of of new tier symbol as well to better show their exclusiveness"* - he took the
+  object (the market town) for the groups, and asked that a RANK look like a rank: the ladder must show who is rare, not just
+  which colour a shop is. Equal plates for every level read as "all the same" to him.

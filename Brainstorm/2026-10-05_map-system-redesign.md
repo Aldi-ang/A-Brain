@@ -1,6 +1,6 @@
 ---
 date: 2026-10-05
-status: BUILT 10:55 (57abe25) + round 2/3 (b93540f motion, 00d787c hub C + sprout, 7f88984 font C + hub hidden); GROUP SYMBOL pick OPEN
+status: BUILT 10:55 (57abe25) + rounds 2-4 (b93540f, 00d787c, 7f88984, 1e9fc8b); TIER SYMBOL SET pick OPEN
 page: https://claude.ai/artifact/WxW6xpYd3dhLhyEwZ6Gn8u
 source: Raw/2026-10-05-map-system/map-system-redesign.html (frames: pc-*.png, ph-*.png, states.json)
 ---
@@ -122,6 +122,20 @@ crate (count stencilled, edge = best level). Building any of them needs each mar
 
 Models applied: Second-Order Thinking (a font switch reaches every number table), Reversibility Test (the hub-in-bubble change
 is one line each way).
+
+## Round 4 (2026-10-05 12:15 - 12:25) - the market town built, a new tier symbol set
+
+**His words:** *"B is better but we need set of of new tier symbol as well to better show their exclusiveness"*.
+**Built:** groups = B, the little market town (kpm `1e9fc8b`): roof + doors in the colour of the best level inside (each pin
+carries lvRank / lvColor into the cluster).
+
+**The tier sets - OPEN, waiting on Aldi** (page v4 section 0; the page's `SETS` table is the spec, 32 x 32 grid, map sizes
+Unranked 22 -> Mythic 32 px): A forged plates (today's pictures, the frame grows: bare / rim / double rim / studded hexagon /
+crowned plate with laurel wings) · **B rank medals (MY PICK)** (sprout ring / bronze medal on a ribbon / silver kite shield /
+ember gem / winged golden crown) · C gem ladder (sprout / round bronze / square pearl / five-sided ember / gold star - no
+pictures, the shape alone climbs). Every set keeps his sprout for Unranked.
+**Cost:** the pins grow with the tier (32 px Mythic), so the hit boxes and `getIcon` sizes become per tier; the level chips,
+the area bars and the card badge must take the same drawings.
 
 ## Rejected on purpose
 

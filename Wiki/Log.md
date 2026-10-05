@@ -1588,3 +1588,7 @@ https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti · [[2026-10-05_map-system-red
 ## 2026-10-05 12:12 — Font C (Rajdhani) app-wide + hub hidden when zoomed out BUILT (kpm 7f88984); group symbol drawn, OPEN
 
 [[2026-10-05_map-system-redesign]] (Round 3) · page v3 https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti.
+
+## 2026-10-05 12:25 — Map System: market-town groups BUILT (kpm 1e9fc8b); tier symbol sets drawn, OPEN
+
+[[2026-10-05_map-system-redesign]] (Round 4) · page v4 https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti.

@@ -63,6 +63,11 @@
    "roofs": 0,
    "sprouts": 1,
    "clusters": 3,
+   "towns": [
+    "#C4551E 3",
+    "#E4B04A 2",
+    "#E4B04A 27"
+   ],
    "sheet": false,
    "toast": []
   },
@@ -128,6 +133,11 @@
    "roofs": 0,
    "sprouts": 1,
    "clusters": 3,
+   "towns": [
+    "#E4B04A 3",
+    "#E4B04A 4",
+    "#E4B04A 25"
+   ],
    "sheet": false,
    "toast": []
   },
@@ -193,6 +203,11 @@
    "roofs": 0,
    "sprouts": 1,
    "clusters": 3,
+   "towns": [
+    "#E4B04A 3",
+    "#E4B04A 4",
+    "#E4B04A 25"
+   ],
    "sheet": false,
    "toast": []
   },
@@ -258,6 +273,7 @@
    "roofs": 1,
    "sprouts": 7,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   },
@@ -329,6 +345,7 @@
    "roofs": 1,
    "sprouts": 7,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": [
     "Sales heat colours the area borders - import borders with Borders setup first."
@@ -396,6 +413,7 @@
    "roofs": 1,
    "sprouts": 7,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": [
     "Sales heat colours the area borders - import borders with Borders setup first."
@@ -463,6 +481,7 @@
    "roofs": 1,
    "sprouts": 6,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   },
@@ -528,6 +547,7 @@
    "roofs": 1,
    "sprouts": 6,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   },
@@ -593,6 +613,7 @@
    "roofs": 1,
    "sprouts": 6,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   },
@@ -658,6 +679,7 @@
    "roofs": 2,
    "sprouts": 7,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   },
@@ -723,6 +745,7 @@
    "roofs": 1,
    "sprouts": 7,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   }
@@ -790,6 +813,11 @@
    "roofs": 0,
    "sprouts": 1,
    "clusters": 3,
+   "towns": [
+    "#C4551E 3",
+    "#E4B04A 2",
+    "#E4B04A 27"
+   ],
    "sheet": false,
    "toast": []
   },
@@ -855,6 +883,7 @@
    "roofs": 1,
    "sprouts": 5,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   }
@@ -922,6 +951,11 @@
    "roofs": 0,
    "sprouts": 1,
    "clusters": 3,
+   "towns": [
+    "#C4551E 3",
+    "#E4B04A 2",
+    "#E4B04A 27"
+   ],
    "sheet": false,
    "toast": []
   },
@@ -987,6 +1021,7 @@
    "roofs": 1,
    "sprouts": 6,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   }
@@ -1035,6 +1070,7 @@
    "roofs": 0,
    "sprouts": 0,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   },
@@ -1086,6 +1122,7 @@
    "roofs": 0,
    "sprouts": 0,
    "clusters": 0,
+   "towns": [],
    "sheet": true,
    "toast": []
   },
@@ -1131,6 +1168,7 @@
    "roofs": 0,
    "sprouts": 0,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   },
@@ -1182,6 +1220,7 @@
    "roofs": 0,
    "sprouts": 1,
    "clusters": 0,
+   "towns": [],
    "sheet": true,
    "toast": []
   },
@@ -1233,6 +1272,7 @@
    "roofs": 0,
    "sprouts": 0,
    "clusters": 0,
+   "towns": [],
    "sheet": true,
    "toast": []
   },
@@ -1278,6 +1318,7 @@
    "roofs": 0,
    "sprouts": 2,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   },
@@ -1329,6 +1370,7 @@
    "roofs": 0,
    "sprouts": 2,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   },
@@ -1380,6 +1422,7 @@
    "roofs": 0,
    "sprouts": 2,
    "clusters": 0,
+   "towns": [],
    "sheet": false,
    "toast": []
   }
