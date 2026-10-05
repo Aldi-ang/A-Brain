@@ -56,7 +56,7 @@ const setup = async (phone, card) => {
 /* A - the player as a bar along the map's bottom; the card under the Expedition list (PC) / a sheet (phone) */
 const lookA = (phone) => js(`(() => {
   const map = document.querySelector('.kx-map'), p = document.querySelector('.kx-rp'), player = p.querySelector('.kx-rp-player');
-  const bar = document.createElement('div'); bar.className = 'kx-rp'; map.append(bar); bar.append(player);
+  const bar = document.createElement('div'); bar.className = 'kx-rp'; bar.id = 'fsbar'; map.append(bar); bar.append(player);
   const dock = document.querySelector('.kx-dock'), dockTop = dock && dock.getClientRects().length ? innerHeight - dock.getBoundingClientRect().top + 8 : 16;
   bar.style.cssText = 'position:absolute;z-index:10000;left:${phone ? 8 : 16}px;right:${phone ? 8 : 232}px;bottom:' + dockTop + 'px;background:var(--panel);border:1px solid var(--line-3);border-radius:14px;padding:10px 14px;box-shadow:0 8px 28px rgba(0,0,0,.55)';
   player.style.cssText = ${phone ? `'display:grid;gap:4px'` : `'display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:18px;row-gap:2px;align-items:center'`};
@@ -73,22 +73,72 @@ const lookA = (phone) => js(`(() => {
 /* B - the whole replay panel as a column on the map's right, the Expedition list on top of it */
 const lookB = () => js(`(() => {
   const map = document.querySelector('.kx-map'), p = document.querySelector('.kx-rp'), keys = document.querySelector('.kx-keys'), mini = document.querySelector('.kx-mini');
-  map.append(p); p.style.cssText = 'position:absolute;z-index:10000;top:0;right:0;bottom:0;width:380px;height:auto;border-radius:0;border-width:0 0 0 1px;overflow-y:auto';
+  map.append(p); p.id = 'fscol'; p.style.cssText = 'position:absolute;z-index:10000;top:0;right:0;bottom:0;width:380px;height:auto;border-radius:0;border-width:0 0 0 1px;overflow-y:auto';
   if (mini) { mini.style.width = 'auto'; mini.style.marginBottom = '4px'; p.prepend(mini); }
   if (keys) keys.style.right = '396px';
   return 1; })()`);
 
+/* round 2, his "can u make it more compact especially on pc because the panel looks so big here" (`node draw-fullscreen.mjs
+   compact`): A = ONE thin row (keys | the day as colour ticks | camera), B = a 300 px column with smaller keys and rows.
+   Tick colours = the sign lamps: gold money, pale visited no sale, red a problem, dark closed */
+const COMPACT = `
+#fsbar{left:16px!important;right:232px!important;padding:6px 10px!important}
+#fsbar .kx-rp-player{display:flex!important;align-items:center;gap:10px}
+#fsbar .kx-rp-ctl{order:0;flex-wrap:nowrap!important;gap:4px}
+#fsbar .kx-rp-tl{order:1;flex:1;height:30px!important;margin:0 6px}
+#fsbar .kx-roadsw{order:2;margin:0!important}
+#fsbar .kx-rp-tl .track{bottom:12px;height:4px}
+#fsbar .kx-rp-tl .head{bottom:7px;height:14px}
+#fsbar .kx-rp-notch{width:6px;height:14px;bottom:7px!important;border:0;border-radius:2px;padding:0;opacity:1;background:#E8E4DE}
+#fsbar .kx-rp-notch .kx-rp-pic,#fsbar .kx-rp-hours,#fsbar .kx-rp-note{display:none}
+#fsbar .kx-rp-notch:has(.kpm-coin),#fsbar .kx-rp-notch:has(.kx-sgn-order){background:#E4B04A}
+#fsbar .kx-rp-notch:has(.kx-sgn-issue),#fsbar .kx-rp-notch:has(.kx-sgn-swap){background:#E0583A}
+#fsbar .kx-rp-notch:has(.kx-sgn-closed){background:#6A645C}
+#fsbar .kx-rp-notch.now{outline:2px solid #E4B04A;outline-offset:2px}
+#fsbar .kx-rp-ctl>button,#fscol .kx-rp-ctl>button{width:32px;height:32px;border-radius:8px}
+#fsbar .kx-rp-ctl>button.play,#fscol .kx-rp-ctl>button.play{width:38px}
+#fsbar .kx-rp-ctl>button svg,#fscol .kx-rp-ctl>button svg{width:14px;height:14px}
+#fsbar .kx-rp-speed button,#fscol .kx-rp-speed button{min-width:28px;height:30px;font-size:11px}
+#fsbar .kx-rp-clock,#fscol .kx-rp-clock{font-size:15px;margin-left:6px}
+#fsbar .kx-roadsw button,#fscol .kx-roadsw button{min-height:30px;padding:0 8px;font-size:10px}
+.kx-mini .kx-rp-card,#fscol .kx-rp-card{padding:8px 10px;gap:4px}
+.kx-mini .kx-rp-card .top b,#fscol .kx-rp-card .top b{font-size:13px}
+.kx-mini .kx-rp-card .acts button,#fscol .kx-rp-card .acts button{min-height:30px;padding:0 8px;font-size:10px}
+.kx-mini .kx-rp-card .kx-rp-x,#fscol .kx-rp-card .kx-rp-x{min-width:30px;min-height:30px}
+#fscol{width:300px!important;padding:10px 12px!important;gap:8px!important}
+#fscol .kx-ph b{font-size:15px}
+#fscol .kx-ph .kx-rp-x{min-height:28px;padding:0 8px;font-size:10px}
+#fscol .kx-nm{font-size:14px}
+#fscol .kx-rp-who input{min-height:30px;font-size:11px;padding:0 6px}
+#fscol .kx-rp-stats div{padding:5px 6px} #fscol .kx-rp-stats b{font-size:12px} #fscol .kx-rp-stats small{font-size:8px}
+#fscol .kx-rp-player{padding:8px 12px!important;margin:0 -12px!important;top:-10px!important}
+#fscol .kx-rp-notch{width:20px;height:20px;bottom:calc(14px + var(--lane,0) * 22px)!important}
+#fscol .kx-rp-notch .kx-rp-pic{transform:scale(.68)}
+#fscol .kx-rp-note{font-size:10px}
+#fscol .kx-rp-row{padding:5px 8px;gap:8px} #fscol .kx-rp-row .t{width:36px;font-size:11px;line-height:18px}
+#fscol .kx-rp-row .kx-rp-pic{transform:scale(.75)} #fscol .kx-rp-row .s b{font-size:12px} #fscol .kx-rp-row .s span{font-size:9px} #fscol .kx-rp-row .s em{font-size:11px}
+#fscol .kx-rp-rc{font-size:10px}`;
+const compact = () => js(`(() => { const s = document.createElement('style'); s.textContent = ${JSON.stringify(COMPACT)}; document.head.append(s);
+  const tl = document.querySelector('#fscol .kx-rp-tl'); if (tl) { const max = Math.max(0, ...[...tl.querySelectorAll('.kx-rp-notch')].map((n) => +n.style.getPropertyValue('--lane') || 0)); tl.style.height = (36 + 22 * max) + 'px'; }
+  const k = document.querySelector('.kx-keys'); if (document.querySelector('#fscol') && k) k.style.right = '316px';
+  return 1; })()`);
+const C = process.argv[2] === 'compact', P = C ? 'fs2' : 'fs';
+const after = async () => { if (C) await compact(); await sleep(500); };
 /* PC 1440 */
 await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
-await setup(false, false); await lookA(false); await sleep(400); await shot('fs-A-pc.png');
-await setup(false, true); await lookA(false); await sleep(400); await shot('fs-A-pc-card.png');
-await setup(false, false); await lookB(); await sleep(400); await shot('fs-B-pc.png');
-await setup(false, true); await lookB(); await sleep(600); await shot('fs-B-pc-card.png');
+await setup(false, false); await lookA(false); await after(); await shot(`${P}-A-pc.png`);
+await setup(false, true); await lookA(false); await after(); await shot(`${P}-A-pc-card.png`);
+await setup(false, false); await lookB(); await after(); await shot(`${P}-B-pc.png`);
+await setup(false, true); await lookB(); await after(); await shot(`${P}-B-pc-card.png`);
 /* phone 390 - A and B are the same here */
 await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
 await send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 5 });
 await send('Emulation.setEmulatedMedia', { features: [{ name: 'hover', value: 'none' }, { name: 'pointer', value: 'coarse' }, { name: 'any-hover', value: 'none' }, { name: 'any-pointer', value: 'coarse' }] });
-await setup(true, false); console.log('phone media', await js(`matchMedia('(hover: none)').matches`)); await lookA(true); await sleep(400); await shot('fs-ph.png');
-await setup(true, true); await lookA(true); await sleep(400); await shot('fs-ph-card.png');
+await setup(true, false); console.log('phone media', await js(`matchMedia('(hover: none)').matches`)); await lookA(true);
+if (C) await js(`(() => { const s = document.createElement('style'); s.textContent = ${JSON.stringify(COMPACT)} + '#fsbar{right:8px!important;padding:8px 10px!important} #fsbar .kx-rp-player{flex-wrap:wrap;row-gap:6px} #fsbar .kx-rp-tl{order:-1;flex:1 1 100%;margin:0 4px}'; document.head.append(s); return 1; })()`);
+await sleep(500); await shot(`${P}-ph.png`);
+await setup(true, true); await lookA(true);
+if (C) await js(`(() => { const s = document.createElement('style'); s.textContent = ${JSON.stringify(COMPACT)} + '#fsbar{right:8px!important;padding:8px 10px!important} #fsbar .kx-rp-player{flex-wrap:wrap;row-gap:6px} #fsbar .kx-rp-tl{order:-1;flex:1 1 100%;margin:0 4px}'; document.head.append(s); return 1; })()`);
+await sleep(500); await shot(`${P}-ph-card.png`);
 console.log('errors', JSON.stringify(errs));
 ws.close(); chrome.kill(); server.close(); process.exit(0);
