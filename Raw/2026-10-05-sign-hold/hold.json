@@ -1,6 +1,10 @@
 {
  "errs": [],
  "pcRest": {
+  "names": 28,
+  "namesShown": 19,
+  "namesOverlap": 0,
+  "pickedName": null,
   "words": 18,
   "visible": [],
   "visibleIds": [],
@@ -12,6 +16,10 @@
   "word": "FULL"
  },
  "pcHover": {
+  "names": 28,
+  "namesShown": 20,
+  "namesOverlap": 0,
+  "pickedName": "visible",
   "words": 18,
   "visible": [
    "FULL"
@@ -22,12 +30,20 @@
   "popups": 0
  },
  "pcAway": {
+  "names": 28,
+  "namesShown": 19,
+  "namesOverlap": 0,
+  "pickedName": "hidden",
   "words": 18,
   "visible": [],
   "visibleIds": [],
   "popups": 0
  },
  "pcClick": {
+  "names": 25,
+  "namesShown": 17,
+  "namesOverlap": 0,
+  "pickedName": null,
   "words": 16,
   "visible": [],
   "visibleIds": [],
@@ -35,6 +51,10 @@
  },
  "phoneMedia": true,
  "phRest": {
+  "names": 8,
+  "namesShown": 2,
+  "namesOverlap": 0,
+  "pickedName": null,
   "words": 4,
   "visible": [],
   "visibleIds": [],
@@ -46,6 +66,10 @@
   "word": "SALE"
  },
  "phHolding": {
+  "names": 8,
+  "namesShown": 2,
+  "namesOverlap": 0,
+  "pickedName": "visible",
   "words": 4,
   "visible": [
    "SALE"
@@ -56,12 +80,20 @@
   "popups": 0
  },
  "phReleased": {
+  "names": 8,
+  "namesShown": 2,
+  "namesOverlap": 0,
+  "pickedName": "visible",
   "words": 4,
   "visible": [],
   "visibleIds": [],
   "popups": 0
  },
  "phTap": {
+  "names": 10,
+  "namesShown": 3,
+  "namesOverlap": 0,
+  "pickedName": null,
   "words": 6,
   "visible": [],
   "visibleIds": [],
@@ -69,6 +101,10 @@
  },
  "pass": {
   "pcRest0": true,
+  "pcNamesAtRest": true,
+  "pcHoverNameShown": true,
+  "phNamesAtRest": true,
+  "phHoldNameShown": true,
   "pcHoverOnlyIts": true,
   "pcAway0": true,
   "pcClickPopup": true,

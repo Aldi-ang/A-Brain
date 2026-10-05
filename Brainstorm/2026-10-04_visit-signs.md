@@ -104,6 +104,42 @@ Found on the way, NOT caused by this: `test-journey.mjs` "Selling moment: 4 froz
 before this change too (05:50 WIB, 2026-10-05). Cause not found; [guessing] the lab's sale times vs the early-morning clock.
 The other 48 pass.
 
+## Round 4 - the shop's name always, the status on demand (his 2026-10-05 07:10) - BUILT kpm `977dd08`
+
+His words: *"the description status is hidden for the store but keep the store name visible"* and, asked nothing,
+*"right now it is hidden and showed only when hovered"* (the name lived only in the PC hover tooltip; the phone had none).
+
+| Call | Picked (my default, his to change) | Why |
+|---|---|---|
+| Where the name sits | under the chest, below the sign's foot, name-tag style | the word's old row; the owner tag "BS · 3" owns the top |
+| Where the status goes on hover / hold | joined to the name's right end, one strip, gold | his "stacking reads as clutter" (2026-09-28): never a second box |
+| Long names | end in "..." at 110 px | the popup has the whole name |
+| Crowded names | hidden while they would sit on another name, tag, man, bubble or chest; zoom in brings them back; hover / hold shows one anyway | Expedition's own rule for shop names, which he already lives with |
+
+Measured (probe-hold.mjs, 14/14): 19 of 28 names shown at 1440 and only **2 of 8 at 390** at the probe's zoom - on the phone
+most names wait for a zoom-in. That is the cost he has not priced; if he says "all names", the next lever is a smaller
+name or a zoom threshold, not overlap.
+
+## Round 5 - Mission Feed: the Global Fleet filter out, a shop search in, on both maps (his 2026-10-05 07:30) - BUILT kpm `517c0c5`
+
+His words: *"and also we need to redesign this a little, global filter is useless since we have the expedition panel now
+right and we need to add searching box for store name to show the location we also need that on the regular map"*
+(screenshot: GLOBAL FLEET open, "<name>'s Bounties" rows).
+
+- The filter fed three things; all left with it: the "'s Bounties" list, "Global Fleet" in the header line, and an orange
+  dashed street route fetched from router.project-osrm.org for one salesman (the Expedition press draws his road now).
+  The big "18/32 secured" counter now always counts everyone; per salesman lives on his Expedition card.
+- "Find a Shop" sits in the filter's slot: part of a name + Enter, or a pick from the list -> the map flies there
+  (StoreFocus, zoom 16). Every shop is searchable, not only today's round: a shop off the round is shown where it is and
+  the box says no chest is drawn there (NOT checked - every lab shop visits daily).
+- Map System: the same box under "All Regions"; a pick presses the shop's pin (its card opens).
+- Native `<datalist>` for the suggestions (no new code to style or maintain); the browser's blue clear "x" made grey.
+- Found on the way: the Map System shop card's "Directions" button is blue (palette law) - not touched, not asked.
+
+Models applied: Chesterton's Fence (what the filter fed before deleting it - the street route and the counter),
+Second-Order (a crowded phone hides most names - stated, not hidden), Inversion (what makes a search lie: landing on
+"Toko Sinar Abadi" for "Toko Abadi" -> exact name first).
+
 ## Rejected on purpose
 
 - **A rival FLAG for Competitor** (in the brief): the red pixel flag already means "nobody's shop" on the same map

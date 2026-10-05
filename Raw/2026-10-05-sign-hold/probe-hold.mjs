@@ -3,7 +3,8 @@
    PC 1440 = mouse moves and presses; phone 390 = touch events with the touch media emulated and (hover: none) asserted
    first (lessons 2026-10-03, 2026-09-20: a .click() never exercises a hold). Every count carries a floor (words in the
    DOM > 0), lessons 2026-10-04.
-   Checks: rest = 0 words visible; PC hover one chest = exactly its word; phone hold one chest = its word and no popup,
+   Checks (07:20 re-run, his "keep the store name visible"): names shown at rest (> 0, none on another), the picked chest's name shown on hover / hold;
+   rest = 0 words visible; PC hover one chest = exactly its word; phone hold one chest = its word and no popup,
    gone on release; phone tap = popup, no word. Usage: node probe-hold.mjs  -> hold.json */
 import { spawn } from 'node:child_process';
 import http from 'node:http';
@@ -32,7 +33,9 @@ const mapClip = () => js(`(() => { const b = document.querySelector('.leaflet-co
 /* what is on screen: words in the DOM (the floor), words visible (which), popups open */
 const STATE = `(() => { const sw = [...document.querySelectorAll('.leaflet-marker-icon .kx-sw')];
   const vis = sw.filter((e) => getComputedStyle(e).visibility === 'visible' && e.getBoundingClientRect().width > 0);
-  return { words: sw.length, visible: vis.map((e) => e.textContent), visibleIds: vis.map((e) => e.closest('.leaflet-marker-icon').dataset.probe || '?'),
+  const nm = [...document.querySelectorAll('.leaflet-marker-icon .kx-snm > i')]; const shown = nm.filter((e) => getComputedStyle(e).visibility === 'visible');
+  const hit = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top, rs = shown.map((e) => e.getBoundingClientRect());
+  return { names: nm.length, namesShown: shown.length, namesOverlap: rs.filter((a, i) => rs.some((b, j) => j !== i && hit(a, b))).length, pickedName: (document.querySelector('[data-probe=picked] .kx-snm > i') && getComputedStyle(document.querySelector('[data-probe=picked] .kx-snm > i')).visibility) || null, words: sw.length, visible: vis.map((e) => e.textContent), visibleIds: vis.map((e) => e.closest('.leaflet-marker-icon').dataset.probe || '?'),
     popups: document.querySelectorAll('.leaflet-popup').length }; })()`;
 /* a visited chest that a finger at its centre really lands on (nothing else on top), tagged so the state can name it */
 const PICK = `(() => { const W = innerWidth, H = innerHeight;
@@ -102,6 +105,10 @@ if (ph) {
 const one = (s, word) => s && s.words > 0 && s.visible.length === 1 && s.visible[0] === word && s.visibleIds[0] === 'picked';
 out.pass = {
   pcRest0: !!(out.pcRest?.words > 0 && out.pcRest.visible.length === 0),
+  pcNamesAtRest: out.pcRest?.names > 0 && out.pcRest.namesShown > 0 && out.pcRest.namesOverlap === 0,
+  pcHoverNameShown: out.pcHover?.pickedName === 'visible',
+  phNamesAtRest: out.phRest?.names > 0 && out.phRest.namesShown > 0 && out.phRest.namesOverlap === 0,
+  phHoldNameShown: out.phHolding?.pickedName === 'visible',
   pcHoverOnlyIts: one(out.pcHover, pc?.word) && out.pcHover.popups === 0,
   pcAway0: out.pcAway?.visible.length === 0,
   pcClickPopup: out.pcClick?.popups === 1,

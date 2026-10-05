@@ -3252,3 +3252,16 @@ the word), each at map size and zoomed, in a grey view, each acting out its word
   the clash, he picks the distinct shape (the object rule again, and the colour-blind rule from round 7). He answers only
   the part he cares about (the look); a rule question left unanswered is his "use your pick".
   [[../../Brainstorm/2026-10-04_visit-signs]]
+
+## The name stays, the detail waits - and a duplicate control goes (2026-10-05, 07:10 - 07:30)
+
+> *"the description status is hidden for the store but keep the store name visible"* · *"right now it is hidden and showed
+> only when hovered"* · *"global filter is useless since we have the expedition panel now right and we need to add searching
+> box for store name to show the location we also need that on the regular map"*
+
+- **Identity is always on; detail is on demand.** A shop's NAME earns a permanent label; its STATUS waits for hover / hold.
+  The same split as the sign object (always) and its word (on demand) the evening before.
+- **One job, one control.** Once the Expedition press did the Global Fleet filter's job, he called the filter useless and
+  wanted its space for something new. Two controls that do the same thing read as clutter to him.
+- **A tool on one map belongs on both.** He asked for the search on Journey AND the regular map in the same sentence.
+  [[../../Brainstorm/2026-10-04_visit-signs]] rounds 4-5

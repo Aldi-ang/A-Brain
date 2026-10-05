@@ -1,0 +1,116 @@
+{
+ "errs": [],
+ "journeyPC": {
+  "filterGone": true,
+  "options": 32,
+  "typed": "typed",
+  "box": "Toko Sinar Abadi",
+  "at": {
+   "dx": 0,
+   "dy": -14
+  },
+  "dayChests": {
+   "MoMon": "18/32Secured",
+   "TuTue": "18/32Secured",
+   "WeWed": "18/32Secured",
+   "ThThu": "18/32Secured",
+   "FrFri": "18/32Secured",
+   "SaSat": "18/32Secured",
+   "SuSun": "18/32Secured"
+  },
+  "day": "MoMon",
+  "tried": [
+   "Toko Berkah Jaya",
+   "Toko Makmur",
+   "Toko Lancar",
+   "Warung Barokah",
+   "Toko Maju",
+   "Warung Pak Kumis",
+   "Toko Abadi",
+   "Toko Murah",
+   "Toko Mulia",
+   "Toko Harapan"
+  ],
+  "missSaid": true
+ },
+ "mapPC": {
+  "options": 32,
+  "typed": "typed",
+  "box": "Toko Sinar Abadi",
+  "cardOpen": true,
+  "missSaid": true
+ },
+ "journeyPhone": {
+  "media": true,
+  "filterGone": true,
+  "options": 32,
+  "typed": "typed",
+  "box": "Toko Sinar Abadi",
+  "at": {
+   "dx": 0,
+   "dy": -14
+  },
+  "dayChests": {
+   "MoMon": "18/32Secured",
+   "TuTue": "18/32Secured",
+   "WeWed": "18/32Secured",
+   "ThThu": "18/32Secured",
+   "FrFri": "18/32Secured",
+   "SaSat": "18/32Secured",
+   "SuSun": "18/32Secured"
+  },
+  "day": "MoMon",
+  "tried": [
+   "Toko Berkah Jaya",
+   "Warung Sumber Rejeki",
+   "Toko Makmur",
+   "Warung Bu Sri",
+   "Toko Sinar Abadi",
+   "Warung Pojok",
+   "Toko Lancar",
+   "Warung Barokah",
+   "Toko Maju",
+   "Warung Mbak Yu"
+  ],
+  "missSaid": true
+ },
+ "mapPhone": {
+  "options": 32,
+  "typed": "typed",
+  "box": "Toko Sinar Abadi",
+  "cardOpen": true,
+  "missSaid": true
+ },
+ "pass": {
+  "journeyPC": {
+   "filterGone": true,
+   "options": true,
+   "fullName": true,
+   "chestAtCentre": true,
+   "offRoundSaid": "no off-round shop in 10 tried",
+   "missSaid": true
+  },
+  "journeyPhone": {
+   "filterGone": true,
+   "options": true,
+   "fullName": true,
+   "chestAtCentre": true,
+   "offRoundSaid": "no off-round shop in 10 tried",
+   "missSaid": true
+  },
+  "mapPC": {
+   "options": true,
+   "fullName": true,
+   "cardOpen": true,
+   "missSaid": true
+  },
+  "mapPhone": {
+   "options": true,
+   "fullName": true,
+   "cardOpen": true,
+   "missSaid": true
+  },
+  "phoneMedia": true,
+  "noErrors": true
+ }
+}
