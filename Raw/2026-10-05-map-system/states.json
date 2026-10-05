@@ -1,0 +1,74 @@
+{
+ "errs": [],
+ "pc": {
+  "shots": [
+   "rest",
+   "menu",
+   "borders",
+   "catchment",
+   "card"
+  ],
+  "menu": [
+   "AGENT PROFILE",
+   "COMMAND CENTER",
+   "MAP SYSTEM",
+   "JOURNEY PLAN",
+   "FLEET & CANVAS",
+   "MASTER VAULT",
+   "AGENT INVENTORY",
+   "RESTOCK VAULT",
+   "SALES TERMINAL",
+   "RECEIVABLES & CONSIGNMENT",
+   "EOD SETORAN",
+   "STOCK OPNAME",
+   "CUSTOMERS",
+   "SAMPLING",
+   "REPORTS",
+   "AUDIT LOGS",
+   "SETTINGS",
+   "TUTORIAL",
+   "SYNCED",
+   "0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 : 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 : 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 5 Oktober 2026",
+   "Show All Tiers",
+   "👑 Mythic",
+   "🔥 Epic",
+   "⚔️ Grandmaster",
+   "🛡️ Bronze",
+   "🪵 Unranked",
+   "Regional Borders",
+   "View Supply Lines",
+   "Analyze Catchment Areas"
+  ],
+  "tiers": "no button",
+  "importer": "no button",
+  "heatmap": "no button",
+  "network": "no button",
+  "tactical": "no button"
+ },
+ "ph": {
+  "shots": [
+   "rest",
+   "menu",
+   "borders",
+   "catchment",
+   "card"
+  ],
+  "media": true,
+  "menu": [
+   "Show All Tiers",
+   "👑 Mythic",
+   "🔥 Epic",
+   "⚔️ Grandmaster",
+   "🛡️ Bronze",
+   "🪵 Unranked",
+   "Regional Borders",
+   "View Supply Lines",
+   "Analyze Catchment Areas"
+  ],
+  "tiers": "no button",
+  "importer": "no button",
+  "heatmap": "no button",
+  "network": "no button",
+  "tactical": "no button"
+ }
+}

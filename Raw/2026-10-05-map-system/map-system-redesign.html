@@ -1,0 +1,330 @@
+<title>Map System Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap">
+<style>
+/* Layout: one decision page - today's frames, then PC A|B, phone A|B, the store card and the markers, then the asks.
+   Single dark look on purpose: it is KPM's own "Ark Lab" palette (slate/rust/gold/cream, no blue, no green). */
+:root {
+  color-scheme: dark;
+  --ground: #0A0908; --panel: #121110; --raised: #1B1917; --inset: #0E0D0C;
+  --line: #26231F; --line2: #3E3A35; --line3: #6A645C;
+  --ink: #E8E4DE; --muted: #A39B90; --dim: #928B81;
+  --gold: #D08A2E; --gold2: #E4B04A; --rust: #C4551E; --red: #E0583A; --cream: #F0E2BC; --bronze: #A0703C; --grey: #6A645C;
+  --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font: 15px/1.5 var(--body); padding-inline: 16px; padding-block: 24px 64px; }
+main { max-width: 1180px; margin: 0 auto; display: grid; gap: 44px; }
+h1, h2, h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: .04em; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(34px, 6vw, 56px); line-height: .95; }
+h2 { font-size: 28px; line-height: 1; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+h2 small { font: 600 13px/1.3 var(--mono); letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+h3 { font-size: 20px; }
+p { margin: 0; max-width: 68ch; color: var(--muted); }
+p b, li b { color: var(--ink); }
+.ask { font-size: 18px; color: var(--ink); font-weight: 700; }
+.note { font: 600 12px/1.4 var(--mono); color: var(--dim); letter-spacing: .04em; }
+section { display: grid; gap: 16px; }
+.row { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); align-items: start; }
+.row.phones { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+figcaption { font-size: 14px; color: var(--muted); }
+figcaption b { color: var(--ink); font-family: var(--display); font-size: 18px; letter-spacing: .04em; text-transform: uppercase; margin-right: 6px; }
+.pick { display: inline-block; font: 700 11px/1 var(--mono); letter-spacing: .1em; color: var(--gold2); border: 1px solid var(--gold); padding: 4px 6px 3px; border-radius: 4px; vertical-align: 2px; }
+.today { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+.today img { width: 100%; border: 1px solid var(--line2); border-radius: 8px; display: block; }
+.probs { margin: 0; padding-left: 22px; display: grid; gap: 6px; color: var(--muted); max-width: 90ch; }
+/* a frame is drawn at its real size and scaled to fit the column */
+.stage { position: relative; width: 100%; overflow: hidden; border: 1px solid var(--line2); border-radius: 10px; background: #000; }
+.stage > .scr { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+.pc { width: 1280px; height: 760px; }
+.ph { width: 390px; height: 844px; }
+/* ---- the map ---- */
+.map { position: absolute; inset: 0; background: #2a2723 url(ground.jpg) center / cover; overflow: hidden; }
+.map::after { content: ""; position: absolute; inset: 0; background: rgba(10, 9, 8, .38); }
+.map svg.areas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+.mk { position: absolute; z-index: 2; width: 24px; height: 24px; translate: -50% -50%; border-radius: 6px; display: grid; place-items: center;
+  background: var(--plate, #14110e); border: 2px solid var(--c); box-shadow: 0 2px 0 rgba(0,0,0,.55); }
+.mk svg { width: 14px; height: 14px; fill: var(--c); }
+.mk .st { position: absolute; right: -5px; top: -5px; width: 9px; height: 9px; border-radius: 50%; border: 2px solid #14110e; }
+.mk .st.late { background: var(--red); }
+.mk .st.soon { background: var(--gold2); }
+.mk.big { width: 34px; height: 34px; border-radius: 8px; outline: 2px solid var(--cream); outline-offset: 3px; }
+.mk.big svg { width: 20px; height: 20px; }
+.mk.dim { opacity: .25; }
+.alabel { position: absolute; z-index: 2; translate: -50% -50%; font: 800 15px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--cream);
+  text-shadow: 0 1px 0 #000, 0 0 6px #000; text-align: center; pointer-events: none; }
+.alabel small { display: block; font: 700 11px/1.3 var(--mono); color: var(--gold2); letter-spacing: .02em; text-transform: none; }
+/* ---- controls in the app's own style ---- */
+.bar { position: absolute; z-index: 5; display: flex; gap: 8px; }
+.field { height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 12px; border-radius: 8px; background: rgba(18,17,16,.94); border: 1px solid var(--line2);
+  font: 700 13px/1 var(--mono); letter-spacing: .04em; color: var(--ink); text-transform: uppercase; }
+.field.search { text-transform: none; color: var(--dim); font-weight: 600; }
+.field svg { width: 15px; height: 15px; stroke: var(--gold2); fill: none; stroke-width: 2; flex: none; }
+.keys { position: absolute; z-index: 5; display: grid; gap: 6px; padding: 8px; border-radius: 12px; background: rgba(18,17,16,.92); border: 1px solid var(--line2); }
+.key { min-height: 40px; display: flex; align-items: center; gap: 9px; padding: 0 12px; border-radius: 8px; border: 1px solid transparent;
+  font: 700 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.key svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; flex: none; }
+.key.on { border-color: var(--gold); color: var(--ink); background: #1d1914; }
+.zoom { position: absolute; z-index: 5; display: grid; border-radius: 8px; overflow: hidden; border: 1px solid var(--line2); background: rgba(18,17,16,.94); }
+.zoom i { width: 36px; height: 36px; display: grid; place-items: center; font: 400 20px/1 var(--body); color: var(--ink); font-style: normal; }
+.zoom i + i { border-top: 1px solid var(--line2); }
+/* ---- panels ---- */
+.panel { position: absolute; z-index: 6; background: var(--panel); border: 1px solid var(--line2); display: flex; flex-direction: column; gap: 14px; padding: 18px; }
+.ptitle { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.ptitle h4 { margin: 0; font: 800 26px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+.ptitle span { font: 700 11px/1 var(--mono); letter-spacing: .12em; color: var(--muted); text-transform: uppercase; }
+.ptitle span b { color: var(--gold2); }
+.seg { display: flex; gap: 4px; }
+.seg i { font: 700 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; font-style: normal; padding: 8px 10px; border-radius: 6px; color: var(--muted); border: 1px solid var(--line2); }
+.seg i.on { color: var(--ink); border-color: var(--gold); }
+.rank { display: grid; gap: 6px; }
+.area { display: grid; grid-template-columns: 22px 1fr auto; gap: 4px 10px; align-items: center; padding: 10px 12px; border-radius: 8px; background: var(--raised); border: 1px solid var(--line); }
+.area.sel { border-color: var(--gold); }
+.area .n { font: 800 18px/1 var(--display); color: var(--line3); }
+.area .nm { font: 800 17px/1 var(--display); letter-spacing: .05em; text-transform: uppercase; }
+.area .rp { font: 700 13px/1 var(--mono); color: var(--gold2); text-align: right; font-variant-numeric: tabular-nums; }
+.area .meter { grid-column: 2 / 4; height: 6px; border-radius: 3px; background: var(--inset); overflow: hidden; display: flex; }
+.area .meter u { display: block; height: 100%; text-decoration: none; }
+.area .sub { grid-column: 2 / 4; display: flex; justify-content: space-between; font: 600 11px/1 var(--mono); color: var(--dim); letter-spacing: .04em; }
+.area .sub em { font-style: normal; color: var(--red); }
+.lv { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px 6px 6px; border-radius: 7px; border: 1px solid var(--line2); background: var(--raised);
+  font: 700 12px/1 var(--mono); color: var(--ink); }
+.chip .mk { position: static; translate: none; width: 20px; height: 20px; border-width: 2px; }
+.chip .mk svg { width: 11px; height: 11px; }
+.chip b { color: var(--muted); font-weight: 700; }
+.chip.off { opacity: .4; }
+.lbl { font: 700 11px/1 var(--mono); letter-spacing: .16em; color: var(--muted); text-transform: uppercase; }
+.tools { margin-top: auto; display: flex; gap: 6px; border-top: 1px solid var(--line); padding-top: 12px; }
+.tools .key { min-height: 34px; padding: 0 10px; font-size: 10px; border-color: var(--line2); }
+.hud { position: absolute; z-index: 5; display: flex; gap: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--line2); background: rgba(18,17,16,.94); }
+.hud div { padding: 9px 16px; display: grid; gap: 3px; }
+.hud div + div { border-left: 1px solid var(--line2); }
+.hud b { font: 800 22px/1 var(--display); letter-spacing: .03em; }
+.hud b.g { color: var(--gold2); } .hud b.r { color: var(--red); }
+.hud small { font: 700 10px/1 var(--mono); letter-spacing: .14em; color: var(--muted); text-transform: uppercase; }
+.card { position: absolute; z-index: 6; border-radius: 12px; background: rgba(18,17,16,.96); border: 1px solid var(--line2); padding: 14px; display: grid; gap: 8px; }
+/* phone */
+.dock { position: absolute; z-index: 7; left: 10px; right: 10px; bottom: 12px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 6px; border-radius: 14px; background: rgba(18,17,16,.96); border: 1px solid var(--line2); }
+.dock .key { min-height: 58px; flex-direction: column; justify-content: center; gap: 6px; padding: 0; font-size: 10px; letter-spacing: .1em; }
+.dock .key svg { width: 20px; height: 20px; }
+.sheet { position: absolute; z-index: 6; left: 0; right: 0; bottom: 0; background: var(--panel); border-top: 1px solid var(--line2); border-radius: 18px 18px 0 0; padding: 10px 16px 92px; display: grid; gap: 12px; align-content: start; }
+.sheet .grab { justify-self: center; width: 44px; height: 5px; border-radius: 3px; background: var(--line3); }
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; border-radius: 10px; background: var(--inset); border: 1px solid var(--line); }
+.tabs i { font-style: normal; text-align: center; padding: 11px 0; border-radius: 7px; font: 700 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.tabs i.on { background: var(--raised); color: var(--ink); box-shadow: inset 0 0 0 1px var(--gold); }
+.tot { display: flex; justify-content: space-between; font: 700 12px/1 var(--mono); color: var(--muted); letter-spacing: .04em; }
+.tot b { color: var(--ink); } .tot b.g { color: var(--gold2); } .tot b.r { color: var(--red); }
+/* store card */
+.store { display: grid; gap: 12px; }
+.store .head { display: flex; gap: 12px; align-items: center; }
+.store .head .mk { position: relative; translate: none; }
+.store h5 { margin: 0; font: 800 26px/1 var(--display); letter-spacing: .03em; }
+.store .where { font: 600 12px/1.3 var(--mono); color: var(--muted); }
+.who { display: inline-flex; align-items: center; gap: 8px; font: 700 12px/1 var(--mono); color: var(--ink); }
+.who i { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: #3a2f22; border: 2px solid var(--gold); font: 800 11px/1 var(--display); font-style: normal; color: var(--cream); }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.stats div { background: var(--raised); border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: grid; gap: 5px; }
+.stats small { font: 700 10px/1 var(--mono); letter-spacing: .12em; color: var(--muted); text-transform: uppercase; }
+.stats b { font: 800 22px/1 var(--display); letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+.stats b.g { color: var(--gold2); } .stats b.r { color: var(--red); }
+.acts { display: grid; grid-template-columns: 1fr 1fr 44px; gap: 6px; }
+.acts i { font-style: normal; min-height: 44px; display: grid; place-items: center; border-radius: 8px; border: 1px solid var(--line2); background: var(--raised);
+  font: 700 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.acts i.p { border-color: var(--gold); }
+/* asks */
+.decide { border: 1px solid var(--gold); border-radius: 12px; padding: 18px; display: grid; gap: 14px; background: #15110c; }
+.decide ol { margin: 0; padding-left: 22px; display: grid; gap: 12px; }
+.decide li { color: var(--muted); }
+.legend { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+.legend div { display: flex; gap: 10px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+.legend .mk { position: relative; translate: none; flex: none; }
+.legend span { font-size: 13px; color: var(--muted); }
+.legend span b { display: block; font: 800 16px/1.1 var(--display); letter-spacing: .05em; text-transform: uppercase; color: var(--ink); }
+.kept { columns: 2 240px; gap: 24px; margin: 0; padding-left: 20px; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) { .mk.big { animation: none; } }
+</style>
+
+<main>
+  <header style="display:grid;gap:12px">
+    <span class="note">KPM · MAP SYSTEM · 2026-10-05 · drawn, not built</span>
+    <h1>Map System Redesign</h1>
+    <p class="ask">🔴 Pick one look for the PC and one for the phone (asks at the bottom). Every tool Map System has today stays; only where it sits and how it looks changes.</p>
+    <p>Your words for this screen: it is for <b>"the stores distribution channel, sales performance of an area, stores level and position"</b>. So each design opens on exactly that: which areas sell, what level each shop is, and where it stands. The names and numbers below are examples from the test data, not your shops.</p>
+  </header>
+
+  <section>
+    <h2>Today <small>the real screen, PC and phone</small></h2>
+    <div class="today">
+      <figure><img src="today-pc-menu.jpg" alt="Map System on a PC with the menu open" loading="lazy"><figcaption>PC, menu open</figcaption></figure>
+      <figure><img src="today-pc-card.jpg" alt="Map System on a PC with a shop's card open" loading="lazy"><figcaption>PC, a shop's card</figcaption></figure>
+      <figure><img src="today-ph-menu.jpg" alt="Map System on a phone with the menu open" loading="lazy"><figcaption>Phone, menu open</figcaption></figure>
+      <figure><img src="today-ph-card.jpg" alt="Map System on a phone with a shop's card open" loading="lazy"><figcaption>Phone, a shop's card</figcaption></figure>
+    </div>
+    <ol class="probs">
+      <li><b>It does not open on its job.</b> At rest it is a map with three blue bubbles. How each area sells and what level each shop is both hide behind ☰, and the map has no legend for the levels.</li>
+      <li><b>Off the palette law.</b> Blue bubbles, a blue Directions key, a purple "Catchment ON", green "Street Peddler", an orange fill on "Show All Tiers", white zoom and layer keys. It looks like a different app from Journey Plan.</li>
+      <li><b>The shop's card is thin for analysis:</b> no level, no sales, no salesman. A red box says "Never Visited".</li>
+      <li><b>The phone menu covers about 60% of the map</b>, and a level is a 44 px button in a long list.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>PC <small>A or B</small></h2>
+    <div class="row">
+      <figure>
+        <div class="stage"><div class="scr pc" id="pcA"></div></div>
+        <figcaption><b>A · Journey's sibling</b><span class="pick">MY PICK</span> The map with the Areas panel beside it, the same place Journey Plan keeps its Expedition panel. Areas ranked by sales this month, each bar split by the levels of its shops; the levels are filters you press. Pressing a shop swaps the panel for its card. Costs: the map is about a quarter narrower.</figcaption>
+      </figure>
+      <figure>
+        <div class="stage"><div class="scr pc" id="pcB"></div></div>
+        <figcaption><b>B · Full map, floating cards</b> The whole width is map. Three totals ride at the top, the top three areas float on the left, the layers sit in a dock at the bottom. Costs: the full ranking is one press away, and the cards sit over shops.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Phone <small>A or B, one thing at a time</small></h2>
+    <div class="row phones">
+      <figure><div class="stage"><div class="scr ph" id="phA1"></div></div><figcaption><b>A · Dock</b><span class="pick">MY PICK</span> At rest: the whole map. The dock is Journey's full-map dock.</figcaption></figure>
+      <figure><div class="stage"><div class="scr ph" id="phA2"></div></div><figcaption><b>A · Areas pressed</b> One key opens one sheet; press it again and the map is whole.</figcaption></figure>
+      <figure><div class="stage"><div class="scr ph" id="phB1"></div></div><figcaption><b>B · Pull-up sheet</b> At rest the sheet peeks with the three totals.</figcaption></figure>
+      <figure><div class="stage"><div class="scr ph" id="phB2"></div></div><figcaption><b>B · Pulled up</b> Tabs for Areas, Levels and Layers. Costs: the sheet always takes the bottom of the map.</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>A shop <small>the card and the markers, same in A and B</small></h2>
+    <div class="row">
+      <figure>
+        <div class="stage"><div class="scr pc" id="pcStore"></div></div>
+        <figcaption><b>The card</b> Level, area, salesman, this month's sales, the last order, what is still unpaid, and the visit rhythm, then Directions, Call and "On Journey". Edit pin, Wholesale hub and Delete stay behind ⋯ for the boss. On the phone it is a bottom sheet with the same parts.</figcaption>
+      </figure>
+      <div style="display:grid;gap:12px;align-content:start">
+        <h3>The markers</h3>
+        <p>A shop's <b>level is its colour and its shape</b>, readable without the colour (his colour-blind rule from the name tags). Whether it needs a visit is a dot on its corner, not the whole ring.</p>
+        <div class="legend" id="legend"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="decide">
+    <h2>Your call</h2>
+    <ol>
+      <li><b>🔴 PC: A or B?</b> I pick <b>A</b>: it is Journey Plan's layout, so the two maps feel like one app, and the ranking that answers "which area sells" is always in view. You give up about a quarter of the map's width.</li>
+      <li><b>🔴 Phone: A or B?</b> I pick <b>A</b>: the same dock as Journey's full map, and the map stays whole until you press a key. You pay one press to see the ranking.</li>
+      <li><b>❓ Anything on the shop's card you want added or dropped?</b> Example: "add the last 3 orders" or "drop the unpaid line".</li>
+    </ol>
+    <p class="note">Kept in both: All Regions · Find a shop · the level filter · Regional Borders · Sales Heat · Supply Lines · Catchment (its Territory box folds into the Catchment key) · Tier Rules · Import Borders · Drop New Pin · layer choice · Locate · every action on the shop's card.</p>
+  </section>
+</main>
+
+<script>
+/* ---- shapes: one per level, readable without colour ---- */
+const ICON = {
+  mythic: '<svg viewBox="0 0 16 16"><path d="M2 12h12l1-8-4 3-3-5-3 5-4-3z"/></svg>',
+  epic: '<svg viewBox="0 0 16 16"><path d="M8 1c1 3 4 4 4 8a4 4 0 0 1-8 0c0-2 1-3 2-4 0 2 1 3 2 3-1-3 0-5 0-7z"/></svg>',
+  gm: '<svg viewBox="0 0 16 16" style="fill:none;stroke:var(--c);stroke-width:2.2;stroke-linecap:round"><path d="M3 3l10 10M13 3L3 13M1.5 10.5l4 4M10.5 14.5l4-4"/></svg>',
+  bronze: '<svg viewBox="0 0 16 16"><path d="M8 1l6 2v5c0 4-3 6-6 7-3-1-6-3-6-7V3z"/></svg>',
+  none: '<svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="4"/></svg>',
+};
+const TIER = { mythic: ['Mythic', 'var(--gold2)'], epic: ['Epic', 'var(--rust)'], gm: ['Grandmaster', 'var(--cream)'], bronze: ['Bronze', 'var(--bronze)'], none: ['Unranked', 'var(--grey)'] };
+const mk = (t, st = '', cls = '') => `<i class="mk ${cls}" style="--c:${TIER[t][1]}">${ICON[t]}${st ? `<i class="st ${st}"></i>` : ''}</i>`;
+const svgI = (d) => `<svg viewBox="0 0 24 24"><path d="${d}"/></svg>`;
+const I = { pin: 'M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12zM12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z', find: 'M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14zM21 21l-5-5',
+  borders: 'M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15M15 6v15', heat: 'M12 3c2 4 6 5 6 10a6 6 0 0 1-12 0c0-3 2-5 3-6 0 3 1 4 3 4-1-4 0-6 0-8z',
+  supply: 'M4 18h4l4-12h4M16 6l3 3-3 3M4 6h4', catch: 'M12 12m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0M12 12m-3 0a3 3 0 1 0 6 0 3 3 0 1 0-6 0',
+  areas: 'M4 20V10M10 20V4M16 20v-7M22 20H2', levels: 'M12 3l8 4-8 4-8-4zM4 12l8 4 8-4M4 17l8 4 8-4', layers: 'M12 3l9 5-9 5-9-5zM3 13l9 5 9-5',
+  locate: 'M12 12m-3 0a3 3 0 1 0 6 0 3 3 0 1 0-6 0M12 2v4M12 18v4M2 12h4M18 12h4', more: 'M5 12h.01M12 12h.01M19 12h.01' };
+
+/* ---- example data (the test data's areas around Muntilan) ---- */
+const AREAS = [
+  ['Muntilan', 18.4, 42, [5, 9, 12, 10, 6], 2], ['Mertoyudan', 13.1, 31, [2, 6, 10, 8, 5], 3], ['Salam', 9.6, 24, [1, 3, 7, 8, 5], 1],
+  ['Borobudur', 6.8, 27, [1, 2, 3, 12, 9], 5], ['Sawangan', 3.5, 16, [0, 1, 1, 7, 7], 4], ['Dukun', 1.2, 12, [0, 0, 1, 6, 5], 7] ];
+const TIERS = ['mythic', 'epic', 'gm', 'bronze', 'none'];
+const rp = (v) => `Rp ${String(v.toFixed(1)).replace('.', ',')} jt`;
+const areaRow = (a, i, sel) => { const [nm, v, n, mix, late] = a; const w = v / 18.4;
+  return `<div class="area${sel ? ' sel' : ''}"><span class="n">${i + 1}</span><span class="nm">${nm}</span><span class="rp">${rp(v)}</span>
+    <span class="meter" style="width:${(w * 100).toFixed(0)}%">${mix.map((m, k) => `<u style="flex:${m};background:${TIER[TIERS[k]][1]}"></u>`).join('')}</span>
+    <span class="sub"><span>${n} shops</span>${late ? `<em>${late} need a visit</em>` : '<span>all visited</span>'}</span></div>`; };
+const levelChips = (off = []) => TIERS.map((t, k) => `<span class="chip${off.includes(t) ? ' off' : ''}">${mk(t)}${TIER[t][0]} <b>${[9, 21, 34, 51, 37][k]}</b></span>`).join('');
+
+/* area shapes on the 1280 x 760 map (A's map is 900 wide; B uses the whole 1280), with sales heat */
+const POLY = [
+  ['Muntilan', '300,210 520,170 600,330 470,420 310,380', 1], ['Mertoyudan', '520,170 760,120 820,300 600,330', .72], ['Salam', '310,380 470,420 450,600 260,580', .52],
+  ['Borobudur', '600,330 820,300 860,520 650,560 470,420', .37], ['Sawangan', '760,120 1000,90 1060,280 820,300', .19], ['Dukun', '1000,90 1240,70 1270,300 1060,280', .07] ];
+const areasSvg = (sx, heat = true, W = 1280, H = 760, oy = 0) => `<svg class="areas" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${POLY.map(([, p, h]) =>
+  `<polygon points="${p.split(' ').map((q) => { const [x, y] = q.split(','); return `${x * sx},${+y + oy}`; }).join(' ')}" fill="${heat ? `rgba(${Math.round(196 + 32 * h)},${Math.round(85 + 91 * h)},${Math.round(30 + 44 * h)},${(.10 + .30 * h).toFixed(2)})` : 'none'}" stroke="#A39B90" stroke-width="2" stroke-dasharray="6 5" stroke-opacity=".7"/>`).join('')}</svg>`;
+const labels = (sx) => POLY.map(([nm, p], i) => { const pts = p.split(' ').map((q) => q.split(',').map(Number)); const cx = pts.reduce((s, q) => s + q[0], 0) / pts.length * sx, cy = pts.reduce((s, q) => s + q[1], 0) / pts.length;
+  return `<span class="alabel" style="left:${cx}px;top:${cy - 26}px">${nm}<small>${rp(AREAS[i][1])}</small></span>`; }).join('');
+/* shops: a fixed scatter inside the areas */
+const SHOPS = [[350,240,'gm'],[400,300,'mythic','soon'],[455,260,'epic'],[380,350,'bronze'],[500,330,'gm','late'],[430,220,'none'],[560,220,'epic'],[620,190,'gm'],[700,250,'bronze'],[655,290,'mythic'],
+  [740,200,'none','late'],[340,470,'bronze'],[400,520,'gm'],[360,560,'none','late'],[420,450,'epic'],[690,400,'bronze','late'],[760,470,'none'],[640,480,'gm'],[800,380,'bronze','late'],[720,520,'none'],
+  [880,180,'bronze'],[930,240,'none','late'],[990,150,'gm'],[1100,160,'none','late'],[1160,230,'bronze'],[1210,120,'none'],[560,400,'epic'],[290,300,'gm']];
+const shops = (sx, opts = {}, oy = 0) => SHOPS.map(([x, y, t, st], i) => `<span style="position:absolute;left:${x * sx}px;top:${y + oy}px;z-index:2">${mk(t, st || '', opts.big === i ? 'big' : '')}</span>`).join('');
+
+const keysCol = (on) => [['borders', 'Borders'], ['heat', 'Sales heat'], ['supply', 'Supply lines'], ['catch', 'Catchment']].map(([k, t]) => `<span class="key${on.includes(k) ? ' on' : ''}">${svgI(I[k])}${t}</span>`).join('');
+const topBar = (l, t, w) => `<div class="bar" style="left:${l}px;top:${t}px"><span class="field" style="width:${w[0]}px">${svgI(I.pin)}All regions ▾</span><span class="field search" style="width:${w[1]}px">${svgI(I.find)}Find a shop</span></div>`;
+const zoom = (r, b) => `<div class="zoom" style="right:${r}px;bottom:${b}px"><i>+</i><i>−</i></div>`;
+
+/* PC A */
+document.getElementById('pcA').innerHTML = `<div class="map" style="right:380px">${areasSvg(900 / 1280, true, 900)}${labels(900 / 1280)}${shops(900 / 1280)}</div>
+  ${topBar(16, 16, [180, 260])}
+  <div class="keys" style="right:396px;top:16px">${keysCol(['borders', 'heat'])}</div>${zoom(396, 16)}
+  <div class="panel" style="right:0;top:0;bottom:0;width:380px">
+    <div class="ptitle"><h4>Areas</h4><span>152 shops · <b>Rp 52,6 jt</b></span></div>
+    <div class="seg"><i class="on">This month</i><i>3 months</i><i>Year</i></div>
+    <div class="rank">${AREAS.map((a, i) => areaRow(a, i, i === 0)).join('')}</div>
+    <span class="lbl">Levels · press to hide</span>
+    <div class="lv">${levelChips()}</div>
+    <div class="tools"><span class="key">${svgI(I.levels)}Tier rules</span><span class="key">${svgI(I.borders)}Import borders</span><span class="key">${svgI(I.pin)}New pin</span></div>
+  </div>`;
+
+/* PC B */
+document.getElementById('pcB').innerHTML = `<div class="map">${areasSvg(1)}${labels(1)}${shops(1)}</div>
+  ${topBar(16, 16, [170, 240])}
+  <div class="hud" style="left:50%;translate:-50% 0;top:16px"><div><b>152</b><small>Shops</small></div><div><b class="g">Rp 52,6 jt</b><small>This month</small></div><div><b class="r">22</b><small>Need a visit</small></div></div>
+  <div class="card" style="left:16px;top:76px;width:300px"><div class="ptitle"><h4 style="font-size:20px">Top areas</h4><span>see all ›</span></div>${AREAS.slice(0, 3).map((a, i) => areaRow(a, i, false)).join('')}</div>
+  <div class="card" style="left:16px;bottom:16px;width:auto;grid-auto-flow:column;align-items:center;gap:6px">${levelChips()}</div>
+  <div class="keys" style="right:16px;bottom:16px;grid-auto-flow:column">${keysCol(['borders', 'heat'])}</div>${zoom(16, 90)}`;
+
+/* phone */
+const phTop = `<div class="bar" style="left:12px;right:12px;top:14px;flex-direction:column"><span class="field" style="height:44px">${svgI(I.pin)}All regions ▾</span><span class="field search" style="height:44px">${svgI(I.find)}Find a shop</span></div>`;
+const phMap = () => `<div class="map" style="background-position:38% center">${areasSvg(.3, true, 390, 844, 150)}${shops(.3, {}, 150)}</div>`;
+const dock = (on) => `<div class="dock">${[['areas', 'Areas'], ['levels', 'Levels'], ['layers', 'Layers'], ['locate', 'Locate']].map(([k, t]) => `<span class="key${on === k ? ' on' : ''}">${svgI(I[k])}${t}</span>`).join('')}</div>`;
+document.getElementById('phA1').innerHTML = phMap() + phTop + zoom(12, 96) + dock('');
+document.getElementById('phA2').innerHTML = phMap() + phTop.replace('top:14px', 'top:14px;opacity:.5') + `<div class="sheet" style="top:330px"><span class="grab"></span>
+  <div class="ptitle"><h4>Areas</h4><span><b>Rp 52,6 jt</b> this month</span></div>${AREAS.slice(0, 4).map((a, i) => areaRow(a, i, i === 0)).join('')}</div>` + dock('areas');
+document.getElementById('phB1').innerHTML = phMap() + phTop + zoom(12, 150) + `<div class="sheet" style="top:704px;padding-bottom:24px"><span class="grab"></span>
+  <div class="tot"><span><b>152</b> shops</span><span><b class="g">Rp 52,6 jt</b> month</span><span><b class="r">22</b> to visit</span></div></div>`;
+document.getElementById('phB2').innerHTML = phMap() + phTop.replace('top:14px', 'top:14px;opacity:.5') + `<div class="sheet" style="top:300px;padding-bottom:24px"><span class="grab"></span>
+  <div class="tot"><span><b>152</b> shops</span><span><b class="g">Rp 52,6 jt</b> month</span><span><b class="r">22</b> to visit</span></div>
+  <div class="tabs"><i class="on">Areas</i><i>Levels</i><i>Layers</i></div>${AREAS.slice(0, 3).map((a, i) => areaRow(a, i, i === 0)).join('')}</div>`;
+
+/* the store card (A's panel swapped for the shop) */
+document.getElementById('pcStore').innerHTML = `<div class="map" style="right:380px">${areasSvg(900 / 1280, false, 900)}${shops(900 / 1280, { big: 1 })}</div>
+  ${topBar(16, 16, [180, 260]).replace('Find a shop', 'Toko Sinar Abadi')}
+  <div class="keys" style="right:396px;top:16px">${keysCol(['borders'])}</div>${zoom(396, 16)}
+  <div class="panel" style="right:0;top:0;bottom:0;width:380px"><div class="store">
+    <div class="ptitle"><span>‹ Areas</span><span>${svgI(I.more).replace('<svg', '<svg style="width:22px;height:22px;stroke:var(--ink);stroke-width:3;fill:none"')}</span></div>
+    <div class="head">${mk('mythic', 'soon', 'big')}<div><h5>Toko Sinar Abadi</h5><div class="where">Mythic · Muntilan, Magelang</div></div></div>
+    <span class="who"><i>BS</i>Budi Santoso · his shop since Aug</span>
+    <div class="stats"><div><small>This month</small><b class="g">Rp 1,84 jt</b></div><div><small>Last order</small><b>2 days ago</b></div>
+      <div><small>Still unpaid</small><b class="r">Rp 420 rb</b></div><div><small>Visit</small><b>Every 7 days</b></div></div>
+    <div class="stats" style="grid-template-columns:1fr"><div><small>Next visit</small><b>Thursday · due in 2 days</b></div></div>
+    <div class="acts"><i class="p">Directions</i><i>Call</i><i>${svgI(I.more).replace('<svg', '<svg style="width:20px;height:20px;stroke:var(--ink);stroke-width:3;fill:none"')}</i></div>
+    <div class="acts" style="grid-template-columns:1fr"><i>On Journey Plan ›</i></div>
+  </div></div>`;
+
+/* legend */
+document.getElementById('legend').innerHTML = TIERS.map((t) => `<div>${mk(t)}<span><b>${TIER[t][0]}</b>${{ mythic: 'crown, gold', epic: 'flame, rust', gm: 'crossed swords, cream', bronze: 'shield, bronze', none: 'plain dot, grey' }[t]}</span></div>`).join('')
+  + `<div>${mk('gm', 'late')}<span><b>Overdue</b>red dot on the corner</span></div><div>${mk('gm', 'soon')}<span><b>Due soon</b>gold dot on the corner</span></div>`;
+
+/* fit each drawn screen to its column */
+document.querySelectorAll('.stage').forEach((s) => { const scr = s.firstElementChild;
+  const fit = () => { const k = s.clientWidth / scr.offsetWidth; scr.style.transform = `scale(${k})`; s.style.height = `${scr.offsetHeight * k}px`; };
+  try { new ResizeObserver(fit).observe(s); } catch (e) { /* old browser: fit once */ } fit(); });
+</script>
