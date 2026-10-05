@@ -1,6 +1,6 @@
 ---
 date: 2026-10-05
-status: BUILT 10:55 (57abe25) + rounds 2-4 (b93540f, 00d787c, 7f88984, 1e9fc8b); TIER SYMBOL SET pick OPEN
+status: BUILT 10:55 (57abe25) + rounds 2-4 (b93540f, 00d787c, 7f88984, 1e9fc8b); tier set = B (rank medals), MYTHIC pick OPEN
 page: https://claude.ai/artifact/WxW6xpYd3dhLhyEwZ6Gn8u
 source: Raw/2026-10-05-map-system/map-system-redesign.html (frames: pc-*.png, ph-*.png, states.json)
 ---
@@ -137,7 +137,15 @@ pictures, the shape alone climbs). Every set keeps his sprout for Unranked.
 **Cost:** the pins grow with the tier (32 px Mythic), so the hit boxes and `getIcon` sizes become per tier; the level chips,
 the area bars and the card badge must take the same drawings.
 
+## Round 5 (2026-10-05 12:30) - set B, a new Mythic
+
+**His words:** *"rank medal is cool but i dont like the mythic logo"* -> the tier set is **B, rank medals**; its Mythic (the winged
+crown in a medallion) is REJECTED. Three new Mythics drawn on page v5 section 0 (the page's `MY` table is the spec):
+A royal crown (big crown alone, three gems) · B champion trophy (gold cup with a star) · **C star order (MY PICK)** (gold star medal
+on a double ribbon, gem heart - the gold twin of the bronze medal, so the ladder reads as one family). Decision: OPEN.
+
 ## Rejected on purpose
+- The winged crown in a medallion as Mythic (his "i dont like the mythic logo", 12:30).
 
 - Chests and the game sign objects on Map System: those are Journey Plan's language for a VISIT; Map System is about the
   shop's level and the area, so it gets level badges (his "each map has one job", 2026-10-03).

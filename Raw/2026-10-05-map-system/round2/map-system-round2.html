@@ -35,6 +35,7 @@ figcaption { font-size: 14px; color: var(--muted); }
 figcaption b:first-child { font-family: var(--display); font-size: 20px; letter-spacing: .04em; text-transform: uppercase; margin-right: 6px; }
 .tag { display: inline-block; font: 700 11px/1 var(--mono); letter-spacing: .1em; color: var(--gold2); border: 1px solid var(--gold); padding: 4px 6px 3px; border-radius: 4px; vertical-align: 3px; }
 img.frame { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--line2); }
+#mythics { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
 #tiersets { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
 .tstrip { position: relative; height: 96px; border-radius: 8px; border: 1px solid var(--line2); background: #4F4F51 url(ground.png) -150px -120px / 720px 360px; display: flex; align-items: center; justify-content: space-around; padding: 0 10px; }
 .trow { display: flex; align-items: center; justify-content: space-around; gap: 6px; padding: 14px 6px; border-radius: 8px; background: var(--inset); border: 1px solid var(--line); flex-wrap: wrap; }
@@ -147,12 +148,15 @@ ul.done { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--m
   <header style="display:grid;gap:12px">
     <span class="note">KPM · MAP SYSTEM · ROUND 2 · 2026-10-05</span>
     <h1>Map System Round 2</h1>
-    <p class="ask">🔴 One pick: a new set of tier symbols (section 0, right below). The market-town groups (B), the font (C), the hub (C) and the sprout are built.</p>
+    <p class="ask">🔴 One pick: the new Mythic symbol (section 0, right below) for your set B, the rank medals. The market-town groups (B), the font (C), the hub (C) and the sprout are built.</p>
     <p>Your words: <b>"the fonts is really bad i want u to change it, make sure all the animation is on theme with ours, and make sure that symbol for wholesale hub is more visible than other stores and i think i need new logo for unranked tier"</b>. The shop names and numbers are the test data, not your shops.</p>
   </header>
 
   <section>
-    <h2>0 · New tier symbols <small>your pick owed</small></h2>
+    <h2>0 · A new Mythic <small>your pick owed</small></h2>
+    <p>Your words: <b>"rank medal is cool but i dont like the mythic logo"</b>. So the set is B, the rank medals. Below are three new Mythic symbols, each shown at the top of the whole B ladder at real size, then 2x, then in grey. The old winged crown is gone from all three.</p>
+    <div class="opts" id="mythics"></div>
+    <h3 style="margin-top:12px">The three sets you chose from</h3>
     <p>Your words: <b>"B is better but we need set of of new tier symbol as well to better show their exclusiveness"</b>. Each set is a ladder: the higher the tier, the bigger, richer and rarer it looks. Unranked stays your sprout in every set. Each one is shown on the map at <b>real size</b> (Unranked 22 px up to Mythic 32 px), then at 2x, then in grey to check that the shapes alone tell the tiers apart.</p>
     <div class="opts" id="tiersets"></div>
     <p class="note">Built since the last version: groups of shops are now your B, the little market town (its roof takes the colour of the best shop inside). Local, not pushed.</p>
@@ -204,7 +208,8 @@ ul.done { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--m
   <section class="decide">
     <h2>Your call</h2>
     <ol>
-      <li><b>🔴 Tier symbols: A, B or C?</b> I pick <b>B, rank medals</b>: every tier becomes a different game object (a medal, a shield, a gem, a winged crown), so the ladder reads at a glance and Mythic clearly looks the rarest. Example answer: "B", or "A but with B's Mythic".</li>
+      <li><b>🔴 Mythic: A, B or C?</b> I pick <b>C, the star order</b>: it is the gold version of the bronze medal at the bottom of the ladder (a medal on a ribbon), so the set reads as one family - and a star is the highest order. Example answer: "C", or "A but bigger".</li>
+      <li><b>✅ Tier set:</b> your B, the rank medals. <s>Tier symbols: A, B or C?</s> I pick <b>B, rank medals</b>: every tier becomes a different game object (a medal, a shield, a gem, a winged crown), so the ladder reads at a glance and Mythic clearly looks the rarest. Example answer: "B", or "A but with B's Mythic".</li>
       <li><b>✅ Group symbol:</b> your B (market town) is built. <s> I pick <b>A, the badge stack</b>: on an analysis map the group should say what is inside, not only how many - the best levels show before you zoom in. Example answer: "A", or "C but show the level too".</s></li>
       <li><b>✅ Font:</b> your C is built. <s>A, B or C?</s> I pick <b>B</b>: it is the font your approved drawings already use, so every screen starts looking like its drawing. It changes the big numbers and titles on every screen, not only the map. Example answer: "B".</li>
       <li><b>🔴 Wholesale hub: A, B or C?</b> I pick <b>C</b>: the warehouse roof is a thing you can name from a game, and the word HUB says it in plain text. You picked "the object and the word" for the visit signs too. Example: "C".</li>
@@ -297,6 +302,26 @@ document.getElementById('tiersets').innerHTML = Object.entries(SETS).map(([k, [n
   <div class="trow">${TIERS.map((t) => `<span class="tsym">${one(t, 2)}<small>${NAMES[t]}</small></span>`).join('')}</div>
   <div class="trow grey">${TIERS.map((t) => one(t, 1.5)).join('')}</div>
   <figcaption><b>${k === 'T' ? 'Today' : k + ' · ' + name}</b>${k === 'B' ? '<span class="tag">MY PICK</span> ' : ''}${cap}</figcaption></figure>`; }).join('');
+
+/* round 5: three Mythics for set B (gold, 32 px on the map) */
+const MY = {
+  A: ['Royal crown', 'A big gold crown standing on its own - three points, three gems, a heavy band. The crown is already the Mythic picture today, just made the biggest thing on the map.',
+    (c) => `<path d="M3 10.5l6.8 5.3L16 4.5l6.2 11.3 6.8-5.3-3 15.5H6z" fill="${D}" stroke="${c}" stroke-width="2" stroke-linejoin="round"/><path d="M6 26h20" stroke="${c}" stroke-width="2.4" stroke-linecap="round"/><circle cx="3" cy="10.5" r="2" fill="${c}"/><circle cx="16" cy="4.5" r="2.2" fill="${c}"/><circle cx="29" cy="10.5" r="2" fill="${c}"/><circle cx="10" cy="21" r="1.6" fill="${c}"/><circle cx="16" cy="20.5" r="2" fill="${c}"/><circle cx="22" cy="21" r="1.6" fill="${c}"/>`],
+  B: ['Champion trophy', 'A gold cup with two handles and a star on it - the prize at the top of the ladder, the shop that wins.',
+    (c) => `<path d="M9.5 7H5c0 4.2 2 6.6 5 6.9M22.5 7H27c0 4.2-2 6.6-5 6.9" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round"/><path d="M9 3h14v8.5c0 5-3.2 8.5-7 8.5s-7-3.5-7-8.5z" fill="${D}" stroke="${c}" stroke-width="2" stroke-linejoin="round"/><path d="M16 20v4" stroke="${c}" stroke-width="2.4"/><path d="M9.5 29h13l-1.6-5h-9.8z" fill="${D}" stroke="${c}" stroke-width="2" stroke-linejoin="round"/><path d="M16 6.8l1.4 2.9 3.2.4-2.3 2.2.6 3.1L16 13.9l-2.9 1.5.6-3.1-2.3-2.2 3.2-.4z" fill="${c}"/>`],
+  C: ['Star order', 'A gold star medal on a double ribbon with a gem in its heart - the gold version of the bronze medal at the bottom, so the whole set reads as one family.',
+    (c) => `<path d="M11.5 18.5L8 30l4.8-2.6L16 31l1.3-11.5M20.5 18.5L24 30l-4.8-2.6L16 31" fill="${D}" stroke="${c}" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 1.5l3.7 7.6 8.3 1.2-6 5.9 1.4 8.3L16 20.6l-7.4 3.9 1.4-8.3-6-5.9 8.3-1.2z" fill="${D}" stroke="${c}" stroke-width="2" stroke-linejoin="round"/><circle cx="16" cy="13.2" r="3.6" fill="${c}"/><circle cx="16" cy="13.2" r="1.4" fill="${D}"/>`],
+};
+const medal = SETS.B[2];
+const ladder = (k, m) => TIERS.map((t) => t === 'mythic'
+  ? `<svg width="${32 * m}" height="${32 * m}" viewBox="0 0 32 32" aria-label="Mythic">${MY[k][2](LV.mythic[0])}</svg>`
+  : sym(medal, t, m)).join('');
+document.getElementById('mythics').innerHTML = Object.entries(MY).map(([k, [name, cap]]) => `<figure class="${k === 'C' ? 'pick' : ''}">
+  <div class="tstrip">${ladder(k, 1)}</div>
+  <div class="trow">${TIERS.map((t) => `<span class="tsym">${t === 'mythic' ? `<svg width="64" height="64" viewBox="0 0 32 32">${MY[k][2](LV.mythic[0])}</svg>` : sym(medal, t, 2)}<small>${NAMES[t]}</small></span>`).join('')}</div>
+  <div class="big" style="min-height:200px"><div style="transform:scale(4)">${`<svg width="32" height="32" viewBox="0 0 32 32">${MY[k][2](LV.mythic[0])}</svg>`}</div></div>
+  <div class="trow grey">${ladder(k, 1.5)}</div>
+  <figcaption><b>${k} · ${name}</b>${k === 'C' ? '<span class="tag">MY PICK</span> ' : ''}${cap}</figcaption></figure>`).join('');
 
 /* round 3: the groups. Each group knows its shops' levels: the best ones lead the symbol */
 LV.none = ['#B8B0A4', '<path d="M8 15V8.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 9.2C8 5.6 5.6 3.4 2 3.4c0 3.6 2.4 5.8 6 5.8z"/><path d="M8 8.4c0-3.1 2.3-5.1 6-5.1 0 3.3-2.3 5.1-6 5.1z"/>'];
