@@ -1,0 +1,329 @@
+[
+ {
+  "name": "pc: Fullscreen keeps the replay - ONE bar on the map (16 px inside the 1 px map border left/bottom, 232 right), the page panel gone, no totals / Day Log, a tick per stop, the clock not reset, still playing",
+  "pass": true,
+  "data": {
+   "inMap": true,
+   "page": false,
+   "left": 17,
+   "right": 233,
+   "bottom": 17,
+   "h": 58,
+   "extra": false,
+   "ticks": 12,
+   "stops": 12,
+   "t": 3687.868,
+   "playing": true,
+   "brush": "none",
+   "sideways": false,
+   "kids": [
+    "kx-rp-tl:30",
+    "kx-rp-ctl:44",
+    ":44",
+    ":44",
+    "play:44",
+    ":44",
+    "kx-rp-speed:32",
+    "kx-rp-clock:15",
+    "kx-roadsw:30",
+    ":30",
+    ":30"
+   ]
+  }
+ },
+ {
+  "name": "pc: the bar is ONE thin row (<= 60 px: the drawn 44 px keys + 6 px padding)",
+  "pass": true,
+  "data": 58
+ },
+ {
+  "name": "pc: the Paintbrush key steps off while a day plays (no shops on the map to paint)",
+  "pass": true,
+  "data": "none"
+ },
+ {
+  "name": "pc: the day as colour ticks - gold money, red a problem, dark closed, pale the rest",
+  "pass": true,
+  "data": [
+   "start=rgb(232, 228, 222)",
+   "sold=rgb(228, 176, 74)",
+   "sold=rgb(228, 176, 74)",
+   "order=rgb(228, 176, 74)",
+   "sold=rgb(228, 176, 74)",
+   "sold=rgb(228, 176, 74)",
+   "issue=rgb(224, 88, 58)",
+   "sold=rgb(228, 176, 74)",
+   "request=rgb(232, 228, 222)",
+   "closed=rgb(106, 100, 92)",
+   "swap=rgb(224, 88, 58)",
+   "full=rgb(232, 228, 222)"
+  ]
+ },
+ {
+  "name": "pc: nothing draws over the bar's keys (Play, Next, 2x, Follow him are the top element)",
+  "pass": true
+ },
+ {
+  "name": "pc: Play / Pause works from the bar",
+  "pass": true,
+  "data": {
+   "p1": false,
+   "p2": true
+  }
+ },
+ {
+  "name": "pc: a tick jumps to its stop - also when the press lands 5 px above the thin mark",
+  "pass": true,
+  "data": {
+   "j1": {
+    "t": 8185,
+    "want": 8185,
+    "cur": 3
+   },
+   "j2": {
+    "t": 14770,
+    "want": 14770,
+    "cur": 5
+   }
+  }
+ },
+ {
+  "name": "pc: the small Expedition never scrolls sideways - \"[TEST] HQ SALES MANAGER\" ends in \"...\", the count stays inside",
+  "pass": true,
+  "data": {
+   "sideways": 0,
+   "countInside": true,
+   "rowRight": 1411,
+   "miniRight": 1418,
+   "dots": true
+  }
+ },
+ {
+  "name": "pc: the small list carries the Replay key - pressed, \"Stop replay\"; Today / All shops steps off while a day plays",
+  "pass": true,
+  "data": {
+   "text": "Stop replay",
+   "pressed": "true",
+   "road": false
+  }
+ },
+ {
+  "name": "pc swap 1: Ari pressed = HIS day plays (AR on the man, or the bar says he has nothing that day), the list marks him",
+  "pass": true,
+  "data": {
+   "sel": "Ari Rahman",
+   "tag": "AR · 0/3",
+   "empty": null,
+   "t": 2527,
+   "playing": true,
+   "card": false,
+   "bar": true
+  }
+ },
+ {
+  "name": "pc swap 2: Dewi pressed = HER day",
+  "pass": true,
+  "data": {
+   "sel": "Dewi Wulandari",
+   "tag": "DW · 0/6",
+   "empty": null,
+   "t": 2224,
+   "playing": true,
+   "card": false,
+   "bar": true
+  }
+ },
+ {
+  "name": "pc swap 3: back to Budi = his day from its start, playing",
+  "pass": true,
+  "data": {
+   "sel": "Budi Santoso",
+   "tag": "BS · 0/11",
+   "empty": null,
+   "t": 2224,
+   "playing": true,
+   "card": false,
+   "bar": true
+  }
+ },
+ {
+  "name": "pc: a chest pressed = its card UNDER the Expedition list, whole on screen, the list not widened, the day paused",
+  "pass": true,
+  "data": {
+   "inSlot": true,
+   "name": "Toko Berkah Jaya",
+   "bottom": 613,
+   "vh": 900,
+   "right": 1411,
+   "miniRight": 1418,
+   "sideways": false,
+   "playing": false
+  }
+ },
+ {
+  "name": "pc: the card's keys are the top element",
+  "pass": true
+ },
+ {
+  "name": "pc: Review receipt = the nota ON TOP of the fullscreen map",
+  "pass": true,
+  "data": {
+   "onTop": true,
+   "nota": true
+  }
+ },
+ {
+  "name": "pc: Close receipt, then Play from here = the card closes and the day plays on",
+  "pass": true,
+  "data": {
+   "card": false,
+   "playing": true,
+   "rcpt": false
+  }
+ },
+ {
+  "name": "pc: Stop replay = the bar goes, the key reads \"Replay his day\" again, Today / All shops and the Paintbrush come back",
+  "pass": true,
+  "data": {
+   "bar": false,
+   "key": "Replay his day",
+   "road": true,
+   "brush": "flex",
+   "replayChests": 0
+  }
+ },
+ {
+  "name": "pc: \"Replay his day\" in the fullscreen list starts it right there",
+  "pass": true
+ },
+ {
+  "name": "pc: Exit Fullscreen mid-replay = the page panel again: same man, same day, the clock not reset, the Day Log back",
+  "pass": true,
+  "data": {
+   "name": "Budi Santoso",
+   "day": "2026-10-05",
+   "t": 4286.333999999999,
+   "bar": false,
+   "rows": 11,
+   "startDay": "2026-10-05",
+   "tb": 1922.833999999999
+  }
+ },
+ {
+  "name": "pc lite: fullscreen replay plays with 0 animations running and no chest mid-moment",
+  "pass": true,
+  "data": {
+   "runMax": 0,
+   "scenes": 0
+  }
+ },
+ {
+  "name": "phone: touch media on",
+  "pass": true
+ },
+ {
+  "name": "phone: the bar sits above the key dock (8 px inside the 1 px map border, clear of the dock and the chips), no extra lists, nothing sideways, keys 40 tall",
+  "pass": true,
+  "data": {
+   "left": 9,
+   "right": 9,
+   "gapToDock": 8,
+   "top": 609,
+   "h": 136,
+   "mbarBottom": 129,
+   "sideways": false,
+   "extra": false,
+   "keys": [
+    44,
+    44,
+    44,
+    44
+   ]
+  }
+ },
+ {
+  "name": "phone: three rows like the drawing - the clock rides the camera row (bar <= 140 px; a 4th row made it 162)",
+  "pass": true,
+  "data": {
+   "h": 136,
+   "clockMid": 720,
+   "camMid": 720,
+   "clockRight": 20
+  }
+ },
+ {
+  "name": "phone: Play, Follow him and the dock's Exit are the top element",
+  "pass": true
+ },
+ {
+  "name": "phone: the chips carry the key - \"Stop replay\"",
+  "pass": true,
+  "data": "Stop replay"
+ },
+ {
+  "name": "phone: Play / Pause by touch",
+  "pass": true,
+  "data": {
+   "q1": false,
+   "q2": true
+  }
+ },
+ {
+  "name": "phone swap 1: AR chip = Ari's day",
+  "pass": true,
+  "data": {
+   "sel": "AR 3/8",
+   "tag": "AR · 0/3",
+   "empty": null,
+   "t": 2218,
+   "playing": true,
+   "card": false,
+   "bar": true
+  }
+ },
+ {
+  "name": "phone swap 2: DW chip = Dewi's day",
+  "pass": true,
+  "data": {
+   "sel": "DW 6/8",
+   "tag": "DW · 0/6",
+   "empty": null,
+   "t": 2218,
+   "playing": true,
+   "card": false,
+   "bar": true
+  }
+ },
+ {
+  "name": "phone: after Whole day the chest is pressable (not under the bar or the chips)",
+  "pass": true,
+  "data": {
+   "pc": {
+    "x": 290,
+    "y": 381
+   },
+   "under": "chest"
+  }
+ },
+ {
+  "name": "phone: a chest pressed = its card above the player, below the chips, nothing sideways",
+  "pass": true,
+  "data": {
+   "inBar": true,
+   "name": "Toko Berkah Jaya",
+   "abovePlayer": true,
+   "top": 461,
+   "mbarBottom": 129,
+   "sideways": false
+  }
+ },
+ {
+  "name": "phone: the card's keys are the top element",
+  "pass": true
+ },
+ {
+  "name": "no page errors",
+  "pass": true,
+  "data": []
+ }
+]

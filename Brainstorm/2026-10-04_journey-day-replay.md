@@ -161,3 +161,31 @@ unplayable - controls off screen, a pick that does nothing).
 **DRAWN 19:55** from the real app (lab build, the real panel moved into fullscreen for the frame only - drafts): `Raw/2026-10-05-day-replay-built/fs-A-pc.png`, `fs-A-pc-card.png`, `fs-B-pc.png`, `fs-B-pc-card.png`, `fs-ph.png`, `fs-ph-card.png` (script `draw-fullscreen.mjs`). Sent to him; his pick A/B owed - he said "let me review and then i can decide on the next run later".
 
 **ROUND 2, 20:46** - his *"can u make it more compact especially on pc because the panel looks so big here"*: `fs2-A-pc(-card).png` (A = ONE thin row, about 56 px: keys | the day as colour ticks - gold money, pale visited no sale, red problem, dark closed | camera), `fs2-B-pc(-card).png` (B = a 300 px column, smaller keys and rows), `fs2-ph(-card).png` (phone player about half as tall). Same script with `compact`. His pick still owed.
+
+## 2026-10-05 21:30 - DECIDED and BUILT: fullscreen = look A, pushed live (kpm `50d98a9`)
+
+**His pick, 21:00** (asked with `fs2-A-pc.png`, `fs2-B-pc.png`, `fs2-ph.png` side by side): **"A - thin bottom bar"** - the
+biggest map, one row of keys + the day as colour ticks + the camera; the Day Log list is not on the fullscreen map (a shop's
+card opens one at a time). B (the 300 px column) lost: it kept everything the page panel shows, at ~20% of the map.
+
+**Built** (one player component with `full`, never a second copy): the bar 16 px inside the map's border on the PC (232 px
+clear of the right column), above the key dock on the phone (3 rows, the clock on the camera row); ticks gold money, red a
+problem, dark closed, pale the rest, each 6 px tick pressable 14 x 30; the card under the Expedition list (PC, a portal into
+a slot the list draws) / above the player (phone); the small list gets "Replay his day" / "Stop replay" and a press on
+another man swaps the replay to HIS day on the same day; Today / All shops and the PC Paintbrush step off while a day plays
+(nothing to paint). His shot's cut-off rows: an auto grid column grew to the widest name - `minmax(0, 1fr)`.
+
+**Found by the walk, before shipping:** swapping to a man with FEWER stops blanked the whole page - the map layer kept the
+old day's phases (`s8`) and read them against the new day (`stops[8].kind`). The page's date picker had the same latent bug
+since `a4afcf2`. Fix: the layer drops its phases when the timeline changes. Lesson recorded in Alucard's lessons.md.
+
+**Proof:** `Raw/2026-10-05-day-replay-built/walk-fullscreen.mjs` -> `results-fs.json` 32/32 (1440 + 390 touch, 2 swaps
+each, card, receipt on top, Stop / start / Exit mid-replay keep man + day + clock, Lite 0 animations); frames `fs3-*.png`.
+Old walks still green: page replay 38/38, Journey 49/49; logicFixes 2234, audit 722.
+
+**Pushed 21:22:** 89 commits `5f9d5c7..50d98a9` to `phase0-solid-ground`; rules unchanged since his 2026-10-02 publish and
+the two new writes (`openRequest` on customers, Visit Report fields on audit logs) pass them; Vercel "Deployment has
+completed"; the live Journey chunk carries `kx-rp-fs`. His live test is owed.
+
+**Models applied:** Pre-mortem (what breaks on a swap - found the fewer-stops crash); Reversibility Test (the push: two
+independent checks first - static audit + real-press walks).

@@ -3325,3 +3325,13 @@ the box bigger still drew a dot. Fixed in kpm `3c28e68`: 15 px semibold in the a
 **Rules:** after any font change, re-measure every size under 12 px - the px number did not change, what he sees did. On
 the map a symbol FILLS its hit box; a symbol sitting in its box as a dot reads as "too small" however big the box is.
 Proof: `Raw/2026-10-05-small-type/` (9/9, both widths).
+
+## The map comes first on the fullscreen map (2026-10-05)
+
+Two rounds on the Day Replay in fullscreen. Round 1 he said *"can u make it more compact especially on pc because the panel
+looks so big here"*; round 2, between a thin bar along the bottom (A) and a 300 px column with every detail (B), he picked
+**"A - thin bottom bar"**. On a full-screen map he gives up the list (the Day Log) to keep the map big: details open one at
+a time (a pressed shop's card), the controls shrink to one row, the day becomes colour ticks instead of pictures.
+
+**Rule:** on a fullscreen map, chrome is one thin row and details are on demand; a full panel belongs on the page, not over
+the map. Proof: `Raw/2026-10-05-day-replay-built/fs2-*.png` (the pick), `fs3-*.png` (built).
