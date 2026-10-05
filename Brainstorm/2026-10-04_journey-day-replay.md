@@ -157,3 +157,5 @@ Models applied: Opportunity Cost (the popup redesign waits one more session), In
 unplayable - controls off screen, a pick that does nothing).
 
 **ANSWERED 19:50 (swap):** *"swap means change other people daily recording when press like on the sc1 there should be some button to view the exact features we viewed on the expedition when not fullscreen"* = reading 1 (press another person -> his day replays) + the small fullscreen Expedition list gets the same Replay key. His shot also shows that list cut off with a sideways scrollbar (long names) - fixed in the same job. Still OPEN: look A or B.
+
+**DRAWN 19:55** from the real app (lab build, the real panel moved into fullscreen for the frame only - drafts): `Raw/2026-10-05-day-replay-built/fs-A-pc.png`, `fs-A-pc-card.png`, `fs-B-pc.png`, `fs-B-pc-card.png`, `fs-ph.png`, `fs-ph-card.png` (script `draw-fullscreen.mjs`). Sent to him; his pick A/B owed - he said "let me review and then i can decide on the next run later".
