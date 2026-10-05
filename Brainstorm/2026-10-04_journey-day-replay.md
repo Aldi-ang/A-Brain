@@ -135,3 +135,23 @@ app still has loaded; the boss's own old reports cannot be matched (his record h
 
 Models applied (build): Inversion (what makes the replay lie - kept the "drawn" note and the Report-time line on screen),
 Chesterton's Fence (the sanitizer's -7.5845 fake pin: read raw shops instead of removing it).
+
+## 2026-10-05 18:35 - his next ask: the replay in FULLSCREEN, "playable and swapble" - OPEN, drawn next session
+
+His words: *"i want the day replay to be playable and swapble in the fullscreen"*.
+Today (kpm `a4afcf2`): in fullscreen the replay keeps playing on the map but its player and Day Log stay in the page panel,
+which fullscreen covers - no controls. And the small fullscreen Expedition (`ExpeditionMini`) still picks a man for the
+LIVE map: pressing another man while a replay is on does not swap the replay to him.
+
+**Two readings of "swapble"** (asked; default 1 if no answer): (1) press another salesman = his day replays (stay in
+fullscreen); (2) a switch between the live map and the replay.
+
+| Look | PC fullscreen | Phone fullscreen | Costs |
+|---|---|---|---|
+| A - bar | the player as a bar along the map's bottom (timeline, controls, clock); the small Expedition rows (top right) swap the man; a pressed shop's card under those rows | player bar above the map keys dock; the man chips on top swap him; the card a sheet over the player | covers least map; the card has little room on the phone |
+| B - side | the whole replay panel as a 360 px column on the map's right, the man rows on top of it (closest to the drawn v2 page) | as A | cheapest build (the panel is reused), but 360 px less map |
+
+Rejected on purpose: hiding the controls behind a key (a replay you cannot drive is the bug he reported); floating the
+card over the map on the PC (v2's real presses showed it covers the next shop).
+Models applied: Opportunity Cost (the popup redesign waits one more session), Inversion (what makes fullscreen
+unplayable - controls off screen, a pick that does nothing).
