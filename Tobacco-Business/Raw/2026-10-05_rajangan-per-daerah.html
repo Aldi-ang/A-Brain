@@ -1,0 +1,203 @@
+<title>Rajangan per Daerah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: fourth page of the rajangan notebook; the two-paths-of-aroma diagram first, then one card per region */
+:root{
+  --bg:#efeae0; --surface:#faf7f1; --ink:#2a2017; --muted:#6c5d4b; --line:#d9cdb9;
+  --gold:#b98222; --gold-soft:#ecd49c; --heat:#b4402a; --heat-soft:#f2cdbf; --leaf:#66743a; --leaf-soft:#d9dfbf;
+  --chip:#2a2017; --chip-ink:#faf7f1;
+  --f-display:"Zilla Slab", Rockwell, Georgia, serif;
+  --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-data:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15100c; --surface:#1f1812; --ink:#f0e6d4; --muted:#b4a38b; --line:#3b2f24;
+  --gold:#e2aa45; --gold-soft:#4a3818; --heat:#ef6c50; --heat-soft:#4b2219; --leaf:#a6b26b; --leaf-soft:#2e3420;
+  --chip:#f0e6d4; --chip-ink:#15100c; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#15100c; --surface:#1f1812; --ink:#f0e6d4; --muted:#b4a38b; --line:#3b2f24;
+  --gold:#e2aa45; --gold-soft:#4a3818; --heat:#ef6c50; --heat-soft:#4b2219; --leaf:#a6b26b; --leaf-soft:#2e3420;
+  --chip:#f0e6d4; --chip-ink:#15100c; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--f-body);margin:0}
+.wrap{max-width:820px;margin:0 auto;padding-inline:16px;padding-block:0 64px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,7vw,3.2rem)} h2{font-size:clamp(1.6rem,4.6vw,2.1rem)} h3{font-size:1.2rem}
+p{margin:0}
+a{color:inherit;text-decoration-color:var(--gold);text-underline-offset:3px}
+.eyebrow{font:500 .78rem/1.3 var(--f-data);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)} .small{font-size:.9rem} .cap{font-size:.86rem;color:var(--muted)}
+section{display:grid;gap:18px;padding-block:44px 8px}
+section+section{border-top:1px solid var(--line)}
+header.hero{display:grid;gap:16px;padding-block:36px 8px}
+.lead{font-size:1.15rem;max-width:62ch}
+.answer{background:var(--chip);color:var(--chip-ink);border-radius:8px;padding:16px 18px;display:grid;gap:8px}
+.answer ol{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.plate{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:12px;min-width:0}
+.tag{display:inline-block;font:500 .7rem/1 var(--f-data);letter-spacing:.04em;padding:4px 7px;border-radius:4px;white-space:nowrap;vertical-align:.12em}
+.t-sci{background:var(--chip);color:var(--chip-ink)} .t-lap{background:var(--gold-soft);color:var(--ink);border:1.5px solid var(--gold)} .t-kb{border:1.5px solid var(--gold)} .t-none{border:1.5px dashed var(--muted);color:var(--muted)}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{font:700 .9rem/1 var(--f-body);padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--chip);color:var(--chip-ink);border-color:var(--chip)}
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.path{border:1px solid var(--line);border-radius:8px;padding:14px;display:grid;gap:8px;background:var(--bg)}
+.step{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;font-size:.92rem}
+.step .d{width:14px;height:14px;border-radius:50%;margin-top:5px;background:var(--leaf)}
+.step.bad .d{background:var(--heat)}
+.step.bad b{color:var(--heat)}
+.res{border-radius:6px;padding:10px 12px;font-weight:700}
+.res.ok{background:var(--leaf-soft)} .res.bad{background:var(--heat-soft)}
+.regions{display:grid;gap:12px}
+.reg{display:grid;gap:8px;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:8px;background:var(--surface);padding:14px}
+.reg.none{border-left-style:dashed;border-left-color:var(--muted)}
+.reg .top{display:flex;flex-wrap:wrap;gap:6px 10px;justify-content:space-between;align-items:baseline}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;font-size:.92rem}
+.kv dt{font:500 .74rem/1.5 var(--f-data);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.kv dd{margin:0}
+.src{font-size:.82rem;color:var(--muted)}
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:minmax(110px,36%) 1fr;gap:10px;align-items:center}
+.track{position:relative;height:26px;background:var(--bg);border:1px solid var(--line);border-radius:4px}
+.band{position:absolute;top:4px;bottom:4px;border-radius:3px;background:var(--gold-soft);border:1.5px solid var(--gold)}
+.dot{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--heat)}
+.val{position:absolute;top:50%;transform:translateY(-50%);font:500 .78rem/1 var(--f-data);white-space:nowrap}
+.ticks{position:relative;height:16px;font:500 .72rem/1 var(--f-data);color:var(--muted)}
+.ticks span{position:absolute;transform:translateX(-50%)}
+.axis{display:grid;grid-template-columns:minmax(110px,36%) 1fr;gap:10px}
+footer{padding-block:28px 0;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:28px}
+@media (max-width:560px){ body{font-size:16px} .kv{grid-template-columns:1fr;gap:2px} .kv dd{margin-bottom:6px} .bar,.axis{grid-template-columns:96px 1fr} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<main class="wrap">
+<header class="hero">
+  <p class="eyebrow">Catatan riset · rajangan per daerah · 5 Oktober 2026</p>
+  <h1>Harum di hidung, hambar di isapan</h1>
+  <p class="lead">Kenapa rajangan 2026 tercium wangi saat dicium mentah, tapi saat dibakar hanya terasa jedug? Jawabannya: bau mentah dan bau asap datang dari zat yang berbeda.</p>
+  <div class="answer">
+    <ol>
+      <li><b>Bau mentah</b> berasal dari zat yang sudah ada di daun (terpen dan pecahan zat kuning daun). Zat ini tidak rusak oleh kemarau, jadi daun tetap wangi.</li>
+      <li><b>Bau asap</b> dibuat di bara, terutama dari gula dan asam amino. Gula 2026 rendah, jadi bahan bau asapnya sedikit.</li>
+      <li><b>Nikotin tinggi menutupi sisanya.</b> Riset menemukan nikotin berkaitan dengan pukulan dan iritasi, dan berlawanan dengan aroma.</li>
+    </ol>
+  </div>
+  <p class="cap">Label: <span class="tag t-sci">RISET</span> ada makalah · <span class="tag t-kb">KB</span> kemungkinan besar, disimpulkan · <span class="tag t-lap">LAPANGAN</span> dari pengalaman Anda · <span class="tag t-none">TIDAK ADA DATA</span></p>
+</header>
+
+<section>
+  <p class="eyebrow">1 · Dua jalur aroma</p>
+  <h2>Satu daun, dua sumber bau</h2>
+  <div class="seg" role="group" aria-label="Pilih tahun">
+    <button type="button" id="y-normal" aria-pressed="false">Tahun normal</button>
+    <button type="button" id="y-2026" aria-pressed="true">2026</button>
+  </div>
+  <div class="paths">
+    <div class="path">
+      <h3>Jalur 1: bau saat dicium mentah</h3>
+      <div class="step"><span class="d"></span><p>Zat harum <b>sudah ada di daun</b>: terpen dan pecahan karotenoid, baunya "hijau dan segar seperti jeruk". <span class="tag t-sci">RISET</span></p></div>
+      <div class="step"><span class="d"></span><p>Tercium langsung tanpa dibakar.</p></div>
+      <div class="res ok" id="r1">Tetap wangi</div>
+    </div>
+    <div class="path">
+      <h3>Jalur 2: bau saat dibakar</h3>
+      <div class="step" data-bad="1"><span class="d"></span><p id="s1"><b>Gula + asam amino</b> bergabung jadi senyawa perantara (Amadori). <span class="tag t-sci">RISET</span></p></div>
+      <div class="step" data-bad="1"><span class="d"></span><p id="s2">Di bara, senyawa itu dan gula berubah jadi bau <b>manis, panggang, kacang</b> (furan, pirazin, piranon). <span class="tag t-sci">RISET</span></p></div>
+      <div class="step" data-bad="1"><span class="d"></span><p id="s3"><b>Nikotin dan amonia</b> rendah, jadi bau ini terasa. <span class="tag t-sci">RISET</span></p></div>
+      <div class="step" data-bad="1"><span class="d"></span><p id="s4">Rajangan terbakar <b>pelan</b>; zat harum paling banyak terbentuk di bawah 350 °C dan pecah di suhu lebih tinggi. <span class="tag t-kb">KB</span></p></div>
+      <div class="res ok" id="r2">Asap harum</div>
+    </div>
+  </div>
+  <p class="cap">Sumber: Wu dkk. 2026 (Frontiers in Chemistry) melacak aroma dari daun ke asap: bau daun didominasi terpen, bau asap didominasi furan dan pirazin, dan hanya 44% neofitadiena yang masuk ke asap · Mitsui dkk. 2015 (senyawa Amadori sebagai bahan aroma asap) · Visser dkk. 2026 (gula langsung jadi furan dan piranon) · Lin dkk. 2016 (alkaloid berkaitan dengan pukulan dan iritasi, berlawanan dengan aroma) · Yan dkk. 2018 (zat aroma terbentuk paling banyak di bawah 350 °C) · Liu dkk. 2011 (rajangan kering: amonia di asap naik).</p>
+</section>
+
+<section>
+  <p class="eyebrow">2 · Daerah penghasil rajangan</p>
+  <h2>Bibit, nikotin, gula, dan rasa isap</h2>
+  <p class="prose small muted">Yang punya data ilmiah hanya Temanggung dan Madura. Muntilan, Prambanan, Boyolali, dan Weleri belum punya angka nikotin atau gula yang terbit di jurnal yang bisa dicari Consensus. Untuk empat daerah itu, rasa isapnya dari pengalaman Anda.</p>
+  <div class="regions" id="regions"></div>
+</section>
+
+<section>
+  <p class="eyebrow">3 · Angka yang ada</p>
+  <h2>Nikotin per daerah</h2>
+  <div class="plate">
+    <div class="bars" id="nic"></div>
+    <div class="axis"><span></span><div class="ticks" id="ticks"></div></div>
+    <p class="cap">Pita = rentang yang dilaporkan, titik = satu lot. Nikotin dalam persen bobot kering. Gula hanya ada untuk Madura: 10–15% (tata cara mutu rajangan Madura) dan 14,46% pada satu lot mutu I di Tuban (Elina dkk. 2025). Temanggung belum punya angka gula terbit.</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">4 · Kenapa 2026 semua daerah sama-sama jedug</p>
+  <h2>Yang hilang adalah bahan bau asap, bukan bau daunnya</h2>
+  <div class="plate">
+    <p><b>Gula turun saat kemarau di fase tumbuh cepat</b>, dan imbon yang lama membakar sisanya. Itu memotong bahan jalur 2 di semua daerah sekaligus. <span class="tag t-sci">RISET</span></p>
+    <p><b>Nikotin naik</b> karena daun lebih kecil dan kering. Nikotin pindah ke asap dengan efisien (sekitar 30% pada studi cerutu) dan berkaitan dengan pukulan. <span class="tag t-sci">RISET</span></p>
+    <p><b>Kalium terserap lebih sedikit saat kering.</b> Kalium membantu pembakaran menghasilkan zat aroma. <span class="tag t-kb">KB</span></p>
+    <p><b>Rajangan ngrapak terbakar cepat</b> dan mengeluarkan lebih banyak amonia. <span class="tag t-sci">RISET</span></p>
+    <p class="cap">Karena itu ciri khas tiap daerah ikut rata: Temanggung kehilangan halusnya, Weleri kehilangan harumnya, Boyolali tetap jedug seperti biasa. <span class="tag t-lap">LAPANGAN</span> <span class="tag t-kb">KB</span></p>
+  </div>
+  <div class="plate">
+    <h3>Cara paling murah mengisi data yang kosong</h3>
+    <p>Kirim satu sampel 250 g dari tiap daerah yang Anda beli (Prambanan, Muntilan, Boyolali, Weleri) ke lab tiap musim: gula, nikotin, klorida, kadar air. Setelah dua musim, Anda punya angka sendiri yang tidak dimiliki jurnal mana pun, dan bisa membandingkan tahun basah dengan tahun kering.</p>
+  </div>
+</section>
+
+<footer>Disusun 5 Oktober 2026 dari pencarian Consensus dan pengalaman lapangan Anda. Halaman lain: <a href="https://claude.ai/artifact/HBX62nSw7YRrraUWLeGby9" target="_blank" rel="noopener">Bukti Riset Tembakau 2026</a> · <a href="https://claude.ai/artifact/UTesEw7Y1SaB7gxAssk7vX" target="_blank" rel="noopener">Rajangan Jawa 2026</a> · <a href="https://claude.ai/artifact/B7ZgHk8WEPpd9t9reez8sG" target="_blank" rel="noopener">Cara Kerja Pohon Tembakau</a>.</footer>
+</main>
+
+<script>
+(function(){
+  var C='https://consensus.app/papers/details/', U='/?utm_source=claude_desktop';
+  function L(t,id){return '<a href="'+C+id+U+'" target="_blank" rel="noopener">'+t+'</a>';}
+  var R=[
+    {n:'Temanggung',w:'Lereng Sindoro–Sumbing, dataran tinggi, sejuk',sci:1,
+     b:'Kemloko (lokal, paling banyak ditanam); Genjah Kemloko',nic:'3–8%',gula:'Belum ada angka terbit',
+     rasa:'Halus, antebnya naik pelan, harum <span class="tag t-lap">LAPANGAN</span>. Genjah Kemloko disebut bernikotin tinggi dengan aroma khas; mutu tertinggi disebut srinthil; irisannya halus, lebar 0,5–1 cm ("lembutan") <span class="tag t-sci">RISET</span>',
+     y26:'Ikut jedug, halusnya hilang',src:[L('Prasetyo dkk. 2023','50cc4a0eebea51708b09ffa7106236a1'),L('Daryono dkk. 2007','d96a9005e50e5d5e85a96a7abba9e41b'),L('Putri dkk. 2018','5520e68a8dbf5c5982495b05ef900e23'),L('Yuliawan dkk. 2023','12865e43a6395aeba86502e936fac7ce')]},
+    {n:'Madura',w:'Pamekasan, Sumenep, Sampang; jenis gunung, tegal, sawah',sci:1,
+     b:'Prancak-95 (utama), Tarnyak, Prancak N-1 (mutu lebih tinggi, nikotin lebih rendah), Prancak N-2, Prancak S1 dan T1 Agribun',
+     nic:'1,0–5,0% (rentang mutu); daun atas 2,43%, tengah 1,86%, bawah 1,64%; satu lot mutu I 2,97%',gula:'10–15%; satu lot mutu I 14,46%',
+     rasa:'Semi-aromatis; aroma Prancak-95 disebut tidak bisa ditiru varietas lain; tegal dinilai jauh lebih enak dan harum dari sawah, tapi warna sawah lebih bagus <span class="tag t-sci">RISET</span>',
+     y26:'Harga naik, tidak ada data rasa',src:['<a href="https://www.researchgate.net/publication/363651104_13_TATA_CARA_PENILAIAN_DAN_PENETAPAN_MUTU_TEMBAKAU_RAJANGAN_MADURA" target="_blank" rel="noopener">Tata cara penilaian mutu rajangan Madura (2018)</a>',L('Elina dkk. 2025','83dccea25c5c55c99aab8c393fbecc02'),L('Hidayati dkk. 2026','bc44e8777dcc552abfae1c24110debf2'),L('Djajadi dkk. 2019','c411a25cc0e653f6a6d1b0f850371a6a'),L('Wibisono dkk. 2017','f28b2483efe959d3a786123324fa09df'),L('Zulfah dkk. 2025','024b23ea552a5f45a81ec237e87b1263')]},
+    {n:'Boyolali',w:'Lereng Merapi–Merbabu',sci:0,
+     b:'"Gober Boyolali" tercatat sebagai kultivar di Jawa Tengah',nic:'Tidak ada data terbit',gula:'Tidak ada data terbit',
+     rasa:'Njedug langsung di hidung seperti menabrak tembok, tidak harum <span class="tag t-lap">LAPANGAN</span>',y26:'Tetap jedug',src:[L('Santoso dkk. 2021','eddae8c6e02d5192892ef8112d9454dd')]},
+    {n:'Muntilan',w:'Magelang',sci:0,b:'Tidak ditemukan',nic:'Tidak ada data terbit',gula:'Tidak ada data terbit',
+     rasa:'Harum <span class="tag t-lap">LAPANGAN</span>',y26:'Kebanyakan ikut jedug; Gudang Garam tidak membeli tahun ini',src:[]},
+    {n:'Prambanan',w:'Perbatasan Sleman–Klaten, dataran rendah',sci:0,b:'Tidak ditemukan',nic:'Tidak ada data terbit',gula:'Tidak ada data terbit',
+     rasa:'Grade B: ringan; posisi daun rewosan dan daun bawah sampai tenggok dan protol <span class="tag t-lap">LAPANGAN</span>',y26:'Jedug, aroma kurang; Gudang Garam tidak membeli tahun ini',src:[]},
+    {n:'Weleri',w:'Kendal, pesisir utara',sci:0,b:'Tidak ditemukan',nic:'Tidak ada data terbit',gula:'Tidak ada data terbit',
+     rasa:'Biasanya harum <span class="tag t-lap">LAPANGAN</span>',y26:'Aromanya hilang',src:[]}
+  ];
+  document.getElementById('regions').innerHTML=R.map(function(r){
+    return '<article class="reg'+(r.sci?'':' none')+'"><div class="top"><h3>'+r.n+'</h3>'+(r.sci?'<span class="tag t-sci">ADA DATA ILMIAH</span>':'<span class="tag t-none">TIDAK ADA DATA ILMIAH</span>')+'</div><p class="small muted">'+r.w+'</p><dl class="kv"><dt>Bibit</dt><dd>'+r.b+'</dd><dt>Nikotin</dt><dd>'+r.nic+'</dd><dt>Gula</dt><dd>'+r.gula+'</dd><dt>Rasa isap</dt><dd>'+r.rasa+'</dd><dt>Tahun 2026</dt><dd>'+r.y26+'</dd></dl>'+(r.src.length?'<p class="src">Sumber: '+r.src.join(' · ')+'</p>':'')+'</article>';
+  }).join('');
+
+  var max=9, N=[['Temanggung',3,8,null,'3–8%'],['Madura, rentang mutu',1,5,2.97,'1–5%'],['Madura, menurut posisi daun',1.64,2.43,null,'1,64–2,43%']];
+  document.getElementById('nic').innerHTML=N.map(function(n){
+    var l=n[1]/max*100,w=(n[2]-n[1])/max*100;
+    return '<div class="bar"><span class="small">'+n[0]+'</span><div class="track"><div class="band" style="left:'+l+'%;width:'+w+'%"></div>'+(n[3]?'<div class="dot" style="left:'+(n[3]/max*100)+'%"></div>':'')+'<span class="val" style="left:calc('+Math.min(l+w,64)+'% + 8px)">'+n[4]+'</span></div></div>';
+  }).join('');
+  document.getElementById('ticks').innerHTML=[0,2,4,6,8].map(function(t){return '<span style="left:'+(t/max*100)+'%">'+t+'%</span>';}).join('');
+
+  var T={
+    normal:['Gula + asam amino cukup, jadi senyawa perantara (Amadori) terbentuk.','Di bara, berubah jadi bau manis, panggang, kacang (furan, pirazin, piranon).','Nikotin dan amonia sedang, jadi bau ini terasa.','Rajangan lentur terbakar pelan.','Asap harum'],
+    y2026:['Gula rendah: senyawa perantara (Amadori) yang terbentuk sedikit.','Bahan bau manis, panggang, kacang di bara ikut sedikit.','Nikotin tinggi dan amonia menutupi bau yang tersisa: jedug.','Rajangan ngrapak terbakar cepat; zat harum yang terbentuk di bawah 350 °C ikut pecah.','Asap hambar, jedug']
+  };
+  function set(y){
+    var t=T[y],bad=y==='y2026';
+    document.getElementById('y-normal').setAttribute('aria-pressed',String(!bad));
+    document.getElementById('y-2026').setAttribute('aria-pressed',String(bad));
+    ['s1','s2','s3','s4'].forEach(function(id,i){var p=document.getElementById(id);var tag=p.querySelector('.tag').outerHTML;p.innerHTML=t[i]+' '+tag;p.parentNode.classList.toggle('bad',bad);});
+    var r=document.getElementById('r2');r.textContent=t[4];r.className='res '+(bad?'bad':'ok');
+  }
+  document.getElementById('y-normal').addEventListener('click',function(){set('normal');});
+  document.getElementById('y-2026').addEventListener('click',function(){set('y2026');});
+  set('y2026');
+})();
+</script>

@@ -40,3 +40,4 @@ with saving the real source to [[../../Raw/index|Raw/]] first, then rippling int
 - [[Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor]] — 2026 El Niño rajangan research, verified 2026-10-03
 - [[Tembakau - Cara Kerja Pohon dan Cek Riset Gemini]] — plant physiology + 24-claim Gemini fact-check, 2026-10-03
 - [[Tembakau - Bukti Riset Consensus 2026]] — Consensus evidence for the 2026 rajangan model, 2026-10-05
+- [[Tembakau - Rajangan per Daerah dan Dua Jalur Aroma]] — regions + raw vs smoke aroma, 2026-10-05

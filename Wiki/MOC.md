@@ -134,6 +134,7 @@ Real things that went wrong (or nearly did), and what was learned.
 ---
 
 ## Elsewhere in this vault
+- [[Summaries/Tembakau - Rajangan per Daerah dan Dua Jalur Aroma]] — rajangan regions and the two paths of aroma.
 - [[Summaries/Tembakau - Bukti Riset Consensus 2026]] — the tobacco research checked against 39 papers via Consensus, with numbers and conflicts.
 - [[Summaries/Tembakau - Cara Kerja Pohon dan Cek Riset Gemini]] — tobacco plant physiology and a fact-check of Gemini's 2026 rajangan chat.
 - [[Summaries/Tembakau Rajangan 2026 - Panas, Aroma Tipis, Imbon Molor]] — the family tobacco business: 2026 rajangan research (hot smoke, thin aroma, slow imbon), verified and drawn as a page.
