@@ -1,6 +1,6 @@
 ---
 date: 2026-10-05
-status: OPEN - waiting on Aldi (PC A/B, phone A/B, the shop card)
+status: DECIDED 2026-10-05 09:25 - phone A, PC B; not built yet
 page: https://claude.ai/artifact/WxW6xpYd3dhLhyEwZ6Gn8u
 source: Raw/2026-10-05-map-system/map-system-redesign.html (frames: pc-*.png, ph-*.png, states.json)
 ---
@@ -45,7 +45,9 @@ next visit; Directions / Call / ⋯ (Edit pin, Wholesale hub, Delete - boss only
 
 ## Decision
 
-OPEN - waiting on Aldi: 🔴 PC A or B, 🔴 phone A or B, ❓ anything to add to or drop from the shop card.
+2026-10-05 09:25, his words: *"A for phone B for PC"*. Phone = A (the dock), PC = B (the full map, floating cards) -
+against my PC pick (A, the side panel). The shop-card ❓ went unanswered: build it as drawn (his "use your pick" habit).
+Status: decided, not built - the build is the next ONE JOB (kpm `.claude/NEXT-SESSION.md`).
 
 ## Rejected on purpose
 

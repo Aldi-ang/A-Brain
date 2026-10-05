@@ -3270,3 +3270,13 @@ the word), each at map size and zoomed, in a grey view, each acting out its word
   not by map geography; geography stays one layer down (the sector tree).
 - **He expects the testing done, not handed back.** Same message: *"test it yourself"* - a ✅ TEST list he could have run
   himself reads as unfinished work.
+
+## Map System: the PC keeps the whole map, the phone gets the dock (2026-10-05, 09:25)
+
+> *"A for phone B for PC"*
+
+- Shown A (map + a side panel, Journey's layout - my pick) and B (full-width map, floating cards) per width, he split
+  them again: **phone A, PC B**. On the PC he chose the bigger map over the always-open ranking, against my pick - for
+  an analysis map, the map itself is the thing he wants room for. The per-width split is his habit, fifth time.
+- He left the shop-card question unanswered: as before, that is "use your pick".
+  [[../../Brainstorm/2026-10-05_map-system-redesign]]
