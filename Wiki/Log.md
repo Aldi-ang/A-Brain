@@ -1569,3 +1569,9 @@ His rule added to [[Aldi's Design Taste]]. Local commits waiting on "push": 3f53
 ## 2026-10-03 20:10 — Journey map: salesmen fixed to their spot, offline off the map (kpm 7b770be); zoomed-out A/B OPEN
 
 [[2026-10-03_journey-map-keys]] (FIXED SPOT section) · mock frames Raw/2026-10-03-map-keys/perf/mock-*.png.
+
+## 2026-10-05 10:55 — Map System redesign BUILT (kpm 57abe25, local, not pushed)
+
+His "A for phone B for PC": phone = Journey's dock (Areas / Levels / Layers / Locate), PC = the full map with floating
+totals, top areas, level chips and a layer dock. Areas ranked by the shop's own city field. [[2026-10-05_map-system-redesign]]
+(Built section) · proof Raw/2026-10-05-map-system/built/.

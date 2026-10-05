@@ -1,6 +1,6 @@
 ---
 date: 2026-10-05
-status: DECIDED 2026-10-05 09:25 - phone A, PC B; not built yet
+status: BUILT 2026-10-05 10:55 - kpm 57abe25 (local, not pushed); phone A, PC B
 page: https://claude.ai/artifact/WxW6xpYd3dhLhyEwZ6Gn8u
 source: Raw/2026-10-05-map-system/map-system-redesign.html (frames: pc-*.png, ph-*.png, states.json)
 ---
@@ -48,6 +48,20 @@ next visit; Directions / Call / ⋯ (Edit pin, Wholesale hub, Delete - boss only
 2026-10-05 09:25, his words: *"A for phone B for PC"*. Phone = A (the dock), PC = B (the full map, floating cards) -
 against my PC pick (A, the side panel). The shop-card ❓ went unanswered: build it as drawn (his "use your pick" habit).
 Status: decided, not built - the build is the next ONE JOB (kpm `.claude/NEXT-SESSION.md`).
+
+## Built (2026-10-05, kpm 57abe25, local, not pushed)
+
+- **Areas = the shop's own city / region field** (`src/utils/mapAreas.js` `rankAreas`), not `zoneRevenues` (per drawn
+  border, computed only with heat on). Picked because the ranking must answer "which area sells" before any border is
+  imported. Flips if he wants the ranking by his drawn kecamatan borders - the Sector board still does that.
+- **The card as drawn** (his ❓ unanswered): money tiles boss-only, same gate as the old card. "Call" is labelled
+  WhatsApp, because that is what the key opens.
+- **Tool windows unchanged**: Tier rules, Borders setup, Sector board and the new-shop form keep today's look (not drawn).
+- **Trap hit and fixed**: a CSS `display` on a `hidden lg:flex` element un-hid the PC Areas card on the phone -
+  `expedition.css` loads after Tailwind, same specificity, later wins. Caught by the overlap measure, not by eye.
+- Proof: `Raw/2026-10-05-map-system/built/` (shoot-built.mjs, built.json, frames pc-* / pc1024-* / pcsales-* / ph-*):
+  0 overlaps, 0 spilled text, 0 sideways scroll, 0 phone targets under 44 px, one-sheet rule holds, 0 console errors;
+  logicFixes 2210/2210, audit 722/722, Journey test 49/49.
 
 ## Rejected on purpose
 

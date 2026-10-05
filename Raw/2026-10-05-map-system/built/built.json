@@ -1,0 +1,1152 @@
+{
+ "errs": [],
+ "pc": {
+  "rest": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "areas": [
+     16,
+     76,
+     346,
+     364
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     924,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 0,
+   "clusters": 3,
+   "sheet": false,
+   "toast": []
+  },
+  "seeall": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "areas": [
+     16,
+     76,
+     346,
+     438
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     924,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 0,
+   "clusters": 3,
+   "sheet": false,
+   "toast": []
+  },
+  "area": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "areas": [
+     16,
+     76,
+     346,
+     438
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     924,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 0,
+   "clusters": 3,
+   "sheet": false,
+   "toast": []
+  },
+  "levels-off": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "areas": [
+     16,
+     76,
+     346,
+     438
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     924,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 26,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  },
+  "heat": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "areas": [
+     16,
+     76,
+     346,
+     438
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     924,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "heat": [
+     561,
+     76,
+     879,
+     105
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 32,
+   "clusters": 0,
+   "sheet": false,
+   "toast": [
+    "Sales heat colours the area borders - import borders with Borders setup first."
+   ]
+  },
+  "catch": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "areas": [
+     16,
+     76,
+     346,
+     438
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     888,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 32,
+   "clusters": 0,
+   "sheet": false,
+   "toast": [
+    "Sales heat colours the area borders - import borders with Borders setup first."
+   ]
+  },
+  "card": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     924,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "store": [
+     16,
+     76,
+     376,
+     652
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 20,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  },
+  "card-tools": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     924,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "store": [
+     16,
+     76,
+     376,
+     800
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 20,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  },
+  "card-unpaid": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     924,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "store": [
+     16,
+     76,
+     376,
+     800
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 20,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  }
+ },
+ "pc1024": {
+  "rest": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     528,
+     16,
+     824,
+     68
+    ],
+    "areas": [
+     16,
+     76,
+     346,
+     364
+    ],
+    "levels": [
+     16,
+     588,
+     450,
+     684
+    ],
+    "layers": [
+     508,
+     634,
+     1008,
+     684
+    ],
+    "tools": [
+     850,
+     16,
+     1008,
+     264
+    ],
+    "zoom": [
+     982,
+     539,
+     1014,
+     601
+    ],
+    "baselayers": [
+     968,
+     483,
+     1014,
+     529
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 0,
+   "clusters": 3,
+   "sheet": false,
+   "toast": []
+  },
+  "card": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     528,
+     16,
+     824,
+     68
+    ],
+    "levels": [
+     16,
+     588,
+     450,
+     684
+    ],
+    "layers": [
+     508,
+     634,
+     1008,
+     684
+    ],
+    "tools": [
+     850,
+     16,
+     1008,
+     264
+    ],
+    "store": [
+     16,
+     76,
+     376,
+     600
+    ],
+    "zoom": [
+     982,
+     539,
+     1014,
+     601
+    ],
+    "baselayers": [
+     968,
+     483,
+     1014,
+     529
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 13,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  }
+ },
+ "pcSales": {
+  "rest": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     626,
+     16,
+     814,
+     68
+    ],
+    "areas": [
+     16,
+     76,
+     346,
+     364
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     1051,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1316,
+     16,
+     1424,
+     64
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 0,
+   "clusters": 3,
+   "sheet": false,
+   "toast": []
+  },
+  "card": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     626,
+     16,
+     814,
+     68
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     1051,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1316,
+     16,
+     1424,
+     64
+    ],
+    "store": [
+     16,
+     76,
+     376,
+     475
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 20,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  }
+ },
+ "ph": {
+  "media": true,
+  "rest": {
+   "box": {
+    "top": [
+     65,
+     12,
+     320,
+     108
+    ],
+    "dock": [
+     10,
+     754,
+     380,
+     822
+    ],
+    "zoom": [
+     334,
+     631,
+     380,
+     721
+    ],
+    "baselayers": [
+     334,
+     575,
+     380,
+     621
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [
+    "Region 205x42",
+    "Find a shop 205x42",
+    " Leaflet 55x14"
+   ],
+   "sideways": false,
+   "pins": 0,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  },
+  "areas": {
+   "box": {
+    "top": [
+     65,
+     12,
+     320,
+     108
+    ],
+    "dock": [
+     10,
+     754,
+     380,
+     822
+    ],
+    "sheet": [
+     0,
+     387,
+     390,
+     844
+    ],
+    "zoom": [
+     334,
+     631,
+     380,
+     721
+    ],
+    "baselayers": [
+     334,
+     575,
+     380,
+     621
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [
+    "Region 205x42",
+    "Find a shop 205x42",
+    " Leaflet 55x14"
+   ],
+   "sideways": false,
+   "pins": 0,
+   "clusters": 0,
+   "sheet": true,
+   "toast": []
+  },
+  "areas-again": {
+   "box": {
+    "top": [
+     65,
+     12,
+     320,
+     108
+    ],
+    "dock": [
+     10,
+     754,
+     380,
+     822
+    ],
+    "zoom": [
+     334,
+     631,
+     380,
+     721
+    ],
+    "baselayers": [
+     334,
+     575,
+     380,
+     621
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [
+    "Region 205x42",
+    "Find a shop 205x42",
+    " Leaflet 55x14"
+   ],
+   "sideways": false,
+   "pins": 0,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  },
+  "levels": {
+   "box": {
+    "top": [
+     65,
+     12,
+     320,
+     108
+    ],
+    "dock": [
+     10,
+     754,
+     380,
+     822
+    ],
+    "sheet": [
+     0,
+     533,
+     390,
+     844
+    ],
+    "zoom": [
+     334,
+     631,
+     380,
+     721
+    ],
+    "baselayers": [
+     334,
+     575,
+     380,
+     621
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [
+    "Region 205x42",
+    "Find a shop 205x42",
+    " Leaflet 55x14"
+   ],
+   "sideways": false,
+   "pins": 0,
+   "clusters": 0,
+   "sheet": true,
+   "toast": []
+  },
+  "layers": {
+   "box": {
+    "top": [
+     65,
+     12,
+     320,
+     108
+    ],
+    "dock": [
+     10,
+     754,
+     380,
+     822
+    ],
+    "sheet": [
+     0,
+     373,
+     390,
+     844
+    ],
+    "zoom": [
+     334,
+     631,
+     380,
+     721
+    ],
+    "baselayers": [
+     334,
+     575,
+     380,
+     621
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [
+    "Region 205x42",
+    "Find a shop 205x42",
+    " Leaflet 55x14"
+   ],
+   "sideways": false,
+   "pins": 0,
+   "clusters": 0,
+   "sheet": true,
+   "toast": []
+  },
+  "area-pick": {
+   "box": {
+    "top": [
+     65,
+     12,
+     320,
+     108
+    ],
+    "dock": [
+     10,
+     754,
+     380,
+     822
+    ],
+    "zoom": [
+     334,
+     631,
+     380,
+     721
+    ],
+    "baselayers": [
+     334,
+     575,
+     380,
+     621
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [
+    "Region 205x42",
+    "Find a shop 205x42",
+    " Leaflet 55x14"
+   ],
+   "sideways": false,
+   "pins": 8,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  },
+  "card": {
+   "box": {
+    "top": [
+     65,
+     12,
+     320,
+     108
+    ],
+    "dock": [
+     10,
+     754,
+     380,
+     822
+    ],
+    "store": [
+     0,
+     422,
+     390,
+     1139
+    ],
+    "zoom": [
+     334,
+     631,
+     380,
+     721
+    ],
+    "baselayers": [
+     334,
+     575,
+     380,
+     621
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [
+    "Region 205x42",
+    "Find a shop 205x42",
+    " Leaflet 55x14"
+   ],
+   "sideways": false,
+   "pins": 1,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  },
+  "card-tools": {
+   "box": {
+    "top": [
+     65,
+     12,
+     320,
+     108
+    ],
+    "dock": [
+     10,
+     754,
+     380,
+     822
+    ],
+    "store": [
+     0,
+     422,
+     390,
+     1139
+    ],
+    "zoom": [
+     334,
+     631,
+     380,
+     721
+    ],
+    "baselayers": [
+     334,
+     575,
+     380,
+     621
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [
+    "Region 205x42",
+    "Find a shop 205x42",
+    " Leaflet 55x14"
+   ],
+   "sideways": false,
+   "pins": 1,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  }
+ }
+}
