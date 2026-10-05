@@ -50,7 +50,7 @@ await send('Page.enable'); await send('Runtime.enable');
 
 const journey = async (w, touch) => {
   const r = {};
-  await open('shell&journey&exp&admin&visits');
+  await open('shell&journey&exp&admin&visits&noround');   // &noround: Ari's shops leave today's round (the lab's break case)
   if (touch) { r.media = await js(`matchMedia('(hover: none)').matches`); await press(await centre('.kx-feed-head button'), true); await sleep(500); }
   r.filterGone = await js(`!/Operational Filter|Global Fleet/i.test(document.querySelector('.kx-feed')?.innerText || 'x')`);
   r.options = await js(`document.querySelectorAll('#kx-journey-shops option').length`);

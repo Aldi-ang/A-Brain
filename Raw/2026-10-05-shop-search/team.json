@@ -1,0 +1,132 @@
+{
+ "errs": [],
+ "pc": {
+  "all": {
+   "team": "All",
+   "options": [
+    "All Teams",
+    "MAGELANG",
+    "MUNTILAN"
+   ],
+   "shops": 32,
+   "panelNames": [
+    "Ari Rahman",
+    "Budi Santoso",
+    "Dewi Wulandari",
+    "Rini Saputri",
+    "Cahyo Putra"
+   ],
+   "mapInitials": [],
+   "meta": "Monday · All · All Teams",
+   "regionPickers": 0
+  },
+  "picked": {
+   "team": "MUNTILAN",
+   "options": [
+    "All Teams",
+    "MAGELANG",
+    "MUNTILAN"
+   ],
+   "shops": 16,
+   "panelNames": [
+    "Ari Rahman",
+    "Budi Santoso",
+    "Cahyo Putra"
+   ],
+   "mapInitials": [],
+   "meta": "Monday · All · MUNTILAN",
+   "regionPickers": 0
+  },
+  "back": {
+   "team": "All",
+   "options": [
+    "All Teams",
+    "MAGELANG",
+    "MUNTILAN"
+   ],
+   "shops": 32,
+   "panelNames": [
+    "Ari Rahman",
+    "Budi Santoso",
+    "Dewi Wulandari",
+    "Rini Saputri",
+    "Cahyo Putra"
+   ],
+   "mapInitials": [],
+   "meta": "Monday · All · All Teams",
+   "regionPickers": 0
+  }
+ },
+ "phone": {
+  "media": true,
+  "all": {
+   "team": "All",
+   "options": [
+    "All Teams",
+    "MAGELANG",
+    "MUNTILAN"
+   ],
+   "shops": 32,
+   "panelNames": [
+    "Budi Santoso"
+   ],
+   "mapInitials": [],
+   "meta": "Monday · All · All Teams",
+   "regionPickers": 0
+  },
+  "picked": {
+   "team": "MUNTILAN",
+   "options": [
+    "All Teams",
+    "MAGELANG",
+    "MUNTILAN"
+   ],
+   "shops": 16,
+   "panelNames": [
+    "Budi Santoso"
+   ],
+   "mapInitials": [],
+   "meta": "Monday · All · MUNTILAN",
+   "regionPickers": 0
+  },
+  "back": {
+   "team": "All",
+   "options": [
+    "All Teams",
+    "MAGELANG",
+    "MUNTILAN"
+   ],
+   "shops": 32,
+   "panelNames": [
+    "Budi Santoso"
+   ],
+   "mapInitials": [],
+   "meta": "Monday · All · All Teams",
+   "regionPickers": 0
+  }
+ },
+ "pass": {
+  "pc": {
+   "regionPickersGone": true,
+   "options": true,
+   "pickedMuntilan": true,
+   "onlyItsSalesmen": true,
+   "fewerShops": true,
+   "mapOnlyItsMen": "unchecked - no DW/RS initials on the map with All Teams ()",
+   "headerSaysIt": true,
+   "allBack": true
+  },
+  "phone": {
+   "regionPickersGone": true,
+   "options": true,
+   "pickedMuntilan": true,
+   "onlyItsSalesmen": true,
+   "fewerShops": true,
+   "mapOnlyItsMen": "unchecked - no DW/RS initials on the map with All Teams ()",
+   "headerSaysIt": true,
+   "allBack": true
+  },
+  "phoneMedia": true,
+  "noErrors": true
+ }
+}

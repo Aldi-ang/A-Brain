@@ -3265,3 +3265,8 @@ the word), each at map size and zoomed, in a grey view, each acting out its word
   wanted its space for something new. Two controls that do the same thing read as clutter to him.
 - **A tool on one map belongs on both.** He asked for the search on Journey AND the regular map in the same sentence.
   [[../../Brainstorm/2026-10-04_visit-signs]] rounds 4-5
+- **Fewer pickers, coarser grain.** 08:30: *"for regional command just add selection of team instead to make it simpler"* -
+  three region drop-downs (province / regency / district) gave way to one Team picker. He filters by PEOPLE he manages,
+  not by map geography; geography stays one layer down (the sector tree).
+- **He expects the testing done, not handed back.** Same message: *"test it yourself"* - a ✅ TEST list he could have run
+  himself reads as unfinished work.

@@ -140,6 +140,18 @@ Models applied: Chesterton's Fence (what the filter fed before deleting it - the
 Second-Order (a crowded phone hides most names - stated, not hidden), Inversion (what makes a search lie: landing on
 "Toko Sinar Abadi" for "Toko Abadi" -> exact name first).
 
+## Round 6 - a Team picker instead of the three region pickers (his 2026-10-05 08:30) - BUILT kpm `8744eb5`
+
+His words: *"test it yourself, and for regional command just add selection of team instead to make it simpler"*.
+
+- A team = a branch: the salesmen sharing a `location` (the vault already calls it "the regional team"). No team entity
+  exists in the data; the branch field is on every salesman. The lab types one branch two ways ("MUNTILAN", "muntilan "),
+  so the key is trimmed and upper-cased (`teamKey`).
+- A pick keeps only that team's salesmen (panel + men on the map) and the shops they own. The sector tree lower on the page
+  still drills by Prov / Kab / Kec - only the feed's three pickers left.
+- He asked me to test it myself: done on the lab build with real input at PC and phone (probe-team, probe-search with the
+  lab's `&noround`, probe-hold). His real data was not tested: the dev app needs his login.
+
 ## Rejected on purpose
 
 - **A rival FLAG for Competitor** (in the brief): the red pixel flag already means "nobody's shop" on the same map

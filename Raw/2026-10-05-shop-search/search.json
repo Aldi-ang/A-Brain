@@ -10,13 +10,13 @@
    "dy": -14
   },
   "dayChests": {
-   "MoMon": "18/32Secured",
-   "TuTue": "18/32Secured",
-   "WeWed": "18/32Secured",
-   "ThThu": "18/32Secured",
-   "FrFri": "18/32Secured",
-   "SaSat": "18/32Secured",
-   "SuSun": "18/32Secured"
+   "MoMon": "12/24Secured",
+   "TuTue": "12/24Secured",
+   "WeWed": "12/24Secured",
+   "ThThu": "12/24Secured",
+   "FrFri": "12/24Secured",
+   "SaSat": "12/24Secured",
+   "SuSun": "12/24Secured"
   },
   "day": "MoMon",
   "tried": [
@@ -24,13 +24,11 @@
    "Toko Makmur",
    "Toko Lancar",
    "Warung Barokah",
-   "Toko Maju",
-   "Warung Pak Kumis",
-   "Toko Abadi",
-   "Toko Murah",
-   "Toko Mulia",
-   "Toko Harapan"
+   "Toko Maju"
   ],
+  "offName": "Toko Maju",
+  "offSaid": true,
+  "noPinSaid": false,
   "missSaid": true
  },
  "mapPC": {
@@ -51,13 +49,13 @@
    "dy": -14
   },
   "dayChests": {
-   "MoMon": "18/32Secured",
-   "TuTue": "18/32Secured",
-   "WeWed": "18/32Secured",
-   "ThThu": "18/32Secured",
-   "FrFri": "18/32Secured",
-   "SaSat": "18/32Secured",
-   "SuSun": "18/32Secured"
+   "MoMon": "12/24Secured",
+   "TuTue": "12/24Secured",
+   "WeWed": "12/24Secured",
+   "ThThu": "12/24Secured",
+   "FrFri": "12/24Secured",
+   "SaSat": "12/24Secured",
+   "SuSun": "12/24Secured"
   },
   "day": "MoMon",
   "tried": [
@@ -69,9 +67,11 @@
    "Warung Pojok",
    "Toko Lancar",
    "Warung Barokah",
-   "Toko Maju",
-   "Warung Mbak Yu"
+   "Toko Maju"
   ],
+  "offName": "Toko Maju",
+  "offSaid": true,
+  "noPinSaid": false,
   "missSaid": true
  },
  "mapPhone": {
@@ -87,7 +87,7 @@
    "options": true,
    "fullName": true,
    "chestAtCentre": true,
-   "offRoundSaid": "no off-round shop in 10 tried",
+   "offRoundSaid": true,
    "missSaid": true
   },
   "journeyPhone": {
@@ -95,7 +95,7 @@
    "options": true,
    "fullName": true,
    "chestAtCentre": true,
-   "offRoundSaid": "no off-round shop in 10 tried",
+   "offRoundSaid": true,
    "missSaid": true
   },
   "mapPC": {
