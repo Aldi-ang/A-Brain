@@ -3307,3 +3307,7 @@ the word), each at map size and zoomed, in a grey view, each acting out its word
 - **12:15:** *"B is better but we need set of of new tier symbol as well to better show their exclusiveness"* - he took the
   object (the market town) for the groups, and asked that a RANK look like a rank: the ladder must show who is rare, not just
   which colour a shop is. Equal plates for every level read as "all the same" to him.
+
+- **12:30 - 12:40:** *"rank medal is cool but i dont like the mythic logo"* then *"A is good"* - he rejected the busiest drawing
+  (a crown in a medallion with feathered wings) for the plainest strong one (a big crown alone). At the top of a ladder he wants
+  ONE bold object, not decoration around it.

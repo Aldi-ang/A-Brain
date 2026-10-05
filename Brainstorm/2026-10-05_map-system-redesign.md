@@ -1,6 +1,6 @@
 ---
 date: 2026-10-05
-status: BUILT 10:55 (57abe25) + rounds 2-4 (b93540f, 00d787c, 7f88984, 1e9fc8b); tier set = B (rank medals), MYTHIC pick OPEN
+status: DONE 2026-10-05 12:44 - redesign + rounds 2-5 built (57abe25 .. 5aa0b80), local, not pushed
 page: https://claude.ai/artifact/WxW6xpYd3dhLhyEwZ6Gn8u
 source: Raw/2026-10-05-map-system/map-system-redesign.html (frames: pc-*.png, ph-*.png, states.json)
 ---
@@ -143,6 +143,14 @@ the area bars and the card badge must take the same drawings.
 crown in a medallion) is REJECTED. Three new Mythics drawn on page v5 section 0 (the page's `MY` table is the spec):
 A royal crown (big crown alone, three gems) · B champion trophy (gold cup with a star) · **C star order (MY PICK)** (gold star medal
 on a double ribbon, gem heart - the gold twin of the bronze medal, so the ladder reads as one family). Decision: OPEN.
+
+## Round 5 closed (2026-10-05 12:40) - "A is good"
+
+His Mythic = **A, the royal crown**. BUILT with set B, kpm `5aa0b80`: sprout ring 22 / bronze medal on a ribbon 24 / silver kite
+shield 26 / ember gem 28 / royal crown 32 px; the square plate gone; pressed = a cream ring; chips at one size (fit 24); the hit
+box grows with the medal. The Map System redesign is DONE end to end (57abe25, b93540f, 00d787c, 7f88984, 1e9fc8b, 5aa0b80 -
+all local, not pushed). Still unasked-about: the imported area borders keep their random bright colours (pink / cyan / green -
+the importer's palette), raised once in a reply, no answer.
 
 ## Rejected on purpose
 - The winged crown in a medallion as Mythic (his "i dont like the mythic logo", 12:30).

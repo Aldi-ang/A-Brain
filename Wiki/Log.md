@@ -1596,3 +1596,7 @@ https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti · [[2026-10-05_map-system-red
 ## 2026-10-05 12:32 — Map System: tier set B (rank medals) chosen, its Mythic rejected; three Mythics drawn, OPEN
 
 [[2026-10-05_map-system-redesign]] (Round 5) · page v5 https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti.
+
+## 2026-10-05 12:45 — Map System: rank medals + royal-crown Mythic BUILT (kpm 5aa0b80); the redesign is done
+
+[[2026-10-05_map-system-redesign]] closed. Next: the Day Replay (kpm NEXT-SESSION.md).
