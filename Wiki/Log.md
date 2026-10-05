@@ -1600,3 +1600,7 @@ https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti · [[2026-10-05_map-system-red
 ## 2026-10-05 12:45 — Map System: rank medals + royal-crown Mythic BUILT (kpm 5aa0b80); the redesign is done
 
 [[2026-10-05_map-system-redesign]] closed. Next: the Day Replay (kpm NEXT-SESSION.md).
+
+## 2026-10-05 16:20 — Journey Plan: the Day Replay BUILT (kpm a4afcf2, local); his test owed
+
+[[2026-10-04_journey-day-replay]] "BUILT" section: parts, decisions, the five defects the proof caught, known limits. Proof: `Raw/2026-10-05-day-replay-built/` (38/38). New KPM fact: a divIcon reuses its element. Next: the shop popup redesign (kpm NEXT-SESSION.md).

@@ -1,0 +1,285 @@
+[
+ {
+  "name": "pc: Budi pressed in the Expedition",
+  "pass": true
+ },
+ {
+  "name": "pc: the Replay key shows for the pressed man",
+  "pass": true
+ },
+ {
+  "name": "pc: the replay opens and reads his day",
+  "pass": true
+ },
+ {
+  "name": "pc: the Day Log = his 11 events in time order (sales, the exchange, the reports)",
+  "pass": true,
+  "data": [
+   "14:10 Toko Berkah Jaya | Sale · Rp 250.000",
+   "14:35 Warung Sumber Rejeki | Sale · Rp 250.000",
+   "14:38 Warung Sumber Rejeki | Repeat Order",
+   "15:00 Toko Makmur | Sale · Rp 250.000",
+   "15:25 Warung Bu Sri | Sale · Rp 250.000",
+   "15:28 Warung Bu Sri | Competitor Issue",
+   "15:50 Toko Sinar Abadi | Sale · Rp 250.000",
+   "15:58 Warung Pojok | New Request",
+   "16:04 Toko Lancar | Store Closed",
+   "16:10 Warung Barokah | Exchange (retur)",
+   "16:12 Warung Barokah | Stock Full (No Order)"
+  ]
+ },
+ {
+  "name": "pc: the undone Routine Check and Ari's report are NOT in it",
+  "pass": true
+ },
+ {
+  "name": "pc: one notch per stop (start + 11)",
+  "pass": true,
+  "data": 12
+ },
+ {
+  "name": "pc: no two timeline marks overlap (close stops take another lane)",
+  "pass": true,
+  "data": 0
+ },
+ {
+  "name": "pc: stats",
+  "pass": true,
+  "data": [
+   "Rp 1.250.000",
+   "4",
+   "14:10-16:12"
+  ]
+ },
+ {
+  "name": "pc: the day's shops are on the map, nothing else (8 chests, 0 other markers)",
+  "pass": true,
+  "data": {
+   "chests": 8,
+   "others": 0
+  }
+ },
+ {
+  "name": "pc: chests wear his tag + stop number",
+  "pass": true,
+  "data": [
+   "BS · 1",
+   "BS · 2",
+   "BS · 3",
+   "BS · 4",
+   "BS · 5",
+   "BS · 6",
+   "BS · 7",
+   "BS · 8"
+  ]
+ },
+ {
+  "name": "pc: before his first scene no shop is visited, he stands at the start",
+  "pass": true,
+  "data": {
+   "visited": 0,
+   "man": {
+    "tag": "BS · 0/11",
+    "cls": "kx-sm idle",
+    "x": 552,
+    "y": 250,
+    "inMap": true
+   }
+  }
+ },
+ {
+  "name": "pc: mid-sale the chest plays its moment and the coin is in the air",
+  "pass": true,
+  "data": {
+   "scene": 1,
+   "props": [
+    0.875
+   ]
+  }
+ },
+ {
+  "name": "pc: after the coin reaches him he holds it up (the seller pose)",
+  "pass": true,
+  "data": {
+   "tag": "BS · 0/11",
+   "cls": "kx-sm sell busy",
+   "x": 552,
+   "y": 250,
+   "inMap": true
+  }
+ },
+ {
+  "name": "pc: the sign has planted - the shop reads as visited, its word shows",
+  "pass": true,
+  "data": [
+   "Toko Berkah Jaya"
+  ]
+ },
+ {
+  "name": "pc: at the end every shop is visited, 0 scenes",
+  "pass": true,
+  "data": {
+   "visited": 8,
+   "man": {
+    "tag": "BS · 11/11",
+    "cls": "kx-sm idle busy",
+    "x": 337,
+    "y": 419,
+    "inMap": true
+   }
+  }
+ },
+ {
+  "name": "pc: dragged back to 0.7 s into the sale = the same picture as the first time",
+  "pass": true,
+  "data": {
+   "freeze1": "matrix(0.9625, 0, 0, 0.9625, 2.375, -3.75)|0.875",
+   "freeze2": "matrix(0.9625, 0, 0, 0.9625, 2.375, -3.75)|0.875"
+  }
+ },
+ {
+  "name": "pc: the clock shows the stop's time",
+  "pass": true
+ },
+ {
+  "name": "pc: pressing a chest opens its card and pauses",
+  "pass": true,
+  "data": {
+   "card": "Toko Berkah Jaya"
+  }
+ },
+ {
+  "name": "pc: paused = nothing on the map is redrawn (not the trail, not him) for a whole second",
+  "pass": true,
+  "data": 0
+ },
+ {
+  "name": "pc: Review receipt opens the app's own nota",
+  "pass": true
+ },
+ {
+  "name": "pc: the receipt is on top - the map keys and the zoom do not draw over it",
+  "pass": true,
+  "data": [
+   "receipt",
+   "receipt"
+  ]
+ },
+ {
+  "name": "pc: the receipt closes",
+  "pass": true
+ },
+ {
+  "name": "pc: Play from here plays from that shop",
+  "pass": true,
+  "data": 1
+ },
+ {
+  "name": "pc: a Day Log row jumps to that stop",
+  "pass": true,
+  "data": 8
+ },
+ {
+  "name": "pc: following him down the Day Log keeps the player in view and his row just under it",
+  "pass": true,
+  "data": {
+   "timeline": true,
+   "controls": true,
+   "nowRowBelowPlayer": true,
+   "panelScrolled": 587
+  }
+ },
+ {
+  "name": "pc: Follow him keeps him on the map",
+  "pass": true,
+  "data": {
+   "tag": "BS · 9/11",
+   "cls": "kx-sm idle busy",
+   "x": 463,
+   "y": 277,
+   "inMap": true
+  }
+ },
+ {
+  "name": "pc: no flash while it plays (mean brightness steady, no frame changes >25% of the map by a big step)",
+  "pass": true,
+  "data": {
+   "min": "68.0",
+   "max": "69.7",
+   "worst": "0.011"
+  }
+ },
+ {
+  "name": "pc: Back to team = the Expedition panel and the normal map again",
+  "pass": true
+ },
+ {
+  "name": "lite: 0 animations running on the map and no chest mid-moment while it plays",
+  "pass": true,
+  "data": {
+   "runMax": 0,
+   "scenes": 0
+  }
+ },
+ {
+  "name": "phone: the touch media is live",
+  "pass": true
+ },
+ {
+  "name": "phone: Budi pressed",
+  "pass": true
+ },
+ {
+  "name": "phone: the replay opens",
+  "pass": true
+ },
+ {
+  "name": "phone: one card + a chip per stop, no Day Log rows",
+  "pass": true,
+  "data": {
+   "chips": 12,
+   "rows": 0
+  }
+ },
+ {
+  "name": "phone: no two timeline marks overlap",
+  "pass": true,
+  "data": 0
+ },
+ {
+  "name": "phone: no sideways scroll, every text inside the screen",
+  "pass": true,
+  "data": {
+   "docW": 390,
+   "textRight": 365,
+   "right": 382
+  }
+ },
+ {
+  "name": "phone: Follow him - he is on the map, mid-sale with the coin up",
+  "pass": true,
+  "data": {
+   "tag": "BS · 0/11",
+   "cls": "kx-sm sell busy",
+   "x": 162,
+   "y": 101,
+   "inMap": true
+  }
+ },
+ {
+  "name": "phone: a tap on the chest opens its card",
+  "pass": true,
+  "data": {
+   "card": "Toko Berkah Jaya",
+   "at": {
+    "x": 201,
+    "y": 46.5
+   }
+  }
+ },
+ {
+  "name": "no console errors",
+  "pass": true,
+  "data": []
+ }
+]

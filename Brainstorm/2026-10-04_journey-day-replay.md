@@ -1,6 +1,6 @@
 ---
 date: 2026-10-04
-status: DRAWN - live page v1, his pick owed (camera Follow him or Whole day; scenes that do not read)
+status: BUILT 2026-10-05 (kpm a4afcf2, local, not pushed) - his test owed
 tags: [kpm, journey-plan, expedition, replay, ponder, design, brainstorm, open]
 ---
 
@@ -101,3 +101,37 @@ closes it; Play from here plays from that shop; phone receipt 358 px, 0 sideways
 **Found by the real presses:** the card first floated over the map and covered shops 1 and 2 - a press on them hit the
 card. Moved off the map. And his tag sat on the shop's own tag while he stood there - his steps aside then.
 OPEN: nothing owed on the drawing; next = build (NEXT-SESSION.md).
+
+## BUILT 2026-10-05 - kpm `a4afcf2` (local, not pushed)
+
+Journey Plan -> press a salesman in the Expedition -> **Replay his day**. The shops and the team step off the map; the
+player + Day Log take the Expedition panel's slot (PC: the 400 px column, the player sticks on top and the list follows
+him under it; phone: under the map, one card + a chip strip). Built exactly as v2 was picked; every scene is the app's own
+look-C sign act (`.kx-c5.burst`) plus the page's props (coin / taped crate / note into his hands, packs, rival crate,
+knock), the sign's beat moved after the props (CSS `.kx-rp-mk ... --d: 1300ms`).
+
+| Part | Where |
+|---|---|
+| Day Log reader (pure) + replay clock | kpm `src/utils/dayLog.js`, check `src/config/dayLog.selfcheck.mjs` |
+| data + clock hook | `src/hooks/useDayReplay.js` |
+| map layer + panel | `src/components/DayReplay.jsx`, CSS end of `src/styles/expedition.css` |
+| the one receipt | `src/components/SaleReceipt.jsx` (moved out of HistoryReportView) |
+| from now on | Visit Report saves `storeId` / `tag` / `agentId` fields (logAudit 4th arg, spread first) |
+| proof | `Raw/2026-10-05-day-replay-built/shoot-replay-built.mjs` 38/38, frames beside it |
+
+**Decisions taken by me (said to him once):** the visited shop's status word shows during and after its scene (one
+`held` class on that marker, never all words); one chest per shop even when he visits it twice (a sale + a report = two
+timeline stops, one chest, the later outcome wins); old reports are his by the email that wrote them; a day with no first
+position starts at his first shop; the replay's man uses Expedition's hair + squad colour; `useScenePlayer` NOT reused (it
+is beat-indexed; the replay needs any t - the page's own clock was ported instead).
+
+**Found by the proof, fixed before commit** (each one red first): Leaflet `L.divIcon` REUSES its div on setIcon, so a scene
+cache on the marker box went stale and the props froze (cache keyed on the scene's `.kx-c5.burst` now); the PC panel
+scrolled the player out of sight; stops minutes apart stacked their timeline marks (greedy lanes); the nota opened under
+the map keys (z-500 vs z-9999 - its own top layer now); a paused replay rewrote the trail 332x/s (0 now).
+
+**Known limits (told him):** the walk is drawn; a report's time = when he pressed Report; a past day plays only the sales the
+app still has loaded; the boss's own old reports cannot be matched (his record has no email); fullscreen hides the panel.
+
+Models applied (build): Inversion (what makes the replay lie - kept the "drawn" note and the Report-time line on screen),
+Chesterton's Fence (the sanitizer's -7.5845 fake pin: read raw shops instead of removing it).
