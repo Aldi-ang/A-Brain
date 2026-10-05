@@ -1580,3 +1580,7 @@ totals, top areas, level chips and a layer dock. Areas ranked by the shop's own 
 
 Font root cause: Barlow Condensed never loaded, the app draws Arial Narrow everywhere. Page
 https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti · [[2026-10-05_map-system-redesign]] (Round 2).
+
+## 2026-10-05 11:55 — Map System: his hub C + Unranked sprout BUILT (kpm 00d787c); font pick re-shown at 3x, OPEN
+
+[[2026-10-05_map-system-redesign]] (Round 2) · page v2 https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti.

@@ -50,7 +50,7 @@ const measure = () => js(`(() => {
   for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) if (hit(box[ks[i]], box[ks[j]]) && !['sheet', 'store'].includes(ks[i]) && !['sheet', 'store'].includes(ks[j])) overlaps.push(ks[i] + '×' + ks[j]);
   const spill = [...document.querySelectorAll('.ms-root *')].filter((e) => vis(e) && e.children.length === 0 && e.scrollWidth > e.clientWidth + 1 && getComputedStyle(e).overflow !== 'visible' && !['INPUT', 'SELECT'].includes(e.tagName)).map((e) => e.className + ':' + e.innerText.slice(0, 30)).slice(0, 8);
   const small = [...document.querySelectorAll('.ms-root button, .ms-root a, .ms-root select, .ms-root input')].filter((e) => { const r = vis(e); return r && innerWidth < 1024 && (r.height < 44 || r.width < 44) && !e.closest('.leaflet-control-layers-list'); }).map((e) => (e.getAttribute('aria-label') || e.innerText || e.className).slice(0, 24) + ' ' + Math.round(e.getBoundingClientRect().width) + 'x' + Math.round(e.getBoundingClientRect().height)).slice(0, 10);
-  return { box, overlaps, spill, small, sideways: document.documentElement.scrollWidth > innerWidth, pins: document.querySelectorAll('.ms-pin').length, clusters: document.querySelectorAll('.ms-cluster').length, sheet: !!document.querySelector('.ms-sheet'),
+  return { box, overlaps, spill, small, sideways: document.documentElement.scrollWidth > innerWidth, pins: document.querySelectorAll('.ms-pin').length, hubs: [...document.querySelectorAll('.ms-mk.hub')].filter((e) => vis(e)).length, roofs: [...document.querySelectorAll('.ms-mk.hub .roof')].filter((e) => vis(e)).length, sprouts: [...document.querySelectorAll('.ms-mk')].filter((e) => vis(e) && /#B8B0A4/i.test(e.getAttribute('style') || '')).length, clusters: document.querySelectorAll('.ms-cluster').length, sheet: !!document.querySelector('.ms-sheet'),
     toast: [...document.querySelectorAll('.fixed.inset-x-0.top-0 [role=status], .fixed.inset-x-0.top-0 [role=alert]')].map((e) => e.innerText.trim()).filter(Boolean).slice(-2) };
 })()`);
 const out = { errs };
@@ -70,6 +70,8 @@ out.pc = await run('pc', '&admin', [
   ['card', async () => { await press('.ms-layers .kx-mapkey', '/catchment/i'); await search('sinar'); }],
   ['card-tools', () => press('.ms-store [aria-label="Boss tools"]')],
   ['card-unpaid', () => press('.ms-store .ms-stats button')],
+  ['hub', async () => { await open('&admin'); await search('berkah'); }],
+  ['hub-closed', () => press('.ms-store .ms-x')],
 ]);
 /* PC 1024 + a salesman (no money) */
 await send('Emulation.setDeviceMetricsOverride', { width: 1024, height: 700, deviceScaleFactor: 1, mobile: false });

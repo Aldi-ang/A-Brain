@@ -35,6 +35,11 @@ figcaption b:first-child { font-family: var(--display); font-size: 20px; letter-
 .tag { display: inline-block; font: 700 11px/1 var(--mono); letter-spacing: .1em; color: var(--gold2); border: 1px solid var(--gold); padding: 4px 6px 3px; border-radius: 4px; vertical-align: 3px; }
 img.frame { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--line2); }
 #unranked { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.bigfonts { display: grid; gap: 16px; }
+.bigrow { display: grid; grid-template-columns: 1.25fr 1fr; gap: 10px; align-items: start; }
+.bigrow img:nth-child(1), .bigrow img:nth-child(2) { grid-column: 1; }
+.bigrow img:nth-child(3) { grid-column: 2; grid-row: 1 / span 2; }
+@media (max-width: 640px) { .bigrow { grid-template-columns: 1fr; } .bigrow img:nth-child(3) { grid-column: auto; grid-row: auto; } }
 .pair { display: grid; grid-template-columns: 1.9fr 1fr; gap: 8px; align-items: start; }
 @media (max-width: 520px) { .pair { grid-template-columns: 1fr; } }
 
@@ -114,25 +119,26 @@ ul.done { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--m
   <header style="display:grid;gap:12px">
     <span class="note">KPM · MAP SYSTEM · ROUND 2 · 2026-10-05</span>
     <h1>Map System Round 2</h1>
-    <p class="ask">🔴 Three picks at the bottom: the font, the wholesale hub mark, and the Unranked logo. The motion is already fixed.</p>
+    <p class="ask">🔴 One pick left: the font, now zoomed 3x below. Your hub pick (C) and Unranked pick (the sprout) are being built.</p>
     <p>Your words: <b>"the fonts is really bad i want u to change it, make sure all the animation is on theme with ours, and make sure that symbol for wholesale hub is more visible than other stores and i think i need new logo for unranked tier"</b>. The shop names and numbers are the test data, not your shops.</p>
   </header>
 
   <section>
     <h2>1 · The font <small>real frames of the app</small></h2>
     <p><b>Why it looks bad:</b> the app asks for a font called Barlow Condensed for its big numbers and titles, but it never loads it. Your PC then uses the closest font it has, Arial Narrow, which is the squashed look in your screenshot. This is on <b>every screen</b> with big numbers or titles, not only the map. Every drawing you approved was made with the real Barlow Condensed.</p>
-    <div class="opts">
+    <p class="note">ZOOMED 3x so every letter is clear: the totals bar, one area row, and the phone's Areas sheet - the same three parts in each font.</p>
+    <div class="bigfonts">
       <figure>
-        <div class="pair"><img class="frame" src="font-A-pc.png" alt="Map System on a PC, today's font (Arial Narrow)" loading="lazy"><img class="frame" src="font-A-ph.png" alt="Map System's Areas sheet on a phone, today's font" loading="lazy"></div>
         <figcaption><b>A · Today</b>Arial Narrow, squashed, because the real font is missing.</figcaption>
+        <div class="bigrow"><img class="frame" src="big-A-totals.png" alt="The totals bar in today's font, zoomed" loading="lazy"><img class="frame" src="big-A-area.png" alt="One area row in today's font, zoomed" loading="lazy"><img class="frame" src="big-A-ph.png" alt="The phone's Areas sheet in today's font, zoomed" loading="lazy"></div>
       </figure>
       <figure class="pick">
-        <div class="pair"><img class="frame" src="font-B-pc.png" alt="Map System on a PC with Barlow Condensed loaded" loading="lazy"><img class="frame" src="font-B-ph.png" alt="Map System's Areas sheet on a phone with Barlow Condensed" loading="lazy"></div>
-        <figcaption><b>B · Barlow Condensed</b><span class="tag">MY PICK</span> The font the app already asks for, loaded for real. Big numbers and titles get thicker and clearer on every screen, the way your approved drawings looked. Small labels keep today's typewriter look. The font file ships inside the app, so it works with no signal.</figcaption>
+        <figcaption><b>B · Barlow Condensed</b><span class="tag">MY PICK</span> The font the app already asks for, loaded for real. Big numbers and titles get thicker and clearer on every screen, the way your approved drawings looked. Small labels keep today's typewriter look.</figcaption>
+        <div class="bigrow"><img class="frame" src="big-B-totals.png" alt="The totals bar in Barlow Condensed, zoomed" loading="lazy"><img class="frame" src="big-B-area.png" alt="One area row in Barlow Condensed, zoomed" loading="lazy"><img class="frame" src="big-B-ph.png" alt="The phone's Areas sheet in Barlow Condensed, zoomed" loading="lazy"></div>
       </figure>
       <figure>
-        <div class="pair"><img class="frame" src="font-C-pc.png" alt="Map System on a PC with Rajdhani for numbers and labels" loading="lazy"><img class="frame" src="font-C-ph.png" alt="Map System's Areas sheet on a phone with Rajdhani" loading="lazy"></div>
         <figcaption><b>C · Rajdhani</b>A squarer, game-style font for the big numbers <b>and</b> the small labels. Bigger change: every label in the app changes too, including tables of numbers.</figcaption>
+        <div class="bigrow"><img class="frame" src="big-C-totals.png" alt="The totals bar in Rajdhani, zoomed" loading="lazy"><img class="frame" src="big-C-area.png" alt="One area row in Rajdhani, zoomed" loading="lazy"><img class="frame" src="big-C-ph.png" alt="The phone's Areas sheet in Rajdhani, zoomed" loading="lazy"></div>
       </figure>
     </div>
   </section>

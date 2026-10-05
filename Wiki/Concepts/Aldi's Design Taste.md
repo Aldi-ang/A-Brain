@@ -3293,3 +3293,8 @@ the word), each at map size and zoomed, in a grey view, each acting out its word
   He expects one motion language across both maps.
 - **A special shop must out-shout the rest at map size** (the hub), and **every level needs a picture he can name** -
   a plain grey dot for Unranked is not a logo to him. [[../../Brainstorm/2026-10-05_map-system-redesign]] round 2
+
+- **11:50, the answer:** *"i cant see the fonts the example u are giving me is too small wholesale hub is C good, unranked is
+  sprout"* - he took the object AND the word for the hub again (third time: signs, name tags, hub), and my sprout pick. **A
+  font comparison must be shown ZOOMED** (one part at ~3x per option, stacked full width): side-by-side screens at app size
+  read as the same picture to him, so the pick cost a round trip.

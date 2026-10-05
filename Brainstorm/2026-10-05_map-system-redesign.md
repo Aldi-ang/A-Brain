@@ -1,6 +1,6 @@
 ---
 date: 2026-10-05
-status: BUILT 2026-10-05 10:55 (kpm 57abe25); round 2 motion BUILT 11:41 (b93540f); round 2 font / hub / unranked OPEN - his picks owed
+status: BUILT 10:55 (57abe25); round 2 motion b93540f, hub C + sprout 00d787c; FONT pick OPEN (page v2 shows it 3x)
 page: https://claude.ai/artifact/WxW6xpYd3dhLhyEwZ6Gn8u
 source: Raw/2026-10-05-map-system/map-system-redesign.html (frames: pc-*.png, ph-*.png, states.json)
 ---
@@ -87,7 +87,10 @@ the pin (roof + word), a taller hit box. Unranked: the log reads like a camera a
 **Built without asking (conformance, not a choice):** motion on Journey's theme - kpm `b93540f` (every key acts out
 its job, no bounce, no forever-pulse; the new-shop form no longer lands half off-centre).
 
-**Decision:** OPEN - waiting on Aldi. Page: https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti (source
+**Decision, 2026-10-05 11:50, his words:** *"i cant see the fonts the example u are giving me is too small wholesale hub is C
+good, unranked is sprout"*. Hub = C, Unranked = the sprout (my pick) - both BUILT, kpm `00d787c` (the hub also rides outside the
+cluster bubbles, so it shows at every zoom). Font: still OPEN - the page now shows the totals bar, an area row and the phone
+header zoomed 3x (`big-*.png`, `shoot-fontbig.mjs`), page v2. Page: https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti (source
 `Raw/2026-10-05-map-system/round2/map-system-round2.html`, frames `font-*.png`, `ground.png`, shooter `shoot-round2.mjs`).
 
 **Rejected on purpose:** an amber FILL roof or HUB tag (palette law: amber is an edge and an ink) - both are drawn as

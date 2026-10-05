@@ -56,8 +56,11 @@
    "spill": [],
    "small": [],
    "sideways": false,
-   "pins": 0,
-   "clusters": 3,
+   "pins": 1,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 1,
+   "clusters": 4,
    "sheet": false,
    "toast": []
   },
@@ -116,8 +119,11 @@
    "spill": [],
    "small": [],
    "sideways": false,
-   "pins": 0,
-   "clusters": 3,
+   "pins": 1,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 1,
+   "clusters": 4,
    "sheet": false,
    "toast": []
   },
@@ -176,8 +182,11 @@
    "spill": [],
    "small": [],
    "sideways": false,
-   "pins": 0,
-   "clusters": 3,
+   "pins": 1,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 1,
+   "clusters": 4,
    "sheet": false,
    "toast": []
   },
@@ -237,6 +246,9 @@
    "small": [],
    "sideways": false,
    "pins": 26,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 7,
    "clusters": 0,
    "sheet": false,
    "toast": []
@@ -303,6 +315,9 @@
    "small": [],
    "sideways": false,
    "pins": 32,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 7,
    "clusters": 0,
    "sheet": false,
    "toast": [
@@ -365,6 +380,9 @@
    "small": [],
    "sideways": false,
    "pins": 32,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 7,
    "clusters": 0,
    "sheet": false,
    "toast": [
@@ -427,6 +445,9 @@
    "small": [],
    "sideways": false,
    "pins": 20,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 6,
    "clusters": 0,
    "sheet": false,
    "toast": []
@@ -487,6 +508,9 @@
    "small": [],
    "sideways": false,
    "pins": 20,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 6,
    "clusters": 0,
    "sheet": false,
    "toast": []
@@ -547,6 +571,135 @@
    "small": [],
    "sideways": false,
    "pins": 20,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 6,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  },
+  "hub": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     924,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "store": [
+     16,
+     76,
+     376,
+     625
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 28,
+   "hubs": 2,
+   "roofs": 2,
+   "sprouts": 7,
+   "clusters": 0,
+   "sheet": false,
+   "toast": []
+  },
+  "hub-closed": {
+   "box": {
+    "top": [
+     80,
+     16,
+     518,
+     60
+    ],
+    "totals": [
+     572,
+     16,
+     868,
+     68
+    ],
+    "areas": [
+     16,
+     76,
+     346,
+     364
+    ],
+    "levels": [
+     16,
+     830,
+     677,
+     884
+    ],
+    "layers": [
+     924,
+     834,
+     1424,
+     884
+    ],
+    "tools": [
+     1266,
+     16,
+     1424,
+     264
+    ],
+    "zoom": [
+     1398,
+     739,
+     1430,
+     801
+    ],
+    "baselayers": [
+     1384,
+     683,
+     1430,
+     729
+    ]
+   },
+   "overlaps": [],
+   "spill": [],
+   "small": [],
+   "sideways": false,
+   "pins": 28,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 7,
    "clusters": 0,
    "sheet": false,
    "toast": []
@@ -608,8 +761,11 @@
    "spill": [],
    "small": [],
    "sideways": false,
-   "pins": 0,
-   "clusters": 3,
+   "pins": 1,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 1,
+   "clusters": 4,
    "sheet": false,
    "toast": []
   },
@@ -669,6 +825,9 @@
    "small": [],
    "sideways": false,
    "pins": 13,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 5,
    "clusters": 0,
    "sheet": false,
    "toast": []
@@ -730,8 +889,11 @@
    "spill": [],
    "small": [],
    "sideways": false,
-   "pins": 0,
-   "clusters": 3,
+   "pins": 1,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 1,
+   "clusters": 4,
    "sheet": false,
    "toast": []
   },
@@ -791,6 +953,9 @@
    "small": [],
    "sideways": false,
    "pins": 20,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 6,
    "clusters": 0,
    "sheet": false,
    "toast": []
@@ -833,7 +998,10 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 0,
+   "pins": 1,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 0,
    "clusters": 0,
    "sheet": false,
    "toast": []
@@ -879,7 +1047,10 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 0,
+   "pins": 1,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 0,
    "clusters": 0,
    "sheet": true,
    "toast": []
@@ -919,7 +1090,10 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 0,
+   "pins": 1,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 0,
    "clusters": 0,
    "sheet": false,
    "toast": []
@@ -965,7 +1139,10 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 0,
+   "pins": 1,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 1,
    "clusters": 0,
    "sheet": true,
    "toast": []
@@ -1011,7 +1188,10 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 0,
+   "pins": 1,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 0,
    "clusters": 0,
    "sheet": true,
    "toast": []
@@ -1051,7 +1231,10 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 8,
+   "pins": 9,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 2,
    "clusters": 0,
    "sheet": false,
    "toast": []
@@ -1097,7 +1280,10 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 1,
+   "pins": 2,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 2,
    "clusters": 0,
    "sheet": false,
    "toast": []
@@ -1143,7 +1329,10 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 1,
+   "pins": 2,
+   "hubs": 1,
+   "roofs": 1,
+   "sprouts": 2,
    "clusters": 0,
    "sheet": false,
    "toast": []
