@@ -3298,3 +3298,8 @@ the word), each at map size and zoomed, in a grey view, each acting out its word
   sprout"* - he took the object AND the word for the hub again (third time: signs, name tags, hub), and my sprout pick. **A
   font comparison must be shown ZOOMED** (one part at ~3x per option, stacked full width): side-by-side screens at app size
   read as the same picture to him, so the pick cost a round trip.
+
+- **12:00 - 12:10:** *"C is best for fonts"* - shown big, he took the squarer GAME face for numbers and labels over my "the
+  font your drawings used" (B): the game feel beats consistency with old drawings. Then *"make sure that the hub is hidden also
+  when zoom out"* - a special shop must stand out when you can see it, but must not break the clean zoomed-out picture; and
+  *"change the circle and number to better symbol"* - even a counter on his map must be an object, not a plain shape.

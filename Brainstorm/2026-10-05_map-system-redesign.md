@@ -1,6 +1,6 @@
 ---
 date: 2026-10-05
-status: BUILT 10:55 (57abe25); round 2 motion b93540f, hub C + sprout 00d787c; FONT pick OPEN (page v2 shows it 3x)
+status: BUILT 10:55 (57abe25) + round 2/3 (b93540f motion, 00d787c hub C + sprout, 7f88984 font C + hub hidden); GROUP SYMBOL pick OPEN
 page: https://claude.ai/artifact/WxW6xpYd3dhLhyEwZ6Gn8u
 source: Raw/2026-10-05-map-system/map-system-redesign.html (frames: pc-*.png, ph-*.png, states.json)
 ---
@@ -99,6 +99,29 @@ instead, so every pin is shown at its real pixel size).
 
 Models applied: Inversion (what makes a hub invisible: same size, same shape, a thin ring), Second-Order Thinking (a
 font fix ripples to every screen and to every width measured in the wrong font).
+
+## Round 3 (2026-10-05 12:00 - 12:10) - font C built, the hub hides again, the group symbol
+
+**His words:** *"C is best for fonts"* (against my B) · *"now i want u to change the circle and number to better symbol for
+the stores and make sure that the hub is hidden also when zoom out"* (screenshot: the hub sitting on top of a "2" bubble,
+real borders behind).
+
+**Built (kpm `7f88984`, local, not pushed):** Rajdhani for --font-display AND --font-mono, shipped with the app
+(@fontsource/rajdhani latin 500/600/700 in main.jsx + the lab; **/*.woff2 precached); the thermal nota keeps Courier. The hub is
+back inside the cluster bubbles when zoomed out (reverses my "never in a bubble" from 00d787c).
+**Cost found, not priced to him before:** Rajdhani has NO tabular digits ("1111" 26.7 px vs "8888" 43.4 px at 20 px), so
+number columns lose digit alignment app-wide. Flips to "keep the old digits in number tables" if a column reads ragged.
+Not measured: the other screens one by one in the new face (Map System and Journey were: 0 overflow, Journey 49/49).
+
+**The group symbol - OPEN, waiting on Aldi** (page v3, section 0): A badge stack (the group's three best levels fanned, count
+under - MY PICK, an analysis map should say what is inside) · B market town (two shop houses, roof = best level) · C supply
+crate (count stencilled, edge = best level). Building any of them needs each marker to carry its tier into the cluster
+(`cluster.getAllChildMarkers()` -> marker options).
+
+**Rejected on purpose:** a hub mark on a group that holds a hub (he asked for the hub hidden when zoomed out).
+
+Models applied: Second-Order Thinking (a font switch reaches every number table), Reversibility Test (the hub-in-bubble change
+is one line each way).
 
 ## Rejected on purpose
 

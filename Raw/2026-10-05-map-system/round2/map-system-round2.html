@@ -1,4 +1,5 @@
 <title>Map System Round 2</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&display=swap">
 <style>
@@ -34,6 +35,7 @@ figcaption { font-size: 14px; color: var(--muted); }
 figcaption b:first-child { font-family: var(--display); font-size: 20px; letter-spacing: .04em; text-transform: uppercase; margin-right: 6px; }
 .tag { display: inline-block; font: 700 11px/1 var(--mono); letter-spacing: .1em; color: var(--gold2); border: 1px solid var(--gold); padding: 4px 6px 3px; border-radius: 4px; vertical-align: 3px; }
 img.frame { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--line2); }
+#groups { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
 #unranked { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
 .bigfonts { display: grid; gap: 16px; }
 .bigrow { display: grid; grid-template-columns: 1.25fr 1fr; gap: 10px; align-items: start; }
@@ -61,6 +63,25 @@ img.frame { width: 100%; display: block; border-radius: 8px; border: 1px solid v
   background: #14110e; border: 1.5px solid var(--gold2); border-radius: 3px; padding: 2px 4px 1px 5px; white-space: nowrap; }
 .zoom3 { transform: scale(3); transform-origin: center; }
 
+/* ---- round 3: the group symbol ---- */
+.grp { position: relative; display: grid; justify-items: center; font-family: "Rajdhani", sans-serif; }
+.grp .n { margin-top: 3px; font: 700 13px/1 "Rajdhani", sans-serif; color: var(--cream); background: #14110e; border: 1.5px solid var(--line3); border-radius: 4px; padding: 2px 5px 1px; letter-spacing: .04em; white-space: nowrap; }
+/* A: a fanned stack of the best levels inside */
+.stack { position: relative; width: 40px; height: 30px; }
+.stack .mk { position: absolute; top: 3px; left: 8px; }
+.stack .mk.b1 { rotate: -14deg; translate: -8px 2px; opacity: .9; }
+.stack .mk.b2 { rotate: 14deg; translate: 8px 2px; opacity: .9; }
+.stack .mk.b0 { z-index: 2; }
+/* B: a little market town */
+.town { width: 42px; height: 30px; overflow: visible; }
+.town path { fill: #14110e; stroke: var(--c, #F0E2BC); stroke-width: 2; stroke-linejoin: round; }
+.town rect { fill: var(--c, #F0E2BC); }
+/* C: a supply crate, its edge = the best level inside */
+.crate { position: relative; width: 34px; height: 30px; display: grid; place-items: center; background: #1f1a14; border: 2px solid var(--c); border-radius: 4px; box-shadow: 0 2px 0 rgba(0,0,0,.55); overflow: hidden; }
+.crate::before, .crate::after { content: ""; position: absolute; left: 0; right: 0; height: 2px; background: color-mix(in srgb, var(--c) 45%, transparent); }
+.crate::before { top: 8px; } .crate::after { bottom: 8px; }
+.crate b { position: relative; z-index: 1; font: 700 15px/1 "Rajdhani", sans-serif; color: var(--cream); text-shadow: 0 1px 0 #000; }
+.today { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: rgba(18,17,16,.95); border: 2px solid #D08A2E; color: #E8E4DE; font: 800 15px/1 "Barlow Condensed", "Arial Narrow", sans-serif; box-shadow: 0 4px 14px rgba(0,0,0,.55); }
 /* ---- a map patch with pins ---- */
 /* real size: the patch is cropped to the column, never scaled, so a pin here is the pixel size it is on the map */
 .stage { position: relative; width: 100%; height: 280px; overflow: hidden; border-radius: 8px; border: 1px solid var(--line2); background: #4F4F51; }
@@ -119,9 +140,16 @@ ul.done { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--m
   <header style="display:grid;gap:12px">
     <span class="note">KPM · MAP SYSTEM · ROUND 2 · 2026-10-05</span>
     <h1>Map System Round 2</h1>
-    <p class="ask">🔴 One pick left: the font, now zoomed 3x below. Your hub pick (C) and Unranked pick (the sprout) are being built.</p>
+    <p class="ask">🔴 One pick: the new group symbol (section 0, right below). The font (C), the hub (C) and Unranked (the sprout) are built.</p>
     <p>Your words: <b>"the fonts is really bad i want u to change it, make sure all the animation is on theme with ours, and make sure that symbol for wholesale hub is more visible than other stores and i think i need new logo for unranked tier"</b>. The shop names and numbers are the test data, not your shops.</p>
   </header>
+
+  <section>
+    <h2>0 · The group symbol <small>new, your pick owed</small></h2>
+    <p>Your words: <b>"now i want u to change the circle and number to better symbol for the stores"</b>. When you zoom out, nearby shops join into one group. Today a group is a dark circle with a number. Each option below is a thing from the map's world, keeps the number (how many shops are inside), and is shown on a real map patch at its <b>real size</b> - groups of 3, 9, 29 and 152 shops - then one group 3x, then in grey.</p>
+    <div class="opts" id="groups"></div>
+    <p class="note">Done since the last version: your font C is now the app's font on every screen; the hub hides inside the groups when zoomed out; the hub is C and Unranked is the sprout (all built, local, not pushed).</p>
+  </section>
 
   <section>
     <h2>1 · The font <small>real frames of the app</small></h2>
@@ -169,7 +197,8 @@ ul.done { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--m
   <section class="decide">
     <h2>Your call</h2>
     <ol>
-      <li><b>🔴 Font: A, B or C?</b> I pick <b>B</b>: it is the font your approved drawings already use, so every screen starts looking like its drawing. It changes the big numbers and titles on every screen, not only the map. Example answer: "B".</li>
+      <li><b>🔴 Group symbol: A, B or C?</b> I pick <b>A, the badge stack</b>: on an analysis map the group should say what is inside, not only how many - the best levels show before you zoom in. Example answer: "A", or "C but show the level too".</li>
+      <li><b>✅ Font:</b> your C is built. <s>A, B or C?</s> I pick <b>B</b>: it is the font your approved drawings already use, so every screen starts looking like its drawing. It changes the big numbers and titles on every screen, not only the map. Example answer: "B".</li>
       <li><b>🔴 Wholesale hub: A, B or C?</b> I pick <b>C</b>: the warehouse roof is a thing you can name from a game, and the word HUB says it in plain text. You picked "the object and the word" for the visit signs too. Example: "C".</li>
       <li><b>🔴 Unranked: A, B or C?</b> I pick <b>B, the sprout</b>: at real map size it is the clearest of the three (the log can look like a camera, the ore like a blob), and it says "a new shop that can still grow". Example: "B", or "A but bigger".</li>
     </ol>
@@ -220,6 +249,25 @@ document.getElementById('unranked').innerHTML = [['Today', ['#6A645C', LV.none[1
   <div class="big"><div class="zoom3">${mk(look)}</div></div>
   <div class="row grey"><span class="lbl">In grey</span>${legend(look)}</div>
   <figcaption><b>${title}</b>${i === 2 ? '<span class="tag">MY PICK</span> ' : ''}${cap}</figcaption></figure>`).join('');
+
+/* round 3: the groups. Each group knows its shops' levels: the best ones lead the symbol */
+LV.none = ['#B8B0A4', '<path d="M8 15V8.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 9.2C8 5.6 5.6 3.4 2 3.4c0 3.6 2.4 5.8 6 5.8z"/><path d="M8 8.4c0-3.1 2.3-5.1 6-5.1 0 3.3-2.3 5.1-6 5.1z"/>'];
+const GROUPS = [[200, 120, 3, ['bronze', 'none', 'none']], [470, 110, 9, ['epic', 'gm', 'bronze']], [300, 240, 29, ['mythic', 'epic', 'gm']], [560, 250, 152, ['mythic', 'epic', 'bronze']]];
+const G = {
+  T: ['Today', (n) => `<span class="today">${n}</span>`, 'A dark circle with a number. It says how many, nothing about what is inside.'],
+  A: ['Badge stack', (n, lv) => `<span class="grp"><span class="stack">${mk(LV[lv[1]], { cls: 'b1' })}${mk(LV[lv[2]], { cls: 'b2' })}${mk(LV[lv[0]], { cls: 'b0' })}</span><b class="n">${n}</b></span>`,
+    'A fanned stack of the group\'s three best levels, the best one in front, and the count under it. You see at a glance where the Mythic shops are, before you zoom in.'],
+  B: ['Market town', (n, lv) => `<span class="grp" style="--c:${LV[lv[0]][0]}"><svg class="town" viewBox="0 0 42 30"><path d="M3 28V14l9-8 9 8v14z"/><path d="M21 28V11l9-8 9 8v17z"/><rect x="9" y="20" width="6" height="8" rx="1"/><rect x="27" y="18" width="6" height="10" rx="1"/></svg><b class="n">${n}</b></span>`,
+    'Two little shop houses - a market - with the count under them; the roof line takes the colour of the best level inside.'],
+  C: ['Supply crate', (n, lv) => `<span class="grp"><span class="crate" style="--c:${LV[lv[0]][0]}"><b>${n}</b></span></span>`,
+    'A wooden crate with the count stencilled on it; its edge is the colour of the best level inside. The simplest object, the number stays the biggest thing.'],
+};
+const gscene = (draw) => `<div class="stage"><div class="scr">${PINS.slice(0, 5).map(([x, y, t, st]) => `<span class="pin" style="left:${x + 40}px;top:${y}px">${mk(LV[t], { st: st || '' })}</span>`).join('')}${GROUPS.map(([x, y, n, lv]) => `<span class="pin" style="left:${x}px;top:${y}px">${draw(n, lv)}</span>`).join('')}</div></div>`;
+document.getElementById('groups').innerHTML = Object.entries(G).map(([k, [name, draw, cap]]) => `<figure class="${k === 'A' ? 'pick' : ''}">
+  ${gscene(draw)}
+  <div class="big"><div class="zoom3">${draw(29, ['mythic', 'epic', 'gm'])}</div></div>
+  <div class="row grey"><span class="lbl">In grey</span>${GROUPS.map(([, , n, lv]) => draw(n, lv)).join('')}</div>
+  <figcaption><b>${k === 'T' ? 'Today' : k + ' · ' + name}</b>${k === 'A' ? '<span class="tag">MY PICK</span> ' : ''}${cap}</figcaption></figure>`).join('');
 
 /* the keys, drawn with the app's own icons (lucide) and acts */
 const P = (d) => `<path d="${d}"/>`, C = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}"/>`;

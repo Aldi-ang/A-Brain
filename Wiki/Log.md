@@ -1584,3 +1584,7 @@ https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti · [[2026-10-05_map-system-red
 ## 2026-10-05 11:55 — Map System: his hub C + Unranked sprout BUILT (kpm 00d787c); font pick re-shown at 3x, OPEN
 
 [[2026-10-05_map-system-redesign]] (Round 2) · page v2 https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti.
+
+## 2026-10-05 12:12 — Font C (Rajdhani) app-wide + hub hidden when zoomed out BUILT (kpm 7f88984); group symbol drawn, OPEN
+
+[[2026-10-05_map-system-redesign]] (Round 3) · page v3 https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti.

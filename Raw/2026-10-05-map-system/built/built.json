@@ -10,9 +10,9 @@
      60
     ],
     "totals": [
-     572,
+     581,
      16,
-     868,
+     859,
      68
     ],
     "areas": [
@@ -24,17 +24,17 @@
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     924,
+     955,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
@@ -56,11 +56,13 @@
    "spill": [],
    "small": [],
    "sideways": false,
-   "pins": 1,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 0,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 1,
-   "clusters": 4,
+   "clusters": 3,
    "sheet": false,
    "toast": []
   },
@@ -73,9 +75,9 @@
      60
     ],
     "totals": [
-     572,
+     581,
      16,
-     868,
+     859,
      68
     ],
     "areas": [
@@ -87,17 +89,17 @@
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     924,
+     955,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
@@ -119,11 +121,13 @@
    "spill": [],
    "small": [],
    "sideways": false,
-   "pins": 1,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 0,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 1,
-   "clusters": 4,
+   "clusters": 3,
    "sheet": false,
    "toast": []
   },
@@ -136,9 +140,9 @@
      60
     ],
     "totals": [
-     572,
+     581,
      16,
-     868,
+     859,
      68
     ],
     "areas": [
@@ -150,17 +154,17 @@
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     924,
+     955,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
@@ -182,11 +186,13 @@
    "spill": [],
    "small": [],
    "sideways": false,
-   "pins": 1,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 0,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 1,
-   "clusters": 4,
+   "clusters": 3,
    "sheet": false,
    "toast": []
   },
@@ -199,9 +205,9 @@
      60
     ],
     "totals": [
-     572,
+     580,
      16,
-     868,
+     860,
      68
     ],
     "areas": [
@@ -213,17 +219,17 @@
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     924,
+     955,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
@@ -245,6 +251,8 @@
    "spill": [],
    "small": [],
    "sideways": false,
+   "face": true,
+   "tnum": "26.7/43.4",
    "pins": 26,
    "hubs": 1,
    "roofs": 1,
@@ -262,9 +270,9 @@
      60
     ],
     "totals": [
-     572,
+     581,
      16,
-     868,
+     859,
      68
     ],
     "areas": [
@@ -276,25 +284,25 @@
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     924,
+     955,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
     ],
     "heat": [
-     561,
+     570,
      76,
-     879,
+     870,
      105
     ],
     "zoom": [
@@ -314,6 +322,8 @@
    "spill": [],
    "small": [],
    "sideways": false,
+   "face": true,
+   "tnum": "26.7/43.4",
    "pins": 32,
    "hubs": 1,
    "roofs": 1,
@@ -333,9 +343,9 @@
      60
     ],
     "totals": [
-     572,
+     581,
      16,
-     868,
+     859,
      68
     ],
     "areas": [
@@ -347,17 +357,17 @@
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     888,
+     925,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
@@ -379,6 +389,8 @@
    "spill": [],
    "small": [],
    "sideways": false,
+   "face": true,
+   "tnum": "26.7/43.4",
    "pins": 32,
    "hubs": 1,
    "roofs": 1,
@@ -398,25 +410,25 @@
      60
     ],
     "totals": [
-     572,
+     581,
      16,
-     868,
+     859,
      68
     ],
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     924,
+     955,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
@@ -444,6 +456,8 @@
    "spill": [],
    "small": [],
    "sideways": false,
+   "face": true,
+   "tnum": "26.7/43.4",
    "pins": 20,
    "hubs": 1,
    "roofs": 1,
@@ -461,25 +475,25 @@
      60
     ],
     "totals": [
-     572,
+     581,
      16,
-     868,
+     859,
      68
     ],
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     924,
+     955,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
@@ -507,6 +521,8 @@
    "spill": [],
    "small": [],
    "sideways": false,
+   "face": true,
+   "tnum": "26.7/43.4",
    "pins": 20,
    "hubs": 1,
    "roofs": 1,
@@ -524,25 +540,25 @@
      60
     ],
     "totals": [
-     572,
+     581,
      16,
-     868,
+     859,
      68
     ],
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     924,
+     955,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
@@ -570,6 +586,8 @@
    "spill": [],
    "small": [],
    "sideways": false,
+   "face": true,
+   "tnum": "26.7/43.4",
    "pins": 20,
    "hubs": 1,
    "roofs": 1,
@@ -587,25 +605,25 @@
      60
     ],
     "totals": [
-     572,
+     581,
      16,
-     868,
+     859,
      68
     ],
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     924,
+     955,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
@@ -614,7 +632,7 @@
      16,
      76,
      376,
-     625
+     623
     ],
     "zoom": [
      1398,
@@ -633,6 +651,8 @@
    "spill": [],
    "small": [],
    "sideways": false,
+   "face": true,
+   "tnum": "26.7/43.4",
    "pins": 28,
    "hubs": 2,
    "roofs": 2,
@@ -650,9 +670,9 @@
      60
     ],
     "totals": [
-     572,
+     581,
      16,
-     868,
+     859,
      68
     ],
     "areas": [
@@ -664,17 +684,17 @@
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     924,
+     955,
      834,
      1424,
      884
     ],
     "tools": [
-     1266,
+     1276,
      16,
      1424,
      264
@@ -696,6 +716,8 @@
    "spill": [],
    "small": [],
    "sideways": false,
+   "face": true,
+   "tnum": "26.7/43.4",
    "pins": 28,
    "hubs": 1,
    "roofs": 1,
@@ -715,9 +737,9 @@
      60
     ],
     "totals": [
-     528,
+     537,
      16,
-     824,
+     815,
      68
     ],
     "areas": [
@@ -733,13 +755,13 @@
      684
     ],
     "layers": [
-     508,
+     539,
      634,
      1008,
      684
     ],
     "tools": [
-     850,
+     860,
      16,
      1008,
      264
@@ -761,11 +783,13 @@
    "spill": [],
    "small": [],
    "sideways": false,
-   "pins": 1,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 0,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 1,
-   "clusters": 4,
+   "clusters": 3,
    "sheet": false,
    "toast": []
   },
@@ -778,9 +802,9 @@
      60
     ],
     "totals": [
-     528,
+     537,
      16,
-     824,
+     815,
      68
     ],
     "levels": [
@@ -790,13 +814,13 @@
      684
     ],
     "layers": [
-     508,
+     539,
      634,
      1008,
      684
     ],
     "tools": [
-     850,
+     860,
      16,
      1008,
      264
@@ -824,6 +848,8 @@
    "spill": [],
    "small": [],
    "sideways": false,
+   "face": true,
+   "tnum": "26.7/43.4",
    "pins": 13,
    "hubs": 1,
    "roofs": 1,
@@ -843,9 +869,9 @@
      60
     ],
     "totals": [
-     626,
+     637,
      16,
-     814,
+     803,
      68
     ],
     "areas": [
@@ -857,17 +883,17 @@
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     1051,
+     1072,
      834,
      1424,
      884
     ],
     "tools": [
-     1316,
+     1321,
      16,
      1424,
      64
@@ -889,11 +915,13 @@
    "spill": [],
    "small": [],
    "sideways": false,
-   "pins": 1,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 0,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 1,
-   "clusters": 4,
+   "clusters": 3,
    "sheet": false,
    "toast": []
   },
@@ -906,25 +934,25 @@
      60
     ],
     "totals": [
-     626,
+     637,
      16,
-     814,
+     803,
      68
     ],
     "levels": [
      16,
      830,
-     677,
+     621,
      884
     ],
     "layers": [
-     1051,
+     1072,
      834,
      1424,
      884
     ],
     "tools": [
-     1316,
+     1321,
      16,
      1424,
      64
@@ -952,6 +980,8 @@
    "spill": [],
    "small": [],
    "sideways": false,
+   "face": true,
+   "tnum": "26.7/43.4",
    "pins": 20,
    "hubs": 1,
    "roofs": 1,
@@ -998,9 +1028,11 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 1,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 0,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 0,
    "clusters": 0,
    "sheet": false,
@@ -1022,7 +1054,7 @@
     ],
     "sheet": [
      0,
-     387,
+     388,
      390,
      844
     ],
@@ -1047,9 +1079,11 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 1,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 0,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 0,
    "clusters": 0,
    "sheet": true,
@@ -1090,9 +1124,11 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 1,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 0,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 0,
    "clusters": 0,
    "sheet": false,
@@ -1114,7 +1150,7 @@
     ],
     "sheet": [
      0,
-     533,
+     584,
      390,
      844
     ],
@@ -1139,9 +1175,11 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 1,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 0,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 1,
    "clusters": 0,
    "sheet": true,
@@ -1163,7 +1201,7 @@
     ],
     "sheet": [
      0,
-     373,
+     374,
      390,
      844
     ],
@@ -1188,9 +1226,11 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 1,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 0,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 0,
    "clusters": 0,
    "sheet": true,
@@ -1231,9 +1271,11 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 9,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 8,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 2,
    "clusters": 0,
    "sheet": false,
@@ -1280,9 +1322,11 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 2,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 1,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 2,
    "clusters": 0,
    "sheet": false,
@@ -1329,9 +1373,11 @@
     " Leaflet 55x14"
    ],
    "sideways": false,
-   "pins": 2,
-   "hubs": 1,
-   "roofs": 1,
+   "face": true,
+   "tnum": "26.7/43.4",
+   "pins": 1,
+   "hubs": 0,
+   "roofs": 0,
    "sprouts": 2,
    "clusters": 0,
    "sheet": false,
