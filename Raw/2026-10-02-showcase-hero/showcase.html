@@ -166,7 +166,7 @@ details.ev .pop b { color: var(--ink); }
 @keyframes kpmCritBreath { 50% { opacity: .35; } }
 
 /* ================= 03 · money per area + the leaderboard ================= */
-.s3 .stage { min-height: 300px; perspective-origin: 50% 0%; }
+.s3 .stage { min-height: 0; place-items: start center; perspective-origin: 50% 0%; }
 .lb { display: grid; gap: 8px; margin-top: 8px; }
 .lb .row { display: grid; grid-template-columns: 26px 40px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 54px; padding: 8px 12px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--inset); }
 .lb .rk { font: 900 22px/1 var(--font-display); color: var(--ink-dim); }
@@ -183,15 +183,37 @@ details.ev .pop b { color: var(--ink); }
 .st4 { display: grid; justify-items: center; gap: 8px; text-align: center; perspective: 600px; padding: 6px 0; }
 .st4 b { font: 800 18px/1 var(--font-display); letter-spacing: .06em; text-transform: uppercase; }
 .st4 small { font: 700 12px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
-.cube { --s: 54px; width: var(--s); height: var(--s); position: relative; transform-style: preserve-3d; transform: rotateX(-26deg) rotateY(40deg); margin: 10px 0 8px; }
-.cube.big { --s: 76px; } .cube.sm { --s: 40px; }
-.cube i { position: absolute; inset: 0; border: 1px solid var(--line-3); background: var(--panel); }
-.cube .cf { transform: translateZ(calc(var(--s) / 2)); background: linear-gradient(var(--raised), var(--panel)); }
-.cube .cb { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }
-.cube .cr { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); background: linear-gradient(90deg, var(--panel), var(--sunk)); }
-.cube .cl { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); background: var(--sunk); }
-.cube .ct { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); border-color: var(--gold);
-  background-image: linear-gradient(var(--gold), var(--gold)), linear-gradient(var(--gold), var(--gold)); background-size: 100% 2px, 2px 100%; background-position: 0 50%, 50% 0; background-repeat: no-repeat; background-color: var(--raised); }
+/* a cigarette pack, a carton (slop: 10 packs, 5 faces showing) and a case (bal) - the app's terminal pack shape, 55 x 90 x 22 mm,
+   with made-up packaging (no real brand on a shared page) */
+.pk { --w: 36px; --h: 58px; --d: 15px; position: relative; width: var(--w); height: var(--h); transform-style: preserve-3d; transform: rotateX(-14deg) rotateY(-30deg); margin: 10px auto 16px; }
+.pk > i { position: absolute; display: block; box-sizing: border-box; border: 1px solid rgba(10,9,8,.55); }
+.pk > .f, .pk > .bk { inset: 0; }
+.pk > .f { transform: translateZ(calc(var(--d) / 2)); display: grid; place-items: end center; padding-bottom: 9%;
+  background: linear-gradient(162deg, transparent 58%, var(--band) 58% 70%, transparent 70%), linear-gradient(var(--lid) 0 32%, rgba(10,9,8,.5) 32% calc(32% + 1px), var(--body) calc(32% + 1px)); }
+.pk > .f b { font: 700 13px/1 var(--font-display); letter-spacing: .06em; color: var(--ink2); }
+.pk > .bk { transform: rotateY(180deg) translateZ(calc(var(--d) / 2)); background: var(--side); }
+.pk > .l, .pk > .r { top: 0; height: var(--h); width: var(--d); left: calc((var(--w) - var(--d)) / 2); background: linear-gradient(var(--top) 0 32%, var(--side) 32%); }
+.pk > .l { transform: rotateY(-90deg) translateZ(calc(var(--w) / 2)); }
+.pk > .r { transform: rotateY(90deg) translateZ(calc(var(--w) / 2)); filter: brightness(.7); }
+.pk > .t { left: 0; width: var(--w); height: var(--d); top: calc((var(--h) - var(--d)) / 2); transform: rotateX(90deg) translateZ(calc(var(--h) / 2)); background: var(--top); }
+.pk-a { --lid: #B3261E; --body: #F2EEE4; --band: #B3261E; --ink2: #24160A; --side: #CFC8BA; --top: #8F1E18; }
+.pk-b { --lid: #E4B04A; --body: #1B1917; --band: #E4B04A; --ink2: #E4B04A; --side: #121110; --top: #B8893A; }
+.pk-c { --lid: #F2EEE4; --body: #8A5A2C; --band: #F2EEE4; --ink2: #F2EEE4; --side: #6B4520; --top: #D8D2C4; }
+.pk.slop { --w: 96px; --h: 40px; --d: 24px; }
+.pk.slop > .f { background: linear-gradient(var(--lid) 0 34%, rgba(10,9,8,.5) 34% calc(34% + 1px), transparent calc(34% + 1px)),
+  repeating-linear-gradient(90deg, var(--body) 0 calc(20% - 1px), rgba(10,9,8,.4) calc(20% - 1px) 20%); place-items: end center; padding-bottom: 4px; }
+.pk.slop > .t { background: repeating-linear-gradient(90deg, var(--top) 0 calc(20% - 1px), rgba(10,9,8,.4) calc(20% - 1px) 20%); }
+.pk.bal { --w: 80px; --h: 60px; --d: 60px; --side: #A8703A; --top: #B57B40; }
+.pk.bal > .f { background: linear-gradient(90deg, transparent 43%, #7A4E24 43% 57%, transparent 57%), #C98A4A; place-items: center; padding: 0; }
+.pk.bal > .f b { font: 700 16px/1 var(--font-display); letter-spacing: .14em; color: #2A1A0C; background: rgba(242,238,228,.85); padding: 3px 5px 2px; }
+.pk.bal > .l, .pk.bal > .r { background: #A8703A; }
+.pk.bal > .t { background: linear-gradient(90deg, transparent 43%, #7A4E24 43% 57%, transparent 57%), #B57B40; }
+@media (min-width: 1024px) {
+  .pk { --w: 48px; --h: 78px; --d: 20px; }
+  .pk.slop { --w: 132px; --h: 54px; --d: 32px; }
+  .pk.bal { --w: 112px; --h: 84px; --d: 84px; }
+  .pk > .f b { font-size: 16px; } .pk.bal > .f b { font-size: 20px; }
+}
 .shop { width: 64px; height: 50px; position: relative; margin: 14px 0 8px; border: 1px solid var(--line-3); border-top: 0; border-radius: 0 0 6px 6px; background: var(--panel); }
 .shop::before { content: ""; position: absolute; left: -8px; right: -8px; top: -14px; height: 14px; border-radius: 4px 4px 0 0; background: repeating-linear-gradient(90deg, var(--gold) 0 10px, var(--raised) 10px 20px); border: 1px solid var(--gold); }
 .shop::after { content: ""; position: absolute; left: 22px; bottom: 0; width: 20px; height: 26px; border: 1px solid var(--line-3); border-bottom: 0; background: var(--inset); }
@@ -212,14 +234,12 @@ details.ev .pop b { color: var(--ink); }
 .term { display: grid; gap: 14px; }
 @media (min-width: 640px) { .term { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
 .tray { border: 1px solid var(--line-2); border-radius: 14px; background: linear-gradient(180deg, var(--raised), var(--sunk)); padding: 14px; display: grid; gap: 12px; }
-.boxes { display: flex; justify-content: space-around; align-items: flex-end; min-height: 110px; perspective: 700px; padding-top: 10px; }
-.bx { display: grid; justify-items: center; gap: 10px; }
-.bx .cube { --s: 46px; margin: 0; }
-.bx .cube .cf::after { content: attr(data-l); position: absolute; inset: 0; display: grid; place-items: center; font: 900 18px/1 var(--font-display); color: var(--gold-2); }
+.boxes { display: flex; justify-content: space-around; align-items: flex-end; gap: 10px; min-height: 110px; perspective: 700px; padding-top: 10px; }
+.bx { display: grid; justify-items: center; gap: 2px; }
 .bx small { font: 700 12px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
-.moving .live .bx { animation: drop 7s var(--ease-out) infinite both; }
+.moving .live .bx { animation: drop 600ms var(--ease-out) both; }
 .bx:nth-child(2) { animation-delay: .25s !important; } .bx:nth-child(3) { animation-delay: .5s !important; }
-@keyframes drop { 0% { transform: translateY(-46px); opacity: 0; } 8%, 92% { transform: none; opacity: 1; } 100% { transform: none; opacity: 0; } }
+@keyframes drop { from { transform: translateY(-46px); opacity: 0; } }
 .total { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid var(--line); padding-top: 12px; }
 .total .lbl { font: 700 12px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
 .pay { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
@@ -233,8 +253,8 @@ details.ev .pop b { color: var(--ink); }
 .nota .nl { display: flex; justify-content: space-between; gap: 10px; }
 .nota .nt { display: flex; justify-content: space-between; border-top: 1px dashed var(--nota-ink); margin-top: 6px; padding-top: 6px; font-weight: 800; }
 .nota .ns { text-align: center; margin-top: 8px; font-weight: 800; letter-spacing: .2em; border: 2px solid var(--nota-ink); border-radius: 4px; padding: 3px; }
-.moving .live .nota { animation: print 7s var(--ease-out) infinite both; }
-@keyframes print { 0%, 14% { transform: translateY(-100%); } 34%, 92% { transform: none; } 100% { transform: none; opacity: 0; } }
+.moving .live .nota { animation: print 1100ms 900ms var(--ease-out) both; }
+@keyframes print { from { transform: translateY(-100%); } }
 
 /* ================= the nixie counter (theme.css .kpm-nixie*, components/NixieCount.jsx) ================= */
 .kpm-nixie { display: inline-flex; align-items: center; gap: 3px; padding: 3px 4px; background-color: #000;
@@ -297,7 +317,7 @@ details.ev .pop b { color: var(--ink); }
 .badges { display: flex; flex-wrap: wrap; gap: 6px; }
 
 /* ================= 08 · quarantine (theme.css THE QUARANTINE SWITCH — the stone box + the blast doors) ================= */
-.qbox { position: relative; overflow: hidden; border-radius: 6px; background: #8B8B8B; border: 4px solid; border-color: #DBDBDB #555555 #555555 #DBDBDB; padding: 10px; }
+.qbox { position: relative; overflow: hidden; max-width: 460px; border-radius: 6px; background: #8B8B8B; border: 4px solid; border-color: #DBDBDB #555555 #555555 #DBDBDB; padding: 10px; }
 .qbox .stl { display: flex; justify-content: space-between; font: 900 12px/1.2 var(--font-mono); letter-spacing: .04em; color: #161616; margin: 0 2px 8px; }
 .qgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
 .qgrid i { aspect-ratio: 1; background: #8B8B8B; border: 3px solid; border-color: #373737 #FFFFFF #FFFFFF #373737; display: grid; place-items: end; padding: 2px 4px; font: 900 12px/1 var(--font-mono); color: #fff; font-style: normal; }
@@ -312,7 +332,8 @@ details.ev .pop b { color: var(--ink); }
 .kpm-doors .dl::after { right: 0; }
 .kpm-doors .dr::after { left: 0; background-position: -2px 0; }
 .kpm-doors .dr::before { content: ""; position: absolute; z-index: 1; left: -23px; top: calc(50% - 24px); width: 48px; height: 48px; border-radius: 50%; background: var(--sign) 0 0 / 48px 48px no-repeat, var(--tape); }
-.qstate { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.qstate { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 12px; flex-wrap: wrap; max-width: 460px; }
+@media (min-width: 1024px) { .qbox, .qstate { margin-inline: auto; } }
 
 /* ================= 09 · works without signal, safe by design ================= */
 .ph9 { border: 1px solid var(--line-2); border-radius: 22px; background: var(--panel); padding: 12px; display: grid; gap: 8px; max-width: 420px; }
@@ -459,10 +480,10 @@ details.ev .pop b { color: var(--ink); }
 <!-- 01 -->
 <section class="scene s1" id="peta" data-name="Peta Perjalanan">
   <div class="copy">
-    <div class="eyebrow">01 · Peta Perjalanan <span class="aud">Untuk bos</span></div>
+    <div class="eyebrow">01 · Peta Perjalanan <span class="aud">Untuk pimpinan</span></div>
     <h1>Semua sales. Semua toko. Satu peta.</h1>
-    <p class="lead">Rute tiap sales, omzet tiap wilayah, dan jalur barang dari gudang ke warung. Bos melihat semuanya saat itu juga, dari teleponnya.</p>
-    <div class="where">Di aplikasi: <b>Journey Plan</b> dan <b>Map System</b>, terhubung jadi satu.</div>
+    <p class="lead">Rute setiap tenaga penjual, omzet setiap wilayah, dan perjalanan barang dari gudang ke toko tampil pada satu peta. Pimpinan dapat memantaunya langsung dari telepon.</p>
+    <div class="where">Di aplikasi: <b>Journey Plan</b> dan <b>Map System</b>, yang saling terhubung.</div>
     <div class="evs"><details class="ev"><summary>Bukti</summary><div class="pop"><b>src/JourneyView.jsx</b> menggambar rute tiap sales dan urutan tokonya; <b>src/MapMissionControl.jsx</b> menggambar pin toko, omzet per wilayah (kunci "Sales heat", baris 2096) dan jalur barang yang mengalir (<b>animated-supply-line</b>). Peta di halaman ini gambar contoh, bukan data pelanggan.</div></details></div>
   </div>
   <div class="stage" id="stage1"><div class="rig" id="rig1"></div></div>
@@ -474,9 +495,9 @@ details.ev .pop b { color: var(--ink); }
 <!-- 02 -->
 <section class="scene" id="rute" data-name="Rute Hari Ini">
   <div class="copy">
-    <div class="eyebrow">02 · Rute Hari Ini <span class="aud">Untuk sales</span></div>
+    <div class="eyebrow">02 · Rute Hari Ini <span class="aud">Untuk tenaga penjual</span></div>
     <h2>Sales tahu harus ke mana.</h2>
-    <p class="lead">Pagi hari rutenya sudah urut. Kartu toko bilang apa yang penting: tagihan yang lewat jatuh tempo menyala merah, kunjungan hari ini menyala kuning. Kalau lampunya diam, berarti beres.</p>
+    <p class="lead">Setiap pagi, urutan kunjungan sudah tersusun. Kartu toko menandai hal yang perlu didahulukan: tagihan yang melewati jatuh tempo menyala merah, kunjungan hari ini menyala kuning. Lampu yang padam berarti tidak ada yang perlu ditindaklanjuti.</p>
     <div class="evs">
       <details class="ev"><summary>Bukti</summary><div class="pop">Kartu toko Journey Plan, commit <b>0743a17</b> (19 September 2026); lampu dan tepi merah <b>theme.css .kpm-led-line, .kpm-crit</b> (bernapas 3,2 detik); peta strip 160 px di telepon, commit <b>73d9eb9</b>. Urutan toko berikutnya: <b>nextStop</b> self-check 9/9 lulus (6 Oktober 2026).</div></details>
     </div>
@@ -494,10 +515,10 @@ details.ev .pop b { color: var(--ink); }
 <!-- 03 -->
 <section class="scene" id="ulang" data-name="Putar Ulang Hari">
   <div class="copy">
-    <div class="eyebrow">03 · Putar Ulang Hari <span class="aud">Untuk bos</span></div>
+    <div class="eyebrow">03 · Putar Ulang Hari <span class="aud">Untuk pimpinan</span></div>
     <h2>Hari seorang sales, diputar ulang.</h2>
-    <p class="lead">Pilih sales dan tanggalnya. Jalannya diputar di peta, toko demi toko: peti terbuka, lalu tiap toko memperlihatkan apa yang terjadi di sana. Laku, pesan ulang, saingan, atau tutup. Bisa dijeda, digeser dan dipercepat, dan setiap peti bisa ditekan.</p>
-    <div class="where">Di aplikasi: <b>Journey Plan</b> → tekan seorang sales → <b>Replay his day</b>. Juga di layar penuh.</div>
+    <p class="lead">Pilih tenaga penjual dan tanggalnya, lalu perjalanan hari itu diputar ulang di peta, toko demi toko. Setiap toko menampilkan hasil kunjungannya: penjualan, pesanan ulang, produk pesaing, atau toko tutup. Pemutaran dapat dijeda, digeser, dan dipercepat, dan setiap peti dapat ditekan untuk melihat rinciannya.</p>
+    <div class="where">Di aplikasi: <b>Journey Plan</b>, pilih tenaga penjual, lalu tekan <b>Replay his day</b>. Tersedia juga dalam layar penuh.</div>
     <div class="evs"><details class="ev"><summary>Bukti</summary><div class="pop">Putar ulang <b>src/components/DayReplay.jsx</b> (commit <b>a4afcf2</b>; layar penuh dan ganti sales: <b>50d98a9</b>). Urutan hari disusun dari penjualan dan Visit Report oleh <b>dayLog()</b> di <b>src/utils/dayLog.js</b>, self-check 21/21 lulus (6 Oktober 2026). Diuji dengan tekan sungguhan di layar 1440 dan 390 px: 32/32. Peti, koin dan papan tanda di sini gambar yang sama dengan aplikasi (<b>src/utils/mapSprites.js</b>); orang, toko dan jamnya contoh.</div></details></div>
   </div>
   <div class="vis">
@@ -532,9 +553,9 @@ details.ev .pop b { color: var(--ink); }
 <!-- 04 -->
 <section class="scene s3" id="omzet" data-name="Omzet Wilayah">
   <div class="copy">
-    <div class="eyebrow">04 · Omzet Wilayah <span class="aud">Untuk bos</span></div>
+    <div class="eyebrow">04 · Omzet Wilayah <span class="aud">Untuk pimpinan</span></div>
     <h2>Di mana barang laku. Siapa yang paling laku.</h2>
-    <p class="lead">Peta mewarnai tiap wilayah sesuai omzetnya: makin terang, makin laku. Papan peringkat menyusun sales dari penjualan yang benar-benar tercatat, bukan dari laporan lisan.</p>
+    <p class="lead">Setiap wilayah diberi warna sesuai omzetnya. Semakin terang warnanya, semakin tinggi penjualannya. Papan peringkat menyusun tenaga penjual berdasarkan transaksi yang tercatat, bukan laporan lisan.</p>
     <div class="evs">
       <details class="ev"><summary>Bukti</summary><div class="pop">Kunci "Sales heat" di <b>src/MapMissionControl.jsx:2096</b>; apa yang dihitung sebagai omzet diputuskan satu aturan, <b>countsAsRevenue()</b> di <b>src/utils/revenueRule.js:39</b>; papan peringkat <b>src/HallOfFameView.jsx</b>.</div></details>
     </div>
@@ -549,20 +570,20 @@ details.ev .pop b { color: var(--ink); }
 <!-- 05 -->
 <section class="scene" id="barang" data-name="Jalur Barang">
   <div class="copy">
-    <div class="eyebrow">05 · Jalur Barang <span class="aud">Untuk bos</span></div>
+    <div class="eyebrow">05 · Jalur Barang <span class="aud">Untuk pimpinan</span></div>
     <h2>Setiap bungkus punya jejak.</h2>
-    <p class="lead">Dari Gudang Pusat ke cabang, ke motor sales, ke warung, lalu kembali. Barang yang datang dipindai barcodenya dengan kamera telepon. Bal, slop dan bungkus dihitung sendiri oleh aplikasi.</p>
+    <p class="lead">Barang tercatat sejak keluar dari Gudang Pusat, masuk ke gudang cabang, dibawa motor tenaga penjual, sampai tiba di toko, termasuk saat dikembalikan. Barang yang datang diperiksa dengan memindai barcode melalui kamera telepon. Aplikasi menghitung sendiri konversi bal, slop, dan bungkus.</p>
     <div class="evs">
       <details class="ev"><summary>Bukti</summary><div class="pop">Gudang pusat bernama <b>'Gudang Pusat (Master Vault)'</b> di <b>src/utils/supply.js:42</b>; stok per produk per gudang <b>supplyByProduct()</b>; pemindai barcode <b>src/components/ArrivalScanner.jsx:44</b> (code_128); surat jalan dua arah: pemeriksaan 53 di <b>integration.audit.mjs</b>; satuan campuran: self-check 12/12 lulus (6 Oktober 2026).</div></details>
     </div>
   </div>
   <div class="vis">
     <div class="chain">
-      <div class="st4"><div class="cube big"><i class="cb"></i><i class="cl"></i><i class="cr"></i><i class="cf"></i><i class="ct"></i></div><b>Gudang Pusat</b><small>Master Vault</small></div>
+      <div class="st4"><div class="pk bal"><i class="f"><b>BAL</b></i><i class="bk"></i><i class="l"></i><i class="r"></i><i class="t"></i></div><b>Gudang Pusat</b><small>Master Vault</small></div>
       <div class="link"><i class="pk"></i></div>
-      <div class="st4"><div class="cube"><i class="cb"></i><i class="cl"></i><i class="cr"></i><i class="cf"></i><i class="ct"></i></div><b>Cabang</b><small>gudang wilayah</small></div>
+      <div class="st4"><div class="pk slop pk-a"><i class="f"><b>SLOP</b></i><i class="bk"></i><i class="l"></i><i class="r"></i><i class="t"></i></div><b>Cabang</b><small>gudang wilayah</small></div>
       <div class="link"><i class="pk"></i></div>
-      <div class="st4"><div class="cube sm"><i class="cb"></i><i class="cl"></i><i class="cr"></i><i class="cf"></i><i class="ct"></i></div><b>Motor sales</b><small>stok di jalan</small></div>
+      <div class="st4"><div class="pk pk-a"><i class="f"><b>A</b></i><i class="bk"></i><i class="l"></i><i class="r"></i><i class="t"></i></div><b>Motor sales</b><small>stok di jalan</small></div>
       <div class="link"><i class="pk"></i></div>
       <div class="st4"><div class="shop"></div><b>Warung</b><small>nota di tempat</small></div>
     </div>
@@ -572,9 +593,9 @@ details.ev .pop b { color: var(--ink); }
 <!-- 06 -->
 <section class="scene" id="terminal" data-name="Terminal Penjualan">
   <div class="copy">
-    <div class="eyebrow">06 · Terminal Penjualan <span class="aud">Untuk sales</span></div>
+    <div class="eyebrow">06 · Terminal Penjualan <span class="aud">Untuk tenaga penjual</span></div>
     <h2>Jual di warung. Nota keluar di tempat.</h2>
-    <p class="lead">Sales memilih barang, jumlah dan cara bayar. Stok di motornya langsung berkurang, notanya langsung tercetak. Malamnya tidak ada yang perlu ditulis ulang di buku.</p>
+    <p class="lead">Tenaga penjual memilih barang, jumlah, dan cara pembayaran. Stok di motornya berkurang saat itu juga dan nota langsung dicetak. Pada malam hari tidak ada catatan yang perlu disalin ulang ke buku.</p>
     <div class="evs">
       <details class="ev"><summary>Bukti</summary><div class="pop">Terminal penjualan <b>src/MerchantSalesView.jsx</b>; nota cetak <b>print-receipt</b> di <b>src/components/SaleReceipt.jsx</b> (satu nota untuk Laporan dan Putar Ulang Hari), tetap biru perusahaan karena nota itu kertas, bukan layar aplikasi. Satu penjualan 3 baris disimpan dalam 610 byte: <b>txSize</b> self-check 6/6 lulus (6 Oktober 2026). Nama barang dan harga di sini contoh.</div></details>
     </div>
@@ -582,9 +603,9 @@ details.ev .pop b { color: var(--ink); }
   <div class="vis term">
     <div class="tray">
       <div class="boxes">
-        <div class="bx"><div class="cube"><i class="cb"></i><i class="cl"></i><i class="cr"></i><i class="cf" data-l="A"></i><i class="ct"></i></div><small>2 slop</small></div>
-        <div class="bx"><div class="cube"><i class="cb"></i><i class="cl"></i><i class="cr"></i><i class="cf" data-l="B"></i><i class="ct"></i></div><small>1 slop</small></div>
-        <div class="bx"><div class="cube"><i class="cb"></i><i class="cl"></i><i class="cr"></i><i class="cf" data-l="C"></i><i class="ct"></i></div><small>5 bks</small></div>
+        <div class="bx"><div class="pk slop pk-a"><i class="f"><b>A</b></i><i class="bk"></i><i class="l"></i><i class="r"></i><i class="t"></i></div><small>2 slop</small></div>
+        <div class="bx"><div class="pk slop pk-b"><i class="f"><b>B</b></i><i class="bk"></i><i class="l"></i><i class="r"></i><i class="t"></i></div><small>1 slop</small></div>
+        <div class="bx"><div class="pk pk-c"><i class="f"><b>C</b></i><i class="bk"></i><i class="l"></i><i class="r"></i><i class="t"></i></div><small>5 bks</small></div>
       </div>
       <div class="pay"><span class="on">Tunai</span><span>Transfer</span><span>Titip</span></div>
       <div class="total"><span class="lbl">Total</span><span><span class="mono" style="color:var(--ink-dim);margin-right:6px">Rp</span><span class="kpm-nixie" id="nx5" data-v="910000"></span></span></div>
@@ -604,9 +625,9 @@ details.ev .pop b { color: var(--ink); }
 <!-- 07 -->
 <section class="scene" id="setoran" data-name="Setoran Malam">
   <div class="copy">
-    <div class="eyebrow">07 · Setoran Malam <span class="aud">Untuk bos</span></div>
+    <div class="eyebrow">07 · Setoran Malam <span class="aud">Untuk pimpinan</span></div>
     <h2>Setiap malam, setiap rupiah diperiksa.</h2>
-    <p class="lead">Sales menyetor tunai, transfer, sisa barang dan pita cukai. Admin wilayah memeriksa baris demi baris. Kalau ada yang kurang, selisihnya jadi utang yang tercatat atas nama sales itu, tidak hilang begitu saja.</p>
+    <p class="lead">Setiap malam tenaga penjual menyetorkan uang tunai, bukti transfer, sisa barang, dan pita cukai. Admin wilayah memeriksanya baris demi baris. Jika ada kekurangan, selisihnya dicatat sebagai utang atas nama tenaga penjual tersebut.</p>
     <div class="evs">
       <details class="ev"><summary>Bukti</summary><div class="pop">Layar verifikasi <b>src/EODReconciliationView.jsx</b> (commit <b>64f6505</b>); setuju per baris, commit <b>20aac21</b>; selisih jadi utang: <b>eodBountyLines()</b> di <b>src/utils/helpers.js:716</b>; catatan setoran: <b>eodRecord</b> self-check 12/12 lulus (6 Oktober 2026). Garis pindai dan cap: <b>theme.css</b> blok THE DOCKET.</div></details>
     </div>
@@ -627,9 +648,9 @@ details.ev .pop b { color: var(--ink); }
 <!-- 08 -->
 <section class="scene" id="kartu" data-name="Kartu Pemain">
   <div class="copy">
-    <div class="eyebrow">08 · Kartu Pemain <span class="aud">Untuk sales</span></div>
+    <div class="eyebrow">08 · Kartu Pemain <span class="aud">Untuk tenaga penjual</span></div>
     <h2>Kerja bagus kelihatan.</h2>
-    <p class="lead">XP datang dari setoran yang lolos periksa, toko yang dilayani dan tagihan yang tertagih. Pangkatnya dari Bronze sampai Mythic, dengan bingkai di sekeliling foto. Sales bangga melihatnya, bos melihat siapa yang bekerja.</p>
+    <p class="lead">Poin pengalaman (XP) diperoleh dari setoran yang lolos pemeriksaan, toko yang dilayani, dan tagihan yang berhasil ditagih. Pangkatnya berjenjang dari Bronze sampai Mythic dan ditandai bingkai di sekeliling foto. Tenaga penjual melihat kemajuannya sendiri, pimpinan melihat siapa yang paling aktif.</p>
     <div class="evs">
       <details class="ev"><summary>Bukti</summary><div class="pop">Kartu <b>src/components/PlayerCard.jsx</b>; XP <b>careerXP()</b> dan <b>computeDayXP()</b> di <b>src/config/career.js:83, 119</b>; bingkai pangkat <b>src/config/rankBorders.jsx</b>; di Mode Ringan bingkai Platinum dan Mythic berhenti berputar, commit <b>c64de8b</b>. Orang dan angka di kartu ini contoh.</div></details>
     </div>
@@ -656,9 +677,9 @@ details.ev .pop b { color: var(--ink); }
 <!-- 09 -->
 <section class="scene" id="karantina" data-name="Karantina">
   <div class="copy">
-    <div class="eyebrow">09 · Karantina <span class="aud">Untuk bos</span></div>
+    <div class="eyebrow">09 · Karantina <span class="aud">Untuk pimpinan</span></div>
     <h2>Barang bermasalah dikunci dulu.</h2>
-    <p class="lead">Hitungan stok yang tidak cocok tidak langsung diterima. Barang rusak atau selisih masuk karantina dan pintunya tertutup, lalu kantor pusat yang memutuskan. Tidak ada yang hilang diam-diam.</p>
+    <p class="lead">Hasil hitung stok yang tidak sesuai tidak langsung diterima. Barang rusak atau selisih dipindahkan ke karantina dan dikunci sampai kantor pusat memberi keputusan. Tidak ada barang yang hilang tanpa catatan.</p>
     <div class="evs">
       <details class="ev"><summary>Bukti</summary><div class="pop">Pintu karantina <b>BlastDoors</b> di <b>src/components/QuarantineSwitch.jsx</b> dan <b>theme.css</b> blok THE QUARANTINE SWITCH; hitungan menunggu pusat: status <b>PENDING_HQ_APPROVAL</b> di <b>src/StockOpnameView.jsx:280</b>.</div></details>
     </div>
@@ -676,9 +697,9 @@ details.ev .pop b { color: var(--ink); }
 <!-- 10 -->
 <section class="scene" id="aman" data-name="Aman, Tanpa Sinyal">
   <div class="copy">
-    <div class="eyebrow">10 · Aman, Tanpa Sinyal <span class="aud">Untuk bos</span></div>
+    <div class="eyebrow">10 · Aman, Tanpa Sinyal <span class="aud">Untuk pimpinan</span></div>
     <h2>Jalan terus, walau tanpa sinyal.</h2>
-    <p class="lead">Di jalan desa yang tidak ada sinyal, penjualan tetap tercatat dengan aturan yang sama. Begitu sinyal kembali, semuanya terkirim sendiri. Datanya di server Google, dan data tiap perusahaan terpisah.</p>
+    <p class="lead">Di daerah tanpa sinyal, penjualan tetap tercatat dengan aturan yang sama. Setelah sinyal kembali, data terkirim dengan sendirinya. Data disimpan di server Google, dan data setiap perusahaan dipisahkan.</p>
     <div class="evs">
       <details class="ev"><summary>Bukti</summary><div class="pop">Dipasang seperti aplikasi dan jalan tanpa internet: <b>registerSW</b> di <b>src/main.jsx:13</b>. Kata sandi induk disimpan sebagai sidik jari PBKDF2, <b>ITERATIONS = 600000</b> di <b>src/utils/secretHash.js:19</b>. Enam tingkat jabatan, dari pemilik sampai sales motoris: <b>src/config/permissions.js:44-49</b>.</div></details>
     </div>
@@ -691,9 +712,9 @@ details.ev .pop b { color: var(--ink); }
       <div class="row9"><span class="t">Warung Barokah · Rp 205.000</span><span class="kpm-led-line"><i aria-hidden="true"></i><span>Tersimpan</span></span></div>
     </div>
     <div class="trust">
-      <div><span class="lock"></span><span><b>Masuk dengan akun Google.</b> Aplikasi tidak menyimpan kata sandi login siapa pun.</span></div>
-      <div><span class="lock"></span><span><b>Kata sandi induk 600.000 putaran.</b> Tebakan jadi semahal satu kali masuk.</span></div>
-      <div><span class="lock"></span><span><b>Setiap tindakan melapor.</b> Simpan yang gagal bilang gagal, tidak diam.</span></div>
+      <div><span class="lock"></span><span><b>Masuk menggunakan akun Google.</b> Aplikasi tidak menyimpan kata sandi login pengguna.</span></div>
+      <div><span class="lock"></span><span><b>Kata sandi induk diamankan dengan 600.000 putaran.</b> Setiap tebakan sama mahalnya dengan satu kali masuk.</span></div>
+      <div><span class="lock"></span><span><b>Setiap tindakan memberi laporan.</b> Penyimpanan yang gagal selalu diberitahukan.</span></div>
     </div>
   </div>
 </section>
@@ -701,9 +722,9 @@ details.ev .pop b { color: var(--ink); }
 <!-- 11 -->
 <section class="scene s10" id="angka" data-name="Semua Terkendali">
   <div class="copy">
-    <div class="eyebrow">11 · Semua Terkendali <span class="aud">Untuk bos dan sales</span></div>
+    <div class="eyebrow">11 · Semua Terkendali <span class="aud">Untuk pimpinan dan tenaga penjual</span></div>
     <h2>Angka, bukan perasaan.</h2>
-    <p class="lead">Semua diukur dari kode aplikasinya sendiri pada 6 Oktober 2026. Pemeriksaan otomatisnya bisa dijalankan di depan siapa saja.</p>
+    <p class="lead">Seluruh angka diukur dari kode aplikasi pada 6 Oktober 2026. Pemeriksaan otomatisnya dapat dijalankan di hadapan siapa pun.</p>
   </div>
   <div class="vis">
     <div class="tiles">
@@ -863,8 +884,11 @@ function fit() {
   const s3 = $('#stage3'), w3 = s3.clientWidth;
   const pw3 = Math.min(w3 * .86, phone ? 400 : 560);
   const rig3 = $('#rig3'); rig3.style.width = rig3.style.height = pw3 + 'px';
-  s3.style.height = (pw3 * (phone ? .62 : .58)) + 'px'; rig3.style.marginTop = (-pw3 * .2) + 'px';
   t3.p.style.setProperty('--u', pw3 / 1000 + 'px'); rig3.style.setProperty('--t', '34deg'); rig3.style.setProperty('--rz', '0deg');
+  /* measured, not guessed: the tilted table's drawn top sits 8 px under the stage top and the stage ends 16 px under its drawn bottom */
+  rig3.style.marginTop = '0px'; s3.style.height = pw3 + 'px';
+  { const st = s3.getBoundingClientRect(), pr = t3.p.getBoundingClientRect(); rig3.style.marginTop = (st.top - pr.top + 8) + 'px';
+    const pr2 = t3.p.getBoundingClientRect(); s3.style.height = (pr2.bottom - st.top + 16) + 'px'; }
   place();
 }
 function place() {

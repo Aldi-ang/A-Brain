@@ -3335,3 +3335,12 @@ a time (a pressed shop's card), the controls shrink to one row, the day becomes 
 
 **Rule:** on a fullscreen map, chrome is one thin row and details are on demand; a full panel belongs on the page, not over
 the map. Proof: `Raw/2026-10-05-day-replay-built/fs2-*.png` (the pick), `fs3-*.png` (built).
+
+## A product shown as a plain cube is "unclear"; judge every page at HIS screen, full width (2026-10-06)
+
+His review of the published presentation, four shots taken on his wide screen (about 1920 px): *"these parts need improvement u can spot the problem right away when fullscreen especially, use formal languange instead"* and, on the stock and terminal scenes, *"these box is unclear really i want u to change the product with cigarette box instead"*.
+
+- **Show the real object of the business.** KPM sells cigarettes, so a ware is a cigarette pack, a carton (slop) or a case (bal) - a gold-lined cube meant nothing to him. Same root as "a mark whose meaning he has to decode is decoration" (2026-10-03). The app's own pack shape is the spec (55 x 90 x 22 mm, MerchantSalesView `cubeVars`); on a shared page the packaging stays made-up, never a real brand.
+- **He looks at full width first.** All four defects (the tilted map over the leaderboard, a cube over its label, a receipt faded to nothing mid-loop, a blank door panel filling the screen) showed at 1920 and hid at 1440 / 390. A page is checked at 390, 1440 AND 1920 now (`shoot-showcase.mjs` does all three, plus an overlap check).
+- **Customer-facing words are formal Indonesian** ("pimpinan", "tenaga penjual", no "bos" / "laku" in the descriptions); the app's own button names stay as the app writes them.
+- **Something that loops must not spend its loop invisible.** A receipt that prints, holds and fades reads as missing in whatever second he looks; it prints once when the scene shows and stays.
