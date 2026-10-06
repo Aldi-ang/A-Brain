@@ -114,7 +114,7 @@ His two answers (asked as 🔴):
 
 **Rejected on purpose:** the value calculator and the "per salesman per day" line (his call); real brand packaging on the packs (a shared page).
 
-## 2026-10-06 10:00 - round 3 BUILT and PROVEN (16 scenes), not published yet
+## 2026-10-06 09:48 - round 3 BUILT and PROVEN (16 scenes), not published yet
 
 Built from his 09:21 ask in one session. The page now has 16 scenes; the base holds 15 and `splice-replay.mjs` adds the Day Replay as 03.
 
