@@ -21,10 +21,13 @@ const html = fs.readFileSync(path.join(HERE, 'replay-scene.html'), 'utf8');
 const js = fs.readFileSync(path.join(HERE, 'replay-scene.js'), 'utf8').replace("const DR_PERSON = '__PERSON__';", `const DR_PERSON = ${JSON.stringify(person)};`);
 const put = (needle, add, after = false) => { const i = s.indexOf(needle); if (i < 0) throw new Error('needle missing: ' + needle.slice(0, 60)); s = after ? s.slice(0, i + needle.length) + add + s.slice(i + needle.length) : s.slice(0, i) + add + s.slice(i); };
 const pad = (n) => String(n).padStart(2, '0');
-for (let n = 10; n >= 3; n--) {
+const last = (s.match(/<section class="scene/g) || []).length;   /* round 3 (2026-10-06): the base grew to 15, so count instead of assuming 10 */
+for (let n = last; n >= 3; n--) {
   s = s.replace(`<!-- ${pad(n)} -->`, `<!-- ${pad(n + 1)} -->`).replace(`<div class="eyebrow">${pad(n)} · `, `<div class="eyebrow">${pad(n + 1)} · `);
 }
-s = s.replace('</b> / 10 · ', '</b> / 11 · ');
+/* the old replace looked for '/ 10 · ' with a space the bar never had, so the published page said "/ 10" over 11 scenes */
+if (!s.includes(`</b> / ${last} ·`)) throw new Error('the bar does not say / ' + last);
+s = s.replace(`</b> / ${last} ·`, `</b> / ${last + 1} ·`);
 put('@media (prefers-reduced-motion: reduce) { .kpm-nixie-reel', css + '\n');
 put('<!-- 04 -->', html);
 put('/* ---- which scene is on screen', js + '\n');

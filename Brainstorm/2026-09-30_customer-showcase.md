@@ -113,3 +113,33 @@ His two answers (asked as 🔴):
 **Built:** nothing yet - deferred to a fresh session (context 68%). Brief: NEXT-SESSION.md 2026-10-06 09:21. Base for edits: `Raw/2026-10-02-showcase-hero/showcase.base.html` (scene 03 is spliced in by `splice-replay.mjs`).
 
 **Rejected on purpose:** the value calculator and the "per salesman per day" line (his call); real brand packaging on the packs (a shared page).
+
+## 2026-10-06 10:00 - round 3 BUILT and PROVEN (16 scenes), not published yet
+
+Built from his 09:21 ask in one session. The page now has 16 scenes; the base holds 15 and `splice-replay.mjs` adds the Day Replay as 03.
+
+**Changed:** (12) Karantina - the slots hold the page's own packs and cartons (`.pk`, made-up packaging), counts unchanged; the slot rule became `.qgrid > i` so it no longer hits the pack faces. (13) Aman - its three trust lines moved to the security scene, its Bukti now names `persistentLocalCache` (firebase.js:50). (16) finale - re-measured: checks 3.189 and code lines 53.795 unchanged (src identical to 8abbf30), commits 2.090 at 4a5ae66; a list of every scene, one press each.
+
+**New scenes (formal Indonesian, one live picture each, every Bukti checked in the code on 2026-10-06):**
+| # | Scene | Picture | Bukti |
+|---|---|---|---|
+| 07 | Pelanggan | shop brief at the door, the six visit keys (pressable), "!" lights on New Request and only Request Done clears it | customerBrief.js:64, JourneyView.jsx:959 / :910, CustomerManager.jsx:220 |
+| 09 | Piutang dan Utang | a titip walks Aman -> Segera -> Lewat as days pass (tempo 7); debts with reason + date | ConsignmentFinanceView.jsx:217-222, helpers.js:716 / :790 |
+| 11 | Stok Menipis | product B sells past its minimum line, row turns red, days left count down | stockThreshold.js:33-35 / 50 / 59, DashboardView.jsx:100 |
+| 14 | Catatan dan Laporan | the day's log fills, an admin's edit is refused | firestore.rules:557/650/712/717, :343-346 |
+| 15 | Keamanan | 4 job rows (T2..T5/6), vault: 5 wrong tries -> locked 15 min; 3 trust lines | permissions.js:2-9/44-48/90, rules:599, firebase.js:81, secretHash.js:19, vaultLock.js:10-11, App.jsx:1332-1342 |
+
+**Found on the way:**
+1. **The brief's claim was wrong.** "Transactions and the activity log cannot be edited or deleted" holds for salesmen and admins only. The `users/{bossUid}/{document=**}` catch-all (firestore.rules:343) ORs write access for the owner over every nested `allow update, delete: if false` - the same shape the rules file already flags for awards. The page now says the right sits with the owner account alone; no screen in the app edits or deletes a sale (grep, 2026-10-06). Whether sales should be locked even for the owner is HIS call - never changed silently.
+2. T3 (HQ Sales Manager) is region-locked too (rules:599 covers Area Admin and Fleet Captain), so the job rows do not say "all regions".
+3. The published v2 bar said "/ 10" over 11 scenes: the old splice replaced `'/ 10 · '` with a trailing space the bar never had. Now it counts the scenes and throws if the bar text is missing.
+4. The open-door Karantina frame came out shut twice: scrolling fires the page's own `doorsRun(true)`, and `captureBeyondViewport` resizes the page and fires it again. `shoot-open.mjs` scrolls first, pins `doorsRun` to a no-op, captures inside the viewport.
+5. At 1920 the new boxes (520 px) looked lost next to the approved docket (~1290 px); widened to 720 px, and Money + Security put their side parts beside the main box from 1440 up.
+
+**Proof:** `shoot-showcase.mjs` 48 frames (390 / 1440 / 1920): 0 clashes, 0 past the edge, smallest text 12 px, 0 page errors (moving mode too); `shoot-open.mjs`: every pack inside its slot, 5/5 new scenes change state over 2.4 s; `walk-replay-scene.mjs` 27/27. Boards `board-r3-p.png`, `board-r3-w.png`.
+
+**Decision:** OPEN - waiting on Aldi: publish round 3 to the same link (version 3)?
+
+**Rejected on purpose (still):** any price, calculator or comparison number; real brand packaging; "nobody can edit, not even the owner" (false today).
+
+**Models applied:** Inversion (what makes Cello's boss distrust the page: one false Bukti - found one in the brief itself); Pre-mortem on the 1920 frame (his round-2 complaint was exactly a box lost on a wide screen).
