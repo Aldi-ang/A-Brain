@@ -13,5 +13,5 @@
 | A | UpdateStatus.jsx:23 also listens for `activated` -> "Latest version" (one line) + a logicFixes guard line | smallest; then a push (his word) |
 | B | A + reload the page on `activated` like autoUpdate does | a surprise reload while he types the vault password - rejected |
 
-**Decision:** OPEN - waiting on Aldi (asked 16:51, my pick A).
+**Decision:** his "fix and push" (18:18) -> A BUILT `519e13c`; proven by `Raw/2026-09-30-potato-audit/t5-stuck.mjs` (old code: "updating…" 30 s, 0 reloads; fixed: -> "Latest version"). Push held by his GitHub sign-in at 18:25.
 **Rejected on purpose:** B (a reload under his fingers on the vault screen).
