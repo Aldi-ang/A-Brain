@@ -59,7 +59,7 @@ sit here indefinitely once it's actually decided.
 - [[2026-09-29_warehouse-quarantine-and-account-move]] — a quarantine chest for the regional warehouse in Fleet & Roster, a "sell to a customer" exit, T2 moving a person to a new Gmail (the Edit-email move already exists); no wipe on lock; OPEN
 - [[2026-09-29_live-rules-review]] — his live Firestore rules == the repo baseline; our draft loses nothing; 3 live gaps (directory listable, self-approvals, T2 blocked); OPEN
 - [[2026-09-29_fleet-roster-quarantine-chests]] — Fleet & Roster quarantine chests beside the ender chest: A ender→quarantine / B two boxes per chest / C four loose / DECIDED 12:05: the ender chest holds two boxes, the van two chests
-- [[2026-09-30_customer-showcase]] - a 3D, animated showcase of KPM for customers: A web page / B video / C in-app demo; OPEN, my pick A
+- [[2026-09-30_customer-showcase]] - the customer presentation: 11 live scenes in Indonesian, Day Replay = scene 03; PUBLISHED 2026-10-06 https://claude.ai/artifact/AJQ36jBJr4jkkn6ZUnRN4A
 - [[2026-09-30_app-feels-heavy]] - the app feels heavy on the phone: 5 findings; BUILT 2026-09-30 18:25 (5 commits, local), 5c tutorial-book split open
 - [[2026-09-30_potato-phone-audit]] - cheap-phone audit in full animation mode; fixes 1-5 BUILT 2026-10-01 (local), 6 skipped (measured 2 pts); OPEN: coin spin, Restock rest churn, EOD/Agent Profile 22%
 - [[2026-10-01_google-signin-opens-gmail]] - Samsung: choosing a Google account sometimes opens the Gmail app; KPM never links there; options A-D, OPEN (his History observation first)

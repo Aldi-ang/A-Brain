@@ -90,6 +90,6 @@ His go, 07:28: *"lets continue with the presentation first"*. The page `Raw/2026
 
 **Skipped on purpose:** the "Try it yourself" button to the demo - a key with no address is a dead object; it goes in when the demo exists.
 
-**Decision owed:** 🔴 publish as a private Artifact link (his to share) - asked 2026-10-06 08:00.
+**PUBLISHED 2026-10-06 08:05 (his "Publish now"):** https://claude.ai/artifact/AJQ36jBJr4jkkn6ZUnRN4A - private until he shares it from the page's Share menu. To update it from another session, edit `showcase.html` here and publish with this URL as `url`.
 
 **Models applied:** Inversion (what makes the boss doubt the page: a wrong Bukti line - all re-checked); Chesterton's Fence (the drawn map: rejected real geography on 2026-10-02 stays rejected).
