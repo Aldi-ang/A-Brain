@@ -446,24 +446,16 @@ details.ev .pop b { color: var(--ink); }
 .also li { display: grid; grid-template-columns: 6px minmax(0, 1fr); gap: 10px; font-size: 14px; line-height: 1.45; color: var(--ink-muted); }
 .also li::before { content: ""; width: 6px; height: 6px; margin-top: 8px; border-radius: 50%; background: radial-gradient(circle, #fff 0 1px, var(--gold-2) 2px); box-shadow: 0 0 6px color-mix(in srgb, var(--gold-2) 60%, transparent); }
 
-/* DEPTH (his 2026-10-06 "not standardise ... more motion and animation and perspective"): every round-3 picture stands
-   on a tilted stage, rises into place when its scene first shows, leans toward the pointer on a PC; its parts float at
-   different heights above the panel. Lite / still: the tilt stays (a still frame, nothing moves), the motion goes. */
-.deep { perspective: 1300px; perspective-origin: 50% 0%; }
-.deep > * { --rx: 9deg; --ry: -5deg; transform-style: preserve-3d; transform-origin: 50% 0; transform: rotateX(var(--rx)) rotateY(var(--ry));
-  transition: transform 900ms var(--ease-out), translate 900ms var(--ease-out), opacity 600ms var(--ease-out); }
-.deep > *:nth-child(2) { transition-delay: 120ms; } .deep > *:nth-child(3) { transition-delay: 240ms; }
-.moving .scene:not(.seen) .deep > * { --rx: 34deg; --ry: -16deg; translate: 0 48px; opacity: 0; }
-.deep :where(.box3 > *) { transform: translateZ(18px); }   /* :where keeps this weak, so a part's own transform below wins */
-.deep :where(.box3 > .hd3) { transform: translateZ(30px); }
-@media (min-width: 1024px) { .deep > * { --ry: -9deg; } }
-.still .deep > * { transition: none; }
-.deep > .lean { transition: transform 280ms var(--ease-out), translate 900ms var(--ease-out), opacity 600ms var(--ease-out); transition-delay: 0ms; }
+/* ...and his next word, 2026-10-06 14:09: "dont use too much 3D kinda annoying to view". The tilt and the lean are gone;
+   a picture now rises flat into place when its scene first shows, and the motion inside each scene stays. */
+.rise > * { transition: translate 800ms var(--ease-out), opacity 600ms var(--ease-out); }
+.rise > *:nth-child(2) { transition-delay: 120ms; } .rise > *:nth-child(3) { transition-delay: 240ms; }
+.moving .scene:not(.seen) .rise > * { translate: 0 36px; opacity: 0; }
+.still .rise > * { transition: none; }
 
 /* targets: the chart plate flips in on every period change and draws its own line */
-.pcv { transform: translateZ(34px); transform-origin: 50% 100%; }
-.pcv.flip { animation: plateFlip 520ms var(--ease-out); }
-@keyframes plateFlip { from { transform: translateZ(34px) rotateX(-80deg); opacity: .2; } }
+.pcv.flip { animation: plateIn 420ms var(--ease-out); }
+@keyframes plateIn { from { transform: translateY(12px); opacity: 0; } }
 
 /* samples: a carton throws packs into the SAMPEL tray; each landing adds one to the counts */
 .smpst { position: relative; height: 150px; display: grid; grid-template-columns: 1fr 1fr; align-items: end; padding: 0 8px 10px; }
@@ -471,16 +463,16 @@ details.ev .pop b { color: var(--ink); }
 .smpst .pkw { display: grid; place-items: center; height: 70px; }
 .smpst small { font: 700 12px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
 .tray3 { position: relative; width: 132px; height: 56px; border: 1px solid var(--line-3); border-top: 0; border-radius: 0 0 8px 8px; background: linear-gradient(var(--sunk), var(--inset));
-  display: flex; align-items: flex-end; justify-content: center; gap: 4px; padding: 0 6px 6px; transform: rotateX(18deg); transform-style: preserve-3d; }
+  display: flex; align-items: flex-end; justify-content: center; gap: 4px; padding: 0 6px 6px; }
 .tray3::before { content: "SAMPEL"; position: absolute; left: 50%; top: -22px; translate: -50% 0; font: 800 12px/1 var(--font-mono); letter-spacing: .2em; color: var(--gold-2); }
-.tray3 > span { display: block; transform: translateZ(8px); transform-style: preserve-3d; }
+.tray3 > span { display: block; }
 .tray3 .pk, .fly .pk { display: block; }
 .tray3 .pk { margin: 0; --w: 18px; --h: 30px; --d: 8px; } .tray3 .pk > .f b, .fly .pk > .f b { display: none; }
 .fly { position: absolute; left: 0; top: 0; pointer-events: none; z-index: 3; }
 .fly .pk { margin: 0; --w: 22px; --h: 36px; --d: 9px; }
 
 /* stock: three 3D columns on a tilted floor, a see-through plate at each minimum (the gauges' job, with height) */
-.floor { position: relative; height: 210px; margin: 6px 0 4px; transform-style: preserve-3d; transform: translateZ(10px); display: grid; grid-template-columns: repeat(3, 1fr); align-items: end; }
+.floor { position: relative; height: 210px; margin: 6px 0 4px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: end; }
 .col3 { position: relative; justify-self: center; width: 46px; height: 170px; transform-style: preserve-3d; }
 .col3 .cbar { position: absolute; left: 0; bottom: 0; width: 46px; height: calc(var(--v) * 1.7px); transform-style: preserve-3d; transition: height 600ms var(--ease-out); }
 .col3 .cbar > i { position: absolute; display: block; }
@@ -490,7 +482,7 @@ details.ev .pop b { color: var(--ink); }
 .col3.low .cbar .fr { background: linear-gradient(#ff7a85, var(--led-crit) 70%, #6b1018); border-color: var(--led-crit); }
 .col3.low .cbar .sd { background: linear-gradient(90deg, #8a1a24, #3a0a0e); } .col3.low .cbar .tp { background: #ff9aa3; }
 .col3 .min { position: absolute; left: -10px; right: -26px; bottom: calc(var(--m) * 1.7px); height: 2px; background: var(--ink-muted); box-shadow: 0 0 0 1px rgba(10,9,8,.6); }
-.col3 .min::after { content: ""; position: absolute; inset: -8px 0 0 0; background: rgba(232,228,222,.07); transform-origin: 50% 100%; transform: rotateX(70deg); }
+.col3 .cbar .sd, .col3 .cbar .tp { display: none; }   /* flat bars: no side, no lid */
 .col3 .qty { position: absolute; left: 50%; bottom: calc(max(var(--v), var(--m)) * 1.7px + 22px); translate: -50% 0; white-space: nowrap; font: 700 13px/1 var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink); transition: bottom 600ms var(--ease-out); }
 .colnames { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; text-align: center; }
 .colnames div { display: grid; justify-items: center; gap: 6px; font: 800 15px/1.1 var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
@@ -499,22 +491,21 @@ details.ev .pop b { color: var(--ink); }
 /* saved records: the refused edit shakes, then TERKUNCI slams down like the docket's VERIFIED */
 #ledger { position: relative; }
 .lockseal { position: absolute; left: 50%; top: 52%; z-index: 4; opacity: 0; pointer-events: none; padding: 8px 14px; border: 3px solid var(--led-crit); border-radius: 8px;
-  background: color-mix(in srgb, var(--ground) 72%, transparent); font: 900 24px/1 var(--font-mono); letter-spacing: .28em; color: var(--led-crit); transform: translate(-50%,-50%) translateZ(60px) rotate(-8deg) scale(1.3); }
-#ledger.sealed .lockseal { opacity: 1; transform: translate(-50%,-50%) translateZ(60px) rotate(-8deg) scale(1); }
+  background: color-mix(in srgb, var(--ground) 72%, transparent); font: 900 24px/1 var(--font-mono); letter-spacing: .28em; color: var(--led-crit); transform: translate(-50%,-50%) rotate(-8deg) scale(1.3); }
+#ledger.sealed .lockseal { opacity: 1; transform: translate(-50%,-50%) rotate(-8deg) scale(1); }
 .moving #ledger.sealing .lockseal { animation: lockSlam 340ms cubic-bezier(.2,.8,.3,1) both; }
-@keyframes lockSlam { from { opacity: 0; transform: translate(-50%,-50%) translateZ(60px) rotate(-8deg) scale(1.4); } to { opacity: 1; transform: translate(-50%,-50%) translateZ(60px) rotate(-8deg) scale(1); } }
+@keyframes lockSlam { from { opacity: 0; transform: translate(-50%,-50%) rotate(-8deg) scale(1.4); } to { opacity: 1; transform: translate(-50%,-50%) rotate(-8deg) scale(1); } }
 .moving .deny.shake { animation: shake 360ms var(--ease-out); }
 @keyframes shake { 20% { translate: -6px 0; } 40% { translate: 5px 0; } 60% { translate: -3px 0; } 80% { translate: 2px 0; } }
 
 /* security: the jobs as a stepped tower - the top job stands highest; the lit one lifts */
-#tiers { transform-style: preserve-3d; }
-#tiers .tr { transform: translateZ(calc(var(--z) * 1px)); transition: transform 260ms var(--ease-out), border-color 200ms, background-color 200ms, box-shadow 260ms; }
-#tiers .tr.on { transform: translateZ(calc(var(--z) * 1px + 16px)); box-shadow: 0 10px 24px rgba(0,0,0,.45); }
+#tiers .tr { transition: translate 260ms var(--ease-out), border-color 200ms, background-color 200ms, box-shadow 260ms; }
+#tiers .tr.on { translate: 8px 0; }
 .vault { position: relative; overflow: hidden; }
 .vault::after { content: ""; position: absolute; top: 0; bottom: 0; right: 100%; width: 100%; background: repeating-linear-gradient(-45deg, rgba(255,59,75,.16) 0 8px, transparent 8px 16px); transition: right 420ms var(--ease-out); pointer-events: none; }
 .vault.locked::after { right: 0; }
 .still .vault::after, .still #tiers .tr, .still .col3 .cbar, .still .col3 .qty { transition: none; }
-@media (prefers-reduced-motion: reduce) { .deep > *, .col3 .cbar, .col3 .qty, #tiers .tr, .vault::after { transition: none; } .pcv.flip, .lockseal, .deny.shake { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .rise > *, .col3 .cbar, .col3 .qty, #tiers .tr, .vault::after { transition: none; } .pcv.flip, .lockseal, .deny.shake { animation: none; } }
 .also b { color: var(--ink); font-weight: 600; }
 
 /* targets: the period keys, the pace chart (PaceChart.jsx: cumulative money against the dashed line to target) */
@@ -542,6 +533,23 @@ details.ev .pop b { color: var(--ink); }
 .stat3 b { font: 800 20px/1 var(--font-display); font-variant-numeric: tabular-nums; }
 .stat3 span { font: 700 12px/1.3 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
 
+/* GPS check: the shop at the centre, the 100 m ring, the salesman's dot walking in and out (flat, his "not too much 3D") */
+.radar { position: relative; aspect-ratio: 16 / 10; border: 1px solid var(--line-2); border-radius: 10px; overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, rgba(228,176,74,.08), transparent 55%), repeating-linear-gradient(0deg, rgba(232,228,222,.045) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(90deg, rgba(232,228,222,.045) 0 1px, transparent 1px 28px), var(--inset); }
+.radar .ring { position: absolute; left: 50%; top: 50%; width: 44%; aspect-ratio: 1; translate: -50% -50%; border: 2px dashed var(--gold); border-radius: 50%; }
+.radar .ping { position: absolute; left: 50%; top: 50%; width: 44%; aspect-ratio: 1; translate: -50% -50%; border: 2px solid var(--gold-2); border-radius: 50%; opacity: 0; }
+.moving .live .radar .ping { animation: ping 2.4s var(--ease-out) infinite; }
+@keyframes ping { from { transform: scale(.2); opacity: .7; } to { transform: scale(1); opacity: 0; } }
+.radar .shopdot { position: absolute; left: 50%; top: 50%; width: 30px; height: 24px; translate: -50% -50%; border: 1px solid var(--gold); border-top-width: 6px; border-radius: 3px; background: var(--panel); }
+.radar .rlab { position: absolute; left: 72%; top: 50%; translate: 4px -50%; font: 700 12px/1 var(--font-mono); letter-spacing: .1em; color: var(--gold-2); }
+.radar .mdot { position: absolute; width: 32px; height: 32px; translate: -50% -50%; border-radius: 50%; display: grid; place-items: center; background: var(--raised); border: 2px solid var(--ink);
+  font: 800 12px/1 var(--font-mono); color: var(--ink); transition: left 900ms cubic-bezier(.77,0,.175,1), top 900ms cubic-bezier(.77,0,.175,1), border-color 200ms; }
+.radar .mdot.in { border-color: var(--gold-2); box-shadow: 0 0 0 4px rgba(228,176,74,.18); }
+.still .radar .mdot { transition: none; }
+.req2 { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 10px 12px; border: 1px dashed var(--line-3); border-radius: 10px; font-size: 14px; color: var(--ink-muted); transition: opacity 300ms; }
+.req2.hide { opacity: 0; }
+
 /* the close: every scene once more, one press each */
 .recap { display: flex; flex-wrap: wrap; gap: 6px; }
 .recap a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; border: 1px solid var(--line-2); border-radius: 6px; background: var(--inset); color: var(--ink-muted);
@@ -558,7 +566,7 @@ details.ev .pop b { color: var(--ink); }
 
 <header class="bar"><div class="in">
   <span class="brand"><i></i>KPM</span>
-  <span class="now"><b id="sn">01</b> / 17 · <span id="sname">Peta Perjalanan</span></span>
+  <span class="now"><b id="sn">01</b> / 18 · <span id="sname">Peta Perjalanan</span></span>
   <button type="button" class="mv" id="mv" aria-pressed="true"><i></i>Gerak</button>
 </div><div class="prog" id="prog"></div></header>
 
@@ -626,7 +634,7 @@ details.ev .pop b { color: var(--ink); }
       <details class="ev"><summary>Bukti</summary><div class="pop">Panel target hari, minggu, bulan, tahun: <b>src/components/DashboardBenchmarks.jsx:12</b>; minggu dan tahun dihitung dari target bulan kecuali diisi sendiri: <b>revTarget()</b>, baris 70. Grafik kumulatif terhadap garis target, dipakai untuk seluruh bisnis dan untuk tiap wilayah: <b>src/components/PaceChart.jsx:4</b>. Angka di sini contoh.</div></details>
     </div>
   </div>
-  <div class="vis deep">
+  <div class="vis rise">
     <div class="box3" id="pace">
       <div class="hd3"><span class="stamp">Target · seluruh bisnis</span><span class="contoh">Data contoh</span></div>
       <div class="keys per" id="perKeys">
@@ -706,16 +714,36 @@ details.ev .pop b { color: var(--ink); }
 </section>
 
 <!-- 07 -->
+<section class="scene" id="lokasi" data-name="Cek Lokasi">
+  <div class="copy">
+    <div class="eyebrow">07 · Cek Lokasi <span class="aud">Untuk pimpinan</span></div>
+    <h2>Penjualan hanya di depan toko.</h2>
+    <p class="lead">Saat mencatat penjualan, posisi tenaga penjual diperiksa dengan GPS. Ia harus berada dalam radius 100 meter dari toko. Di luar itu ia harus meminta izin, dan permintaannya langsung masuk ke kantor lengkap dengan jaraknya. Toko yang sudah dikunjungi hari ini memberi tahu siapa yang datang, dan penjualan di toko milik tenaga penjual lain diberi tanda.</p>
+    <div class="evs">
+      <details class="ev"><summary>Bukti</summary><div class="pop">Pemeriksaan lokasi: <b>verifyLocation()</b> di <b>src/MerchantSalesView.jsx:348</b>. Permintaan izin di luar 100 m, dengan jaraknya, ke <b>gps_bypasses</b> dan pemberitahuan kantor: baris 853-859. Toko yang sudah dikunjungi hari ini dan tanda toko milik sales lain (<b>territoryOverride</b>): baris 223-226. Nama dan jarak di sini contoh.</div></details>
+    </div>
+  </div>
+  <div class="vis rise">
+    <div class="box3" id="geo">
+      <div class="hd3"><span class="stamp">Cek lokasi · Toko Makmur</span><span class="contoh">Data contoh</span></div>
+      <div class="radar"><i class="ping"></i><i class="ring"></i><span class="shopdot" aria-hidden="true"></span><span class="rlab">100 m</span><span class="mdot" id="mdot">BS</span></div>
+      <span class="kpm-led-line crit" id="geoLed"><i aria-hidden="true"></i><span id="geoTxt">182 m · di luar 100 m</span></span>
+      <div class="req2" id="geoReq"><span>Izin jual dari 182 m · Budi Santoso</span><span class="kpm-led-line warn" id="geoReqLed"><i aria-hidden="true"></i><span>Menunggu kantor</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
 <section class="scene" id="sampel" data-name="Sampel Produk">
   <div class="copy">
-    <div class="eyebrow">07 · Sampel Produk <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">08 · Sampel Produk <span class="aud">Untuk pimpinan</span></div>
     <h2>Sampel tercatat, tidak dihitung omzet.</h2>
     <p class="lead">Sampel gratis yang dibagikan ke toko dicatat terpisah dari penjualan, sampai hitungan batang, dan tidak pernah masuk ke angka omzet. Pimpinan melihat jumlah sampel per minggu atau per bulan, nilainya pada setiap tingkat harga, lima produk teratas, toko yang paling banyak menerima, dan berapa pita cukai yang terbuka.</p>
     <div class="evs">
       <details class="ev"><summary>Bukti</summary><div class="pop">Analitik sampel mingguan dan bulanan: <b>SamplingAnalyticsView</b> di <b>src/components/SamplingManager.jsx:20</b> (jumlah bks dan batang, nilai Distributor, Retail, Grosir, Ecer, lima produk teratas, lokasi teratas); pita cukai yang terbuka: baris 111. Sampel bukan omzet: <b>src/utils/salesRollup.js:43</b>. Angka di sini contoh.</div></details>
     </div>
   </div>
-  <div class="vis deep">
+  <div class="vis rise">
     <div class="box3" id="smp">
       <div class="hd3"><span class="stamp">Sampel · Oktober · Cabang Utara</span><span class="contoh">Data contoh</span></div>
       <div class="smpst" id="smpst">
@@ -729,18 +757,23 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 08 -->
+<!-- 09 -->
 <section class="scene" id="pelanggan" data-name="Pelanggan">
   <div class="copy">
-    <div class="eyebrow">08 · Pelanggan <span class="aud">Untuk tenaga penjual</span></div>
+    <div class="eyebrow">09 · Pelanggan <span class="aud">Untuk tenaga penjual</span></div>
     <h2>Tahu isi toko sebelum masuk.</h2>
     <p class="lead">Sebelum masuk toko, tenaga penjual melihat kapan toko itu terakhir memesan, barang apa yang dibeli, dan berapa nilainya. Selesai berkunjung, ia mengirim Laporan Kunjungan cukup dengan satu tekanan. Permintaan baru dari toko ditandai "!" dan tanda itu baru hilang setelah ada yang menyelesaikannya, jadi tidak ada permintaan yang terlupa.</p>
-    <ul class="also"><li><span><b>Toko ganda ketahuan.</b> Toko yang tercatat dua kali dikenali dari nama dan jaraknya.</span></li></ul>
+    <ul class="also">
+      <li><span><b>Toko ganda ketahuan.</b> Toko yang tercatat dua kali dikenali dari nama dan jaraknya.</span></li>
+      <li><span><b>Harga pesaing per toko.</b> Merek, produk, harga, dan seberapa laku produk pesaing dicatat di setiap toko.</span></li>
+      <li><span><b>Toko baru dengan foto dan titik GPS.</b> Tenaga penjual mendaftarkan toko baru di tempat, lengkap dengan foto depan toko.</span></li>
+      <li><span><b>Lihat jalan menuju toko.</b> Setiap toko dapat dilihat lewat Street View sebelum dikunjungi.</span></li>
+    </ul>
     <div class="evs">
-      <details class="ev"><summary>Bukti</summary><div class="pop">Ringkasan di pintu toko (pesanan terakhir, barang, total): <b>src/utils/customerBrief.js:64</b>, <b>customerBrief</b> self-check 9/9 lulus. Lima pilihan Laporan Kunjungan: <b>QUICK_TAGS</b> di <b>src/JourneyView.jsx:959</b>. Tanda "!" hanya hilang lewat tombol Request done: <b>src/JourneyView.jsx:910</b>. Hak atas daftar pelanggan per jabatan (lihat saja, wilayah sendiri, semua): <b>src/components/CustomerManager.jsx:220</b>. Toko ganda dari nama dan jarak: <b>src/utils/findDuplicates.js:1</b>, self-check 26/26 lulus. Toko dan barang di sini contoh.</div></details>
+      <details class="ev"><summary>Bukti</summary><div class="pop">Ringkasan di pintu toko (pesanan terakhir, barang, total): <b>src/utils/customerBrief.js:64</b>, <b>customerBrief</b> self-check 9/9 lulus. Lima pilihan Laporan Kunjungan: <b>QUICK_TAGS</b> di <b>src/JourneyView.jsx:959</b>. Tanda "!" hanya hilang lewat tombol Request done: <b>src/JourneyView.jsx:910</b>. Hak atas daftar pelanggan per jabatan (lihat saja, wilayah sendiri, semua): <b>src/components/CustomerManager.jsx:220</b>. Toko ganda dari nama dan jarak: <b>src/utils/findDuplicates.js:1</b>, self-check 26/26 lulus. Catatan pesaing per toko (merek, produk, harga, catatan, tingkat laku): <b>src/components/CustomerManager.jsx:45-60</b>. Toko baru dengan foto depan dan GPS: <b>src/MerchantSalesView.jsx:314, 924</b>. Street View toko: <b>src/components/CustomerManager.jsx:82</b>. Toko dan barang di sini contoh.</div></details>
     </div>
   </div>
-  <div class="vis deep">
+  <div class="vis rise">
     <div class="box3" id="cust">
       <div class="ch"><span class="req" id="req" aria-label="Permintaan terbuka">!</span><div style="min-width:0"><b>Warung Bu Sri</b><span class="cap">Cabang Utara · Senin, Kamis</span></div></div>
       <div class="brief">
@@ -764,10 +797,10 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 09 -->
+<!-- 10 -->
 <section class="scene" id="setoran" data-name="Setoran Malam">
   <div class="copy">
-    <div class="eyebrow">09 · Setoran Malam <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">10 · Setoran Malam <span class="aud">Untuk pimpinan</span></div>
     <h2>Setiap malam, setiap rupiah diperiksa.</h2>
     <p class="lead">Setiap malam tenaga penjual menyetorkan uang tunai, bukti transfer, sisa barang, dan pita cukai. Admin wilayah memeriksanya baris demi baris. Jika ada kekurangan, selisihnya dicatat sebagai utang atas nama tenaga penjual tersebut.</p>
     <div class="evs">
@@ -787,10 +820,10 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 10 -->
+<!-- 11 -->
 <section class="scene" id="uang" data-name="Piutang dan Utang">
   <div class="copy">
-    <div class="eyebrow">10 · Piutang dan Utang <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">11 · Piutang dan Utang <span class="aud">Untuk pimpinan</span></div>
     <h2>Tidak ada rupiah yang terlupa.</h2>
     <p class="lead">Penjualan titip menjadi piutang toko dengan tempo pembayaran, 7 hari bila tidak diatur lain. Aplikasi memilah piutang menjadi tiga kelompok: aman, segera jatuh tempo, dan lewat jatuh tempo, sehingga yang harus ditagih hari ini langsung terlihat. Kekurangan pada setoran malam dan denda barang rusak dicatat sebagai utang atas nama tenaga penjual, lengkap dengan alasan dan tanggalnya.</p>
     <ul class="also"><li><span><b>Pindah tangan toko dengan persetujuan.</b> Saat toko titip berpindah ke tenaga penjual lain, penerima dan pemberi persetujuan sama-sama melihat stok di toko dan utangnya.</span></li></ul>
@@ -798,7 +831,7 @@ details.ev .pop b { color: var(--ink); }
       <details class="ev"><summary>Bukti</summary><div class="pop">Tiga kelompok piutang: <b>src/ConsignmentFinanceView.jsx:217-222</b> (tempo bawaan <b>7</b> hari; lewat jatuh tempo bila sisa hari di bawah 0, segera bila 3 hari atau kurang). Utang dari setoran malam (tunai kurang, transfer kurang, barang kurang dihargai sesuai tingkat harga): <b>eodBountyLines()</b> di <b>src/utils/helpers.js:716</b>. Alasan dan tanggal setiap utang: <b>bountyItems()</b> di <b>src/utils/helpers.js:790</b>, satu sumber untuk papan WANTED dan peti motor sehingga keduanya selalu sama. Pindah tangan toko: <b>HandoffOffer</b> di <b>src/ConsignmentFinanceView.jsx:17</b>, satu kartu yang sama untuk penerima dan pemberi persetujuan. Toko, nama, dan angka di sini contoh.</div></details>
     </div>
   </div>
-  <div class="vis duo deep">
+  <div class="vis duo rise">
     <div class="box3" id="ar">
       <div class="hd3"><span class="stamp">Piutang titip · Cabang Utara</span><span class="day3">Hari ke-<b id="arDay">1</b> · tempo 7</span></div>
       <div class="lane"><span class="kpm-led-line on"><i aria-hidden="true"></i>Aman</span><div class="chips"><span class="chip">Warung Pojok · Rp 312.000</span><span class="chip">Toko Lancar · Rp 588.000</span></div></div>
@@ -814,14 +847,15 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 11 -->
+<!-- 12 -->
 <section class="scene" id="kartu" data-name="Kartu Pemain">
   <div class="copy">
-    <div class="eyebrow">11 · Kartu Pemain <span class="aud">Untuk tenaga penjual</span></div>
+    <div class="eyebrow">12 · Kartu Pemain <span class="aud">Untuk tenaga penjual</span></div>
     <h2>Kerja bagus kelihatan.</h2>
     <p class="lead">Poin pengalaman (XP) diperoleh dari setoran yang lolos pemeriksaan, toko yang dilayani, dan tagihan yang berhasil ditagih. Pangkatnya berjenjang dari Bronze sampai Mythic dan ditandai bingkai di sekeliling foto. Tenaga penjual melihat kemajuannya sendiri, pimpinan melihat siapa yang paling aktif.</p>
+    <ul class="also"><li><span><b>Cara menghitung pangkat dipilih pimpinan.</b> Dari seluruh riwayat kerja, sehingga satu minggu sepi tidak menurunkan pangkat, atau dari penjualan 7 hari terakhir.</span></li></ul>
     <div class="evs">
-      <details class="ev"><summary>Bukti</summary><div class="pop">Kartu <b>src/components/PlayerCard.jsx</b>; XP <b>careerXP()</b> dan <b>computeDayXP()</b> di <b>src/config/career.js:83, 119</b>; bingkai pangkat <b>src/config/rankBorders.jsx</b>; di Mode Ringan bingkai Platinum dan Mythic berhenti berputar, commit <b>c64de8b</b>. Orang dan angka di kartu ini contoh.</div></details>
+      <details class="ev"><summary>Bukti</summary><div class="pop">Kartu <b>src/components/PlayerCard.jsx</b>; XP <b>careerXP()</b> dan <b>computeDayXP()</b> di <b>src/config/career.js:83, 119</b>; bingkai pangkat <b>src/config/rankBorders.jsx</b>; di Mode Ringan bingkai Platinum dan Mythic berhenti berputar, commit <b>c64de8b</b>. Pilihan cara menghitung pangkat: <b>src/components/SettingsView.jsx:1500-1502</b>. Orang dan angka di kartu ini contoh.</div></details>
     </div>
   </div>
   <div class="vis">
@@ -843,18 +877,21 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 12 -->
+<!-- 13 -->
 <section class="scene" id="stok" data-name="Stok Menipis">
   <div class="copy">
-    <div class="eyebrow">12 · Stok Menipis <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">13 · Stok Menipis <span class="aud">Untuk pimpinan</span></div>
     <h2>Stok menipis ketahuan sebelum habis.</h2>
     <p class="lead">Setiap produk punya batas stok minimum yang boleh ditulis dalam bal, karton, slop, atau bungkus. Begitu stok turun di bawah batas itu, aplikasi menandainya. Aplikasi juga menghitung berapa hari lagi stok tersebut cukup berdasarkan penjualan hariannya, sehingga barang dapat dipesan sebelum kosong.</p>
-    <ul class="also"><li><span><b>Permintaan stok cabang.</b> Cabang mengajukan permintaan barang berdasarkan batas minimumnya, dan gudang menerimanya di layar yang sama.</span></li></ul>
+    <ul class="also">
+      <li><span><b>Permintaan stok cabang.</b> Cabang mengajukan permintaan barang berdasarkan batas minimumnya, dan gudang menerimanya di layar yang sama.</span></li>
+      <li><span><b>Foto nota kertas dirapikan sendiri.</b> Nota yang difoto miring dicari tepinya dan diluruskan sebelum disimpan.</span></li>
+    </ul>
     <div class="evs">
-      <details class="ev"><summary>Bukti</summary><div class="pop">Batas bawaan <b>3 Bal</b>, satuan Bal, Karton, Slop, Bks: <b>src/utils/stockThreshold.js:33-35</b>; stok di bawah batas: <b>isLowStock()</b> baris 50; sisa hari: <b>daysOfCover()</b> baris 59, ditampilkan di dasbor <b>src/components/DashboardView.jsx:100</b>. <b>stockThreshold</b> self-check 36/36 dan <b>mixedUnits</b> 12/12 lulus (6 Oktober 2026). Permintaan stok cabang: <b>stock_requests</b> di <b>src/RestockVaultView.jsx:268</b>. Produk dan angka di sini contoh.</div></details>
+      <details class="ev"><summary>Bukti</summary><div class="pop">Batas bawaan <b>3 Bal</b>, satuan Bal, Karton, Slop, Bks: <b>src/utils/stockThreshold.js:33-35</b>; stok di bawah batas: <b>isLowStock()</b> baris 50; sisa hari: <b>daysOfCover()</b> baris 59, ditampilkan di dasbor <b>src/components/DashboardView.jsx:100</b>. <b>stockThreshold</b> self-check 36/36 dan <b>mixedUnits</b> 12/12 lulus (6 Oktober 2026). Permintaan stok cabang: <b>stock_requests</b> di <b>src/RestockVaultView.jsx:268</b>. Nota dirapikan: tepi kertas dicari lalu ditarik lurus, <b>src/utils/helpers.js:398, 422, 585</b>, dipakai di <b>src/RestockVaultView.jsx:608</b>; <b>notaScan</b> self-check 22/22 lulus. Produk dan angka di sini contoh.</div></details>
     </div>
   </div>
-  <div class="vis deep">
+  <div class="vis rise">
     <div class="box3" id="stk">
       <div class="hd3"><span class="stamp">Gudang Cabang Utara</span><span class="day3"><u class="mk"></u>Batas minimum</span></div>
       <div class="floor">
@@ -871,10 +908,10 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 13 -->
+<!-- 14 -->
 <section class="scene" id="karantina" data-name="Karantina">
   <div class="copy">
-    <div class="eyebrow">13 · Karantina <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">14 · Karantina <span class="aud">Untuk pimpinan</span></div>
     <h2>Barang bermasalah dikunci dulu.</h2>
     <p class="lead">Hasil hitung stok yang tidak sesuai tidak langsung diterima. Barang rusak atau selisih dipindahkan ke karantina dan dikunci sampai kantor pusat memberi keputusan. Tidak ada barang yang hilang tanpa catatan.</p>
     <div class="evs">
@@ -896,22 +933,23 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 14 -->
+<!-- 15 -->
 <section class="scene" id="aman" data-name="Aman, Tanpa Sinyal">
   <div class="copy">
-    <div class="eyebrow">14 · Aman, Tanpa Sinyal <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">15 · Aman, Tanpa Sinyal <span class="aud">Untuk pimpinan</span></div>
     <h2>Jalan terus, walau tanpa sinyal.</h2>
     <p class="lead">Di daerah tanpa sinyal, penjualan tetap tercatat dengan aturan yang sama. Setelah sinyal kembali, data terkirim dengan sendirinya. Data disimpan di server Google, dan data setiap perusahaan dipisahkan.</p>
     <ul class="also">
       <li><span><b>Tidak ada pemberitahuan yang terlewat.</b> Lonceng menyimpan daftar pemberitahuan yang terlewat selama 7 hari.</span></li>
       <li><span><b>Selalu versi terbaru.</b> Saat masuk, aplikasi menyebut versinya sudah terbaru atau sedang memperbarui diri, tanpa toko aplikasi.</span></li>
       <li><span><b>Mode Ringan untuk telepon murah.</b> Bayangan dan gerakan dimatikan, semua fungsi tetap sama.</span></li>
+      <li><span><b>Buku panduan di dalam aplikasi.</b> Bagian-bagiannya sama dengan menu samping, dan buku langsung terbuka di layar yang sedang dipakai. Karyawan baru bisa belajar sendiri.</span></li>
     </ul>
     <div class="evs">
-      <details class="ev"><summary>Bukti</summary><div class="pop">Dipasang seperti aplikasi dan jalan tanpa internet: <b>registerSW</b> di <b>src/main.jsx:13</b>. Catatan disimpan dulu di telepon lalu terkirim sendiri saat sinyal kembali: <b>persistentLocalCache</b> di <b>src/config/firebase.js:50</b>. Daftar yang terlewat, 7 hari dan 100 terbaru: <b>src/utils/missedLog.js:26</b>, lonceng <b>src/components/NotificationBell.jsx:1</b>. Pemeriksaan versi: <b>src/utils/updateCheck.js:1</b>. Mode Ringan: <b>src/App.jsx:3104</b>.</div></details>
+      <details class="ev"><summary>Bukti</summary><div class="pop">Dipasang seperti aplikasi dan jalan tanpa internet: <b>registerSW</b> di <b>src/main.jsx:13</b>. Catatan disimpan dulu di telepon lalu terkirim sendiri saat sinyal kembali: <b>persistentLocalCache</b> di <b>src/config/firebase.js:50</b>. Daftar yang terlewat, 7 hari dan 100 terbaru: <b>src/utils/missedLog.js:26</b>, lonceng <b>src/components/NotificationBell.jsx:1</b>. Pemeriksaan versi: <b>src/utils/updateCheck.js:1</b>. Mode Ringan: <b>src/App.jsx:3104</b>. Buku panduan: <b>src/ponder/PonderBook.jsx:1</b>; daftar isinya mengikuti menu samping dan terbuka di bagian yang sedang dibuka: <b>src/ponder/sections.js:1</b>.</div></details>
     </div>
   </div>
-  <div class="vis deep">
+  <div class="vis rise">
     <div class="ph9" id="ph9">
       <div class="sbar"><span id="net">Tanpa sinyal</span><span class="sig"><i></i><i></i><i></i><i></i></span></div>
       <div class="row9"><span class="t">Warung Pojok · Rp 312.000</span><span class="kpm-led-line"><i aria-hidden="true"></i><span>Tersimpan</span></span></div>
@@ -921,17 +959,17 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 15 -->
+<!-- 16 -->
 <section class="scene" id="catatan" data-name="Catatan dan Laporan">
   <div class="copy">
-    <div class="eyebrow">15 · Catatan dan Laporan <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">16 · Catatan dan Laporan <span class="aud">Untuk pimpinan</span></div>
     <h2>Yang sudah tercatat tidak bisa diubah.</h2>
     <p class="lead">Transaksi penjualan, laporan setoran malam, dan catatan aktivitas harian hanya bisa ditambah. Tenaga penjual dan admin tidak dapat mengubah atau menghapusnya; hak itu hanya ada pada akun pemilik perusahaan. Dari catatan harian inilah Putar Ulang Hari disusun, dan laporan penjualan bisa dicetak kapan saja dengan nota yang sama seperti di toko.</p>
     <div class="evs">
       <details class="ev"><summary>Bukti</summary><div class="pop">Aturan server <b>allow update, delete: if false</b> untuk transaksi, laporan setoran, dan catatan aktivitas: <b>firestore.rules:557, 650, 712, 717</b>; hak penuh atas data perusahaan hanya untuk akun pemilik: <b>firestore.rules:343-346</b>. Tidak ada satu pun perintah ubah atau hapus transaksi di kode aplikasi (diperiksa 6 Oktober 2026). Catatan harian per tanggal <b>audit_vault</b> dibaca Putar Ulang Hari: <b>src/hooks/useDayReplay.js</b>. Laporan dicetak dari <b>src/components/HistoryReportView.jsx:469</b>; nota <b>src/components/SaleReceipt.jsx</b>. Nama dan angka di sini contoh.</div></details>
     </div>
   </div>
-  <div class="vis deep">
+  <div class="vis rise">
     <div class="box3" id="ledger">
       <i class="lockseal" aria-hidden="true">TERKUNCI</i>
       <div class="hd3"><span class="stamp">Catatan aktivitas · Kam 2 Okt</span><span class="day3">Budi Santoso</span></div>
@@ -948,22 +986,22 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 16 -->
+<!-- 17 -->
 <section class="scene" id="keamanan" data-name="Keamanan">
   <div class="copy">
-    <div class="eyebrow">16 · Keamanan <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">17 · Keamanan <span class="aud">Untuk pimpinan</span></div>
     <h2>Setiap jabatan punya kuncinya sendiri.</h2>
     <p class="lead">Semua pengguna masuk dengan akun Google. Ada lima jabatan, dari pemilik sampai sales motoris, dan admin wilayah hanya mengelola wilayahnya sendiri. Brankas pemilik dijaga kata sandi induk; setelah lima kali salah, brankas terkunci 15 menit, dan pemulihannya memakai kode enam angka yang dikirim lewat email. Data setiap perusahaan disimpan terpisah.</p>
     <div class="evs">
-      <details class="ev"><summary>Bukti</summary><div class="pop">Jabatan: <b>CORPORATE_TIERS</b> di <b>src/config/permissions.js:2-9</b> (lima jabatan perusahaan, ditambah satu akses pengembang untuk kami) dan namanya di baris 44-48; pengelola armada hanya T2 sampai T4: <b>isFleetManagementTier()</b> baris 90. Kunci wilayah: data tenaga penjual hanya bisa diubah admin dari wilayah yang sama, <b>firestore.rules:599</b>. Masuk dengan Google: <b>src/config/firebase.js:81</b>. Kata sandi induk PBKDF2, <b>ITERATIONS = 600000</b>: <b>src/utils/secretHash.js:19</b>; lima kali salah, kunci 15 menit: <b>src/utils/vaultLock.js:10-11</b>; kode pemulihan enam angka lewat email: <b>src/App.jsx:1332-1342</b>. Data tiap perusahaan di bawah akun pemiliknya sendiri: <b>firestore.rules:339</b>. Kunci akun dari Fleet &amp; Roster: <b>src/FleetCanvasManager.jsx:479</b>, ditegakkan saat masuk: <b>src/App.jsx:508</b>. Sidik jari atau wajah: <b>src/App.jsx:505, 1472</b>. Pindah kepemilikan dengan PIN lalu frasa rahasia: <b>src/components/CrownTransferProtocol.jsx:28, 48</b>.</div></details>
+      <details class="ev"><summary>Bukti</summary><div class="pop">Jabatan: <b>CORPORATE_TIERS</b> di <b>src/config/permissions.js:2-9</b> (lima jabatan perusahaan, ditambah satu akses pengembang untuk kami) dan namanya di baris 44-48; pengelola armada hanya T2 sampai T4: <b>isFleetManagementTier()</b> baris 90. Kunci wilayah: data tenaga penjual hanya bisa diubah admin dari wilayah yang sama, <b>firestore.rules:599</b>. Masuk dengan Google: <b>src/config/firebase.js:81</b>. Kata sandi induk PBKDF2, <b>ITERATIONS = 600000</b>: <b>src/utils/secretHash.js:19</b>; lima kali salah, kunci 15 menit: <b>src/utils/vaultLock.js:10-11</b>; kode pemulihan enam angka lewat email: <b>src/App.jsx:1332-1342</b>. Data tiap perusahaan di bawah akun pemiliknya sendiri: <b>firestore.rules:339</b>. Kunci akun dari Fleet &amp; Roster: <b>src/FleetCanvasManager.jsx:479</b>, ditegakkan saat masuk: <b>src/App.jsx:508</b>. Sidik jari atau wajah: <b>src/App.jsx:505, 1472</b>. Pindah kepemilikan dengan PIN lalu frasa rahasia: <b>src/components/CrownTransferProtocol.jsx:28, 48</b>. Pengatur hak akses per jabatan, hanya untuk pemilik: <b>PermissionMatrixEditor</b> di <b>src/components/SettingsView.jsx:1507</b>; nama jabatan disimpan di Pengaturan: baris 1510.</div></details>
     </div>
   </div>
-  <div class="vis duo deep">
+  <div class="vis duo rise">
     <div class="box3" id="tiers">
-      <div class="tr" style="--z:48"><span class="tn">T2</span><b>Owner</b><small>Seluruh perusahaan dan brankas</small></div>
-      <div class="tr" style="--z:34"><span class="tn">T3</span><b>HQ Sales Manager</b><small>Mengelola tenaga penjual dan pelanggan</small></div>
-      <div class="tr" style="--z:20"><span class="tn">T4</span><b>Regional Admin</b><small>Mengelola armada di wilayahnya sendiri</small></div>
-      <div class="tr" style="--z:6"><span class="tn">T5/6</span><b>Sales Canvas · Motorist</b><small>Menjual, menyetor, dan melaporkan kunjungan</small></div>
+      <div class="tr"><span class="tn">T2</span><b>Owner</b><small>Seluruh perusahaan dan brankas</small></div>
+      <div class="tr"><span class="tn">T3</span><b>HQ Sales Manager</b><small>Mengelola tenaga penjual dan pelanggan</small></div>
+      <div class="tr"><span class="tn">T4</span><b>Regional Admin</b><small>Mengelola armada di wilayahnya sendiri</small></div>
+      <div class="tr"><span class="tn">T5/6</span><b>Sales Canvas · Motorist</b><small>Menjual, menyetor, dan melaporkan kunjungan</small></div>
     </div>
     <div class="vault"><span class="cap">Brankas pemilik · kata sandi induk</span><span class="tries" id="tries"><i></i><i></i><i></i><i></i><i></i></span>
       <span class="kpm-led-line" id="vled"><i aria-hidden="true"></i><span id="vtxt">Terkunci rapat</span></span></div>
@@ -974,14 +1012,15 @@ details.ev .pop b { color: var(--ink); }
       <div><span class="lock"></span><span><b>Akun dapat dikunci seketika.</b> Telepon hilang atau karyawan keluar: satu tekan di Fleet &amp; Roster.</span></div>
       <div><span class="lock"></span><span><b>Sidik jari atau wajah.</b> Brankas dapat dibuka dengan pengenal di telepon itu sendiri.</span></div>
       <div><span class="lock"></span><span><b>Pindah kepemilikan yang dijaga.</b> Kepemilikan hanya berpindah dengan PIN dan frasa rahasia.</span></div>
+      <div><span class="lock"></span><span><b>Hak akses diatur sendiri.</b> Pemilik menentukan apa yang boleh dilakukan setiap jabatan, dan nama jabatannya pun bisa diganti.</span></div>
     </div>
   </div>
 </section>
 
-<!-- 17 -->
+<!-- 18 -->
 <section class="scene s10" id="angka" data-name="Semua Terkendali">
   <div class="copy">
-    <div class="eyebrow">17 · Semua Terkendali <span class="aud">Untuk pimpinan dan tenaga penjual</span></div>
+    <div class="eyebrow">18 · Semua Terkendali <span class="aud">Untuk pimpinan dan tenaga penjual</span></div>
     <h2>Angka, bukan perasaan.</h2>
     <p class="lead">Seluruh angka diukur dari kode aplikasi pada 6 Oktober 2026. Pemeriksaan otomatisnya dapat dijalankan di hadapan siapa pun.</p>
   </div>
@@ -1393,16 +1432,26 @@ function smpRun() {
     .onfinish = () => { f.remove(); if (!live.has('sampel') || still) return smpRun(); sN++; smpSet(sN); smTimer = wait(650, smpRun); };
 }
 
-/* every tilted picture leans toward the pointer on a PC (a still frame keeps its rest tilt) */
-if (matchMedia('(hover: hover) and (pointer: fine)').matches) $$('.deep').forEach((d) => {
-  d.addEventListener('pointermove', (e) => {
-    if (still) return;
-    const r = d.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
-    for (const c of d.children) { c.classList.add('lean'); c.style.setProperty('--ry', (-9 + px * 10).toFixed(2) + 'deg'); c.style.setProperty('--rx', (9 - py * 8).toFixed(2) + 'deg'); }
-  });
-  d.addEventListener('pointerleave', () => { for (const c of d.children) { c.style.removeProperty('--ry'); c.style.removeProperty('--rx'); } });
-});
-const round3 = () => { custRun(); arRun(); stockRun(); ledgerRun(); secRun(); paceRun(); smpRun(); };
+/* GPS check: the dot walks into the 100 m ring (he may record the sale), then stands outside and asks the office
+   (MerchantSalesView.jsx:348 verifyLocation, :853 the bypass request with its distance) */
+const mdot = $('#mdot'), geoLed = $('#geoLed'), geoTxt = $('#geoTxt'), geoReq = $('#geoReq'), geoReqLed = $('#geoReqLed');
+const GEO = [[10, 82], [28, 70], [42, 58], [86, 22]];   /* % of the map; the ring is 22% of its width = 100 m */
+const geoM = ([x, y]) => Math.round(Math.hypot(x - 50, (y - 50) * 10 / 16) / 22 * 100);
+let gTimer = 0, gStep = 0;
+function geoSet(i, req) {
+  const p = GEO[i], m = geoM(p), inside = m <= 100;
+  mdot.style.left = p[0] + '%'; mdot.style.top = p[1] + '%'; mdot.classList.toggle('in', inside);
+  geoLed.className = 'kpm-led-line ' + (inside ? 'on' : 'crit'); geoTxt.textContent = inside ? `${m} m · boleh mencatat penjualan` : `${m} m · di luar 100 m`;
+  geoReq.classList.toggle('hide', !req);
+  if (req) { geoReq.firstChild.textContent = `Izin jual dari ${m} m · Budi Santoso`; geoReqLed.className = 'kpm-led-line ' + (req === 'ok' ? 'on' : 'warn'); geoReqLed.lastChild.textContent = req === 'ok' ? 'Disetujui kantor' : 'Menunggu kantor'; }
+}
+const GEO_PLAN = [[0, null, 900], [1, null, 900], [2, null, 2000], [3, null, 1100], [3, 'wait', 1600], [3, 'ok', 2400]];
+function geoRun() {
+  clearTimeout(gTimer);
+  if (still || !live.has('lokasi')) { geoSet(3, 'wait'); return; }
+  const [i, r, ms] = GEO_PLAN[gStep]; geoSet(i, r); gStep = (gStep + 1) % GEO_PLAN.length; gTimer = wait(ms, geoRun);
+}
+const round3 = () => { custRun(); arRun(); stockRun(); ledgerRun(); secRun(); paceRun(); smpRun(); geoRun(); };
 
 /* ---- numbers: the nixies start at zero and roll to their value when their scene first shows ---- */
 const nx5 = $('#nx5'), tiles = $$('.tile .kpm-nixie');
@@ -1423,7 +1472,7 @@ const io = new IntersectionObserver((es) => {
       if (id === 'setoran') { dStep = 0; docketRun(); } if (id === 'karantina') doorsRun(true); if (id === 'aman') { nStep = 0; netRun(); }
       if (id === 'pelanggan') { vStep = 0; custRun(); } if (id === 'uang') { aDay = 0; arRun(); } if (id === 'stok') { sQty = 60; stockRun(); }
       if (id === 'catatan') { lStep = 0; ledgerRun(); } if (id === 'keamanan') { kStep = 0; secRun(); }
-      if (id === 'target') { paceSet('bulan'); paceRun(); } if (id === 'sampel') { sN = 0; smpRun(); }
+      if (id === 'target') { paceSet('bulan'); paceRun(); } if (id === 'sampel') { sN = 0; smpRun(); } if (id === 'lokasi') { gStep = 0; geoRun(); }
       kick();
     } else { live.delete(id); e.target.classList.remove('live'); }
   }

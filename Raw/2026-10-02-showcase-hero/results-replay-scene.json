@@ -4,19 +4,19 @@
   "pass": true,
   "data": {
    "a": {
-    "t": 891,
+    "t": 903,
     "playing": true,
     "picked": null,
     "card": "Budi Santoso",
     "pickCard": false,
-    "clock": "08:18",
-    "man": "16.4924%,75.2614%",
+    "clock": "08:19",
+    "man": "16.6421%,75.0369%",
     "play": "Pause",
     "now": 0,
     "open": 0
    },
    "b": {
-    "t": 1600,
+    "t": 1618,
     "playing": true,
     "picked": null,
     "card": "Budi Santoso",
@@ -38,7 +38,7 @@
   "pass": true,
   "data": {
    "p1": {
-    "t": 1746,
+    "t": 1733,
     "playing": false,
     "picked": null,
     "card": "Toko Berkah Jaya",
@@ -50,7 +50,7 @@
     "open": 1
    },
    "p2": {
-    "t": 1746,
+    "t": 1733,
     "playing": false,
     "picked": null,
     "card": "Toko Berkah Jaya",
@@ -103,13 +103,13 @@
   "name": "pc: Play from here = the card lets go and the day plays on from Warung Bu Sri",
   "pass": true,
   "data": {
-   "t": 11155,
+   "t": 11167,
    "playing": true,
    "picked": null,
    "card": "Warung Bu Sri",
    "pickCard": false,
    "clock": "09:51",
-   "man": "65.2517%,77.2979%",
+   "man": "65.3991%,77.1211%",
    "play": "Pause",
    "now": 4,
    "open": 4
@@ -119,20 +119,20 @@
   "name": "pc: 4x runs the clock about four times as fast",
   "pass": true,
   "data": {
-   "d": 4073
+   "d": 4025
   }
  },
  {
   "name": "pc: dragging along the timeline to the middle lands the clock near the middle of the day (09:32 + the time it played on)",
   "pass": true,
   "data": {
-   "t": 9019,
+   "t": 9025,
    "playing": true,
    "picked": null,
    "card": "Toko Makmur",
    "pickCard": false,
    "clock": "09:35",
-   "man": "59.0363%,74.1866%",
+   "man": "59.1265%,74.3189%",
    "play": "Pause",
    "now": 3,
    "open": 3
@@ -182,19 +182,19 @@
   "pass": true,
   "data": {
    "a": {
-    "t": 903,
+    "t": 891,
     "playing": true,
     "picked": null,
     "card": "Budi Santoso",
     "pickCard": false,
-    "clock": "08:19",
-    "man": "16.6396%,75.0405%",
+    "clock": "08:18",
+    "man": "16.4936%,75.2596%",
     "play": "Pause",
     "now": 0,
     "open": 0
    },
    "b": {
-    "t": 1624,
+    "t": 1606,
     "playing": true,
     "picked": null,
     "card": "Budi Santoso",
@@ -216,7 +216,7 @@
   "pass": true,
   "data": {
    "p1": {
-    "t": 1818,
+    "t": 1806,
     "playing": false,
     "picked": null,
     "card": "Toko Berkah Jaya",
@@ -228,7 +228,7 @@
     "open": 1
    },
    "p2": {
-    "t": 1818,
+    "t": 1806,
     "playing": false,
     "picked": null,
     "card": "Toko Berkah Jaya",
@@ -281,13 +281,13 @@
   "name": "ph: Play from here = the card lets go and the day plays on from Warung Bu Sri",
   "pass": true,
   "data": {
-   "t": 11155,
+   "t": 11161,
    "playing": true,
    "picked": null,
    "card": "Warung Bu Sri",
    "pickCard": false,
    "clock": "09:51",
-   "man": "65.2529%,77.2965%",
+   "man": "65.3231%,77.2123%",
    "play": "Pause",
    "now": 4,
    "open": 4
@@ -297,20 +297,20 @@
   "name": "ph: 4x runs the clock about four times as fast",
   "pass": true,
   "data": {
-   "d": 4049
+   "d": 4073
   }
  },
  {
   "name": "ph: dragging along the timeline to the middle lands the clock near the middle of the day (09:32 + the time it played on)",
   "pass": true,
   "data": {
-   "t": 9013,
+   "t": 9025,
    "playing": true,
    "picked": null,
    "card": "Toko Makmur",
    "pickCard": false,
-   "clock": "09:34",
-   "man": "58.9455%,74.0534%",
+   "clock": "09:35",
+   "man": "59.1251%,74.3168%",
    "play": "Pause",
    "now": 3,
    "open": 3
