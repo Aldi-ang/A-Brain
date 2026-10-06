@@ -13,5 +13,5 @@
 | A | UpdateStatus.jsx:23 also listens for `activated` -> "Latest version" (one line) + a logicFixes guard line | smallest; then a push (his word) |
 | B | A + reload the page on `activated` like autoUpdate does | a surprise reload while he types the vault password - rejected |
 
-**Decision:** OPEN - waiting on Aldi (asked 16:55, my pick A).
+**Decision:** OPEN - waiting on Aldi (asked 16:51, my pick A).
 **Rejected on purpose:** B (a reload under his fingers on the vault screen).
