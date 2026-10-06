@@ -97,3 +97,19 @@ His go, 07:28: *"lets continue with the presentation first"*. The page `Raw/2026
 ## 2026-10-06 08:48 - round 2 from his shots at 1920, PUBLISHED as version 2 (same link)
 
 His words: *"these parts need improvement u can spot the problem right away when fullscreen especially, use formal languange instead"* + *"these box is unclear really i want u to change the product with cigarette box instead"*. Fixed: (04) the map is measured into its stage and sits above the leaderboard at every width (it overlapped by 114 px at 1920); (05, 06) the cubes became the app's pack shape with made-up packaging - a kraft case BAL, a carton SLOP showing 5 packs, a pack - bigger on a PC; (06) the receipt prints once and stays (it looped and faded to nothing); (09) the box keeps a 460 px width, centred; every description, audience chip and trust line in formal Indonesian, humanized. Found on the way: pack C borrowed the player card's class `.pc` (rounded, flattened) - the packs use `pk-a/-b/-c`. Proof: `shoot-showcase.mjs` now measures 390 + 1440 + 1920 with an overlap check (red on the old page: "map over leaderboard by 114 px") - 0 overlaps, 0 past the edge, smallest text 12 px, 0 errors; replay scene 27/27; `probe-nota.mjs`: receipt and wares fully visible from 3 s to 12 s. Boards `board-showcase-p.png`, `board-showcase-w.png`. Link unchanged: https://claude.ai/artifact/AJQ36jBJr4jkkn6ZUnRN4A (version 2).
+
+## 2026-10-06 09:21 - round 3 asked: Karantina packs + more scenes; the price stays OFF the page (his answers)
+
+His ask (with a shot of the open Karantina box - plain gold bars in the slots): *"make sure this one show cigarette box instead, and i want u to add more slides since this app have more than that, mention the security aspect, the reports data saved aspect, and all the aspect that the customer should know to know this app better as added value, make sure that with all the features here make 10 million per months is cost like nothing"*.
+
+His two answers (asked as 🔴):
+| Question | His answer, verbatim |
+|---|---|
+| How is Rp 10 juta / month priced? | *"flat just for cello, next company will cost a lot more but dont mention this on the presentation"* |
+| Calculator / example lines on the page? | *"dont show it on the presentation, just make a good presentation that let the customer think 10 juta for this app is nothing compared with the benefit that it gain"* |
+
+**Rules this sets (CONFIDENTIAL - never on the page):** the customer is Cello; Rp 10 juta / month flat is Cello's price only, the next company pays more. The page shows NO price, NO calculator, NO comparison numbers - the scenes carry the value by themselves.
+
+**Built:** nothing yet - deferred to a fresh session (context 68%). Brief: NEXT-SESSION.md 2026-10-06 09:21. Base for edits: `Raw/2026-10-02-showcase-hero/showcase.base.html` (scene 03 is spliced in by `splice-replay.mjs`).
+
+**Rejected on purpose:** the value calculator and the "per salesman per day" line (his call); real brand packaging on the packs (a shared page).

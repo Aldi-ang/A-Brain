@@ -1,15 +1,15 @@
 /* 2026-10-06 - puts the Day Replay scene into showcase.html as scene 03 (the old 03-10 become 04-11). The pictures come
    from the app itself: kpm src/utils/mapSprites.js (personSvg, SPRITE_CSS - only the 6 rules the scene uses) and
    kpm public/coin-sprite.png (the spinning coin), so the scene cannot drift from what the app draws.
-   Parts: replay-scene.css / .html / .js. Refuses to run twice. Usage: node splice-replay.mjs */
+   Parts: replay-scene.css / .html / .js; the page around it is showcase.base.html (edit THAT, never showcase.html). Usage: node splice-replay.mjs */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const KPM = path.resolve(HERE, '../../../kpm-inventory-main');
-const PAGE = path.join(HERE, 'showcase.html');
-let s = fs.readFileSync(PAGE, 'utf8');
-if (s.includes('id="ulang"')) { console.log('already spliced - nothing done'); process.exit(1); }
+const BASE = path.join(HERE, 'showcase.base.html'), PAGE = path.join(HERE, 'showcase.html');   /* edit the BASE (scenes without 03); this writes the page */
+let s = fs.readFileSync(BASE, 'utf8');
+if (s.includes('id="ulang"')) throw new Error('the base must not hold scene 03 - restore showcase.base.html from git');
 const M = await import(pathToFileURL(path.join(KPM, 'src/utils/mapSprites.js')).href);
 const want = ['kx-spr-closed', 'kx-spr-open', 'kx-sgn-order', 'kx-sgn-issue', 'kx-sgn-request', 'kx-sgn-closed'];
 const rules = M.SPRITE_CSS.split('}').filter((r) => want.includes(r.split('{')[0].trim().slice(1))).map((r) => r + '}');
