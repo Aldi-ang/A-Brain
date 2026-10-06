@@ -143,3 +143,36 @@ Built from his 09:21 ask in one session. The page now has 16 scenes; the base ho
 **Rejected on purpose (still):** any price, calculator or comparison number; real brand packaging; "nobody can edit, not even the owner" (false today).
 
 **Models applied:** Inversion (what makes Cello's boss distrust the page: one false Bukti - found one in the brief itself); Pre-mortem on the 1920 frame (his round-2 complaint was exactly a box lost on a wide screen).
+
+## 2026-10-06 13:10 - more selling points, found in the code (his ask: "find anything else for this app selling points")
+
+Research only, nothing built. Every line checked in kpm code on 2026-10-06 (src unchanged since 8abbf30). Not on the page yet:
+
+| # | Selling point | What the boss gets | Bukti | Fits in scene |
+|---|---|---|---|---|
+| 1 | Targets + pace chart | monthly/daily goals in Bal; a chart of money so far against the straight line to the target - mid-month he knows if the month will make it | DashboardBenchmarks.jsx:12, :70; PaceChart.jsx:4 | 04 Omzet, or NEW |
+| 2 | Live-camera sale proof | T4 and lower must take the proof photo with the live camera, never from the gallery - no reused or fake photos | ProofCamera.jsx:1; permissions.js:118 canPickFromGallery | 06 Terminal |
+| 3 | Sampling tracked apart from sales | free samples to shops recorded on their own, never counted as revenue; analytics; packs torn open counted for pita cukai | SamplingManager.jsx:20, :111; salesRollup.js header | NEW, or 05 Barang |
+| 4 | Shop hand-off with approval | a titip shop moving to another salesman: receiver and approver both see the stock at the shop and the money owed | ConsignmentFinanceView.jsx:1-17 HandoffOffer | 09 Piutang |
+| 5 | Lock an account at once | lost or hacked phone, or staff leaves: Fleet & Roster "Lock account" | FleetCanvasManager.jsx:479; App.jsx:508 | 15 Keamanan |
+| 6 | Product performance | pick any stretch of time, sales per product per month | ProductPerformancePanel.jsx:1 | 04 Omzet |
+| 7 | Duplicate shop finder | the same shop recorded twice is found (name + distance) | findDuplicates.js:1; self-check 26/26 | 07 Pelanggan |
+| 8 | Printed surat jalan + box label | every box carries a slip with a barcode, the branch scans it on arrival | ShipmentLabel.jsx:5; AcceptanceReceipt.jsx:1 | 05 Barang |
+| 9 | Branch restock requests | branches ask for stock against their minimum | RestockVaultView.jsx:268 stock_requests | 11 Stok |
+| 10 | Van-loading bay | stock loaded onto the motor with presets | LoadingBay.jsx:1 | 05 Barang |
+| 11 | Four price levels | Retail, Grosir, Ecer, Distributor per product | helpers.js:709 PRICE_TIERS | 06 Terminal |
+| 12 | Fingerprint / face unlock | the phone's own fingerprint opens the vault | App.jsx:505, :1472 | 15 Keamanan |
+| 13 | Nothing missed | the bell keeps a Missed list (7 days, newest 100) | NotificationBell.jsx:1; missedLog.js:1 | 13 Aman |
+| 14 | Always the latest version | sign-in says "Latest version" or "New version found - updating"; no app store | updateCheck.js:1 | 13 Aman |
+| 15 | Lite Mode for cheap phones | shadows and motion off, same app | App.jsx:3104 | 13 Aman |
+| 16 | Owner hand-over | ownership moves only with the PIN + the secret phrase | CrownTransferProtocol.jsx | 15 Keamanan |
+
+**Costs:** each new scene = about one hour plus the three proofs; each fold-in = one line + one Bukti, no new picture. The page is already 16 scenes; a boss who skims stops scrolling long before 25.
+
+**My pick:** 2 new scenes (1 Targets + pace, 3 Sampling) and fold the rest into the scenes named above.
+
+**Decision:** OPEN - waiting on Aldi (asked 13:10).
+
+**Rejected on purpose:** the "view as another role" switch (TierPovSwitch.jsx, a testing tool on test accounts); the capybara and music player (fun, not boss value); selling to many companies (his rule: the next company is not mentioned); the 610-byte sale (our running cost, not his value).
+
+**Models applied:** Opportunity Cost (every scene added pushes the close further down); Pre-mortem (the page fails if the boss stops before scene 16).
