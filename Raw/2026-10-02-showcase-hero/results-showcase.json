@@ -66,7 +66,23 @@
   },
   {
    "id": "omzet",
-   "h": 917,
+   "h": 970,
+   "vw": 390,
+   "clash": [],
+   "out": [],
+   "outN": 0,
+   "spill": [],
+   "minFont": 12,
+   "small": [],
+   "smallN": 0,
+   "taps": [],
+   "font": true,
+   "docW": 390,
+   "w": 390
+  },
+  {
+   "id": "target",
+   "h": 895,
    "vw": 390,
    "clash": [],
    "out": [],
@@ -82,7 +98,7 @@
   },
   {
    "id": "barang",
-   "h": 1127,
+   "h": 1267,
    "vw": 390,
    "clash": [],
    "out": [],
@@ -100,7 +116,23 @@
   },
   {
    "id": "terminal",
-   "h": 884,
+   "h": 1004,
+   "vw": 390,
+   "clash": [],
+   "out": [],
+   "outN": 0,
+   "spill": [],
+   "minFont": 12,
+   "small": [],
+   "smallN": 0,
+   "taps": [],
+   "font": true,
+   "docW": 390,
+   "w": 390
+  },
+  {
+   "id": "sampel",
+   "h": 848,
    "vw": 390,
    "clash": [],
    "out": [],
@@ -116,7 +148,7 @@
   },
   {
    "id": "pelanggan",
-   "h": 978,
+   "h": 1031,
    "vw": 390,
    "clash": [],
    "out": [],
@@ -148,7 +180,7 @@
   },
   {
    "id": "uang",
-   "h": 1104,
+   "h": 1197,
    "vw": 390,
    "clash": [],
    "out": [],
@@ -180,7 +212,7 @@
   },
   {
    "id": "stok",
-   "h": 844,
+   "h": 864,
    "vw": 390,
    "clash": [],
    "out": [],
@@ -246,12 +278,15 @@
   },
   {
    "id": "keamanan",
-   "h": 1076,
+   "h": 1226,
    "vw": 390,
    "clash": [],
    "out": [],
    "outN": 0,
    "spill": [
+    "span.lock \"\" 13>10",
+    "span.lock \"\" 13>10",
+    "span.lock \"\" 13>10",
     "span.lock \"\" 13>10",
     "span.lock \"\" 13>10",
     "span.lock \"\" 13>10"
@@ -266,7 +301,7 @@
   },
   {
    "id": "angka",
-   "h": 1159,
+   "h": 1201,
    "vw": 390,
    "clash": [],
    "out": [],
@@ -360,6 +395,22 @@
    "w": 1440
   },
   {
+   "id": "target",
+   "h": 900,
+   "vw": 1440,
+   "clash": [],
+   "out": [],
+   "outN": 0,
+   "spill": [],
+   "minFont": 12,
+   "small": [],
+   "smallN": 0,
+   "taps": [],
+   "font": true,
+   "docW": 1440,
+   "w": 1440
+  },
+  {
    "id": "barang",
    "h": 900,
    "vw": 1440,
@@ -379,6 +430,22 @@
   },
   {
    "id": "terminal",
+   "h": 900,
+   "vw": 1440,
+   "clash": [],
+   "out": [],
+   "outN": 0,
+   "spill": [],
+   "minFont": 12,
+   "small": [],
+   "smallN": 0,
+   "taps": [],
+   "font": true,
+   "docW": 1440,
+   "w": 1440
+  },
+  {
+   "id": "sampel",
    "h": 900,
    "vw": 1440,
    "clash": [],
@@ -531,6 +598,9 @@
    "out": [],
    "outN": 0,
    "spill": [
+    "span.lock \"\" 13>10",
+    "span.lock \"\" 13>10",
+    "span.lock \"\" 13>10",
     "span.lock \"\" 13>10",
     "span.lock \"\" 13>10",
     "span.lock \"\" 13>10"
@@ -639,6 +709,22 @@
    "w": 1920
   },
   {
+   "id": "target",
+   "h": 1080,
+   "vw": 1920,
+   "clash": [],
+   "out": [],
+   "outN": 0,
+   "spill": [],
+   "minFont": 12,
+   "small": [],
+   "smallN": 0,
+   "taps": [],
+   "font": true,
+   "docW": 1920,
+   "w": 1920
+  },
+  {
    "id": "barang",
    "h": 1080,
    "vw": 1920,
@@ -658,6 +744,22 @@
   },
   {
    "id": "terminal",
+   "h": 1080,
+   "vw": 1920,
+   "clash": [],
+   "out": [],
+   "outN": 0,
+   "spill": [],
+   "minFont": 12,
+   "small": [],
+   "smallN": 0,
+   "taps": [],
+   "font": true,
+   "docW": 1920,
+   "w": 1920
+  },
+  {
+   "id": "sampel",
    "h": 1080,
    "vw": 1920,
    "clash": [],
@@ -810,6 +912,9 @@
    "out": [],
    "outN": 0,
    "spill": [
+    "span.lock \"\" 13>10",
+    "span.lock \"\" 13>10",
+    "span.lock \"\" 13>10",
     "span.lock \"\" 13>10",
     "span.lock \"\" 13>10",
     "span.lock \"\" 13>10"

@@ -3344,3 +3344,11 @@ His review of the published presentation, four shots taken on his wide screen (a
 - **He looks at full width first.** All four defects (the tilted map over the leaderboard, a cube over its label, a receipt faded to nothing mid-loop, a blank door panel filling the screen) showed at 1920 and hid at 1440 / 390. A page is checked at 390, 1440 AND 1920 now (`shoot-showcase.mjs` does all three, plus an overlap check).
 - **Customer-facing words are formal Indonesian** ("pimpinan", "tenaga penjual", no "bos" / "laku" in the descriptions); the app's own button names stay as the app writes them.
 - **Something that loops must not spend its loop invisible.** A receipt that prints, holds and fades reads as missing in whatever second he looks; it prints once when the scene shows and stays.
+
+## "Not standardise": flat cards read as a template to him (2026-10-06)
+
+The customer presentation's round 3 added five scenes built as flat bordered boxes with rows. Palette-correct, all checks green. His verdict, while I was adding two more: *"make sure that the design is not standardise can u design it better use more motion and animation and perspective"*.
+
+**What answered it (v4):** every new picture stands on a tilted 3D stage and rises into place when its scene first shows; parts float at different heights; on a PC the picture leans toward the mouse. Each scene got ONE motion that acts out its own claim: the stock gauges became 3D columns that turn red under a see-through minimum plate; the sample scene throws packs from a carton into a SAMPEL tray; the target chart flips in and draws its own line to "now"; the refused edit shakes and a TERKUNCI stamp slams down; the roles became a stepped tower where the lit role lifts. Lite keeps the tilt (a still frame), drops the motion.
+
+**The rule it adds:** a box of rows is the default every generator reaches for, and he can tell. Same lesson as the Architect Terminal (*"palette-correct is not designed"*): before calling a scene done, ask what this scene's object would be in 3D and what single motion would prove its sentence.

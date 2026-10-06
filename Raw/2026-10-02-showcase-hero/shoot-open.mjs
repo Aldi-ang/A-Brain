@@ -38,12 +38,13 @@ await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, devi
 await send('Page.navigate', { url: pathToFileURL(path.join(HERE, 'lab-showcase.html')).href });
 for (let i = 0; i < 60; i++) { await sleep(200); if (await js('document.readyState === "complete"')) break; }
 const SNAP = { pelanggan: `$('#vlog').firstChild.textContent`, uang: `$('#arDay').textContent`, stok: `$('#stB').textContent`,
-  catatan: `$$('#ledger .lg.wait').length + '/' + $('#deny').className`, keamanan: `$$('#tiers .tr').findIndex((t) => t.classList.contains('on')) + ' ' + $('#vtxt').textContent` };
+  catatan: `$$('#ledger .lg.wait').length + '/' + $('#deny').className`, keamanan: `$$('#tiers .tr').findIndex((t) => t.classList.contains('on')) + ' ' + $('#vtxt').textContent`,
+  target: `$('#prd').textContent`, sampel: `$('#tray').children.length + ' ' + $('#smBks').textContent` };
 let moved = 0;
 for (const [id, e] of Object.entries(SNAP)) {
   await js(`document.getElementById('${id}').scrollIntoView({ block: 'start' }); 1`); await sleep(400);
   const a = await js(e); await sleep(2400); const b = await js(e);
   console.log(a !== b ? 'MOVES' : 'STILL', id, JSON.stringify(a), '->', JSON.stringify(b)); if (a !== b) moved++;
 }
-console.log(`${moved}/5 scenes move`);
+console.log(`${moved}/${Object.keys(SNAP).length} scenes move`);
 ws.close(); chrome.kill(); process.exit(0);

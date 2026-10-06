@@ -176,3 +176,13 @@ Research only, nothing built. Every line checked in kpm code on 2026-10-06 (src 
 **Rejected on purpose:** the "view as another role" switch (TierPovSwitch.jsx, a testing tool on test accounts); the capybara and music player (fun, not boss value); selling to many companies (his rule: the next company is not mentioned); the 610-byte sale (our running cost, not his value).
 
 **Models applied:** Opportunity Cost (every scene added pushes the close further down); Pre-mortem (the page fails if the boss stops before scene 16).
+
+## 2026-10-06 13:22 - all 16 added + the depth redesign, PUBLISHED as version 4
+
+His answers: *"just add all of that"* (read as my 13:10 pick: 2 new scenes + 14 short lines, the smaller of the two readings, said so in the reply), then mid-build *"make sure that the design is not standardise can u design it better use more motion and animation and perspective"*.
+
+**Built:** NEW 05 Target dan Laju (period keys Hari / Minggu / Bulan / Tahun; the pace chart flips in and draws itself; the periods take turns), NEW 08 Sampel Produk (packs arc from the carton into the SAMPEL tray; counts and pita cukai rise); the other 14 points as "also" lines with an amber lamp in 04, 06, 07, 09, 11, 13, 15 and as lock lines in 17, each with its Bukti. Depth on every round-3 picture (see [[Aldi's Design Taste]] "Not standardise"). The page is 18 scenes. `renumber-base.mjs` now numbers the base scenes in page order, so a scene can be inserted anywhere.
+
+**Found on the way:** (1) the stock columns were invisible - their class `.bar` is also the page's top bar, which the shot frame hides (renamed `.cbar`); (2) packs in the tray collapsed to dots - a `span.pk` is inline and ignores its width (`display: block`). Both caught by looking at the frames, not by the checks.
+
+**Proof:** 54 frames (390 / 1440 / 1920): 0 clashes, 0 past the edge, smallest text 12 px, 0 errors; 7/7 animated scenes change state; replay 27/27; no real brand, no price text. Boards `board-r3b-p.png`, `board-r3b-w.png`. PUBLISHED 13:21 as version 4, same link. His review owed.
