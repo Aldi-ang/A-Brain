@@ -370,7 +370,7 @@ details.ev .pop b { color: var(--ink); }
 
 /* ================= round 3 (2026-10-06): five more scenes, built from the same parts ================= */
 .cap { font: 700 12px/1.3 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); }
-.box3 { max-width: 520px; display: grid; gap: 8px; border: 1px solid var(--line-2); border-radius: 14px; background: linear-gradient(180deg, var(--raised), var(--sunk)); padding: 14px; }
+.box3 { max-width: 520px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; border: 1px solid var(--line-2); border-radius: 14px; background: linear-gradient(180deg, var(--raised), var(--sunk)); padding: 14px; }
 .hd3 { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
 .pop-in { animation: popIn 380ms var(--ease-out); }
 @keyframes popIn { from { opacity: 0; transform: translateY(-6px); } }
@@ -551,6 +551,18 @@ details.ev .pop b { color: var(--ink); }
 .req2 { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 10px 12px; border: 1px dashed var(--line-3); border-radius: 10px; font-size: 14px; color: var(--ink-muted); transition: opacity 300ms; }
 .req2.hide { opacity: 0; }
 
+/* stock opname: the count sheet - blind count, recount, a cause, then HQ; a repeated shortage is a leak */
+.ops { display: grid; gap: 6px; }
+.oprow { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, .8fr)); gap: 6px 8px; align-items: center; padding: 9px 10px; border: 1px solid var(--line-2); border-radius: 10px;
+  background: var(--inset); font: 700 14px/1.2 var(--font-mono); font-variant-numeric: tabular-nums; transition: border-color 200ms; }
+.oprow.head { background: none; border: 0; padding: 0 10px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-dim); }
+.oprow .nm { font: 800 15px/1.1 var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
+.oprow .hid { color: var(--ink-dim); letter-spacing: .2em; }
+.oprow .stt { grid-column: 1 / -1; }
+.oprow.hot { border-color: var(--gold); }
+.causes { display: flex; flex-wrap: wrap; gap: 6px; transition: opacity 200ms; }
+.causes.off { opacity: .35; }
+
 /* the close: every scene once more, one press each */
 .recap { display: flex; flex-wrap: wrap; gap: 6px; }
 .recap a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; border: 1px solid var(--line-2); border-radius: 6px; background: var(--inset); color: var(--ink-muted);
@@ -669,7 +681,7 @@ details.ev .pop b { color: var(--ink); }
 
 <header class="bar"><div class="in">
   <span class="brand"><i></i>KPM</span>
-  <span class="now"><b id="sn">01</b> / 19 · <span id="sname">Peta Perjalanan</span></span>
+  <span class="now"><b id="sn">01</b> / 20 · <span id="sname">Peta Perjalanan</span></span>
   <button type="button" class="mv" id="mv" aria-pressed="true"><i></i>Gerak</button>
 </div><div class="prog" id="prog"></div></header>
 
@@ -800,9 +812,11 @@ details.ev .pop b { color: var(--ink); }
     <ul class="also">
       <li><span><b>Surat jalan dan label tercetak.</b> Setiap kotak membawa label berbarcode yang dipindai cabang saat barang tiba.</span></li>
       <li><span><b>Muat motor dengan menyeret kotak.</b> Stok baru berpindah saat Muat Van ditekan, sekali, lengkap dengan surat jalan dan bukti kembali.</span></li>
+      <li><span><b>Rencana kirim per cabang.</b> Satu baris per produk, satu kolom per cabang: berapa yang dibutuhkan tiap cabang dan berapa yang tidak cukup dari gudang pusat, sehingga stok yang terbatas bisa dibagi.</span></li>
+      <li><span><b>Isi motor setiap tenaga penjual terlihat.</b> Admin wilayah melihat stok di motor dan buku penjualan serta sampel hari itu.</span></li>
     </ul>
     <div class="evs">
-      <details class="ev"><summary>Bukti</summary><div class="pop">Gudang pusat bernama <b>'Gudang Pusat (Master Vault)'</b> di <b>src/utils/supply.js:42</b>; stok per produk per gudang <b>supplyByProduct()</b>; pemindai barcode <b>src/components/ArrivalScanner.jsx:44</b> (code_128); surat jalan dua arah: pemeriksaan 53 di <b>integration.audit.mjs</b>; satuan campuran: self-check 12/12 lulus (6 Oktober 2026). Label kotak berbarcode: <b>src/components/ShipmentLabel.jsx:5</b>; surat jalan cetak: <b>src/components/AcceptanceReceipt.jsx:1</b>; muat motor: <b>src/components/LoadingBay.jsx:1</b> (seret tidak menyimpan apa pun, stok berpindah sekali saat Muat Van).</div></details>
+      <details class="ev"><summary>Bukti</summary><div class="pop">Gudang pusat bernama <b>'Gudang Pusat (Master Vault)'</b> di <b>src/utils/supply.js:42</b>; stok per produk per gudang <b>supplyByProduct()</b>; pemindai barcode <b>src/components/ArrivalScanner.jsx:44</b> (code_128); surat jalan dua arah: pemeriksaan 53 di <b>integration.audit.mjs</b>; satuan campuran: self-check 12/12 lulus (6 Oktober 2026). Label kotak berbarcode: <b>src/components/ShipmentLabel.jsx:5</b>; surat jalan cetak: <b>src/components/AcceptanceReceipt.jsx:1</b>; muat motor: <b>src/components/LoadingBay.jsx:1</b> (seret tidak menyimpan apa pun, stok berpindah sekali saat Muat Van). Rencana kirim per produk per cabang dan kekurangannya: <b>src/components/BranchWarehouseManager.jsx:492, 1566</b>. Isi motor dan buku hari itu: <b>src/AgentInventoryView.jsx</b>, <b>src/components/TodayBook.jsx:1</b>.</div></details>
     </div>
   </div>
   <div class="vis">
@@ -944,8 +958,9 @@ details.ev .pop b { color: var(--ink); }
     <div class="eyebrow">11 · Setoran Malam <span class="aud">Untuk pimpinan</span></div>
     <h2>Setiap malam, setiap rupiah diperiksa.</h2>
     <p class="lead">Setiap malam tenaga penjual menyetorkan uang tunai, bukti transfer, sisa barang, dan pita cukai. Admin wilayah memeriksanya baris demi baris. Jika ada kekurangan, selisihnya dicatat sebagai utang atas nama tenaga penjual tersebut.</p>
+    <ul class="also"><li><span><b>Setoran dipandu untuk tenaga penjual.</b> Empat kartu dihitung satu per satu, lalu masuk ke satu surat yang disegel dan dikirim.</span></li></ul>
     <div class="evs">
-      <details class="ev"><summary>Bukti</summary><div class="pop">Layar verifikasi <b>src/EODReconciliationView.jsx</b> (commit <b>64f6505</b>); setuju per baris, commit <b>20aac21</b>; selisih jadi utang: <b>eodBountyLines()</b> di <b>src/utils/helpers.js:716</b>; catatan setoran: <b>eodRecord</b> self-check 12/12 lulus (6 Oktober 2026). Garis pindai dan cap: <b>theme.css</b> blok THE DOCKET.</div></details>
+      <details class="ev"><summary>Bukti</summary><div class="pop">Setoran tenaga penjual: kartu <b>src/components/EODCardDeck.jsx</b> dan surat yang disegel <b>src/components/EODLetter.jsx:1</b>. Layar verifikasi <b>src/EODReconciliationView.jsx</b> (commit <b>64f6505</b>); setuju per baris, commit <b>20aac21</b>; selisih jadi utang: <b>eodBountyLines()</b> di <b>src/utils/helpers.js:716</b>; catatan setoran: <b>eodRecord</b> self-check 12/12 lulus (6 Oktober 2026). Garis pindai dan cap: <b>theme.css</b> blok THE DOCKET.</div></details>
     </div>
   </div>
   <div class="vis">
@@ -1027,9 +1042,10 @@ details.ev .pop b { color: var(--ink); }
     <ul class="also">
       <li><span><b>Permintaan stok cabang.</b> Cabang mengajukan permintaan barang berdasarkan batas minimumnya, dan gudang menerimanya di layar yang sama.</span></li>
       <li><span><b>Foto nota kertas dirapikan sendiri.</b> Nota yang difoto miring dicari tepinya dan diluruskan sebelum disimpan.</span></li>
+      <li><span><b>Harga pokok per produk.</b> Barang masuk dicatat dengan ongkos kirim, ongkos bongkar, dan cukai, dan aplikasi memberi tahu jika harganya naik dari kiriman sebelumnya.</span></li>
     </ul>
     <div class="evs">
-      <details class="ev"><summary>Bukti</summary><div class="pop">Batas bawaan <b>3 Bal</b>, satuan Bal, Karton, Slop, Bks: <b>src/utils/stockThreshold.js:33-35</b>; stok di bawah batas: <b>isLowStock()</b> baris 50; sisa hari: <b>daysOfCover()</b> baris 59, ditampilkan di dasbor <b>src/components/DashboardView.jsx:100</b>. <b>stockThreshold</b> self-check 36/36 dan <b>mixedUnits</b> 12/12 lulus (6 Oktober 2026). Permintaan stok cabang: <b>stock_requests</b> di <b>src/RestockVaultView.jsx:268</b>. Nota dirapikan: tepi kertas dicari lalu ditarik lurus, <b>src/utils/helpers.js:398, 422, 585</b>, dipakai di <b>src/RestockVaultView.jsx:608</b>; <b>notaScan</b> self-check 22/22 lulus. Produk dan angka di sini contoh.</div></details>
+      <details class="ev"><summary>Bukti</summary><div class="pop">Batas bawaan <b>3 Bal</b>, satuan Bal, Karton, Slop, Bks: <b>src/utils/stockThreshold.js:33-35</b>; stok di bawah batas: <b>isLowStock()</b> baris 50; sisa hari: <b>daysOfCover()</b> baris 59, ditampilkan di dasbor <b>src/components/DashboardView.jsx:100</b>. <b>stockThreshold</b> self-check 36/36 dan <b>mixedUnits</b> 12/12 lulus (6 Oktober 2026). Permintaan stok cabang: <b>stock_requests</b> di <b>src/RestockVaultView.jsx:268</b>. Nota dirapikan: tepi kertas dicari lalu ditarik lurus, <b>src/utils/helpers.js:398, 422, 585</b>, dipakai di <b>src/RestockVaultView.jsx:608</b>; <b>notaScan</b> self-check 22/22 lulus. Harga pokok dengan ongkos kirim, bongkar, dan cukai, dibandingkan dengan kiriman terakhir: <b>src/RestockVaultView.jsx:374-382</b>. Produk dan angka di sini contoh.</div></details>
     </div>
   </div>
   <div class="vis rise">
@@ -1050,9 +1066,36 @@ details.ev .pop b { color: var(--ink); }
 </section>
 
 <!-- 15 -->
+<section class="scene" id="opname" data-name="Stock Opname">
+  <div class="copy">
+    <div class="eyebrow">15 · Stock Opname <span class="aud">Untuk pimpinan</span></div>
+    <h2>Hitungan stok yang tidak bisa diakali.</h2>
+    <p class="lead">Admin wilayah dan tenaga penjual menghitung stok tanpa melihat angka sistem, jadi tidak bisa sekadar menyalin. Selisih wajib dihitung ulang sebelum dikirim ke pusat. Jika tetap berbeda, harus diberi alasan: salah hitung, penjualan tidak tercatat, rusak, dicuri, atau tidak diketahui. Barang rusak wajib disebut jenis kerusakannya. Selisih di bawah satu bungkus diabaikan, dan produk yang berulang kali kurang ditandai sebagai kebocoran.</p>
+    <ul class="also"><li><span><b>Angka acuan dibekukan.</b> Begitu sebuah baris mulai dihitung, angka sistemnya dikunci, jadi penjualan di tengah penghitungan tidak mengacaukan selisih.</span></li></ul>
+    <div class="evs">
+      <details class="ev"><summary>Bukti</summary><div class="pop">Hitung buta untuk T4 ke bawah, angka sistem baru muncul setelah diketik: <b>src/StockOpnameView.jsx:208</b>. Selisih dihitung dua kali sebelum ke pusat: baris 78, 512. Lima alasan selisih (Miscount, Unrecorded sale, Breakage, Theft, Cause unknown): baris 29-58, wajib diisi: baris 522. Rusak wajib jenisnya: baris 21, 501. Batas satu bungkus: baris 96. Kebocoran = minimal tiga hitungan dan kurang di dua di antaranya: <b>isLeak()</b> baris 168. Angka acuan dibekukan: baris 358. Menunggu pusat: <b>PENDING_HQ_APPROVAL</b>, baris 546. Angka di sini contoh.</div></details>
+    </div>
+  </div>
+  <div class="vis rise">
+    <div class="box3" id="opn">
+      <div class="hd3"><span class="stamp">Lembar hitung · Cabang Utara</span><span class="contoh">Data contoh</span></div>
+      <div class="ops">
+        <div class="oprow head"><span>Produk</span><span>Sistem</span><span>Ke-1</span><span>Ke-2</span></div>
+        <div class="oprow"><span class="nm">Produk A</span><span>52</span><span>52</span><span>-</span><span class="stt kpm-led-line on"><i aria-hidden="true"></i>Cocok</span></div>
+        <div class="oprow" id="opB"><span class="nm">Produk B</span><span id="opSys" class="hid">•••</span><span id="opC1">-</span><span id="opC2">-</span><span class="stt kpm-led-line" id="opSt"><i aria-hidden="true"></i><span>Menghitung</span></span></div>
+        <div class="oprow"><span class="nm">Produk C</span><span>30</span><span>30</span><span>-</span><span class="stt kpm-led-line on"><i aria-hidden="true"></i>Cocok</span></div>
+      </div>
+      <span class="cap">Alasan selisih Produk B</span>
+      <div class="causes off" id="opCauses"><span class="chip">Miscount</span><span class="chip">Unrecorded sale</span><span class="chip">Breakage</span><span class="chip">Theft</span><span class="chip">Cause unknown</span></div>
+      <span class="kpm-led-line" id="opLeak"><i aria-hidden="true"></i><span>Riwayat Produk B: kurang 1 kali dari 3 hitungan</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- 16 -->
 <section class="scene" id="karantina" data-name="Karantina">
   <div class="copy">
-    <div class="eyebrow">15 · Karantina <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">16 · Karantina <span class="aud">Untuk pimpinan</span></div>
     <h2>Barang bermasalah dikunci dulu.</h2>
     <p class="lead">Hasil hitung stok yang tidak sesuai tidak langsung diterima. Barang rusak atau selisih dipindahkan ke karantina dan dikunci sampai kantor pusat memberi keputusan. Tidak ada barang yang hilang tanpa catatan.</p>
     <div class="evs">
@@ -1074,10 +1117,10 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 16 -->
+<!-- 17 -->
 <section class="scene" id="aman" data-name="Aman, Tanpa Sinyal">
   <div class="copy">
-    <div class="eyebrow">16 · Aman, Tanpa Sinyal <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">17 · Aman, Tanpa Sinyal <span class="aud">Untuk pimpinan</span></div>
     <h2>Jalan terus, walau tanpa sinyal.</h2>
     <p class="lead">Di daerah tanpa sinyal, penjualan tetap tercatat dengan aturan yang sama. Setelah sinyal kembali, data terkirim dengan sendirinya. Data disimpan di server Google, dan data setiap perusahaan dipisahkan.</p>
     <ul class="also">
@@ -1100,10 +1143,10 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 17 -->
+<!-- 18 -->
 <section class="scene" id="catatan" data-name="Catatan dan Laporan">
   <div class="copy">
-    <div class="eyebrow">17 · Catatan dan Laporan <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">18 · Catatan dan Laporan <span class="aud">Untuk pimpinan</span></div>
     <h2>Yang sudah tercatat tidak bisa diubah.</h2>
     <p class="lead">Transaksi penjualan, laporan setoran malam, dan catatan aktivitas harian hanya bisa ditambah. Tenaga penjual dan admin tidak dapat mengubah atau menghapusnya; hak itu hanya ada pada akun pemilik perusahaan. Dari catatan harian inilah Putar Ulang Hari disusun, dan laporan penjualan bisa dicetak kapan saja dengan nota yang sama seperti di toko.</p>
     <div class="evs">
@@ -1127,10 +1170,10 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 18 -->
+<!-- 19 -->
 <section class="scene" id="keamanan" data-name="Keamanan">
   <div class="copy">
-    <div class="eyebrow">18 · Keamanan <span class="aud">Untuk pimpinan</span></div>
+    <div class="eyebrow">19 · Keamanan <span class="aud">Untuk pimpinan</span></div>
     <h2>Setiap jabatan punya kuncinya sendiri.</h2>
     <p class="lead">Semua pengguna masuk dengan akun Google. Ada lima jabatan, dari pemilik sampai sales motoris, dan admin wilayah hanya mengelola wilayahnya sendiri. Brankas pemilik dijaga kata sandi induk; setelah lima kali salah, brankas terkunci 15 menit, dan pemulihannya memakai kode enam angka yang dikirim lewat email. Data setiap perusahaan disimpan terpisah.</p>
     <div class="evs">
@@ -1158,10 +1201,10 @@ details.ev .pop b { color: var(--ink); }
   </div>
 </section>
 
-<!-- 19 -->
+<!-- 20 -->
 <section class="scene s10" id="angka" data-name="Semua Terkendali">
   <div class="copy">
-    <div class="eyebrow">19 · Semua Terkendali <span class="aud">Untuk pimpinan dan tenaga penjual</span></div>
+    <div class="eyebrow">20 · Semua Terkendali <span class="aud">Untuk pimpinan dan tenaga penjual</span></div>
     <h2>Angka, bukan perasaan.</h2>
     <p class="lead">Seluruh angka diukur dari kode aplikasi pada 6 Oktober 2026. Pemeriksaan otomatisnya dapat dijalankan di hadapan siapa pun.</p>
   </div>
@@ -1592,7 +1635,31 @@ function geoRun() {
   if (still || !live.has('lokasi')) { geoSet(3, 'wait'); return; }
   const [i, r, ms] = GEO_PLAN[gStep]; geoSet(i, r); gStep = (gStep + 1) % GEO_PLAN.length; gTimer = wait(ms, geoRun);
 }
-const round3 = () => { custRun(); arRun(); stockRun(); ledgerRun(); secRun(); paceRun(); smpRun(); geoRun(); };
+/* stock opname: B is counted blind (the system figure shows only once typed), short, counted again, still short ->
+   a cause is picked -> HQ; the same product short again and again lights the leak line (StockOpnameView.jsx:208, 78, 168) */
+const opB = $('#opB'), opSys = $('#opSys'), opC1 = $('#opC1'), opC2 = $('#opC2'), opSt = $('#opSt'), opCs = $('#opCauses'), opLeak = $('#opLeak');
+const opChips = $$('#opCauses .chip');
+let oTimer = 0, oStep = 0;
+function opSet({ c1 = '-', c2 = '-', st = ['', 'Menghitung'], cause = -1, causesOn = false, leak = false }) {
+  opSys.textContent = c1 === '-' ? '•••' : '48'; opSys.classList.toggle('hid', c1 === '-');
+  opC1.textContent = c1; opC2.textContent = c2; opB.classList.toggle('hot', c1 !== '-');
+  opSt.className = 'stt kpm-led-line ' + st[0]; opSt.lastChild.textContent = st[1];
+  opCs.classList.toggle('off', !causesOn); opChips.forEach((c, i) => c.classList.toggle('mvg', i === cause));
+  opLeak.className = 'kpm-led-line ' + (leak ? 'crit' : '');
+  opLeak.lastChild.textContent = leak ? 'Produk B kurang 2 kali dari 4 hitungan · kebocoran' : 'Riwayat Produk B: kurang 1 kali dari 3 hitungan';
+}
+const OP_END = { c1: '46', c2: '46', st: ['warn', 'Menunggu keputusan pusat'], cause: 1, causesOn: true, leak: true };
+const OP_PLAN = [
+  [{}, 900], [{ c1: '46', st: ['warn', 'Selisih 2 · hitung ulang'] }, 1300], [{ c1: '46', c2: '46', st: ['crit', 'Tetap kurang 2 bks · pilih alasan'], causesOn: true }, 900],
+  ...[0, 1, 2, 3].map((k) => [{ c1: '46', c2: '46', st: ['crit', 'Tetap kurang 2 bks · pilih alasan'], causesOn: true, cause: k }, 420]),
+  [{ ...OP_END, leak: false }, 1200], [OP_END, 2800],
+];
+function opRun() {
+  clearTimeout(oTimer);
+  if (still || !live.has('opname')) { opSet(OP_END); return; }
+  const [s, ms] = OP_PLAN[oStep]; opSet(s); oStep = (oStep + 1) % OP_PLAN.length; oTimer = wait(ms, opRun);
+}
+const round3 = () => { custRun(); arRun(); stockRun(); ledgerRun(); secRun(); paceRun(); smpRun(); geoRun(); opRun(); };
 
 /* ---- numbers: the nixies start at zero and roll to their value when their scene first shows ---- */
 const nx5 = $('#nx5'), tiles = $$('.tile .kpm-nixie');
@@ -1733,7 +1800,7 @@ const io = new IntersectionObserver((es) => {
       if (id === 'setoran') { dStep = 0; docketRun(); } if (id === 'karantina') doorsRun(true); if (id === 'aman') { nStep = 0; netRun(); } if (id === 'ulang') drGo();
       if (id === 'pelanggan') { vStep = 0; custRun(); } if (id === 'uang') { aDay = 0; arRun(); } if (id === 'stok') { sQty = 60; stockRun(); }
       if (id === 'catatan') { lStep = 0; ledgerRun(); } if (id === 'keamanan') { kStep = 0; secRun(); }
-      if (id === 'target') { paceSet('bulan'); paceRun(); } if (id === 'sampel') { sN = 0; smpRun(); } if (id === 'lokasi') { gStep = 0; geoRun(); }
+      if (id === 'target') { paceSet('bulan'); paceRun(); } if (id === 'sampel') { sN = 0; smpRun(); } if (id === 'lokasi') { gStep = 0; geoRun(); } if (id === 'opname') { oStep = 0; opRun(); }
       kick();
     } else { live.delete(id); e.target.classList.remove('live'); }
   }

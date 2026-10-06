@@ -39,7 +39,7 @@ await send('Page.navigate', { url: pathToFileURL(path.join(HERE, 'lab-showcase.h
 for (let i = 0; i < 60; i++) { await sleep(200); if (await js('document.readyState === "complete"')) break; }
 const SNAP = { pelanggan: `$('#vlog').firstChild.textContent`, uang: `$('#arDay').textContent`, stok: `$('#stB').textContent`,
   catatan: `$$('#ledger .lg.wait').length + '/' + $('#deny').className`, keamanan: `$$('#tiers .tr').findIndex((t) => t.classList.contains('on')) + ' ' + $('#vtxt').textContent`,
-  lokasi: `$('#geoTxt').textContent`, target: `$('#prd').textContent`, sampel: `$('#tray').children.length + ' ' + $('#smBks').textContent` };
+  lokasi: `$('#geoTxt').textContent`, opname: `$('#opSt').textContent + ' ' + $('#opC2').textContent`, target: `$('#prd').textContent`, sampel: `$('#tray').children.length + ' ' + $('#smBks').textContent` };
 let moved = 0;
 for (const [id, e] of Object.entries(SNAP)) {
   await js(`document.getElementById('${id}').scrollIntoView({ block: 'start' }); 1`); await sleep(400);
