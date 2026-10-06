@@ -878,3 +878,18 @@ same line with the needle showing `•`, a debug script had to be written to see
 turns and one wrong guess (CRLF) before the cause was the input conversion, not the file.
 Seen: 2026-09-20
 Fired:
+
+### 2026-09-21 — elementFromPoint never returns a pointer-events:none element, so it cannot prove what paints on top
+**Status:** RETIRED (2026-10-05) — never fired in 14 days of overlay work; the general rule "only a frame is proof of an appearance" (SKILL.md §3) already covers it
+**Trigger:** before writing a probe that uses `document.elementFromPoint` to decide whether an
+overlay (a seal, a toast, a scan line, anything decorative) is painted above or below the page.
+**Lesson:** hit-testing skips every element with `pointer-events: none`, and overlays carry
+exactly that rule. The probe will name the element UNDER the overlay every time, whatever the
+paint order. Prove appearance with a frame: hold the state (patch the timer that removes it, or
+pause the animation) and screenshot, or read the overlay's own computed opacity and rect.
+**Would have prevented:** 2026-09-21 07:45 — the VERIFIED seal probe reported the card's
+`space-y-1` block on top of the seal at 800 ms; a "seal hidden under the card, z-index" miss was
+one turn from being written up and fixed. Holding the 900 ms timer at 20 s and taking the frame
+showed the seal stamped over the list, correct as shipped. Two extra render turns.
+Seen: 2026-09-21
+Fired:

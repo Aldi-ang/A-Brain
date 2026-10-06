@@ -1,0 +1,38 @@
+<!-- 03 -->
+<section class="scene" id="ulang" data-name="Putar Ulang Hari">
+  <div class="copy">
+    <div class="eyebrow">03 · Putar Ulang Hari <span class="aud">Untuk bos</span></div>
+    <h2>Hari seorang sales, diputar ulang.</h2>
+    <p class="lead">Pilih sales dan tanggalnya. Jalannya diputar di peta, toko demi toko: peti terbuka, lalu tiap toko memperlihatkan apa yang terjadi di sana. Laku, pesan ulang, saingan, atau tutup. Bisa dijeda, digeser dan dipercepat, dan setiap peti bisa ditekan.</p>
+    <div class="where">Di aplikasi: <b>Journey Plan</b> → tekan seorang sales → <b>Replay his day</b>. Juga di layar penuh.</div>
+    <div class="evs"><details class="ev"><summary>Bukti</summary><div class="pop">Putar ulang <b>src/components/DayReplay.jsx</b> (commit <b>a4afcf2</b>; layar penuh dan ganti sales: <b>50d98a9</b>). Urutan hari disusun dari penjualan dan Visit Report oleh <b>dayLog()</b> di <b>src/utils/dayLog.js</b>, self-check 21/21 lulus (6 Oktober 2026). Diuji dengan tekan sungguhan di layar 1440 dan 390 px: 32/32. Peti, koin dan papan tanda di sini gambar yang sama dengan aplikasi (<b>src/utils/mapSprites.js</b>); orang, toko dan jamnya contoh.</div></details></div>
+  </div>
+  <div class="vis">
+    <div class="drmap" id="drmap">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path class="river" vector-effect="non-scaling-stroke" d="M0,30 C20,34 30,22 46,30 S70,52 100,46"/>
+        <path class="road big" vector-effect="non-scaling-stroke" d="M0,92 C30,80 52,74 70,56 S90,20 100,8"/>
+        <path class="road small" vector-effect="non-scaling-stroke" d="M10,100 L24,58 L40,72 L52,44 L68,62 L80,36 L64,20 L90,14"/>
+        <path class="road small" vector-effect="non-scaling-stroke" d="M0,60 C18,58 30,46 52,44 S84,40 100,30"/>
+        <polyline class="path" id="drPath" points=""/>
+        <polyline class="trailU" id="drTrailU" points=""/>
+        <polyline class="trail" id="drTrail" points=""/>
+      </svg>
+      <span class="contoh">Data contoh</span>
+    </div>
+    <div class="drbar" id="drbar">
+      <div class="tl" id="drTl" role="slider" tabindex="0" aria-label="Jam" aria-valuemin="0" aria-valuemax="100"><div class="track"><i class="fill" id="drFill"></i></div><i class="head" id="drHead"></i></div>
+      <div class="ctl">
+        <button type="button" id="drRestart" aria-label="Restart"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9a5 5 0 1 0 1.5-3.6"/><path d="M4 3v3.4h3.4"/></svg></button>
+        <button type="button" id="drPrev" aria-label="Previous stop"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M4 3h2v12H4zM15 3v12L7 9z"/></svg></button>
+        <button type="button" class="play" id="drPlay" aria-label="Play"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M5 3v12l10-6z"/></svg></button>
+        <button type="button" id="drNext" aria-label="Next stop"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M12 3h2v12h-2zM3 3v12l8-6z"/></svg></button>
+        <div class="speed" role="group" aria-label="Speed"><button type="button" aria-pressed="true" data-v="1">1x</button><button type="button" aria-pressed="false" data-v="2">2x</button><button type="button" aria-pressed="false" data-v="4">4x</button></div>
+        <b class="clk" id="drClock">08:10</b>
+      </div>
+    </div>
+    <div class="drcard" id="drcard" aria-live="polite"></div>
+    <p class="drnote">Jalan di antara toko digambar, bukan dilacak.</p>
+  </div>
+</section>
+

@@ -1,0 +1,363 @@
+[
+ {
+  "name": "pc: on screen it plays by itself - the clock runs and the man moves",
+  "pass": true,
+  "data": {
+   "a": {
+    "t": 886,
+    "playing": true,
+    "picked": null,
+    "card": "Budi Santoso",
+    "pickCard": false,
+    "clock": "08:18",
+    "man": "16.431%,75.3535%",
+    "play": "Pause",
+    "now": 0,
+    "open": 0
+   },
+   "b": {
+    "t": 1597,
+    "playing": true,
+    "picked": null,
+    "card": "Budi Santoso",
+    "pickCard": false,
+    "clock": "08:24",
+    "man": "20%,70%",
+    "play": "Pause",
+    "now": 0,
+    "open": 0
+   }
+  }
+ },
+ {
+  "name": "pc: every chest and every bar key is the top element where it sits",
+  "pass": true
+ },
+ {
+  "name": "pc: Pause stops the day where it is",
+  "pass": true,
+  "data": {
+   "p1": {
+    "t": 1728,
+    "playing": false,
+    "picked": null,
+    "card": "Toko Berkah Jaya",
+    "pickCard": false,
+    "clock": "08:24",
+    "man": "20%,70%",
+    "play": "Play",
+    "now": 1,
+    "open": 1
+   },
+   "p2": {
+    "t": 1728,
+    "playing": false,
+    "picked": null,
+    "card": "Toko Berkah Jaya",
+    "pickCard": false,
+    "clock": "08:24",
+    "man": "20%,70%",
+    "play": "Play",
+    "now": 1,
+    "open": 1
+   }
+  }
+ },
+ {
+  "name": "pc: a tick jumps to its stop - stop 3 Toko Makmur on the card, its tick marked, three chests open",
+  "pass": true,
+  "data": {
+   "t": 7120,
+   "playing": false,
+   "picked": null,
+   "card": "Toko Makmur",
+   "pickCard": false,
+   "clock": "09:18",
+   "man": "48%,58%",
+   "play": "Play",
+   "now": 3,
+   "open": 3
+  }
+ },
+ {
+  "name": "pc: pressing a chest (stop 4, not reached yet) opens ITS card with a Close and a Play-from-here, the clock stays",
+  "pass": true,
+  "data": {
+   "t": 7120,
+   "playing": false,
+   "picked": 4,
+   "card": "Warung Bu Sri",
+   "pickCard": true,
+   "clock": "09:18",
+   "man": "48%,58%",
+   "play": "Play",
+   "now": 4,
+   "open": 3
+  }
+ },
+ {
+  "name": "pc: the card's keys are the top element",
+  "pass": true
+ },
+ {
+  "name": "pc: Play from here = the card lets go and the day plays on from Warung Bu Sri",
+  "pass": true,
+  "data": {
+   "t": 11151,
+   "playing": true,
+   "picked": null,
+   "card": "Warung Bu Sri",
+   "pickCard": false,
+   "clock": "09:51",
+   "man": "65.2134%,77.3439%",
+   "play": "Pause",
+   "now": 4,
+   "open": 4
+  }
+ },
+ {
+  "name": "pc: 4x runs the clock about four times as fast",
+  "pass": true,
+  "data": {
+   "d": 4064
+  }
+ },
+ {
+  "name": "pc: dragging along the timeline to the middle lands the clock near the middle of the day (09:32 + the time it played on)",
+  "pass": true,
+  "data": {
+   "t": 9021,
+   "playing": true,
+   "picked": null,
+   "card": "Toko Makmur",
+   "pickCard": false,
+   "clock": "09:35",
+   "man": "59.063%,74.2257%",
+   "play": "Pause",
+   "now": 3,
+   "open": 3
+  }
+ },
+ {
+  "name": "pc: after a drag, Play / Pause still flips each press",
+  "pass": true,
+  "data": {
+   "d0": true,
+   "d1": false,
+   "d2": true
+  }
+ },
+ {
+  "name": "pc still: the frame stands at stop 5 (Toko Sinar Abadi), five chests open, not playing",
+  "pass": true,
+  "data": {
+   "t": 12900,
+   "playing": false,
+   "picked": null,
+   "card": "Toko Sinar Abadi",
+   "pickCard": false,
+   "clock": "10:12",
+   "man": "78%,62%",
+   "play": "Play",
+   "now": 5,
+   "open": 5
+  }
+ },
+ {
+  "name": "pc still: nothing animates on the scene's map (coins stand on their face)",
+  "pass": true,
+  "data": 0
+ },
+ {
+  "name": "pc still: Play cuts between stops - the man is only ever standing on a stop",
+  "pass": true,
+  "data": [
+   "78%,62%",
+   "60%,36%",
+   "90%,30%"
+  ]
+ },
+ {
+  "name": "ph: on screen it plays by itself - the clock runs and the man moves",
+  "pass": true,
+  "data": {
+   "a": {
+    "t": 893,
+    "playing": true,
+    "picked": null,
+    "card": "Budi Santoso",
+    "pickCard": false,
+    "clock": "08:18",
+    "man": "16.5144%,75.2284%",
+    "play": "Pause",
+    "now": 0,
+    "open": 0
+   },
+   "b": {
+    "t": 1607,
+    "playing": true,
+    "picked": null,
+    "card": "Budi Santoso",
+    "pickCard": false,
+    "clock": "08:24",
+    "man": "20%,70%",
+    "play": "Pause",
+    "now": 0,
+    "open": 0
+   }
+  }
+ },
+ {
+  "name": "ph: every chest and every bar key is the top element where it sits",
+  "pass": true
+ },
+ {
+  "name": "ph: Pause stops the day where it is",
+  "pass": true,
+  "data": {
+   "p1": {
+    "t": 1806,
+    "playing": false,
+    "picked": null,
+    "card": "Toko Berkah Jaya",
+    "pickCard": false,
+    "clock": "08:24",
+    "man": "20%,70%",
+    "play": "Play",
+    "now": 1,
+    "open": 1
+   },
+   "p2": {
+    "t": 1806,
+    "playing": false,
+    "picked": null,
+    "card": "Toko Berkah Jaya",
+    "pickCard": false,
+    "clock": "08:24",
+    "man": "20%,70%",
+    "play": "Play",
+    "now": 1,
+    "open": 1
+   }
+  }
+ },
+ {
+  "name": "ph: a tick jumps to its stop - stop 3 Toko Makmur on the card, its tick marked, three chests open",
+  "pass": true,
+  "data": {
+   "t": 7120,
+   "playing": false,
+   "picked": null,
+   "card": "Toko Makmur",
+   "pickCard": false,
+   "clock": "09:18",
+   "man": "48%,58%",
+   "play": "Play",
+   "now": 3,
+   "open": 3
+  }
+ },
+ {
+  "name": "ph: pressing a chest (stop 4, not reached yet) opens ITS card with a Close and a Play-from-here, the clock stays",
+  "pass": true,
+  "data": {
+   "t": 7120,
+   "playing": false,
+   "picked": 4,
+   "card": "Warung Bu Sri",
+   "pickCard": true,
+   "clock": "09:18",
+   "man": "48%,58%",
+   "play": "Play",
+   "now": 4,
+   "open": 3
+  }
+ },
+ {
+  "name": "ph: the card's keys are the top element",
+  "pass": true
+ },
+ {
+  "name": "ph: Play from here = the card lets go and the day plays on from Warung Bu Sri",
+  "pass": true,
+  "data": {
+   "t": 11162,
+   "playing": true,
+   "picked": null,
+   "card": "Warung Bu Sri",
+   "pickCard": false,
+   "clock": "09:51",
+   "man": "65.3463%,77.1844%",
+   "play": "Pause",
+   "now": 4,
+   "open": 4
+  }
+ },
+ {
+  "name": "ph: 4x runs the clock about four times as fast",
+  "pass": true,
+  "data": {
+   "d": 4019
+  }
+ },
+ {
+  "name": "ph: dragging along the timeline to the middle lands the clock near the middle of the day (09:32 + the time it played on)",
+  "pass": true,
+  "data": {
+   "t": 9023,
+   "playing": true,
+   "picked": null,
+   "card": "Toko Makmur",
+   "pickCard": false,
+   "clock": "09:35",
+   "man": "59.0911%,74.267%",
+   "play": "Pause",
+   "now": 3,
+   "open": 3
+  }
+ },
+ {
+  "name": "ph: after a drag, Play / Pause still flips each press",
+  "pass": true,
+  "data": {
+   "d0": true,
+   "d1": false,
+   "d2": true
+  }
+ },
+ {
+  "name": "ph still: the frame stands at stop 5 (Toko Sinar Abadi), five chests open, not playing",
+  "pass": true,
+  "data": {
+   "t": 12900,
+   "playing": false,
+   "picked": null,
+   "card": "Toko Sinar Abadi",
+   "pickCard": false,
+   "clock": "10:12",
+   "man": "78%,62%",
+   "play": "Play",
+   "now": 5,
+   "open": 5
+  }
+ },
+ {
+  "name": "ph still: nothing animates on the scene's map (coins stand on their face)",
+  "pass": true,
+  "data": 0
+ },
+ {
+  "name": "ph still: Play cuts between stops - the man is only ever standing on a stop",
+  "pass": true,
+  "data": [
+   "78%,62%",
+   "60%,36%",
+   "90%,30%"
+  ]
+ },
+ {
+  "name": "no page errors",
+  "pass": true,
+  "data": []
+ }
+]

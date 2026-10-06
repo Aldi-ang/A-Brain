@@ -75,3 +75,21 @@ Built as a live page (https://claude.ai/artifact/FiPesjkC3kXGBzCn8r9uwW, source 
 ## 2026-10-05 20:48 - his order: the showcase is next after the fullscreen replay + a push
 
 *"push after we build the fullscreen replay bro then customer presentation"* (his week quota ~30%). Scope agreed by default: prove + finish the 10 written scenes and add the Day Replay as a scene; no new 3D work this week. The popup redesign and the store-list colours wait for next week.
+
+## 2026-10-06 07:58 - PROVEN and FINISHED, the Day Replay added as scene 03 (not published yet)
+
+His go, 07:28: *"lets continue with the presentation first"*. The page `Raw/2026-10-02-showcase-hero/showcase.html` now has 11 scenes.
+
+**Fixed (all checked 2026-10-06 against kpm 8abbf30):** the page used Barlow Condensed - the app ships Rajdhani for titles + labels and the phone's own font for body (theme.css:207-209, kpm `7f88984`), now the same; Rajdhani reads ~2 sizes smaller, so 24 labels under 12 px went up 2 px (his "too small" rule of 2026-10-05) and the smallest text on the page is now 12 px; five Bukti facts had moved (Map System's "Territory Revenue" is now the "Sales heat" key at MapMissionControl.jsx:2096; the nota is ONE component `SaleReceipt.jsx`, not HistoryReportView; eodBountyLines :716; registerSW :13); scene 11's numbers re-measured (3.189 checks in 16 suites, 53.795 lines in 133 files, 2.086 commits, commit 8abbf30); the Karantina doors had no sign (`--sign` never defined) - the app's radiation sign built from `vanBay.js HAZARD_SIGN`; the player card's toggle 28 -> 36 px tall.
+
+**Scene 03 "Putar Ulang Hari" (new):** a drawn map (the page's rule: abstract, "Data contoh"), the app's OWN pictures (chest closed/open, the visit signs, the salesman, the spinning coin - from kpm `mapSprites.js` + `coin-sprite.png`, spliced by `splice-replay.mjs` from `replay-scene.css/.html/.js`), "BS · n" name tags, the fullscreen bar (colour ticks, play/pause, 1x/2x/4x, drag), the card under the map; every chest and tick pressable (his 2026-10-04 rule); Lite = the frame stands at stop 5 and Play cuts between stops.
+
+**Proof:** `shoot-showcase.mjs` -> `results-showcase.json`: 0 elements past the screen edge in all 11 scenes at 390 and 1440, smallest text 12 px, 0 page errors; frames `sc-p-NN.png` / `sc-d-NN.png`, board `board-showcase-p.png`. `walk-replay-scene.mjs` -> `results-replay-scene.json` 27/27 with real presses (mouse 1440, touch 390): plays by itself, pause, tick jump, chest card, play from here, 4x, drag, Lite cuts.
+
+**Found on the way:** (1) my own chests were invisible - a `background` shorthand after the sprite rules wiped their images; longhands now. (2) A "lost tap" on the phone that cost two wrong fixes: a test drag sent as ONE instant move reads as a fling, and the next tap only stops the fling (no click) - real phone behaviour; with a finger-speed drag the tap clicks (`probe-tap.mjs` vs `probe-tap-slow.mjs`). Not a page bug; lesson recorded.
+
+**Skipped on purpose:** the "Try it yourself" button to the demo - a key with no address is a dead object; it goes in when the demo exists.
+
+**Decision owed:** 🔴 publish as a private Artifact link (his to share) - asked 2026-10-06 08:00.
+
+**Models applied:** Inversion (what makes the boss doubt the page: a wrong Bukti line - all re-checked); Chesterton's Fence (the drawn map: rejected real geography on 2026-10-02 stays rejected).
