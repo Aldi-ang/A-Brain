@@ -25,9 +25,9 @@ const last = (s.match(/<section class="scene/g) || []).length;   /* round 3 (202
 for (let n = last; n >= 3; n--) {
   s = s.replace(`<!-- ${pad(n)} -->`, `<!-- ${pad(n + 1)} -->`).replace(`<div class="eyebrow">${pad(n)} · `, `<div class="eyebrow">${pad(n + 1)} · `);
 }
-/* the old replace looked for '/ 10 · ' with a space the bar never had, so the published page said "/ 10" over 11 scenes */
-if (!s.includes(`</b> / ${last} ·`)) throw new Error('the bar does not say / ' + last);
-s = s.replace(`</b> / ${last} ·`, `</b> / ${last + 1} ·`);
+/* a bar text that does not match must stop the splice, never pass silently */
+if (!s.includes(`</b> / ${last} · `)) throw new Error('the bar does not say / ' + last);
+s = s.replace(`</b> / ${last} · `, `</b> / ${last + 1} · `);
 put('@media (prefers-reduced-motion: reduce) { .kpm-nixie-reel', css + '\n');
 put('<!-- 04 -->', html);
 put('/* ---- which scene is on screen', js + '\n');

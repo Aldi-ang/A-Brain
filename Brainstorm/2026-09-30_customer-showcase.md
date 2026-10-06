@@ -132,13 +132,13 @@ Built from his 09:21 ask in one session. The page now has 16 scenes; the base ho
 **Found on the way:**
 1. **The brief's claim was wrong.** "Transactions and the activity log cannot be edited or deleted" holds for salesmen and admins only. The `users/{bossUid}/{document=**}` catch-all (firestore.rules:343) ORs write access for the owner over every nested `allow update, delete: if false` - the same shape the rules file already flags for awards. The page now says the right sits with the owner account alone; no screen in the app edits or deletes a sale (grep, 2026-10-06). Whether sales should be locked even for the owner is HIS call - never changed silently.
 2. T3 (HQ Sales Manager) is region-locked too (rules:599 covers Area Admin and Fleet Captain), so the job rows do not say "all regions".
-3. The published v2 bar said "/ 10" over 11 scenes: the old splice replaced `'/ 10 · '` with a trailing space the bar never had. Now it counts the scenes and throws if the bar text is missing.
+3. CORRECTED 12:57 (my 09:48 claim was wrong): the published v2 bar DID say "/ 11". My own Edit dropped the space after the dot ("/ 15 ·<span"), so the old splice did not match; I blamed the old splice. Found on the full read of v2 before republishing. The splice now throws when the bar text does not match, and the space is back.
 4. The open-door Karantina frame came out shut twice: scrolling fires the page's own `doorsRun(true)`, and `captureBeyondViewport` resizes the page and fires it again. `shoot-open.mjs` scrolls first, pins `doorsRun` to a no-op, captures inside the viewport.
 5. At 1920 the new boxes (520 px) looked lost next to the approved docket (~1290 px); widened to 720 px, and Money + Security put their side parts beside the main box from 1440 up.
 
 **Proof:** `shoot-showcase.mjs` 48 frames (390 / 1440 / 1920): 0 clashes, 0 past the edge, smallest text 12 px, 0 page errors (moving mode too); `shoot-open.mjs`: every pack inside its slot, 5/5 new scenes change state over 2.4 s; `walk-replay-scene.mjs` 27/27. Boards `board-r3-p.png`, `board-r3-w.png`.
 
-**Decision:** OPEN - waiting on Aldi: publish round 3 to the same link (version 3)?
+**Decision:** his "publish it first so that i can review it" (12:55) -> PUBLISHED 12:57 as version 3, same link https://claude.ai/artifact/AJQ36jBJr4jkkn6ZUnRN4A. Also fixed before it: the replay scene sample note named a real brand ("Minta Sampoerna Mild 16") - now "Minta Produk C isi 16" (no real brand on a shared page). Re-proved after both fixes: 48 frames 0 clash / 0 out / min 12 px / 0 errors, 5/5 move, replay 27/27. His review is owed.
 
 **Rejected on purpose (still):** any price, calculator or comparison number; real brand packaging; "nobody can edit, not even the owner" (false today).
 

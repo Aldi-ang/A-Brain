@@ -9,7 +9,7 @@ const DR = [
   { t: '09:18', k: 'sold', x: 48, y: 58, n: 'Toko Makmur', v: 'Sale · Rp 180.000' },
   { t: '09:44', k: 'issue', x: 63, y: 80, n: 'Warung Bu Sri', v: 'Competitor Issue', note: 'Rokok saingan dijual lebih murah' },
   { t: '10:12', k: 'sold', x: 78, y: 62, n: 'Toko Sinar Abadi', v: 'Sale · Rp 325.000' },
-  { t: '10:40', k: 'request', x: 60, y: 36, n: 'Warung Pojok', v: 'New Request', note: 'Minta Sampoerna Mild 16' },
+  { t: '10:40', k: 'request', x: 60, y: 36, n: 'Warung Pojok', v: 'New Request', note: 'Minta Produk C isi 16' },
   { t: '11:05', k: 'closed', x: 90, y: 30, n: 'Toko Lancar', v: 'Store Closed' },
 ];
 const DR_NAME = { sold: 'Sale', order: 'Repeat Order', issue: 'Competitor Issue', request: 'New Request', closed: 'Store Closed' };
