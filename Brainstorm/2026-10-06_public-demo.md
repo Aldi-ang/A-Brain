@@ -107,3 +107,19 @@ tags: [kpm, demo, showcase, vercel]
 **Decision:** OPEN - waiting on Aldi.
 
 **Models applied:** Inversion (how does the switcher break? a visitor uses a real T2 power on a shared login); Second-Order Thinking (a shared account turns one visitor's action into every visitor's problem); Opportunity Cost (hiding the features to protect the logins would hide what the demo exists to show - hence the extra practice staff).
+
+**20:14 - his answer + a new ask.** *"c is good make sure that the users wont broke anything or edit anything, and i want u to add and prepare some sales and demo data as well inside the app but of course use all my real data inside, all customer profile, product and literally everything u need inside this app. here is the recovery that should contained everything inside the real app right now"* (file `Downloads/FOLDER_RECOVERY--SAFE_2026-10-10_20-12.json`, 6.4 MB, `meta.type` RECOVERY). **Switcher protection = C (DECIDED).** Two readings of "wont ... edit anything" put back to him: (1) visitors can only look, nothing they do stays (contradicts his 2026-10-06 "Stays for everyone"); (2) the 5 demo logins cannot be broken or edited, everything else works and resets nightly (my reading).
+
+**What the backup holds (counts only, no values copied here):** 6 products (names, 4 price levels incl. distributor + grosir, photos as base64, pack sizes), 152 customers (exact GPS on 151, 38 cities in 4 provinces, phone on 22, street address on 18, store photo on 27, a contact-person name on 1, visit notes / descriptions on 73, a debt (pendingIOUs) on 1, salesman names on 3-6), 23 activity-log entries, 5 tier settings, the company name; 0 transactions, 0 samplings, 0 borders; no staff list.
+
+**SECURITY WARNING given (not a design choice, raised before anything is built):** the demo is public ("Stays for everyone", open to anyone). His real shops' names, map pins, phones, addresses, photos and notes would be readable by any stranger, competitors included; the shop owners never agreed (Indonesia's personal-data law, UU PDP 27/2022, covers exactly this - not legal advice); the distributor and grosir prices are his client's margins. The backup itself never goes into the repo.
+
+| # | What the demo holds | Cost | Risk |
+|---|---|---|---|
+| A (MY PICK) | the real SHAPE, disguised: the 6 real products (names, photos, pack sizes) with prices changed a little; the 152 shops copied with made-up shop names, no phone / address / photos / notes, each pin moved a short way inside its own town; made-up staff; sales made fresh each night (B) | one converter script (backup -> demo seed) + a check that no real name / phone / exact pin survives | a viewer sees his market footprint (which towns) - low |
+| B | as A, but the product prices stay real | same | his client's margins public |
+| C | everything real | none to build | public personal data - only acceptable if the demo becomes PRIVATE (a password he hands out), which ends "anyone can try" |
+
+**Decision:** OPEN - waiting on Aldi (both questions).
+
+**Models applied:** Inversion (what makes this demo a disaster: a shop owner finds their phone and shop photo on a public page); Reversibility Test (published personal data cannot be taken back - a one-way door; disguising is two-way: real data can be added later if the demo goes private).
