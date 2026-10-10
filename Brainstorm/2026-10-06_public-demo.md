@@ -50,3 +50,26 @@ tags: [kpm, demo, showcase, vercel]
 **Known ceilings:** a visitor can change a shared demo password or fill screens with junk until the nightly reset (the reset re-sets passwords and data); the free plan's daily reads (~50k) hold roughly a few hundred visits a day [guessing - measure once seeded].
 
 **Models applied (answers round):** Reversibility Test (a separate project + a separate Vercel project = the real site and data are untouchable; deleting the demo deletes nothing real); Inversion (EmailJS found - the one thing in the demo that reaches the outside world).
+
+## 2026-10-10 19:45 - his "freeze time" ask (OPEN - waiting on Aldi)
+
+**Problem, his words (19:26):** *"dont forget to make the demo account for the trials so that everyone can tried the app online and maybe since the data is always resetted everyday it will affect the demo account as well isnt? maybe add ability to freeze time so that some of the features are not affected, i mean the daily journey might reset when the date change as well and we lose the ability to view the animation again"*.
+
+**Facts checked in code (2026-10-10):** Journey Plan's "today" = `getLocalDayKey()` (`src/JourneyView.jsx:405`) - its live map and Expedition show today only, so a sample day dated yesterday is empty there. Day Replay OPENS on today (`JourneyView.jsx:1007` `setReplayFor({ id, day: todayDate })`) but its panel already has a date picker (`<input type="date" max={getLocalDayKey()}>`, `src/components/DayReplay.jsx:303`) - an old sample day is never lost from the replay, only hidden behind the picker. His worry is right for Journey, half right for the replay. Clock readers in `src/`: 106 `new Date()` in 31 files, 82 `Date.now()`, 47 `getLocalDayKey()`/`getCurrentDate()`; and 91 `serverTimestamp()` writes, stamped by the SERVER's real clock - a freeze on the phone cannot reach them.
+
+| # | What the demo does | Cost | Breaks |
+|---|---|---|---|
+| No fix | the reset writes the same old date | nothing | from day 2, Journey + Replay open empty |
+| A | demo build freezes the phone's clock on the sample day (one Date shift at the app entry covers the 188 phone reads, ~10 lines + a self-check the real build never carries it) | ~half a session | a visitor's sale gets `date` = frozen day but `timestamp` = real day (server clock) -> Reports / Replay put it on the wrong day; sign-in tokens check expiry against the phone clock [likely, not tested] -> visitors logged out or stuck |
+| B | the nightly reset writes the sample day with TODAY's date each night | nothing in the app - the reset script is mine and not written yet | in the morning the demo already shows the afternoon's sales (written at 00:05 for 08:00-17:00); a night the job fails = that day empty until the next night (the replay's picker still reaches the last good day); GitHub turns off scheduled jobs after 60 days with no repo activity [likely - public repos] |
+| C | A + B | A's cost | A's wrong-day sale, for nothing B lacks |
+
+**My pick:** B. **not-chosen:** A - lost on the two-clocks sale (his own pick "Stays for everyone" means a visitor's sale must show in Reports and the Replay) and the token risk; flips if the demo must always show ONE exact date (e.g. a date printed in the presentation).
+
+**Decision:** OPEN - waiting on Aldi. Asked 2026-10-10 ~19:45 as a picture (No fix / A / B / C x Day 1 / Day 2 / a visitor's sale), with his part step 1 (the Firebase project).
+
+**Rejected on purpose:** nothing yet.
+
+**Side fact:** his 19:26 "push it" did not land (sign-in window); this session's retry was refused by the auto-mode safety check - he pushes himself, or says "push" again.
+
+**Models applied:** Inversion (what makes a frozen demo break - a visitor's sale on the wrong day); Second-Order Thinking (the server's clock is a second clock the freeze cannot reach); Opportunity Cost (B is free because the nightly reset is already in his 2026-10-06 pick).
