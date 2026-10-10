@@ -73,3 +73,4 @@ sit here indefinitely once it's actually decided.
 - [[2026-10-04_visit-signs]] - clearer visit signs (his 17:10 "more clear to understand and memorize"): he picked C (objects + word), BUILT kpm bcae573; round 2: the open-request "!" (his B), BUILT kpm 635c62e
 - [[2026-10-05_map-system-redesign]] - Map System redesign for its job (analyze stores, areas, levels): today vs PC A/B and phone A/B drawn (https://claude.ai/artifact/WxW6xpYd3dhLhyEwZ6Gn8u); DECIDED: phone A (dock), PC B (full map) - build next
 - [[2026-10-06_public-demo]] - a demo he and other people can try: A publish the lab / B demo mode (no login, sample data, saves until refresh) / C demo company on a real backend; OPEN, my pick B
+- [[2026-10-10_product-save-device-only]] - "on this device only" after saving a product description: the save waits only 1.5 s and re-sends the photos each time; fixes A wait longer / B "Saving..." then "Saved" (my pick) / C stop re-sending photos; OPEN
