@@ -87,3 +87,23 @@ tags: [kpm, demo, showcase, vercel]
 **Order from here:** (a) the "Try as Salesman / Boss / Admin" page + DEMO banner + the demo-only Email/Password sign-in - DESIGN, drawn first, his pick; (b) the seed/reset script (B: the sample day dated from its run date; creates the demo accounts per role + their vault passwords; refuses any project but kpm-demo-f4d74) run nightly by GitHub Actions on HIS service-account secret; (c) his rules deploy to kpm-demo (the same firestore.rules); (d) the 2nd Vercel project on a `demo` branch with VITE_DEMO=1.
 
 **20:03 - his "what about the rules?":** the demo gets the SAME `firestore.rules` as live, unchanged (why appId was kept). Checked: the file's code lines equal the live copy `firestore.rules.deployed-baseline` - the only difference is the header comment (diff 11 lines, all in lines 2-7). The demo's rules today = the console default `allow read, write: if false` (his screenshot 19:5x) = fully locked - right while it is empty and has no accounts. `isSuperAdmin()` hard-codes his Gmail (`firestore.rules:21`), so in the demo his own Google account is super admin too; strangers cannot get it. Advice given: paste-and-publish the file in the same sitting as the first seed (accounts + sample day), not before - nothing can use the rules until the accounts exist. "Next update first" applies to rules too: a rules change goes to kpm-demo before live.
+
+## 20:06 - his tier switcher for the demo (OPEN - waiting on Aldi)
+
+**Problem, his words:** *"u need to add some temporary panel just to swap between tiers so that the users that use the demo can switch tiers at ease and try each of the tiers features and of course i want each of the account swapping to be a real account, this logic is similar to the tier 1 features to swap account, but of course the account swapping is only tier 2 and below and they cant access to tier 1 features"*.
+
+**His call is right, and better than the tool it copies:** his own T1 switch (`src/components/TierPovSwitch.jsx`, `src/config/povPreview.js`) changes only the SCREEN - Firestore still sees his T1 account ("HONEST LIMIT" in povPreview.js). A real sign-in per tier means the rules really apply, so a visitor sees exactly what that tier can and cannot do. Tiers (`src/config/permissions.js:2-8`): T1 DEVELOPER (his Gmail only - `isSuperAdmin()` firestore.rules:21, `POV_OWNER_EMAIL`), T2 COMPANY_OWNER, T3 HQ Sales Manager, T4 Regional Admin, T5 Sales Canvas, T6 Sales Motorist. So 5 switch logins, T2..T6; T2 = the demo company's owner. It folds into the next job (the front door): the same role buttons, on the sign-in page AND as a small panel on every screen.
+
+**The cost he has not priced (checked in the rules):** the 5 logins are SHARED by every visitor. A T2 can lock or unlock a colleague (firestore.rules:254) and move a person to a new Gmail (:245); a locked login gets no record (:57). So: a visitor on Owner locks "Demo Salesman" -> every visitor who presses Salesman is refused until the reset.
+
+| # | What happens | Cost | Breaks |
+|---|---|---|---|
+| A | only the nightly reset repairs | nothing extra | a locked / moved switch login stays broken for everyone until midnight |
+| B | the reset runs every hour | 24 runs a day (GitHub Actions minutes; Firestore free writes ~20k/day - a reset's write count to be measured once seeded) | broken for up to an hour |
+| C (MY PICK) | the 5 switch logins are protected in the demo build: lock / change email / change tier / delete / their vault password greyed out with "This is a demo login - try it on Budi"; the demo company also has extra staff (Budi, Ari...) that visitors can lock, move, edit freely; nightly reset as planned | a guard on each of those buttons (count them first) + a demoBuild check that the real bundle carries none of it | a visitor with devtools can still reach the rules directly - the reset repairs it; the buttons stay try-able on the extra staff, so no selling point is hidden |
+
+**not-chosen:** B - lost because it still leaves a broken tier in front of the next visitor (up to an hour) and adds 24 runs a day; flips if the guards in C turn out to touch more than ~5 screens. Hiding the lock buttons everywhere was rejected on purpose: "lock an account" is a selling point in the presentation (security scene).
+
+**Decision:** OPEN - waiting on Aldi.
+
+**Models applied:** Inversion (how does the switcher break? a visitor uses a real T2 power on a shared login); Second-Order Thinking (a shared account turns one visitor's action into every visitor's problem); Opportunity Cost (hiding the features to protect the logins would hide what the demo exists to show - hence the extra practice staff).
