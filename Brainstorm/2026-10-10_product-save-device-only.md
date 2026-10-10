@@ -18,6 +18,7 @@ tags: [kpm, master-vault, offline, toast]
 | B (MY PICK) | say "Saving…" at once, then "Saved" when the server confirms; "device only" only if the phone is really offline or nothing confirms in ~10 s | small, one function | honest at every speed, and no 8 s silence |
 | C | stop re-sending photos when they did not change (send only changed fields) | touches the photo logic + every reader of `images` | every product save is much smaller and faster |
 
-**Decision:** OPEN - waiting on Aldi.
+**Decision:** B, built kpm `51527bc` (his "B is better message to use").
+
 
 **Models applied:** Inversion (when is the message wrong? a write slower than the window but still landing); Second-Order Thinking (photos stored inside the record make every small edit a large upload).

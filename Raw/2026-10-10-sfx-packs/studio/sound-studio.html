@@ -1,0 +1,331 @@
+<title>KPM Sound Studio</title>
+<style>
+  /* layout: one column of four sound cards under a sticky save bar; the app's own dark slate + gold, light variant for daylight */
+  :root {
+    --ground:#0A0908; --panel:#121110; --raised:#1B1917; --inset:#0E0D0C;
+    --line:#2A2622; --line-2:#3E3A35;
+    --ink:#E8E4DE; --ink-muted:#A39B90; --ink-dim:#928B81;
+    --gold:#D08A2E; --gold-ink:#0A0908; --accent-ink:#D08A2E; --accent-edge:#D08A2E; --bad:#E08C82; --hi:#F5D08A;
+    --mono:ui-monospace,"Cascadia Mono","Consolas",monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+    color-scheme:dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --ground:#D6CDBA; --panel:#E1DAC8; --raised:#EDE7D8; --inset:#C6BDA9;
+      --line:#7E786F; --line-2:#5E5A55; --ink:#131211; --ink-muted:#3A3733; --ink-dim:#3F3B36;
+      --gold:#1B1917; --gold-ink:#F7F3E9; --accent-ink:#6B4A12; --accent-edge:#6B4A12; --bad:#9A2A1E; --hi:#6B4A12;
+      color-scheme:light;
+    }
+  }
+  :root[data-theme="light"] {
+    --ground:#D6CDBA; --panel:#E1DAC8; --raised:#EDE7D8; --inset:#C6BDA9;
+    --line:#7E786F; --line-2:#5E5A55; --ink:#131211; --ink-muted:#3A3733; --ink-dim:#3F3B36;
+    --gold:#1B1917; --gold-ink:#F7F3E9; --accent-ink:#6B4A12; --accent-edge:#6B4A12; --bad:#9A2A1E; --hi:#6B4A12;
+    color-scheme:light;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font:400 15px/1.55 var(--sans); padding-inline:16px; padding-block:0 64px; }
+  .wrap { max-width:980px; margin:0 auto; }
+  header { padding-block:28px 4px; }
+  h1 { font:900 clamp(22px,5vw,30px)/1.15 var(--sans); margin:0 0 6px; text-wrap:balance; }
+  .sub { color:var(--ink-muted); font-size:14px; margin:0; max-width:64ch; }
+  .sub b { color:var(--ink); }
+
+  .bar { position:sticky; top:env(safe-area-inset-top,0px); z-index:5; display:flex; flex-wrap:wrap; gap:10px 14px; align-items:end;
+         margin:14px 0; padding:10px 0; background:var(--ground); border-bottom:1px solid var(--line); }
+  .bar .knob { flex:1 1 160px; }
+  .key { min-height:44px; padding:0 14px; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+         border:1px solid var(--line-2); border-radius:10px; background:var(--panel); color:var(--ink); cursor:pointer;
+         font:900 11px/1 var(--mono); letter-spacing:.14em; text-transform:uppercase; transition:transform .12s ease-out, border-color .16s; }
+  .key:hover { border-color:var(--accent-edge); }
+  .key:active { transform:scale(.96); }
+  .key:focus-visible, select:focus-visible, input:focus-visible { outline:3px solid var(--hi); outline-offset:2px; }
+  .key.save { background:var(--gold); color:var(--gold-ink); border-color:transparent; }
+  .key.save:disabled { background:var(--panel); color:var(--ink-dim); border:1px dashed var(--line-2); cursor:default; transform:none; }
+  .state { font:900 10px/1.3 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); min-height:44px; display:inline-flex; align-items:center; }
+
+  .cards { display:grid; gap:12px; }
+  .card { background:var(--raised); border:1px solid var(--line-2); border-radius:14px; padding:12px; display:grid; gap:10px; min-width:0; }
+  .head { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+  .head .nm { flex:1 1 220px; min-width:0; }
+  .head .nm b { display:block; font:800 16px/1.25 var(--sans); }
+  .head .nm small { display:block; color:var(--ink-muted); font-size:13px; }
+  .try { background:var(--gold); color:var(--gold-ink); border-color:transparent; }
+  .pick { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .pick select { flex:1 1 240px; min-width:0; min-height:44px; border-radius:10px; border:1px solid var(--line-2); background:var(--inset); color:var(--ink); font:700 13px/1 var(--mono); padding:0 10px; }
+  .play { width:44px; padding:0; font-size:14px; letter-spacing:0; }
+  .facts { font:700 11px/1.4 var(--mono); color:var(--ink-dim); letter-spacing:.04em; font-variant-numeric:tabular-nums; }
+  .wave { width:100%; height:56px; border-radius:8px; border:1px solid var(--line-2); display:block; }
+  .knobs { display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap:6px 14px; }
+  .knob { display:grid; gap:2px; font:900 10px/1.3 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--ink-dim); }
+  .knob output { color:var(--ink); letter-spacing:.04em; font-variant-numeric:tabular-nums; }
+  .knob input[type=range] { width:100%; min-height:28px; accent-color:var(--accent-edge); }
+
+  /* the moment itself, so a sound is judged where it happens, not alone */
+  .stage { min-height:64px; border:1px dashed var(--line-2); border-radius:10px; background:var(--inset); display:grid; place-items:center; padding:10px; overflow:hidden; }
+  .strip { max-width:100%; padding:10px 14px; border:1px solid var(--line-2); border-left:3px solid var(--accent-edge); border-radius:6px; background:var(--panel);
+           font:700 13px/1.4 var(--sans); color:var(--ink); opacity:0; transform:translateY(-10px); }
+  .strip.bad { border-left-color:var(--bad); }
+  .strip.in { animation:in .26s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes in { from { opacity:0; transform:translateY(-10px) scale(.97); } to { opacity:1; transform:none; } }
+  .bubble { max-width:100%; padding:8px 12px; border-radius:12px; background:var(--panel); border:1px solid var(--line-2); font:700 13px/1.4 var(--sans); }
+  .bubble i { font-style:normal; opacity:.15; }
+  .bubble i.on { opacity:1; }
+  .welcome { text-align:center; }
+  .welcome b { display:block; font:900 20px/1.2 var(--sans); opacity:.12; transition:opacity .6s; }
+  .welcome small { font:900 10px/1.4 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:var(--accent-ink); opacity:.12; transition:opacity .6s .5s; }
+  .welcome.on b, .welcome.on small { opacity:1; }
+  @media (prefers-reduced-motion: reduce) { .strip.in { animation:none; opacity:1; transform:none; } .welcome b, .welcome small { transition:none; } }
+
+  footer { margin-top:30px; color:var(--ink-dim); font:12px/1.5 var(--mono); }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Sound studio · messages, capybara, intro</h1>
+    <p class="sub">Every sound here is a <b>real recording</b> from Kenney's free packs (public domain, fine in a paid app). Each card starts on my pick; <b>Today's sound</b> is in every list so you can compare. Press the gold button to hear it in its moment. Letting go of a slider plays the result. When it sounds right, press <b>Save</b> — I build the app's files from what you saved.</p>
+  </header>
+
+  <div class="bar">
+    <label class="knob"><span>Echo <output id="o-room"></output></span><input type="range" id="room" min="0" max="0.6" step="0.01"></label>
+    <label class="knob"><span>Volume, all <output id="o-master"></output></span><input type="range" id="master" min="0" max="1.5" step="0.01"></label>
+    <button class="key" id="reset" type="button">My picks</button>
+    <button class="key save" id="save" type="button" disabled>Save</button>
+    <span class="state" id="state" role="status" aria-live="polite">My picks</span>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <footer>KPM Inventory · sound studio · recordings: Kenney Interface Sounds, UI Audio, Digital Audio, Music Jingles (CC0) · <span id="stamp"></span></footer>
+</div>
+
+<script src="sfx-pack.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var SRC = window.KPM_SFX || {}, META = window.KPM_SFX_META || {}, CFG = window.KPM_SFX_CARDS || { cards: {}, today: {} };
+
+  var CARDS = [
+    { id:'msg',   name:'Message appears',         sub:'the top strip: "saved", "added", every normal message', try:'Show a message' },
+    { id:'fail',  name:'Failure message appears', sub:'the top strip with the red edge: "NOT saved", "not enough stock"', try:'Show a failure' },
+    { id:'capy',  name:'Capybara talks',          sub:'one short blip, played again and again at 4 pitches while his line types out', try:'Capybara says a line' },
+    { id:'intro', name:'Vault intro',             sub:'"Welcome back · KPM App access unlocked" after the password', try:'Play the intro' }
+  ];
+  /* the capybara's four pitches, same order the app picks them in (useSound.js speakMumble) */
+  var STEPS = [1, 1.12, .92, 1.25];
+  var STRIP = { msg:'American Spirit - Turquoise saved. Stock 1000 Bks', fail:'"American Spirit - Turquoise" was NOT saved. No connection.' };
+  var LINE = 'Halo bos! Stok Cello Green tinggal sedikit.';
+
+  /* the recordings are loud (Kenney peaks near 0 dB) and the app's are quiet: a candidate starts at a level
+     that lands near today's sounds, so comparing them is fair */
+  function startVol(n) { var m = META[n]; if (!m || n.indexOf('today:') === 0) return 1; return Math.min(1.5, +Math.pow(10, (-15 - m.peakDb) / 20).toFixed(2)); }
+  function fresh(n) { var m = META[n] || {}, lead = m.lead || 0; return { src:n, start:+Math.max(0, lead - .005).toFixed(3), end:+(lead + (m.len || 1) + .03).toFixed(3), vol:startVol(n), rate:1, hp:0 }; }
+  function defaults() {
+    var ev = {};
+    CARDS.forEach(function (c) { ev[c.id] = fresh((CFG.cards[c.id] || [])[0]); });
+    ev.capy.rate = 1.05; ev.capy.hp = 200;
+    return { v:1, room:.08, master:1, ev:ev };
+  }
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+  var DEFAULTS = defaults(), SET = clone(DEFAULTS);
+
+  /* ── sound: decode once (an OfflineAudioContext may decode before the first tap), play through a
+        high-pass (the BASS CUT his "less bass, more crisp") and a short room ─────────────────────── */
+  var AC = null, DRY = null, WET = null, BUF = {}, acted = false;
+  function decodeAll() {
+    var OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext; if (!OAC) return Promise.resolve();
+    var off = new OAC(1, 44100, 44100);
+    return Promise.all(Object.keys(SRC).map(function (n) {
+      var bin = atob(SRC[n]), bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return off.decodeAudioData(bytes.buffer).then(function (b) { BUF[n] = b; }, function () {});
+    }));
+  }
+  function rng(seed) { var s = seed >>> 0; return function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296 * 2 - 1; }; }
+  function room() {
+    var sr = AC.sampleRate, n = Math.floor(sr * .6), b = AC.createBuffer(2, n, sr);
+    for (var ch = 0; ch < 2; ch++) { var d = b.getChannelData(ch), r = rng(11 + ch), y = 0;
+      for (var i = 0; i < n; i++) { y += .35 * (r() - y); d[i] = i < sr * .006 ? 0 : y * Math.exp(-i / (sr * .12)); } }
+    return b;
+  }
+  function audio() {
+    if (!acted) return null;
+    if (!AC) { var C = window.AudioContext || window.webkitAudioContext; if (!C) return null;
+      AC = new C(); DRY = AC.createGain(); WET = AC.createGain(); var conv = AC.createConvolver(); conv.buffer = room();
+      DRY.connect(AC.destination); WET.connect(conv); conv.connect(AC.destination); }
+    if (AC.state === 'suspended') AC.resume();
+    return AC;
+  }
+  function play(id, mult, at) {
+    var s = SET.ev[id], b = s && BUF[s.src]; if (!b) return 0;
+    var c = audio(); if (!c) return 0;
+    var r = s.rate * (mult || 1);
+    var start = Math.min(s.start, b.duration - .02), end = Math.max(start + .02, Math.min(s.end, b.duration));
+    var len = (end - start) / r, t = c.currentTime + .01 + (at || 0), v = s.vol * SET.master;
+    var src = c.createBufferSource(), hp = c.createBiquadFilter(), g = c.createGain();
+    src.buffer = b; src.playbackRate.value = r;
+    hp.type = 'highpass'; hp.frequency.value = Math.max(10, s.hp); hp.Q.value = .707;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(v, t + .004);
+    g.gain.setValueAtTime(v, t + Math.max(.005, len - .025)); g.gain.linearRampToValueAtTime(0, t + len);
+    WET.gain.value = SET.room;
+    src.connect(hp); hp.connect(g); g.connect(DRY); g.connect(WET);
+    src.start(t, start, end - start);
+    return len;
+  }
+  document.addEventListener('pointerdown', function () { acted = true; }, true);
+  document.addEventListener('keydown', function () { acted = true; }, true);
+
+  /* ── the moment, acted out ───────────────────────────────────────────────────────────────────── */
+  function tryMoment(id) {
+    var st = $('stage-' + id);
+    if (id === 'msg' || id === 'fail') {
+      st.innerHTML = '<div class="strip' + (id === 'fail' ? ' bad' : '') + '">' + STRIP[id] + '</div>';
+      void st.offsetWidth; st.firstChild.classList.add('in'); play(id); return;
+    }
+    if (id === 'capy') {
+      var chars = LINE.split(''), letters = LINE.replace(/\s+/g, '').length;
+      st.innerHTML = '<div class="bubble">' + chars.map(function (ch) { return '<i>' + ch + '</i>'; }).join('') + '</div>';
+      var spans = st.querySelectorAll('i');
+      /* the app's rhythm: one blip per ~4 letters, at most 8, one every 105 ms (useSound.js) */
+      var count = Math.min(8, Math.max(1, Math.round(letters / 4)));
+      for (var i = 0; i < count; i++) play('capy', STEPS[(i * 3 + letters) % STEPS.length], i * .105);
+      spans.forEach(function (sp, k) { setTimeout(function () { sp.classList.add('on'); }, k * (count * 105 / spans.length)); });
+      return;
+    }
+    st.innerHTML = '<div class="welcome"><b>Welcome back</b><small>KPM App access unlocked</small></div>';
+    void st.offsetWidth; play('intro'); setTimeout(function () { st.firstChild.classList.add('on'); }, 150);
+  }
+
+  /* ── the cards ─────────────────────────────────────────────────────────────────────────────── */
+  function label(n) {
+    if (n.indexOf('today:') === 0) return "Today's sound";
+    return n.replace(/_/g, ' ');
+  }
+  function knob(id, k, text, min, max, step) {
+    return '<label class="knob"><span>' + text + ' <output id="o-' + k + '-' + id + '"></output></span>' +
+      '<input type="range" id="' + k + '-' + id + '" data-k="' + k + '" min="' + min + '" max="' + max + '" step="' + step + '"></label>';
+  }
+  $('cards').innerHTML = CARDS.map(function (c) {
+    var list = (CFG.cards[c.id] || []).concat(['today:' + CFG.today[c.id]]);
+    var opts = list.map(function (n, i) { return '<option value="' + n + '">' + (i === 0 ? '★ ' : '') + label(n) + (i === 0 ? ' (my pick)' : '') + '</option>'; }).join('');
+    return '<section class="card" data-ev="' + c.id + '" aria-label="' + c.name + '">' +
+      '<div class="head"><div class="nm"><b>' + c.name + '</b><small>' + c.sub + '</small></div>' +
+      '<button type="button" class="key try" data-try="' + c.id + '">' + c.try + '</button></div>' +
+      '<div class="stage" id="stage-' + c.id + '" aria-hidden="true"></div>' +
+      '<div class="pick"><button type="button" class="key play" data-play="' + c.id + '" aria-label="Play ' + c.name + '">▶</button>' +
+      '<select id="src-' + c.id + '" data-k="src" aria-label="Recording for ' + c.name + '">' + opts + '</select></div>' +
+      '<p class="facts" id="facts-' + c.id + '"></p>' +
+      '<canvas class="wave" id="wave-' + c.id + '" aria-hidden="true"></canvas>' +
+      '<div class="knobs">' + knob(c.id, 'start', 'Start', 0, 2, .005) + knob(c.id, 'end', 'End', 0, 2, .005) +
+      knob(c.id, 'vol', 'Loudness', 0, 1.5, .01) + knob(c.id, 'rate', 'Pitch', .5, 1.8, .01) + knob(c.id, 'hp', 'Bass cut', 0, 1500, 10) + '</div></section>';
+  }).join('');
+
+  function paintRow(id) {
+    var s = SET.ev[id], b = BUF[s.src], dur = b ? b.duration : 2, m = META[s.src] || {};
+    $('src-' + id).value = s.src;
+    ['start', 'end'].forEach(function (k) { var inp = $(k + '-' + id); inp.max = dur.toFixed(3); inp.value = s[k]; $('o-' + k + '-' + id).textContent = s[k].toFixed(2) + ' s'; });
+    $('vol-' + id).value = s.vol; $('o-vol-' + id).textContent = Math.round(s.vol * 100) + '%';
+    $('rate-' + id).value = s.rate; $('o-rate-' + id).textContent = s.rate.toFixed(2) + '×';
+    $('hp-' + id).value = s.hp; $('o-hp-' + id).textContent = s.hp ? 'below ' + s.hp + ' Hz' : 'off';
+    var kept = (s.end - s.start) / s.rate;
+    $('facts-' + id).textContent = 'plays ' + kept.toFixed(2) + ' s · bass in the recording ' + Math.round((m.bass || 0) * 100) + '% · brightness ' + (m.bright || 0) + ' Hz';
+    drawWave(id);
+  }
+  function paintGlobal() {
+    $('room').value = SET.room; $('o-room').textContent = Math.round(SET.room * 100) + '%';
+    $('master').value = SET.master; $('o-master').textContent = Math.round(SET.master * 100) + '%';
+  }
+  function paintAll() { paintGlobal(); CARDS.forEach(function (c) { paintRow(c.id); }); }
+  function drawWave(id) {
+    var cv = $('wave-' + id), s = SET.ev[id], b = BUF[s.src], H = 56;
+    var w = cv.clientWidth || 300, dpr = window.devicePixelRatio || 1;
+    cv.width = Math.round(w * dpr); cv.height = Math.round(H * dpr);
+    var ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var css = getComputedStyle(document.documentElement);
+    ctx.fillStyle = css.getPropertyValue('--inset').trim(); ctx.fillRect(0, 0, w, H);
+    if (!b) return;
+    var d = b.getChannelData(0), per = Math.max(1, Math.floor(d.length / w)), x0 = s.start / b.duration * w, x1 = s.end / b.duration * w;
+    var hot = css.getPropertyValue('--accent-edge').trim(), dim = css.getPropertyValue('--ink-dim').trim();
+    ctx.globalAlpha = .14; ctx.fillStyle = hot; ctx.fillRect(x0, 0, Math.max(1, x1 - x0), H);
+    for (var x = 0; x < w; x++) {
+      var mn = 1, mx = -1;
+      for (var i = x * per; i < (x + 1) * per && i < d.length; i++) { var v = d[i]; if (v < mn) mn = v; if (v > mx) mx = v; }
+      var keep = x >= x0 && x <= x1; ctx.globalAlpha = keep ? 1 : .3; ctx.fillStyle = keep ? hot : dim;
+      ctx.fillRect(x, (1 - mx) * H / 2, 1, Math.max(1, (mx - mn) * H / 2));
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  /* stored settings are untrusted input: anything missing, unknown or out of range falls back to my pick */
+  function sane(raw) {
+    var out = clone(DEFAULTS); if (!raw || typeof raw !== 'object') return out;
+    var num = function (v, lo, hi, dflt) { v = Number(v); return isFinite(v) ? Math.min(hi, Math.max(lo, v)) : dflt; };
+    out.room = num(raw.room, 0, .6, out.room); out.master = num(raw.master, 0, 1.5, out.master);
+    CARDS.forEach(function (c) {
+      var r = raw.ev && raw.ev[c.id], o = out.ev[c.id];
+      if (!r || !SRC[r.src]) return;
+      o.src = r.src; o.start = num(r.start, 0, 12, 0); o.end = num(r.end, o.start + .02, 12, o.start + .3);
+      o.vol = num(r.vol, 0, 1.5, o.vol); o.rate = num(r.rate, .5, 1.8, o.rate); o.hp = num(r.hp, 0, 1500, 0);
+    });
+    out.at = Number(raw.at) || 0;
+    return out;
+  }
+  var DB = null, savedAt = '';
+  function state(dirty) {
+    $('save').disabled = !dirty;
+    $('state').textContent = dirty ? 'Not saved yet' : (savedAt ? 'Saved · ' + savedAt : 'My picks');
+    if (dirty) { SET.at = Date.now(); try { localStorage.setItem('kpm-studio2-draft', JSON.stringify(SET)); } catch (x) {} }
+  }
+  function edit(e, andPlay) {
+    var el = e.target, card = el.closest('.card'), k = el.dataset.k;
+    if (el.id === 'room' || el.id === 'master') { SET[el.id] = +el.value; paintGlobal(); state(true); return; }
+    if (!card || !k) return;
+    var id = card.dataset.ev, s = SET.ev[id];
+    if (k === 'src') { if (s.src !== el.value) SET.ev[id] = fresh(el.value); }
+    else {
+      s[k] = +el.value;
+      if (k === 'start' && s.start > s.end - .02) s.start = Math.max(0, s.end - .02);
+      if (k === 'end' && s.end < s.start + .02) s.end = s.start + .02;
+    }
+    paintRow(id); state(true);
+    if (andPlay) (id === 'capy' ? tryMoment('capy') : play(id));
+  }
+  document.addEventListener('input', function (e) { if (e.target.closest('#cards, .bar')) edit(e, false); });
+  document.addEventListener('change', function (e) { if (e.target.closest('#cards')) edit(e, true); });
+  $('cards').addEventListener('click', function (e) {
+    var t = e.target.closest('[data-try]'); if (t) { tryMoment(t.dataset.try); return; }
+    var p = e.target.closest('[data-play]'); if (p) play(p.dataset.play);
+  });
+  $('reset').addEventListener('click', function () { SET = clone(DEFAULTS); paintAll(); state(true); });
+  $('save').addEventListener('click', function () {
+    SET.at = Date.now();
+    var body = clone(SET), stamp = new Date().toTimeString().slice(0, 5);
+    var done = function (where) { savedAt = stamp + ' · ' + where; try { localStorage.removeItem('kpm-studio2-draft'); } catch (x) {} state(false); };
+    if (!DB) { try { localStorage.setItem('kpm-studio2-saved', JSON.stringify(body)); } catch (x) {} done('this browser only'); return; }
+    $('save').disabled = true; $('state').textContent = 'Saving…';
+    DB.doc('sfx/settings').set(body).then(function () { done('every device'); }, function (err) {
+      $('save').disabled = false; $('state').textContent = 'Could not save (' + (err && err.code || 'error') + ') - press Save again';
+    });
+  });
+  var rt = 0;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { CARDS.forEach(function (c) { drawWave(c.id); }); }, 150); });
+
+  function readLocal(key) { try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (x) { return null; } }
+  function adopt(saved) {
+    var draft = readLocal('kpm-studio2-draft');
+    if (draft && (!saved || (Number(draft.at) || 0) > (Number(saved.at) || 0))) { SET = sane(draft); paintAll(); state(true); return; }
+    if (saved) { SET = sane(saved); savedAt = saved.at ? new Date(saved.at).toTimeString().slice(0, 5) : ''; }
+    paintAll(); state(false);
+  }
+  $('stamp').textContent = new Date().toISOString().slice(0, 10);
+  paintAll();
+  var dbReady = (window.claude && window.claude.use) ? window.claude.use('db') : Promise.resolve(null);
+  Promise.all([decodeAll(), Promise.resolve(dbReady).catch(function () { return null; })]).then(function (r) {
+    DB = r[1];
+    if (!DB) return adopt(readLocal('kpm-studio2-saved'));
+    DB.doc('sfx/settings').get().then(function (snap) { adopt(snap.exists ? snap.data() : null); }, function () { adopt(null); });
+  });
+})();
+</script>
