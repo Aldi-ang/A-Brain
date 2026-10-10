@@ -1,0 +1,168 @@
+<title>Master Vault 3D Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap">
+<style>
+/* Layout: a phone-width copy of the Master Vault product page; a key switches A / B; the fullscreen viewer is the sales
+   terminal's (black, fixed, nothing behind it moves). Single dark theme on purpose: the app's own dark Ark Lab. */
+:root {
+  color-scheme: dark;
+  --ground: #0A0908; --panel: #121110; --raised: #1B1917; --inset: #0E0D0C;
+  --line: #26231F; --line-2: #3E3A35; --line-3: #6A645C;
+  --ink: #E8E4DE; --muted: #A39B90; --dim: #928B81;
+  --gold: #D08A2E; --gold-2: #E4B04A; --gold-ink: #0A0908; --warn: #FFB020;
+  --display: "Rajdhani", "Arial Narrow", system-ui, sans-serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 15px/1.5 var(--body); padding-inline: 16px; padding-block: 16px 60px; }
+.wrap { max-width: 430px; margin: 0 auto; display: grid; gap: 14px; }
+h1 { margin: 0; font: 700 26px/1.05 var(--display); letter-spacing: .03em; text-transform: uppercase; text-wrap: balance; }
+.how { color: var(--muted); font-size: 14px; margin: 0; }
+.sw { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding-block: 8px; background: var(--ground); }
+.key { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 8px 12px; border: 1px solid var(--line-3); border-radius: 10px; background: var(--raised); color: var(--muted);
+  font: 700 14px/1.2 var(--display); letter-spacing: .08em; text-transform: uppercase; text-align: left; cursor: pointer; }
+.key i { flex: 0 0 10px; height: 10px; border-radius: 50%; background: #000; border: 1px solid var(--line-3); }
+.key[aria-pressed="true"] { background: var(--inset); border-color: var(--gold); color: var(--ink); }
+.key[aria-pressed="true"] i { background: radial-gradient(circle, #fff 0 1px, var(--gold-2) 2px); border-color: var(--gold); }
+.key:focus-visible, .x:focus-visible, .fs:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 2px; }
+.what { margin: 0; padding: 10px 12px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--panel); font-size: 14px; color: var(--muted); }
+.what b { color: var(--ink); }
+
+/* the copy of the Master Vault page */
+.vault { border: 1px solid var(--line-2); border-radius: 16px; overflow: hidden; background: linear-gradient(#000, #15120e 40%, #000); }
+.vhead { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--line); font: 700 12px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.stage { position: relative; height: 320px; display: grid; place-items: center; perspective: 1000px; }
+.stage.drag { touch-action: none; cursor: grab; }
+.stage.tap { cursor: pointer; }
+.hint { position: absolute; left: 50%; bottom: 10px; translate: -50% 0; white-space: nowrap; font: 700 12px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--gold-2);
+  padding: 6px 9px; border: 1px solid var(--line-2); border-radius: 6px; background: rgba(10,9,8,.85); }
+.fs { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line-3); border-radius: 50%; background: rgba(10,9,8,.8); color: var(--ink); cursor: pointer; }
+.fs svg { width: 18px; height: 18px; }
+
+/* the pack: the app's 55 x 90 x 22 mm shape, made-up packaging */
+.pack { --w: 110px; --h: 176px; --d: 44px; position: relative; width: var(--w); height: var(--h); transform-style: preserve-3d; }
+.pack.spin { animation: spin 20s linear infinite; }
+@keyframes spin { to { transform: rotateX(-12deg) rotateY(360deg); } }
+.pack i { position: absolute; display: block; border: 1px solid rgba(10,9,8,.6); }
+.pack .f, .pack .bk { inset: 0; }
+.pack .f { transform: translateZ(calc(var(--d) / 2)); background: linear-gradient(162deg, transparent 58%, #F2EEE4 58% 70%, transparent 70%), linear-gradient(#F2EEE4 0 30%, rgba(10,9,8,.5) 30% calc(30% + 1px), #8A5A2C calc(30% + 1px));
+  display: grid; place-items: end center; padding-bottom: 12%; font: 700 15px/1 var(--display); letter-spacing: .1em; color: #F2EEE4; }
+.pack .bk { transform: rotateY(180deg) translateZ(calc(var(--d) / 2)); background: #6B4520; }
+.pack .l, .pack .r { top: 0; height: var(--h); width: var(--d); left: calc((var(--w) - var(--d)) / 2); background: linear-gradient(#D8D2C4 0 30%, #6B4520 30%); }
+.pack .l { transform: rotateY(-90deg) translateZ(calc(var(--w) / 2)); }
+.pack .r { transform: rotateY(90deg) translateZ(calc(var(--w) / 2)); filter: brightness(.7); }
+.pack .t, .pack .b { left: 0; width: var(--w); height: var(--d); top: calc((var(--h) - var(--d)) / 2); background: #D8D2C4; }
+.pack .t { transform: rotateX(90deg) translateZ(calc(var(--h) / 2)); }
+.pack .b { transform: rotateX(-90deg) translateZ(calc(var(--h) / 2)); background: #4a3018; }
+
+.rows { display: grid; gap: 8px; padding: 14px; }
+.row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--inset); font-size: 14px; color: var(--muted); }
+.row b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.cap { font: 700 12px/1.3 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+
+/* the description box that gets added to Edit Record / New Entry */
+.form { display: grid; gap: 10px; padding: 14px; border: 1px solid var(--line-2); border-radius: 14px; background: var(--panel); }
+.form label { display: grid; gap: 6px; font: 700 12px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.form input, .form textarea { width: 100%; padding: 10px; border: 1px solid var(--line-3); border-radius: 8px; background: var(--inset); color: var(--ink); font: 400 15px/1.4 var(--body); }
+.form textarea { min-height: 88px; resize: vertical; }
+.new { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(228,176,74,.15); }
+.tag { justify-self: start; font: 700 12px/1 var(--display); letter-spacing: .14em; color: var(--gold-ink); background: var(--gold-2); border-radius: 4px; padding: 4px 6px; }
+
+/* the sales terminal's fullscreen viewer (ExamineModal): fixed, black, nothing behind it moves */
+.full { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.95); display: grid; grid-template-rows: 1fr auto; touch-action: none; padding: env(safe-area-inset-top, 0px) 16px env(safe-area-inset-bottom, 0px); }
+.full .big { display: grid; place-items: center; perspective: 1200px; cursor: grab; }
+.full .pack { --w: 160px; --h: 256px; --d: 64px; }
+.full .x { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 14px); right: 16px; width: 48px; height: 48px; border: 1px solid var(--line-3); border-radius: 50%; background: rgba(10,9,8,.7); color: var(--ink); font: 700 22px/1 var(--display); cursor: pointer; }
+.full .info { text-align: center; padding-block: 0 28px; display: grid; gap: 8px; justify-items: center; }
+.full .info h2 { margin: 0; font: 700 22px/1.1 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+.full .info p { margin: 0; max-width: 34ch; color: var(--muted); font-style: italic; }
+.full[hidden], .fs[hidden] { display: none; }   /* `display: grid` above would otherwise beat the hidden attribute */
+@media (prefers-reduced-motion: reduce) { .pack.spin { animation: none; transform: rotateX(-12deg) rotateY(-28deg); } }
+</style>
+
+<div class="wrap">
+  <h1>Master Vault: 3D view, A or B</h1>
+  <p class="how">Try both with your finger. Drag on the box, and also try dragging just under or beside it, the way the page moves today.</p>
+  <div class="sw" role="group" aria-label="Choose an option">
+    <button type="button" class="key" id="kA" aria-pressed="true"><i></i>A · tap opens fullscreen</button>
+    <button type="button" class="key" id="kB" aria-pressed="false"><i></i>B · small box turns + button</button>
+  </div>
+  <p class="what" id="what"></p>
+
+  <div class="vault">
+    <div class="vhead"><span>Master Vault · Produk C</span><span>Stok 120 bks</span></div>
+    <div class="stage" id="stage">
+      <div class="pack spin" id="pk"><i class="f">PRODUK C</i><i class="bk"></i><i class="l"></i><i class="r"></i><i class="t"></i><i class="b"></i></div>
+      <button type="button" class="fs" id="fs" aria-label="Open fullscreen" hidden><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7V2h5M11 2h5v5M16 11v5h-5M7 16H2v-5"/></svg></button>
+      <span class="hint" id="hint"></span>
+    </div>
+    <div class="rows">
+      <span class="cap">Prices</span>
+      <div class="row"><span>Distributor (modal)</span><b>Rp 22.000</b></div>
+      <div class="row"><span>Retail</span><b>Rp 26.000</b></div>
+      <div class="row"><span>Grosir</span><b>Rp 24.500</b></div>
+      <div class="row"><span>Ecer</span><b>Rp 27.000</b></div>
+      <span class="cap">Packing</span>
+      <div class="row"><span>Bks / Slop</span><b>10</b></div>
+      <div class="row"><span>Slop / Bal</span><b>20</b></div>
+      <div class="row"><span>Sticks / Bks</span><b>16</b></div>
+    </div>
+  </div>
+
+  <span class="cap">The box that gets added (both options) · Edit Record / New Entry</span>
+  <form class="form" id="form">
+    <label for="pname">Product name<input id="pname" value="PRODUK C"></label>
+    <span class="tag">NEW</span>
+    <label for="pdesc">Description<textarea id="pdesc" class="new">Kretek 16 batang, rasa manis. Laku di warung pinggir jalan.</textarea></label>
+  </form>
+  <p class="how">Example product, example text. The description shows in the fullscreen view, like your old products in the sales terminal.</p>
+</div>
+
+<div class="full" id="full" hidden>
+  <button type="button" class="x" id="x" aria-label="Close">×</button>
+  <div class="big" id="big"><div class="pack" id="pk2"><i class="f">PRODUK C</i><i class="bk"></i><i class="l"></i><i class="r"></i><i class="t"></i><i class="b"></i></div></div>
+  <div class="info"><h2>Produk C</h2><p id="fdesc"></p></div>
+</div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+let mode = 'A';
+const rot = { inline: { x: -12, y: -28 }, full: { x: -12, y: -28 } };
+const paint = () => { $('#pk2').style.transform = `rotateX(${rot.full.x}deg) rotateY(${rot.full.y}deg)`; if (mode === 'B') $('#pk').style.transform = `rotateX(${rot.inline.x}deg) rotateY(${rot.inline.y}deg)`; };
+/* one drag rule for both boxes: pointer events, the finger captured so the turn keeps following it */
+function dragger(el, key, onTap) {
+  let last = null, moved = 0;
+  el.addEventListener('pointerdown', (e) => { if (e.target.closest('button')) return; last = { x: e.clientX, y: e.clientY }; moved = 0; el.setPointerCapture?.(e.pointerId); });
+  el.addEventListener('pointermove', (e) => {
+    if (!last) return;
+    const dx = e.clientX - last.x, dy = e.clientY - last.y; moved += Math.abs(dx) + Math.abs(dy);
+    if (key) { rot[key].y += dx * .5; rot[key].x -= dy * .5; paint(); }
+    last = { x: e.clientX, y: e.clientY };
+  });
+  const end = () => { if (last && moved < 8 && onTap) onTap(); last = null; };
+  el.addEventListener('pointerup', end); el.addEventListener('pointercancel', () => { last = null; });
+}
+const open = () => { $('#fdesc').textContent = `"${$('#pdesc').value.trim() || 'A standard pack of cigarettes.'}"`; $('#full').hidden = false; document.body.style.overflow = 'hidden'; $('#x').focus(); };
+const close = () => { $('#full').hidden = true; document.body.style.overflow = ''; };
+$('#x').onclick = close;
+addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('#full').hidden) close(); });
+dragger($('#big'), 'full');
+dragger($('#stage'), 'inline', () => { if (mode === 'A') open(); });
+$('#fs').onclick = open;
+function setMode(m) {
+  mode = m;
+  $('#kA').setAttribute('aria-pressed', String(m === 'A')); $('#kB').setAttribute('aria-pressed', String(m === 'B'));
+  const st = $('#stage'), pk = $('#pk');
+  st.classList.toggle('tap', m === 'A'); st.classList.toggle('drag', m === 'B');
+  pk.classList.toggle('spin', m === 'A'); pk.style.transform = '';
+  $('#fs').hidden = m !== 'B';
+  $('#hint').textContent = m === 'A' ? 'Tap the box · fullscreen' : 'Drag to turn · or the button';
+  $('#what').innerHTML = m === 'A'
+    ? '<b>A:</b> the small box only spins slowly. Tap it and the fullscreen viewer opens, the same one as the sales terminal. Turn it there. Dragging anywhere on this page only scrolls, never fights the box.'
+    : '<b>B:</b> the small box turns when your finger starts ON it (like today). Start the drag beside it and the page scrolls instead. The round button opens the same fullscreen viewer.';
+  paint();
+}
+$('#kA').onclick = () => setMode('A'); $('#kB').onclick = () => setMode('B');
+setMode('A');
+</script>

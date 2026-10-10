@@ -12,4 +12,4 @@
 | A | Tap the box in Master Vault -> the SAME fullscreen viewer as the sales terminal (ExamineModal); the small box on the page stops turning on a drag, so the page can never move under a finger | smallest; reuses the screen he named |
 | B | Keep the small box turnable AND add a fullscreen button | the page-moving can still happen on the small box |
 
-**Decision:** OPEN - waiting on Aldi (asked 2026-10-10 19:05, my pick A; the description box needs no decision - built with whichever he picks).
+**Decision:** OPEN - waiting on Aldi (asked 2026-10-10 19:05, my pick A). He asked to see it (*"can u show it to me so that i can decide"*): a live test page with A / B switch + the new description box, https://claude.ai/artifact/TkUxdM1xB19rqJ3WnHnZ8k (source `Raw/2026-10-10-master-vault-3d/vault-3d-test.html`).
