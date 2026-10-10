@@ -51,7 +51,7 @@ tags: [kpm, demo, showcase, vercel]
 
 **Models applied (answers round):** Reversibility Test (a separate project + a separate Vercel project = the real site and data are untouchable; deleting the demo deletes nothing real); Inversion (EmailJS found - the one thing in the demo that reaches the outside world).
 
-## 2026-10-10 19:45 - his "freeze time" ask (OPEN - waiting on Aldi)
+## 2026-10-10 19:31 - his "freeze time" ask (OPEN - waiting on Aldi)
 
 **Problem, his words (19:26):** *"dont forget to make the demo account for the trials so that everyone can tried the app online and maybe since the data is always resetted everyday it will affect the demo account as well isnt? maybe add ability to freeze time so that some of the features are not affected, i mean the daily journey might reset when the date change as well and we lose the ability to view the animation again"*.
 
@@ -66,7 +66,7 @@ tags: [kpm, demo, showcase, vercel]
 
 **My pick:** B. **not-chosen:** A - lost on the two-clocks sale (his own pick "Stays for everyone" means a visitor's sale must show in Reports and the Replay) and the token risk; flips if the demo must always show ONE exact date (e.g. a date printed in the presentation).
 
-**Decision:** OPEN - waiting on Aldi. Asked 2026-10-10 ~19:45 as a picture (No fix / A / B / C x Day 1 / Day 2 / a visitor's sale), with his part step 1 (the Firebase project).
+**Decision:** OPEN - waiting on Aldi. Asked 2026-10-10 19:31 as a picture (No fix / A / B / C x Day 1 / Day 2 / a visitor's sale), with his part step 1 (the Firebase project).
 
 **Rejected on purpose:** nothing yet.
 
