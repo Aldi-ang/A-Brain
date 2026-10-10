@@ -51,7 +51,7 @@ tags: [kpm, demo, showcase, vercel]
 
 **Models applied (answers round):** Reversibility Test (a separate project + a separate Vercel project = the real site and data are untouchable; deleting the demo deletes nothing real); Inversion (EmailJS found - the one thing in the demo that reaches the outside world).
 
-## 2026-10-10 19:31 - his "freeze time" ask (OPEN - waiting on Aldi)
+## 2026-10-10 19:31 - his "freeze time" ask (DECIDED 19:44: B)
 
 **Problem, his words (19:26):** *"dont forget to make the demo account for the trials so that everyone can tried the app online and maybe since the data is always resetted everyday it will affect the demo account as well isnt? maybe add ability to freeze time so that some of the features are not affected, i mean the daily journey might reset when the date change as well and we lose the ability to view the animation again"*.
 
@@ -66,10 +66,12 @@ tags: [kpm, demo, showcase, vercel]
 
 **My pick:** B. **not-chosen:** A - lost on the two-clocks sale (his own pick "Stays for everyone" means a visitor's sale must show in Reports and the Replay) and the token risk; flips if the demo must always show ONE exact date (e.g. a date printed in the presentation).
 
-**Decision:** OPEN - waiting on Aldi. Asked 2026-10-10 19:31 as a picture (No fix / A / B / C x Day 1 / Day 2 / a visitor's sale), with his part step 1 (the Firebase project).
+**Decision:** B, 19:44 - his words: *"B is good i guess we can do that"*. (Asked 19:31 as a picture (No fix / A / B / C x Day 1 / Day 2 / a visitor's sale), with his part step 1 (the Firebase project).)
 
 **Rejected on purpose:** nothing yet.
 
 **Side fact:** his 19:26 "push it" did not land (sign-in window); this session's retry was refused by the auto-mode safety check - he pushes himself, or says "push" again.
 
 **Models applied:** Inversion (what makes a frozen demo break - a visitor's sale on the wrong day); Second-Order Thinking (the server's clock is a second clock the freeze cannot reach); Opportunity Cost (B is free because the nightly reset is already in his 2026-10-06 pick).
+
+**19:44 - his Firebase project, in progress (he is in the console):** he turned on Google sign-in AND Email/Password in the demo project (*"i turn on google sign in because it is our main sign in method and also email and password"*). Firestore choices given: Standard edition (Enterprise is the paid MongoDB-style engine; the app uses only Core operations), database ID left as `(default)` (the app opens the default database: `initializeFirestore(app, {...})` with no database id, `src/config/firebase.js:49`), location `asia-southeast2` (Jakarta; cannot be changed later), production mode (locked until the rules go in; test mode would let any stranger read and write for 30 days), no scheduled backups. Open cost of Google sign-in in the demo: a stranger who uses Google lands with no role - the "Try as" page must steer visitors to the shared demo logins; the demo address must be added under Authentication -> Settings -> Authorized domains once it exists.
