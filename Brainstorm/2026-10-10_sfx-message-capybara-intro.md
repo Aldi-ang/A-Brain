@@ -1,6 +1,6 @@
 ---
 date: 2026-10-10
-status: OPEN - studio published, waiting on his Save
+status: message + failure SAVED (bake next); capybara + intro REJECTED - ask him for references
 tags: [kpm, sound, sfx, studio]
 ---
 
@@ -25,3 +25,15 @@ His words: *"yes u can download all, B is better message to use btw"* (B = the p
 **The studio:** https://claude.ai/artifact/AmgCRrR8s8MfPaAxfPQtNr (private, db capability, saves to `sfx/settings`). Four cards - message appears / failure message / capybara talks / vault intro - each with ~10 shortlisted recordings + "Today's sound", the moment acted out (a strip slides in, the capybara's line types out at the app's rhythm: 1 blip per ~4 letters, max 8, 105 ms apart, 4 pitches 1 / 1.12 / 0.92 / 1.25), knobs Start / End / Loudness / Pitch / **Bass cut** (a high-pass, his "less bass, more crisp"), Echo + Volume on top. Candidates start at a level matched to today's quiet sounds (peak -15 dB). My picks: message `glass_001`, failure `error_003`, capybara `pluck_001` (pitch 1.05, bass cut 200 Hz), intro `jingles_STEEL13`. Checked locally (`studio/serve.mjs`): 4 cards, 39 recordings decode, waveforms drawn, no sideways scroll at 375 px; the live page could not be opened in the pane (not signed in); `sfx` collection empty until he saves.
 
 **After his Save:** read `sfx/settings`, render with `tools/sfx-bake.mjs`'s method (+ the high-pass) into `public/sounds/` - new names, never overwriting `commit` (it stays the SALE sound): e.g. `msg-in.mp3`, `msg-fail.mp3`, `capy1..4.mp3` (one recording at the 4 pitches), `vault-intro.mp3`; point `Toast.jsx` and `speakMumble` / `VaultGate.jsx` at them; the audit's sound checks must still pass.
+
+## 22:26 - his first save, and what he rejected
+
+**Saved** (`sfx/settings` version 1, 2026-10-10 22:24 WIB per `updatedAt` 15:24 UTC): room (echo) **0.60 = the maximum**, master 1.0 ·
+message `confirmation_002` 0-0.575 s, **pitch 1.8x**, loudness 0.29, bass cut 180 Hz · failure `error_002` 0-0.194 s, 0.14 ·
+capybara `toggle_004` 0-0.089 s, 0.21 · intro **`today:vault-b` kept** (0.133-9.623 s).
+
+**His words:** *"i already saved it but i dont like the capybara and vault intro, especially the vault intro because it is specific for our own design, and the capybara talk is not satisfying enough"* - session ended on quota.
+
+**Read as taste:** he pushed the message chime to a very high pitch and the echo to the top of the slider - bright and spacious beats short and dry for a message (the opposite of the chest round, where he chose soft, short and close). The message and failure cards are ACCEPTED - bake them. The capybara and the intro are REJECTED: none of ~10 candidates each fit. "Specific for our own design" = the intro must belong to KPM's own vault moment (the dot wave forming the name, slate + gold, "Welcome back · KPM App access unlocked"), not a stock jingle.
+
+**Next, by his own rule ([[Sounds Come From Aldi]] - "asking which file is not a slower path than making one; it is the only path that has ever finished"):** do NOT build a third capybara / intro round from more stock picks or synthesis. Ask him for a REFERENCE for each - a game, an app or a clip whose capybara-like voice he finds satisfying (e.g. Animal Crossing's "animalese", Undertale's text blips, Dave the Diver) and the feel of the intro (a vault door unlocking? a chime that rises as the name forms? how long?) - then source or cut to that. Open question for the bake: the echo 0.6 was set while judging the whole studio; confirm it is meant for the message strip too before baking a 0.6 room into a 0.3 s chime.
