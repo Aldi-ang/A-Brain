@@ -10,7 +10,7 @@ tags: [kpm, master-vault, offline, toast]
 
 **Mechanism (checked in code, no change made):** `handleSaveProduct` (`src/App.jsx` ~3561) waits only **1.5 s** for the server's acknowledgement (`App.jsx:3606-3608`, added 2026-08-08 `c319b29` so an offline save stops looking dead), then shows "device only" if none came. Every save re-sends the product's PHOTOS: `data.images = { ...editingProduct.images, ...tempImages }` (`App.jsx:3582`) - photos are stored as text inside the product record (American Spirit's are ~131 KB in his backup). Changing one word of description uploads ~130 KB+ again; on a phone or busy connection that passes 1.5 s. The code comment already named this ceiling: *"make it adaptive only if a slow connection starts reporting 'not sent' for writes that did land"*. Not caused by the 20:41 push - the save code is unchanged; the new description box only made him use this path.
 
-**[likely], not proven:** the write landed a moment later. A real failure would add a second message `"<name>" was NOT saved. <reason>` (`App.jsx:3610`). Facts asked from him: did that second red message appear; after a reload, is the new description there?
+**CONFIRMED by him (21:4x): no red "NOT saved" message, the description is there after a reload - the write landed; only the 1.5 s message was wrong.** Was [likely]: the write landed a moment later. A real failure would add a second message `"<name>" was NOT saved. <reason>` (`App.jsx:3610`). Facts asked from him: did that second red message appear; after a reload, is the new description there?
 
 | # | Fix | Cost | Gain |
 |---|---|---|---|
