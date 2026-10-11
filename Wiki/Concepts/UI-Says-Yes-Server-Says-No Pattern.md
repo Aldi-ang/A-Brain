@@ -135,3 +135,5 @@ move it earlier, and say something on screen while whatever is left runs.
 
 Confirmed on his phone at 09:05: *"t1 approve, t 2 approve, t3 i just tried to close the incognito and open it again after that i manual google login , master vault panel shows up enter password and it instantly let me in after press so i havent be able to see the processing animation tho"*. The spinner was never seen because the read it covers was
 already back — the faster path won and the report path stayed as insurance for a slow signal.
+
+**2026-10-11 - a Tier 2 owner's lists (demo reset walk):** the app routes a COMPANY_OWNER login to every screen, the rules answer 403 to every list it makes (L347 `document[0]` errors on a list; L555 needs the email row the migration deletes). Found by signing in on the emulator, not by the admin-SDK run that wrote the data - an admin write skips the rules. See Brainstorm/2026-10-06_public-demo.md "the reset BUILT".
