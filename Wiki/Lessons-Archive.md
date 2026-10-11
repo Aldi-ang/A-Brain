@@ -893,3 +893,14 @@ one turn from being written up and fixed. Holding the 900 ms timer at 20 s and t
 showed the seal stamped over the list, correct as shipped. Two extra render turns.
 Seen: 2026-09-21
 Fired:
+
+### 2026-09-27 — when a job changes a count, grep EVERY literal of it in the tests before the rerun
+**Status:** RETIRED (2026-10-10) — never fired in 14+ days; a count pinned twice is a test-writing slip a rerun already exposes, so it read as insight and never triggered
+**Trigger:** a change adds or removes items that a test counts (beats in a scene, squares, steps, rows) and the test is being "extended".
+**Lesson:** search the test for the old number as a bare literal (`22`, `/ 22`, `=== 7`) and derive each one from the source
+(`steps.length`), not only the one in the step being edited. A count pinned twice gets fixed once.
+**Would have prevented:** 2026-09-27, Agent Inventory v4. Extending test-agent-chest.mjs I made "beat 1 of 22" read
+`steps.length` but left `/(\d+) \/ 22/` twenty lines below; the rerun at the usage wall showed a false FAIL ("a tap on the
+chest inside the book jumps to the beat ... -> 0"), cost a diagnostic round-trip, and the session ended with the proof open.
+Seen: 2026-09-27
+*Archived 2026-10-11 (retired 2026-10-10).*
