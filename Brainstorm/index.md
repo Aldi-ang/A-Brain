@@ -77,3 +77,5 @@ sit here indefinitely once it's actually decided.
 - [[2026-10-10_sfx-message-capybara-intro]] - new sounds for the message strip (today = the SALE sound commit), the capybara (crisper, less bass) and the intro; Kenney CC0 packs asked, then a studio he edits; OPEN
 
 - [[2026-10-12_hub-symbol]] - the wholesale HUB pin: roof 3.5 px off-centre + "more recognizable"; A / B / C OPEN
+
+- [[2026-10-12_gold-buttons]] - the solid amber buttons (Customer Directory, Sampling) - A / B / C OPEN; + the bell dates built, the music knob answered
