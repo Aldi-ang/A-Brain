@@ -1,6 +1,6 @@
 ---
 title: The wholesale HUB pin - aligned and more recognizable
-status: OPEN - waiting on Aldi (A / B / C)
+status: DECIDED - A, built kpm 9104082
 tags: [kpm, map, design, brainstorm]
 ---
 
@@ -19,7 +19,7 @@ tags: [kpm, map, design, brainstorm]
 
 **Board (sent to him):** `Raw/2026-10-12-hub-symbol/board.jpg` - TODAY vs A / B / C, at map size among two normal pins and at 3x.
 
-**Decision:** OPEN - waiting on Aldi.
+**Decision:** A - his paste line 2026-10-12 06:00: *"HUB = A"*. **BUILT** kpm `9104082` (local, not pushed): `levelBadge` draws ONE svg for a hub, 50 x 66 units - roof + walls are the dark plate with a gold edge, the level symbol (any level, not only the sprout) in its door at (25, 34), the word HUB under it; the `HUB_ROOF` svg and its CSS are gone; the dot sits at (44, 9), off the roof line; the map hit box is the drawing + 10 px each way; the shop panel head still hides the word. Size: hub width = pin px + 13 (Unranked on the map = 50 x 66, the board's size). Measured in the built lab at 375 (real levelBadge output injected): pin / roof / word centre offsets 0 px, one svg, dot clears the roof by 3.2 units. Guards: logicFixes "his HUB pick A" + "the HUB drawing re-measured". Tool: `Raw/2026-10-12-batch/hub-html.mjs` slices levelBadge out of the source to inject it.
 
 **Rejected on purpose:** placing the roof by offsets again (any new piece positioned with left/right on an SVG can drift the same way) - every option is ONE drawing, centred by construction.
 

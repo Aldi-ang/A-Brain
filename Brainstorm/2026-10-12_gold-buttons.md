@@ -1,6 +1,6 @@
 ---
 title: The solid amber buttons (Customer Directory, Sampling)
-status: OPEN - waiting on Aldi (A / B / C)
+status: DECIDED - A, built kpm 5aef4dc
 tags: [kpm, design, palette, brainstorm]
 ---
 
@@ -18,7 +18,7 @@ tags: [kpm, design, palette, brainstorm]
 
 **Board (sent):** `Raw/2026-10-12-buttons-bell/buttons.jpg` (his real seven buttons, today vs A / B / C).
 
-**Decision:** OPEN - waiting on Aldi.
+**Decision:** A - his paste line 2026-10-12 06:00: *"buttons = A"*. **BUILT** kpm `5aef4dc` (local): one class `.kpm-edgebtn` in theme.css on the tokens (`--plate`, 1.5 px `--accent-edge`, word `--ink`, icon `--accent-ink`), worn by the seven (+ Repair Store Tiers, same class). One change from the board: the press "lights up from inside" as a warm FILL (`color-mix(accent-edge 22%, plate)`), not an inset glow - the audit forbids any shadow in the system (Lite Mode deletes them, so nothing may depend on one). Measured at 1280: dark #14110e / #D08A2E / #E8E4DE; light #C6BFAE / #7A5A12 / #131211. Guard: logicFixes "THE AMBER BUTTONS GET A GOLD EDGE" (red: 7 x FILL). NOT changed, still solid amber (outside his two screens' list): the phone ADD NEW CUSTOMER bar (CustomerManager ~1352), Approve NOO (~1722), the two count chips (~1305/1310), Sampling's range tabs (~128), Submit (~320), the modal button (~593).
 
 **Rejected on purpose:** keeping any bright amber FILL at full strength - his "hurt the eye" and his own edge-not-fill rule.
 

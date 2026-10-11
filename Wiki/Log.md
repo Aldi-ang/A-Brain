@@ -1608,3 +1608,7 @@ https://claude.ai/artifact/J7Y5RdwwUhtRPas3KP8Fti · [[2026-10-05_map-system-red
 ## 2026-10-05 18:25 — Too small to read: notification text + Map System pins (kpm 3c28e68)
 
 His two "too small" reports fixed and measured; rule written into [[Aldi's Design Taste]] ("Small type he cannot see is a bug"). Proof: `Raw/2026-10-05-small-type/`. He asked for a demo account: the lab (?shell&journey&exp&admin) is the demo - opened for him in the browser pane.
+
+## 2026-10-12 06:55 — his batch built: HUB pin A, gold-edge buttons A, Masuk overlap, stock table columns, WhatsApp receipt A (kpm 9104082..7098386, local)
+
+Five fixes, each with a guard trialled red; logicFixes 2299/2299, audit 722/722. Causes + traps in [[2026-10-12_whatsapp-receipt]] (the 0fr drawer inside a grid; the hidden browser pane has no animation frames). Proof: `Raw/2026-10-12-batch/`. Next: the demo front door, design first.
