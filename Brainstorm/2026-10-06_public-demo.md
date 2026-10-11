@@ -146,3 +146,5 @@ tags: [kpm, demo, showcase, vercel]
 **Decision:** OPEN - his answer on the T2 rules gap. Next build: the front door (design first).
 
 **Rejected on purpose:** changing `firestore.rules` to make the demo work - the demo uses data shapes the app itself writes instead; the rules stay his call.
+
+**17:35 - his answer + his idea:** *"regarding the question, yes i might have another company using the KPM but isnt it better when i just made another project just to login to another company instead of combining those projects together inside the firebase console?"* Told him: the fix is needed either way - the T2 test above ran in the SEPARATE demo project (kpm-demo-f4d74 emulator) and was still blocked, because every project gets the same rules file and only his Gmail is Tier 1 in it. One project per company: + a wrong rule can never show one company's data to another; - every app update is deployed once per company (a website + a rules paste each), and the Landlord screen cannot see the companies together. That choice can wait for a real second company. **Decision:** I write the T2 rules fix as a DRAFT (he deploys) after the demo front door, unless he says no.
