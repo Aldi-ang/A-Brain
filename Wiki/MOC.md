@@ -96,6 +96,7 @@ The shape of the app everything else sits on top of.
 What the app looks like, and what Aldi wants it to feel like.
 
 - [[Aldi's Design Taste]] — what he actually likes and rejects, built only from real screens he judged. **Read before designing anything for him.**
+- [[Sound Studio]] — where every KPM sound is chosen: he tunes, saves, and the app files are baked from his numbers. 11 capybara voices, the elegant intro, the message sounds.
 - [[The Player Card]] — the EOD review as one card per salesman (the profile's head, the handover one line per part); the three stages.
 - [[EOD Per-Part Verification]] — the money path under it: each part credited on its own ✓, a ✕ goes back with a reason, the night's XP at the last approval.
 - [[Light Ground and the Theme Lab]] — the night light mode was finished: why a screen whose every panel was already converted still read as broken, and the two colour families the app was carrying at once.

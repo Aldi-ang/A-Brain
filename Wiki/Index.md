@@ -18,6 +18,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 
 - [[Multi-Tenant Architecture]] — the `bossUid` per-company data pattern
 - [[Tier System]] — the six-tier role hierarchy (`DEVELOPER` → `ROOKIE`)
+- [[Sound Studio]] — his sound editor (capybara voice, vault intro, message sounds): Tools/sound-studio, the live link, what he saved
 - [[Gudang Pusat (Master Vault)]] — the main warehouse's ONE name, and why the `'MASTER'` beside it
   is a Firestore routing value that must never follow the rename
 - [[Quarantine Chest]] — the hub for damaged stock's chest: the crate + the healthy/Quarantine switch,

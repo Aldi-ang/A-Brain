@@ -22,6 +22,7 @@ folder-level map, not a replacement for it.
 - [[Fleet Captain Permission Gap]]
 - [[Git Worktrees]]
 - [[Master Vault Gate]]
+- [[Sound Studio]]
 - [[Multi-Tenant Architecture]]
 - [[Gudang Pusat (Master Vault)]]
 - [[The Place Registry]]

@@ -1,0 +1,78 @@
+{
+  "at": 1791699204298,
+  "capy": {
+    "bend": 2.4,
+    "breath": 0.18,
+    "cons": 0.9,
+    "drop": 0.6,
+    "echo": 0.12,
+    "emph": 0.7,
+    "f": 112,
+    "formant": 1,
+    "fry": 0.35,
+    "intonation": 1.1,
+    "jitter": 0.35,
+    "maxSyl": 12,
+    "moods": "agent",
+    "preset": "agent",
+    "scoop": 1.2,
+    "shape": "voice",
+    "speed": 1,
+    "tempo": 0.7,
+    "variety": 1,
+    "vib": 0.1,
+    "vol": 0.4
+  },
+  "ev": {
+    "fail": {
+      "end": 0.194,
+      "hp": 0,
+      "rate": 1,
+      "src": "error_002",
+      "start": 0,
+      "vol": 0.14
+    },
+    "msg": {
+      "end": 0.575,
+      "hp": 180,
+      "rate": 1.8,
+      "src": "confirmation_002",
+      "start": 0,
+      "vol": 0.29
+    }
+  },
+  "intro": {
+    "echo": 0.35,
+    "formed": {
+      "d": "bloomchord",
+      "pitch": -12,
+      "vol": 1
+    },
+    "gather": {
+      "d": "riser",
+      "pitch": -12,
+      "vol": 0.25
+    },
+    "leave": {
+      "d": "breath",
+      "pitch": -12,
+      "vol": 1
+    },
+    "type": {
+      "chatter": 0,
+      "leave": true,
+      "pitch": 1,
+      "src": "soft:key",
+      "vol": 0.5,
+      "wobble": 0.5
+    },
+    "wave": {
+      "d": "bloom",
+      "pitch": 0,
+      "vol": 0.5
+    }
+  },
+  "master": 0.25,
+  "room": 0,
+  "v": 3
+}
