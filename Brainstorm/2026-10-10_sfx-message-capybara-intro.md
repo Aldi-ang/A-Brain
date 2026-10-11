@@ -185,3 +185,5 @@ All three: happy moods, at least 3 sounds a line. Published to https://claude.ai
 **Built (v8, ★ "Video mumble - natural"):** `natural: true` in chip.js `recNatural` - a small slow-down = slightly bigger body (mouth size .9), then PSOLA (two-period grains at the voice's own pulses, laid further apart) so only the throat drops and the vowel colour stays human; one ratio for the whole voice; only a question rises; a long syllable fades over its last quarter; loudness matched by RMS. Measured at 44.1 kHz: 117-138 Hz (as deep as the first try's 104-128), brightness 49-118 (first try 11-53 = muffled; Agent ~340+), 0 clicks. The first try stays in the list to compare.
 
 **Decision:** OPEN - his listen + Save. Bake: CAPY_VOICE must carry `shape: 'rec', rec: 'round', natural: true` (+ mumble-pack.js before chip.js in the baker).
+
+**Decision (2026-10-11 20:08): "Video mumble - natural"** - his *"just use that voice for now"*. BAKED kpm `75878e8` at 20:13 (61 capy files re-baked, every other sound byte-identical; built lab: every line plays its files, all start). "For now" = he may come back to tune it: the studio keeps all voices.

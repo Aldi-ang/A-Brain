@@ -42,4 +42,4 @@ Edit the files here, check offline, then publish to the SAME link: Artifact publ
 
 ## Bake what he saved
 
-`tools/sfx-bake.mjs` in kpm renders his numbers into `public/sounds/` (messages done 2026-10-11; the intro and the capybara next - the steps are in kpm `.claude/NEXT-SESSION.md`). Restore a save into the live studio: ArtifactData `set` collection `sfx` doc `settings` from a file in `saves/`.
+`tools/sfx-bake.mjs` in kpm renders his numbers into `public/sounds/` (it loads kpm `tools/mumble-pack.js` - keep it a copy of this folder's - before chip.js; the app voice since 2026-10-11 20:08 is "Video mumble - natural", kpm `75878e8`) (messages done 2026-10-11; the intro and the capybara next - the steps are in kpm `.claude/NEXT-SESSION.md`). Restore a save into the live studio: ArtifactData `set` collection `sfx` doc `settings` from a file in `saves/`.
