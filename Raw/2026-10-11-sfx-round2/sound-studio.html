@@ -121,14 +121,13 @@
 <div class="wrap">
   <header>
     <h1>Sound studio · the capybara</h1>
-    <p class="sub"><b>Capybara:</b> watch him in his corner, the way the app shows him, saying his real lines. <b>Play a conversation</b> plays five lines in a row - one of them twice, so you can hear it is never the same: each line gets its own mood (calm, cheerful, curious, excited) and a fresh roll of the dice. The <b>Variety</b> slider sets how different. <b>Intro:</b> your pick is saved - it is below if you want to hear it again.</p>
+    <p class="sub"><b>Capybara:</b> try <b>Agent (firm)</b> - a low, serious, focused voice that still moves: each time he talks, the number of syllables changes, he speeds up and slows down like a person, one word gets the stress, and a sentence settles into a low creak at its end. Watch him in his corner, the way the app shows him, saying his real lines. <b>Play a conversation</b> plays five lines in a row - one of them twice, so you can hear it is never the same: each line gets its own mood (calm, cheerful, curious, excited) and a fresh roll of the dice. The <b>Variety</b> slider sets how different. <b>Intro:</b> your pick is saved - it is below if you want to hear it again.</p>
     <p class="sub">Each card starts on my pick and <b>Today's sound</b> is there to compare. Press the gold button to hear it in its moment; letting go of a slider plays the result. When it sounds right, press <b>Save</b>.</p>
   </header>
 
   <div class="bar">
     <label class="knob"><span>Echo, messages <output id="o-room"></output></span><input type="range" id="room" min="0" max="0.6" step="0.01"></label>
     <label class="knob"><span>Volume, all <output id="o-master"></output></span><input type="range" id="master" min="0" max="1.5" step="0.01"></label>
-    <button class="key" id="reset" type="button">My picks</button>
     <button class="key save" id="save" type="button" disabled>Save</button>
     <span class="state" id="state" role="status" aria-live="polite">My picks</span>
   </div>
@@ -163,7 +162,7 @@
     'Clean trade. Next route?', 'Stock looks good today.', 'Did you know Capybaras are the largest rodents?', 'Sync Complete! 24 items secured in Master Vault.'];
   var NAME = 'ALDI';
   var SHAPES = [['voice', 'Human voice'], ['hum', 'Nasal hum ("hmm")'], ['gb', 'Game Boy (8-bit)']];
-  var CKEYS = ['f', 'formant', 'intonation', 'jitter', 'scoop', 'bend', 'speed', 'cons', 'vib', 'breath', 'maxSyl'];
+  var CKEYS = ['f', 'formant', 'intonation', 'jitter', 'scoop', 'bend', 'speed', 'cons', 'vib', 'breath', 'maxSyl', 'tempo', 'drop', 'emph', 'fry'];
   var PART_TEXT = {
     type:   ['Typing', 'one tick for each letter of "Welcome back" and "KPM App access unlocked"', 3.0],
     wave:   ['The ring', '0.1 - 3.1 s: the ring of light leaves the card and crosses the dots', 0],
@@ -177,7 +176,7 @@
   function clone(o) { return JSON.parse(JSON.stringify(o)); }
   function capyFrom(key, keep) {
     var p = CHIP.CAPY[key] || CHIP.CAPY.sims, o = { preset:key };
-    CKEYS.forEach(function (k) { o[k] = p[k]; }); o.shape = p.shape;
+    CKEYS.forEach(function (k) { o[k] = p[k]; }); o.shape = p.shape; o.moods = p.moods;
     o.vol = keep ? keep.vol : .6; o.echo = keep ? keep.echo : .12;
     o.variety = keep && keep.variety != null ? keep.variety : .7;    // how far each line's mood may pull the voice - kept across voices, like loudness
     return o;
@@ -185,7 +184,7 @@
   function defaults() {
     return { v:3, room:.6, master:1,
       ev: { msg:{ src:'confirmation_002', start:0, end:.575, vol:.29, rate:1.8, hp:180 }, fail:{ src:'error_002', start:0, end:.194, vol:.14, rate:1, hp:0 } },
-      capy: capyFrom('sims'),
+      capy: capyFrom('agent'),
       intro: { echo:.35,
         type:{ src:'soft:key', vol:.25, pitch:1, wobble:.5, chatter:0, leave:true },
         wave:{ d:'sparkle', vol:.5, pitch:0 }, gather:{ d:'riser', vol:.5, pitch:0 }, formed:{ d:'chime', vol:.5, pitch:0 }, leave:{ d:'fall', vol:.35, pitch:0 } } };
@@ -316,6 +315,8 @@
       knob('capy', 'speed', 'Speed', .6, 1.6, .01, ' data-c="speed"') + knob('capy', 'cons', 'Consonants', 0, 1, .05, ' data-c="cons"') +
       knob('capy', 'vib', 'Wobble', 0, 1, .05, ' data-c="vib"') + knob('capy', 'breath', 'Breath', 0, 1, .05, ' data-c="breath"') +
       knob('capy', 'maxSyl', 'Longest line', 2, 24, 1, ' data-c="maxSyl"') + knob('capy', 'variety', 'Variety', 0, 1, .05, ' data-c="variety"') +
+      knob('capy', 'tempo', 'Pace changes', 0, 1, .05, ' data-c="tempo"') + knob('capy', 'drop', 'Syllable count changes', 0, 1, .05, ' data-c="drop"') +
+      knob('capy', 'emph', 'Stress on a word', 0, 1, .05, ' data-c="emph"') + knob('capy', 'fry', 'Low creak at the end', 0, 1, .05, ' data-c="fry"') +
       knob('capy', 'vol', 'Loudness', 0, 1.2, .01, ' data-c="vol"') + knob('capy', 'echo', 'Echo', 0, .6, .01, ' data-c="echo"') +
       '</div></section>';
   }
@@ -382,6 +383,9 @@
       jitter:pct, scoop:function (v) { return v ? v.toFixed(1) + ' notes' : 'off'; }, bend:function (v) { return v ? v.toFixed(1) + ' notes' : 'off'; },
       speed:function (v) { return v.toFixed(2) + '×'; }, cons:pct, vib:pct, breath:pct, maxSyl:function (v) { return v + ' syllables'; },
       variety:function (v) { return v ? Math.round(v * 100) + '% - every line a little different' : 'off - the same each time'; },
+      tempo:function (v) { return v ? Math.round(v * 100) + '% - fast and slow parts' : 'off - one steady pace'; },
+      drop:function (v) { return v ? Math.round(v * 100) + '% - more or fewer syllables each time' : 'off - every syllable, every time'; },
+      emph:pct, fry:pct,
       vol:function (v) { return Math.round(v * 100) + '%'; }, echo:function (v) { return Math.round(v * 100) + '%'; } };
     Object.keys(fmt).forEach(function (k) { var inp = $(k + '-capy'); inp.value = c[k]; $('o-' + k + '-capy').textContent = fmt[k](c[k]); inp.disabled = today && k !== 'vol' && k !== 'echo'; });
     $('c-shape').disabled = today;
@@ -439,7 +443,7 @@
   function capyVowels() {
     var c = SET.capy; if (c.preset === 'today' || !audio()) return;
     stopAll();
-    ['a', 'e', 'i', 'o', 'u'].forEach(function (v, i) { playBuf(toBuf(CHIP.syllable(c, v, 'soft', true)), i * .32, c.vol, c.echo); });
+    ['a', 'e', 'i', 'o', 'u'].forEach(function (v, i) { playBuf(toBuf(CHIP.syllable(c, v, 'soft', 'l', false)), i * .32, c.vol, c.echo); });
   }
 
   /* ── the intro: VaultGate.jsx's drawing, ported line for line (GAP, DEN, TSIZE, the wave, the gather) ── */
@@ -661,7 +665,8 @@
     if (e.target.closest('#intro-go')) { introRun('new'); return; }
     if (e.target.closest('#intro-today')) introRun('today');
   });
-  $('reset').addEventListener('click', function () { SET = clone(DEFAULTS); SAID = null; paintAll(); state(true); });
+  /* NO "My picks" button any more (2026-10-11): it reset EVERY card, and his 09:57 save went out with the intro he had
+     already decided put back to my picks. Each list still marks my pick with a star. */
 
   /* stored settings are untrusted input: anything missing, unknown or out of range falls back to my pick */
   function sane(raw) {
@@ -679,7 +684,8 @@
       /* a round-2 save holds 8-bit beep fields (wave, len, slide...) - they do not fit this voice, so it keeps my pick */
       if (rc.preset === 'today' || CHIP.CAPY[rc.preset]) Object.assign(oc, rc.preset === 'today' ? { preset:'today' } : capyFrom(rc.preset, oc));
       if (SHAPES.some(function (w) { return w[0] === rc.shape; })) oc.shape = rc.shape;
-      var LIM = { f:[100, 500], formant:[.8, 1.5], intonation:[0, 2.5], jitter:[0, 1], scoop:[0, 5], bend:[0, 5], speed:[.6, 1.6], cons:[0, 1], vib:[0, 1], breath:[0, 1], maxSyl:[2, 24], variety:[0, 1] };
+      if (rc.moods === 'agent' || rc.moods === 'friendly') oc.moods = rc.moods;
+      var LIM = { f:[100, 500], formant:[.8, 1.5], intonation:[0, 2.5], jitter:[0, 1], scoop:[0, 5], bend:[0, 5], speed:[.6, 1.6], cons:[0, 1], vib:[0, 1], breath:[0, 1], maxSyl:[2, 24], variety:[0, 1], tempo:[0, 1], drop:[0, 1], emph:[0, 1], fry:[0, 1] };
       Object.keys(LIM).forEach(function (k) { oc[k] = num(rc[k], LIM[k][0], LIM[k][1], oc[k]); });
       oc.maxSyl = Math.round(oc.maxSyl);
       oc.vol = num(rc.vol, 0, 1.2, oc.vol); oc.echo = num(rc.echo, 0, .6, oc.echo);

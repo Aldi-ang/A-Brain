@@ -39,56 +39,75 @@
   }
 
   /* ── the capybara's voice ─────────────────────────────────────────────────────────────────────────── */
-  /* His third word on it: *"dont have to be 8 bit TBH why not sound like minecraft character or even sims character"*.
-     So the main voices are HUMAN-like: a throat (a glottal pulse - the buzz the vocal folds make - with the small
-     random wobbles a real throat has, "jitter" in pitch and "shimmer" in loudness, plus breath) shaped by a mouth
-     (four resonances, the formants, that turn the buzz into "a", "e", "i", "o", "u" or a nasal "mmm"). A Minecraft
-     villager is a nasal hum that rises and falls; a Sim is quick made-up syllables over a real sentence melody.
-     The 8-bit voice from his video stays as one choice, to compare. */
-  /* vowel formants, Hz (Peterson & Barney style averages); the Mouth size knob scales them - higher = smaller creature */
-  const VOWEL = { a: [730, 1090, 2440, 3400], e: [530, 1840, 2480, 3500], i: [300, 2290, 3010, 3700], o: [570, 840, 2410, 3300], u: [320, 870, 2240, 3300] };
-  const NASAL = [280, 1100, 2300, 3300];                                   // "mmm": the mouth shut, the sound through the nose
+  /* His words, in order: *"dont have to be 8 bit TBH why not sound like minecraft character or even sims character"*;
+     *"it is annoying if its keep repeating the same sound"*; then (round 5) *"i want more expressive voice and not like
+     robotic kind of voice ... variety on the number of syllabus ... slow and fast talking just like human being ...
+     since this is agent capybara i want the voice to be tegas and serious but expressive ... elegant manly and focus"*.
+     So: a throat (a glottal pulse with a real throat's wobble - jitter in pitch, shimmer in loudness - breath, and at
+     the end of a sentence a low creak, "vocal fry", the sound of a deep voice settling) through a mouth (four formant
+     resonances that make "a e i o u" or a hummed "mm"), and vowels that MOVE while they are said - a fixed vowel is
+     what a machine sounds like. A plan per line decides how many syllables come out this time, how fast each one is,
+     which word gets the stress, and the melody - so the same line is never said the same way twice. */
+  /* vowel formants, Hz (Peterson & Barney style averages); m = a hummed "mm" (the villager's hum, and the agent's "hm.") */
+  const VOWEL = { a: [730, 1090, 2440, 3400], e: [530, 1840, 2480, 3500], i: [300, 2290, 3010, 3700], o: [570, 840, 2410, 3300], u: [320, 870, 2240, 3300], m: [280, 1100, 2300, 3300] };
+  const SCHWA = [500, 1500, 2500, 3400];                                   // where a lazy mouth drifts to
   const BWV = [70, 90, 130, 200], BWN = [80, 250, 300, 400];
   const ONSET = { soft: 'm, n, l, r, w, y, h or no consonant', hard: 't, k, p, b, d, g, j', hiss: 's, z, f, v, c, x' };
+  const LEN = { s: .075, m: .12, l: .2 };                                  // short / mid / long syllable, seconds at speed 1
   /* how long a syllable file is - the plan and the renderer must agree, so both read it here */
-  function sylLen(p, on, long) {
-    return { pre: on === 'hiss' ? .035 * p.cons : on === 'hard' ? .008 : 0, lenV: (long ? .2 : .11) / p.speed * (p.shape === 'hum' ? 1.8 : 1) };
+  function sylLen(p, on, len) {
+    return { pre: on === 'hiss' ? .035 * p.cons : on === 'hard' ? .012 : 0, lenV: LEN[len] / p.speed * (p.shape === 'hum' ? 1.8 : 1) };
   }
   function normalize(out, to) { let pk = 0; for (const v of out) pk = Math.max(pk, Math.abs(v)); if (pk) for (let k = 0; k < out.length; k++) out[k] *= to / pk; return out; }
-  /* the consonant before the vowel: a hiss (noise with its lows removed) or a short burst */
+  /* the consonant before the vowel: a hiss (noise with its lows removed) or a burst and a puff of air */
   function consonant(out, n0, on, cons, r) {
     let lp = 0;
     for (let k = 0; k < n0; k++) {
-      const x = r() * 2 - 1; lp += .3 * (x - lp);
-      out[k] = on === 'hiss' ? (x - lp) * Math.sin(Math.PI * k / n0) * .6 * cons : x * (1 - k / n0) * .8 * cons;
+      const x = r() * 2 - 1, u = k / n0; lp += .3 * (x - lp);
+      out[k] = on === 'hiss' ? (x - lp) * Math.sin(Math.PI * u) * .6 * cons : (u < .4 ? x * .9 : (x - lp) * .35 * (1 - u)) * cons;
     }
   }
 
-  /* the human voice: glottal pulse -> four formant resonators in a row (a "cascade", like Klatt's synthesiser) */
-  function voiceSyllable(p, v, on, long, sr = SR) {
-    const { pre, lenV } = sylLen(p, on, long), hum = p.shape === 'hum';
-    const n0 = Math.round(pre * sr), n = n0 + Math.round(lenV * sr), out = new Float32Array(n), r = rng(hash(p.shape + v + on + (long ? 'L' : '')));
-    const tgt = (hum ? NASAL : VOWEL[v]).map((f, i) => f * (i < 3 ? p.formant : (1 + p.formant) / 2)), bw = hum ? BWN : BWV;
-    const from = hum || on === 'soft' ? NASAL : on === 'hiss' ? [400, 1700, 2600, 3400] : [350, 1800, 2700, 3500];   // where the consonant leaves the mouth
+  /* the human voice: glottal pulse -> four formant resonators in a row (a "cascade", like Klatt's synthesiser).
+     len = s / m / l; rise = the pitch climbs through it (a question's last word) instead of falling. */
+  function voiceSyllable(p, v, on, len, rise, sr = SR) {
+    const { pre, lenV } = sylLen(p, on, len), hum = p.shape === 'hum' || v === 'm', key = p.shape + v + on + len + (rise ? 'R' : '');
+    const n0 = Math.round(pre * sr), n = n0 + Math.round(lenV * sr), out = new Float32Array(n), r = rng(hash(key));
+    const off = [0, 1, 2, 3].map(() => 1 + (r() * 2 - 1) * .03);                // no two syllable files share an exact mouth
+    const tgt = (hum ? VOWEL.m : VOWEL[v]).map((f, i) => f * (i < 3 ? p.formant : (1 + p.formant) / 2) * off[i]), bw = hum ? BWN : BWV;
+    const from = hum || on === 'soft' ? VOWEL.m : on === 'hiss' ? [400, 1700, 2600, 3400] : [350, 1800, 2700, 3500];   // where the consonant leaves the mouth
+    const drift = len === 'l' ? .12 : .25;                                     // short vowels slur towards "uh" more
+    const fry = !rise && len === 'l' ? (p.fry || 0) : 0;                       // a sentence's last syllable settles into a creak
     consonant(out, n0, on, p.cons, r);
     const st = [[0, 0], [0, 0], [0, 0], [0, 0]];
-    let ph = 0, per = 1, amp = 1, prevG = 0, coef = null;
+    let ph = 0, per = 1, amp = 1, prevG = 0, coef = null, tilt = 0;
     for (let k = n0; k < n; k++) {
-      const tv = (k - n0) / sr, u = tv / lenV;
-      /* the melody inside one syllable: a slide up into it, a fall at its end, a wobble on long ones */
-      const semis = -p.scoop * Math.max(0, 1 - tv / .06) - p.bend * Math.max(0, (u - .6) / .4) + (long && tv > .06 ? p.vib * .4 * Math.sin(TAU * 5.5 * tv) : 0);
+      const tv = (k - n0) / sr, u = tv / lenV, creak = fry * Math.max(0, (u - .62) / .38);
+      /* the melody inside one syllable: a slide up into it, then a fall (or a climb), a wobble only on long ones */
+      const semis = -p.scoop * Math.max(0, 1 - tv / .06) + (rise ? 3.5 * Math.max(0, (u - .3) / .7) : -p.bend * Math.max(0, (u - .55) / .45))
+        - 3 * creak + (len === 'l' && tv > .06 ? p.vib * .4 * Math.sin(TAU * 5.5 * tv) : 0);
       const f0 = p.f * st2(semis);
       ph += f0 * per / sr;
-      if (ph >= 1) { ph -= 1; per = 1 + (r() * 2 - 1) * .015; amp = 1 + (r() * 2 - 1) * .06; }   // jitter + shimmer, once per cycle
+      if (ph >= 1) {                                                            // once per cycle: a real throat is never exact
+        ph -= 1;
+        per = (1 + (r() * 2 - 1) * (.012 + .05 * creak)) * (creak > .2 && r() < creak ? 1.6 + .6 * r() : 1);
+        amp = 1 + (r() * 2 - 1) * (.08 + .4 * creak);
+      }
       const g = ph < .4 ? .5 * (1 - Math.cos(Math.PI * ph / .4)) : ph < .56 ? Math.cos(Math.PI * (ph - .4) / .32) : 0;   // Rosenberg pulse
-      let x = (g - prevG) * sr / f0 * .5 * amp + (r() * 2 - 1) * p.breath * (.15 + .35 * g);   // its slope (the lips radiate change) + breath
-      prevG = g;
+      let x = (g - prevG) * sr / f0 * .5 * amp; prevG = g;
+      tilt += (.35 + .5 * Math.min(1, tv / .05) * (1 - .5 * u)) * (x - tilt); x = tilt;   // brighter at the attack, softer as it dies
+      x += (r() * 2 - 1) * (p.breath * (.15 + .35 * g) + .25 * Math.max(0, (u - .85) / .15));   // breath, and a breathy release
       if (coef === null || (k - n0) % 16 === 0) {
-        const m = Math.min(1, tv / .045);                                 // the mouth moves from the consonant into the vowel in 45 ms
-        coef = tgt.map((F, i) => { const f = from[i] + (F - from[i]) * m, rr = Math.exp(-Math.PI * bw[i] / sr), B = 2 * rr * Math.cos(TAU * f / sr), C = -rr * rr; return [1 - B - C, B, C]; });
+        const m = Math.min(1, tv / .045), d = drift * u;                         // into the vowel in 45 ms, then a slow drift
+        coef = tgt.map((F, i) => {
+          const f = (from[i] + (F - from[i]) * m) * (1 - d) + SCHWA[i] * p.formant * d, rr = Math.exp(-Math.PI * bw[i] / sr), B = 2 * rr * Math.cos(TAU * f / sr), C = -rr * rr;
+          return [1 - B - C, B, C];
+        });
       }
       for (let i = 0; i < 4; i++) { const c = coef[i], s = st[i], y = c[0] * x + c[1] * s[0] + c[2] * s[1]; s[1] = s[0]; s[0] = y; x = y; }
-      out[k] = x * Math.min(1, tv / (on === 'soft' ? .03 : .008)) * (1 - .2 * u) * Math.min(1, (lenV - tv) / .04);
+      /* a spoken syllable swells to its peak a quarter of the way in, then sags */
+      const shape = Math.min(1, tv / (on === 'soft' ? .03 : .008)) * (u < .25 ? .85 + .6 * u : 1 - .35 * (u - .25)) * Math.min(1, (lenV - tv) / .04);
+      out[k] = x * shape;
     }
     normalize(out.subarray(n0), .8);                                      // every vowel equally loud; the consonant keeps its own level
     return out;
@@ -107,76 +126,99 @@
     for (let j = 0; j < TL; j++) tab[j] = Math.round((tab[j] / (pk || 1) + 1) * 7.5) / 7.5 - 1;   // 4 bits = 16 levels
     return tab;
   }
-  function chipSyllable(p, v, on, long, sr = SR) {
-    const { pre, lenV } = sylLen(p, on, long), tab = vowelCycle(v, p);
-    const n0 = Math.round(pre * sr), n = n0 + Math.round(lenV * sr), out = new Float32Array(n), r = rng(hash('gb' + v + on + (long ? 'L' : '')));
+  function chipSyllable(p, v, on, len, rise, sr = SR) {
+    const { pre, lenV } = sylLen(p, on, len), tab = vowelCycle(v, p);
+    const n0 = Math.round(pre * sr), n = n0 + Math.round(lenV * sr), out = new Float32Array(n), r = rng(hash('gb' + v + on + len + (rise ? 'R' : '')));
     consonant(out, n0, on, p.cons, r);
     let ph = 0;
     for (let k = n0; k < n; k++) {
       const tv = (k - n0) / sr, u = tv / lenV;
-      const semis = -p.scoop * Math.max(0, 1 - tv / .045) - p.bend * Math.max(0, (u - .6) / .4) + (long && tv > .06 ? p.vib * .4 * Math.sin(TAU * 6 * tv) : 0);
+      const semis = -p.scoop * Math.max(0, 1 - tv / .045) + (rise ? 3.5 * Math.max(0, (u - .3) / .7) : -p.bend * Math.max(0, (u - .6) / .4));
       ph += p.f * st2(semis) / sr; ph -= Math.floor(ph);
       out[k] = tab[Math.floor(ph * 32)] * .8 * Math.min(1, tv / (on === 'soft' ? .025 : .006)) * (1 - .25 * u) * Math.min(1, (lenV - tv) / .035);
     }
     return out;
   }
-  function syllable(p, v, on, long, sr = SR) { return p.shape === 'gb' ? chipSyllable(p, v, on, long, sr) : voiceSyllable(p, v, on, long, sr); }
+  function syllable(p, v, on, len, rise, sr = SR) { return p.shape === 'gb' ? chipSyllable(p, v, on, len, rise, sr) : voiceSyllable(p, v, on, len, rise, sr); }
 
-  /* the line as syllables: each gets the onset class of its first letter and its first vowel */
+  /* the line as syllables: each gets the onset class of its first letter, its first vowel, and which word it is in */
   function syllables(text) {
-    const out = [];
-    for (const m of text.matchAll(/[A-Za-z]+|[.!?]/g)) {
-      const w = m[0];
+    const out = []; let word = 0;
+    for (const m of text.matchAll(/[A-Za-z']+|[.!?]/g)) {
+      const w = m[0].replace(/'/g, '');
       if (/^[.!?]$/.test(w)) { out.push({ end: w }); continue; }
+      if (!w) continue;
       const parts = w.toLowerCase().match(/[^aeiouy]*[aeiouy]+/g) || [w.toLowerCase() + 'e'];
       let pos = m.index;
       parts.forEach((s, i) => {
         const c = s[0], v = s.match(/[aeiouy]/)[0].replace('y', 'i');
         const on = /[aeiouy]/.test(c) || /[mnlrwyh]/.test(c) ? 'soft' : /[szfvcx]/.test(c) ? 'hiss' : 'hard';
-        out.push({ v, on, first: i === 0, from: pos, to: pos + s.length });
+        out.push({ v, on, first: i === 0, word, wlen: w.length, from: pos, to: pos + s.length });
         pos += s.length;
       });
-      out[out.length - 1].to = m.index + w.length;
+      out[out.length - 1].to = m.index + m[0].length;
+      word++;
     }
     return out;
   }
-  /* HIS ASK (round 4): *"we need few conversation voice because it is annoying if its keep repeating the same sound"*.
-     So every time he speaks, the line gets a MOOD and a fresh roll of the dice: the same line twice never sounds the
-     same. A question is curious, a line with "!" is excited, anything else is calm or cheerful. The Variety knob sets
-     how far a mood may pull the voice - 0 is the plain melody every time. The app passes a new seed on every call. */
+
+  /* MOODS: every line gets one, and a fresh roll of the dice. A friendly voice is calm / cheerful / curious / excited;
+     the AGENT is focused / firm / questioning / approving - serious, but never flat. Variety = how far a mood may pull. */
   const MOODS = {
-    calm:     { label: 'calm',     pitch: 0,   range: .8,   gap: 1.06, shape: (u) => 1.5 - 3 * u },
-    cheerful: { label: 'cheerful', pitch: 1.5, range: 1.15, gap: .95,  shape: (u) => 3 * Math.sin(Math.PI * u) - 1.2 },
-    curious:  { label: 'curious',  pitch: 1,   range: 1.1,  gap: 1,    shape: (u) => -1 + 2 * u },
-    excited:  { label: 'excited',  pitch: 2.5, range: 1.35, gap: .88,  shape: (u, i) => (i % 2 ? 1.2 : -.6) + 1 - 2 * u },
+    calm:        { label: 'calm',        pitch: 0,   range: .8,   gap: 1.06, shape: (u) => 1.5 - 3 * u },
+    cheerful:    { label: 'cheerful',    pitch: 1.5, range: 1.15, gap: .95,  shape: (u) => 3 * Math.sin(Math.PI * u) - 1.2 },
+    curious:     { label: 'curious',     pitch: 1,   range: 1.1,  gap: 1,    shape: (u) => -1 + 2 * u },
+    excited:     { label: 'excited',     pitch: 2.5, range: 1.35, gap: .88,  shape: (u, i) => (i % 2 ? 1.2 : -.6) + 1 - 2 * u },
+    focused:     { label: 'focused',     pitch: 0,   range: .6,   gap: .92,  shape: (u) => .6 - 1.4 * u },
+    firm:        { label: 'firm',        pitch: -.5, range: .95,  gap: 1,    shape: (u) => 1.2 - 2.8 * u },
+    questioning: { label: 'questioning', pitch: .5,  range: 1,    gap: 1,    shape: (u) => -.6 + 1.6 * u },
+    approving:   { label: 'approving',   pitch: .8,  range: 1.05, gap: 1.04, shape: (u) => 2.2 * Math.sin(Math.PI * u) - .8 },
   };
-  function moodFor(text, r) {
-    const x = r();
-    return /\?\s*\W*$/.test(text) ? (x < .8 ? 'curious' : 'cheerful') : /!/.test(text) ? (x < .7 ? 'excited' : 'cheerful') : x < .5 ? 'calm' : 'cheerful';
+  function moodFor(text, r, set) {
+    const x = r(), ask = /\?\s*\W*$/.test(text), bang = /!/.test(text);
+    if (set === 'agent') return ask ? (x < .85 ? 'questioning' : 'focused') : bang ? (x < .6 ? 'firm' : 'approving') : x < .45 ? 'focused' : x < .8 ? 'firm' : 'approving';
+    return ask ? (x < .8 ? 'curious' : 'cheerful') : bang ? (x < .7 ? 'excited' : 'cheerful') : x < .5 ? 'calm' : 'cheerful';
   }
-  /* the plan: which syllable file, at what pitch (a playback rate), when, how loud. The app will run THIS.
-     The seed goes through the hash with the line: seeds close together (1, 2, 3...) would otherwise start the
-     generator in the same place and give the same mood every time. */
+  /* the plan: which syllable file, at what pitch (a playback rate), how loud, when. The app will run THIS, with a new
+     seed on every call. The seed goes through the hash with the line, so seeds close together still differ. */
   function plan(text, p, o = {}) {
-    const sy = syllables(text), r = rng(o.seed != null ? hash(text + '#' + o.seed) : hash(text)), out = [], v = p.variety || 0;
-    const mood = MOODS[o.mood] || MOODS[moodFor(text, r)], lift = (mood.pitch + (r() * 2 - 1) * 1.5) * v;
+    const r = rng(o.seed != null ? hash(text + '#' + o.seed) : hash(text)), out = [];
+    const v = p.variety || 0, tv = p.tempo || 0, dv = p.drop || 0, ev = p.emph ?? .5;
+    const mood = MOODS[o.mood] || MOODS[moodFor(text, r, p.moods)], lift = (mood.pitch + (r() * 2 - 1) * 1.5) * v;
     const rangeK = 1 + (mood.range - 1) * v, gapK = 1 + (mood.gap - 1) * v;
+    /* 1. HOW MANY syllables this time: some unstressed ones swallowed, sometimes an "hm." first, a limit that moves */
+    const cap = Math.max(2, Math.round(p.maxSyl * (1 + (r() * 2 - 1) * .3 * dv))), dropP = dv * (.1 + .3 * r());
+    let sy = syllables(text);
+    const lastOf = new Set(); sy.forEach((x, i) => { if (!x.end && (!sy[i + 1] || sy[i + 1].end)) lastOf.add(i); });
+    sy = sy.filter((x, i) => x.end || x.first || lastOf.has(i) || r() >= dropP);
+    if (r() < dv * .3) sy.unshift({ v: 'm', on: 'soft', first: true, word: -1, wlen: 2, from: 0, to: 0, filler: true }, { end: '.' });
+    /* 2. HOW FAST: the whole line quicker or slower, and inside it a drift - quick through the middle, slow at the end */
+    const pace = 1 + (r() * 2 - 1) * .28 * tv, phase = r();
     const sentences = []; let cur = [];
     for (const s of sy) { if (s.end) { if (cur.length) sentences.push({ s: cur, end: s.end }); cur = []; } else cur.push(s); }
     if (cur.length) sentences.push({ s: cur, end: '.' });
     let at = 0;
     for (const { s, end } of sentences) {
       const n = s.length, bang = end === '!', ask = end === '?', range = p.intonation * (bang ? 1.3 : 1) * rangeK;
+      /* 3. WHICH WORD carries the weight: the longest (a filler never does) */
+      let hot = -1, best = 0; s.forEach((x) => { if (!x.filler && x.wlen > best) { best = x.wlen; hot = x.word; } });
       s.forEach((x, i) => {
-        if (out.length >= p.maxSyl) return;
-        const u = n > 1 ? i / (n - 1) : 0, last = i === n - 1 || out.length === p.maxSyl - 1;
+        if (out.length >= cap) return;
+        const u = n > 1 ? i / (n - 1) : 0, last = i === n - 1 || out.length === cap - 1, nextS = s[i + 1];
+        const stress = x.first && x.wlen > 2, emph = x.word === hot && x.first && n > 2;
+        const lp = pace * (1 + Math.sin(TAU * (u * 1.3 + phase)) * .15 * tv) * (last ? .78 : 1) * (emph ? 1 - .25 * ev : 1);
+        const len = x.filler ? 'm' : last || (emph && lp < 1) ? 'l' : stress || emph ? (lp > 1.12 ? 's' : 'm') : (lp > .95 ? 's' : 'm');
+        const rise = last && ask;
         const contour = (1 - v) * (1.5 - 3 * u) + v * mood.shape(u, i);
-        let semis = range * contour + (x.first ? .8 * range : 0) + (r() * 2 - 1) * 1.5 * p.jitter + (bang ? 2.5 : 0) + lift;
-        if (ask && i >= n - 2) semis = range * (i === n - 1 ? 5 : 3) + lift;
-        const rate = st2(semis), { pre, lenV } = sylLen(p, x.on, last);
-        out.push({ v: x.v, on: x.on, long: last, rate, at: +at.toFixed(4), gain: (x.first ? 1 : .85) * (bang ? 1.1 : 1), from: x.from, to: x.to });
-        const next = s[i + 1];
-        at += (pre + lenV) / rate * .92 + ((last ? .17 : next && next.first ? .045 : 0) / p.speed) * gapK;
+        let semis = range * contour + (x.first ? .8 * range : 0) + (r() * 2 - 1) * 1.5 * p.jitter + (bang ? 2.5 : 0) + lift + (emph ? 2 * ev : 0);
+        if (ask && i >= n - 2) semis = range * (i === n - 1 ? 3 : 2) + lift;
+        if (x.filler) semis = -2 + lift;
+        const rate = st2(semis), { pre, lenV } = sylLen(p, x.on, len);
+        const gain = (x.filler ? .7 : emph ? 1 : stress ? .9 : .76) * (bang ? 1.08 : 1);
+        out.push({ v: x.v, on: x.on, len, rise, rate, gain, at: +at.toFixed(4), from: x.from, to: x.to });
+        /* the gap after it: word breaks, sentence breaks, and now and then a thinking pause */
+        const wordBreak = nextS && nextS.word !== x.word, pause = wordBreak && r() < .1 * tv ? .16 : 0;
+        at += (pre + lenV) / rate * .92 + ((last ? .2 : wordBreak ? .05 : 0) / p.speed / lp + pause) * gapK;
       });
     }
     out.mood = mood.label;
@@ -187,18 +229,18 @@
     if (!last) return { mix: new Float32Array(1), plan: pl };
     const mix = new Float32Array(Math.ceil((last.at + .8) * sr));
     for (const x of pl) {
-      const key = x.on + x.v + (x.long ? 'L' : '');
-      cache[key] = cache[key] || syllable(p, x.v, x.on, x.long, sr);
+      const key = x.on + x.v + x.len + (x.rise ? 'R' : '');
+      cache[key] = cache[key] || syllable(p, x.v, x.on, x.len, x.rise, sr);
       add(mix, resample(cache[key], x.rate), x.at, x.gain, sr);
     }
     return { mix, plan: pl };
   }
   const CAPY = {
-    sims:     { label: 'Sims chatter', hint: 'quick made-up syllables over a big, friendly sentence melody - the Sims idea', shape: 'voice', f: 210, formant: 1.1, intonation: 1.7, jitter: .5, scoop: 2, bend: 1, speed: 1.15, cons: .8, vib: .3, breath: .25, maxSyl: 14 },
-    villager: { label: 'Villager hum', hint: 'a nasal "hmm" that rises and falls - the Minecraft villager idea', shape: 'hum', f: 150, formant: 1, intonation: 1.8, jitter: .5, scoop: 3, bend: 3, speed: .8, cons: .2, vib: .2, breath: .35, maxSyl: 3 },
-    cute:     { label: 'Cute chatter', hint: 'the same chatter, higher and from a smaller mouth - a young creature', shape: 'voice', f: 320, formant: 1.3, intonation: 1.6, jitter: .5, scoop: 2.5, bend: 1, speed: 1.25, cons: .7, vib: .3, breath: .2, maxSyl: 14 },
-    grumble:  { label: 'Sleepy grumble', hint: 'low, slow and breathy, half-hummed', shape: 'voice', f: 130, formant: .95, intonation: .7, jitter: .3, scoop: 1.5, bend: 2, speed: .8, cons: .5, vib: .4, breath: .5, maxSyl: 8 },
-    gbvoice:  { label: 'Game Boy voice (8-bit)', hint: 'the video\'s method: one vowel cycle squeezed into the Game Boy\'s 32-step wave, looped', shape: 'gb', f: 280, formant: 1.15, intonation: 1, jitter: .35, scoop: 1.5, bend: 0, speed: 1, cons: .6, vib: .3, breath: 0, maxSyl: 12 },
+    agent:    { label: 'Agent (firm)', hint: 'low, steady and serious - firm falling endings, one word stressed, a pace that speeds up and slows down like a person', shape: 'voice', moods: 'agent', f: 112, formant: 1, intonation: 1.1, jitter: .35, scoop: 1.2, bend: 2.4, speed: 1, cons: .9, vib: .1, breath: .18, maxSyl: 12, tempo: .7, drop: .6, emph: .7, fry: .35 },
+    grumble:  { label: 'Sleepy grumble', hint: 'low, slow and breathy, half-hummed', shape: 'voice', moods: 'friendly', f: 130, formant: .95, intonation: .7, jitter: .3, scoop: 1.5, bend: 2, speed: .8, cons: .5, vib: .4, breath: .5, maxSyl: 8, tempo: .5, drop: .5, emph: .4, fry: .5 },
+    sims:     { label: 'Sims chatter', hint: 'quick made-up syllables over a big, friendly sentence melody - the Sims idea', shape: 'voice', moods: 'friendly', f: 210, formant: 1.1, intonation: 1.7, jitter: .5, scoop: 2, bend: 1, speed: 1.15, cons: .8, vib: .3, breath: .25, maxSyl: 14, tempo: .5, drop: .4, emph: .5, fry: 0 },
+    villager: { label: 'Villager hum', hint: 'a nasal "hmm" that rises and falls - the Minecraft villager idea', shape: 'hum', moods: 'friendly', f: 150, formant: 1, intonation: 1.8, jitter: .5, scoop: 3, bend: 3, speed: .8, cons: .2, vib: .2, breath: .35, maxSyl: 3, tempo: .3, drop: .5, emph: .3, fry: .2 },
+    gbvoice:  { label: 'Game Boy voice (8-bit)', hint: 'the video\'s method: one vowel cycle squeezed into the Game Boy\'s 32-step wave, looped', shape: 'gb', moods: 'friendly', f: 280, formant: 1.15, intonation: 1, jitter: .35, scoop: 1.5, bend: 0, speed: 1, cons: .6, vib: .3, breath: 0, maxSyl: 12, tempo: .3, drop: .3, emph: .3, fry: 0 },
   };
 
   /* ── the vault intro: VaultGate.jsx's own clock (T_WAVE, T_WAVE_DUR, T_GATHER, FORMED, OUT, STEP, resolveIn) ── */
