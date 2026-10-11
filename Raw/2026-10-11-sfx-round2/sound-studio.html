@@ -47,6 +47,7 @@
 
   .cards { display:grid; gap:12px; }
   .card { background:var(--raised); border:1px solid var(--line-2); border-radius:14px; padding:12px; display:grid; gap:10px; min-width:0; }
+  .card > * { min-width:0; }   /* a grid child may not grow to its longest menu option - that pushed the card past a phone's edge */
   .card.done { opacity:.86; }
   .head { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
   .head .nm { flex:1 1 220px; min-width:0; }
@@ -101,8 +102,8 @@
 
 <div class="wrap">
   <header>
-    <h1>Sound studio · round 2</h1>
-    <p class="sub"><b>Capybara:</b> 8-bit voices, made the way Game Boy and NES games make them - a short beep from a square or triangle wave, played at 4 pitches while the line types out. <b>Intro:</b> a typing tick for each letter of the two text lines, and <b>invented</b> sounds for the dots: the ring, the dots flying into your name, the moment the name lands, and the name leaving.</p>
+    <h1>Sound studio · round 3</h1>
+    <p class="sub"><b>Capybara:</b> a human-like voice, like a Minecraft villager's "hmm" or a Sim's made-up talk - it says each syllable of the real line, with a melody that falls at a full stop and rises at a question. The 8-bit voice from your video is still in the list, to compare. <b>Intro:</b> elegant, not 8-bit - soft bells, glass and air, wide stereo, a long echo, and a soft typing tick for each letter.</p>
     <p class="sub">Each card starts on my pick and <b>Today's sound</b> is there to compare. Press the gold button to hear it in its moment; letting go of a slider plays the result. When it sounds right, press <b>Save</b>.</p>
   </header>
 
@@ -116,7 +117,7 @@
 
   <div class="cards" id="cards"></div>
 
-  <footer>KPM Inventory · sound studio round 2 · recordings: Kenney Interface Sounds, UI Audio (CC0) · 8-bit sounds made here (chip.js) · <span id="stamp"></span></footer>
+  <footer>KPM Inventory · sound studio round 3 · recordings: Kenney Interface Sounds, UI Audio (CC0) · voices and intro sounds made here (chip.js) · <span id="stamp"></span></footer>
 </div>
 
 <script src="sfx-pack.js"></script>
@@ -139,9 +140,10 @@
   ];
   var STEPS = CHIP.STEPS;
   var STRIP = { msg:'American Spirit - Turquoise saved. Stock 1000 Bks', fail:'"American Spirit - Turquoise" was NOT saved. No connection.' };
-  var LINE = 'Halo bos! Stok Cello Green tinggal sedikit.';
+  var LINES = ['Halo bos! Stok Cello Green tinggal sedikit.', 'Mau dicek dulu stoknya?', 'Mantap! Penjualan hari ini naik.'];
   var NAME = 'ALDI';
-  var WAVES = [['p125','Thin pulse (12.5%)'], ['p25','Pulse (25%)'], ['p50','Square (50%)'], ['tri','Triangle'], ['saw','Saw'], ['noise','Noise']];
+  var SHAPES = [['voice', 'Human voice'], ['hum', 'Nasal hum ("hmm")'], ['gb', 'Game Boy (8-bit)']];
+  var CKEYS = ['f', 'formant', 'intonation', 'jitter', 'scoop', 'bend', 'speed', 'cons', 'vib', 'breath', 'maxSyl'];
   var PART_TEXT = {
     type:   ['Typing', 'one tick for each letter of "Welcome back" and "KPM App access unlocked"', 3.0],
     wave:   ['The ring', '0.1 - 3.1 s: the ring of light leaves the card and crosses the dots', 0],
@@ -154,22 +156,23 @@
   function fresh(n) { var m = META[n] || {}, lead = m.lead || 0; return { src:n, start:+Math.max(0, lead - .005).toFixed(3), end:+(lead + (m.len || 1) + .03).toFixed(3), vol:startVol(n), rate:1, hp:0 }; }
   function clone(o) { return JSON.parse(JSON.stringify(o)); }
   function capyFrom(key, keep) {
-    var p = CHIP.CAPY[key] || CHIP.CAPY.gb;
-    return { preset:key, wave:p.wave, f:p.f, len:p.len, slide:p.slide, jump:p.jump, vib:p.vib, crunch:p.crunch, spread:p.spread,
-      vol:keep ? keep.vol : .5, echo:keep ? keep.echo : .1 };
+    var p = CHIP.CAPY[key] || CHIP.CAPY.sims, o = { preset:key };
+    CKEYS.forEach(function (k) { o[k] = p[k]; }); o.shape = p.shape;
+    o.vol = keep ? keep.vol : .6; o.echo = keep ? keep.echo : .12;
+    return o;
   }
   function defaults() {
-    return { v:2, room:.6, master:1,
+    return { v:3, room:.6, master:1,
       ev: { msg:{ src:'confirmation_002', start:0, end:.575, vol:.29, rate:1.8, hp:180 }, fail:{ src:'error_002', start:0, end:.194, vol:.14, rate:1, hp:0 } },
-      capy: capyFrom('gb'),
-      intro: { echo:.25,
-        type:{ src:'chip:tick', vol:.35, pitch:1, wobble:2, chatter:0, leave:true },
-        wave:{ d:'shimmer', vol:.6, pitch:0 }, gather:{ d:'climb', vol:.45, pitch:0 }, formed:{ d:'coin', vol:.5, pitch:0 }, leave:{ d:'fall', vol:.35, pitch:0 } } };
+      capy: capyFrom('sims'),
+      intro: { echo:.35,
+        type:{ src:'soft:key', vol:.25, pitch:1, wobble:.5, chatter:0, leave:true },
+        wave:{ d:'sparkle', vol:.5, pitch:0 }, gather:{ d:'riser', vol:.5, pitch:0 }, formed:{ d:'chime', vol:.5, pitch:0 }, leave:{ d:'fall', vol:.35, pitch:0 } } };
   }
   var DEFAULTS = defaults(), SET = clone(DEFAULTS);
 
   /* ── sound: decode once, then every sound goes dry + through its own share of one short room ──────── */
-  var AC = null, DRY = null, CONV = null, BUF = {}, acted = false, LIVE = [];
+  var AC = null, DRY = null, CONV = null, HALL = null, BUF = {}, acted = false, LIVE = [];
   function decodeAll() {
     var OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext; if (!OAC) return Promise.resolve();
     var off = new OAC(1, 44100, 44100);
@@ -190,11 +193,14 @@
     if (!acted) return null;
     if (!AC) { var C = window.AudioContext || window.webkitAudioContext; if (!C) return null;
       AC = new C(); DRY = AC.createGain(); CONV = AC.createConvolver(); CONV.buffer = room();
-      DRY.connect(AC.destination); CONV.connect(AC.destination); }
+      /* the intro's long hall, from chip.js so the baker uses the very same one (built at this device's own rate) */
+      HALL = AC.createConvolver(); var h = CHIP.hall(AC.sampleRate), hb = AC.createBuffer(2, h[0].length, AC.sampleRate);
+      hb.copyToChannel(h[0], 0); hb.copyToChannel(h[1], 1); HALL.buffer = hb;
+      DRY.connect(AC.destination); CONV.connect(AC.destination); HALL.connect(AC.destination); }
     if (AC.state === 'suspended') AC.resume();
     return AC;
   }
-  function out(g, echo) { g.connect(DRY); var w = AC.createGain(); w.gain.value = echo; g.connect(w); w.connect(CONV); }
+  function out(g, echo, hall) { g.connect(DRY); var w = AC.createGain(); w.gain.value = echo; g.connect(w); w.connect(hall ? HALL : CONV); }
   function stopAll() { LIVE.forEach(function (s) { try { s.stop(); } catch (x) {} }); LIVE = []; }
   /* a message card: his recording, cut, pitched, bass-cut, 4 ms in / 25 ms out */
   function play(id, mult, at) {
@@ -212,12 +218,12 @@
     src.start(t, start, end - start); LIVE.push(src);
     return len;
   }
-  function toBuf(arr) { var b = AC.createBuffer(1, arr.length, CHIP.SR); b.copyToChannel(arr, 0); return b; }
-  function playBuf(b, at, vol, echo, rate, offset) {
+  function toBuf(arr, arr2) { var b = AC.createBuffer(arr2 ? 2 : 1, arr.length, CHIP.SR); b.copyToChannel(arr, 0); if (arr2) b.copyToChannel(arr2, 1); return b; }
+  function playBuf(b, at, vol, echo, rate, offset, hall) {
     var c = audio(); if (!c || !b) return null;
     var src = c.createBufferSource(), g = c.createGain();
     src.buffer = b; src.playbackRate.value = rate || 1; g.gain.value = vol * SET.master;
-    src.connect(g); out(g, echo);
+    src.connect(g); out(g, echo, hall);
     var t = c.currentTime + .03 + (at || 0); src.start(t, offset || 0); LIVE.push(src);
     return t;
   }
@@ -268,21 +274,25 @@
   function capyCard() {
     var opts = Object.keys(CHIP.CAPY).map(function (k, i) { return '<option value="' + k + '">' + (i === 0 ? '★ ' : '') + CHIP.CAPY[k].label + (i === 0 ? ' (my pick)' : '') + '</option>'; }).join('') +
       '<option value="today">Today\'s sound</option>';
-    var shapes = WAVES.map(function (w) { return '<option value="' + w[0] + '">' + w[1] + '</option>'; }).join('');
+    var shapes = SHAPES.map(function (w) { return '<option value="' + w[0] + '">' + w[1] + '</option>'; }).join('');
+    var lines = LINES.map(function (l, i) { return '<option value="' + i + '">' + l + '</option>'; }).join('');
     return '<section class="card" id="card-capy" aria-label="Capybara talks">' +
-      '<div class="head"><div class="nm"><b>Capybara talks · 8-bit</b><small>one short beep, played at 4 pitches while his line types out</small></div>' +
-      '<button type="button" class="key try" id="capy-say">Capybara says a line</button></div>' +
+      '<div class="head"><div class="nm"><b>Capybara talks</b><small>a made-up voice that says each syllable of his real line, with a sentence melody</small></div>' +
+      '<button type="button" class="key try" id="capy-say">Capybara says it</button></div>' +
       '<div class="stage" id="stage-capy" aria-hidden="true"></div>' +
-      '<div class="pick"><button type="button" class="key play" id="capy-play" aria-label="Play the four beeps">▶</button>' +
+      '<div class="pick"><select id="capy-line" aria-label="Line to say">' + lines + '</select></div>' +
+      '<div class="pick"><button type="button" class="key play" id="capy-play" aria-label="Play the five vowels">▶</button>' +
       '<select id="capy-preset" aria-label="Voice">' + opts + '</select></div>' +
       '<p class="facts" id="facts-capy"></p>' +
       '<canvas class="wave" id="wave-capy" aria-hidden="true"></canvas>' +
       '<div class="knobs" id="knobs-capy">' +
-      '<label class="knob"><span>Shape</span><select id="c-wave" data-c="wave">' + shapes + '</select></label>' +
-      knob('capy', 'f', 'Pitch', 150, 1500, 5, ' data-c="f"') + knob('capy', 'len', 'Length', .015, .15, .005, ' data-c="len"') +
-      knob('capy', 'slide', 'Slide', -12, 12, 1, ' data-c="slide"') + knob('capy', 'jump', 'Jump', 0, 12, 1, ' data-c="jump"') +
-      knob('capy', 'vib', 'Wobble', 0, 1.5, .05, ' data-c="vib"') + knob('capy', 'spread', 'Pitch spread', 0, 3, .05, ' data-c="spread"') +
-      knob('capy', 'crunch', '8-bit grit', 0, 1, .05, ' data-c="crunch"') +
+      '<label class="knob"><span>Voice type</span><select id="c-shape" data-c="shape">' + shapes + '</select></label>' +
+      knob('capy', 'f', 'Pitch', 100, 500, 5, ' data-c="f"') + knob('capy', 'formant', 'Mouth size', .8, 1.5, .01, ' data-c="formant"') +
+      knob('capy', 'intonation', 'Melody', 0, 2.5, .05, ' data-c="intonation"') + knob('capy', 'jitter', 'Randomness', 0, 1, .05, ' data-c="jitter"') +
+      knob('capy', 'scoop', 'Slide in', 0, 5, .1, ' data-c="scoop"') + knob('capy', 'bend', 'Fall at the end', 0, 5, .1, ' data-c="bend"') +
+      knob('capy', 'speed', 'Speed', .6, 1.6, .01, ' data-c="speed"') + knob('capy', 'cons', 'Consonants', 0, 1, .05, ' data-c="cons"') +
+      knob('capy', 'vib', 'Wobble', 0, 1, .05, ' data-c="vib"') + knob('capy', 'breath', 'Breath', 0, 1, .05, ' data-c="breath"') +
+      knob('capy', 'maxSyl', 'Longest line', 2, 24, 1, ' data-c="maxSyl"') +
       knob('capy', 'vol', 'Loudness', 0, 1.2, .01, ' data-c="vol"') + knob('capy', 'echo', 'Echo', 0, .6, .01, ' data-c="echo"') +
       '</div></section>';
   }
@@ -335,42 +345,52 @@
   }
 
   /* ── the capybara ────────────────────────────────────────────────────────────────────────────── */
-  var CAPYV = null;
-  function capyArrs() { return CHIP.capyVoices(SET.capy); }
+  /* the spoken line, rendered with chip.js's own plan - the same plan the app will run */
+  var SAID = null;
+  function line() { return LINES[+$('capy-line').value || 0]; }
+  function capySpeech() { if (!SAID || SAID.text !== line()) SAID = Object.assign({ text: line() }, CHIP.speak(line(), SET.capy)); return SAID; }
   function paintCapy() {
     var c = SET.capy, today = c.preset === 'today', p = CHIP.CAPY[c.preset];
-    $('capy-preset').value = c.preset; $('c-wave').value = c.wave;
-    var fmt = { f:function (v) { return v + ' Hz'; }, len:function (v) { return v.toFixed(3) + ' s'; }, slide:function (v) { return (v > 0 ? '+' : '') + v + ' notes'; },
-      jump:function (v) { return v ? '+' + v + ' notes' : 'off'; }, vib:function (v) { return v ? v.toFixed(2) : 'off'; }, spread:function (v) { return v.toFixed(2) + '×'; },
-      crunch:function (v) { return v ? Math.round(v * 100) + '%' : 'off'; }, vol:function (v) { return Math.round(v * 100) + '%'; }, echo:function (v) { return Math.round(v * 100) + '%'; } };
+    $('capy-preset').value = c.preset; $('c-shape').value = c.shape;
+    var pct = function (v) { return v ? Math.round(v * 100) + '%' : 'off'; };
+    var fmt = { f:function (v) { return v + ' Hz'; }, formant:function (v) { return v.toFixed(2) + '×'; }, intonation:function (v) { return v ? v.toFixed(2) + '×' : 'flat'; },
+      jitter:pct, scoop:function (v) { return v ? v.toFixed(1) + ' notes' : 'off'; }, bend:function (v) { return v ? v.toFixed(1) + ' notes' : 'off'; },
+      speed:function (v) { return v.toFixed(2) + '×'; }, cons:pct, vib:pct, breath:pct, maxSyl:function (v) { return v + ' syllables'; },
+      vol:function (v) { return Math.round(v * 100) + '%'; }, echo:function (v) { return Math.round(v * 100) + '%'; } };
     Object.keys(fmt).forEach(function (k) { var inp = $(k + '-capy'); inp.value = c[k]; $('o-' + k + '-capy').textContent = fmt[k](c[k]); inp.disabled = today && k !== 'vol' && k !== 'echo'; });
-    $('c-wave').disabled = today;
+    $('c-shape').disabled = today;
     if (today) {
       var b = BUF['today:mumble1'];
-      $('facts-capy').textContent = "today's sound: the recorded blip the app plays now (" + (b ? b.duration.toFixed(2) : '?') + ' s, 92% bass) at its 4 pitches';
+      $('facts-capy').textContent = "today's sound: the recorded blip the app plays now (" + (b ? b.duration.toFixed(2) : '?') + ' s, 92% bass), up to 8 times at 4 pitches';
       drawArr($('wave-capy'), b && b.getChannelData(0));
       return;
     }
-    var hz = STEPS.map(function (s) { return Math.round(c.f * (1 + (s - 1) * c.spread)); }).join(' / ');
-    var same = p && ['wave', 'f', 'len', 'slide', 'jump', 'vib', 'crunch', 'spread'].every(function (k) { return p[k] === c[k]; });
-    $('facts-capy').textContent = (p ? (same ? p.hint : 'changed from "' + p.label + '"') + ' · ' : '') + 'beep ' + c.len.toFixed(3) + ' s · pitches ' + hz + ' Hz';
-    drawArr($('wave-capy'), capyArrs()[0]);
-  }
-  function capyBeep(i, at) {
-    var c = SET.capy;
-    if (c.preset === 'today') return playBuf(BUF['today:mumble1'], at, c.vol, c.echo, STEPS[i]);
-    if (!audio()) return null;
-    if (!CAPYV) CAPYV = capyArrs().map(toBuf);
-    return playBuf(CAPYV[i], at, c.vol, c.echo);
+    var same = p && CKEYS.concat(['shape']).every(function (k) { return p[k] === c[k]; }), s = capySpeech();
+    $('facts-capy').textContent = (p ? (same ? p.hint : 'changed from "' + p.label + '"') + ' · ' : '') + s.plan.length + ' syllables, ' + (s.mix.length / CHIP.SR).toFixed(1) + ' s for this line';
+    drawArr($('wave-capy'), s.mix);
   }
   function capySay() {
-    var st = $('stage-capy'), chars = LINE.split(''), letters = LINE.replace(/\s+/g, '').length;
-    st.innerHTML = '<div class="bubble">' + chars.map(function (ch) { return '<i>' + ch + '</i>'; }).join('') + '</div>';
-    var spans = st.querySelectorAll('i');
-    /* the app's rhythm (useSound.js speakMumble): one beep per 3 letters, at most 8, one every 105 ms, pitch order (i*3+len)%4 */
-    var count = Math.min(8, Math.max(1, Math.round(letters / 3)));
-    for (var i = 0; i < count; i++) capyBeep((i * 3 + letters) % 4, i * .105);
-    spans.forEach(function (sp, k) { setTimeout(function () { sp.classList.add('on'); }, k * (count * 105 / spans.length)); });
+    var c = SET.capy, text = line(), st = $('stage-capy');
+    stopAll();
+    st.innerHTML = '<div class="bubble">' + text.split('').map(function (ch) { return '<i>' + ch + '</i>'; }).join('') + '</div>';
+    var spans = st.querySelectorAll('i'), lit = function (a, b) { for (var k = a; k < b && k < spans.length; k++) spans[k].classList.add('on'); };
+    if (c.preset === 'today') {
+      /* today's app: one blip per 3 letters, at most 8, one every 105 ms, pitch order (i*3+len)%4 (useSound.js speakMumble) */
+      var letters = text.replace(/\s+/g, '').length, count = Math.min(8, Math.max(1, Math.round(letters / 3)));
+      for (var i = 0; i < count; i++) playBuf(BUF['today:mumble1'], i * .105, c.vol, c.echo, STEPS[(i * 3 + letters) % 4]);
+      spans.forEach(function (sp, k) { setTimeout(function () { sp.classList.add('on'); }, k * (count * 105 / spans.length)); });
+      return;
+    }
+    if (!audio()) return;
+    var s = capySpeech();
+    playBuf(toBuf(s.mix), 0, c.vol, c.echo);
+    s.plan.forEach(function (x, i) { setTimeout(function () { lit(i ? x.from : 0, x.to + 1); }, 30 + x.at * 1000); });
+    var end = s.plan[s.plan.length - 1]; if (end) setTimeout(function () { lit(0, spans.length); }, 30 + end.at * 1000 + 300);
+  }
+  function capyVowels() {
+    var c = SET.capy; if (c.preset === 'today' || !audio()) return;
+    stopAll();
+    ['a', 'e', 'i', 'o', 'u'].forEach(function (v, i) { playBuf(toBuf(CHIP.syllable(c, v, 'soft', true)), i * .32, c.vol, c.echo); });
   }
 
   /* ── the intro: VaultGate.jsx's drawing, ported line for line (GAP, DEN, TSIZE, the wave, the gather) ── */
@@ -468,7 +488,7 @@
     var c = audio(), LEAD = .08;
     if (c) {
       if (which === 'today') playBuf(BUF['today:vault-b'], LEAD - .03, .9, 0);
-      else { if (!INTRO.mix) introPaint(); playBuf(toBuf(INTRO.mix), LEAD - .03, 1, SET.intro.echo); }
+      else { if (!INTRO.L) introPaint(); playBuf(toBuf(INTRO.L, INTRO.R), LEAD - .03, 1, SET.intro.echo, 1, 0, true); }
     }
     $('gate-note').textContent = which === 'today' ? "today's sound" : 'round 2';
     igLater(function () {
@@ -486,10 +506,11 @@
       IG.raf = requestAnimationFrame(frame);
     }, LEAD * 1000);
   }
-  var INTRO = { mix:null, peak:0 };
+  var INTRO = { L:null, R:null, peak:0 };
   function rec(n) { var b = BUF[n]; return b ? b.getChannelData(0) : null; }
   function introPaint() {
-    var r = CHIP.intro(SET.intro, rec, CHIP.SR); INTRO.mix = r.mix; INTRO.peak = r.peak;
+    var r = CHIP.intro(SET.intro, rec, CHIP.SR); INTRO.L = r.L; INTRO.R = r.R; INTRO.peak = r.peak;
+    r.mix = r.L.map(function (v, k) { return (v + r.R[k]) / 2; });
     var hot = r.peak > .95;
     $('facts-intro').textContent = 'about 8.5 s · loudest point ' + r.peak.toFixed(2) + (hot ? ' - too loud, it would crackle: lower a Loudness' : ' (under 0.95 is safe)');
     $('facts-intro').classList.toggle('warn', hot);
@@ -509,7 +530,7 @@
         $('chatter-i-type').value = s.chatter; $('o-chatter-i-type').textContent = s.chatter ? Math.round(s.chatter * 100) + '%' : 'off';
         $('leave-i-type').checked = !!s.leave;
         var m = META[s.src];
-        $('hint-type').textContent = s.src === 'off' ? 'no typing sound' : CHIP.TYPE[s.src] ? 'made here - a ' + (s.src === 'chip:noise' ? 'noise' : 'pulse') + ' blip, no recording' : 'recording, ' + (m ? Math.round(m.len * 1000) + ' ms, brightness ' + m.bright + ' Hz' : '');
+        $('hint-type').textContent = s.src === 'off' ? 'no typing sound' : CHIP.TYPE[s.src] ? 'made here, no recording - it moves left to right with the letters' : 'recording, ' + (m ? Math.round(m.len * 1000) + ' ms, brightness ' + m.bright + ' Hz' : '');
       } else {
         $('pitch-i-' + part).value = s.pitch; $('o-pitch-i-' + part).textContent = (s.pitch > 0 ? '+' : '') + s.pitch + ' notes';
         var d = CHIP.DESIGN[part][s.d];
@@ -522,7 +543,7 @@
     if (!audio()) return;
     stopAll();
     var r = CHIP.intro(SET.intro, rec, CHIP.SR, part);
-    playBuf(toBuf(r.mix), 0, 1, SET.intro.echo, 1, PART_TEXT[part][2]);
+    playBuf(toBuf(r.L, r.R), 0, 1, SET.intro.echo, 1, PART_TEXT[part][2], true);
   }
 
   /* ── edits ───────────────────────────────────────────────────────────────────────────────────── */
@@ -535,7 +556,7 @@
   function state(dirty) {
     $('save').disabled = !dirty;
     $('state').textContent = dirty ? 'Not saved yet' : (savedAt ? 'Saved · ' + savedAt : 'My picks');
-    if (dirty) { SET.at = Date.now(); try { localStorage.setItem('kpm-studio-r2-draft', JSON.stringify(SET)); } catch (x) {} }
+    if (dirty) { SET.at = Date.now(); try { localStorage.setItem('kpm-studio-r3-draft', JSON.stringify(SET)); } catch (x) {} }
   }
   function edit(e, done) {
     var el = e.target, card = el.closest('.card'), k = el.dataset.k;
@@ -543,10 +564,11 @@
     if (!card) return;
     if (card.id === 'card-capy') {
       var c = SET.capy;
+      if (el.id === 'capy-line') { SAID = null; paintCapy(); if (done) capySay(); return; }
       if (el.id === 'capy-preset') { if (done) { SET.capy = el.value === 'today' ? Object.assign(clone(c), { preset:'today' }) : capyFrom(el.value, c); } }
-      else if (el.dataset.c) c[el.dataset.c] = el.dataset.c === 'wave' ? el.value : +el.value;
+      else if (el.dataset.c) c[el.dataset.c] = el.dataset.c === 'shape' ? el.value : +el.value;
       else return;
-      CAPYV = null; paintCapy(); state(true);
+      SAID = null; paintCapy(); state(true);
       if (done) capySay();
       return;
     }
@@ -585,11 +607,11 @@
     var p = e.target.closest('[data-play]'); if (p) { play(p.dataset.play); return; }
     var s = e.target.closest('[data-solo]'); if (s) { solo(s.dataset.solo); return; }
     if (e.target.closest('#capy-say')) { capySay(); return; }
-    if (e.target.closest('#capy-play')) { stopAll(); [0, 1, 2, 3].forEach(function (i) { capyBeep(i, i * .16); }); return; }
+    if (e.target.closest('#capy-play')) { capyVowels(); return; }
     if (e.target.closest('#intro-go')) { introRun('new'); return; }
     if (e.target.closest('#intro-today')) introRun('today');
   });
-  $('reset').addEventListener('click', function () { SET = clone(DEFAULTS); CAPYV = null; paintAll(); state(true); });
+  $('reset').addEventListener('click', function () { SET = clone(DEFAULTS); SAID = null; paintAll(); state(true); });
 
   /* stored settings are untrusted input: anything missing, unknown or out of range falls back to my pick */
   function sane(raw) {
@@ -604,11 +626,13 @@
     });
     var rc = raw.capy, oc = out.capy;
     if (rc && typeof rc === 'object') {
-      if (rc.preset === 'today' || CHIP.CAPY[rc.preset]) oc.preset = rc.preset;
-      if (WAVES.some(function (w) { return w[0] === rc.wave; })) oc.wave = rc.wave;
-      oc.f = num(rc.f, 150, 1500, oc.f); oc.len = num(rc.len, .015, .15, oc.len); oc.slide = num(rc.slide, -12, 12, oc.slide);
-      oc.jump = num(rc.jump, 0, 12, oc.jump); oc.vib = num(rc.vib, 0, 1.5, oc.vib); oc.spread = num(rc.spread, 0, 3, oc.spread);
-      oc.crunch = num(rc.crunch, 0, 1, oc.crunch); oc.vol = num(rc.vol, 0, 1.2, oc.vol); oc.echo = num(rc.echo, 0, .6, oc.echo);
+      /* a round-2 save holds 8-bit beep fields (wave, len, slide...) - they do not fit this voice, so it keeps my pick */
+      if (rc.preset === 'today' || CHIP.CAPY[rc.preset]) Object.assign(oc, rc.preset === 'today' ? { preset:'today' } : capyFrom(rc.preset, oc));
+      if (SHAPES.some(function (w) { return w[0] === rc.shape; })) oc.shape = rc.shape;
+      var LIM = { f:[100, 500], formant:[.8, 1.5], intonation:[0, 2.5], jitter:[0, 1], scoop:[0, 5], bend:[0, 5], speed:[.6, 1.6], cons:[0, 1], vib:[0, 1], breath:[0, 1], maxSyl:[2, 24] };
+      Object.keys(LIM).forEach(function (k) { oc[k] = num(rc[k], LIM[k][0], LIM[k][1], oc[k]); });
+      oc.maxSyl = Math.round(oc.maxSyl);
+      oc.vol = num(rc.vol, 0, 1.2, oc.vol); oc.echo = num(rc.echo, 0, .6, oc.echo);
     }
     var ri = raw.intro, oi = out.intro;
     if (ri && typeof ri === 'object') {
@@ -632,8 +656,8 @@
   $('save').addEventListener('click', function () {
     SET.at = Date.now();
     var body = clone(SET), stamp = new Date().toTimeString().slice(0, 5);
-    var done = function (where) { savedAt = stamp + ' · ' + where; try { localStorage.removeItem('kpm-studio-r2-draft'); } catch (x) {} state(false); };
-    if (!DB) { try { localStorage.setItem('kpm-studio-r2-saved', JSON.stringify(body)); } catch (x) {} done('this browser only'); return; }
+    var done = function (where) { savedAt = stamp + ' · ' + where; try { localStorage.removeItem('kpm-studio-r3-draft'); } catch (x) {} state(false); };
+    if (!DB) { try { localStorage.setItem('kpm-studio-r3-saved', JSON.stringify(body)); } catch (x) {} done('this browser only'); return; }
     $('save').disabled = true; $('state').textContent = 'Saving…';
     DB.doc('sfx/settings').set(body).then(function () { done('every device'); }, function (err) {
       $('save').disabled = false; $('state').textContent = 'Could not save (' + (err && err.code || 'error') + ') - press Save again';
@@ -644,19 +668,19 @@
 
   function readLocal(key) { try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (x) { return null; } }
   function adopt(saved) {
-    var draft = readLocal('kpm-studio-r2-draft');
+    var draft = readLocal('kpm-studio-r3-draft');
     if (draft && (!saved || (Number(draft.at) || 0) > (Number(saved.at) || 0))) { SET = sane(draft); paintAll(); state(true); return; }
     if (saved) { SET = sane(saved); savedAt = saved.at ? new Date(saved.at).toTimeString().slice(0, 5) : ''; }
     paintAll();
-    /* a round-1 save holds the two message sounds but nothing for round 2 - so round 2 starts unsaved */
-    state(!saved || saved.v !== 2);
+    /* an older save holds the two message sounds but not this round - so this round starts unsaved */
+    state(!saved || saved.v !== 3);
   }
   $('stamp').textContent = new Date().toISOString().slice(0, 10);
   paintAll();
   var dbReady = (window.claude && window.claude.use) ? window.claude.use('db') : Promise.resolve(null);
   Promise.all([decodeAll(), Promise.resolve(dbReady).catch(function () { return null; })]).then(function (r) {
     DB = r[1];
-    if (!DB) return adopt(readLocal('kpm-studio-r2-saved'));
+    if (!DB) return adopt(readLocal('kpm-studio-r3-saved'));
     DB.doc('sfx/settings').get().then(function (snap) { adopt(snap.exists ? snap.data() : null); }, function () { adopt(null); });
   });
   document.addEventListener('pointerdown', function () { acted = true; }, true);
