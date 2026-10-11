@@ -79,3 +79,5 @@ sit here indefinitely once it's actually decided.
 - [[2026-10-12_hub-symbol]] - the wholesale HUB pin: roof 3.5 px off-centre + "more recognizable"; A / B / C OPEN
 
 - [[2026-10-12_gold-buttons]] - the solid amber buttons (Customer Directory, Sampling) - A / B / C OPEN; + the bell dates built, the music knob answered
+
+- [[2026-10-12_whatsapp-receipt]] - the receipt to ANY WhatsApp number (A: number in the link / B: Meta API) OPEN; + two Restock Vault layout bugs
