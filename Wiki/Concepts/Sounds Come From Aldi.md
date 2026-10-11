@@ -5,7 +5,7 @@ type: concept
 created: 2026-09-04
 updated: 2026-09-04
 confidence: high
-checked: 2026-09-04
+checked: 2026-10-11
 tags: [pattern, design, audio, kpm, taste]
 ---
 
@@ -168,3 +168,9 @@ normalisation. Two traps found on the way:
 - **An `<audio>` element keeps its pitch when sped up** (`preservesPitch` defaults to true), so the rising landing pop would
   only get faster. `useSound` sets it false on the pool and sets `playbackRate` on every play.
 Change a sound later: SIMPAN in the studio artifact, copy the numbers into SET in the script, run it.
+
+## Round eight - he ASKED for made sounds (2026-10-11)
+
+His words: *"well those 8 bit games usually sounds great i want u to research on those for the capybara, well tbh for the intro, i can recommend typing sound when the welcome and name button shows but u need to invent for the dots animation SFX"*
+
+The rule changes shape again: **a made sound is allowed when he asks for one** - and 8-bit is a style that is made by nature (pulse and triangle waves, no recording). It still goes through a studio he tunes and saves, never straight into the app. The synth is `A-Brain/Raw/2026-10-11-sfx-round2/chip.js`, one file shared by the studio and the baker, so the saved sound is the baked sound. The app-side ban stays: the app never synthesises live, it plays baked files (audit G56 for the tutorial). Round 2 of the studio: `Brainstorm/2026-10-10_sfx-message-capybara-intro.md`, section 2026-10-11 08:31.

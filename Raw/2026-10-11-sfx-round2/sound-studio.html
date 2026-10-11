@@ -1,0 +1,665 @@
+<title>KPM Sound Studio</title>
+<style>
+  /* layout: one column of cards under a sticky save bar; the app's own dark slate + gold, light variant for daylight */
+  :root {
+    --ground:#0A0908; --panel:#121110; --raised:#1B1917; --inset:#0E0D0C;
+    --line:#2A2622; --line-2:#3E3A35;
+    --ink:#E8E4DE; --ink-muted:#A39B90; --ink-dim:#928B81;
+    --gold:#D08A2E; --gold-ink:#0A0908; --accent-ink:#D08A2E; --accent-edge:#D08A2E; --bad:#E08C82; --hi:#F5D08A;
+    --mono:ui-monospace,"Cascadia Mono","Consolas",monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+    color-scheme:dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --ground:#D6CDBA; --panel:#E1DAC8; --raised:#EDE7D8; --inset:#C6BDA9;
+      --line:#7E786F; --line-2:#5E5A55; --ink:#131211; --ink-muted:#3A3733; --ink-dim:#3F3B36;
+      --gold:#1B1917; --gold-ink:#F7F3E9; --accent-ink:#6B4A12; --accent-edge:#6B4A12; --bad:#9A2A1E; --hi:#6B4A12;
+      color-scheme:light;
+    }
+  }
+  :root[data-theme="light"] {
+    --ground:#D6CDBA; --panel:#E1DAC8; --raised:#EDE7D8; --inset:#C6BDA9;
+    --line:#7E786F; --line-2:#5E5A55; --ink:#131211; --ink-muted:#3A3733; --ink-dim:#3F3B36;
+    --gold:#1B1917; --gold-ink:#F7F3E9; --accent-ink:#6B4A12; --accent-edge:#6B4A12; --bad:#9A2A1E; --hi:#6B4A12;
+    color-scheme:light;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font:400 15px/1.55 var(--sans); padding-inline:16px; padding-block:0 64px; }
+  .wrap { max-width:980px; margin:0 auto; }
+  header { padding-block:28px 4px; }
+  h1 { font:900 clamp(22px,5vw,30px)/1.15 var(--sans); margin:0 0 6px; text-wrap:balance; }
+  .sub { color:var(--ink-muted); font-size:14px; margin:0 0 6px; max-width:66ch; }
+  .sub b { color:var(--ink); }
+
+  .bar { position:sticky; top:env(safe-area-inset-top,0px); z-index:5; display:flex; flex-wrap:wrap; gap:10px 14px; align-items:end;
+         margin:14px 0; padding:10px 0; background:var(--ground); border-bottom:1px solid var(--line); }
+  .bar .knob { flex:1 1 160px; }
+  .key { min-height:44px; padding:0 14px; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+         border:1px solid var(--line-2); border-radius:10px; background:var(--panel); color:var(--ink); cursor:pointer;
+         font:900 11px/1 var(--mono); letter-spacing:.14em; text-transform:uppercase; transition:transform .12s ease-out, border-color .16s; }
+  .key:hover { border-color:var(--accent-edge); }
+  .key:active { transform:scale(.96); }
+  .key:focus-visible, select:focus-visible, input:focus-visible { outline:3px solid var(--hi); outline-offset:2px; }
+  .key.save { background:var(--gold); color:var(--gold-ink); border-color:transparent; }
+  .key.save:disabled { background:var(--panel); color:var(--ink-dim); border:1px dashed var(--line-2); cursor:default; transform:none; }
+  .state { font:900 10px/1.3 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); min-height:44px; display:inline-flex; align-items:center; }
+
+  .cards { display:grid; gap:12px; }
+  .card { background:var(--raised); border:1px solid var(--line-2); border-radius:14px; padding:12px; display:grid; gap:10px; min-width:0; }
+  .card.done { opacity:.86; }
+  .head { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+  .head .nm { flex:1 1 220px; min-width:0; }
+  .head .nm b { display:block; font:800 16px/1.25 var(--sans); }
+  .head .nm small { display:block; color:var(--ink-muted); font-size:13px; }
+  .tag { display:inline-block; margin-left:6px; padding:1px 7px; border:1px solid var(--line-2); border-radius:99px; font:900 9px/1.6 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink); vertical-align:2px; }
+  .try { background:var(--gold); color:var(--gold-ink); border-color:transparent; }
+  .pick { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .pick select, .knob select { flex:1 1 240px; min-width:0; min-height:44px; border-radius:10px; border:1px solid var(--line-2); background:var(--inset); color:var(--ink); font:700 13px/1 var(--mono); padding:0 10px; }
+  .knob select { min-height:36px; width:100%; }
+  .play { width:44px; padding:0; font-size:14px; letter-spacing:0; }
+  .facts { font:700 11px/1.4 var(--mono); color:var(--ink-dim); letter-spacing:.04em; font-variant-numeric:tabular-nums; margin:0; }
+  .facts.warn { color:var(--bad); }
+  .wave { width:100%; height:56px; border-radius:8px; border:1px solid var(--line-2); display:block; }
+  .knobs { display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap:6px 14px; }
+  .knob { display:grid; gap:2px; font:900 10px/1.3 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--ink-dim); }
+  .knob output { color:var(--ink); letter-spacing:.04em; font-variant-numeric:tabular-nums; }
+  .knob input[type=range] { width:100%; min-height:28px; accent-color:var(--accent-edge); }
+  .knob input:disabled, .knob select:disabled { opacity:.35; }
+  .check { display:flex; gap:8px; align-items:center; min-height:44px; font:900 10px/1.3 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--ink-dim); cursor:pointer; }
+  .check input { width:20px; height:20px; accent-color:var(--accent-edge); }
+
+  .sec { border-top:1px solid var(--line); padding-top:10px; display:grid; gap:8px; }
+  .sechead { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .sechead .nm { flex:1 1 200px; min-width:0; }
+  .sechead b { font:800 14px/1.3 var(--sans); }
+  .sechead small { display:block; color:var(--ink-muted); font-size:12px; }
+
+  /* the moment itself, so a sound is judged where it happens, not alone */
+  .stage { min-height:64px; border:1px dashed var(--line-2); border-radius:10px; background:var(--inset); display:grid; place-items:center; padding:10px; overflow:hidden; }
+  .strip { max-width:100%; padding:10px 14px; border:1px solid var(--line-2); border-left:3px solid var(--accent-edge); border-radius:6px; background:var(--panel);
+           font:700 13px/1.4 var(--sans); color:var(--ink); opacity:0; transform:translateY(-10px); }
+  .strip.bad { border-left-color:var(--bad); }
+  .strip.in { animation:in .26s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes in { from { opacity:0; transform:translateY(-10px) scale(.97); } to { opacity:1; transform:none; } }
+  .bubble { max-width:100%; padding:8px 12px; border-radius:12px; background:var(--panel); border:1px solid var(--line-2); font:700 13px/1.4 var(--sans); }
+  .bubble i { font-style:normal; opacity:.15; }
+  .bubble i.on { opacity:1; }
+  /* the vault gate, drawn the way VaultGate.jsx draws it (always dark - it is dark in the app too) */
+  .gate { position:relative; display:block; padding:0; width:100%; max-width:440px; margin:0 auto; height:min(62vh, 560px); background:#0A0908; border-style:solid; }
+  .gate canvas { position:absolute; inset:0; width:100%; height:100%; }
+  .gate .lines { position:absolute; inset:0; padding:0 18px; text-align:center; pointer-events:none; }
+  .gate .lines > div { margin-top:14%; }
+  .gate .hello, .gate .line { display:flex; flex-wrap:wrap; justify-content:center; text-transform:uppercase; }
+  .gate .hello { font-size:15px; letter-spacing:.44em; color:rgba(247,233,200,.8); }
+  .gate .line { font-size:13px; letter-spacing:.32em; color:rgba(247,233,200,.6); margin-top:12px; }
+  .gate .note { position:absolute; left:0; right:0; bottom:10px; text-align:center; font:900 10px/1.4 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:rgba(247,233,200,.45); }
+  @media (prefers-reduced-motion: reduce) { .strip.in { animation:none; opacity:1; transform:none; } }
+
+  footer { margin-top:30px; color:var(--ink-dim); font:12px/1.5 var(--mono); }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Sound studio · round 2</h1>
+    <p class="sub"><b>Capybara:</b> 8-bit voices, made the way Game Boy and NES games make them - a short beep from a square or triangle wave, played at 4 pitches while the line types out. <b>Intro:</b> a typing tick for each letter of the two text lines, and <b>invented</b> sounds for the dots: the ring, the dots flying into your name, the moment the name lands, and the name leaving.</p>
+    <p class="sub">Each card starts on my pick and <b>Today's sound</b> is there to compare. Press the gold button to hear it in its moment; letting go of a slider plays the result. When it sounds right, press <b>Save</b>.</p>
+  </header>
+
+  <div class="bar">
+    <label class="knob"><span>Echo, messages <output id="o-room"></output></span><input type="range" id="room" min="0" max="0.6" step="0.01"></label>
+    <label class="knob"><span>Volume, all <output id="o-master"></output></span><input type="range" id="master" min="0" max="1.5" step="0.01"></label>
+    <button class="key" id="reset" type="button">My picks</button>
+    <button class="key save" id="save" type="button" disabled>Save</button>
+    <span class="state" id="state" role="status" aria-live="polite">My picks</span>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <footer>KPM Inventory · sound studio round 2 · recordings: Kenney Interface Sounds, UI Audio (CC0) · 8-bit sounds made here (chip.js) · <span id="stamp"></span></footer>
+</div>
+
+<script src="sfx-pack.js"></script>
+<script src="sfx-pack2.js"></script>
+<script src="chip.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var SRC = Object.assign({}, window.KPM_SFX || {}, window.KPM_SFX2 || {});
+  var META = Object.assign({}, window.KPM_SFX_META || {}, window.KPM_SFX2_META || {});
+  var CFG = window.KPM_SFX_CARDS || { cards: {}, today: {} };
+  var TYPES = window.KPM_SFX2_TYPE || [];
+  var CHIP = window.KPM_CHIP;
+
+  /* the two message cards are DONE - baked into the app 11 Oct (kpm f942657) from what he saved */
+  var CARDS = [
+    { id:'msg',  name:'Message appears',         sub:'in the app since 11 Oct. Change it only if it sounds wrong on your phone', try:'Show a message' },
+    { id:'fail', name:'Failure message appears', sub:'in the app since 11 Oct. Change it only if it sounds wrong on your phone', try:'Show a failure' }
+  ];
+  var STEPS = CHIP.STEPS;
+  var STRIP = { msg:'American Spirit - Turquoise saved. Stock 1000 Bks', fail:'"American Spirit - Turquoise" was NOT saved. No connection.' };
+  var LINE = 'Halo bos! Stok Cello Green tinggal sedikit.';
+  var NAME = 'ALDI';
+  var WAVES = [['p125','Thin pulse (12.5%)'], ['p25','Pulse (25%)'], ['p50','Square (50%)'], ['tri','Triangle'], ['saw','Saw'], ['noise','Noise']];
+  var PART_TEXT = {
+    type:   ['Typing', 'one tick for each letter of "Welcome back" and "KPM App access unlocked"', 3.0],
+    wave:   ['The ring', '0.1 - 3.1 s: the ring of light leaves the card and crosses the dots', 0],
+    gather: ['Dots fly into the name', '2.8 - 4.5 s', 2.7],
+    formed: ['The name lands', 'at 4.5 s', 4.4],
+    leave:  ['The name leaves', 'from 6.7 s, letter by letter', 6.6]
+  };
+
+  function startVol(n) { var m = META[n]; if (!m || n.indexOf('today:') === 0) return 1; return Math.min(1.5, +Math.pow(10, (-15 - m.peakDb) / 20).toFixed(2)); }
+  function fresh(n) { var m = META[n] || {}, lead = m.lead || 0; return { src:n, start:+Math.max(0, lead - .005).toFixed(3), end:+(lead + (m.len || 1) + .03).toFixed(3), vol:startVol(n), rate:1, hp:0 }; }
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+  function capyFrom(key, keep) {
+    var p = CHIP.CAPY[key] || CHIP.CAPY.gb;
+    return { preset:key, wave:p.wave, f:p.f, len:p.len, slide:p.slide, jump:p.jump, vib:p.vib, crunch:p.crunch, spread:p.spread,
+      vol:keep ? keep.vol : .5, echo:keep ? keep.echo : .1 };
+  }
+  function defaults() {
+    return { v:2, room:.6, master:1,
+      ev: { msg:{ src:'confirmation_002', start:0, end:.575, vol:.29, rate:1.8, hp:180 }, fail:{ src:'error_002', start:0, end:.194, vol:.14, rate:1, hp:0 } },
+      capy: capyFrom('gb'),
+      intro: { echo:.25,
+        type:{ src:'chip:tick', vol:.35, pitch:1, wobble:2, chatter:0, leave:true },
+        wave:{ d:'shimmer', vol:.6, pitch:0 }, gather:{ d:'climb', vol:.45, pitch:0 }, formed:{ d:'coin', vol:.5, pitch:0 }, leave:{ d:'fall', vol:.35, pitch:0 } } };
+  }
+  var DEFAULTS = defaults(), SET = clone(DEFAULTS);
+
+  /* ── sound: decode once, then every sound goes dry + through its own share of one short room ──────── */
+  var AC = null, DRY = null, CONV = null, BUF = {}, acted = false, LIVE = [];
+  function decodeAll() {
+    var OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext; if (!OAC) return Promise.resolve();
+    var off = new OAC(1, 44100, 44100);
+    return Promise.all(Object.keys(SRC).map(function (n) {
+      var bin = atob(SRC[n]), bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return off.decodeAudioData(bytes.buffer).then(function (b) { BUF[n] = b; }, function () {});
+    }));
+  }
+  function rng(seed) { var s = seed >>> 0; return function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296 * 2 - 1; }; }
+  function room() {
+    var sr = AC.sampleRate, n = Math.floor(sr * .6), b = AC.createBuffer(2, n, sr);
+    for (var ch = 0; ch < 2; ch++) { var d = b.getChannelData(ch), r = rng(11 + ch), y = 0;
+      for (var i = 0; i < n; i++) { y += .35 * (r() - y); d[i] = i < sr * .006 ? 0 : y * Math.exp(-i / (sr * .12)); } }
+    return b;
+  }
+  function audio() {
+    if (!acted) return null;
+    if (!AC) { var C = window.AudioContext || window.webkitAudioContext; if (!C) return null;
+      AC = new C(); DRY = AC.createGain(); CONV = AC.createConvolver(); CONV.buffer = room();
+      DRY.connect(AC.destination); CONV.connect(AC.destination); }
+    if (AC.state === 'suspended') AC.resume();
+    return AC;
+  }
+  function out(g, echo) { g.connect(DRY); var w = AC.createGain(); w.gain.value = echo; g.connect(w); w.connect(CONV); }
+  function stopAll() { LIVE.forEach(function (s) { try { s.stop(); } catch (x) {} }); LIVE = []; }
+  /* a message card: his recording, cut, pitched, bass-cut, 4 ms in / 25 ms out */
+  function play(id, mult, at) {
+    var s = SET.ev[id], b = s && BUF[s.src]; if (!b) return 0;
+    var c = audio(); if (!c) return 0;
+    var r = s.rate * (mult || 1);
+    var start = Math.min(s.start, b.duration - .02), end = Math.max(start + .02, Math.min(s.end, b.duration));
+    var len = (end - start) / r, t = c.currentTime + .01 + (at || 0), v = s.vol * SET.master;
+    var src = c.createBufferSource(), hp = c.createBiquadFilter(), g = c.createGain();
+    src.buffer = b; src.playbackRate.value = r;
+    hp.type = 'highpass'; hp.frequency.value = Math.max(10, s.hp); hp.Q.value = .707;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(v, t + .004);
+    g.gain.setValueAtTime(v, t + Math.max(.005, len - .025)); g.gain.linearRampToValueAtTime(0, t + len);
+    src.connect(hp); hp.connect(g); out(g, SET.room);
+    src.start(t, start, end - start); LIVE.push(src);
+    return len;
+  }
+  function toBuf(arr) { var b = AC.createBuffer(1, arr.length, CHIP.SR); b.copyToChannel(arr, 0); return b; }
+  function playBuf(b, at, vol, echo, rate, offset) {
+    var c = audio(); if (!c || !b) return null;
+    var src = c.createBufferSource(), g = c.createGain();
+    src.buffer = b; src.playbackRate.value = rate || 1; g.gain.value = vol * SET.master;
+    src.connect(g); out(g, echo);
+    var t = c.currentTime + .03 + (at || 0); src.start(t, offset || 0); LIVE.push(src);
+    return t;
+  }
+
+  /* ── drawing a sound ─────────────────────────────────────────────────────────────────────────── */
+  function drawArr(cv, d, x0f, x1f, marks) {
+    var H = 56, w = cv.clientWidth || 300, dpr = window.devicePixelRatio || 1;
+    cv.width = Math.round(w * dpr); cv.height = Math.round(H * dpr);
+    var ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var css = getComputedStyle(document.documentElement);
+    ctx.fillStyle = css.getPropertyValue('--inset').trim(); ctx.fillRect(0, 0, w, H);
+    if (!d || !d.length) return;
+    var hot = css.getPropertyValue('--accent-edge').trim(), dim = css.getPropertyValue('--ink-dim').trim();
+    var x0 = (x0f == null ? 0 : x0f) * w, x1 = (x1f == null ? 1 : x1f) * w, per = Math.max(1, Math.floor(d.length / w));
+    if (x0f != null) { ctx.globalAlpha = .14; ctx.fillStyle = hot; ctx.fillRect(x0, 0, Math.max(1, x1 - x0), H); }
+    for (var x = 0; x < w; x++) {
+      var mn = 1, mx = -1;
+      for (var i = x * per; i < (x + 1) * per && i < d.length; i++) { var v = d[i]; if (v < mn) mn = v; if (v > mx) mx = v; }
+      if (mx < mn) continue;
+      var keep = x >= x0 && x <= x1; ctx.globalAlpha = keep ? 1 : .3; ctx.fillStyle = keep ? hot : dim;
+      ctx.fillRect(x, (1 - Math.min(1, mx)) * H / 2, 1, Math.max(1, (Math.min(1, mx) - Math.max(-1, mn)) * H / 2));
+    }
+    ctx.globalAlpha = .5; ctx.fillStyle = dim;
+    (marks || []).forEach(function (m) { ctx.fillRect(m * w, 0, 1, H); });
+    ctx.globalAlpha = 1;
+  }
+
+  /* ── the cards ─────────────────────────────────────────────────────────────────────────────── */
+  function label(n) { return n.indexOf('today:') === 0 ? "Today's sound" : n.replace(/_/g, ' '); }
+  function knob(id, k, text, min, max, step, extra) {
+    return '<label class="knob"><span>' + text + ' <output id="o-' + k + '-' + id + '"></output></span>' +
+      '<input type="range" id="' + k + '-' + id + '" data-k="' + k + '"' + (extra || '') + ' min="' + min + '" max="' + max + '" step="' + step + '"></label>';
+  }
+  function msgCard(c) {
+    var list = (CFG.cards[c.id] || []).concat(['today:' + CFG.today[c.id]]);
+    var opts = list.map(function (n) { return '<option value="' + n + '">' + label(n) + '</option>'; }).join('');
+    return '<section class="card done" data-ev="' + c.id + '" aria-label="' + c.name + '">' +
+      '<div class="head"><div class="nm"><b>' + c.name + '<span class="tag">done</span></b><small>' + c.sub + '</small></div>' +
+      '<button type="button" class="key try" data-try="' + c.id + '">' + c.try + '</button></div>' +
+      '<div class="stage" id="stage-' + c.id + '" aria-hidden="true"></div>' +
+      '<div class="pick"><button type="button" class="key play" data-play="' + c.id + '" aria-label="Play ' + c.name + '">▶</button>' +
+      '<select id="src-' + c.id + '" data-k="src" aria-label="Recording for ' + c.name + '">' + opts + '</select></div>' +
+      '<p class="facts" id="facts-' + c.id + '"></p>' +
+      '<canvas class="wave" id="wave-' + c.id + '" aria-hidden="true"></canvas>' +
+      '<div class="knobs">' + knob(c.id, 'start', 'Start', 0, 2, .005) + knob(c.id, 'end', 'End', 0, 2, .005) +
+      knob(c.id, 'vol', 'Loudness', 0, 1.5, .01) + knob(c.id, 'rate', 'Pitch', .5, 1.8, .01) + knob(c.id, 'hp', 'Bass cut', 0, 1500, 10) + '</div></section>';
+  }
+  function capyCard() {
+    var opts = Object.keys(CHIP.CAPY).map(function (k, i) { return '<option value="' + k + '">' + (i === 0 ? '★ ' : '') + CHIP.CAPY[k].label + (i === 0 ? ' (my pick)' : '') + '</option>'; }).join('') +
+      '<option value="today">Today\'s sound</option>';
+    var shapes = WAVES.map(function (w) { return '<option value="' + w[0] + '">' + w[1] + '</option>'; }).join('');
+    return '<section class="card" id="card-capy" aria-label="Capybara talks">' +
+      '<div class="head"><div class="nm"><b>Capybara talks · 8-bit</b><small>one short beep, played at 4 pitches while his line types out</small></div>' +
+      '<button type="button" class="key try" id="capy-say">Capybara says a line</button></div>' +
+      '<div class="stage" id="stage-capy" aria-hidden="true"></div>' +
+      '<div class="pick"><button type="button" class="key play" id="capy-play" aria-label="Play the four beeps">▶</button>' +
+      '<select id="capy-preset" aria-label="Voice">' + opts + '</select></div>' +
+      '<p class="facts" id="facts-capy"></p>' +
+      '<canvas class="wave" id="wave-capy" aria-hidden="true"></canvas>' +
+      '<div class="knobs" id="knobs-capy">' +
+      '<label class="knob"><span>Shape</span><select id="c-wave" data-c="wave">' + shapes + '</select></label>' +
+      knob('capy', 'f', 'Pitch', 150, 1500, 5, ' data-c="f"') + knob('capy', 'len', 'Length', .015, .15, .005, ' data-c="len"') +
+      knob('capy', 'slide', 'Slide', -12, 12, 1, ' data-c="slide"') + knob('capy', 'jump', 'Jump', 0, 12, 1, ' data-c="jump"') +
+      knob('capy', 'vib', 'Wobble', 0, 1.5, .05, ' data-c="vib"') + knob('capy', 'spread', 'Pitch spread', 0, 3, .05, ' data-c="spread"') +
+      knob('capy', 'crunch', '8-bit grit', 0, 1, .05, ' data-c="crunch"') +
+      knob('capy', 'vol', 'Loudness', 0, 1.2, .01, ' data-c="vol"') + knob('capy', 'echo', 'Echo', 0, .6, .01, ' data-c="echo"') +
+      '</div></section>';
+  }
+  function introSec(part) {
+    var t = PART_TEXT[part], opts, knobs;
+    if (part === 'type') {
+      opts = Object.keys(CHIP.TYPE).map(function (k, i) { return '<option value="' + k + '">' + (i === 0 ? '★ ' : '') + CHIP.TYPE[k].label + (i === 0 ? ' (my pick)' : '') + '</option>'; }).join('') +
+        TYPES.map(function (n) { return '<option value="' + n + '">recording · ' + n.replace(/_/g, ' ') + '</option>'; }).join('') + '<option value="off">Off</option>';
+      knobs = knob('i-type', 'vol', 'Loudness', 0, 1.2, .01, ' data-part="type"') + knob('i-type', 'pitch', 'Pitch', .5, 2, .01, ' data-part="type"') +
+        knob('i-type', 'wobble', 'Pitch wobble', 0, 6, .1, ' data-part="type"') + knob('i-type', 'chatter', 'Scramble chatter', 0, 1, .05, ' data-part="type"') +
+        '<label class="check"><input type="checkbox" id="leave-i-type" data-k="leave" data-part="type"> Also when the text leaves</label>';
+    } else {
+      var D = CHIP.DESIGN[part], keys = Object.keys(D);
+      opts = keys.map(function (k, i) { return '<option value="' + k + '">' + (i === 0 ? '★ ' : '') + D[k].label + (i === 0 ? ' (my pick)' : '') + '</option>'; }).join('') + '<option value="off">Off</option>';
+      knobs = knob('i-' + part, 'vol', 'Loudness', 0, 1.5, .01, ' data-part="' + part + '"') + knob('i-' + part, 'pitch', 'Pitch', -12, 12, 1, ' data-part="' + part + '"');
+    }
+    return '<div class="sec"><div class="sechead"><div class="nm"><b>' + t[0] + '</b><small>' + t[1] + '</small></div>' +
+      '<button type="button" class="key play" data-solo="' + part + '" aria-label="Play ' + t[0] + ' alone">▶</button></div>' +
+      '<div class="pick"><select id="d-i-' + part + '" data-k="' + (part === 'type' ? 'src' : 'd') + '" data-part="' + part + '" aria-label="' + t[0] + '">' + opts + '</select></div>' +
+      '<p class="facts" id="hint-' + part + '"></p><div class="knobs">' + knobs + '</div></div>';
+  }
+  function introCard() {
+    return '<section class="card" id="card-intro" aria-label="Vault intro">' +
+      '<div class="head"><div class="nm"><b>Vault intro</b><small>after the password. The dots below move exactly like the app\'s; the name is a sample</small></div>' +
+      '<button type="button" class="key try" id="intro-go">Play the intro</button><button type="button" class="key" id="intro-today">Today\'s sound</button></div>' +
+      '<div class="stage gate" id="stage-intro" aria-hidden="true"><canvas id="gate-cv"></canvas>' +
+      '<div class="lines"><div><div class="hello" id="gate-hello"></div><div class="line" id="gate-line"></div></div></div><div class="note" id="gate-note">press Play the intro</div></div>' +
+      '<p class="facts" id="facts-intro"></p>' +
+      '<canvas class="wave" id="wave-intro" aria-hidden="true"></canvas>' +
+      '<div class="knobs">' + knob('intro', 'echo', 'Echo, intro', 0, .6, .01) + '</div>' +
+      CHIP.PARTS.map(introSec).join('') + '</section>';
+  }
+  $('cards').innerHTML = capyCard() + introCard() + CARDS.map(msgCard).join('');
+
+  /* ── message cards (unchanged from round 1) ──────────────────────────────────────────────────── */
+  function paintRow(id) {
+    var s = SET.ev[id], b = BUF[s.src], dur = b ? b.duration : 2, m = META[s.src] || {};
+    $('src-' + id).value = s.src;
+    ['start', 'end'].forEach(function (k) { var inp = $(k + '-' + id); inp.max = dur.toFixed(3); inp.value = s[k]; $('o-' + k + '-' + id).textContent = s[k].toFixed(2) + ' s'; });
+    $('vol-' + id).value = s.vol; $('o-vol-' + id).textContent = Math.round(s.vol * 100) + '%';
+    $('rate-' + id).value = s.rate; $('o-rate-' + id).textContent = s.rate.toFixed(2) + '×';
+    $('hp-' + id).value = s.hp; $('o-hp-' + id).textContent = s.hp ? 'below ' + s.hp + ' Hz' : 'off';
+    $('facts-' + id).textContent = 'plays ' + ((s.end - s.start) / s.rate).toFixed(2) + ' s · bass in the recording ' + Math.round((m.bass || 0) * 100) + '% · brightness ' + (m.bright || 0) + ' Hz';
+    drawArr($('wave-' + id), b && b.getChannelData(0), b ? s.start / b.duration : 0, b ? s.end / b.duration : 1);
+  }
+  function tryMsg(id) {
+    var st = $('stage-' + id);
+    st.innerHTML = '<div class="strip' + (id === 'fail' ? ' bad' : '') + '">' + STRIP[id] + '</div>';
+    void st.offsetWidth; st.firstChild.classList.add('in'); play(id);
+  }
+
+  /* ── the capybara ────────────────────────────────────────────────────────────────────────────── */
+  var CAPYV = null;
+  function capyArrs() { return CHIP.capyVoices(SET.capy); }
+  function paintCapy() {
+    var c = SET.capy, today = c.preset === 'today', p = CHIP.CAPY[c.preset];
+    $('capy-preset').value = c.preset; $('c-wave').value = c.wave;
+    var fmt = { f:function (v) { return v + ' Hz'; }, len:function (v) { return v.toFixed(3) + ' s'; }, slide:function (v) { return (v > 0 ? '+' : '') + v + ' notes'; },
+      jump:function (v) { return v ? '+' + v + ' notes' : 'off'; }, vib:function (v) { return v ? v.toFixed(2) : 'off'; }, spread:function (v) { return v.toFixed(2) + '×'; },
+      crunch:function (v) { return v ? Math.round(v * 100) + '%' : 'off'; }, vol:function (v) { return Math.round(v * 100) + '%'; }, echo:function (v) { return Math.round(v * 100) + '%'; } };
+    Object.keys(fmt).forEach(function (k) { var inp = $(k + '-capy'); inp.value = c[k]; $('o-' + k + '-capy').textContent = fmt[k](c[k]); inp.disabled = today && k !== 'vol' && k !== 'echo'; });
+    $('c-wave').disabled = today;
+    if (today) {
+      var b = BUF['today:mumble1'];
+      $('facts-capy').textContent = "today's sound: the recorded blip the app plays now (" + (b ? b.duration.toFixed(2) : '?') + ' s, 92% bass) at its 4 pitches';
+      drawArr($('wave-capy'), b && b.getChannelData(0));
+      return;
+    }
+    var hz = STEPS.map(function (s) { return Math.round(c.f * (1 + (s - 1) * c.spread)); }).join(' / ');
+    var same = p && ['wave', 'f', 'len', 'slide', 'jump', 'vib', 'crunch', 'spread'].every(function (k) { return p[k] === c[k]; });
+    $('facts-capy').textContent = (p ? (same ? p.hint : 'changed from "' + p.label + '"') + ' · ' : '') + 'beep ' + c.len.toFixed(3) + ' s · pitches ' + hz + ' Hz';
+    drawArr($('wave-capy'), capyArrs()[0]);
+  }
+  function capyBeep(i, at) {
+    var c = SET.capy;
+    if (c.preset === 'today') return playBuf(BUF['today:mumble1'], at, c.vol, c.echo, STEPS[i]);
+    if (!audio()) return null;
+    if (!CAPYV) CAPYV = capyArrs().map(toBuf);
+    return playBuf(CAPYV[i], at, c.vol, c.echo);
+  }
+  function capySay() {
+    var st = $('stage-capy'), chars = LINE.split(''), letters = LINE.replace(/\s+/g, '').length;
+    st.innerHTML = '<div class="bubble">' + chars.map(function (ch) { return '<i>' + ch + '</i>'; }).join('') + '</div>';
+    var spans = st.querySelectorAll('i');
+    /* the app's rhythm (useSound.js speakMumble): one beep per 3 letters, at most 8, one every 105 ms, pitch order (i*3+len)%4 */
+    var count = Math.min(8, Math.max(1, Math.round(letters / 3)));
+    for (var i = 0; i < count; i++) capyBeep((i * 3 + letters) % 4, i * .105);
+    spans.forEach(function (sp, k) { setTimeout(function () { sp.classList.add('on'); }, k * (count * 105 / spans.length)); });
+  }
+
+  /* ── the intro: VaultGate.jsx's drawing, ported line for line (GAP, DEN, TSIZE, the wave, the gather) ── */
+  var GAP = 26, DEN = 7, TSIZE = 0.10, T = CHIP.T, POOL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  var IG = { w:0, h:0, dots:[], slotDots:[], t0:null, raf:0, timers:[] };
+  var gcv = $('gate-cv'), gctx = gcv.getContext('2d');
+  function igLater(fn, ms) { IG.timers.push(setTimeout(fn, ms)); }
+  function igStop() { IG.timers.forEach(clearTimeout); IG.timers = []; cancelAnimationFrame(IG.raf); IG.raf = 0; IG.t0 = null; }
+  function igSize() {
+    var r = gcv.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    IG.w = r.width; IG.h = r.height; gcv.width = r.width * dpr; gcv.height = r.height * dpr; gctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    IG.dots = [];
+    var cols = Math.max(2, Math.floor((IG.w - GAP) / GAP) + 1), rows = Math.max(2, Math.floor((IG.h - GAP) / GAP) + 1);
+    for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) IG.dots.push({ gx:GAP + x * GAP, gy:GAP + y * GAP, tx:0, ty:0, fly:0, slot:-1, out:0 });
+  }
+  function sampleWord(str) {
+    var c = document.createElement('canvas'); c.width = Math.max(2, Math.round(IG.w)); c.height = Math.max(2, Math.round(IG.h));
+    var g = c.getContext('2d', { willReadFrequently:true }), fs = Math.round(Math.min(IG.w, IG.h) * TSIZE * 2.2);
+    var face = function () { return '700 ' + fs + 'px ui-monospace,"Cascadia Mono","Consolas","Courier New",monospace'; };
+    g.font = face();
+    while (g.measureText(str).width > IG.w * 0.84 && fs > 10) { fs -= 2; g.font = face(); }
+    var total = g.measureText(str).width, x = c.width / 2 - total / 2, bounds = [];
+    for (var ch of str) { var cw = g.measureText(ch).width; bounds.push([x, x + cw]); x += cw; }
+    g.fillStyle = '#fff'; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText(str, c.width / 2 - total / 2, c.height * 0.5);
+    var px = g.getImageData(0, 0, c.width, c.height).data, slots = bounds.map(function () { return []; });
+    for (var yy = 0; yy < c.height; yy += DEN) for (var x2 = 0; x2 < c.width; x2 += DEN)
+      if (px[(yy * c.width + x2) * 4 + 3] > 128) for (var i = 0; i < bounds.length; i++) if (x2 >= bounds[i][0] && x2 < bounds[i][1]) { slots[i].push({ x:x2, y:yy }); break; }
+    var budget = Math.floor(IG.dots.length * 0.82), count = slots.reduce(function (s, a) { return s + a.length; }, 0);
+    if (count > budget && count > 0) { var k = count / budget; return slots.map(function (a) { var o = []; for (var j = 0; j < a.length; j += k) o.push(a[Math.floor(j)]); return o; }); }
+    return slots;
+  }
+  function assign(slots) {
+    var order = IG.dots.map(function (_, i) { return i; });
+    for (var i = order.length - 1; i > 0; i--) { var j = ((Math.sin(i * 12.9898) * 43758.5453) % 1 + 1) % 1 * (i + 1) | 0; var tmp = order[i]; order[i] = order[j]; order[j] = tmp; }
+    IG.dots.forEach(function (d) { d.fly = 0; d.slot = -1; d.out = 0; });
+    IG.slotDots = slots.map(function () { return []; });
+    var flat = []; slots.forEach(function (pts, si) { pts.forEach(function (p) { flat.push({ p:p, si:si }); }); });
+    var k = 0;
+    for (; k < flat.length && k < order.length; k++) { var d = IG.dots[order[k]]; d.tx = flat[k].p.x; d.ty = flat[k].p.y; d.fly = 1; d.slot = flat[k].si; IG.slotDots[flat[k].si].push(d); }
+    for (; k < order.length; k++) { var e = IG.dots[order[k]]; if (!flat.length) { e.fly = 0; continue; } var p = flat[(k * 7919) % flat.length].p; e.tx = p.x; e.ty = p.y; e.fly = 2; }
+  }
+  function reglyph(si, pts) { var ds = IG.slotDots[si] || []; if (!ds.length || !pts || !pts.length) return; ds.forEach(function (d, i) { var p = pts[i % pts.length]; d.tx = p.x; d.ty = p.y; }); }
+  function resolveIn(el, text, startAt, step, hold) {
+    var chars = text.toUpperCase().split(''); el.innerHTML = '';
+    var spans = chars.map(function (c) {
+      var s = document.createElement('span'); s.style.display = 'inline-block'; s.style.minWidth = '0.62em'; s.style.textAlign = 'center';
+      s.textContent = c === ' ' ? ' ' : c; if (c !== ' ') s.style.visibility = 'hidden'; el.appendChild(s); return s;
+    });
+    el._spans = spans;
+    chars.forEach(function (c, i) {
+      if (c === ' ') return;
+      igLater(function () {
+        spans[i].style.visibility = ''; spans[i].style.color = '#fff3dc';
+        var roll = setInterval(function () { spans[i].textContent = POOL[Math.random() * POOL.length | 0]; }, 46);
+        igLater(function () { clearInterval(roll); spans[i].textContent = c; spans[i].style.color = ''; }, hold);
+      }, startAt + i * step);
+    });
+  }
+  function resolveOut(el, startAt, step) {
+    (el._spans || []).forEach(function (s, i) {
+      if (s.textContent === ' ') return;
+      igLater(function () {
+        s.style.color = '#fff3dc';
+        var roll = setInterval(function () { s.textContent = POOL[Math.random() * POOL.length | 0]; }, 46);
+        igLater(function () { clearInterval(roll); s.style.opacity = '0'; }, 210);
+      }, startAt + i * step);
+    });
+  }
+  var easeOut = CHIP.easeOut, easeInOut = CHIP.easeInOut;
+  function frame(now) {
+    var w = IG.w, h = IG.h; gctx.clearRect(0, 0, w, h);
+    var u = IG.t0 === null ? -1 : (now - IG.t0) / 1000;
+    var gather = u < 0 ? 0 : Math.min(1, easeInOut(Math.max(0, (u - T.gather) / T.gatherDur)));
+    var cx = w / 2, cy = h / 2, maxD = Math.hypot(w, h) / 2;
+    var wp = u < T.wave ? -1 : easeOut(Math.min(1, (u - T.wave) / T.waveDur)), front = wp < 0 ? -1 : wp * maxD * 1.25;
+    for (var i = 0; i < IG.dots.length; i++) {
+      var d = IG.dots[i], px = d.gx, py = d.gy, r = 2.4, a = 0;
+      if (u >= 0) { var dist = Math.hypot(d.gx - cx, d.gy - cy), passed = front > dist ? 1 : 0, crest = front < 0 ? 0 : Math.max(0, 1 - Math.abs(dist - front) / 72); a = passed * 0.30 + crest * 0.55; r = 2.4 + crest * 1.4; }
+      if (gather > 0 && d.fly) { px = d.gx + (d.tx - d.gx) * gather; py = d.gy + (d.ty - d.gy) * gather; r = 2.4 + gather * 1.1;
+        var peak = d.fly === 2 ? 0.42 * Math.sin(Math.PI * gather) : 0.92 * gather; a = peak * (1 - d.out) + a * (1 - gather); }
+      if (a <= 0.012) continue;
+      gctx.beginPath(); gctx.arc(px, py, r, 0, 6.283); gctx.fillStyle = 'rgba(231,112,15,' + Math.min(1, a).toFixed(3) + ')'; gctx.fill();
+    }
+    if (front > 0 && wp < 1 && gather < 1) { gctx.beginPath(); gctx.arc(cx, cy, front, 0, 6.283); gctx.strokeStyle = 'rgba(231,112,15,' + (0.55 * (1 - wp) * (1 - gather)).toFixed(3) + ')'; gctx.lineWidth = 1; gctx.stroke(); }
+    if (u > T.total + .3) { gctx.clearRect(0, 0, w, h); IG.raf = 0; $('gate-note').textContent = 'press Play the intro'; return; }
+    IG.raf = requestAnimationFrame(frame);
+  }
+  /* sound and picture start together: the sound is scheduled LEAD seconds ahead, the picture's clock starts then too */
+  function introRun(which) {
+    igStop(); stopAll(); igSize();
+    $('stage-intro').scrollIntoView({ block:'end', behavior:'smooth' });   // on a phone the whole gate must be on screen
+    var hello = $('gate-hello'), line = $('gate-line'); hello.innerHTML = ''; line.innerHTML = '';
+    var RAND = [0, 1, 2].map(function () { return sampleWord(Array.from({ length:NAME.length }, function () { return POOL[Math.random() * POOL.length | 0]; }).join('')); });
+    assign(sampleWord(NAME));
+    var c = audio(), LEAD = .08;
+    if (c) {
+      if (which === 'today') playBuf(BUF['today:vault-b'], LEAD - .03, .9, 0);
+      else { if (!INTRO.mix) introPaint(); playBuf(toBuf(INTRO.mix), LEAD - .03, 1, SET.intro.echo); }
+    }
+    $('gate-note').textContent = which === 'today' ? "today's sound" : 'round 2';
+    igLater(function () {
+      IG.t0 = performance.now();
+      var F = T.formed * 1000, OUT = T.out * 1000;
+      resolveIn(hello, 'Welcome back', F - 1400, 70, 440);
+      resolveIn(line, 'KPM App access unlocked', F + 300, 40, 360);
+      for (var i = 0; i < NAME.length; i++) (function (i) {
+        igLater(function () { reglyph(i, RAND[0][i]); }, OUT + i * 95);
+        igLater(function () { reglyph(i, RAND[1][i]); }, OUT + i * 95 + 70);
+        igLater(function () { reglyph(i, RAND[2][i]); }, OUT + i * 95 + 140);
+        igLater(function () { (IG.slotDots[i] || []).forEach(function (d) { d.out = 1; }); }, OUT + i * 95 + 215);
+      })(i);
+      resolveOut(hello, OUT, 34); resolveOut(line, OUT + 120, 22);
+      IG.raf = requestAnimationFrame(frame);
+    }, LEAD * 1000);
+  }
+  var INTRO = { mix:null, peak:0 };
+  function rec(n) { var b = BUF[n]; return b ? b.getChannelData(0) : null; }
+  function introPaint() {
+    var r = CHIP.intro(SET.intro, rec, CHIP.SR); INTRO.mix = r.mix; INTRO.peak = r.peak;
+    var hot = r.peak > .95;
+    $('facts-intro').textContent = 'about 8.5 s · loudest point ' + r.peak.toFixed(2) + (hot ? ' - too loud, it would crackle: lower a Loudness' : ' (under 0.95 is safe)');
+    $('facts-intro').classList.toggle('warn', hot);
+    var len = r.mix.length / CHIP.SR;
+    drawArr($('wave-intro'), r.mix, null, null, [T.wave, T.gather, T.formed, T.out].map(function (t) { return t / len; }));
+  }
+  function paintIntro() {
+    var I = SET.intro;
+    $('echo-intro').value = I.echo; $('o-echo-intro').textContent = Math.round(I.echo * 100) + '%';
+    CHIP.PARTS.forEach(function (part) {
+      var s = I[part], sel = $('d-i-' + part);
+      sel.value = part === 'type' ? s.src : s.d;
+      $('vol-i-' + part).value = s.vol; $('o-vol-i-' + part).textContent = Math.round(s.vol * 100) + '%';
+      if (part === 'type') {
+        $('pitch-i-type').value = s.pitch; $('o-pitch-i-type').textContent = s.pitch.toFixed(2) + '×';
+        $('wobble-i-type').value = s.wobble; $('o-wobble-i-type').textContent = s.wobble ? '±' + s.wobble.toFixed(1) + ' notes' : 'off';
+        $('chatter-i-type').value = s.chatter; $('o-chatter-i-type').textContent = s.chatter ? Math.round(s.chatter * 100) + '%' : 'off';
+        $('leave-i-type').checked = !!s.leave;
+        var m = META[s.src];
+        $('hint-type').textContent = s.src === 'off' ? 'no typing sound' : CHIP.TYPE[s.src] ? 'made here - a ' + (s.src === 'chip:noise' ? 'noise' : 'pulse') + ' blip, no recording' : 'recording, ' + (m ? Math.round(m.len * 1000) + ' ms, brightness ' + m.bright + ' Hz' : '');
+      } else {
+        $('pitch-i-' + part).value = s.pitch; $('o-pitch-i-' + part).textContent = (s.pitch > 0 ? '+' : '') + s.pitch + ' notes';
+        var d = CHIP.DESIGN[part][s.d];
+        $('hint-' + part).textContent = d ? d.hint : 'silent';
+      }
+    });
+    introPaint();
+  }
+  function solo(part) {
+    if (!audio()) return;
+    stopAll();
+    var r = CHIP.intro(SET.intro, rec, CHIP.SR, part);
+    playBuf(toBuf(r.mix), 0, 1, SET.intro.echo, 1, PART_TEXT[part][2]);
+  }
+
+  /* ── edits ───────────────────────────────────────────────────────────────────────────────────── */
+  function paintGlobal() {
+    $('room').value = SET.room; $('o-room').textContent = Math.round(SET.room * 100) + '%';
+    $('master').value = SET.master; $('o-master').textContent = Math.round(SET.master * 100) + '%';
+  }
+  function paintAll() { paintGlobal(); CARDS.forEach(function (c) { paintRow(c.id); }); paintCapy(); paintIntro(); }
+  var DB = null, savedAt = '';
+  function state(dirty) {
+    $('save').disabled = !dirty;
+    $('state').textContent = dirty ? 'Not saved yet' : (savedAt ? 'Saved · ' + savedAt : 'My picks');
+    if (dirty) { SET.at = Date.now(); try { localStorage.setItem('kpm-studio-r2-draft', JSON.stringify(SET)); } catch (x) {} }
+  }
+  function edit(e, done) {
+    var el = e.target, card = el.closest('.card'), k = el.dataset.k;
+    if (el.id === 'room' || el.id === 'master') { SET[el.id] = +el.value; paintGlobal(); state(true); return; }
+    if (!card) return;
+    if (card.id === 'card-capy') {
+      var c = SET.capy;
+      if (el.id === 'capy-preset') { if (done) { SET.capy = el.value === 'today' ? Object.assign(clone(c), { preset:'today' }) : capyFrom(el.value, c); } }
+      else if (el.dataset.c) c[el.dataset.c] = el.dataset.c === 'wave' ? el.value : +el.value;
+      else return;
+      CAPYV = null; paintCapy(); state(true);
+      if (done) capySay();
+      return;
+    }
+    if (card.id === 'card-intro') {
+      var part = el.dataset.part;
+      if (el.id === 'echo-intro') { SET.intro.echo = +el.value; $('o-echo-intro').textContent = Math.round(SET.intro.echo * 100) + '%'; state(true); return; }
+      if (!part) return;
+      var s = SET.intro[part];
+      s[k] = k === 'leave' ? el.checked : (k === 'src' || k === 'd') ? el.value : +el.value;
+      state(true);
+      if (done) { paintIntro(); solo(part); } else paintIntroLabels(part);
+      return;
+    }
+    if (!k) return;
+    var id = card.dataset.ev, ev = SET.ev[id];
+    if (k === 'src') { if (ev.src !== el.value) SET.ev[id] = fresh(el.value); }
+    else {
+      ev[k] = +el.value;
+      if (k === 'start' && ev.start > ev.end - .02) ev.start = Math.max(0, ev.end - .02);
+      if (k === 'end' && ev.end < ev.start + .02) ev.end = ev.start + .02;
+    }
+    paintRow(id); state(true);
+    if (done) play(id);
+  }
+  /* while a slider moves only its number changes; the sound is rebuilt when he lets go */
+  function paintIntroLabels(part) {
+    var s = SET.intro[part];
+    $('o-vol-i-' + part).textContent = Math.round(s.vol * 100) + '%';
+    if (part === 'type') { $('o-pitch-i-type').textContent = s.pitch.toFixed(2) + '×'; $('o-wobble-i-type').textContent = s.wobble ? '±' + s.wobble.toFixed(1) + ' notes' : 'off'; $('o-chatter-i-type').textContent = s.chatter ? Math.round(s.chatter * 100) + '%' : 'off'; }
+    else $('o-pitch-i-' + part).textContent = (s.pitch > 0 ? '+' : '') + s.pitch + ' notes';
+  }
+  document.addEventListener('input', function (e) { if (e.target.closest('#cards, .bar') && e.target.type === 'range') edit(e, false); });
+  document.addEventListener('change', function (e) { if (e.target.closest('#cards')) edit(e, true); });
+  $('cards').addEventListener('click', function (e) {
+    var t = e.target.closest('[data-try]'); if (t) { tryMsg(t.dataset.try); return; }
+    var p = e.target.closest('[data-play]'); if (p) { play(p.dataset.play); return; }
+    var s = e.target.closest('[data-solo]'); if (s) { solo(s.dataset.solo); return; }
+    if (e.target.closest('#capy-say')) { capySay(); return; }
+    if (e.target.closest('#capy-play')) { stopAll(); [0, 1, 2, 3].forEach(function (i) { capyBeep(i, i * .16); }); return; }
+    if (e.target.closest('#intro-go')) { introRun('new'); return; }
+    if (e.target.closest('#intro-today')) introRun('today');
+  });
+  $('reset').addEventListener('click', function () { SET = clone(DEFAULTS); CAPYV = null; paintAll(); state(true); });
+
+  /* stored settings are untrusted input: anything missing, unknown or out of range falls back to my pick */
+  function sane(raw) {
+    var out = clone(DEFAULTS); if (!raw || typeof raw !== 'object') return out;
+    var num = function (v, lo, hi, dflt) { v = Number(v); return isFinite(v) ? Math.min(hi, Math.max(lo, v)) : dflt; };
+    out.room = num(raw.room, 0, .6, out.room); out.master = num(raw.master, 0, 1.5, out.master);
+    CARDS.forEach(function (c) {
+      var r = raw.ev && raw.ev[c.id], o = out.ev[c.id];
+      if (!r || !SRC[r.src]) return;
+      o.src = r.src; o.start = num(r.start, 0, 12, 0); o.end = num(r.end, o.start + .02, 12, o.start + .3);
+      o.vol = num(r.vol, 0, 1.5, o.vol); o.rate = num(r.rate, .5, 1.8, o.rate); o.hp = num(r.hp, 0, 1500, 0);
+    });
+    var rc = raw.capy, oc = out.capy;
+    if (rc && typeof rc === 'object') {
+      if (rc.preset === 'today' || CHIP.CAPY[rc.preset]) oc.preset = rc.preset;
+      if (WAVES.some(function (w) { return w[0] === rc.wave; })) oc.wave = rc.wave;
+      oc.f = num(rc.f, 150, 1500, oc.f); oc.len = num(rc.len, .015, .15, oc.len); oc.slide = num(rc.slide, -12, 12, oc.slide);
+      oc.jump = num(rc.jump, 0, 12, oc.jump); oc.vib = num(rc.vib, 0, 1.5, oc.vib); oc.spread = num(rc.spread, 0, 3, oc.spread);
+      oc.crunch = num(rc.crunch, 0, 1, oc.crunch); oc.vol = num(rc.vol, 0, 1.2, oc.vol); oc.echo = num(rc.echo, 0, .6, oc.echo);
+    }
+    var ri = raw.intro, oi = out.intro;
+    if (ri && typeof ri === 'object') {
+      oi.echo = num(ri.echo, 0, .6, oi.echo);
+      var t = ri.type;
+      if (t && typeof t === 'object') {
+        if (t.src === 'off' || CHIP.TYPE[t.src] || TYPES.indexOf(t.src) > -1) oi.type.src = t.src;
+        oi.type.vol = num(t.vol, 0, 1.2, oi.type.vol); oi.type.pitch = num(t.pitch, .5, 2, oi.type.pitch);
+        oi.type.wobble = num(t.wobble, 0, 6, oi.type.wobble); oi.type.chatter = num(t.chatter, 0, 1, oi.type.chatter);
+        if (typeof t.leave === 'boolean') oi.type.leave = t.leave;
+      }
+      ['wave', 'gather', 'formed', 'leave'].forEach(function (p) {
+        var s = ri[p]; if (!s || typeof s !== 'object') return;
+        if (s.d === 'off' || CHIP.DESIGN[p][s.d]) oi[p].d = s.d;
+        oi[p].vol = num(s.vol, 0, 1.5, oi[p].vol); oi[p].pitch = num(s.pitch, -12, 12, oi[p].pitch);
+      });
+    }
+    out.at = Number(raw.at) || 0;
+    return out;
+  }
+  $('save').addEventListener('click', function () {
+    SET.at = Date.now();
+    var body = clone(SET), stamp = new Date().toTimeString().slice(0, 5);
+    var done = function (where) { savedAt = stamp + ' · ' + where; try { localStorage.removeItem('kpm-studio-r2-draft'); } catch (x) {} state(false); };
+    if (!DB) { try { localStorage.setItem('kpm-studio-r2-saved', JSON.stringify(body)); } catch (x) {} done('this browser only'); return; }
+    $('save').disabled = true; $('state').textContent = 'Saving…';
+    DB.doc('sfx/settings').set(body).then(function () { done('every device'); }, function (err) {
+      $('save').disabled = false; $('state').textContent = 'Could not save (' + (err && err.code || 'error') + ') - press Save again';
+    });
+  });
+  var rt = 0;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { CARDS.forEach(function (c) { paintRow(c.id); }); paintCapy(); introPaint(); }, 150); });
+
+  function readLocal(key) { try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (x) { return null; } }
+  function adopt(saved) {
+    var draft = readLocal('kpm-studio-r2-draft');
+    if (draft && (!saved || (Number(draft.at) || 0) > (Number(saved.at) || 0))) { SET = sane(draft); paintAll(); state(true); return; }
+    if (saved) { SET = sane(saved); savedAt = saved.at ? new Date(saved.at).toTimeString().slice(0, 5) : ''; }
+    paintAll();
+    /* a round-1 save holds the two message sounds but nothing for round 2 - so round 2 starts unsaved */
+    state(!saved || saved.v !== 2);
+  }
+  $('stamp').textContent = new Date().toISOString().slice(0, 10);
+  paintAll();
+  var dbReady = (window.claude && window.claude.use) ? window.claude.use('db') : Promise.resolve(null);
+  Promise.all([decodeAll(), Promise.resolve(dbReady).catch(function () { return null; })]).then(function (r) {
+    DB = r[1];
+    if (!DB) return adopt(readLocal('kpm-studio-r2-saved'));
+    DB.doc('sfx/settings').get().then(function (snap) { adopt(snap.exists ? snap.data() : null); }, function () { adopt(null); });
+  });
+  document.addEventListener('pointerdown', function () { acted = true; }, true);
+  document.addEventListener('keydown', function () { acted = true; }, true);
+})();
+</script>

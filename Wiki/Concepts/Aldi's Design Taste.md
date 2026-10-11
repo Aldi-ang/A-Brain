@@ -3358,3 +3358,5 @@ The customer presentation's round 3 added five scenes built as flat bordered box
 ## A message rings out, a box thuds (2026-10-10, baked 2026-10-11)
 
 In the message sound studio he pushed the message chime (`confirmation_002`) to **pitch 1.8x - the top of the slider**, cut the bass under 180 Hz, and set the echo to **0.6 - also the top of the slider**; the failure (`error_002`) he kept short and quiet (0.14). In the chest round (2026-09-23) he chose the opposite: soft, short and close, echo 0.33. A sound's character follows what it announces. He rejected every capybara and intro candidate: *"i dont like the capybara and vault intro, especially the vault intro because it is specific for our own design, and the capybara talk is not satisfying enough"* - the intro must belong to KPM's own vault moment, not a stock jingle. Baked as kpm `f942657`. Source: `Brainstorm/2026-10-10_sfx-message-capybara-intro.md`.
+
+**8-bit, his words (2026-10-11):** *"those 8 bit games usually sounds great"* - for the capybara's voice; and a typing sound for the intro's text lines, with the dots' sound invented. Same direction as the message chime: bright, small, game-like.

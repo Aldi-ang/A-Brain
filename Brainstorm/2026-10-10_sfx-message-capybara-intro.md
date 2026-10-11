@@ -47,3 +47,34 @@ kpm `f942657` (local, not pushed). `tools/sfx-bake.mjs` now renders both studios
 **Capybara + intro:** asked him for a REFERENCE each - a game / app / clip whose talking voice he likes, and what the intro should feel like over the 3 s dot wave. **Decision:** OPEN - waiting on Aldi.
 
 **Rejected on purpose:** a third round of stock picks or synthesis for the capybara / intro (his rule, [[Sounds Come From Aldi]]).
+
+## 2026-10-11 08:31 - his answer, the research, studio round 2 PUBLISHED
+
+**His words:** *"well those 8 bit games usually sounds great i want u to research on those for the capybara, well tbh for the intro, i can recommend typing sound when the welcome and name button shows but u need to invent for the dots animation SFX"*
+
+**Read as:** capybara = an 8-bit voice; intro = a typing tick for each letter of the two text lines ("Welcome back", "KPM App access unlocked") + INVENTED sounds for the dots. My reading of "the welcome and name button": the two text lines - the name itself is made of dots, so it belongs to the invented part. If he meant something else, his save will show it.
+
+**Research** (WebSearch and firecrawl were both down this session - read in the built-in browser instead):
+- Game Boy: two pulse channels at 12.5 / 25 / 50 / 75 % duty, a 4-bit wave channel, a noise channel; a square has only odd harmonics, a triangle is softer, a saw is bright and raspy; fast arpeggios stand in for chords (Wikipedia, "Chiptune").
+- Animal Crossing has two voices: Animalese (one syllable per kana, pitch set by personality and mood, sped up = higher) and **Bebebese - a series of beeps**, used for system text and muttered lines (Animal Crossing wiki, "Language"). Bebebese is the 8-bit form of what he asked for.
+- sfxr, the classic 8-bit effect maker (jsfxr source): "blip" = square or saw, no attack, short hold, quick decay, a high-pass; "coin" = a two-note jump with punch; "power-up" = a rising pitch with repeats.
+- Undertale / Ace Attorney / Golden Sun text blips: from memory, NOT checked this session - a short blip per letter or per few letters, its pitch sets the character.
+
+**Built:** `Raw/2026-10-11-sfx-round2/` - `chip.js` (ONE synth for the studio and the future baker, deterministic: pulses 12.5 / 25 / 50 centred on zero - a DC offset under a fast envelope is a thump, i.e. bass - plus triangle, saw, noise; 4x oversampled; slide, jump, wobble, 8-bit grit), `sound-studio.html` (the round-2 page), `build-pack2.mjs` (9 Kenney typing candidates -> `sfx-pack2.js`, not committed, regenerable), `serve.mjs` (local check on port 4197, kpm launch config `sound-studio-r2`). Published as version 2 of the same link https://claude.ai/artifact/AmgCRrR8s8MfPaAxfPQtNr; it saves `sfx/settings` with `v: 2` (message + failure kept exactly as baked).
+
+| Card | Options (★ = my pick) |
+|---|---|
+| Capybara | ★ Game Boy beep (25 % pulse, 620 Hz, 45 ms) · Thin NES voice (12.5 %) · Square chirp · Soft triangle · Typewriter blip · Bi-bip · Wobble · Gibberish · Today's sound. Knobs: shape, pitch, length, slide, jump, wobble, pitch spread, grit, loudness, echo |
+| Intro: typing | ★ 8-bit tick · 8-bit key · 8-bit noise tick · 9 Kenney recordings · off. Loudness, pitch, wobble, scramble chatter, also when the text leaves |
+| Intro: the ring | ★ Shimmer (a blip per dot the ring lights, timed from the ring's own easeOut) · Whoosh · Rising arpeggio · Sonar ping · off |
+| Intro: dots fly in | ★ Power-up climb · Swarm of ticks (thickest when the dots move fastest) · Glide up · off |
+| Intro: name lands | ★ Coin ding · Chord · Tok + sparkle · off |
+| Intro: name leaves | ★ Falling steps · Fizz · off |
+
+**Costs:** the intro becomes ONE baked file (like `vault-b` today) started at the unlock - the typing ticks can be baked because the two text lines never change; the name's exit cannot be per letter (names differ in length), so the leave sounds are one gesture. The capybara becomes 4 baked files in place of `mumble1..4`, same rhythm code. **Checked:** every design renders in node and in the page (each peak 0.85 or less, the default mix 0.75); 6 play paths start audio; Save writes v2; 375 px wide, no sideways scroll; 0 console errors; the studio's dots are VaultGate's drawing ported line for line (frames at 0.8 / 3.6 / 5.3 s show the ring, the flight and the formed name). **Not checkable here:** how any of it sounds - his ears.
+
+**Decision:** OPEN - waiting on his Save.
+
+**Rejected on purpose:** more stock picks for the capybara (he rejected them all in round 1); a per-letter exit sound baked into one file (right for only one name length).
+
+**Models applied:** Pre-mortem (seven made sounds were rejected on 2026-09-04 - they imitated real objects; 8-bit sounds are made in the genre itself, and every one sits behind his knobs and his Save), Analogous reasoning (old consoles already solved talking characters with beeps), Reversibility (a studio draft costs nothing; only the bake touches the app).
