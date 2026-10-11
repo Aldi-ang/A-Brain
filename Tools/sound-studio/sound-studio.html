@@ -121,7 +121,7 @@
 <div class="wrap">
   <header>
     <h1>Sound studio · the capybara</h1>
-    <p class="sub"><b>Capybara:</b> try <b>Agent (firm)</b> - a low, serious, focused voice that still moves: each time he talks, the number of syllables changes, he speeds up and slows down like a person, one word gets the stress, and a sentence settles into a low creak at its end. Watch him in his corner, the way the app shows him, saying his real lines. <b>Play a conversation</b> plays five lines in a row - one of them twice, so you can hear it is never the same: each line gets its own mood (calm, cheerful, curious, excited) and a fresh roll of the dice. The <b>Variety</b> slider sets how different. <b>Intro:</b> your pick is saved - it is below if you want to hear it again.</p>
+    <p class="sub"><b>New - the gentleman capybara mumbles:</b> three new voices at the top of the <b>Voice</b> list. <b>★ Video mumble</b> - the real mumbles from your video, made deep and soft; <b>The Duke</b> - fat and jolly; <b>Esquie</b> - big, soft and bouncy. All three are happy and never say fewer than 3 sounds. Your saved voice (Agent) opens first: pick one of the new ones, press <b>Play a conversation</b>, and <b>Save</b> the one you like. Watch him in his corner, the way the app shows him, saying his real lines. <b>Play a conversation</b> plays five lines in a row - one of them twice, so you can hear it is never the same: each line gets its own mood (calm, cheerful, curious, excited) and a fresh roll of the dice. The <b>Variety</b> slider sets how different. <b>Intro:</b> your pick is saved - it is below if you want to hear it again.</p>
     <p class="sub">Each card starts on my pick and <b>Today's sound</b> is there to compare. Press the gold button to hear it in its moment; letting go of a slider plays the result. When it sounds right, press <b>Save</b>.</p>
   </header>
 
@@ -134,11 +134,12 @@
 
   <div class="cards" id="cards"></div>
 
-  <footer>KPM Inventory · sound studio round 3 · recordings: Kenney Interface Sounds, UI Audio (CC0) · voices and intro sounds made here (chip.js) · <span id="stamp"></span></footer>
+  <footer>KPM Inventory · sound studio round 7 · recordings: Kenney Interface Sounds, UI Audio (CC0); mumbles: Gravity Sound "RPG Character Mumble Voices" (no copyright) · voices and intro sounds made here (chip.js) · <span id="stamp"></span></footer>
 </div>
 
 <script src="sfx-pack.js"></script>
 <script src="sfx-pack2.js"></script>
+<script src="mumble-pack.js"></script>
 <script src="chip.js"></script>
 <script>
 (function () {
@@ -161,7 +162,7 @@
   var LINES = ['Welcome back, Boss!', 'Any new products to add?', "Right, that's noted.", 'Heavy coin, that one.', "Deal's done. Good haul.",
     'Clean trade. Next route?', 'Stock looks good today.', 'Did you know Capybaras are the largest rodents?', 'Sync Complete! 24 items secured in Master Vault.'];
   var NAME = 'ALDI';
-  var SHAPES = [['voice', 'Human voice'], ['gravel', 'Gravelly voice'], ['mumble', 'Mumbled voice'], ['whisper', 'Whisper'], ['radio', 'Radio (walkie-talkie)'], ['brass', 'Muted trumpet (wah)'], ['hum', 'Nasal hum ("hmm")'], ['gb', 'Game Boy (8-bit)']];
+  var SHAPES = [['voice', 'Human voice'], ['gravel', 'Gravelly voice'], ['mumble', 'Mumbled voice'], ['whisper', 'Whisper'], ['radio', 'Radio (walkie-talkie)'], ['brass', 'Muted trumpet (wah)'], ['hum', 'Nasal hum ("hmm")'], ['gb', 'Game Boy (8-bit)'], ['rec', 'Recorded mumble (your video)']];
   var CKEYS = ['f', 'formant', 'intonation', 'jitter', 'scoop', 'bend', 'speed', 'cons', 'vib', 'breath', 'maxSyl', 'tempo', 'drop', 'emph', 'fry'];
   var PART_TEXT = {
     type:   ['Typing', 'one tick for each letter of "Welcome back" and "KPM App access unlocked"', 3.0],
@@ -176,7 +177,7 @@
   function clone(o) { return JSON.parse(JSON.stringify(o)); }
   function capyFrom(key, keep) {
     var p = CHIP.CAPY[key] || CHIP.CAPY.sims, o = { preset:key };
-    CKEYS.forEach(function (k) { o[k] = p[k]; }); o.shape = p.shape; o.moods = p.moods;
+    CKEYS.forEach(function (k) { o[k] = p[k]; }); o.shape = p.shape; o.moods = p.moods; o.minSyl = p.minSyl; o.rec = p.rec;
     o.vol = keep ? keep.vol : .6; o.echo = keep ? keep.echo : .12;
     o.variety = keep && keep.variety != null ? keep.variety : .7;    // how far each line's mood may pull the voice - kept across voices, like loudness
     return o;
@@ -184,7 +185,7 @@
   function defaults() {
     return { v:3, room:.6, master:1,
       ev: { msg:{ src:'confirmation_002', start:0, end:.575, vol:.29, rate:1.8, hp:180 }, fail:{ src:'error_002', start:0, end:.194, vol:.14, rate:1, hp:0 } },
-      capy: capyFrom('agent'),
+      capy: capyFrom('vidmumble'),
       intro: { echo:.35,
         type:{ src:'soft:key', vol:.25, pitch:1, wobble:.5, chatter:0, leave:true },
         wave:{ d:'sparkle', vol:.5, pitch:0 }, gather:{ d:'riser', vol:.5, pitch:0 }, formed:{ d:'chime', vol:.5, pitch:0 }, leave:{ d:'fall', vol:.35, pitch:0 } } };
@@ -309,7 +310,7 @@
       '<canvas class="wave" id="wave-capy" aria-hidden="true"></canvas>' +
       '<div class="knobs" id="knobs-capy">' +
       '<label class="knob"><span>Voice type</span><select id="c-shape" data-c="shape">' + shapes + '</select></label>' +
-      knob('capy', 'f', 'Pitch', 100, 500, 5, ' data-c="f"') + knob('capy', 'formant', 'Mouth size', .8, 1.5, .01, ' data-c="formant"') +
+      knob('capy', 'f', 'Pitch', 70, 500, 1, ' data-c="f"') + knob('capy', 'formant', 'Mouth size', .6, 1.5, .01, ' data-c="formant"') +
       knob('capy', 'intonation', 'Melody', 0, 2.5, .05, ' data-c="intonation"') + knob('capy', 'jitter', 'Randomness', 0, 1, .05, ' data-c="jitter"') +
       knob('capy', 'scoop', 'Slide in', 0, 5, .1, ' data-c="scoop"') + knob('capy', 'bend', 'Fall at the end', 0, 5, .1, ' data-c="bend"') +
       knob('capy', 'speed', 'Speed', .6, 1.6, .01, ' data-c="speed"') + knob('capy', 'cons', 'Consonants', 0, 1, .05, ' data-c="cons"') +
@@ -684,8 +685,8 @@
       /* a round-2 save holds 8-bit beep fields (wave, len, slide...) - they do not fit this voice, so it keeps my pick */
       if (rc.preset === 'today' || CHIP.CAPY[rc.preset]) Object.assign(oc, rc.preset === 'today' ? { preset:'today' } : capyFrom(rc.preset, oc));
       if (SHAPES.some(function (w) { return w[0] === rc.shape; })) oc.shape = rc.shape;
-      if (rc.moods === 'agent' || rc.moods === 'friendly') oc.moods = rc.moods;
-      var LIM = { f:[100, 500], formant:[.8, 1.5], intonation:[0, 2.5], jitter:[0, 1], scoop:[0, 5], bend:[0, 5], speed:[.6, 1.6], cons:[0, 1], vib:[0, 1], breath:[0, 1], maxSyl:[2, 24], variety:[0, 1], tempo:[0, 1], drop:[0, 1], emph:[0, 1], fry:[0, 1] };
+      if (rc.moods === 'agent' || rc.moods === 'friendly' || rc.moods === 'happy') oc.moods = rc.moods;
+      var LIM = { f:[70, 500], formant:[.6, 1.5], intonation:[0, 2.5], jitter:[0, 1], scoop:[0, 5], bend:[0, 5], speed:[.6, 1.6], cons:[0, 1], vib:[0, 1], breath:[0, 1], maxSyl:[2, 24], variety:[0, 1], tempo:[0, 1], drop:[0, 1], emph:[0, 1], fry:[0, 1] };
       Object.keys(LIM).forEach(function (k) { oc[k] = num(rc[k], LIM[k][0], LIM[k][1], oc[k]); });
       oc.maxSyl = Math.round(oc.maxSyl);
       oc.vol = num(rc.vol, 0, 1.2, oc.vol); oc.echo = num(rc.echo, 0, .6, oc.echo);

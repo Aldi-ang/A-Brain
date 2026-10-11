@@ -156,3 +156,22 @@ kpm `f942657` (local, not pushed). `tools/sfx-bake.mjs` now renders both studios
 **Options put to him (🔴, my pick A):** A) the corner capybara speaks every line he shows - his idle lines and the CAPY_COMMS lines - except the ones already spoken by their sender (the sales terminal's deal line) and the size-slider peek (no line); B) only lines that REPORT something (CAPY_COMMS + triggerCapy, already voiced), his idle chatter stays silent; C) leave it. Cost of A: he talks more often - his idle rotation runs on a timer, so the voice comes every time he peeks. **Decision (2026-10-11 13:58): A** - his one-word answer *"A"*. **BUILT 2026-10-11 14:05, kpm `5d8c243`; LIVE 14:33** (pushed `3827f75` on his *"push it"*, Vercel completed): CapybaraMascot.jsx speaks the idle line when it goes up and a plain-string CAPY_COMMS line; an object detail never (same string/object split the Missed list already used - an object is a caller bringing its own character, so the capybara's voice would be wrong on it anyway). The brief's `spoken: true` flag on the deal dispatch was NOT used - it would touch MerchantSalesView for the same result. Proven in the built lab `tools/ponder-lab.html?capy` (launch config `ponder-lab-built`): idle 4 plays, string line 9, deal object 0, peek 0, play() 3/3 resolved. CONFIRMED on his phone 2026-10-11 15:39: *"yes i can hear it now nice"*.
 
 **Rejected on purpose:** voicing inside `CapybaraMascot` for the `message` prop - `triggerCapy` already speaks those lines, so that would say them twice.
+
+## 2026-10-11 19:40 - round 7: the gentleman capybara MUMBLES (studio v7)
+
+**His words:** *"and i want u to change the sfx for capybara to mumbling insted, i want u to think how capybara gentlement should have when talking and i have some of the sfx sample in this youtube https://www.youtube.com/watch?v=Dl_hOYskhHU, it might be cool when u can make some fat but soft mumbling sound, just imagine the duke from resident evil village but inside the sim city or maybe esquie voice from expedition 33 but mumbling like inside sim city"*
+
+| Voice | What it is | Measured ("Welcome back, Boss!" / "Good pick.") |
+|---|---|---|
+| ★ Video mumble (my pick) | his video's character #9 cut into 26 syllables, played at 118 Hz, two soft low-passes (shape `rec`) | 104-127 Hz, brightness 84-132 Hz |
+| The Duke | synth `mumble` throat, 92 Hz, mouth .82 (big body), soft consonants .35, breath .28 | ~111 Hz, brightness 160-185 Hz |
+| Esquie | synth `mumble`, 125 Hz, mouth .74 (huge round body), consonants .2, slides up 2.6 | 142-154 Hz, brightness ~135 Hz |
+| (today) Agent | his 13:13 voice, happy since 17:35 | 104-134 Hz, brightness 340-387 Hz |
+
+All three: happy moods, at least 3 sounds a line. Published to https://claude.ai/artifact/AmgCRrR8s8MfPaAxfPQtNr (version 7) after a full read of the live page, which caught that the page clamped pitch to 100+ Hz and mouth size to .8+ - Duke and Esquie would have come back changed after a Save; the limits are now 70 Hz / .6 and a save/reload round trip keeps 92 / .82 / .74.
+
+**Decision:** OPEN - his listen + Save. **Bake:** the saved voice -> `tools/sfx-bake.mjs` renders the 61 syllable files from it; a `rec` voice needs `mumble-pack.js` loaded before chip.js in the baker (copy it into kpm tools/).
+
+**Rejected on purpose:** character #6 of the video (deep, 137 Hz) - only 4 syllables could be cut at any setting, and 4 sounds repeating is his "annoying if its keep repeating the same sound".
+
+**Models applied:** Inversion (what would make the mumble fail: too high, too bright, the same few sounds repeating - each measured), Reversibility (nothing reaches the app until he saves; the baked files are replaced only then).

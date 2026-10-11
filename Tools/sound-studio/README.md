@@ -14,7 +14,7 @@ His ask, 2026-10-11: *"i want u to keep and store all this voice editor for futu
 
 | Card | What he tunes | Where it plays in the app |
 |---|---|---|
-| Capybara talks | 11 voices (Agent firm, Radio agent, Gravel agent, Deep baritone, Whisper agent, Low mumble, Muted trumpet wah, Sleepy grumble, Sims chatter, Villager hum, Game Boy 8-bit) + Today's sound; pitch, mouth size, melody, randomness, slide in, fall at the end, speed, consonants, wobble, breath, longest line, variety, pace changes, syllable count changes, stress on a word, low creak at the end, loudness, echo. Shown in his corner (the merchant sprite + bubble) saying his real lines; "Play a conversation" | `speakMumble` (CapybaraMascot.jsx, MerchantSalesView.jsx) |
+| Capybara talks | 14 voices - round 7 (2026-10-11 19:40) put three mumbling ones first: ★ Video mumble (the real mumbles of his reference video, `mumble-pack.js`, shape `rec`), The Duke (fat, jolly), Esquie (big, soft, bouncy); then the 11 older ones (Agent firm, Radio agent, Gravel agent, Deep baritone, Whisper agent, Low mumble, Muted trumpet wah, Sleepy grumble, Sims chatter, Villager hum, Game Boy 8-bit) + Today's sound; pitch, mouth size, melody, randomness, slide in, fall at the end, speed, consonants, wobble, breath, longest line, variety, pace changes, syllable count changes, stress on a word, low creak at the end, loudness, echo. Shown in his corner (the merchant sprite + bubble) saying his real lines; "Play a conversation" | `speakMumble` (CapybaraMascot.jsx, MerchantSalesView.jsx) |
 | Vault intro | typing (made ticks or 9 Kenney recordings), the ring, dots fly in, the name lands, the name leaves - each a list + loudness + pitch, echo (a 2.4 s hall); drawn over a line-for-line copy of VaultGate's dots | `VaultGate.jsx` playSound at the unlock |
 | Message appears / Failure appears | a Kenney recording, start, end, loudness, pitch, bass cut | `Toast.jsx` (msg-in.mp3 / msg-fail.mp3, baked 2026-10-11) |
 
@@ -28,6 +28,7 @@ The top bar: **Echo, messages** and **Volume, all** - careful, both feed the mes
 | `chip.js` | THE synth - the capybara voices (glottal pulse + formants, syllables, a seeded plan: moods, pace, syllable dropping, stress) and the intro's sounds (FM bells, pads, noise, stereo, the hall). The baker imports this same file, so what he hears is what gets baked |
 | `sfx-pack.js` | round-1 recordings (Kenney Interface Sounds, UI Audio, Digital Audio, Music Jingles - CC0) + the app's current sounds, as base64 mp3 (made by `build-pack.mjs` from `sfx-measure.json`) |
 | `sfx-pack2.js` | the 9 typing recordings (made by `build-pack2.mjs`) |
+| `mumble-pack.js` | 26 syllable clips (16-bit, 22050 Hz) cut from Raw/2026-10-11-mumble-ref by `build-mumble-pack.mjs` - chip.js shape `rec` plays them. The BAKER must load it before chip.js to bake a `rec` voice |
 | `merchant-idle.png`, `merchant-talk.png` | the capybara's sprite sheets, copies of kpm `public/sprites/` |
 | `sfx-measure.mjs` / `.json` | measures every recording (length, peak, brightness, bass share) - the shortlists come from it |
 | `saves/` | his saved settings, one JSON per save worth keeping - `2026-10-11_1313_settings.json` is the one the next bake uses |
