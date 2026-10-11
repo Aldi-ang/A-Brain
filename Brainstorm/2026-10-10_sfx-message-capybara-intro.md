@@ -175,3 +175,13 @@ All three: happy moods, at least 3 sounds a line. Published to https://claude.ai
 **Rejected on purpose:** character #6 of the video (deep, 137 Hz) - only 4 syllables could be cut at any setting, and 4 sounds repeating is his "annoying if its keep repeating the same sound".
 
 **Models applied:** Inversion (what would make the mumble fail: too high, too bright, the same few sounds repeating - each measured), Reversibility (nothing reaches the app until he saves; the baked files are replaced only then).
+
+## 2026-10-11 19:55 - round 8: the video mumble made natural (studio v8)
+
+**His words:** *"your pick is good but make it more natural sounding instead of electronic edited sound"* - so the direction (his video's mumbles, deep and soft) is RIGHT; the processing was wrong.
+
+**Why it sounded edited (the first try's own code):** every clip forced to one absolute pitch (one syllable down 8 notes, the next 15 - a different mouth each time = splicing); a 30 ms chop at the slot end; a fake slide/fall bent over the speaker's own melody; two dark low-passes.
+**First fix measured WRONG and was not shown to him:** one ratio for all clips + no chop + one gentle low-pass came out 235-306 Hz, brightness 406-529 - high and bright, not his "fat and soft".
+**Built (v8, ★ "Video mumble - natural"):** `natural: true` in chip.js `recNatural` - a small slow-down = slightly bigger body (mouth size .9), then PSOLA (two-period grains at the voice's own pulses, laid further apart) so only the throat drops and the vowel colour stays human; one ratio for the whole voice; only a question rises; a long syllable fades over its last quarter; loudness matched by RMS. Measured at 44.1 kHz: 117-138 Hz (as deep as the first try's 104-128), brightness 49-118 (first try 11-53 = muffled; Agent ~340+), 0 clicks. The first try stays in the list to compare.
+
+**Decision:** OPEN - his listen + Save. Bake: CAPY_VOICE must carry `shape: 'rec', rec: 'round', natural: true` (+ mumble-pack.js before chip.js in the baker).

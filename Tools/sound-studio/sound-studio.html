@@ -121,7 +121,7 @@
 <div class="wrap">
   <header>
     <h1>Sound studio · the capybara</h1>
-    <p class="sub"><b>New - the gentleman capybara mumbles:</b> three new voices at the top of the <b>Voice</b> list. <b>★ Video mumble</b> - the real mumbles from your video, made deep and soft; <b>The Duke</b> - fat and jolly; <b>Esquie</b> - big, soft and bouncy. All three are happy and never say fewer than 3 sounds. Your saved voice (Agent) opens first: pick one of the new ones, press <b>Play a conversation</b>, and <b>Save</b> the one you like. Watch him in his corner, the way the app shows him, saying his real lines. <b>Play a conversation</b> plays five lines in a row - one of them twice, so you can hear it is never the same: each line gets its own mood (calm, cheerful, curious, excited) and a fresh roll of the dice. The <b>Variety</b> slider sets how different. <b>Intro:</b> your pick is saved - it is below if you want to hear it again.</p>
+    <p class="sub"><b>New - the gentleman capybara mumbles:</b> three new voices at the top of the <b>Voice</b> list. <b>★ Video mumble - natural</b> - your pick, made natural (the first try is still in the list to compare); <b>The Duke</b> - fat and jolly; <b>Esquie</b> - big, soft and bouncy. All three are happy and never say fewer than 3 sounds. Your saved voice (Agent) opens first: pick one of the new ones, press <b>Play a conversation</b>, and <b>Save</b> the one you like. Watch him in his corner, the way the app shows him, saying his real lines. <b>Play a conversation</b> plays five lines in a row - one of them twice, so you can hear it is never the same: each line gets its own mood (calm, cheerful, curious, excited) and a fresh roll of the dice. The <b>Variety</b> slider sets how different. <b>Intro:</b> your pick is saved - it is below if you want to hear it again.</p>
     <p class="sub">Each card starts on my pick and <b>Today's sound</b> is there to compare. Press the gold button to hear it in its moment; letting go of a slider plays the result. When it sounds right, press <b>Save</b>.</p>
   </header>
 
@@ -177,7 +177,7 @@
   function clone(o) { return JSON.parse(JSON.stringify(o)); }
   function capyFrom(key, keep) {
     var p = CHIP.CAPY[key] || CHIP.CAPY.sims, o = { preset:key };
-    CKEYS.forEach(function (k) { o[k] = p[k]; }); o.shape = p.shape; o.moods = p.moods; o.minSyl = p.minSyl; o.rec = p.rec;
+    CKEYS.forEach(function (k) { o[k] = p[k]; }); o.shape = p.shape; o.moods = p.moods; o.minSyl = p.minSyl; o.rec = p.rec; o.natural = p.natural;
     o.vol = keep ? keep.vol : .6; o.echo = keep ? keep.echo : .12;
     o.variety = keep && keep.variety != null ? keep.variety : .7;    // how far each line's mood may pull the voice - kept across voices, like loudness
     return o;
@@ -185,7 +185,7 @@
   function defaults() {
     return { v:3, room:.6, master:1,
       ev: { msg:{ src:'confirmation_002', start:0, end:.575, vol:.29, rate:1.8, hp:180 }, fail:{ src:'error_002', start:0, end:.194, vol:.14, rate:1, hp:0 } },
-      capy: capyFrom('vidmumble'),
+      capy: capyFrom('vidnatural'),
       intro: { echo:.35,
         type:{ src:'soft:key', vol:.25, pitch:1, wobble:.5, chatter:0, leave:true },
         wave:{ d:'sparkle', vol:.5, pitch:0 }, gather:{ d:'riser', vol:.5, pitch:0 }, formed:{ d:'chime', vol:.5, pitch:0 }, leave:{ d:'fall', vol:.35, pitch:0 } } };
