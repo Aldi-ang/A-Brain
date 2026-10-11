@@ -69,18 +69,25 @@
   }
 
   /* the human voice: glottal pulse -> four formant resonators in a row (a "cascade", like Klatt's synthesiser).
-     len = s / m / l; rise = the pitch climbs through it (a question's last word) instead of falling. */
+     len = s / m / l; rise = the pitch climbs through it (a question's last word) instead of falling.
+     Round 6, his *"i dont like the main voice can u add more voice to choose from"* - other THROATS, not other settings:
+       voice   the plain throat               gravel  every other cycle weak and late (a rough, raspy, older voice)
+       mumble  vowels half through the nose   whisper no throat at all - breath through the mouth
+       radio   the voice through a walkie-talkie: only 300-3200 Hz, slightly overdriven, a little static
+       brass   a muted trumpet's "wah": a bright buzz through one mouth that opens and closes (no words, all tune) */
   function voiceSyllable(p, v, on, len, rise, sr = SR) {
-    const { pre, lenV } = sylLen(p, on, len), hum = p.shape === 'hum' || v === 'm', key = p.shape + v + on + len + (rise ? 'R' : '');
+    const sh = p.shape, { pre, lenV } = sylLen(p, on, len), hum = sh === 'hum' || v === 'm', key = sh + v + on + len + (rise ? 'R' : '');
     const n0 = Math.round(pre * sr), n = n0 + Math.round(lenV * sr), out = new Float32Array(n), r = rng(hash(key));
     const off = [0, 1, 2, 3].map(() => 1 + (r() * 2 - 1) * .03);                // no two syllable files share an exact mouth
-    const tgt = (hum ? VOWEL.m : VOWEL[v]).map((f, i) => f * (i < 3 ? p.formant : (1 + p.formant) / 2) * off[i]), bw = hum ? BWN : BWV;
+    const base = hum ? VOWEL.m : sh === 'mumble' ? VOWEL[v].map((f, i) => (f + VOWEL.m[i]) / 2) : VOWEL[v];
+    const tgt = base.map((f, i) => f * (i < 3 ? p.formant : (1 + p.formant) / 2) * off[i]);
+    const bw = hum ? BWN : sh === 'mumble' ? BWV.map((b, i) => b * 1.6 + (i ? 40 : 0)) : sh === 'brass' ? [90, 140, 200, 300] : BWV;
     const from = hum || on === 'soft' ? VOWEL.m : on === 'hiss' ? [400, 1700, 2600, 3400] : [350, 1800, 2700, 3500];   // where the consonant leaves the mouth
     const drift = len === 'l' ? .12 : .25;                                     // short vowels slur towards "uh" more
     const fry = !rise && len === 'l' ? (p.fry || 0) : 0;                       // a sentence's last syllable settles into a creak
     consonant(out, n0, on, p.cons, r);
     const st = [[0, 0], [0, 0], [0, 0], [0, 0]];
-    let ph = 0, per = 1, amp = 1, prevG = 0, coef = null, tilt = 0;
+    let ph = 0, per = 1, amp = 1, prevG = 0, coef = null, tilt = 0, odd = false;
     for (let k = n0; k < n; k++) {
       const tv = (k - n0) / sr, u = tv / lenV, creak = fry * Math.max(0, (u - .62) / .38);
       /* the melody inside one syllable: a slide up into it, then a fall (or a climb), a wobble only on long ones */
@@ -89,18 +96,28 @@
       const f0 = p.f * st2(semis);
       ph += f0 * per / sr;
       if (ph >= 1) {                                                            // once per cycle: a real throat is never exact
-        ph -= 1;
-        per = (1 + (r() * 2 - 1) * (.012 + .05 * creak)) * (creak > .2 && r() < creak ? 1.6 + .6 * r() : 1);
-        amp = 1 + (r() * 2 - 1) * (.08 + .4 * creak);
+        ph -= 1; odd = !odd;
+        per = (1 + (r() * 2 - 1) * (.012 + .05 * creak)) * (creak > .2 && r() < creak ? 1.6 + .6 * r() : 1) * (sh === 'gravel' && odd ? 1.035 : 1);
+        amp = (1 + (r() * 2 - 1) * (.08 + .4 * creak)) * (sh === 'gravel' && odd ? .55 : 1);
       }
       const g = ph < .4 ? .5 * (1 - Math.cos(Math.PI * ph / .4)) : ph < .56 ? Math.cos(Math.PI * (ph - .4) / .32) : 0;   // Rosenberg pulse
-      let x = (g - prevG) * sr / f0 * .5 * amp; prevG = g;
-      tilt += (.35 + .5 * Math.min(1, tv / .05) * (1 - .5 * u)) * (x - tilt); x = tilt;   // brighter at the attack, softer as it dies
-      x += (r() * 2 - 1) * (p.breath * (.15 + .35 * g) + .25 * Math.max(0, (u - .85) / .15));   // breath, and a breathy release
+      let x;
+      if (sh === 'whisper') x = (r() * 2 - 1) * .9;                             // no throat: breath alone carries the vowel
+      else if (sh === 'brass') x = (2 * ph - 1) * .7 * amp;                     // a bright buzz, like lips in a mouthpiece
+      else { x = (g - prevG) * sr / f0 * .5 * amp; }
+      prevG = g;
+      if (sh !== 'whisper') {
+        tilt += (.35 + .5 * Math.min(1, tv / .05) * (1 - .5 * u)) * (x - tilt); x = tilt;   // brighter at the attack, softer as it dies
+        x += (r() * 2 - 1) * (p.breath * (.15 + .35 * g) + .25 * Math.max(0, (u - .85) / .15) + (sh === 'gravel' ? .22 * g : 0));
+      }
       if (coef === null || (k - n0) % 16 === 0) {
         const m = Math.min(1, tv / .045), d = drift * u;                         // into the vowel in 45 ms, then a slow drift
+        /* the mute opening and closing: the "wah" follows the syllable's own swell */
+        const wah = sh === 'brass' ? 450 + 1500 * Math.min(1, tv / .07) * (1 - .6 * u) : 0;
         coef = tgt.map((F, i) => {
-          const f = (from[i] + (F - from[i]) * m) * (1 - d) + SCHWA[i] * p.formant * d, rr = Math.exp(-Math.PI * bw[i] / sr), B = 2 * rr * Math.cos(TAU * f / sr), C = -rr * rr;
+          let f = (from[i] + (F - from[i]) * m) * (1 - d) + SCHWA[i] * p.formant * d;
+          if (wah) f = i === 0 ? wah : i === 1 ? wah * 2.1 : f;
+          const rr = Math.exp(-Math.PI * bw[i] / sr), B = 2 * rr * Math.cos(TAU * f / sr), C = -rr * rr;
           return [1 - B - C, B, C];
         });
       }
@@ -109,7 +126,20 @@
       const shape = Math.min(1, tv / (on === 'soft' ? .03 : .008)) * (u < .25 ? .85 + .6 * u : 1 - .35 * (u - .25)) * Math.min(1, (lenV - tv) / .04);
       out[k] = x * shape;
     }
-    normalize(out.subarray(n0), .8);                                      // every vowel equally loud; the consonant keeps its own level
+    normalize(out.subarray(n0), .8);                                          // every vowel equally loud; the consonant keeps its own level
+    if (sh === 'radio') {
+      /* the walkie-talkie: two low-cuts at 300 Hz, two high-cuts at 3200 Hz, a soft overdrive, a little static */
+      const a = Math.exp(-TAU * 300 / sr), b = 1 - Math.exp(-TAU * 3200 / sr);
+      let h1 = 0, h1x = 0, h2 = 0, h2x = 0, l1 = 0, l2 = 0;
+      for (let k = 0; k < out.length; k++) {
+        let x = out[k];
+        h1 = a * (h1 + x - h1x); h1x = x; x = h1;
+        h2 = a * (h2 + x - h2x); h2x = x; x = h2;
+        l1 += b * (x - l1); l2 += b * (l1 - l2); x = l2;
+        out[k] = Math.tanh(2.6 * x) / Math.tanh(2.6) + (r() * 2 - 1) * .025;
+      }
+      normalize(out, .8);
+    }
     return out;
   }
 
@@ -237,6 +267,12 @@
   }
   const CAPY = {
     agent:    { label: 'Agent (firm)', hint: 'low, steady and serious - firm falling endings, one word stressed, a pace that speeds up and slows down like a person', shape: 'voice', moods: 'agent', f: 112, formant: 1, intonation: 1.1, jitter: .35, scoop: 1.2, bend: 2.4, speed: 1, cons: .9, vib: .1, breath: .18, maxSyl: 12, tempo: .7, drop: .6, emph: .7, fry: .35 },
+    radio:    { label: 'Radio agent', hint: 'the agent over a walkie-talkie - narrow, a little overdriven, a touch of static', shape: 'radio', moods: 'agent', f: 118, formant: 1, intonation: 1.1, jitter: .35, scoop: 1, bend: 2.2, speed: 1.05, cons: .9, vib: .05, breath: .15, maxSyl: 12, tempo: .7, drop: .6, emph: .7, fry: .2 },
+    gravel:   { label: 'Gravel agent', hint: 'a rough, raspy, older voice - every other throat cycle weak and late', shape: 'gravel', moods: 'agent', f: 100, formant: .95, intonation: 1, jitter: .4, scoop: 1, bend: 2.4, speed: .95, cons: .85, vib: .05, breath: .3, maxSyl: 11, tempo: .7, drop: .6, emph: .7, fry: .5 },
+    baritone: { label: 'Deep baritone', hint: 'a big, calm, low voice from a large mouth', shape: 'voice', moods: 'agent', f: 92, formant: .9, intonation: 1, jitter: .3, scoop: 1, bend: 2, speed: .92, cons: .8, vib: .15, breath: .12, maxSyl: 11, tempo: .6, drop: .5, emph: .6, fry: .3 },
+    whisper:  { label: 'Whisper agent', hint: 'no voice at all, only breath through the mouth - a spy keeping it quiet', shape: 'whisper', moods: 'agent', f: 140, formant: 1.05, intonation: 1, jitter: .3, scoop: 1, bend: 2, speed: 1.05, cons: 1, vib: 0, breath: 0, maxSyl: 12, tempo: .6, drop: .6, emph: .5, fry: 0 },
+    mumble:   { label: 'Low mumble', hint: 'vowels half through the nose, lips barely open - talks under his breath', shape: 'mumble', moods: 'agent', f: 115, formant: 1, intonation: .9, jitter: .4, scoop: 1.5, bend: 2, speed: 1.1, cons: .5, vib: .1, breath: .25, maxSyl: 10, tempo: .7, drop: .7, emph: .5, fry: .3 },
+    wah:      { label: 'Muted trumpet (wah-wah)', hint: 'no words at all - a muted trumpet that talks in "wah"s, like the grown-ups in Charlie Brown', shape: 'brass', moods: 'agent', f: 165, formant: 1, intonation: 1.3, jitter: .3, scoop: 1.5, bend: 2.5, speed: .95, cons: 0, vib: .4, breath: .05, maxSyl: 9, tempo: .6, drop: .6, emph: .7, fry: 0 },
     grumble:  { label: 'Sleepy grumble', hint: 'low, slow and breathy, half-hummed', shape: 'voice', moods: 'friendly', f: 130, formant: .95, intonation: .7, jitter: .3, scoop: 1.5, bend: 2, speed: .8, cons: .5, vib: .4, breath: .5, maxSyl: 8, tempo: .5, drop: .5, emph: .4, fry: .5 },
     sims:     { label: 'Sims chatter', hint: 'quick made-up syllables over a big, friendly sentence melody - the Sims idea', shape: 'voice', moods: 'friendly', f: 210, formant: 1.1, intonation: 1.7, jitter: .5, scoop: 2, bend: 1, speed: 1.15, cons: .8, vib: .3, breath: .25, maxSyl: 14, tempo: .5, drop: .4, emph: .5, fry: 0 },
     villager: { label: 'Villager hum', hint: 'a nasal "hmm" that rises and falls - the Minecraft villager idea', shape: 'hum', moods: 'friendly', f: 150, formant: 1, intonation: 1.8, jitter: .5, scoop: 3, bend: 3, speed: .8, cons: .2, vib: .2, breath: .35, maxSyl: 3, tempo: .3, drop: .5, emph: .3, fry: .2 },

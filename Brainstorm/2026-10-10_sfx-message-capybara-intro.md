@@ -128,3 +128,13 @@ kpm `f942657` (local, not pushed). `tools/sfx-bake.mjs` now renders both studios
 **Decision:** OPEN - his listen + Save, and which intro.
 
 **Models applied:** Inversion (what makes a voice robotic? identical units, fixed vowels, metronome timing, the same length every time - each one inverted), Second-order (removing "My picks" removes a way back to my defaults - every list still stars my pick, so nothing is lost but the trap).
+
+## 2026-10-11 13:08 - his intro DECIDED (his own mix); six more capybara voices (studio version 6)
+
+**His words:** *"i saved the intro already and i saved the capybara voice i already edit the editor but i dont like the main voice can u add more voice to choose from"*
+
+**His save at 13:03 (doc version 5):** **intro DECIDED, his own mix** - ring = slow chord (bloom) 0.25 · dots fly in = reverse bell (riser) at -12 notes, 0.10 · name lands = warm bloom (bloomchord) at -12, 0.15 · name leaves = breath at -12, 1.0 · typing = soft key 0.25 (wobble 0.5, also when leaving) · echo 0.35. Capybara = Sims chatter, loudness 0.40, variety 1.0 (the rest Sims defaults). **Two global sliders moved too:** "Volume, all" (master) 0.25 and "Echo, messages" (room) 0. Both feed the MESSAGE sounds already in the app (baked at master 1, room 0.6) - asked whether that was meant for them or only for listening.
+
+**Built:** six voices with their own THROAT, not new settings of the old one - Radio agent (walkie-talkie: two 300 Hz low-cuts, two 3200 Hz high-cuts, soft overdrive, static), Gravel agent (every other glottal cycle 0.55 loud and 3.5 % late + rough noise: a raspy older voice), Deep baritone (92 Hz, big mouth), Whisper agent (no throat, breath through the formants), Low mumble (vowels halfway to the nasal "mm", wider resonances), Muted trumpet "wah-wah" (a bright saw buzz through one resonance that opens and closes with each syllable - Charlie Brown's grown-ups). Measured: radio 97 % of its energy inside 300-3200 Hz, gravel's cycle regularity 0.84 against 0.99 plain, whisper has no pitch, mumble the dullest middle (0.69), baritone 92 Hz; every line peak 0.85-0.86, nothing broken. **A bug found on the way:** "Today's sound" had thrown since round 3 (the page read the old 4 pitch steps from chip.js, which no longer has them) - the steps now live in the page; 0 new errors, 44 blips started on re-test.
+
+**Decision:** OPEN - his pick among 11 voices + Save; the master / room question.

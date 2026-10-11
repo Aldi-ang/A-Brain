@@ -155,13 +155,13 @@
     { id:'msg',  name:'Message appears',         sub:'in the app since 11 Oct. Change it only if it sounds wrong on your phone', try:'Show a message' },
     { id:'fail', name:'Failure message appears', sub:'in the app since 11 Oct. Change it only if it sounds wrong on your phone', try:'Show a failure' }
   ];
-  var STEPS = CHIP.STEPS;
+  var STEPS = [1, 1.12, .92, 1.25];   // TODAY's app: the four mumble pitches, in speakMumble's order (chip.js no longer has them - round 3)
   var STRIP = { msg:'American Spirit - Turquoise saved. Stock 1000 Bks', fail:'"American Spirit - Turquoise" was NOT saved. No connection.' };
   /* his REAL lines, word for word from the app (CapybaraMascot.jsx, MerchantSalesView.jsx CHATTER / DEAL_LINES, App.jsx triggerCapy) */
   var LINES = ['Welcome back, Boss!', 'Any new products to add?', "Right, that's noted.", 'Heavy coin, that one.', "Deal's done. Good haul.",
     'Clean trade. Next route?', 'Stock looks good today.', 'Did you know Capybaras are the largest rodents?', 'Sync Complete! 24 items secured in Master Vault.'];
   var NAME = 'ALDI';
-  var SHAPES = [['voice', 'Human voice'], ['hum', 'Nasal hum ("hmm")'], ['gb', 'Game Boy (8-bit)']];
+  var SHAPES = [['voice', 'Human voice'], ['gravel', 'Gravelly voice'], ['mumble', 'Mumbled voice'], ['whisper', 'Whisper'], ['radio', 'Radio (walkie-talkie)'], ['brass', 'Muted trumpet (wah)'], ['hum', 'Nasal hum ("hmm")'], ['gb', 'Game Boy (8-bit)']];
   var CKEYS = ['f', 'formant', 'intonation', 'jitter', 'scoop', 'bend', 'speed', 'cons', 'vib', 'breath', 'maxSyl', 'tempo', 'drop', 'emph', 'fry'];
   var PART_TEXT = {
     type:   ['Typing', 'one tick for each letter of "Welcome back" and "KPM App access unlocked"', 3.0],
