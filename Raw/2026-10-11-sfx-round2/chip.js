@@ -140,30 +140,50 @@
     }
     return out;
   }
-  /* the plan: which syllable file, at what pitch (a playback rate), when, how loud. The app will run THIS. */
-  function plan(text, p) {
-    const sy = syllables(text), r = rng(hash(text)), out = [];
+  /* HIS ASK (round 4): *"we need few conversation voice because it is annoying if its keep repeating the same sound"*.
+     So every time he speaks, the line gets a MOOD and a fresh roll of the dice: the same line twice never sounds the
+     same. A question is curious, a line with "!" is excited, anything else is calm or cheerful. The Variety knob sets
+     how far a mood may pull the voice - 0 is the plain melody every time. The app passes a new seed on every call. */
+  const MOODS = {
+    calm:     { label: 'calm',     pitch: 0,   range: .8,   gap: 1.06, shape: (u) => 1.5 - 3 * u },
+    cheerful: { label: 'cheerful', pitch: 1.5, range: 1.15, gap: .95,  shape: (u) => 3 * Math.sin(Math.PI * u) - 1.2 },
+    curious:  { label: 'curious',  pitch: 1,   range: 1.1,  gap: 1,    shape: (u) => -1 + 2 * u },
+    excited:  { label: 'excited',  pitch: 2.5, range: 1.35, gap: .88,  shape: (u, i) => (i % 2 ? 1.2 : -.6) + 1 - 2 * u },
+  };
+  function moodFor(text, r) {
+    const x = r();
+    return /\?\s*\W*$/.test(text) ? (x < .8 ? 'curious' : 'cheerful') : /!/.test(text) ? (x < .7 ? 'excited' : 'cheerful') : x < .5 ? 'calm' : 'cheerful';
+  }
+  /* the plan: which syllable file, at what pitch (a playback rate), when, how loud. The app will run THIS.
+     The seed goes through the hash with the line: seeds close together (1, 2, 3...) would otherwise start the
+     generator in the same place and give the same mood every time. */
+  function plan(text, p, o = {}) {
+    const sy = syllables(text), r = rng(o.seed != null ? hash(text + '#' + o.seed) : hash(text)), out = [], v = p.variety || 0;
+    const mood = MOODS[o.mood] || MOODS[moodFor(text, r)], lift = (mood.pitch + (r() * 2 - 1) * 1.5) * v;
+    const rangeK = 1 + (mood.range - 1) * v, gapK = 1 + (mood.gap - 1) * v;
     const sentences = []; let cur = [];
     for (const s of sy) { if (s.end) { if (cur.length) sentences.push({ s: cur, end: s.end }); cur = []; } else cur.push(s); }
     if (cur.length) sentences.push({ s: cur, end: '.' });
     let at = 0;
     for (const { s, end } of sentences) {
-      const n = s.length, bang = end === '!', ask = end === '?', range = p.intonation * (bang ? 1.3 : 1);
+      const n = s.length, bang = end === '!', ask = end === '?', range = p.intonation * (bang ? 1.3 : 1) * rangeK;
       s.forEach((x, i) => {
         if (out.length >= p.maxSyl) return;
         const u = n > 1 ? i / (n - 1) : 0, last = i === n - 1 || out.length === p.maxSyl - 1;
-        let semis = range * (1.5 - 3 * u) + (x.first ? .8 * range : 0) + (r() * 2 - 1) * 1.5 * p.jitter + (bang ? 2.5 : 0);
-        if (ask && i >= n - 2) semis = range * (i === n - 1 ? 5 : 3);
+        const contour = (1 - v) * (1.5 - 3 * u) + v * mood.shape(u, i);
+        let semis = range * contour + (x.first ? .8 * range : 0) + (r() * 2 - 1) * 1.5 * p.jitter + (bang ? 2.5 : 0) + lift;
+        if (ask && i >= n - 2) semis = range * (i === n - 1 ? 5 : 3) + lift;
         const rate = st2(semis), { pre, lenV } = sylLen(p, x.on, last);
         out.push({ v: x.v, on: x.on, long: last, rate, at: +at.toFixed(4), gain: (x.first ? 1 : .85) * (bang ? 1.1 : 1), from: x.from, to: x.to });
         const next = s[i + 1];
-        at += (pre + lenV) / rate * .92 + (last ? .17 / p.speed : next && next.first ? .045 / p.speed : 0);
+        at += (pre + lenV) / rate * .92 + ((last ? .17 : next && next.first ? .045 : 0) / p.speed) * gapK;
       });
     }
+    out.mood = mood.label;
     return out;
   }
-  function speak(text, p, sr = SR) {
-    const pl = plan(text, p), cache = {}, last = pl[pl.length - 1];
+  function speak(text, p, sr = SR, o) {
+    const pl = plan(text, p, o), cache = {}, last = pl[pl.length - 1];
     if (!last) return { mix: new Float32Array(1), plan: pl };
     const mix = new Float32Array(Math.ceil((last.at + .8) * sr));
     for (const x of pl) {
@@ -348,5 +368,5 @@
     return { L, R, peak };
   }
 
-  G.KPM_CHIP = { SR, CAPY, ONSET, VOWEL, syllables, plan, speak, syllable, T, TYPE, DESIGN, PARTS, intro, typeEvents, hall, easeOut, easeInOut };
+  G.KPM_CHIP = { SR, CAPY, ONSET, VOWEL, MOODS, syllables, plan, speak, syllable, T, TYPE, DESIGN, PARTS, intro, typeEvents, hall, easeOut, easeInOut };
 })(typeof window !== 'undefined' ? window : globalThis);

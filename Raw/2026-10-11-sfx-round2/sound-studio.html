@@ -95,6 +95,24 @@
   .gate .hello { font-size:15px; letter-spacing:.44em; color:rgba(247,233,200,.8); }
   .gate .line { font-size:13px; letter-spacing:.32em; color:rgba(247,233,200,.6); margin-top:12px; }
   .gate .note { position:absolute; left:0; right:0; bottom:10px; text-align:center; font:900 10px/1.4 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:rgba(247,233,200,.45); }
+  /* his corner, the way CapybaraMascot.jsx + theme.css draw it: a 128 px box, the 200 px sprite frame scaled .64 into it,
+     the talking sheet (13 frames, 2.4 s) or idle sheet (10 frames, 3 s), the white bubble with the gold edge above him */
+  .corner { position:relative; display:block; padding:0; height:320px; background:#0A0908; border-style:solid; overflow:hidden; }
+  .corner .mbox { position:absolute; right:6px; bottom:0; width:128px; height:128px; }
+  .corner .msprite { position:absolute; right:0; bottom:0; width:200px; height:200px; transform:scale(.64); transform-origin:100% 100%; overflow:hidden; }
+  .corner .msprite::before { content:''; position:absolute; left:0; top:0; height:200px; background-repeat:no-repeat; }
+  .corner .msprite.idle::before { width:2000px; background-image:url('merchant-idle.png'); background-size:2000px 200px; animation:mIdle 3s steps(10, end) infinite; }
+  .corner .msprite.talk::before { width:2600px; background-image:url('merchant-talk.png'); background-size:2600px 200px; animation:mTalk 2.4s steps(13, end) infinite; }
+  @keyframes mIdle { to { transform:translateX(-2000px); } }
+  @keyframes mTalk { to { transform:translateX(-2600px); } }
+  .corner .mbub { position:absolute; bottom:112%; right:6%; margin-bottom:8px; z-index:2; }
+  .corner .mbub > div { position:relative; border:4px solid #D08A2E; padding:12px; min-width:140px; max-width:min(180px, calc(100vw - 40px)); text-align:center;
+    background:#fff; box-shadow:4px 4px 0 0 rgba(212,175,55,.45); }
+  .corner .mbub p { margin:0; font:700 10px/1.25 var(--mono); text-transform:uppercase; letter-spacing:.025em; color:#000; }
+  .corner .mbub .tail { position:absolute; bottom:-12px; right:32px; width:16px; height:16px; border-right:4px solid #D08A2E; border-bottom:4px solid #D08A2E; transform:rotate(45deg); background:#fff; }
+  .corner .mbub.pop { animation:popIn .4s cubic-bezier(.175, .885, .32, 1.275) both; transform-origin:100% 100%; }
+  @keyframes popIn { 0% { transform:scale(0) translateY(20px); opacity:0; } 80% { transform:scale(1.1) translateY(-5px); opacity:1; } 100% { transform:none; opacity:1; } }
+  .corner .note { position:absolute; left:12px; top:10px; font:900 10px/1.4 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:rgba(247,233,200,.45); }
   @media (prefers-reduced-motion: reduce) { .strip.in { animation:none; opacity:1; transform:none; } }
 
   footer { margin-top:30px; color:var(--ink-dim); font:12px/1.5 var(--mono); }
@@ -102,8 +120,8 @@
 
 <div class="wrap">
   <header>
-    <h1>Sound studio · round 3</h1>
-    <p class="sub"><b>Capybara:</b> a human-like voice, like a Minecraft villager's "hmm" or a Sim's made-up talk - it says each syllable of the real line, with a melody that falls at a full stop and rises at a question. The 8-bit voice from your video is still in the list, to compare. <b>Intro:</b> elegant, not 8-bit - soft bells, glass and air, wide stereo, a long echo, and a soft typing tick for each letter.</p>
+    <h1>Sound studio · the capybara</h1>
+    <p class="sub"><b>Capybara:</b> watch him in his corner, the way the app shows him, saying his real lines. <b>Play a conversation</b> plays five lines in a row - one of them twice, so you can hear it is never the same: each line gets its own mood (calm, cheerful, curious, excited) and a fresh roll of the dice. The <b>Variety</b> slider sets how different. <b>Intro:</b> your pick is saved - it is below if you want to hear it again.</p>
     <p class="sub">Each card starts on my pick and <b>Today's sound</b> is there to compare. Press the gold button to hear it in its moment; letting go of a slider plays the result. When it sounds right, press <b>Save</b>.</p>
   </header>
 
@@ -140,7 +158,9 @@
   ];
   var STEPS = CHIP.STEPS;
   var STRIP = { msg:'American Spirit - Turquoise saved. Stock 1000 Bks', fail:'"American Spirit - Turquoise" was NOT saved. No connection.' };
-  var LINES = ['Halo bos! Stok Cello Green tinggal sedikit.', 'Mau dicek dulu stoknya?', 'Mantap! Penjualan hari ini naik.'];
+  /* his REAL lines, word for word from the app (CapybaraMascot.jsx, MerchantSalesView.jsx CHATTER / DEAL_LINES, App.jsx triggerCapy) */
+  var LINES = ['Welcome back, Boss!', 'Any new products to add?', "Right, that's noted.", 'Heavy coin, that one.', "Deal's done. Good haul.",
+    'Clean trade. Next route?', 'Stock looks good today.', 'Did you know Capybaras are the largest rodents?', 'Sync Complete! 24 items secured in Master Vault.'];
   var NAME = 'ALDI';
   var SHAPES = [['voice', 'Human voice'], ['hum', 'Nasal hum ("hmm")'], ['gb', 'Game Boy (8-bit)']];
   var CKEYS = ['f', 'formant', 'intonation', 'jitter', 'scoop', 'bend', 'speed', 'cons', 'vib', 'breath', 'maxSyl'];
@@ -159,6 +179,7 @@
     var p = CHIP.CAPY[key] || CHIP.CAPY.sims, o = { preset:key };
     CKEYS.forEach(function (k) { o[k] = p[k]; }); o.shape = p.shape;
     o.vol = keep ? keep.vol : .6; o.echo = keep ? keep.echo : .12;
+    o.variety = keep && keep.variety != null ? keep.variety : .7;    // how far each line's mood may pull the voice - kept across voices, like loudness
     return o;
   }
   function defaults() {
@@ -278,8 +299,10 @@
     var lines = LINES.map(function (l, i) { return '<option value="' + i + '">' + l + '</option>'; }).join('');
     return '<section class="card" id="card-capy" aria-label="Capybara talks">' +
       '<div class="head"><div class="nm"><b>Capybara talks</b><small>a made-up voice that says each syllable of his real line, with a sentence melody</small></div>' +
-      '<button type="button" class="key try" id="capy-say">Capybara says it</button></div>' +
-      '<div class="stage" id="stage-capy" aria-hidden="true"></div>' +
+      '<button type="button" class="key try" id="capy-convo">Play a conversation</button><button type="button" class="key" id="capy-say">Say this line</button></div>' +
+      '<div class="stage corner" id="stage-capy" aria-hidden="true"><div class="mbox">' +
+      '<div class="mbub" id="capy-bub" hidden><div><p id="capy-text"></p><i class="tail"></i></div></div>' +
+      '<div class="msprite idle" id="capy-sprite"></div></div><div class="note" id="capy-note">press Play a conversation</div></div>' +
       '<div class="pick"><select id="capy-line" aria-label="Line to say">' + lines + '</select></div>' +
       '<div class="pick"><button type="button" class="key play" id="capy-play" aria-label="Play the five vowels">▶</button>' +
       '<select id="capy-preset" aria-label="Voice">' + opts + '</select></div>' +
@@ -292,7 +315,7 @@
       knob('capy', 'scoop', 'Slide in', 0, 5, .1, ' data-c="scoop"') + knob('capy', 'bend', 'Fall at the end', 0, 5, .1, ' data-c="bend"') +
       knob('capy', 'speed', 'Speed', .6, 1.6, .01, ' data-c="speed"') + knob('capy', 'cons', 'Consonants', 0, 1, .05, ' data-c="cons"') +
       knob('capy', 'vib', 'Wobble', 0, 1, .05, ' data-c="vib"') + knob('capy', 'breath', 'Breath', 0, 1, .05, ' data-c="breath"') +
-      knob('capy', 'maxSyl', 'Longest line', 2, 24, 1, ' data-c="maxSyl"') +
+      knob('capy', 'maxSyl', 'Longest line', 2, 24, 1, ' data-c="maxSyl"') + knob('capy', 'variety', 'Variety', 0, 1, .05, ' data-c="variety"') +
       knob('capy', 'vol', 'Loudness', 0, 1.2, .01, ' data-c="vol"') + knob('capy', 'echo', 'Echo', 0, .6, .01, ' data-c="echo"') +
       '</div></section>';
   }
@@ -345,10 +368,12 @@
   }
 
   /* ── the capybara ────────────────────────────────────────────────────────────────────────────── */
-  /* the spoken line, rendered with chip.js's own plan - the same plan the app will run */
-  var SAID = null;
+  /* the spoken line, rendered with chip.js's own plan - the same plan the app will run. The drawing uses a fixed
+     roll so it does not jump about; every PLAY uses a fresh one, like the app will (his "keep repeating the same sound") */
+  var SAID = null, CT = [];
   function line() { return LINES[+$('capy-line').value || 0]; }
   function capySpeech() { if (!SAID || SAID.text !== line()) SAID = Object.assign({ text: line() }, CHIP.speak(line(), SET.capy)); return SAID; }
+  function roll() { return Math.floor(Math.random() * 4294967295); }
   function paintCapy() {
     var c = SET.capy, today = c.preset === 'today', p = CHIP.CAPY[c.preset];
     $('capy-preset').value = c.preset; $('c-shape').value = c.shape;
@@ -356,6 +381,7 @@
     var fmt = { f:function (v) { return v + ' Hz'; }, formant:function (v) { return v.toFixed(2) + '×'; }, intonation:function (v) { return v ? v.toFixed(2) + '×' : 'flat'; },
       jitter:pct, scoop:function (v) { return v ? v.toFixed(1) + ' notes' : 'off'; }, bend:function (v) { return v ? v.toFixed(1) + ' notes' : 'off'; },
       speed:function (v) { return v.toFixed(2) + '×'; }, cons:pct, vib:pct, breath:pct, maxSyl:function (v) { return v + ' syllables'; },
+      variety:function (v) { return v ? Math.round(v * 100) + '% - every line a little different' : 'off - the same each time'; },
       vol:function (v) { return Math.round(v * 100) + '%'; }, echo:function (v) { return Math.round(v * 100) + '%'; } };
     Object.keys(fmt).forEach(function (k) { var inp = $(k + '-capy'); inp.value = c[k]; $('o-' + k + '-capy').textContent = fmt[k](c[k]); inp.disabled = today && k !== 'vol' && k !== 'echo'; });
     $('c-shape').disabled = today;
@@ -369,23 +395,46 @@
     $('facts-capy').textContent = (p ? (same ? p.hint : 'changed from "' + p.label + '"') + ' · ' : '') + s.plan.length + ' syllables, ' + (s.mix.length / CHIP.SR).toFixed(1) + ' s for this line';
     drawArr($('wave-capy'), s.mix);
   }
-  function capySay() {
-    var c = SET.capy, text = line(), st = $('stage-capy');
-    stopAll();
-    st.innerHTML = '<div class="bubble">' + text.split('').map(function (ch) { return '<i>' + ch + '</i>'; }).join('') + '</div>';
-    var spans = st.querySelectorAll('i'), lit = function (a, b) { for (var k = a; k < b && k < spans.length; k++) spans[k].classList.add('on'); };
+  /* his corner, as CapybaraMascot.jsx shows him: the bubble pops up with the whole line, he plays his talking
+     sheet while the voice runs, then idles; the bubble goes a moment after he stops */
+  function capyClear() { CT.forEach(clearTimeout); CT = []; }
+  function capyShow(text) {
+    $('capy-text').textContent = text;
+    var b = $('capy-bub'); b.hidden = false; b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
+    $('capy-sprite').className = 'msprite talk';
+  }
+  function capyRest(hideBubble) { $('capy-sprite').className = 'msprite idle'; if (hideBubble) $('capy-bub').hidden = true; }
+  /* says one line, returns how long it lasted (s); today's sound = the app's current blips */
+  function capyLine(text, at) {
+    var c = SET.capy, len, mood = '';
     if (c.preset === 'today') {
       /* today's app: one blip per 3 letters, at most 8, one every 105 ms, pitch order (i*3+len)%4 (useSound.js speakMumble) */
       var letters = text.replace(/\s+/g, '').length, count = Math.min(8, Math.max(1, Math.round(letters / 3)));
-      for (var i = 0; i < count; i++) playBuf(BUF['today:mumble1'], i * .105, c.vol, c.echo, STEPS[(i * 3 + letters) % 4]);
-      spans.forEach(function (sp, k) { setTimeout(function () { sp.classList.add('on'); }, k * (count * 105 / spans.length)); });
-      return;
+      for (var i = 0; i < count; i++) playBuf(BUF['today:mumble1'], at + i * .105, c.vol, c.echo, STEPS[(i * 3 + letters) % 4]);
+      len = count * .105 + .1;
+    } else {
+      var s = CHIP.speak(text, c, CHIP.SR, { seed: roll() });
+      playBuf(toBuf(s.mix), at, c.vol, c.echo);
+      len = s.plan.length ? s.plan[s.plan.length - 1].at + .3 : .3; mood = s.plan.mood;
     }
+    CT.push(setTimeout(function () { capyShow(text); $('capy-note').textContent = mood ? 'said it ' + mood : "today's sound"; }, 30 + at * 1000));
+    CT.push(setTimeout(function () { capyRest(false); }, 30 + (at + len) * 1000));
+    return len;
+  }
+  function capySay() {
     if (!audio()) return;
-    var s = capySpeech();
-    playBuf(toBuf(s.mix), 0, c.vol, c.echo);
-    s.plan.forEach(function (x, i) { setTimeout(function () { lit(i ? x.from : 0, x.to + 1); }, 30 + x.at * 1000); });
-    var end = s.plan[s.plan.length - 1]; if (end) setTimeout(function () { lit(0, spans.length); }, 30 + end.at * 1000 + 300);
+    stopAll(); capyClear();
+    var len = capyLine(line(), 0);
+    CT.push(setTimeout(function () { capyRest(true); }, (len + 1.6) * 1000));
+  }
+  /* a short conversation of his real lines - one of them twice, so the difference is heard */
+  var CONVO = ['Welcome back, Boss!', "Right, that's noted.", 'Any new products to add?', "Right, that's noted.", "Deal's done. Good haul."];
+  function capyConvo() {
+    if (!audio()) return;
+    stopAll(); capyClear();
+    var at = 0;
+    CONVO.forEach(function (t) { at += capyLine(t, at) + .9; });
+    CT.push(setTimeout(function () { capyRest(true); $('capy-note').textContent = 'press Play a conversation'; }, (at + .7) * 1000));
   }
   function capyVowels() {
     var c = SET.capy; if (c.preset === 'today' || !audio()) return;
@@ -607,6 +656,7 @@
     var p = e.target.closest('[data-play]'); if (p) { play(p.dataset.play); return; }
     var s = e.target.closest('[data-solo]'); if (s) { solo(s.dataset.solo); return; }
     if (e.target.closest('#capy-say')) { capySay(); return; }
+    if (e.target.closest('#capy-convo')) { capyConvo(); return; }
     if (e.target.closest('#capy-play')) { capyVowels(); return; }
     if (e.target.closest('#intro-go')) { introRun('new'); return; }
     if (e.target.closest('#intro-today')) introRun('today');
@@ -629,7 +679,7 @@
       /* a round-2 save holds 8-bit beep fields (wave, len, slide...) - they do not fit this voice, so it keeps my pick */
       if (rc.preset === 'today' || CHIP.CAPY[rc.preset]) Object.assign(oc, rc.preset === 'today' ? { preset:'today' } : capyFrom(rc.preset, oc));
       if (SHAPES.some(function (w) { return w[0] === rc.shape; })) oc.shape = rc.shape;
-      var LIM = { f:[100, 500], formant:[.8, 1.5], intonation:[0, 2.5], jitter:[0, 1], scoop:[0, 5], bend:[0, 5], speed:[.6, 1.6], cons:[0, 1], vib:[0, 1], breath:[0, 1], maxSyl:[2, 24] };
+      var LIM = { f:[100, 500], formant:[.8, 1.5], intonation:[0, 2.5], jitter:[0, 1], scoop:[0, 5], bend:[0, 5], speed:[.6, 1.6], cons:[0, 1], vib:[0, 1], breath:[0, 1], maxSyl:[2, 24], variety:[0, 1] };
       Object.keys(LIM).forEach(function (k) { oc[k] = num(rc[k], LIM[k][0], LIM[k][1], oc[k]); });
       oc.maxSyl = Math.round(oc.maxSyl);
       oc.vol = num(rc.vol, 0, 1.2, oc.vol); oc.echo = num(rc.echo, 0, .6, oc.echo);
