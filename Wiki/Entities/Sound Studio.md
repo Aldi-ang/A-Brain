@@ -22,7 +22,7 @@ tags: [audio, kpm, tool, studio, capybara, intro, design]
 - **Capybara:** Agent (firm) - 112 Hz, agent moods (focused / firm / questioning / approving), variety 100 %, pace changes 70 %, syllable count changes 60 %, stress 70 %, low creak 35 %, loudness 0.40, echo 0.12. His words: *"tegas and serious but expressive ... elegant manly and focus"*.
 - **Vault intro:** ring = slow chord 0.5 · dots fly in = reverse bell, an octave down, 0.25 · name lands = warm bloom, an octave down, 1.0 · name leaves = breath, an octave down, 1.0 · typing = soft key 0.5 (wobble 0.5, also when leaving) · hall echo 0.35. His words: *"dont make the intro 8 bit bruh, we need elegant for that"*.
 - **Message / failure:** confirmation_002 at 1.8x with a 180 Hz bass cut, 0.29 / error_002, 0.14 - already in the app (kpm `f942657`).
-- **Open:** the top bar's Volume-all 0.25 and message echo 0 - asked whether they are meant for the message sounds too.
+- **In the app (kpm `7e7e155`, 2026-10-11):** the capybara speaks as Agent (firm) from 61 baked syllable files on the studio's own plan; the vault intro is his mix. The top bar's Volume-all 0.25 / message echo 0 were left out - *"just leave the message like that for now"*.
 
 ## How it is built
 
