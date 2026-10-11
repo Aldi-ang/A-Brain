@@ -75,3 +75,5 @@ sit here indefinitely once it's actually decided.
 - [[2026-10-06_public-demo]] - a demo he and other people can try: A publish the lab / B demo mode (no login, sample data, saves until refresh) / C demo company on a real backend; OPEN, my pick B
 - [[2026-10-10_product-save-device-only]] - "on this device only" after saving a product description: the save waits only 1.5 s and re-sends the photos each time; fixes A wait longer / B "Saving..." then "Saved" (my pick) / C stop re-sending photos; OPEN
 - [[2026-10-10_sfx-message-capybara-intro]] - new sounds for the message strip (today = the SALE sound commit), the capybara (crisper, less bass) and the intro; Kenney CC0 packs asked, then a studio he edits; OPEN
+
+- [[2026-10-12_hub-symbol]] - the wholesale HUB pin: roof 3.5 px off-centre + "more recognizable"; A / B / C OPEN

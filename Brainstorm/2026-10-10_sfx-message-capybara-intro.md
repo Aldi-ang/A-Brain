@@ -187,3 +187,5 @@ All three: happy moods, at least 3 sounds a line. Published to https://claude.ai
 **Decision:** OPEN - his listen + Save. Bake: CAPY_VOICE must carry `shape: 'rec', rec: 'round', natural: true` (+ mumble-pack.js before chip.js in the baker).
 
 **Decision (2026-10-11 20:08): "Video mumble - natural"** - his *"just use that voice for now"*. BAKED kpm `75878e8` at 20:13 (61 capy files re-baked, every other sound byte-identical; built lab: every line plays its files, all start). "For now" = he may come back to tune it: the studio keeps all voices.
+
+**CONFIRMED on his phone (2026-10-12 05:43):** *"the capybara voice is soo much better"* - the mumbling voice (kpm `75878e8`, live `2db1adb`).
