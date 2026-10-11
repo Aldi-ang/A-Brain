@@ -176,7 +176,7 @@ All three: happy moods, at least 3 sounds a line. Published to https://claude.ai
 
 **Models applied:** Inversion (what would make the mumble fail: too high, too bright, the same few sounds repeating - each measured), Reversibility (nothing reaches the app until he saves; the baked files are replaced only then).
 
-## 2026-10-11 19:55 - round 8: the video mumble made natural (studio v8)
+## 2026-10-11 19:48 - round 8: the video mumble made natural (studio v8)
 
 **His words:** *"your pick is good but make it more natural sounding instead of electronic edited sound"* - so the direction (his video's mumbles, deep and soft) is RIGHT; the processing was wrong.
 
