@@ -1,0 +1,23 @@
+---
+title: Batch 2 - the amber boxes app-wide, Global Receivables, softer press sounds, the A4 receipt + its format editor
+status: OPEN - queued for the next session (design first, his picks)
+tags: [kpm, design, palette, sound, receipt, permissions, brainstorm]
+---
+
+# Batch 2 (2026-10-12 ~18:00)
+
+**His words, verbatim:**
+- *"this is on the reports sc1 , setting sc2, stock opname  sc3. eod verification sc4 all the textbox need to be changed it hurts the user eyes and i want all that kind of box color to be changed"* - his shots: Reports "PULL ARCHIVE" + "CONTEXT ANALYTICS" (solid amber buttons), Settings FULL / LITE (the active half solid amber), Stock Opname tabs (MONITOR active = solid amber), EOD verification tabs (HQ VERIFICATION active = solid amber).
+- *"i want u to redesign the buttons and box on this global receivable inside consignment as well and i want the all regions textbox option to be the regional team name instead and also redesign the text and button and make it more in theme and add some smooth elegant animation on that"* - his shot: GLOBAL RECEIVABLES header, the region select ("ALL REGIONS" with a globe emoji), the search box, the A/R FINANCIALS / PHYSICAL STOCK / HAND-OFFS tabs.
+- *"i want the click sound for dismissing the notification and any other same press SFX to be softer and satisfying in ear but elegant"*
+- *"i found another problem the format for the A4 receipt is not right on the pc here it is so big and some box is collapsing with one another i want u to check that one as well later, great if there is option to edit the receipt format but for tier 1 and 2 only at default and also add that power inside the matrix inside the setting"* - his shot: the sales terminal's A4 nota (NOTA PENJUALAN / CUSTOMER COPY) on PC: huge type, the SALES / AGENT and METODE BAYAR labels wrap into the values, the KEPADA YTH box tall and empty.
+
+**Measured (2026-10-12 18:00, live code):** `bg-[var(--gold)]` (solid amber fill) sits in 10 files, 56 places - StockOpnameView 12, FleetCanvasManager 12, HistoryReportView 8 (Pull Archive ~416, Context Analytics ~453), CustomerManager 8 (the ones left after his buttons-A), EODReconciliationView 5, SamplingManager 3, PlayerCard / EODLetter / EODCardDeck / AuditVaultView 2 each. The Settings FULL/LITE switch: src/components/SettingsView.jsx ~298-309. Global Receivables: src/ConsignmentFinanceView.jsx (region select ~954 `🌍 All Regions`). The terminal's A4 nota: src/MerchantSalesView.jsx (~3225 area) - NOT the shared SaleReceipt.jsx (Reports / Day Replay), which has its own A4.
+
+**Known so far:** his rule from the hub + buttons-A - *a gold EDGE on the dark plate, never an amber fill*; `.kpm-edgebtn` (theme.css) already exists for BUTTONS. An ACTIVE TAB / the on half of a switch is a different object (a state, not an action) and needs its own look - that is the design question. Sounds: the studio + baker pattern (A-Brain `Tools/sound-studio/`, his saves in `sfx/settings`); his rule *Sounds come from Aldi* (vault concept) - candidates from recordings, never synthesis; the notification dismiss + "same press SFX" first need a list of every place that plays that sound (src/hooks/useSound.js callers).
+
+**Decision:** OPEN - each design item gets frames on the real page (his rule: a design decision is an image), his pick, then the build.
+
+**Rejected on purpose:** sweeping all 56 amber fills to `.kpm-edgebtn` blindly - a tab's active state and a button are different things; a button style on an active tab would read as "press me" on the thing already pressed.
+
+**Also found:** src/config/undef.check.mjs is RED on `__BUILD_ID__` (src/components/UpdateStatus.jsx:5, a Vite define) - so it was not run, and it would have caught the `userId` save bug (fixed kpm `2490f5a`). Teach it the build-time globals so it can guard again.
