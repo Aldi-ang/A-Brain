@@ -42,3 +42,9 @@ tags: [kpm, design, palette, sound, receipt, permissions, brainstorm]
 | 8 | iPhone Safari: the Map's bottom button is cut | src/MapMissionControl.jsx bottom dock / sheet (fixed bottom-0 ~1323) - Safari's bottom toolbar: suspect 100vh instead of 100dvh, or no env(safe-area-inset-bottom) |
 
 Also in his shot: the Agent Profile LEADERBOARD tab is a solid amber active tab - same family as item 1.
+
+## Added 18:12 - item 9: the initials on Journey (his phone)
+
+*"the initial name on the journey plan also weird on the phone, look at the initial user name inside the red circle that i drew also do this on the next session for now notes and prompt first for all of that"* - his shot: the Expedition team chips read "[H 0", "[O 0/6", "[R 0", "[S 0", and the card's round badge "[H" for "[TEST] HQ SALES MANAGER".
+
+**Cause (read in code 18:12, certain from the shot's text):** the initials take the first CHARACTER of the first two words, so a name that starts with a tag like "[TEST]" gives "[" + "H". The same logic is written FOUR times: src/utils/expedition.js:49 (`initials`, Journey), src/components/PlayerCard.jsx:30 (`initialsOf`), src/FleetCanvasManager.jsx:759, src/MapMissionControl.jsx:1318. Fix once: one helper that skips anything that is not a letter or digit (and a bracket tag like "[TEST]"), used by all four - plus a selfcheck on "[TEST] HQ Sales Manager" -> "HS", "Budi Santoso" -> "BS", "aldi" -> "A". Only test accounts carry the tag today, but any name starting with a symbol breaks the same way.
