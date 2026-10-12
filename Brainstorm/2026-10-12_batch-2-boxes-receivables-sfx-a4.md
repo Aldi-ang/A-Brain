@@ -21,3 +21,11 @@ tags: [kpm, design, palette, sound, receipt, permissions, brainstorm]
 **Rejected on purpose:** sweeping all 56 amber fills to `.kpm-edgebtn` blindly - a tab's active state and a button are different things; a button style on an active tab would read as "press me" on the thing already pressed.
 
 **Also found:** src/config/undef.check.mjs is RED on `__BUILD_ID__` (src/components/UpdateStatus.jsx:5, a Vite define) - so it was not run, and it would have caught the `userId` save bug (fixed kpm `2490f5a`). Teach it the build-time globals so it can guard again.
+
+## Done the same evening (his *"just push later do the fix first"*, 18:05)
+
+- **WhatsApp save** - kpm `2490f5a`: the saver used `userId` (not in scope in MerchantSalesView); now `dataOwnerId`.
+- **undef.check green** - kpm `78919af`: UpdateStatus.jsx's `__BUILD_ID__` pinned like App.jsx's; the check is clean and must run with logicFixes + audit from now on.
+- **A4 nota layout** - kpm `78919af`, BOTH copies (SaleReceipt.jsx for Reports / Day Replay, MerchantSalesView.jsx for the terminal): measured before - "SALES / AGENT" and "TIPE TRANSAKSI" wrapped onto two lines, KEPADA YTH box 152 px around 44 px of words, 267 px empty between; after - 0 wrapped labels at 960 and 1280, box 76 px, gap 32 px, company name 24 px (was 30), customer 18 px (was 20). Frames: `Raw/2026-10-12-a4-nota/a4-before-1280.png`, `a4-after-1280.png`.
+- **FOUND, NOT FIXED (queued in item 4):** the Reports / Day Replay A4 (SaleReceipt.jsx) colours its text with the app's theme tokens (`--ink`, `--line`, `--accent-edge`) on a WHITE sheet - in the dark theme the company name, the values and the item rows are cream on white, nearly unreadable (see the after frame). The terminal's copy uses fixed company blue / slate and reads fine. His rule: the nota keeps KPM company blue; the palette law stops at the print block - so the fix is the terminal's fixed colours, not theme tokens.
+- Still owed in item 4: the "edit the receipt format" power (T1 + T2 by default, in the Settings permission matrix) - ask him with a picture what "format" covers first.
