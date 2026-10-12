@@ -1,6 +1,6 @@
 ---
 title: The tutorial book - presses lost, X dead, blank page after a ribbon
-status: OPEN - diagnosed, waiting on Aldi's go
+status: DECIDED - his "go", built kpm b82ad65
 tags: [kpm, ponder, tutorial-book, bug, brainstorm]
 ---
 
@@ -20,7 +20,7 @@ Phone (below 768 px) uses the pad (PonderPad.jsx), which has no 3D: #1 and #2 ar
 
 **Fix proposed (no visual change):** (1) keep the press-shrink look but put it on an inner layer that does not take the pointer, so the button itself never moves - X, ‹ ›, cards; (2) the opening's sheet animations hold only BEFORE they start (`fill: 'backwards'`) or are cancelled on finish, like `play()` already does. Guards: a selfcheck that no button inside the 3D stage carries a transform class, and that the opening's sheet animations do not hold after they end; a headless walk: X closes, next turns, a card opens its tutorial, ribbon VAULT shows the Vault chapter on both pages.
 
-**Decision:** OPEN - waiting on Aldi.
+**Decision:** his *"go"* (2026-10-12 07:06). **BUILT** kpm `b82ad65` (local): the X, the arrows and the cards keep their look on an inner `pointer-events-none` layer (`group-active:scale-[0.97]` / cards `group-hover:-translate-y-[3px] group-active:scale-[0.985]`), the buttons themselves never transform; the opening unfold fills `backwards`. Walk with real mouse presses, nothing injected: 12/12 (`Raw/2026-10-12-ponder-book/walk-book-fix.mjs`, frame `book-vault-1280.png`). Guard: logicFixes "THE TUTORIAL BOOK ANSWERS EVERY PRESS" (red on the old code). General rule worth keeping: inside a `preserve-3d` page, a control must not transform itself - put the motion on a child that takes no pointer.
 
 **Rejected on purpose:** a "downloading" indicator - nothing downloads, it would never appear, and it would hide the real fault.
 
