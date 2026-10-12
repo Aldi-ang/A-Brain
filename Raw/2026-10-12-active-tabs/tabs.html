@@ -1,0 +1,46 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- one frame of the active-tab board: the four controls he photographed, drawn with the app's BUILT stylesheet and its
+     real classes; ?v=today|a|b|c picks how the tab you are on looks. Only the "on" rules below are new. -->
+<link rel="stylesheet" href="../../../kpm-inventory-main/dist/assets/index-BuArCO_n.css">
+<style>
+  body { margin: 0; padding: 14px 16px; background: var(--panel); font-family: var(--font-body); }
+  .lab { margin: 12px 0 6px; font: 700 10px/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); }
+  .lab:first-child { margin-top: 0; }
+  .t svg { width: 14px; height: 14px; flex: none; }
+  .t { position: relative; color: var(--ink-dim); background: transparent; border: 0; }
+  .kpm-edgebtn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 8px; font: 700 11px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
+  .kpm-switch { max-width: 360px; }
+  /* TODAY: what ships now - a solid amber block */
+  .v-today .t.on { background: var(--gold); color: var(--gold-ink); box-shadow: 0 4px 6px -1px rgba(0,0,0,.3); }
+  /* A: a gold line under the word; the word turns bright */
+  .v-a .t.on, .v-a .kpm-switch > button[aria-pressed="true"] { background: transparent; color: var(--ink); position: relative; }
+  .v-a .t.on svg { color: var(--accent-ink); }
+  .v-a .t.on::after, .v-a .kpm-switch > button[aria-pressed="true"]::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 3px; height: 2px; border-radius: 1px; background: var(--gold); }
+  /* B: a darker well with a thin gold rim and a gold word - the map keys' own "on" (.kx-mapkey.on) */
+  .v-b .t.on, .v-b .kpm-switch > button[aria-pressed="true"] { background: var(--inset); color: var(--accent-ink); box-shadow: inset 0 0 0 1px var(--gold); }
+  /* C: a raised plate and a small lit gold dot, like a lamp switched on */
+  .v-c .t::before, .v-c .kpm-switch > button::before { content: ""; width: 6px; height: 6px; border-radius: 50%; flex: none; border: 1px solid var(--line-3); }
+  .v-c .t.on, .v-c .kpm-switch > button[aria-pressed="true"] { background: var(--raised); color: var(--ink); }
+  .v-c .t.on::before, .v-c .kpm-switch > button[aria-pressed="true"]::before { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 6px var(--gold); }
+  .v-c .kpm-switch > button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+</style></head>
+<body>
+<div class="lab">Stock Opname</div>
+<div class="grid grid-cols-2 gap-1 lg:flex lg:gap-0 bg-[var(--sunk)] rounded-lg p-1 border border-[var(--line)] w-full md:w-auto">
+  <button class="t on px-2 lg:px-4 py-2 min-h-11 lg:min-h-0 justify-center lg:justify-start rounded-md text-[11px] lg:text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 whitespace-nowrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>Monitor</button>
+  <button class="t px-2 lg:px-4 py-2 min-h-11 lg:min-h-0 justify-center lg:justify-start rounded-md text-[11px] lg:text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 whitespace-nowrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM12 8v4M12 16h.01"/></svg>HQ Audits</button>
+  <button class="t px-2 lg:px-4 py-2 min-h-11 lg:min-h-0 justify-center lg:justify-start rounded-md text-[11px] lg:text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 whitespace-nowrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/></svg>Quarantine</button>
+  <button class="t px-2 lg:px-4 py-2 min-h-11 lg:min-h-0 justify-center lg:justify-start rounded-md text-[11px] lg:text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 whitespace-nowrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h6"/></svg>New Count</button>
+</div>
+<div class="lab">End of Day</div>
+<div class="flex gap-1 bg-[var(--sunk)] rounded-lg p-1 border border-[var(--line)] w-full md:w-auto">
+  <button class="t on flex-1 md:flex-none px-4 py-2 rounded-md text-[10px] uppercase tracking-widest font-bold flex items-center justify-center gap-2 whitespace-nowrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM12 8v4M12 16h.01"/></svg>HQ Verification</button>
+  <button class="t flex-1 md:flex-none px-4 py-2 rounded-md text-[10px] uppercase tracking-widest font-bold flex items-center justify-center gap-2 whitespace-nowrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M16 13h.01M2 10h20"/></svg>My Setoran</button>
+</div>
+<div class="lab">Settings &middot; Graphics</div>
+<div class="kpm-switch" role="group"><button type="button" aria-pressed="true">Full</button><button type="button" aria-pressed="false">Lite</button></div>
+<div class="lab">Reports &middot; a button, for comparison (buttons-A, already decided)</div>
+<button class="kpm-edgebtn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4"/></svg>Pull Archive</button>
+<script>document.body.className = 'v-' + (new URLSearchParams(location.search).get('v') || 'today');</script>
+</body></html>

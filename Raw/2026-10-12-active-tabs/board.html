@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=1534">
+<link rel="stylesheet" href="../../../kpm-inventory-main/dist/assets/index-BuArCO_n.css">
+<style>
+  body { margin: 0; padding: 18px 22px; background: #0b0a09; color: #E8E4DE; font-family: var(--font-body); width: 1490px; }
+  h2 { margin: 18px 0 4px; font: 800 15px/1.2 var(--font-display); letter-spacing: .04em; color: #E8E4DE; }
+  h2:first-child { margin-top: 0; }
+  p { margin: 0 0 8px; font-size: 13px; color: #B9B2A6; }
+  .pair { display: flex; gap: 22px; align-items: flex-start; }
+  .pair div { font: 700 10px/1 var(--font-mono); letter-spacing: .14em; color: #8A8276; margin-bottom: 4px; }
+  iframe { border: 1px solid #2a241e; border-radius: 10px; display: block; background: var(--panel); }
+</style></head>
+<body>
+<script>
+  const V = [
+    ['today', 'TODAY · solid amber', 'the tab you are on is a bright amber block - the same loud slab as the old buttons'],
+    ['a', 'A · a gold line under the word (my pick)', 'the tab you are on keeps the dark background; its word turns bright and a thin gold line sits under it, like a bookmark - it can never be mistaken for a button'],
+    ['b', 'B · a dark hole with a thin gold frame', 'the tab you are on sinks into a darker well with a gold frame and a gold word - the look the map keys already use when switched on; close to the gold-edge buttons, so the two can look alike'],
+    ['c', 'C · a small gold light', 'the tab you are on gets a slightly lighter plate and a small glowing gold dot, like a lamp switched on'],
+  ];
+  for (const [v, title, cap] of V) document.write(`<h2>${title}</h2><p>${cap}</p><div class="pair">
+    <section><div>PC</div><iframe src="tabs.html?v=${v}" width="1070" height="378"></iframe></section>
+    <section><div>PHONE 390</div><iframe src="tabs.html?v=${v}" width="390" height="388"></iframe></section></div>`);
+</script>
+</body></html>

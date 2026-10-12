@@ -48,3 +48,29 @@ Also in his shot: the Agent Profile LEADERBOARD tab is a solid amber active tab 
 *"the initial name on the journey plan also weird on the phone, look at the initial user name inside the red circle that i drew also do this on the next session for now notes and prompt first for all of that"* - his shot: the Expedition team chips read "[H 0", "[O 0/6", "[R 0", "[S 0", and the card's round badge "[H" for "[TEST] HQ SALES MANAGER".
 
 **Cause (read in code 18:12, certain from the shot's text):** the initials take the first CHARACTER of the first two words, so a name that starts with a tag like "[TEST]" gives "[" + "H". The same logic is written FOUR times: src/utils/expedition.js:49 (`initials`, Journey), src/components/PlayerCard.jsx:30 (`initialsOf`), src/FleetCanvasManager.jsx:759, src/MapMissionControl.jsx:1318. Fix once: one helper that skips anything that is not a letter or digit (and a bracket tag like "[TEST]"), used by all four - plus a selfcheck on "[TEST] HQ Sales Manager" -> "HS", "Budi Santoso" -> "BS", "aldi" -> "A". Only test accounts carry the tag today, but any name starting with a symbol breaks the same way.
+
+## Session 2026-10-12 18:13-18:40 - the pure bugs fixed, two diagnosed, board 1 out
+
+**Fixed (kpm, local, not pushed - each check red first):**
+- **9 initials** - `cba6645`: one `nameInitials` in utils/helpers.js, called by all four screens. Lab `?shell&journey&exp&admin&tag` (Ari renamed "[TEST] HQ Sales Manager"): chip "HS 3/8", card badge "HS".
+- **8 Map dock cut** - `721f999`. Cause measured: the shell pads its top by the notch since `e8477c7` (`--kpm-safe-top`), but the map root kept its own `h-[100dvh]` - a full screen tall starting BELOW the notch. Lab 375x812 with a 59 px notch: map ran 59 px off-screen, the dock lost 37 of its 68 px. Now `absolute inset-0` only: dock bottom 790/812 at notch 0 and 59, PC 1280x800 unchanged. The Map was right in May (no shell padding then); the notch fix broke it silently.
+- **4a Reports A4 ink** - `08e2672`: 73 theme tokens inside the white sheet -> the terminal's company blue / slate. Lab `?share` 1280 dark theme: company rgb(30,58,138), 0 cream elements. Frame `Raw/2026-10-12-a4-nota/a4-ink-1280.png`.
+- **Still open from 8:** Journey's full-screen map is `height: 100vh` (JourneyView.jsx:1167) - on iPhone Safari 100vh is the screen WITHOUT the bottom toolbar, so its dock likely sits under it. Not measured (Chrome cannot show Safari's toolbar).
+
+**Diagnosed, no code (his rule - report first):**
+- **6 sidebar drag** - probe `Raw/2026-10-12-active-tabs/drag-probe.mjs` (built lab, 390 @2x, touch + hover:none asserted, CPU 6x slow, 40 finger steps; 3 interleaved runs, `drag-split.json`). Main-thread busy share: idle screen 35%, vertical drag (handler ignores it - no re-render) 43-58%, real pull 75-86%, pull with the blur switched off 76-88%. So the extra cost is a React re-render of the WHOLE shell on every finger move (`setRailPull`, BiohazardTheme.jsx:345). The panel's `backdrop-blur-xl` behind a 97%-solid panel costs nothing on the main thread here; its GPU cost on a hot iPhone is NOT measurable headless. Fix proposed: move the panel by writing its transform straight to the element once per frame, set state only on release.
+- **5 Lite "access granted"** - not a bug: Lite skips the dot-field canvas on purpose (App.jsx:4552, VaultGate.jsx:56 `gateCanvasOn`), so it shows the plain card. Making Lite look "new" is a design pick (a still frame of the new look, no animation) - board owed.
+- **7 his cut avatar** - not started. This PC has no WebKit (Playwright has Chromium only); a WebKit download needs his OK, or one more shot from him.
+
+### Item 1 - the tab you are on (board: `Raw/2026-10-12-active-tabs/board.png`, PC 1070 + phone 390, built stylesheet)
+**Problem, his words:** *"all the textbox need to be changed it hurts the user eyes and i want all that kind of box color to be changed"* - the active tab / the on half of a switch is a solid amber slab.
+
+| Option | What it is | Cost |
+|---|---|---|
+| A - gold line under the word (my pick) | dark background stays, word turns bright, a 2 px gold line under it | a "mark", legal under his amber law; cannot read as a button; Lite-safe (no motion) |
+| B - dark well + thin gold frame | `--inset` + 1 px gold rim + gold word - the map keys' own `.on` | closest to buttons-A, so a tab and a button can look alike |
+| C - small gold light | lighter plate + a 6 px glowing gold dot | adds a dot to every tab (crowded next to the icon); the glow is a shadow Lite strips |
+
+**Decision:** OPEN - waiting on Aldi (A / B / C).
+**Rejected on purpose:** sweeping tabs to `.kpm-edgebtn` - a button look on the tab you are already on reads "press me".
+Models applied: Inversion (what makes a tab read as a button - a rim; so the pick has none), Second-Order (the 56 amber places split into buttons -> buttons-A and states -> this pick).
