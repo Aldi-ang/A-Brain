@@ -222,3 +222,16 @@ tags: [kpm, demo, showcase, vercel]
 
 
 **2026-10-13 18:16 - his team rule, RESTATED (this wording wins over 09:31):** *"why on the bandung and headquarters there is no tier 4 or regional admin?, i said before that each team should contain at least regional admin tier 4 and motorist tier 6, sales canvas tier 5 is optional"* Both teams already met it; the roster card hid the tier for everyone but a T3, so he could not see it. Fixed in kpm `5771169`: a T4 card reads "REGIONAL ADMIN (<place>)". OPEN: should his T1 Gmail jump to the Owner after "Reset demo now"? (his Gmail sees an empty company - it is not a member of the demo company).
+
+
+**2026-10-13 18:2x - RESET WITHOUT SIGNING IN (his idea, OPEN - waiting on Aldi).**
+Problem, his words: *"btw if google login should be for my adikaryasukses account only, then why is that button is there tho why dont we just add some button and password to reset the demo and i dont need to login again whatsoever? and people also didnt need to login when they see that"*
+Why Google is on the door today: the "Reset demo now" button proves it is him through his Google sign-in token (api/demo-reset.js callerOf checks the token's email = his Gmail). A visitor who signs in with Google gets an empty company of their own - no use to anyone (his 18:08 screenshot is exactly that, for his own Gmail).
+
+| Option | What happens | Cost |
+|---|---|---|
+| A (my pick) | Door: the 5 people + a small "Reset demo" button -> asks a password -> the server checks it against a secret only the demo's Vercel project holds (DEMO_RESET_PASSWORD) -> reset. Google button removed. One reset per 10 minutes, enforced on the server. | His step: add one secret in the demo Vercel project. Code: door + api/demo-reset.js + a cooldown doc; the T1-by-Google path goes. |
+| B | Keep Google; after "Reset demo now" his Gmail jumps to the Owner by itself. | No setup; he still signs in with Google every time. |
+
+Models applied: Inversion (how does a stranger abuse a public reset? guess the password and reset over and over - each reset is ~913 writes + ~913 deletes, the free plan allows 20.000 of each a day, so ~20 resets kill the demo until midnight -> the server-side 10-minute cooldown caps that at 144/day worst case... still too many -> cooldown must also cap the DAY: max 12 resets a day), Second-order (removing Google also removes the only way his T1 Gmail reaches the demo - fine, the demo needs no T1 screen), Chesterton's Fence (Google was kept on the door in the 2026-10-11 design "with one line saying a Google visitor gets no role" - it existed for the T1 reset, nothing else).
+Rejected on purpose: the password inside the app's code (the bundle is public - anyone could read it); a password with no cooldown (one leak = the demo dead for the day).
