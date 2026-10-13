@@ -3,7 +3,7 @@ title: Aldi's Design Taste
 description: What Aldi actually likes and rejects in an interface, built only from things he said about real screens. Written on his instruction — he wants his taste learned, not guessed at each time.
 type: concept
 created: 2026-08-10
-updated: 2026-09-19
+updated: 2026-10-13
 confidence: medium
 checked: 2026-09-19
 tags: [pattern, design, taste, ux, aldi]
@@ -3374,3 +3374,14 @@ In the message sound studio he pushed the message chime (`confirmation_002`) to 
 **2026-10-12 18:42 - "3 words" means 3 words HE HEARS, in EVERY SENTENCE.** *"i still can hear the capybara saying 1 or 2 words only i want u to fix that it shocked me so much minimum 3 words each sentence remember"* - the second time he asked (first 2026-10-11 17:35). The first fix counted SOUNDS per LINE in the plan and passed its own check, but the syllables run together with the echo: rendered as the phone plays them, "Hi." was 3 sounds heard as ONE word, "Welcome back, Boss!" one, "Deal's done. Good haul." one per sentence (3 of 72 sentences heard as 3+ words). Fixed kpm `ac0af54`: 3 words per sentence, a .15 s quiet between words, every sentence of all 170 lines he can hear rendered and counted (0 short). Before/after audio: `Raw/2026-10-12-capy-three-words/`. **Lesson for any sound ask: measure the rendered audio the way his ear gets it, never the plan's count.** A word he hears is a burst with quiet around it.
 
 **2026-10-12 06:00 - his three picks, all A (the paste line *"My picks: HUB = A, buttons = A, WhatsApp = A"*).** HUB = A: the warehouse IS the plate - roof and walls one drawing, the level badge big inside its door, the word under it (he had said *"we need more recognize able HUB symbol"* and the old roof hung off-centre). Buttons = A: *"the yellow background ... hurt the eye"* -> a gold EDGE on the dark plate, icon gold, word cream - the same rule he set for the hub in round 2. Both times he chose the one-piece, edge-not-fill option over the louder ones (B's roller door, C's bronze main button). Built: kpm `9104082`, `5aef4dc`. Notes: [[2026-10-12_hub-symbol]], [[2026-10-12_gold-buttons]].
+
+## He picks per device: the phone and the PC can get different answers (2026-10-13)
+
+The demo front door board offered one look for both screens (A five keys, my pick). His answer split it:
+*"A for phone B for pc for decide 1, decide 2 is A"*. The compact list where a thumb scrolls, the ID badges
+where there is room to show five people side by side. It is the second time: the Map System redesign went the
+same way on 2026-10-05 (*"A for phone B for PC"*).
+
+**What to do with it:** when a board shows PC and phone frames, caption each option per device and expect a
+split pick - do not force one recommendation across both. Building a split costs one Tailwind switch
+(`lg:hidden` / `hidden lg:grid`), never two components. Shipped: kpm `914d17d` (components/DemoFrontDoor.jsx).

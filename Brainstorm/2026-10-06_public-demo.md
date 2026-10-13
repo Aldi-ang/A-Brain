@@ -178,3 +178,9 @@ tags: [kpm, demo, showcase, vercel]
 **Decision:** OPEN - his letters for board 1 and board 2.
 
 **Rejected on purpose:** a floating switch at the bottom-right (the capybara's corner); hiding the switch inside the side menu (closed on the phone, one more press); a pre-highlighted first row (read as "already chosen").
+
+**2026-10-13 07:45 - DECIDED, his words:** *"A for phone B for pc for decide 1, decide 2 is A, u can fix it after the demo"* - board 1: five keys on the phone, five badges on the PC; board 2: the one bar on top. The `.kpm-shelf` side bug: fix after the demo.
+
+**08:08 - BUILT + walked on the emulator (kpm `914d17d`, `7394c6b`, local, not pushed):** src/config/demoLogins.js (the one list - api/_demoCompany.js re-exports it), components/DemoFrontDoor.jsx (door + bar), vault-gate hint, Fleet & Roster guards (Edit / Delete / Lock / Reset vault password answer "This is a demo login - try it on Budi."; Details + Reset vault tries stay). Walk: T2..T6 each signed in (door or SWITCH) and past the vault, none denied; phone door 717 px on 812, no scroll; PC badges 1040 wide; Dika greyed + Lock answers, Budi untouched; T1 sees "Reset demo now" (local dev has no /api, so it reported the 404 in words). Found while walking + fixed: the PC rail button and the toasts sat under the bar - both now start at --kpm-safe-top (0 px on a desk in the real app). demoBuild.check caught the REAL bundle carrying two demo emails (a top-level LOGINS.map kept the module) - the list is now built on render.
+
+**Next:** his steps (demo Vercel project with VITE_DEMO=1, DEMO_FIREBASE_KEY, CRON_SECRET; rules pasted into the kpm-demo-f4d74 console; the demo domain in Firebase Auth authorized domains), push on his word, then the T2 rules draft, then the .kpm-shelf fix.
