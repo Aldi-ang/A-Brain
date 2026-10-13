@@ -188,3 +188,18 @@ tags: [kpm, demo, showcase, vercel]
 **09:01 - first live reset FAILED, cause found:** his Vercel log: `7 PERMISSION_DENIED: Missing or insufficient permissions` from BulkWriter (the delete step, recursiveDelete), at `api/demo-reset.js:60`. The admin SDK skips security rules, so this is Google Cloud IAM: the new-style service account `firebase-adminsdk-fbsvc@kpm-demo-f4d74` may not write Firestore. Fix (his step): Google Cloud > IAM > that account > add role **Cloud Datastore User**. Also: our reset message showed only "failed with: ." - the library keeps the reason in the stack (recursive-delete.js:205-214), so `e.message` is empty; asked him whether to make the message carry the cause (code + first Caused-by line). The emulator never checks IAM, which is why tools/demo-reset-emulator.mjs passed 17/17.
 
 **09:18 - FIXED, the live demo is filled:** he added "Cloud Datastore User" (kept Firebase Authentication Admin); the retry right after still failed, the one ~5 min later said "Demo reset done: the company is back to the start (211 records, 2026-10-13)". Open: his T2/T5 test on the live demo; whether the reset message should carry the real cause.
+
+## 2026-10-13 09:30 - two places only: Bandung + Kabupaten Magelang (OPEN - waiting on Aldi)
+
+**Problem, his words:** *"why there is many headquarters and un assigned area, just use 2 area that i insert on the map system on the real app instead which is bandung area and kabupaten magelang area"* (screenshot: Fleet Roster tabs HEADQUARTERS 1 / UNASSIGNED AREA 1 / HEADQUARTERS 1 / HEADQUARTERS 1 / MAGELANG 5). Also asked: *"i want easier password bruh like admin123"* - DONE kpm `92892a8` (local).
+
+**Cause (from code):** the stage tabs key on province + location (FleetCanvasManager.jsx placeOf ~745) but print only the location. _demoCompany.js:125 takes each mans province from his first shop (Agus: JAWA BARAT from Bandung shops; Rina: no shops -> JAWA TENGAH; the owner card: another default) -> three HEADQUARTERS tabs. One record has no location -> UNASSIGNED AREA (not yet identified). His drawn areas are GeoJSON borders saved at artifacts/<app>/users/<owner>/mapSettings/bnd_* in the REAL project - demo/seed.json never carried them (seed = appSettings, tiers, inventory, customers). Shops in the seed: region MAGELANG 75, KOTA BANDUNG 32, BANDUNG 31, KOTA CIMAHI 6, BANDUNG BARAT 4, DIY 2, none 2.
+
+| Option | What | Cost |
+|---|---|---|
+| MY PICK | everyone in one of two places: BANDUNG (owner, Rina T3, Agus T5) / KABUPATEN MAGELANG (Hendra T4, Dika T6, Budi, Ari, Dewi); shop regions renamed to those two; the 4 shops outside both leave the demo; his two border files added to the seed so every reset draws them | his .geojson files; one rebuild + reset; Headquarters disappears from the demo, so every van loads from a branch warehouse |
+| keep Headquarters as a third place | owner + Rina stay at HQ | still three tabs, not his ask |
+
+**Rejected on purpose:** reading his borders from the real project (never touch live data from here).
+
+**Decision:** OPEN.
