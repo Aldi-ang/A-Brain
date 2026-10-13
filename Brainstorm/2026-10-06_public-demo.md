@@ -203,3 +203,5 @@ tags: [kpm, demo, showcase, vercel]
 **Rejected on purpose:** reading his borders from the real project (never touch live data from here).
 
 **Decision:** OPEN.
+
+**09:27 - his "the border is not included and exported as well with all the data that i gave u before" - ROOT CAUSE (real app, not only the demo):** Map System saves AND reads borders at artifacts/<app>/users/<uid>/mapSettings/bnd_* (MapMissionControl.jsx:530, 551, 561, 576, 717, read :1829), but BOTH backups read artifacts/<app>/users/<uid>/mapBorders (App.jsx:691 and :894) - a collection nothing writes. Every backup he made carries mapBorders = [] -> a restore would lose his drawn areas; the demo seed (tools/demo-seed-from-backup.mjs, customers etc. only) could never get them either. Restore (App.jsx:4153) already accepts data.mapBorders || data.mapSettings. Fix proposed (his go): backups read mapSettings and keep the bnd_ docs as mapBorders; a guard; then a fresh backup -> seed builder takes mapBorders -> the reset writes them for the demo owner.
