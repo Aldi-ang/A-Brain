@@ -3385,3 +3385,14 @@ same way on 2026-10-05 (*"A for phone B for PC"*).
 **What to do with it:** when a board shows PC and phone frames, caption each option per device and expect a
 split pick - do not force one recommendation across both. Building a split costs one Tailwind switch
 (`lg:hidden` / `hidden lg:grid`), never two components. Shipped: kpm `914d17d` (components/DemoFrontDoor.jsx).
+
+
+## 2026-10-13 - people's faces: cartoon, not anime
+
+The demo's eight people got drawn faces (SVG, no photos). He first accepted *"sure cartoon face that u make is also
+fine"*, then asked *"can u do anime style for the character"* - an anime set was drawn (big shiny eyes, spiky bangs,
+cel shading) - and after seeing it: *"i dont like the anime face model just switch back to cartoon like before"*.
+
+**What to do with it:** for people pictures in KPM, the flat cartoon look (simple shapes, small dot eyes, soft smile,
+slate shirt with the gold collar) is his pick. Do not offer anime again unless he asks. Both sets are in kpm git
+history (`25fb74a` anime, the cartoon set after it) if he ever wants to compare.
