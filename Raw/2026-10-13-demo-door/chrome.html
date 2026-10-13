@@ -1,0 +1,84 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="http://localhost:4187/assets/ponder-lab-ClSGCS9D.css">
+<style>
+  /* the real app (the lab's ?shell on made-up data) fills the frame; the demo parts sit on top of it, painted with the
+     app's own tokens so html.light flips them like every other panel */
+  html, body { margin: 0; height: 100%; background: var(--ground); overflow: hidden; }
+  body { display: flex; flex-direction: column; position: relative; }
+  .app { flex: 1; width: 100%; border: 0; display: block; }
+  .stamp { flex: none; padding: 3px 6px; border: 1px solid var(--accent-edge); font: 700 10px/1 var(--font-mono); letter-spacing: .22em; color: var(--accent-ink); }
+  .tape { background-image: repeating-linear-gradient(135deg, var(--accent-edge) 0 6px, transparent 6px 12px); height: 3px; }
+  .who { font: 600 12px/1.2 var(--font-mono); letter-spacing: .1em; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .who span { color: var(--ink-dim); }
+  .key { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; background: var(--plate);
+    border: 1.5px solid var(--accent-edge); font: 700 11px/1 var(--font-mono); letter-spacing: .16em; color: var(--ink); }
+  .key::after { content: ''; width: 0; height: 0; border: 4px solid transparent; border-top-color: var(--accent-ink); margin-top: 4px; }
+  .up::after { border-top-color: transparent; border-bottom-color: var(--accent-ink); margin-top: -4px; }
+
+  /* the list of five, shared by every look */
+  .sheet { position: absolute; z-index: 5; background: var(--panel); border: 1px solid var(--line-3); box-shadow: 0 12px 32px rgba(0,0,0,.45); }
+  .sheet h4 { margin: 0; padding: 12px 14px 8px; font: 700 11px/1 var(--font-mono); letter-spacing: .24em; color: var(--ink-dim); }
+  .row { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border-top: 1px solid var(--line); }
+  .row .t { flex: none; width: 28px; height: 20px; display: grid; place-items: center; border: 1px solid var(--line-3);
+    font: 700 11px/1 var(--font-mono); color: var(--ink-muted); }
+  .row b { display: block; font: 700 12px/1.15 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+  .row i { font-style: normal; font: 11px/1.2 var(--font-body); color: var(--ink-dim); }
+  .row.you { box-shadow: inset 3px 0 0 var(--accent-edge); background: var(--raised); }
+  .row.you .t { border-color: var(--accent-edge); color: var(--accent-ink); }
+  .row .tag { margin-left: auto; font: 700 9px/1 var(--font-mono); letter-spacing: .2em; color: var(--accent-ink); }
+  .foot { padding: 10px 14px 12px; border-top: 1px solid var(--line); font: 11px/1.5 var(--font-body); color: var(--ink-dim); }
+
+  /* A · one bar on top: who you are + the switch, the reset line inside the list */
+  .barA { flex: none; position: relative; z-index: 6; background: var(--inset); }
+  .barA .in { display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 12px; }
+  .barA .key { margin-left: auto; }
+  .A .sheet { top: 37px; right: 8px; width: 340px; }
+  @media (max-width: 600px) { .A .sheet { left: 8px; right: 8px; width: auto; } .wide { display: none; } }
+  @media (min-width: 601px) { .narrow { display: none; } }
+
+  /* B · a thin tape on top, the switch as a tab on the right edge */
+  .tapeB { flex: none; position: relative; z-index: 6; background: var(--inset); text-align: center; }
+  .tapeB .in { height: 20px; display: flex; align-items: center; justify-content: center; font: 700 10px/1 var(--font-mono); letter-spacing: .22em; color: var(--accent-ink); }
+  .tab { position: absolute; z-index: 6; right: 0; top: 46%; writing-mode: vertical-rl; transform: rotate(180deg); padding: 12px 6px;
+    background: var(--plate); border: 1.5px solid var(--accent-edge); border-left: 0; font: 700 11px/1 var(--font-mono); letter-spacing: .2em; color: var(--ink); }
+  .B .sheet { top: 23px; right: 0; bottom: 0; width: 320px; border-right: 0; }
+  @media (max-width: 600px) { .B .sheet { width: 300px; } }
+
+  /* C · one bar at the bottom, the list rises above it */
+  .dockC { flex: none; position: relative; z-index: 6; background: var(--inset); }
+  .dockC .in { display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 12px; }
+  .dockC .key { margin-left: auto; }
+  .C .sheet { bottom: 47px; left: 8px; width: 340px; }
+  @media (max-width: 600px) { .C .sheet { right: 8px; width: auto; } }
+</style></head>
+<body>
+<script>
+const q = new URLSearchParams(location.search);
+const v = q.get('v') || 'a', open = q.has('open'), light = q.has('light');
+if (light) document.documentElement.classList.add('light');
+const app = `<iframe class="app" src="http://localhost:4187/tools/ponder-lab.html?shell${light ? '&light' : ''}"></iframe>`;
+const P = [['T2', 'Owner', 'Demo Owner'], ['T3', 'HQ Sales Manager', 'Rina Wijaya'], ['T4', 'Regional Admin', 'Hendra Gunawan'],
+  ['T5', 'Sales Canvas', 'Agus Prasetyo'], ['T6', 'Sales Motorist', 'Dika Saputra']];
+const list = (resetToo) => `<div class="sheet"><h4>TRY ANOTHER PERSON</h4>${P.map(([t, r, n]) => `<div class="row${t === 'T5' ? ' you' : ''}">
+  <span class="t">${t}</span><span><b>${r}</b><i>${n}</i></span>${t === 'T5' ? '<span class="tag">YOU</span>' : ''}</div>`).join('')}
+  <div class="foot">A press signs you out, then in as that person.${resetToo ? '<br>Everything resets every night at 00:05 WIB, and everyone is signed out.' : ''}</div></div>`;
+let h = '';
+if (v === 'a') {
+  h = `<div class="barA"><div class="in"><span class="stamp">DEMO</span>
+    <span class="who wide">You are AGUS PRASETYO <span>· Sales Canvas (T5) · resets every night at 00:05 WIB</span></span>
+    <span class="who narrow">T5 <span>· Sales Canvas</span></span>
+    <span class="key">SWITCH</span></div><div class="tape"></div></div>${app}${open ? list(true) : ''}`;
+} else if (v === 'b') {
+  h = `<div class="tapeB"><div class="in">DEMO · RESETS EVERY NIGHT 00:05 WIB</div><div class="tape"></div></div>${app}
+    ${open ? list(false) : '<span class="tab">T5 · SWITCH</span>'}`;
+} else {
+  h = `${app}<div class="dockC"><div class="tape"></div><div class="in"><span class="stamp">DEMO</span>
+    <span class="who wide">You are AGUS PRASETYO <span>· Sales Canvas (T5) · resets every night at 00:05 WIB</span></span>
+    <span class="who narrow">T5 <span>· Sales Canvas</span></span>
+    <span class="key up">SWITCH</span></div></div>${open ? list(true) : ''}`;
+}
+document.body.className = v.toUpperCase();
+document.body.innerHTML = h;
+</script>
+</body></html>

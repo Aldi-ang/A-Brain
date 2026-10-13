@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=1580">
+<link rel="stylesheet" href="http://localhost:4187/assets/ponder-lab-ClSGCS9D.css">
+<style>
+  body { margin: 0; padding: 18px 22px; background: #0b0a09; color: #E8E4DE; font-family: var(--font-body); width: 1536px; }
+  h1 { margin: 0 0 4px; font: 800 20px/1.2 var(--font-display); letter-spacing: .05em; }
+  h2 { margin: 26px 0 4px; font: 800 16px/1.2 var(--font-display); letter-spacing: .04em; color: #E8E4DE; }
+  p { margin: 0 0 8px; font-size: 14px; color: #B9B2A6; max-width: 1400px; }
+  .pair { display: flex; gap: 22px; align-items: flex-start; }
+  .pair div { font: 700 11px/1 var(--font-mono); letter-spacing: .14em; color: #8A8276; margin-bottom: 4px; }
+  iframe { border: 1px solid #2a241e; border-radius: 10px; display: block; background: #050403; }
+</style></head>
+<body>
+<h1>BOARD 1 · THE DEMO FRONT DOOR (the first screen a visitor sees)</h1>
+<p id="intro">Same black stage and dot field as today's sign-in. Wording on the cards is a draft.</p>
+<script>
+  const V = [
+    ['today', 'TODAY · the real sign-in', 'cap-today'],
+    ['a', 'A · five keys (my pick)', 'cap-a'],
+    ['b', 'B · five badges', 'cap-b'],
+    ['c', 'C · pick a level, then enter', 'cap-c'],
+  ];
+  for (const [v, title, cap] of V) document.write(`<h2>${title}</h2><p id="${cap}"></p><div class="pair">
+    <section><div>PC</div><iframe id="pc-${v}" src="door.html?v=${v}" width="1100" height="760"></iframe></section>
+    <section><div>PHONE 390 x 844</div><iframe id="ph-${v}" src="door.html?v=${v}" width="390" height="844"></iframe></section></div>`);
+</script>
+<script>
+  /* captions carry numbers read off the rendered frames, never planned ones */
+  addEventListener('load', () => setTimeout(() => {
+    const d = (id) => document.getElementById(id).contentDocument;
+    const H = (id) => Math.round(d(id).querySelector('.kpm-mod.gate').getBoundingClientRect().height);
+    const doc = (id) => d(id).documentElement.scrollHeight;
+    const C = {
+      'cap-today': `Google only. A visitor's own Google account has no role in the demo, so today a visitor cannot get in. (The rounded box around the button is a stray style from another screen - a separate bug, noted.)`,
+      'cap-a': `Today's card with one row per person - one press signs in as that person. Both passwords printed once, under the list. Same width and colours as the vault gate. Phone: the whole card is ${H('ph-a')} px tall on an 844 screen - all five visible, no scrolling.`,
+      'cap-b': `A wide panel of five ID badges, each with the person's name and initials. Friendliest on the PC; on the phone the page is ${doc('ph-b')} px tall on an 844 screen, so the visitor scrolls and the fifth badge starts below the edge.`,
+      'cap-c': `Choose a level (T2-T6), see that one person in full - what they can do, email, passwords - then press Enter. Smallest card on the phone (${H('ph-c')} px), but one extra press, and the visitor sees one role at a time, so cannot compare the five.`,
+    };
+    for (const [id, t] of Object.entries(C)) document.getElementById(id).textContent = t;
+  }, 1200));
+</script>
+</body></html>

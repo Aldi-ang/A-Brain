@@ -1,0 +1,114 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- the lab's built stylesheet over http, so the Rajdhani files (absolute /assets/ urls) load too -->
+<link rel="stylesheet" href="http://localhost:4187/assets/ponder-lab-ClSGCS9D.css">
+<style>
+  /* the stage = the real door's: solid near-black, the gate's dot field drawn as a still (spacing 26 = his number) */
+  html, body { margin: 0; min-height: 100%; background: #050403; }
+  body { display: flex; align-items: center; justify-content: center; padding: 24px 16px; box-sizing: border-box; min-height: 100vh;
+    background-image: radial-gradient(rgba(231,112,15,.10) 1px, transparent 1.4px); background-size: 26px 26px; }
+  .kpm-mod.gate { width: 100%; }
+  .dk-shelf { padding-top: 15px; display: flex; flex-direction: column; gap: 8px; }
+  .gate code { font-family: var(--font-mono); font-weight: 700; letter-spacing: .06em; color: #ffb066; }
+  .dk-note { margin: 8px auto 0; max-width: 34ch; font: 11px/1.5 var(--font-body); color: rgba(247,233,200,.55); }
+  .dk-keys { margin: 4px 0 2px; font: 11px/1.7 var(--font-body); color: rgba(247,233,200,.62); }
+  .dk-or { display: flex; align-items: center; gap: 10px; margin: 6px 0 0; font: 700 9px/1 var(--font-mono); letter-spacing: .3em; color: #8a7048; }
+  .dk-or::before, .dk-or::after { content: ''; flex: 1; height: 1px; background: rgba(231,112,15,.18); }
+  .dk-tier { flex: none; display: inline-grid; place-items: center; width: 30px; height: 22px; border: 1px solid rgba(231,112,15,.45);
+    font: 700 11px/1 var(--font-mono); letter-spacing: .06em; color: #ffb066; }
+
+  /* ---- A · five keys: the gate card, one row per person, a press signs in ---- */
+  .A .dk-row { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 58px; padding: 9px 12px; box-sizing: border-box;
+    background: transparent; border: 1px solid rgba(231,112,15,.22); color: #f7e9c8; text-align: left; cursor: pointer; }
+  .A .dk-row + .dk-row { margin-top: 6px; }
+  .A .dk-row b { display: block; font: 700 13px/1.15 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+  .A .dk-row i { font-style: normal; font: 600 10px/1 var(--font-mono); letter-spacing: .14em; color: #8a7048; margin-left: 6px; }
+  .A .dk-row em { display: block; margin-top: 3px; font: 12px/1.35 var(--font-body); font-style: normal; color: rgba(247,233,200,.62); }
+  .A .dk-row .go { margin-left: auto; flex: none; font: 700 16px/1 var(--font-mono); color: rgba(231,112,15,.7); }
+  .A .dk-row.hot { border-color: #E7700F; background: rgba(231,112,15,.09); }
+  .A .dk-list { text-align: left; }
+
+  /* ---- B · five badges: a wide panel, one ID badge per person ---- */
+  .B.kpm-mod.gate { max-width: 1040px; }
+  .B .dk-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; text-align: left; }
+  .B .dk-badge { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid rgba(231,112,15,.22); background: rgba(10,8,6,.6); color: #f7e9c8; }
+  .B .dk-badge .top { display: flex; align-items: center; justify-content: space-between; }
+  .B .dk-mono { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgba(231,112,15,.35);
+    font: 700 18px/1 var(--font-mono); letter-spacing: .08em; color: #f7e9c8; }
+  .B .dk-badge b { font: 700 14px/1.1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+  .B .dk-badge .role { font: 600 10px/1.2 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: #8a7048; }
+  .B .dk-badge em { font: 12px/1.4 var(--font-body); font-style: normal; color: rgba(247,233,200,.62); flex: 1; }
+  .B .dk-badge .kpm-btn.key { min-height: 36px; }
+  .B .dk-badge.hot { border-color: #E7700F; }
+  .B .dk-foot { display: grid; grid-template-columns: 1fr 260px; gap: 14px; align-items: center; margin-top: 14px; text-align: left; }
+  @media (max-width: 767px) {
+    .B .dk-grid { grid-template-columns: 1fr 1fr; }
+    .B .dk-badge:last-child { grid-column: span 2; }
+    .B .dk-foot { grid-template-columns: 1fr; }
+  }
+
+  /* ---- C · pick, then enter: five tier keys, one person shown in full, one button ---- */
+  .C .dk-tabs { display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid rgba(231,112,15,.22); }
+  .C .dk-tabs button { height: 40px; background: transparent; border: 0; border-left: 1px solid rgba(231,112,15,.14);
+    font: 700 12px/1 var(--font-mono); letter-spacing: .1em; color: rgba(247,233,200,.55); cursor: pointer; }
+  .C .dk-tabs button:first-child { border-left: 0; }
+  .C .dk-tabs button.on { color: #ffb066; box-shadow: inset 0 -2px 0 #E7700F; background: rgba(231,112,15,.06); }
+  .C .dk-person { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center; margin-top: 14px; text-align: left; }
+  .C .dk-mono { width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid rgba(231,112,15,.35);
+    font: 700 19px/1 var(--font-mono); letter-spacing: .08em; color: #f7e9c8; }
+  .C .dk-person b { display: block; font: 700 15px/1.1 var(--font-mono); letter-spacing: .12em; color: #f7e9c8; }
+  .C .dk-person span { font: 600 10px/1.2 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: #8a7048; }
+  .C ul { margin: 12px 0 0; padding: 0; list-style: none; text-align: left; }
+  .C li { position: relative; padding-left: 14px; font: 12px/1.6 var(--font-body); color: rgba(247,233,200,.7); }
+  .C li::before { content: ''; position: absolute; left: 2px; top: .7em; width: 4px; height: 4px; background: #E7700F; }
+  .C dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 12px 0 0; padding: 10px 12px; border: 1px dashed rgba(231,112,15,.22);
+    text-align: left; font: 11px/1.5 var(--font-body); color: rgba(247,233,200,.55); }
+  .C dd { margin: 0; }
+</style></head>
+<body>
+<script>
+const v = new URLSearchParams(location.search).get('v') || 'a';
+const P = [
+  ['T2', 'Owner', 'DEMO OWNER', 'DO', 'demo.owner@example.com', 'Sees the whole company: money, stock and every salesman.'],
+  ['T3', 'HQ Sales Manager', 'RINA WIJAYA', 'RW', 'demo.hq@example.com', 'Runs the sales team across every region.'],
+  ['T4', 'Regional Admin', 'HENDRA GUNAWAN', 'HG', 'demo.regional@example.com', 'Runs one region (Magelang): its shops, staff and approvals.'],
+  ['T5', 'Sales Canvas', 'AGUS PRASETYO', 'AP', 'demo.canvas@example.com', 'Sells from the van: shops, sales and the receipt.'],
+  ['T6', 'Sales Motorist', 'DIKA SAPUTRA', 'DS', 'demo.motorist@example.com', 'Visits shops by motorbike: his route, sales and end of day.'],
+];
+const google = `<div class="dk-or">OR</div>
+  <button type="button" class="kpm-btn key block">&#x2192;&nbsp; Sign in with Google</button>
+  <p class="dk-note">Google opens the app with no role. Use a card above to try it.</p>`;
+const head = (title, desc) => `<div class="kpm-head"><span class="slot">KPM INVENTORY · DEMO</span>
+  <div class="line"><h3>${title}</h3></div><p class="kpm-desc">${desc}</p></div>`;
+let html = '';
+if (v === 'today') {  /* the live door, markup copied from BiohazardTheme.jsx ~550-570 (no arrive animation) */
+  html = `<div class="kpm-mod gate w-full relative z-10"><div class="kpm-head"><span class="slot">KPM Inventory</span>
+  <div class="line"><h3>Sign in to continue</h3></div><p class="kpm-desc">Use the Google account your name is registered under. If the app says your
+  name is not on the list, the account is right but the registration is missing.</p></div>
+  <div class="kpm-shelf split"><button type="button" class="kpm-btn key block">&#x2192;&nbsp; Sign in with Google</button></div></div>`;
+} else if (v === 'a') {
+  html = `<div class="kpm-mod gate A">${head('PICK WHO TO BE', 'A made-up company on the real app. Each card is a real account and signs you in with its own rights.')}
+  <div class="dk-shelf"><div class="dk-list">${P.map(([t, role, name], i) => `<button type="button" class="dk-row">
+    <span class="dk-tier">${t}</span><span><b>${role}</b><em>${P[i][5]}</em></span><span class="go">&#x203A;</span></button>`).join('')}</div>
+  <div class="dk-keys">Password for all five <code>kpm-demo-2026</code><br>Master Vault password <code>Demo-Vault-1!</code></div>
+  ${google}</div></div>`;
+} else if (v === 'b') {
+  html = `<div class="kpm-mod gate B">${head('PICK WHO TO BE', 'A made-up company on the real app. Each badge is a real account and signs you in with its own rights.')}
+  <div class="dk-shelf"><div class="dk-grid">${P.map(([t, role, name, ini, mail, what], i) => `<div class="dk-badge">
+    <div class="top"><span class="dk-mono">${ini}</span><span class="dk-tier">${t}</span></div>
+    <div><b>${name}</b><div class="role">${role}</div></div><em>${what}</em>
+    <button type="button" class="kpm-btn key block">Sign in</button></div>`).join('')}</div>
+  <div class="dk-foot"><div class="dk-keys">Password for all five <code>kpm-demo-2026</code> · Master Vault password <code>Demo-Vault-1!</code></div>
+  <div>${google}</div></div></div></div>`;
+} else {
+  html = `<div class="kpm-mod gate C">${head('PICK WHO TO BE', 'A made-up company on the real app. Choose a level, then sign in as that person.')}
+  <div class="dk-shelf"><div class="dk-tabs">${P.map(([t], i) => `<button type="button" class="${i === 0 ? 'on' : ''}">${t}</button>`).join('')}</div>
+  <div class="dk-person"><span class="dk-mono">DO</span><div><b>DEMO OWNER</b><span>Owner · Tier 2</span></div></div>
+  <ul><li>Every region's sales and money</li><li>Stock in every warehouse and van</li><li>Staff, prices and the Master Vault</li></ul>
+  <dl><dt>Email</dt><dd>demo.owner@example.com</dd><dt>Password</dt><dd><code>kpm-demo-2026</code></dd><dt>Master Vault</dt><dd><code>Demo-Vault-1!</code></dd></dl>
+  <button type="button" class="kpm-btn key block" style="margin-top:12px;border-color:#E7700F;color:#ffb066">Enter as the Owner</button>
+  ${google}</div></div>`;
+}
+document.body.innerHTML = html;
+</script>
+</body></html>

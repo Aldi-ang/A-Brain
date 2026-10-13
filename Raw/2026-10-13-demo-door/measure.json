@@ -1,0 +1,246 @@
+{
+ "board-door": {
+  "pc-today": {
+   "frame": "1100x760",
+   "doc": "1098x758",
+   "box": [
+    357,
+    247,
+    384,
+    264
+   ],
+   "font": true,
+   "shellText": null
+  },
+  "ph-today": {
+   "frame": "390x844",
+   "doc": "388x842",
+   "box": [
+    34,
+    297,
+    320,
+    248
+   ],
+   "font": true,
+   "shellText": null
+  },
+  "pc-a": {
+   "frame": "1100x760",
+   "doc": "1098x774",
+   "box": [
+    357,
+    24,
+    384,
+    726
+   ],
+   "font": true,
+   "shellText": null
+  },
+  "ph-a": {
+   "frame": "390x844",
+   "doc": "388x842",
+   "box": [
+    34,
+    60,
+    320,
+    722
+   ],
+   "font": true,
+   "shellText": null
+  },
+  "pc-b": {
+   "frame": "1100x760",
+   "doc": "1098x758",
+   "box": [
+    29,
+    116,
+    1040,
+    526
+   ],
+   "font": true,
+   "shellText": null
+  },
+  "ph-b": {
+   "frame": "390x844",
+   "doc": "388x1098",
+   "box": [
+    16,
+    24,
+    356,
+    1050
+   ],
+   "font": true,
+   "shellText": null
+  },
+  "pc-c": {
+   "frame": "1100x760",
+   "doc": "1098x758",
+   "box": [
+    357,
+    46,
+    384,
+    666
+   ],
+   "font": true,
+   "shellText": null
+  },
+  "ph-c": {
+   "frame": "390x844",
+   "doc": "388x842",
+   "box": [
+    34,
+    96,
+    320,
+    650
+   ],
+   "font": true,
+   "shellText": null
+  }
+ },
+ "board-inside": {
+  "pc-a": {
+   "frame": "1100x660",
+   "doc": "1098x658",
+   "box": [
+    0,
+    0,
+    1098,
+    37
+   ],
+   "font": true,
+   "shellText": 466
+  },
+  "ph-a": {
+   "frame": "390x760",
+   "doc": "388x758",
+   "box": [
+    0,
+    0,
+    388,
+    37
+   ],
+   "font": true,
+   "shellText": 58
+  },
+  "po-a": {
+   "frame": "390x760",
+   "doc": "388x758",
+   "box": [
+    0,
+    0,
+    388,
+    37
+   ],
+   "font": true,
+   "shellText": 58
+  },
+  "pc-b": {
+   "frame": "1100x660",
+   "doc": "1098x658",
+   "box": [
+    0,
+    0,
+    1098,
+    23
+   ],
+   "font": true,
+   "shellText": 466
+  },
+  "ph-b": {
+   "frame": "390x760",
+   "doc": "388x758",
+   "box": [
+    0,
+    0,
+    388,
+    23
+   ],
+   "font": true,
+   "shellText": 58
+  },
+  "po-b": {
+   "frame": "390x760",
+   "doc": "388x758",
+   "box": [
+    0,
+    0,
+    388,
+    23
+   ],
+   "font": true,
+   "shellText": 58
+  },
+  "pc-c": {
+   "frame": "1100x660",
+   "doc": "1098x658",
+   "box": [
+    0,
+    611,
+    1098,
+    47
+   ],
+   "font": true,
+   "shellText": 466
+  },
+  "ph-c": {
+   "frame": "390x760",
+   "doc": "388x758",
+   "box": [
+    0,
+    711,
+    388,
+    47
+   ],
+   "font": true,
+   "shellText": 58
+  },
+  "po-c": {
+   "frame": "390x760",
+   "doc": "388x758",
+   "box": [
+    0,
+    711,
+    388,
+    47
+   ],
+   "font": true,
+   "shellText": 58
+  },
+  "pc-al": {
+   "frame": "1100x660",
+   "doc": "1098x658",
+   "box": [
+    0,
+    0,
+    1098,
+    37
+   ],
+   "font": true,
+   "shellText": 466
+  },
+  "ph-al": {
+   "frame": "390x760",
+   "doc": "388x758",
+   "box": [
+    0,
+    0,
+    388,
+    37
+   ],
+   "font": true,
+   "shellText": 58
+  },
+  "po-al": {
+   "frame": "390x760",
+   "doc": "388x758",
+   "box": [
+    0,
+    0,
+    388,
+    37
+   ],
+   "font": true,
+   "shellText": 58
+  }
+ }
+}

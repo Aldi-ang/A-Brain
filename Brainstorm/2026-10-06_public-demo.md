@@ -148,3 +148,33 @@ tags: [kpm, demo, showcase, vercel]
 **Rejected on purpose:** changing `firestore.rules` to make the demo work - the demo uses data shapes the app itself writes instead; the rules stay his call.
 
 **17:35 - his answer + his idea:** *"regarding the question, yes i might have another company using the KPM but isnt it better when i just made another project just to login to another company instead of combining those projects together inside the firebase console?"* Told him: the fix is needed either way - the T2 test above ran in the SEPARATE demo project (kpm-demo-f4d74 emulator) and was still blocked, because every project gets the same rules file and only his Gmail is Tier 1 in it. One project per company: + a wrong rule can never show one company's data to another; - every app update is deployed once per company (a website + a rules paste each), and the Landlord screen cannot see the companies together. That choice can wait for a real second company. **Decision:** I write the T2 rules fix as a DRAFT (he deploys) after the demo front door, unless he says no.
+
+## 2026-10-13 07:27 - the front door + the switch, DRAWN (OPEN - waiting on Aldi)
+
+**Problem, his words:** *"next session should continue doing the demo"* (2026-10-12 20:00) - the front door was the last undesigned piece: a visitor must get in as a real tier (T2..T6), switch tiers on every screen, and always see that it is the demo.
+
+**Boards** (real built CSS + the lab's real app shell, Rajdhani loaded, PC + 390, numbers read off the frames): `Raw/2026-10-13-demo-door/board-door.png` (TODAY / A / B / C) and `board-inside.png` (A / B / C + A light). Rebuild: serve the lab (`launch.json` ponder-lab-built, port 4187), `node shoot.mjs` (copies the pages into `dist-ponderlab/demo-door/` - a file:// page cannot load the lab's fonts).
+
+| Board 1 - the front door | What it is | Cost (measured) |
+|---|---|---|
+| A five keys (MY PICK) | today's gate card, one row per person, one press signs in; both passwords printed once under the list; Google kept with "no role" line | card 722 px on an 844 phone - all five visible, no scroll; same 320/384 width as the vault gate |
+| B five badges | wide panel, one ID badge per person (initials, name, role) | best on PC; phone page 1,098 px on 844 - scrolls, 5th badge below the edge |
+| C pick then enter | T2..T6 keys, one person shown in full, one Enter button | smallest (650 px), but one extra press and the five cannot be compared |
+
+| Board 2 - inside the app | What it is | Cost (measured) |
+|---|---|---|
+| A one bar on top (MY PICK) | DEMO + who you are + reset time + SWITCH; list of five drops under it | 37 px strip on every screen; one line (his "fixed height is fine if it is ONE line and answers the first question") |
+| B tape + edge tab | 23 px tape, SWITCH tab on the right edge mid-screen | hides who you are; the tab sits over lists and buttons |
+| C one bar at the bottom | same line as A at the bottom | 47 px; stacks with the sales screen's bottom cart drawer; far from the eye on PC |
+
+**Why A + A:** a visitor (a distributor boss on a WhatsApp link, most likely on a phone) must compare the five roles before choosing - only A shows all five without a scroll and without an extra press. The capybara owns the bottom-right corner and the sales drawer owns the bottom on the phone, so the switch goes on top.
+
+**Build notes for whichever he picks:** the bar needs `padding-top: env(safe-area-inset-top)` (the notch, cf. 721f999); a failed demo sign-in says "the demo is being reset - try in a minute"; every demo element behind IS_DEMO + the demoBuild.check guard.
+
+**Side finding (not demo):** `src/styles/theme.css:5331` - the Agent Inventory book's `.kpm-shelf { margin-top:14px; border; border-radius:14px; justify-content:center }` (f0ec63d, 2026-09-27) is GLOBAL, so every module's button shelf (47 uses) gets a rounded border box - visible in the TODAY frame around "Sign in with Google". Fix = scope it to the book's own wrapper. Reported, not fixed.
+
+**Models applied:** Inversion (how does a visitor fail at the door? cannot compare roles / scrolls past the fifth), Second-Order Thinking (a switch on every screen covers what it sits on), Opportunity Cost (every px of the bar is taken from every screen).
+
+**Decision:** OPEN - his letters for board 1 and board 2.
+
+**Rejected on purpose:** a floating switch at the bottom-right (the capybara's corner); hiding the switch inside the side menu (closed on the phone, one more press); a pre-highlighted first row (read as "already chosen").

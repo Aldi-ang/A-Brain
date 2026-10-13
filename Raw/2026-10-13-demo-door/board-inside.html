@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=1990">
+<link rel="stylesheet" href="http://localhost:4187/assets/ponder-lab-ClSGCS9D.css">
+<style>
+  body { margin: 0; padding: 18px 22px; background: #0b0a09; color: #E8E4DE; font-family: var(--font-body); width: 1946px; }
+  h1 { margin: 0 0 4px; font: 800 20px/1.2 var(--font-display); letter-spacing: .05em; }
+  h2 { margin: 26px 0 4px; font: 800 16px/1.2 var(--font-display); letter-spacing: .04em; color: #E8E4DE; }
+  p { margin: 0 0 8px; font-size: 14px; color: #B9B2A6; max-width: 1700px; }
+  .pair { display: flex; gap: 22px; align-items: flex-start; }
+  .pair div { font: 700 11px/1 var(--font-mono); letter-spacing: .14em; color: #8A8276; margin-bottom: 4px; }
+  iframe { border: 1px solid #2a241e; border-radius: 10px; display: block; background: var(--ground); }
+</style></head>
+<body>
+<h1>BOARD 2 · INSIDE THE APP (the DEMO sign + the switch to another person)</h1>
+<p>The app behind is the real app on made-up data. Each look is shown on the PC with the list open, then the phone closed and open. You are signed in as Agus (T5).</p>
+<script>
+  const V = [
+    ['a', '', 'A · one bar on top: who you are + SWITCH (my pick)', 'cap-a'],
+    ['b', '', 'B · a thin DEMO tape on top + a SWITCH tab on the right edge', 'cap-b'],
+    ['c', '', 'C · one bar at the bottom: who you are + SWITCH', 'cap-c'],
+    ['a', '&light', 'A in the light theme', 'cap-al'],
+  ];
+  for (const [v, x, title, cap] of V) document.write(`<h2>${title}</h2><p id="${cap}"></p><div class="pair">
+    <section><div>PC · LIST OPEN</div><iframe id="pc-${v}${x ? 'l' : ''}" src="chrome.html?v=${v}&open${x}" width="1100" height="660"></iframe></section>
+    <section><div>PHONE 390 · CLOSED</div><iframe id="ph-${v}${x ? 'l' : ''}" src="chrome.html?v=${v}${x}" width="390" height="760"></iframe></section>
+    <section><div>PHONE 390 · LIST OPEN</div><iframe id="po-${v}${x ? 'l' : ''}" src="chrome.html?v=${v}&open${x}" width="390" height="760"></iframe></section></div>`);
+</script>
+<script>
+  /* captions carry numbers read off the rendered frames, never planned ones */
+  addEventListener('load', () => setTimeout(() => {
+    const H = (id) => Math.round(document.getElementById(id).contentDocument.querySelector('.barA, .tapeB, .dockC').getBoundingClientRect().height);
+    const C = {
+      'cap-a': `One line on top: DEMO, who you are, when it resets. SWITCH opens the five under it. Costs a ${H('ph-a')} px strip on every screen and covers nothing until pressed. On the phone the line shortens to "T5 · Sales Canvas".`,
+      'cap-b': `The top tape is only ${H('ph-b')} px, but it no longer says who you are. The SWITCH tab sits on the right edge, halfway down, on top of whatever is there (lists, buttons). Open, the panel covers most of the phone.`,
+      'cap-c': `The same line as A, at the bottom (${H('ph-c')} px). Nearer the thumb on the phone, but the sales screen keeps its cart drawer at the bottom too, so two bars would stack there; on the PC it is far from where the eye starts.`,
+      'cap-al': `A follows the light theme like every other panel. DEMO, the hazard edge and YOU turn dark amber, because bright gold is never used as text on light.`,
+    };
+    for (const [id, t] of Object.entries(C)) document.getElementById(id).textContent = t;
+  }, 1200));
+</script>
+</body></html>
