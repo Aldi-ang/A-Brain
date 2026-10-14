@@ -3396,3 +3396,16 @@ cel shading) - and after seeing it: *"i dont like the anime face model just swit
 **What to do with it:** for people pictures in KPM, the flat cartoon look (simple shapes, small dot eyes, soft smile,
 slate shirt with the gold collar) is his pick. Do not offer anime again unless he asks. Both sets are in kpm git
 history (`25fb74a` anime, the cartoon set after it) if he ever wants to compare.
+
+
+## 2026-10-14 - Agent Directory rows wear the agent's frame
+
+His ask: *"can u make the app show the border on the side profile as well so we know all their used border directly
+from the agent directory"*. Built as the player card's 128 px frame parts scaled whole to 56 px (photo 44 px, rows
+82 px), the agent's own pick, animated like the profile. Shown one rendered frame (lab, 1440); after it went live:
+*"its good enough"*.
+
+**What to do with it:** a small copy of an existing look is built by SCALING the solved component whole, not by
+redrawing it smaller - it keeps every frame's detail and cannot drift from the original. "good enough" is acceptance,
+not delight: if he later says the list feels busy, the two prepared answers are 48 px or still frames in the list
+only. Shipped: kpm `d6ae9d0`, live `ff5b97b`.

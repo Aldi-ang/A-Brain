@@ -83,3 +83,5 @@ sit here indefinitely once it's actually decided.
 - [[2026-10-12_whatsapp-receipt]] - the receipt to ANY WhatsApp number (A: number in the link / B: Meta API) OPEN; + two Restock Vault layout bugs
 
 - [[2026-10-14_voice-without-mascot]] - the capybara heard as 1-2 words: a hidden tab bunches the syllable timers - FIXED kpm 9ad5d33 (A/B/C phone-terminal options rejected: appearing is not his problem)
+
+- [[2026-10-14_cloud-sessions]] - cloud sessions do not know Alucard or the app (skill + memory PC-only, A-Brain GitHub copy 674 commits stale, hooks on D:/ paths); BOTH repos public - OPEN (A Remote Control / B rebuild)
