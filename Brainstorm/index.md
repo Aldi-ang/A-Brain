@@ -81,3 +81,5 @@ sit here indefinitely once it's actually decided.
 - [[2026-10-12_gold-buttons]] - the solid amber buttons (Customer Directory, Sampling) - A / B / C OPEN; + the bell dates built, the music knob answered
 
 - [[2026-10-12_whatsapp-receipt]] - the receipt to ANY WhatsApp number (A: number in the link / B: Meta API) OPEN; + two Restock Vault layout bugs
+
+- [[2026-10-14_voice-without-mascot]] - the capybara talks with nobody on screen (phone sales terminal mutes him, its own figure is desk-only) - A / B / C OPEN
