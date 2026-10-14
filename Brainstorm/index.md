@@ -82,4 +82,4 @@ sit here indefinitely once it's actually decided.
 
 - [[2026-10-12_whatsapp-receipt]] - the receipt to ANY WhatsApp number (A: number in the link / B: Meta API) OPEN; + two Restock Vault layout bugs
 
-- [[2026-10-14_voice-without-mascot]] - the capybara talks with nobody on screen (phone sales terminal mutes him, its own figure is desk-only) - A / B / C OPEN
+- [[2026-10-14_voice-without-mascot]] - the capybara heard as 1-2 words: a hidden tab bunches the syllable timers - FIXED kpm 9ad5d33 (A/B/C phone-terminal options rejected: appearing is not his problem)

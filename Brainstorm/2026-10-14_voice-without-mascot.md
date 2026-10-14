@@ -1,7 +1,7 @@
 ---
-status: OPEN — waiting on Aldi (A / B / C)
+status: CLOSED 2026-10-14 20:13 — real cause found and fixed (kpm `9ad5d33`); the phone-terminal finding below is NOT what he meant
 date: 2026-10-14
-confidence: likely (code chain read end to end; not yet observed on a phone screen)
+confidence: certain for the fix's cause (measured in real Chrome); likely for the phone-terminal finding (never observed)
 checked: kpm src/MerchantSalesView.jsx:455-467, 486-526, 1145-1161, 2101, 2903; src/components/CapybaraMascot.jsx:111, 182-184, 286; src/App.jsx:3241-3249, 5590; dist/assets/index-RIQs1GNC.css (.kpm-alcove at 12691, .hidden at 201895)
 ---
 
@@ -46,3 +46,25 @@ OPEN — waiting on Aldi. My pick: A + the guard (the code already wanted A; it 
 Nothing yet.
 
 Models applied: Inversion (what would make a voice play with nobody shown - every speak call with no visibility check), Second-Order Thinking (A puts a figure over the phone's basket every 6 s - check the overlap before building).
+
+## 2026-10-14 20:13 - his answer, and the REAL cause (fixed)
+
+His words: *"actully i hear it when i use my pc, the randomness of its appearing is not a problem, the only problem is the SFX that he generate especially when 1 or 2 words sentence only i want u to delete the SFX that contained 1 or 2 words and set minimum of 3 words of SFX that he said instead"*
+
+So A / B / C above are REJECTED ON PURPOSE: the appearing is not his problem. The phone-terminal mute is still real in the code (likely, never observed) - raise it only if he reports the phone.
+
+This was the THIRD report (2026-10-11 "one words only", 2026-10-12 "1 or 2 words only", 2026-10-14). Both earlier fixes changed the speech PLAN (minSyl as sounds, then as words + wordGap .15). The assumption all three shared: what the plan schedules is what he hears. Measured this time, layer by layer (scripts in `Raw/2026-10-14-voice/`):
+
+| Layer | Measured | Result |
+|---|---|---|
+| The plan | `plan-measure.mjs`: 171 real lines x 300 seeds | 0 of 51,300 plans have a sentence under 3 words |
+| The real files on the plan's timeline | `heard-measure.mjs`: ffmpeg envelopes of the 61 baked mp3s, a 40-80 ms quiet splits two sounds | 0 of 6,840 heard as under 3 |
+| The browser | `hidden-tab.mjs`: real Chrome headless=new, raw CDP | visible tab 12/12 on time; background tab quiet 30 s: 4/4 lines heard as 2 sounds (planned 0/350/595 ms -> fired 0/1247/1247) |
+
+Cause: a background tab that has been quiet for a while gets its timers held to a once-a-second wake-up; speakMumble used one setTimeout per syllable, so every syllable after the first played at the same instant. The mascot peeks every 90-210 s, so he heard it from a tab he was not looking at - which is also why no mascot was on screen. (With sound every 2.5 s the tab counts as "audible" and is NOT throttled - the first background run showed nothing for that reason.)
+
+Fix (kpm `9ad5d33`): speakMumble says nothing while `document.visibilityState === 'hidden'`, and a syllable whose timer fires after the tab was hidden is dropped. useSound self-check + 2 logicFixes checks, red first.
+
+Not chosen: schedule the syllables on the Web Audio clock so he still talks, correctly, from a background tab - lost on cost (decode 61 files into buffers, the iPhone AudioContext trap in useSound.js) for a voice nobody is looking at. Flips if he says he wants to hear the capybara while the app is in the background.
+
+Models applied: Inversion (where can a correct plan still be heard wrong - every layer between the plan and his ear), Chesterton's Fence (minSyl stays; it was right).
