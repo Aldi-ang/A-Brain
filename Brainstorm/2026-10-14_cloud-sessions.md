@@ -52,10 +52,27 @@ Both `Aldi-ang/A-Brain` and `Aldi-ang/kpm-inventory` are PUBLIC on GitHub. A-Bra
 7. A-Brain: push the 674 commits (private now). Then it must be pushed at every session end, or the cloud reads stale notes - his call whether a Stop hook does it.
 8. Prove it: one real cloud session that runs `/alucard`, answers a vault question from A-Brain, and runs `graphify query`.
 
-Will still be PC-only after the build: the browser pane on his screen, 9Router, the ponytail plugin, the Firebase emulator unless the setup script installs Java.
+Will still be PC-only after the build: the browser pane on his screen, 9Router, the ponytail plugin, the Firebase emulator unless the setup script installs Java, and every skill in `~/.claude/skills` except Alucard (the design stack: impeccable, emil-design-eng, ui-ux-pro-max...).
+
+## Build log
+
+**2026-10-14 23:12 - step 7 push DONE, step 2 BLOCKED.** A-Brain pushed `f1bbffc..e316736` after two privacy checks (REST API 404 without login; anonymous `git ls-remote` refused while the signed-in one answered). Step 2 (`cp -a` + `mklink /J` of `~/.claude/skills/alucard` and `~/.claude/agents`) was DENIED by the Claude Code auto-mode classifier as `[Self-Modification]` - nothing moved. Steps 2-6 all change Claude's own skills, memory or hooks, so they need Aldi to take the session out of Auto mode (or allow it) first.
+
+**Traps found while planning - the build must handle every one:**
+
+| # | Trap | Fix |
+|---|---|---|
+| a | kpm `.claude/settings.json` `env` sets `ANTHROPIC_BASE_URL=http://localhost:20128/v1` + `ANTHROPIC_MODEL=cc/claude-opus-5` - a one-repo cloud session would send every model call to a 9Router that is not there | move the `env` block to `.claude/settings.local.json` (PC-only; ignored by his global git ignore). The user-level `~/.claude/settings.json` already carries the 9Router base URL on the PC |
+| b | `.claude/check-progress.mjs` walks all of `.claude/` for the newest file - lessons.md stamps and memory writes would block every turn | skip `.claude/skills`, `.claude/agents`, `.claude/memory` in its walk |
+| c | graphify indexes `.claude/*.md` (15 entries in the manifest) - lessons + memory would pollute the code graph | `.graphifyignore` with those three folders |
+| d | Hooks run in Git Bash on Windows; `commandWindows` is not a documented field (ignored); all matching hooks run IN PARALLEL (code.claude.com/docs/en/hooks.md) | use `${CLAUDE_PROJECT_DIR}`; A-Brain hooks start with `[ -d "${CLAUDE_PROJECT_DIR}/../A-Brain" ] \|\| exit 0`; the cloud start hook runs vault-gap + lessons-health itself after a fresh clone |
+| e | GitHub default branch is `main`, 1663 commits behind `phase0-solid-ground` (the branch he pushes) - a cloud session on the default branch sees none of this | ask him at step 8: start the cloud session on `phase0-solid-ground`, or change the default branch |
+| f | His `ask` rule for SKILL.md names only the `C:/Users/ASUS/.claude/skills/alucard` path - after the move the repo path would bypass it | add `Edit(**/.claude/skills/alucard/SKILL.md)` + `Write(...)` to the ask list |
+| g | A-Brain HEAD = 270 MB (Raw/ 196 MB of pictures) | cloud clone with `--depth 1` |
+| h | `skill-index.mjs` strips `LIB + '/'` from forward-slash paths | the relative vault path must be normalised to forward slashes |
 
 ## Rejected on purpose
 
-Putting Alucard or any personal file in kpm-inventory - the repo is public.
+Putting Alucard or any personal file in kpm-inventory - the repo is public. (Lifted 22:2x: both repos are private now, and his pick B moves Alucard into kpm in step 2.)
 
 Models applied: Inversion (what has to be true for the cloud to know what this PC knows - every file it reads must be on GitHub, and nothing private may be), Opportunity Cost (B costs a session to rebuild what Remote Control already gives).
