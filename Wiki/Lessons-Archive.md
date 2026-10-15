@@ -904,3 +904,11 @@ Fired:
 chest inside the book jumps to the beat ... -> 0"), cost a diagnostic round-trip, and the session ended with the proof open.
 Seen: 2026-09-27
 *Archived 2026-10-11 (retired 2026-10-10).*
+
+### 2026-09-30 — a position read from an element still under its own animation is off by that animation
+**Status:** RETIRED (2026-10-14) — never fired in 14 days; too narrow (one prototype's FLIP swap), cannot be made a check outside that prototype
+**Trigger:** before computing a transform-origin, an offset or a FLIP start point from getBoundingClientRect in the middle of an animation sequence (a box shrinking into one chest and growing out of another, a panel re-parented mid-flight).
+**Lesson:** cancel (or finish) the element's running animation FIRST, then read the rect, then start the next animation in the same task. A fill-forwards animation still holds its end transform while a .then callback runs, so the rect is the transformed one.
+**Would have prevented:** 2026-09-30, prototype v24's Stock Opname crate swap: the new crate's origin was measured while the box was still held at scale .08 by the shrink's fill-forwards, so the box grew out of the wrong place and was clipped at the vault's left edge - found only by a frozen frame, one more render round. Fix: `a.cancel()` before `ox(so.fac)`.
+Seen: 2026-09-30
+*Archived 2026-10-15 (retired 2026-10-14).*

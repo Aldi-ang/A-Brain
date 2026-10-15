@@ -71,6 +71,28 @@ Will still be PC-only after the build: the browser pane on his screen, 9Router, 
 | g | A-Brain HEAD = 270 MB (Raw/ 196 MB of pictures) | cloud clone with `--depth 1` |
 | h | `skill-index.mjs` strips `LIB + '/'` from forward-slash paths | the relative vault path must be normalised to forward slashes |
 
+**2026-10-15 07:49 - steps 2-7 BUILT on the PC; step 8 (the real cloud test) waits on Aldi.** He switched the session to manual mode (*"okay i changed it into manual now"*), which unblocked the classifier.
+
+| Step | What | Commit | Proof |
+|---|---|---|---|
+| 2 | Alucard (SKILL.md, lessons.md) + Lancelot in kpm `.claude/`; `~/.claude/skills/alucard` and `~/.claude/agents` are junctions to them | kpm `4663e95` | sha256 identical through the junctions |
+| 6 | 54 memory files in kpm `.claude/memory/`; the PC memory folder is a junction | kpm `61f7a62` | sha256 identical |
+| 4 | every hook uses `${CLAUDE_PROJECT_DIR}`; A-Brain hooks guarded; 9Router `env` -> `settings.local.json`; SKILL.md ask rule; 7 vault scripts find paths from `import.meta.url` | kpm `4a5816d`, vault `4ee0773` | all 14 hooks: same output old vs new; guard silent with no A-Brain; graphify hook returns nodes |
+| 5 | `.claude/cloud-start.mjs` (cloud only): home links, shallow A-Brain clone, vault-gap + lessons-health after a fresh clone, graphify 0.9.26, memory index | kpm `75fa20a` | fake cloud on the PC (clone redirected to the local vault): fresh start, resume, refused clone, no pip - all right; a PC run prints nothing |
+| 3 | SKILL.md: A-Brain = "the A-Brain folder next to the app folder"; skill-find runs from the app folder | kpm `d393233` | fresh headless PC session: alucard listed, 7 start hooks exit 0 |
+| 7 | `automation/vault-push.mjs` Stop hook: uploads only new commits, only when GitHub answers 404 (private), never opens a sign-in window | vault `d50231a`, kpm `41f662e` | throwaway repo: nothing new / GitHub 200 / offline / 404 + push / push error - all right |
+
+**Fixes found on the way (record the fix, not the failure):**
+- A Windows junction from Git Bash: `powershell.exe -NoProfile -Command 'New-Item -ItemType Junction -Path ... -Target ...'`. `cmd //c mklink /J` from Git Bash answered "Invalid switch" and `set -e` did not stop on it, so the originals were already moved and the PC had no links for one turn (backups: `~/.claude/backups/2026-10-15-cloud/`).
+- The first fake-cloud run printed `LESSONS: UNKNOWN`: lessons-health ran before the home link to lessons.md existed. cloud-start now makes the links first.
+- A git error line: print the whole stderr, not the first line - git's first line is often a harmless warning.
+
+**Still open - only a real cloud session can answer:**
+1. The docs say the cloud's GitHub proxy serves "the repositories attached to the session". A kpm-only session may be REFUSED the A-Brain clone; cloud-start then prints `CLOUD: A-Brain clone FAILED (...)`. Fallback if so: a session with BOTH repos attached gets A-Brain as a sibling folder, but loads NO repo hooks (docs: it "starts above the clones" and reads only `enabledPlugins` / `extraKnownMarketplaces`) - Alucard would read PROGRESS.md itself (SKILL.md §1 already says to when it is not printed).
+2. The cloud clones the branch he picks; GitHub's default is `main`, 1663 commits behind `phase0-solid-ground`. He must pick `phase0-solid-ground`, and it must be pushed first (his word).
+3. Pre-existing, not from this build: `~/.claude/settings.json` holds the literal placeholder `<<< LEAVE YOUR EXISTING LINE HERE, UNCHANGED >>>` as `ANTHROPIC_AUTH_TOKEN`, so a headless `claude -p` from a terminal gets "401 Invalid bearer token"; the desktop app works.
+4. Still PC-only: `~/.claude/skills/delegate-coding-task/references/kpm-inventory-facts.md` (Alucard's "KPM code" route) and the design skill stack.
+
 ## Rejected on purpose
 
 Putting Alucard or any personal file in kpm-inventory - the repo is public. (Lifted 22:2x: both repos are private now, and his pick B moves Alucard into kpm in step 2.)
