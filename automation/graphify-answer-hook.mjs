@@ -13,10 +13,11 @@
  * that throws would block every Bash/Grep/Read call in the session, so nothing here may be fatal.
  */
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 
-const GRAPHIFY = 'C:/Users/ASUS/.local/bin/graphify.EXE';
-const REPO = 'D:/APP DEVELOPMENT/kpm inventory main FILES/kpm-inventory-main';
+const PC_GRAPHIFY = 'C:/Users/ASUS/.local/bin/graphify.EXE';
+const GRAPHIFY = existsSync(PC_GRAPHIFY) ? PC_GRAPHIFY : 'graphify'; // cloud: pip puts it on PATH
+const REPO = process.env.CLAUDE_PROJECT_DIR || process.cwd();
 const BUDGET = '400';      // ~1.6KB of nodes; enough to orient, small enough to ride every call
 const TIMEOUT_MS = 8000;   // graphify measured at ~940ms; 8s is a generous ceiling before giving up
 

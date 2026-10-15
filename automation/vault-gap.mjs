@@ -13,9 +13,13 @@
  * silent: at the moment this was written the live gap was 1 commit, 0 days.
  */
 import { execFileSync } from 'node:child_process';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const KPM = 'D:/APP DEVELOPMENT/kpm inventory main FILES/kpm-inventory-main';
-const VAULT = 'D:/APP DEVELOPMENT/kpm inventory main FILES/A-Brain';
+/* From this file's own place, so the same script runs on the PC and in a cloud session, where
+   A-Brain is cloned next to the app and the app folder carries the repo's name. */
+const VAULT = dirname(dirname(fileURLToPath(import.meta.url)));
+const KPM = process.env.CLAUDE_PROJECT_DIR || `${dirname(VAULT)}/kpm-inventory-main`;
 
 const WARN_COMMITS = 15; // 178 in the real incident; a busy honest day sits well under this
 const WARN_DAYS = 2;

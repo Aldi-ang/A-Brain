@@ -14,9 +14,11 @@
  * Rebuild after adding a collection:  node "A-Brain/automation/skill-index.mjs"
  */
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const LIB = 'D:/APP DEVELOPMENT/kpm inventory main FILES/A-Brain/Skills-Library';
+/* Forward slashes: the relative-path strip below matches LIB + '/' on normalised paths. */
+const LIB = `${dirname(dirname(fileURLToPath(import.meta.url)))}/Skills-Library`.replace(/\\/g, '/');
 const OUT = join(LIB, 'INDEX.tsv');
 
 /* One line per skill, tab-separated so a grep hit is readable as-is:

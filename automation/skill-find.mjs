@@ -12,8 +12,9 @@
  * a second thing to maintain, and the index is only 343 KB of text.
  */
 import { readFileSync, statSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 
-const INDEX = 'D:/APP DEVELOPMENT/kpm inventory main FILES/A-Brain/Skills-Library/INDEX.tsv';
+const INDEX = fileURLToPath(new URL('../Skills-Library/INDEX.tsv', import.meta.url));
 const LIMIT = 8;
 
 const terms = process.argv.slice(2).join(' ').toLowerCase().split(/[^a-z0-9+#.]+/).filter((t) => t.length > 2);

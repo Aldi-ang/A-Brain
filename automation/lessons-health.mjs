@@ -18,10 +18,13 @@
  *   node "A-Brain/automation/lessons-health.mjs"
  */
 import { readFileSync, writeFileSync, mkdirSync, statSync, readdirSync, unlinkSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { homedir } from 'node:os';
+import { fileURLToPath } from 'node:url';
 
-const LESSONS = 'C:/Users/ASUS/.claude/skills/alucard/lessons.md';
-const STATE_DIR = 'D:/APP DEVELOPMENT/kpm inventory main FILES/A-Brain/runs/.lessons-state';
+/* ~/.claude/skills/alucard is a junction on the PC and a symlink in the cloud, both to the repo. */
+const LESSONS = join(homedir(), '.claude/skills/alucard/lessons.md');
+const STATE_DIR = join(dirname(dirname(fileURLToPath(import.meta.url))), 'runs/.lessons-state');
 const STALE_DAYS = 14;
 const MAX_LINES = 20;
 

@@ -21,8 +21,9 @@
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, copyFileSync, readFileSync, existsSync, rmSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const APP = 'D:/APP DEVELOPMENT/kpm inventory main FILES/kpm-inventory-main';
+const APP = join(dirname(dirname(dirname(fileURLToPath(import.meta.url)))), 'kpm-inventory-main');
 
 /* Dropped entirely. Each one is Aldi's, not the app's. */
 const DROP_PREFIX = [

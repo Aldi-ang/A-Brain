@@ -26,10 +26,13 @@
  * Exit 0 = let the session stop. Exit 2 = block, and stderr goes back to the model.
  */
 import { readFileSync, writeFileSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { homedir } from 'node:os';
+import { fileURLToPath } from 'node:url';
 
-const LESSONS = 'C:/Users/ASUS/.claude/skills/alucard/lessons.md';
-const STATE_DIR = 'D:/APP DEVELOPMENT/kpm inventory main FILES/A-Brain/runs/.lessons-state';
+/* ~/.claude/skills/alucard is a junction on the PC and a symlink in the cloud, both to the repo. */
+const LESSONS = join(homedir(), '.claude/skills/alucard/lessons.md');
+const STATE_DIR = join(dirname(dirname(fileURLToPath(import.meta.url))), 'runs/.lessons-state');
 const BIG_SESSION = 120;
 
 let input, state, statePath;
@@ -93,7 +96,7 @@ process.stderr.write(
   `Short sessions stamp themselves and stay quiet. This one was long enough to have cost\n` +
   `something, so it gets asked once:\n\n` +
   `  Something went wrong or nearly did, and it can recur on another file or day? Append it to\n` +
-  `  C:/Users/ASUS/.claude/skills/alucard/lessons.md — **Status:** LIKELY, and\n` +
+  `  ~/.claude/skills/alucard/lessons.md — **Status:** LIKELY, and\n` +
   `  "Would have prevented:" must name a cost that ACTUALLY happened in THIS session.\n\n` +
   `  Genuinely nothing? Update the "Last checked:" footer line to today's date and stop.\n\n` +
   `This will not ask again this session.\n`
