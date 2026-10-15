@@ -3409,3 +3409,7 @@ from the agent directory"*. Built as the player card's 128 px frame parts scaled
 redrawing it smaller - it keeps every frame's detail and cannot drift from the original. "good enough" is acceptance,
 not delight: if he later says the list feels busy, the two prepared answers are 48 px or still frames in the list
 only. Shipped: kpm `d6ae9d0`, live `ff5b97b`.
+
+## He picks the option that costs zero space, again (2026-10-15)
+
+Shown three ways to hide a Lite button in the top bar (A a 12 px sliver, B a pull-tab under the bar, C the "SYSTEM ACTIVE" line itself decoding into "LITE MODE · OFF · TAP"), he answered: *"i want the status line and push it first"*. Same rule as the tutorial chips (2026-08-31, *"to save space"*): an entry point he rarely uses must not cost the bar width. He took my pick; he skipped the how-often question, so the default (first open of each day) stands until he says otherwise. [[2026-10-15_lite-button-peek]]

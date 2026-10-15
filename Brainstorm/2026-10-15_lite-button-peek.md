@@ -1,7 +1,7 @@
 ---
 title: Lite button in the top bar that hides and peeks
 created: 2026-10-15
-status: OPEN - waiting on Aldi (A / B / C, and how often it peeks)
+status: DECIDED C - built kpm 8b7fa56
 tags: [kpm, design, lite-mode, top-bar, brainstorm]
 ---
 
@@ -42,7 +42,7 @@ Today Lite Mode lives only in Settings (`App.jsx:1505` state `isLiteMode`, `kpm_
 
 ## Decision
 
-OPEN - waiting on Aldi.
+DECIDED 2026-10-15 08:26: C. His words: *"i want the status line and push it first"*. He did not answer how often; built with my default (first open of each day, 3 s). Built and committed kpm `8b7fa56` (local; push on his word).
 
 ## Rejected on purpose
 
