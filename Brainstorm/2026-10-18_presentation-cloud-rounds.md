@@ -1,7 +1,7 @@
 ---
 title: Customer presentation - cloud rounds, versions 16 to 26
 created: 2026-10-18
-status: v26 LIVE; OPEN - his wording for slides 22 and 23
+status: v26 LIVE; v27-v30 built on the PC (kpm baea960), publish pending; slides 22-23 wording CLOSED (no change)
 tags: [kpm, presentation, cloud, brainstorm, skills, workflow-rule]
 ---
 
@@ -62,7 +62,19 @@ New fact for the model-tier benchmark: 5 Sonnet agents RAN in the cloud on 2026-
 
 ## OPEN - waiting on Aldi
 
-- ❓ *"the wording for slide 22 (Karantina) and slide 23"* - scenes `#karantina` and `#angka`. Change only the words he gives; never call a customer's phones cheap.
+- ~~❓ *"the wording for slide 22 (Karantina) and slide 23"*~~ CLOSED 2026-10-18: *"there is nothing to change for the wording for now"*.
+- v27-v30 are built and committed on the PC, not live yet (the publish needs a ~110k-token read of the live page; kpm NEXT-SESSION.md has the steps).
+
+## The PC rounds, versions 27 to 30 (2026-10-18, kpm)
+
+| v | his words (verbatim) | what changed | commit |
+|---|---|---|---|
+| 27 | *"i want there is some distance between the carousel just for better visibility and reading"* | wheel radius so neighbours sit 30% of a card apart: gap 7 -> 45 px phone, 10 -> 60 px PC | `0267f8e` |
+| 28 | *"add back button to the first intro"* ("on the carousel page is better choice"); *"better animation when entering the slides ... right now ... kinda cheap and bad TBH"*; *"put capybara as cameo"* | "‹ Pembuka" in the top bar on the wheel (doors shut, part on the opening); the card opens INTO its slide (clip-path window, no stretched copy - the old zoom scaled a full-screen copy unevenly); picker = cross-dissolve; HIS merchant capybara (sales-terminal sprites) walks the bottom edge | `ada673e` |
+| 29 | *"i like the capybara just walk around like that, but i want more creativity ... flying with the floating rock ... with better animation and naturality"* | every other visit he rides the app's floating End-stone island (warehouse chests): arrive steering, lagging rider, lean, floor shadow by height, pebbles; hovers only on clear spots | `7397055` |
+| 30 | *"sure add the landing too"* | every other flight lands: grit puff, he hops off forward and walks on, the empty rock drifts away; phone capybara 72 px | `baea960` |
+
+Motion proof without Playwright: [[Wiki/Concepts/Looking at the App]] (real-clock CDP drivers, hidden-pane clock trap). Decided: reuse HIS art (the merchant capybara, the End island) rather than draw strangers - it landed first try.
 
 ## Rejected on purpose
 
