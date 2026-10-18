@@ -1,7 +1,7 @@
 ---
 title: Customer presentation - cloud rounds, versions 16 to 26
 created: 2026-10-18
-status: v26 LIVE; v27-v30 built on the PC (kpm baea960), publish pending; slides 22-23 wording CLOSED (no change)
+status: v30 LIVE since 2026-10-19 05:39 (artifact version 27 = kpm baea960); slides 22-23 wording CLOSED (no change)
 tags: [kpm, presentation, cloud, brainstorm, skills, workflow-rule]
 ---
 
@@ -9,7 +9,7 @@ tags: [kpm, presentation, cloud, brainstorm, skills, workflow-rule]
 
 Catch-up written on the PC from kpm `.claude/PROGRESS.md`, entries 2026-10-17 18:48 to 2026-10-18 14:40 (kpm `f292af6`). The cloud sessions could not reach A-Brain (their start-up said `CLOUD: A-Brain clone FAILED`), so nothing from those rounds was in the vault until this note.
 
-- Live page: https://claude.ai/artifact/AJQ36jBJr4jkkn6ZUnRN4A (version 26). Publishing to it from a new conversation needs `url` plus a `read` first.
+- Live page: https://claude.ai/artifact/AJQ36jBJr4jkkn6ZUnRN4A (artifact version 27 = presentation v30, published 2026-10-19). Publishing to it from a new conversation needs `url` plus a `read` first.
 - Source of truth: kpm `.claude/presentation/kpm-semua-terkendali.html`.
 - Tests: kpm `.claude/presentation/tests/` (14 scripts). They import Playwright from `/opt/node-tools/...`, a cloud-only path - run them in a cloud session, or point the import at a local Playwright.
 - Origin of the presentation: [[2026-09-30_customer-showcase]].
@@ -63,7 +63,8 @@ New fact for the model-tier benchmark: 5 Sonnet agents RAN in the cloud on 2026-
 ## OPEN - waiting on Aldi
 
 - ~~❓ *"the wording for slide 22 (Karantina) and slide 23"*~~ CLOSED 2026-10-18: *"there is nothing to change for the wording for now"*.
-- v27-v30 are built and committed on the PC, not live yet (the publish needs a ~110k-token read of the live page; kpm NEXT-SESSION.md has the steps).
+- ~~v27-v30 not live yet~~ PUBLISHED 2026-10-19 05:39 (artifact version 27; read-back holds `capy-rockbox` + `wBack`). The next publish reads a 434 KB page (base64 sprites): find lines over 3,000 chars first and read them one or two at a time.
+- ❓ open: his look at v30 on the phone (Pembuka button, card-into-slide, capybara walk / fly / land).
 
 ## The PC rounds, versions 27 to 30 (2026-10-18, kpm)
 
