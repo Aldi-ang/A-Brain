@@ -643,3 +643,12 @@ fixed with a ResizeObserver, `eef2f55`), but a map's PC frame is proven headless
 390, scrollWidth 390, real taps) - headless at 390 is cut on the right by the ~518 px window floor above, and a
 390-wide iframe inside a headless window came back BLACK (the lab never booted inside it). Re-derived this session
 before reading the 518 section: read this note's width sections before choosing the instrument.
+
+## Motion on the PC, without Playwright (2026-10-18)
+
+Found while building presentation v28 (kpm `ada673e`):
+- **The in-app browser pane's animation clock stands still while the pane is hidden.** `document.timeline.currentTime` read 0 and every WAAPI animation stayed at 0 ms, so `onfinish` never ran and the cleanup looked broken. It was not. Never judge "does the animation finish" in the pane.
+- **A bare headless `--window-size=390` lays out wider than 390** (Chrome's minimum window width): the heading was cut and a button was missing. Either put the page in a 390 px iframe on a board page (`--allow-file-access-from-files` lets the board read the frame's state), or use CDP `Emulation.setDeviceMetricsOverride`.
+- **The real-clock driver:** `.claude/presentation/tests/pc-flow.mjs` and `pc-capy.mjs` in kpm. They launch headless Chrome with a debugging port, talk CDP over Node's built-in WebSocket, press through the page with real waits, take timed screenshots, and read the page state after each step. No Playwright needed: `node pc-flow.mjs <file url> <out dir> 390 844`.
+- **Frozen frames for a board:** `document.getAnimations().forEach(a => { a.pause(); a.currentTime = T })` right after the action freezes every animation at T ms, so one screenshot shows the middle of a motion.
+- **Headless Chrome reports `navigator.webdriver = true`.** A page that hides something from test robots (the capybara) needs `Page.addScriptToEvaluateOnNewDocument` to fake it false when that thing is what you are testing.
