@@ -3441,4 +3441,6 @@ On the presentation's feature wheel, three asks in one morning:
 
 - Shown three rooms (steel wall / specimen tubes / a lit platform), he chose the one that gives the content a FLOOR to stand on: *"C but make sure it looks good both in phone and pc"*. "Both" is a standing condition, not a courtesy - a percentage-sized glow that looked fine on the phone became one dark-red band across the PC's top; size light sources in pixels with a clamp.
 
+- Then the drag: *"i want u to reduce the sensitivity on scrolling the carousel it is too sensitive and move too much"*, and before it was built, *"i want it to be slower and smoother"*. Measured cause: 0.3 deg per px plus a free spin after the lift - a slow 120 px drag moved 2.3 cards and a flick 9-12. Fixed at half the rate with a capped glide of at most two cards (kpm `b100c4b`). A carousel he presents from should move LESS than the finger expects, never more.
+
 **What to do with it:** every stop, start and switch eases (the same "no snaps" law as the fan-carousel, now for speed too). Backgrounds on his pages are rooms - steel, glass, floor, light sources - in black, warm white and amber, red only as an emergency accent.
