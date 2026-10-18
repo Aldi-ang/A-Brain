@@ -912,3 +912,12 @@ Seen: 2026-09-27
 **Would have prevented:** 2026-09-30, prototype v24's Stock Opname crate swap: the new crate's origin was measured while the box was still held at scale .08 by the shrink's fill-forwards, so the box grew out of the wrong place and was clipped at the vault's left edge - found only by a frozen frame, one more render round. Fix: `a.cancel()` before `ox(so.fac)`.
 Seen: 2026-09-30
 *Archived 2026-10-15 (retired 2026-10-14).*
+
+### 2026-10-01 — a service-worker routing test needs a server answer that differs from the worker's
+**Status:** RETIRED (2026-10-15) — never fired in 14 days; no service-worker routing test since 2026-10-01, and it cannot become a check until one is written
+**Trigger:** before trusting any test of what the offline helper (service worker) answers for a URL - the moment the result is read.
+**Lesson:** a local preview server falls back to index.html for unknown paths exactly like the worker does, so "it loaded the app" proves nothing about the worker. Put a distinguishable stand-in file at that path on the server first, then compare old worker vs new.
+**Would have prevented:** 2026-10-01, the sign-in fix: the first "reproduced" result (handler loads the app) and the first "fixed" check both read the preview server's own SPA fallback - one wrong red and one false fail; caught only because the fixed build still showed the app.
+Seen: 2026-10-01
+Fired:
+*Archived 2026-10-18 (retired 2026-10-15).*
