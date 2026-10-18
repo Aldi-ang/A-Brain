@@ -3419,3 +3419,9 @@ Shown three ways to hide a Lite button in the top bar (A a 12 px sliver, B a pul
 On the presentation's 3D feature wheel (23 cards on a ring, 7 px apart on the phone, 10 px on the PC), his ask: *"i want there is some distance between the carousel just for better visibility and reading"*. Built: the ring widened so neighbours sit 30% of a card apart - 45 px on the phone, 60 px on the PC; card size unchanged, so the text stays the same size and fewer side cards show. Shown as a before/after board (phone 390 + PC 1440).
 
 **What to do with it:** cards that touch read as one block; give each one its own edge before he has to ask. Get the space by moving things apart, never by shrinking them - the same instinct as "bigger, with pages" (fewer cells, never smaller cells). kpm presentation v27 (`.claude/presentation/kpm-semua-terkendali.html`, `wFit`).
+
+## A slide change that looks like a basic slide effect reads as "cheap" (2026-10-18)
+
+On the presentation (v27): the front card flying to full screen and the sideways slide-in between slides. His words: *"i want better animation when entering the slides makes it more natural and smooth and high quality right now the animation is like my secondary slides effect its look kinda cheap and bad TBH"*. Same message asked for a mascot: *"some random high quality agent capybara roaming around the slides and carousel make sure it is natural and HD"*.
+
+**What to do with it:** a stock transition (a plain slide, a plain zoom) is the thing he calls cheap - he wants motion that feels continuous and physical, where the thing you pressed BECOMES the next screen. "HD" and "natural" are his quality bar for anything drawn: no stiff loops, no blurry raster. To be built in v28 (see kpm NEXT-SESSION.md, 2026-10-18 16:35).
