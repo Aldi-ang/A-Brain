@@ -3431,3 +3431,12 @@ On the presentation (v27): the front card flying to full screen and the sideways
 Shown v28's cameo (his merchant capybara from the sales terminal, walking the bottom edge with a step bob, thumbs-up on tap): *"okay bruh i like the capybara just walk around like that, but i want more creativity, what if u make a new animation with that capybara model just wandering around, flying with the floating rock if possible just like in the sales terminal, but with better animation and naturality"*.
 
 **What to do with it:** reusing HIS existing art was the right call - it landed on the first try. "Like that" means keep what works and ADD to it, never replace it. His next step up is always more life (a second behaviour, a vehicle, a place from his own app), and "naturality" is the bar: curved paths, lag, weight, a shadow that knows the height.
+
+## Slow down, never stop dead; no how-to text; a page must look like the lab (2026-10-19)
+
+On the presentation's feature wheel, three asks in one morning:
+- *"i want when i hover the carousel it slow its speed gradually rather than completely stop just to make it more natural"* - a dead stop is a snap. Built as an eased speed (10 -> 2.5 deg/s, 0.45 s time constant, both ways), kpm `1315ef7`.
+- *"this tutorial is not needed"* - the line explaining how to drag and tap the wheel. A control that needs a paragraph of instructions is the control's problem; he cuts the paragraph.
+- *"i need better background for this panel btw, that represent our Resident evil requiem theme, the lab and dark theme"* - a plain glow on black is not "Ark Lab" to him; a page should look like a PLACE in the lab. Options: [[../../Brainstorm/2026-10-19_wheel-page-lab-background]].
+
+**What to do with it:** every stop, start and switch eases (the same "no snaps" law as the fan-carousel, now for speed too). Backgrounds on his pages are rooms - steel, glass, floor, light sources - in black, warm white and amber, red only as an emergency accent.
