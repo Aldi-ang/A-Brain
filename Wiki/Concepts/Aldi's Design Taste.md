@@ -3413,3 +3413,9 @@ only. Shipped: kpm `d6ae9d0`, live `ff5b97b`.
 ## He picks the option that costs zero space, again (2026-10-15)
 
 Shown three ways to hide a Lite button in the top bar (A a 12 px sliver, B a pull-tab under the bar, C the "SYSTEM ACTIVE" line itself decoding into "LITE MODE · OFF · TAP"), he answered: *"i want the status line and push it first"*. Same rule as the tutorial chips (2026-08-31, *"to save space"*): an entry point he rarely uses must not cost the bar width. He took my pick; he skipped the how-often question, so the default (first open of each day) stands until he says otherwise. [[2026-10-15_lite-button-peek]]
+
+## Cards in a row need air to be read (2026-10-18)
+
+On the presentation's 3D feature wheel (23 cards on a ring, 7 px apart on the phone, 10 px on the PC), his ask: *"i want there is some distance between the carousel just for better visibility and reading"*. Built: the ring widened so neighbours sit 30% of a card apart - 45 px on the phone, 60 px on the PC; card size unchanged, so the text stays the same size and fewer side cards show. Shown as a before/after board (phone 390 + PC 1440).
+
+**What to do with it:** cards that touch read as one block; give each one its own edge before he has to ask. Get the space by moving things apart, never by shrinking them - the same instinct as "bigger, with pages" (fewer cells, never smaller cells). kpm presentation v27 (`.claude/presentation/kpm-semua-terkendali.html`, `wFit`).
