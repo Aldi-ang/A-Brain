@@ -87,3 +87,5 @@ sit here indefinitely once it's actually decided.
 - [[2026-10-14_cloud-sessions]] - cloud sessions do not know Alucard or the app (skill + memory PC-only, A-Brain GitHub copy 674 commits stale, hooks on D:/ paths); BOTH repos public - DECIDED B, repos private, build plan inside
 
 - [[2026-10-15_lite-button-peek]] - Lite Mode button in the top bar that hides and peeks for a few seconds: A sliver (12 px) / B pull-tab (0 px) / C the "System Active" line decodes (0 px); live mock-up linked; OPEN - his pick + how often it peeks
+
+- [[2026-10-18_presentation-cloud-rounds]] - customer presentation v16-v26 from the cloud rounds (catch-up, the cloud could not reach A-Brain): every round with his words, the 14 skills, the slide-menu review, his workflow rule re-confirmed; OPEN - wording for slides 22-23
