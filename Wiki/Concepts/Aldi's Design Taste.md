@@ -3425,3 +3425,9 @@ On the presentation's 3D feature wheel (23 cards on a ring, 7 px apart on the ph
 On the presentation (v27): the front card flying to full screen and the sideways slide-in between slides. His words: *"i want better animation when entering the slides makes it more natural and smooth and high quality right now the animation is like my secondary slides effect its look kinda cheap and bad TBH"*. Same message asked for a mascot: *"some random high quality agent capybara roaming around the slides and carousel make sure it is natural and HD"*.
 
 **What to do with it:** a stock transition (a plain slide, a plain zoom) is the thing he calls cheap - he wants motion that feels continuous and physical, where the thing you pressed BECOMES the next screen. "HD" and "natural" are his quality bar for anything drawn: no stiff loops, no blurry raster. To be built in v28 (see kpm NEXT-SESSION.md, 2026-10-18 16:35).
+
+## His own character beats a new one; then he asks for a second act (2026-10-18)
+
+Shown v28's cameo (his merchant capybara from the sales terminal, walking the bottom edge with a step bob, thumbs-up on tap): *"okay bruh i like the capybara just walk around like that, but i want more creativity, what if u make a new animation with that capybara model just wandering around, flying with the floating rock if possible just like in the sales terminal, but with better animation and naturality"*.
+
+**What to do with it:** reusing HIS existing art was the right call - it landed on the first try. "Like that" means keep what works and ADD to it, never replace it. His next step up is always more life (a second behaviour, a vehicle, a place from his own app), and "naturality" is the bar: curved paths, lag, weight, a shadow that knows the height.
