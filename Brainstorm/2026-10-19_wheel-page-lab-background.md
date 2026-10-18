@@ -1,7 +1,7 @@
 ---
 title: Wheel page background - three Ark Lab looks
 created: 2026-10-19
-status: OPEN - waiting on Aldi's pick (A / B / C)
+status: DECIDED - C (containment platform), live 2026-10-19 as presentation v31
 tags: [kpm, presentation, design, ark-lab, brainstorm]
 ---
 
@@ -28,7 +28,7 @@ All three: CSS only (gradients on `.hubsec`, pseudo-elements), nothing moves, so
 
 ## Decision
 
-OPEN - waiting on Aldi. After the pick: move that option's CSS from `bgboard.mjs` into the page (drop the `html[data-bg]` prefix), re-shoot 390 + 1440, publish v31 (hover slow-down + no how-to line + the background).
+**C, 2026-10-19 ~06:00.** His words: *"C but make sure it looks good both in phone and pc"*. Built as kpm `7745a9f`, live as artifact version 28 (presentation v31). Two changes from the board version, both for "phone and pc": the red was a percentage-sized glow that met in the middle and read as one dark-red band across the top on the PC - now sized in pixels (clamp 150-380 px) so it stays in the corners (measured: top middle 17,15,12, corners 50,21,21 / 35,18,16); the dotted floor lights moved up 10 px to clear the phone's buttons. Checked at 360 / 390 / 1440 / 1920.
 
 ## Rejected on purpose
 

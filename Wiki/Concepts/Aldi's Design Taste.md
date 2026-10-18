@@ -3439,4 +3439,6 @@ On the presentation's feature wheel, three asks in one morning:
 - *"this tutorial is not needed"* - the line explaining how to drag and tap the wheel. A control that needs a paragraph of instructions is the control's problem; he cuts the paragraph.
 - *"i need better background for this panel btw, that represent our Resident evil requiem theme, the lab and dark theme"* - a plain glow on black is not "Ark Lab" to him; a page should look like a PLACE in the lab. Options: [[../../Brainstorm/2026-10-19_wheel-page-lab-background]].
 
+- Shown three rooms (steel wall / specimen tubes / a lit platform), he chose the one that gives the content a FLOOR to stand on: *"C but make sure it looks good both in phone and pc"*. "Both" is a standing condition, not a courtesy - a percentage-sized glow that looked fine on the phone became one dark-red band across the PC's top; size light sources in pixels with a clamp.
+
 **What to do with it:** every stop, start and switch eases (the same "no snaps" law as the fan-carousel, now for speed too). Backgrounds on his pages are rooms - steel, glass, floor, light sources - in black, warm white and amber, red only as an emergency accent.
