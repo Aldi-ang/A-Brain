@@ -90,3 +90,4 @@ sit here indefinitely once it's actually decided.
 
 - [[2026-10-18_presentation-cloud-rounds]] - customer presentation v16-v26 from the cloud rounds (catch-up, the cloud could not reach A-Brain): every round with his words, the 14 skills, the slide-menu review, his workflow rule re-confirmed; OPEN - wording for slides 22-23
 - [[2026-10-18_model-switcher]] - DROPPED: a mod that changes the AI model by job difficulty; A start-of-session pick / B one Haiku grade at start (my pick) / C switch every message (cache re-read each switch). His "if its cost more then forget it".
+- [[2026-10-19_app-bugs-and-100-users-check]] - OPEN: back to the app; 7 ranked findings (everyone downloads everyone's sales + photos, van cargo overwrite, HQ stock overwrite, excise, tier backup, hot tally doc, double notifications); waiting on his pick + Spark/Blaze
