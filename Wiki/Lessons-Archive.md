@@ -956,3 +956,13 @@ Seen: 2026-10-03
 **Would have prevented:** 2026-10-04, visit signs: the first moments sheet (54 px cells) showed Stock Full's bounced pack on the RIGHT of the shelf, and the act was about to be "fixed". One probe read the pack at x = -7 units (left, correct); the sheet was the fault. One extra probe + shooter run, and a near-miss wrong edit to a correct act.
 Seen: 2026-10-04
 *Archived 2026-10-19 (retired 2026-10-18).*
+
+
+### 2026-10-05 — a swap test switches to an input SMALLER than the one on screen
+**Status:** RETIRED (2026-10-19) — never fired in 14 days; no data-swap control was built since (presentation work only). Its walk lives on in the Day Replay fullscreen swap walk (Budi 11 -> Ari 3).
+**Trigger:** before a completion claim on any control that replaces the data a view shows (a man picker, a day picker, a tab that swaps a list) - the moment the walk's swap step is written.
+**Lesson:** swap to an input with FEWER items than the current one (fewer stops, fewer rows), not just a different one. State kept per position (a phase string 's8', a picked index, a scroll offset) survives the swap and is read against the new, shorter data before the next frame corrects it. Reset that state when its source changes (React's adjust-during-render), and make the walk prove it.
+**Would have prevented:** the Day Replay's date picker shipped in kpm `a4afcf2` (2026-10-05 16:20) with a latent crash - a day with fewer stops read `stops[8].kind` and blanked the whole page; its 38/38 walk never changed the day. Found only at 21:05 by the fullscreen swap walk (Budi 11 stops -> Ari 3), fixed in `50d98a9`.
+Seen: 2026-10-05
+
+*Archived 2026-10-20 (retired 2026-10-19).*
