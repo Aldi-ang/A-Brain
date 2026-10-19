@@ -13,8 +13,8 @@
 //   1. a heredoc whose body contains a backslash            (2026-09-02, 2026-09-12)
 //   2. a heredoc longer than 40 lines                        (115 lines failed; a 25-line commit
 //                                                             message with backticks passed)
-//   3. `node -e` / `python -c` whose code holds a backtick
-//      or `${`                                               (2026-09-01)
+//   3. `node -e` / `-p` / `python -c` whose code holds a
+//      backtick or `${`                                      (2026-09-01; hole fixed 2026-10-19)
 //
 // The way out is always the same and is printed in the message: write the payload with the
 // Write tool, then run or read the FILE from Bash. Nothing here needs an unlock sentinel; there
@@ -47,10 +47,13 @@ while ((m = heredocRe.exec(cmd))) {
   if (lines > 40) problems.push(`heredoc <<${tag} body is ${lines} lines (limit 40)`)
 }
 
-// 3: inline scripts.
-const inlineRe = /\b(node\s+-e|node\s+--eval|python3?\s+-c)\s+(['"])([\s\S]*?)\2/g
+// 3: inline scripts. A double-quoted body runs to the first UNESCAPED quote: the old lazy match stopped
+// at the first \" inside the code, so a backtick after it slipped through - twice on 2026-10-19 (two
+// node -e edits of tests/pc-drag.mjs: one wrote `await ev();`, one aborted). Single quotes have no
+// escapes in bash. node -p added the same day. Test: heredoc-gate.test.mjs.
+const inlineRe = /\b(node\s+-e|node\s+--eval|node\s+-p|python3?\s+-c)\s+(?:"((?:\\[\s\S]|[^"\\])*)"|'([^']*)')/g
 while ((m = inlineRe.exec(cmd))) {
-  const code = m[3]
+  const code = m[2] ?? m[3]
   if (code.includes('`') || code.includes('${')) problems.push(`${m[1]} code contains a backtick or \${`)
 }
 
