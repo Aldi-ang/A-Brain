@@ -12,7 +12,7 @@ His words, 2026-10-19, after three pushes in one afternoon went through with no 
 
 ## What "live" means here
 - A push of `phase0-solid-ground` to GitHub IS the live app: Vercel sees it and builds it (his own words earlier: *"whenever we push a new version of the app, the biometric reset"*). `main` is not the live branch.
-- The push itself needs no approval window on the PC: the repo's git config names the account (`credential.https://github.com.username = Aldi-ang`), so Git Credential Manager uses the saved login. A-Brain has no such line, so an A-Brain push may still pop a window.
+- The push itself needs no approval window on the PC: the repo's git config names the account (`credential.https://github.com.username = Aldi-ang`), so Git Credential Manager uses the saved login. A-Brain got the same line on 2026-10-19 ~19:58 (his "okay nice u can push it now"), and its end-of-session automation already uploads the vault by itself.
 - Firestore rules are NOT part of a push. `firebase deploy` is denied in his settings; he publishes rules himself from the Console (paste the file, Publish). When code needs a new rule, the rule goes live FIRST.
 
 ## The workflow (what Alucard does on "publish" / "push" / "fix the publish")
