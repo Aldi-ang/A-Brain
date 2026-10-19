@@ -10,7 +10,7 @@ updated: 2026-10-19
 
 # Excise and shipping costs are printed but never counted as cost
 
-**CLOSED 2026-10-19 — by design, not a bug.** His words: *"we have nothing to do with the product cost it is outside of this app, we just have their prices, for distributor, ecer, grosir retail, for the shipping cost and pita cukai is outside this app"*. Profit stays on `priceDistributor`. Left open as one question: the Restock intake desk still ASKS for Shipping, Excise and Labour (`RestockVaultView.jsx` ~line 1300) and the goods-received note prints "Total Landed Value" (`AcceptanceReceipt.jsx:133`) - remove those fields, or keep them as notes only?
+**CLOSED 2026-10-19 — by design, not a bug.** His words: *"we have nothing to do with the product cost it is outside of this app, we just have their prices, for distributor, ecer, grosir retail, for the shipping cost and pita cukai is outside this app"*. Profit stays on `priceDistributor`. The intake desk keeps Shipping, Excise and Labour and the receipt keeps "Total Landed Value" AS NOTES ONLY - his 14:50 *"just keep those total landed value as notes only"*; the code already only displays them.
 
 Found by the review workflow, 2026-08-17. **Verified** — survived a skeptic, which downgraded it
 from HIGH to MEDIUM because it distorts reporting rather than moving stock.

@@ -53,9 +53,9 @@ Reads US$0.038 / writes US$0.115 / deletes US$0.013 per 100k; storage US$0.00026
 Spark at 100 people: free reads gone ~14:05, the app works ~5 minutes a day; storage 1 GB full in ~6 days. **Spark cannot hold 100 people with any code** - even with both fixes, 1.99 M reads a day is 40x the free 50k. After the fixes, office users are half the reads (they download all sales + audit lines).
 
 ## Still OPEN — waiting on Aldi
-- 🔴 Blaze yes/no (the simulation is the evidence).
+- Blaze: **NO for now** (14:50) - *"i wont move to blaze yet until the app is rented and i have those blaze switch button on the setting doesnt we?"*. The Settings switch (SettingsView ~line 1366, "Database" / "Cloud · Blaze") only moves PHOTOS; it does not upgrade the plan - the Firebase project must be put on Blaze in the Console first. Flipped on Spark, an upload fails and the sale falls back to a photo inside the sale (MerchantSalesView), so it is safe but does nothing. The second fix (own sales only) is code, not a switch, and is not built.
 - 🔴 Publish rules CHANGE 16 from the Console (clipboard), then tell me so the baseline is synced.
-- ❓ Restock intake desk still asks Shipping / Excise / Labour and prints "Total Landed Value" - remove, or keep as notes?
+- Restock intake desk: **keep Shipping / Excise / Labour and "Total Landed Value" as notes only** (his 14:50). Already true in code: the landed value is only shown (restock book value column, "landed Rp / Bks" step, AcceptanceReceipt) and never feeds profit. Nothing to change.
 - Found, not fixed: an HQ vault sale made offline never deducts HQ stock; an offline consignment audit never puts returned goods back on the van.
 
 ## Rejected on purpose
