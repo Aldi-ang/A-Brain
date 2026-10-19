@@ -1,7 +1,7 @@
 ---
 title: Customer presentation - cloud rounds, versions 16 to 26
 created: 2026-10-18
-status: v30 LIVE since 2026-10-19 05:39 (artifact version 27 = kpm baea960); slides 22-23 wording CLOSED (no change)
+status: CLOSED for now 2026-10-19 08:23 - his "then we are good to go for now"; live = v35 (artifact version 32 = kpm 33459f4). Same morning: v31 lab platform background, hover slow-down, slide 23 "Kontrol Adalah Segalanya"; v32-v34 calmer wheel drag, slower spin, page locked on an upright phone; v35 no scroll hint. Next focus: the app (bugs + 100 users at once)
 tags: [kpm, presentation, cloud, brainstorm, skills, workflow-rule]
 ---
 
