@@ -1,7 +1,7 @@
 ---
 title: A duplicate notifications listener pays for reads nobody uses
 description: Two listeners watch the notifications collection. The one inside useDatabaseSync filters every document away using two fields that do not exist, and its result is never read. Delete it.
-status: To Do
+status: Done (kpm 363cea9, 2026-10-19)
 area: Performance / cleanup
 priority: Medium
 created: 2026-08-17

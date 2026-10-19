@@ -1,7 +1,7 @@
 ---
 title: A deleted permission tier survives in the backup copy
 description: The permission matrix is saved to two places - one replaced outright, one merged. A tier deleted from the first stays alive in the second, and the app falls back to the second when the first is missing.
-status: To Do
+status: Done (kpm 363cea9, 2026-10-19)
 area: Permissions / Settings
 priority: Medium
 created: 2026-08-17

@@ -1,6 +1,6 @@
 ---
 date: 2026-10-19
-status: OPEN — waiting on Aldi's pick
+status: PARTLY DONE — rows 2,3,5,7 shipped; Blaze + rules publish waiting on Aldi
 confidence: mixed (tag per row)
 checked: 2026-10-19 09:00 WIB, code on phase0-solid-ground at 8e16624
 ---
@@ -39,7 +39,24 @@ eligibility rule" (`handoffEligibility()` at `permissions.js:375`).
   writes per minute, and show rows 1, 2 and 6 happening. Turns the [likely] rows into measurements.
 
 ## Decision
-OPEN — waiting on Aldi: which row first; Spark or Blaze (Firebase console, bottom-left).
+- 09:20 his answer: *"gulir is gone, my firebase is the free one, u can do whatever first, make sure u reports when everything is done, dont forget to do the test as well"*.
+- DONE kpm `363cea9`: rows 2, 3, 5, 7 + `load-test/hundred-users.mjs` (14/14: legacy shapes of rows 2-3 lose stock, current code keeps it) + rules draft for `sales_stats` (the draft refused every salesman's sale - renumbered CHANGE 16, a CHANGE 15 already existed).
+- 14:05 his answers: *"yes deploy the change"* (rules: `firebase deploy` is denied in settings and deploying is his job - draft = live baseline + CHANGE 16 only, checked by diff; text put on his clipboard for the Console) · row 4 closed by design: *"we have nothing to do with the product cost it is outside of this app, we just have their prices, for distributor, ecer, grosir retail, for the shipping cost and pita cukai is outside this app"* · *"i want u to make simulation on the cost needed to run this app and make it in simulation 3D motion"* -> artifact https://claude.ai/artifact/H4ZyaEkJFyy1LTQDaaBEtd (source kpm `.claude/cost-sim/kpm-running-cost.html`).
+- Row 6 skipped on purpose (splitting the tally multiplies READS on Spark; test C shows nothing is lost).
+
+## The cost model (Jakarta prices read 2026-10-19 from cloud.google.com/firestore/pricing)
+Reads US$0.038 / writes US$0.115 / deletes US$0.013 per 100k; storage US$0.000263 per GiB-hour (~US$0.192 a month); internet transfer US$0.12 per GB after 10 GB a month free. Free daily: 50k reads, 20k writes, 1 GiB. At 100 people (90 salesmen x 25 sales, 3 opens a day, 80 KB photo):
+| | reads a day | download a day | Blaze per month |
+|---|---|---|---|
+| code today | 6.29 M | 389 GB | ~Rp 21.8 jt (Rp 20.6 jt of it is photos downloaded inside every sale) |
+| both fixes (photos as files + own sales only) | 1.99 M | ~1.2 GB | ~Rp 434 rb |
+Spark at 100 people: free reads gone ~14:05, the app works ~5 minutes a day; storage 1 GB full in ~6 days. **Spark cannot hold 100 people with any code** - even with both fixes, 1.99 M reads a day is 40x the free 50k. After the fixes, office users are half the reads (they download all sales + audit lines).
+
+## Still OPEN — waiting on Aldi
+- 🔴 Blaze yes/no (the simulation is the evidence).
+- 🔴 Publish rules CHANGE 16 from the Console (clipboard), then tell me so the baseline is synced.
+- ❓ Restock intake desk still asks Shipping / Excise / Labour and prints "Total Landed Value" - remove, or keep as notes?
+- Found, not fixed: an HQ vault sale made offline never deducts HQ stock; an offline consignment audit never puts returned goods back on the van.
 
 ## Rejected on purpose
 - Re-diagnosing Backlog notes that already carry findings (his rule; only re-checked whether still live).

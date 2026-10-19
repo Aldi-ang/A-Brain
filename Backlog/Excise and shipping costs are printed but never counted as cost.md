@@ -1,14 +1,16 @@
 ---
 title: Excise and shipping costs are printed but never counted as cost
 description: Every production batch records a true landed cost including cukai, shipping and labour. Three screens display it. No profit calculation in the app reads it, so every margin is overstated.
-status: To Do
+status: Done — by design (his call 2026-10-19)
 area: Procurement / Reporting
 priority: Medium
 created: 2026-08-18
-updated: 2026-08-18
+updated: 2026-10-19
 ---
 
 # Excise and shipping costs are printed but never counted as cost
+
+**CLOSED 2026-10-19 — by design, not a bug.** His words: *"we have nothing to do with the product cost it is outside of this app, we just have their prices, for distributor, ecer, grosir retail, for the shipping cost and pita cukai is outside this app"*. Profit stays on `priceDistributor`. Left open as one question: the Restock intake desk still ASKS for Shipping, Excise and Labour (`RestockVaultView.jsx` ~line 1300) and the goods-received note prints "Total Landed Value" (`AcceptanceReceipt.jsx:133`) - remove those fields, or keep them as notes only?
 
 Found by the review workflow, 2026-08-17. **Verified** — survived a skeptic, which downgraded it
 from HIGH to MEDIUM because it distorts reporting rather than moving stock.
