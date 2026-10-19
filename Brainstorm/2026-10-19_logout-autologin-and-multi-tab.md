@@ -1,6 +1,6 @@
 ---
 date: 2026-10-19
-status: OPEN — diagnosed, waiting on Aldi's pick
+status: DONE — A shipped and pushed, kpm de4e02b (2026-10-19)
 confidence: mixed (tag per line)
 checked: 2026-10-19 kpm ffcc9a6 (live build he was on)
 ---
@@ -23,7 +23,7 @@ checked: 2026-10-19 kpm ffcc9a6 (live build he was on)
 | C (for 3) | per-tab login (session persistence) | every new tab and every reopened phone app asks for Google again; breaks offline sign-in for salesmen - rejected unless he insists |
 
 ## Decision
-OPEN — waiting on Aldi.
+A — his *"A fix the publish"*. Shipped kpm de4e02b, pushed ffcc9a6..de4e02b. "Use another account" went on its own line (beside the other two it overflowed the 320 px phone card); lowercase like its neighbours (the base styles turn capitals off on buttons). B stays the answer for two accounts at once.
 
 ## Rejected on purpose
 - C as a default: salesmen reopen the app all day, often offline; per-tab login would lock them out.
