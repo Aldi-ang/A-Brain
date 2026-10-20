@@ -193,7 +193,7 @@ day's (a).
 
 `users/{bossUid}/vault_keys/{rosterProfileId}`: the person reads/writes their own; the company T1/T2 change only the three try counters; nobody deletes. 11b takes `vault_keys` out of both catch-alls (his 🔴). MUST deploy before the app push (a T2 = `COMPANY_OWNER` is unknown to the live rules). Pointer: kpm `7b85941`, `rules-test/test-vault-keys.mjs`; the story is in [[2026-09-28_vault-password-per-account]].
 
-## CHANGE 17 — 2026-10-20 — customer access by folder (DRAFT until Aldi publishes it)
+## CHANGE 17 — 2026-10-20 — customer access by folder (PUBLISHED by Aldi ~10:30 WIB, baseline kpm ff3d4db)
 
 `users/{bossUid}/settings/customer_access` `{ on, teams: { MUNTILAN: { areas: { 'JAWA TENGAH|MAGELANG': [kecamatan...] }, adminEdit, teamEdit } } }`. While `on`, T3-T6 read only shops whose `province|region|city` sit in their team's ticks (exact capitals); a team admin (AREA_ADMIN / FLEET_CAPTAIN) also reads `holdTeam == his branch`; a visit (lastVisit*, openRequest, updatedAt) needs only sight; a real edit needs the switch and lands only in his own folders. Off, or T1/T2 (owner, ADMIN, DEVELOPER, COMPANY_OWNER): the old lines unchanged. Pointer: kpm `4350707`, `rules-test/test-customer-access.mjs` (47/47). Story: [[2026-10-20_customer-access-by-folder]].
 

@@ -33,3 +33,6 @@ A cloud session works on its own branch (one pushed `claude/trusting-albattani-y
 
 ## Proof it worked (2026-10-19)
 `f292af6..ffcc9a6` (100-users fixes), `ffcc9a6..de4e02b` (logout waits + vault way out), `de4e02b..0c7e606` ("Log out" label) - each one built by Vercel; his screen showed `ffcc9a6` on the vault card.
+
+## Rules to paste: send the FILE, never a chat block (2026-10-20)
+His words after a 949-line rules paste in chat: *"bruh u can just give me the file to copy with"*. So a rules publish goes to him as `SendUserFile` of `firestore.rules` (display attach) plus the clipboard (`clip < firestore.rules`) - one line in the reply, no code block. After he says it is published: copy `firestore.rules` over `firestore.rules.deployed-baseline`, update the PUBLISHED header in both, commit "Rules published by Aldi" (kpm `ff3d4db` is the example).

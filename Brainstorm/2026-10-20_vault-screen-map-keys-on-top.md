@@ -1,6 +1,6 @@
 ---
 date: 2026-10-20
-status: OPEN — waiting on Aldi (fix yes/no)
+status: DECIDED A, built kpm 50ae2e0 (not pushed)
 ---
 # The Journey map's keys painted over the Master Vault screen
 
@@ -20,7 +20,7 @@ status: OPEN — waiting on Aldi (fix yes/no)
 | B | Raise the vault screen above every number (> 999999) and lift the confirm dialog + toasts above it | numbers in 3 files; the next screen that picks a bigger number breaks it again |
 
 ## Decision
-OPEN — waiting on Aldi. Asked 2026-10-20 10:20.
+DECIDED 2026-10-20 ~10:25: A, his words *"A is better option"*. Built kpm `50ae2e0`: BiohazardTheme marks html.kpm-gate-up while the gate is up; theme.css hides .biohazard-content and every body-level popup, the gate (.kpm-gate) stays drawn; confirm box + toasts live in #root so they still show. Lab ?shell&gate: RED before (toolbar and popup on top), GREEN after.
 
 ## Rejected on purpose
 - Lowering only the Journey toolbar's number: fixes one of seven offenders.
