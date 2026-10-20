@@ -192,3 +192,13 @@ day's (a).
 ## CHANGE 11 / 11b — 2026-09-28 — a vault password per person (DRAFT until Aldi deploys)
 
 `users/{bossUid}/vault_keys/{rosterProfileId}`: the person reads/writes their own; the company T1/T2 change only the three try counters; nobody deletes. 11b takes `vault_keys` out of both catch-alls (his 🔴). MUST deploy before the app push (a T2 = `COMPANY_OWNER` is unknown to the live rules). Pointer: kpm `7b85941`, `rules-test/test-vault-keys.mjs`; the story is in [[2026-09-28_vault-password-per-account]].
+
+## CHANGE 17 — 2026-10-20 — customer access by folder (DRAFT until Aldi publishes it)
+
+`users/{bossUid}/settings/customer_access` `{ on, teams: { MUNTILAN: { areas: { 'JAWA TENGAH|MAGELANG': [kecamatan...] }, adminEdit, teamEdit } } }`. While `on`, T3-T6 read only shops whose `province|region|city` sit in their team's ticks (exact capitals); a team admin (AREA_ADMIN / FLEET_CAPTAIN) also reads `holdTeam == his branch`; a visit (lastVisit*, openRequest, updatedAt) needs only sight; a real edit needs the switch and lands only in his own folders. Off, or T1/T2 (owner, ADMIN, DEVELOPER, COMPANY_OWNER): the old lines unchanged. Pointer: kpm `4350707`, `rules-test/test-customer-access.mjs` (47/47). Story: [[2026-10-20_customer-access-by-folder]].
+
+**Two facts the emulator taught (2026-10-20, confidence high, checked by the test):**
+- **The 1000-step limit is per REQUEST, across every allow line tried.** Small helpers that each call getEmployeeProfile() ran every allowed edit and a team admin's holdTeam query past it, and the result was a plain refusal. Fix shape: one function per check, profile read once into `let`s (`folderReadOk`, `folderEditOk`).
+- **A list query IS provable through a computed key:** `shop.city in areas.get(shop.province + '|' + shop.region, [])` accepts `where province ==, where region ==, where city in [...]` and refuses a query that slips in one unticked Kecamatan. No stored key field was needed.
+
+**Known gap, NOT fixed (his rules call):** an owner who signs in WITHOUT the super-admin email cannot LIST any collection under his company - the catch-all reads `document[0]`, which a list leaves unbound ("Variable is not bound in path template"). Same on `firestore.rules.deployed-baseline`. Aldi's own Gmail passes as super admin, so it only bites a second company's owner. Asserted as it is in the test so a fix flips it.

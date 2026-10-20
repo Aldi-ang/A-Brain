@@ -61,3 +61,9 @@ Two drawn screens, the same contents: team chips (MUNTILAN · Alex / BANDUNG / S
 | A (recommended) | a "Team access" button in Customer Directory, beside the folders it ticks | none extra; the tree is the folders he already looks at |
 | B | a "Customer access" tab in Settings, beside Tiers and logic | one more Settings tab; the folders are a screen away |
 Rejected on purpose: Fleet & Roster - he finds it crowded already (Backlog "Fleet and Roster has too many panels").
+
+## P2 built (2026-10-20 ~10:00, kpm `4350707`, NOT pushed, rules CHANGE 17 NOT published)
+Settings > Customer access (Tier 1/2): team chips, the tick tree, admin + team switches, the temporary-folder line, an On/Off switch whose confirm names the teams with no folders and the shops not filed yet. Nothing changes until he presses On. Rules [[Firestore Rules]] CHANGE 17; the app asks a limited phone one Kabupaten at a time (`city in`, 30 max) + the admin's holdTeam folder. Proof: rules 47/47 + older 186/186, logicFixes 2458/2458 (new guards RED on old code), build, audit 722/722, lab frames 375/1440 dark + light.
+Decisions made inside the build (his to overrule): T3 "HQ Sales Manager" counts as the admin of his own branch (HQ chip), not as a see-all tier; view only still records visits (or Journey check-in would break); create is unchanged (P3 routes new shops into the temporary folder).
+Order to go live: he presses Data Scrub -> publishes CHANGE 17 in the Console -> says push -> ticks folders -> presses On.
+Next: P3 - new shops from T5/T6 land in their team's temporary folder (`holdTeam`), the admin places them into one of his ticked folders.
