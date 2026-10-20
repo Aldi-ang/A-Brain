@@ -3453,3 +3453,4 @@ On the presentation's feature wheel, three asks in one morning:
 **What to do with it:** a number he checks before every sale (what is left on the van) stays ON the card, in the same unit the sibling screen uses (Agent Inventory says "16 Bks"). Moving it behind a hover or a press counts as removing it. Options and his pick: Brainstorm/2026-10-20_terminal-card-count-and-whatsapp-autofill.md.
 
 - 2026-10-20 07:40, shown "16 Bks left" (A) beside "1 Slop 6 Bks" (B) on the card: *"B is better"* - he reads stock in the units he counts in, even on the busiest card. Built in kpm `a2bf766`.
+- 2026-10-20 07:58, after B was built: *"i want bks also included there my idea is giving it pressable button like the clock button to show bopth format"* - his own pattern: ONE chip, two readings, a press flips it and it flips back by itself (the header clock and its date). He would rather add a press than a second line of text. Built in kpm `e31c310`.

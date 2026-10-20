@@ -79,3 +79,4 @@ the understanding after the fact.
 - [[Deploy the store hand-off write rule]] — the app refuses a receiver editing inherited sales; the database still allows it. One rule, hand-deployed by Aldi.
 
 - [[Consignment hand-off has no eligibility rule]] — a store can be offered to the agent who already owns it, and across regions. His rule is recorded; half of it still needs one answer.
+- [[Fleet and Roster has too many panels]] - To Do: simplify the crowded Fleet & Roster screen; after the customer-access job

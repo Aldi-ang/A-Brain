@@ -1,6 +1,6 @@
 ---
 date: 2026-10-20
-status: OPEN — waiting on Aldi (5 questions)
+status: DECIDED 2026-10-20 07:58 — building P1 next session
 ---
 # Customer Directory: each regional admin sees only the folders Tier 1 gives him
 
@@ -34,13 +34,16 @@ status: OPEN — waiting on Aldi (5 questions)
 
 Bonus: P2 also cuts reads - today every phone downloads every shop (100-users check, row 1).
 
-## Decision
-OPEN — waiting on Aldi:
-1. Terminal + map scoped too, or only the directory?
-2. Tick level: Kabupaten (recommended) or Kecamatan?
-3. Team = same Fleet & Roster branch as the admin?
-4. A new shop whose pin is outside the admin's folders -> Tier 1/2 places it (recommended), or the admin's nearest folder?
-5. Order P1 -> P2 -> P3 -> P4?
+## Decision (his answers, 2026-10-20 07:58)
+1. *"yes of course sales terminal should be limited as well"* - the scope applies to the terminal and the map too, not only the directory.
+2. *"i think i want the ticked to be as low as the kecamatan, but well if i choose the kabupaten then all kecamatan inside it will also be included in default, and if i choose province then all the kabupaten and kecamatan inside it also included in default, but we can ticked them off as well as an option"* - the grant is a list of KECAMATAN; ticking a Kabupaten or Provinsi ticks everything inside it, each can be unticked.
+3. *"yes basically the regional team"* - team = the admin's Fleet & Roster branch.
+4. *"we should have temporary folder for this, make sure that the admin of that regional area can see that, it is wise when each team have their own temporary folder for this as well dont u think, so that bandung temporary folder cant be seen by muntilan regional admin and muntilan admin cant put the bandung customer inside muntilan folder"* - one temporary folder PER regional team; only that team's admin sees it; an admin can only place a shop into his own ticked folders.
+5. *"for the build order i want u to decide it which is the wisest order, u can push now or later its up to u"*.
+
+**Order I chose, and why:** P1 clean areas + auto-fill from the pin (every later step keys on a shop's Kecamatan, and a rule query that can return one forbidden shop fails whole) -> P2 access: per-team Kecamatan grant (tick down, untick allowed) + view/edit + each team's temporary folder + the rule (he publishes rules first) -> P3 new-shop flow: a Tier 5/6 registration lands in a temporary folder, the admin places it into his own folders only -> P4 change history + undo. Then the Fleet & Roster tidy-up (Backlog "Fleet and Roster has too many panels").
+
+**Temporary-folder routing, my proposal (confirm at P3, not blocking P1):** a new shop goes to the temporary folder of the team whose ticked Kecamatan contains its pin (a Muntilan salesman registering a shop inside Bandung's area -> Bandung's temporary folder); a pin inside nobody's area -> the Tier 1/2 list.
 
 ## Rejected on purpose
 - Fixing the tier-level "own region" option: it compares two different name lists (branch vs Kabupaten) and is per tier, not per person.
