@@ -67,3 +67,8 @@ Settings > Customer access (Tier 1/2): team chips, the tick tree, admin + team s
 Decisions made inside the build (his to overrule): T3 "HQ Sales Manager" counts as the admin of his own branch (HQ chip), not as a see-all tier; view only still records visits (or Journey check-in would break); create is unchanged (P3 routes new shops into the temporary folder).
 Order to go live: he presses Data Scrub -> publishes CHANGE 17 in the Console -> says push -> ticks folders -> presses On.
 Next: P3 - new shops from T5/T6 land in their team's temporary folder (`holdTeam`), the admin places them into one of his ticked folders.
+
+## His answers, 2026-10-20 ~10:15
+- *"i already data scrub the customer directory"* - Data Scrub pressed.
+- *"tier 3 should be able to see evrything on default actually same like tier 1 and 2"* - DONE kpm `f24f2bf`: AREA_ADMIN is never limited (rules CHANGE 17 + app); the Customer access tab stays Tier 1/2 (only they may write the ticks). Rules test 53/53, now also proving the no-access-doc state he publishes into.
+- He asked for the rules text in chat to paste (CHANGE 17 incl. the T3 line, 949 lines).
