@@ -181,3 +181,6 @@ messages point at — not for cosmetic labels he will read anyway.
   lighter-weight given it's not software.
 - The "starter kit" reusable-code-repo question from [[PLAN-A-Brain-agentic-OS]] is still open
   and unrelated to this interview.
+
+## Every session ends with the start prompt, printed (2026-10-20)
+His words: *"always give me the prompt"*. The last reply of every KPM session carries the copy-ready start line from `.claude/NEXT-SESSION.md` (line 3) in its own code block - never "paste the start line" as a pointer. If the job note was committed but NOT pushed, say in one line that it is on the PC only (a cloud session would not see it).
