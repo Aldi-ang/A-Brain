@@ -53,3 +53,11 @@ Models applied: Chesterton's Fence ("sell to anyone" existed so any salesman can
 
 ## P1 done (2026-10-20 08:21, kpm `e360fa3`)
 New shops from the Sales Terminal now carry Provinsi / Kabupaten / Kecamatan from the salesman's pin (`src/utils/areaFromPin.js`, shared with the directory); folders group in capitals so "Jawa Tengah" and "JAWA TENGAH" are one; the directory form fills an empty level from the pin; the Data Scrub works out its plan and states it (from pin / from address words / still unmapped) before writing. Found on the way: the terminal had saved the pin and NO area since the new-outlet form was built - that, not a missing feature, was the unassigned folder. Grants must key "PROVINSI|KABUPATEN|KECAMATAN" (names repeat), and Firestore `in` takes 30 values - both in the P2 brief.
+
+## P2 placement - shown 2026-10-20 09:08, OPEN
+Two drawn screens, the same contents: team chips (MUNTILAN · Alex / BANDUNG / SEMARANG), the folder tree with ticks (Provinsi > Kabupaten > Kecamatan, a part-ticked parent shown half-filled), two switches - the regional admin "view only / view and edit" and his team "view only / view and edit" (team default view only) - and the team's temporary folder line.
+| Option | Where | Cost |
+|---|---|---|
+| A (recommended) | a "Team access" button in Customer Directory, beside the folders it ticks | none extra; the tree is the folders he already looks at |
+| B | a "Customer access" tab in Settings, beside Tiers and logic | one more Settings tab; the folders are a screen away |
+Rejected on purpose: Fleet & Roster - he finds it crowded already (Backlog "Fleet and Roster has too many panels").
