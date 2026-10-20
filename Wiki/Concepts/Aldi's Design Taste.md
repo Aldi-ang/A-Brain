@@ -3459,3 +3459,6 @@ On the presentation's feature wheel, three asks in one morning:
 
 ## The confirm box was too small to read (2026-10-20)
 His words, with a screenshot of the "Turn folders ON?" confirm: *"i want u to fix this panel make it bigger because it is too small hard to read"*. It was 11px message text, 9.5px title, 11px buttons in a 448px box. Now 15px / 12px / 14px in 576px (kpm, ConfirmGate.jsx). Third time he has asked for bigger small type (see "asked for bigger small type", 2026-08-16): **text he must READ to decide something starts at 15px; 11px is for labels only.**
+
+## The switches were amber slabs, and he said "remember" (2026-10-20)
+His words, on the Customer access switches and Save row: *"make sure this buttons is well animation and build"* and *"and remember i dont like this full amber fill the panel"*. The "remember" is the point: the slab-vs-mark law was already written here, but `.kpm-switch` broke it in the dark theme because `--gold` is amber there (the old comment only checked the light theme, where it is near-black). Built kpm: chosen side = `--raised` + gold word + a 3px gold bar that slides (220ms); the red "NOT SAVED" plate became amber ink text; a disabled gold button now looks disabled. **Check a colour token in BOTH themes before calling a fill legal.** Frames: Raw/2026-10-20-customer-access/switch-after-*.png.
