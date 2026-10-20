@@ -3462,3 +3462,5 @@ His words, with a screenshot of the "Turn folders ON?" confirm: *"i want u to fi
 
 ## The switches were amber slabs, and he said "remember" (2026-10-20)
 His words, on the Customer access switches and Save row: *"make sure this buttons is well animation and build"* and *"and remember i dont like this full amber fill the panel"*. The "remember" is the point: the slab-vs-mark law was already written here, but `.kpm-switch` broke it in the dark theme because `--gold` is amber there (the old comment only checked the light theme, where it is near-black). Built kpm: chosen side = `--raised` + gold word + a 3px gold bar that slides (220ms); the red "NOT SAVED" plate became amber ink text; a disabled gold button now looks disabled. **Check a colour token in BOTH themes before calling a fill legal.** Frames: Raw/2026-10-20-customer-access/switch-after-*.png.
+
+Same day, his follow-up: *"can u fix all the buttons so that it look like that new button u just made, i see few in the setting"* - status badges, the pill switches and the dropdown chosen row moved to the same look (kpm d1398cf). Frames: Raw/2026-10-20-customer-access/settings-controls-*.png.
