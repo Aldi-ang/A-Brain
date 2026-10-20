@@ -1612,3 +1612,5 @@ His two "too small" reports fixed and measured; rule written into [[Aldi's Desig
 ## 2026-10-12 06:55 — his batch built: HUB pin A, gold-edge buttons A, Masuk overlap, stock table columns, WhatsApp receipt A (kpm 9104082..7098386, local)
 
 Five fixes, each with a guard trialled red; logicFixes 2299/2299, audit 722/722. Causes + traps in [[2026-10-12_whatsapp-receipt]] (the 0fr drawer inside a grid; the hidden browser pane has no animation frames). Proof: `Raw/2026-10-12-batch/`. Next: the demo front door, design first.
+
+- 2026-10-20 08:34 - Sales Terminal: the H2a auto-pick ran on every keystroke, and picking closes the "Who is buying?" box, so a new shop name starting with an existing one ("HQ DEKET 1") could not be typed - the phone keyboard vanished at "HQ DEKET". The pick now runs when he finishes (Done / Enter / tap outside), same one-match guard. kpm `bb2054c`. Lesson for any auto-action inside a text field: it must not unmount the field it fires from.
