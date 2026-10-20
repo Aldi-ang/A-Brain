@@ -3451,3 +3451,5 @@ On the presentation's feature wheel, three asks in one morning:
 *"agent inventory detected 16 mrapi cigarette but on the sales terminal there is no information regarding its quantity"* - he called it a BUG. The count had been taken off the card on purpose on 2026-08-05 (kpm `a181c9a`, "four words of noise") and moved to a side rail that only exists at 1280 px and up, behind a press. He never found it there.
 
 **What to do with it:** a number he checks before every sale (what is left on the van) stays ON the card, in the same unit the sibling screen uses (Agent Inventory says "16 Bks"). Moving it behind a hover or a press counts as removing it. Options and his pick: Brainstorm/2026-10-20_terminal-card-count-and-whatsapp-autofill.md.
+
+- 2026-10-20 07:40, shown "16 Bks left" (A) beside "1 Slop 6 Bks" (B) on the card: *"B is better"* - he reads stock in the units he counts in, even on the busiest card. Built in kpm `a2bf766`.

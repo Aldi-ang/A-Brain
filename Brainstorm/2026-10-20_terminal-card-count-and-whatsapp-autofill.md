@@ -1,6 +1,6 @@
 ---
 date: 2026-10-20
-status: OPEN — waiting on Aldi
+status: DONE 2026-10-20 (kpm a2bf766, not pushed)
 ---
 # Sales terminal: no pack count on the card; WhatsApp box asks for a number
 
@@ -24,7 +24,8 @@ He also confirmed the salesman test from 2026-10-19: *"i checked that agent inve
 Shown to him as three drawn cards (Today / A / B), A marked.
 
 ## Decision
-OPEN — waiting on Aldi: A or B; does TEST 2 have a phone saved; card price follow the shop's tier?
+His answers, 2026-10-20 07:40: *"B is better"* · *"yes there is phone number data on the customer directory for test 2, but no worries it was random phone number make sure that from now on the number and data is well stored and immune to any updates in the future this is a must"* · *"the price shown on the card should be depending on the stores type that we are selling on"*.
+Built in kpm `a2bf766`: card chip "1 Slop 6 Bks" (LOW keeps amber with the count inside), card price = the picked shop's tier, a number WhatsApp cannot open is refused on save (directory + terminal new-outlet form) and shown in the receipt box to fix, and a check fails if any write ever replaces a whole shop document. The cause for TEST 2 was the random number itself (WhatsApp cannot open it), not a stale copy.
 
 ## Rejected on purpose
 - Hiding the count again behind a press or a hover: he did not find it there, which is the bug.
