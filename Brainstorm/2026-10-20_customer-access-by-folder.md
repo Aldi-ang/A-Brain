@@ -1,6 +1,6 @@
 ---
 date: 2026-10-20
-status: DECIDED 2026-10-20 07:58 — building P1 next session
+status: DECIDED — P1 DONE 2026-10-20 08:21 (kpm e360fa3), P2 next
 ---
 # Customer Directory: each regional admin sees only the folders Tier 1 gives him
 
@@ -50,3 +50,6 @@ Bonus: P2 also cuts reads - today every phone downloads every shop (100-users ch
 - Hiding other folders only on screen: the server would still hand every shop (with phone numbers) to every phone.
 
 Models applied: Chesterton's Fence ("sell to anyone" existed so any salesman can sell to any shop - D1 asks before removing it), Pre-mortem (a rules query that can return one forbidden shop fails WHOLE, so P1's clean areas must land before P2's rule), Reversibility Test (P1 fills only empty areas and lists conflicts, so it is undoable).
+
+## P1 done (2026-10-20 08:21, kpm `e360fa3`)
+New shops from the Sales Terminal now carry Provinsi / Kabupaten / Kecamatan from the salesman's pin (`src/utils/areaFromPin.js`, shared with the directory); folders group in capitals so "Jawa Tengah" and "JAWA TENGAH" are one; the directory form fills an empty level from the pin; the Data Scrub works out its plan and states it (from pin / from address words / still unmapped) before writing. Found on the way: the terminal had saved the pin and NO area since the new-outlet form was built - that, not a missing feature, was the unassigned folder. Grants must key "PROVINSI|KABUPATEN|KECAMATAN" (names repeat), and Firestore `in` takes 30 values - both in the P2 brief.
