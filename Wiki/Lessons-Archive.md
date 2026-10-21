@@ -966,3 +966,11 @@ Seen: 2026-10-04
 Seen: 2026-10-05
 
 *Archived 2026-10-20 (retired 2026-10-19).*
+
+### 2026-10-06 — an `if false` under a catch-all is not a lock; read the parent match before quoting a rule as a guarantee
+**Status:** RETIRED (2026-10-20) — never fired in 14 days; no rules line has been quoted to Aldi or a customer page as a guarantee since. Platitude, not structural: a check cannot tell a quote from a citation.
+**Trigger:** before a completion claim — the moment a rules line (`allow ... if false`, a region check) is about to be quoted to Aldi or put on a customer page as "X cannot happen".
+**Lesson:** Firestore rules OR together. Walk up from the line to every enclosing `match`, above all a `/{document=**}` catch-all, and name who it lets through; the claim becomes "cannot, except <who>".
+**Would have prevented:** 2026-10-06, the round-3 brief (NEXT-SESSION 09:21) told the Cello presentation to say sales records "cannot be edited or deleted" from `firestore.rules:557`; the owner catch-all at :343 grants exactly that. A false Bukti nearly went onto a paying customer's page.
+Seen: 2026-10-06
+Fired:
