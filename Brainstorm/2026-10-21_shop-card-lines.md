@@ -1,6 +1,6 @@
 ---
 date: 2026-10-21
-status: OPEN — waiting on Aldi (A or B)
+status: DECIDED — A, Bands (2026-10-21 08:20, kpm d3dfe63)
 ---
 # Customer Directory: the shop cards get clear lines
 
@@ -23,7 +23,7 @@ status: OPEN — waiting on Aldi (A or B)
 Both carry the F3 fix — it is a bug, not an option.
 
 ## Decision
-OPEN — waiting on Aldi.
+A, Bands. His words: *"A look okay u can do that"*. Built 2026-10-21 (kpm d3dfe63, not pushed yet).
 
 ## Rejected on purpose
 - **Recolouring `--line` itself.** It is shared by hundreds of edges that are meant to be quiet; brightening it would add lines everywhere, against his 2026-08-27 law ("hierarchy is made of space, not of more lines"). The fix stays on this card.
