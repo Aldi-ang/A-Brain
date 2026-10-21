@@ -87,3 +87,10 @@ Motion proof without Playwright: [[Wiki/Concepts/Looking at the App]] (real-cloc
 - Any workflow or subagent without his yes. "Ultracode" is not a yes.
 
 Models applied: none recorded - this is a catch-up of cloud rounds, and those sessions logged none.
+
+## v36 - the "this way" sign (2026-10-21, kpm 58cb87a, LIVE as artifact version 33)
+His ask: *"i want u to give flow on the presentation that we made last time , i want u to redirect the viewer to follow the step to see all the presentation slides with smooth and cool animation use all the skills and i want u to connect with the animation website if u need to. this is just basically make a "this way" sign but animated"*.
+Built (one design, my call - live, not a menu): three chevrons that light up one after another in the direction to go (lab floor guide lights). Wheel: "Mulai di sini" rides ON card 01 and bobs; the opening closing turns the wheel to it and holds the spin 6 s; back on the wheel it turns to the first unseen card ("Berikutnya") and seen cards get a check. In a slide: a bottom-right plate "Berikutnya 02 Rute Hari Ini" (phone: number only), one tap = next slide, it re-enters with each new destination; the closing slide sends to the first skipped slide ("Terlewat") or back to the wheel ("Selesai"). Still mode: chevrons stand lit.
+The animation sites could not be fetched (firecrawl needs an API key this session does not have); the pattern is the lit-trail / beam idea those sites use, rebuilt in the presentation's own palette.
+Test: `.claude/presentation/tests/pc-guide.mjs` (390 / 1440 / 1920). pc-hover now waits out the 6 s hold.
+OPEN - waiting on Aldi: his look on the phone and PC.
