@@ -94,3 +94,7 @@ Built (one design, my call - live, not a menu): three chevrons that light up one
 The animation sites could not be fetched (firecrawl needs an API key this session does not have); the pattern is the lit-trail / beam idea those sites use, rebuilt in the presentation's own palette.
 Test: `.claude/presentation/tests/pc-guide.mjs` (390 / 1440 / 1920). pc-hover now waits out the 6 s hold.
 OPEN - waiting on Aldi: his look on the phone and PC.
+
+## v37 asked (2026-10-22 01:40) - OPEN, nothing built yet
+His list, verbatim in kpm `.claude/NEXT-SESSION.md` (top block). In short: the wheel must NOT spin - card 01 at the front from the start, it moves only on the way back from a slide (reverses his 2026-10-19 spin settings and v36's 6 s hold); the slide's back button ("FITUR") is not read as a back button; "Gerak" is a vague word in Indonesian; slide 03's text jumps at every checkpoint (store lines of different length); slide 04's tier tower should turn very slowly; slide 08's map should turn upright and stop covering its names and data; slides 09 and 20 are "standardised" charts - new animated models (20: show the stock running empty, not a chart, capybara workers welcome); slide 18's hand-over cards are "too fague"; slide 19 should play a real level-up with the app's real levels and borders.
+Plan: batch 1 (the fixes) builds straight; batch 2 (back button + label, 09, 18, 19, 20) goes to him as frames first.
