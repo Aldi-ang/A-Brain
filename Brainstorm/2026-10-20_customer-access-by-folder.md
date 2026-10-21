@@ -72,3 +72,32 @@ Next: P3 - new shops from T5/T6 land in their team's temporary folder (`holdTeam
 - *"i already data scrub the customer directory"* - Data Scrub pressed.
 - *"tier 3 should be able to see evrything on default actually same like tier 1 and 2"* - DONE kpm `f24f2bf`: AREA_ADMIN is never limited (rules CHANGE 17 + app); the Customer access tab stays Tier 1/2 (only they may write the ticks). Rules test 53/53, now also proving the no-access-doc state he publishes into.
 - He asked for the rules text in chat to paste (CHANGE 17 incl. the T3 line, 949 lines).
+
+## P3 reshaped by his answers (2026-10-21 ~10:45) - OPEN, one decision waiting
+Asked: whose temporary folder (salesman's team or the pin's team), and should the salesman keep seeing a shop he registered while it waits.
+- *"well it supposed to go for bandung team , but this is very niche to happens, in that case there should be customer folder transfer between regional team dont u think?"* - the PIN's team.
+- *"actually i made this logic before, all store registration should be automatically can be seen by every team member but to unlock the proce level of grosir, it needs confirmation from the regional admin, to avoid salesman selling at retail price while the system recognize the sales as grosir, when this happen means that the salesman have increase the price for their own benefit which is bad for both customer and company"*.
+
+**So the hold is on the PRICE, not on the shop.** A new shop is filed by its pin (P1) and seen by the team that covers that Kecamatan at once; what waits for the regional admin is GROSIR. The temporary folder (`holdTeam`, P2) is not needed for new shops.
+
+What the code does today (read 2026-10-21) - his rule is NOT enforced anywhere, three doors are open:
+| Door | Fact | Where |
+|---|---|---|
+| D1 terminal | the new-shop form offers the salesman's allowed tiers; the pick is written straight to `priceTier` and the cart is priced at it in the same sale | MerchantSalesView.jsx:979, :3019; useTransactionEngine.js:383 |
+| D2 directory | "Pricing Type" (Grosir / Retail / Ecer) is in the add AND edit form for anyone not view-only | CustomerManager.jsx:1379 |
+| D3 server | the customers rules let any non-view-only salesman write `priceTier` | firestore.rules:603-612 |
+| D4 walk-in | a salesman whose tier allows Grosir can still pick Grosir per cart line on a sale with no shop | MerchantSalesView.jsx:2053 (separate door, not in P3 unless he says) |
+| old hide | a shop a field agent adds in the directory is `PENDING` and hidden from every agent until Verify - the opposite of "seen by every team member" | App.jsx:4345, MerchantSalesView.jsx:404, CustomerManager.jsx:1007 |
+
+Proposed P3 (waiting on the one decision below): new shops visible to the team at once (PENDING stops hiding); a Grosir request is saved as `requestedTier: 'Grosir'` with `priceTier` held below it; the regional admin of the shop's area (and Tier 1/2/3) sees "Grosir requests" in Customer Directory with Confirm / Refuse, every press reports; rules CHANGE 18 makes it real (only an admin may write `priceTier: 'Grosir'`), published by him first.
+
+| Option for the first sale | What happens | Cost |
+|---|---|---|
+| A (recommended) | sells at Retail until the admin confirms Grosir | a real wholesale shop pays Retail on its first sale unless the admin confirms before the salesman finishes |
+| B | sells at Grosir at once; the admin checks after and can turn it back | the overcharge he described has already happened on that first sale - B only finds it |
+
+**On his transfer question:** folders are places on the map, so a shop follows its pin. Giving a shop's area to another team is a tick in Settings > Customer access (two teams can both tick the same Kecamatan - each team's list is its own). No per-shop transfer built until a real case needs one.
+
+Rejected on purpose: the admin-only temporary folder for new shops (his answer: registrations are seen by the whole team); routing by the salesman's own team (his answer: the pin's team).
+
+Models applied: Inversion (how would a salesman still overcharge after P3? -> D2/D3 the directory form and the rules, D4 walk-in), Second-Order Thinking (a Retail first sale costs a real wholesale customer once), Opportunity Cost (a per-shop transfer for a case he calls niche).
