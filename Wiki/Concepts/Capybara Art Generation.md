@@ -42,3 +42,7 @@ He made a free Hugging Face account and a Read token. The anonymous limit no lon
 - The token was pasted in chat, so it should be deleted after use; the generator reads `%USERPROFILE%\.cache\huggingface\token`.
 
 See also: [[Aldi's Design Taste]] · [[Looking at the App]] · [[9Router Subordinate AI Delegation]]
+
+## The flying cameo uses them too (2026-10-22 17:32, presentation v36)
+His words: *"yes i want the capybara update on all models inside the presentation so that it have varieties, u can even generate other clothes for him"*. Each visit the cameo dresses for the slide on screen (`OUTFIT` map: stock slides -> worker, security -> guard, money -> cashier, reports -> office, sales -> sales, customers -> warung owner, routes -> driver), and each pause or tap shows a different gesture from that look's list (never the same one twice in a row). A look whose picture is not drawn yet is skipped, so new outfits switch on as soon as `swap.mjs` adds them.
+Quota fact: a free account's ZeroGPU allowance covered 9 pictures (~33-39 s each) before *"exceeded your ZeroGPU runs limit"* at 17:23; it refills daily. Still to draw: o-sales, o-driver, o-office, o-guard, o-cashier, o-chef, m-think, m-sit (`capy-poses/tools/outfits.sh`).
