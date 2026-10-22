@@ -98,6 +98,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[A CSS Animation Outranks Your Inline Style]] — a keyframe's `transform: none` erases the inline `transform` you positioned with, because the animation origin beats the author origin. It put every Ponder caption on top of the field it was explaining, in every scene, with 657 checks green.
 - [[A Rect Is Painted, Not Laid Out]] — `getBoundingClientRect()` reports the screen, not the layout, so measuring through an ancestor's `scale(0.94)` returns geometry 6% small. It healed itself four seconds later, which is why it shipped.
 - [[Design Inspiration Sources]] — the 5 sites his component and animation ideas come from, and the 4 rules an idea must clear to survive in KPM
+- [[Capybara Art Generation]] — new poses and outfits of his capybara with the same face and body: FLUX Kontext from his sprite, which routes are closed, how a pose gets into the presentation
 
 - [[Web Research When the Search Tools Die]] — WebSearch, WebFetch and firecrawl all dead at once: DuckDuckGo HTML in the built-in browser plus one JS line verified 9 of 11 claims. Also how to view a private artifact without signing in.
 ## Summaries (one per ingested source, newest ingest pass first)

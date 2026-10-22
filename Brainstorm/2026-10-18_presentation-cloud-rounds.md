@@ -120,3 +120,9 @@ Problem, his words: *"no one will realise that it is a back button and also the 
 Facts used, never invented: ranks + XP = `src/config/career.js` DEFAULT_RANKS (Bronze 0, Silver 5.000, Gold 20.000, Platinum 50.000, Diamond 100.000, Mythic 250.000); frames = `src/config/rankBorders.jsx` (the app has NO level-up animation today, so H is new design). Slide 09 numbers = the slide's own P3B/P3P.
 Still asked: his "for each of the slides as well" - capybara workers on every slide, or only these four?
 REJECTED ON PURPOSE: another bar/column chart for 09 or 20 (his "too standardised"); an icon-only back arrow (he said nobody reads it as back - the word stays); keeping "Gerak" with a tooltip (the word itself is the problem).
+
+## v37 batch 2 DECIDED (2026-10-22 ~12:50) - BUILT 13:30, local + private preview, NOT live
+His answer, verbatim: *"back button = A, slide 9 = A, slide 18 A but can u generate new expression for that capybara for overall use, make sure their body and face is the same just different gesture, because all the gesture is the same, u can use higgsfiel or some other provider to help u generate resources for the capybara, 19 = A, 20 = A im expecting different clothes as well for the capybara i want u to generate it, u can use other sources"*.
+DECISION: every row went to my pick (A). The two new asks are the capybara: gestures that differ (same face and body), and different clothes for the slide-20 workers.
+Built into kpm `.claude/presentation/kpm-semua-terkendali.html`; preview https://claude.ai/artifact/3qc3QB1eqCHzXs4udeX4pa. The live presentation stays version 34 until the art is finished. How the art is made, and what blocked it: [[Capybara Art Generation]].
+REJECTED ON PURPOSE (this round): the B options (top-right back button, bubbles, with/without warehouses), not picked.

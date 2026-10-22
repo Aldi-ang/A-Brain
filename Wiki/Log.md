@@ -12,6 +12,9 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-10-22 13:40 — presentation v37 batch 2 built from his picks (local + private preview); new technique: [[Capybara Art Generation]]
+His picks were all my picks (E-A, 09-A, 18-A, 19-A, 20-A) plus new capybara gestures and a worker outfit. FLUX Kontext on Hugging Face kept the character identical for 3 poses, then the free anonymous limit stopped it. Waiting on him for a way to unlock it.
+
 ## 2026-10-05 (later) — Consensus connected; 13 prompts run, evidence page built
 
 Aldi connected the Consensus connector. Ran P1-P13 sequentially (free tier rate-limits parallel calls). 39 papers used; 5 strong, 5 moderate, 3 weak answers; 7 of his field claims supported. Corrections: ngrapak = faster burn + more NH3, not a hotter coal; tegal dryness can be good, rapid-growth drought is the damage. Page https://claude.ai/artifact/HBX62nSw7YRrraUWLeGby9.
