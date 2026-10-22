@@ -34,8 +34,11 @@ Tools: kpm `.claude/presentation/capy-poses/tools/` (`gen.mjs`, `img.mjs`, `retr
 
 The page carries the poses as data URIs between `/*CYI*/` and `/*CYI-END*/`. `swap.mjs` rebuilds that block from `capy-poses/cut/`. A pose that does not exist yet falls back to one that does (run -> point, stamp -> deal, receive -> wave, workers -> merchant with a carton on the head), and `CYI_HAS` says which poses are real, so the page never breaks while art is missing.
 
-## Still to make
+## Done 2026-10-22 15:19 - all 11 poses, live in presentation v35
 
-Worker outfit: w-stand (yellow hard hat, orange hi-vis vest, beige shirt, brown trousers and boots, no blue or green, palette law), then w-carry, w-shock and w-wave, each using the worker image as its reference so the clothes stay the same. Merchant poses still to make: m-run (09), m-stamp and m-receive (18), m-cheer.
+He made a free Hugging Face account and a Read token. The anonymous limit no longer applies, and the 8 missing poses came back in ~5 minutes (33-39 s each, every one right on the first try). The worker outfit was made from his merchant sprite (only the clothes changed). The other worker poses then used the worker image as their reference, so the clothes stay the same. Notes:
+- The model chooses the facing: `w-carry` came back walking LEFT although the prompt said right, so the page mirrors it. `m-run` faces right, as asked. Look before wiring any walk.
+- Two poses came with a floor shadow that tolerance 75 did not clear; 110 did, and the shirts and the box survived.
+- The token was pasted in chat, so it should be deleted after use; the generator reads `%USERPROFILE%\.cache\huggingface\token`.
 
 See also: [[Aldi's Design Taste]] · [[Looking at the App]] · [[9Router Subordinate AI Delegation]]

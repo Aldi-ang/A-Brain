@@ -126,3 +126,6 @@ His answer, verbatim: *"back button = A, slide 9 = A, slide 18 A but can u gener
 DECISION: every row went to my pick (A). The two new asks are the capybara: gestures that differ (same face and body), and different clothes for the slide-20 workers.
 Built into kpm `.claude/presentation/kpm-semua-terkendali.html`; preview https://claude.ai/artifact/3qc3QB1eqCHzXs4udeX4pa. The live presentation stays version 34 until the art is finished. How the art is made, and what blocked it: [[Capybara Art Generation]].
 REJECTED ON PURPOSE (this round): the B options (top-right back button, bubbles, with/without warehouses), not picked.
+
+## v37 batch 2 LIVE (2026-10-22 15:30) - presentation artifact version 35
+All five picks live, with all 11 new capybara poses (worker outfit included); none on fallback. Unlocked by his own free Hugging Face token (his words: *"i want u to run it on my pc im outside now"*). OPEN: his look at the live page.
