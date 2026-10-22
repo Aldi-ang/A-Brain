@@ -98,3 +98,25 @@ OPEN - waiting on Aldi: his look on the phone and PC.
 ## v37 asked (2026-10-22 01:40) - OPEN, nothing built yet
 His list, verbatim in kpm `.claude/NEXT-SESSION.md` (top block). In short: the wheel must NOT spin - card 01 at the front from the start, it moves only on the way back from a slide (reverses his 2026-10-19 spin settings and v36's 6 s hold); the slide's back button ("FITUR") is not read as a back button; "Gerak" is a vague word in Indonesian; slide 03's text jumps at every checkpoint (store lines of different length); slide 04's tier tower should turn very slowly; slide 08's map should turn upright and stop covering its names and data; slides 09 and 20 are "standardised" charts - new animated models (20: show the stock running empty, not a chart, capybara workers welcome); slide 18's hand-over cards are "too fague"; slide 19 should play a real level-up with the app's real levels and borders.
 Plan: batch 1 (the fixes) builds straight; batch 2 (back button + label, 09, 18, 19, 20) goes to him as frames first.
+
+## v37 batch 1 BUILT (2026-10-22 07:00) - LIVE, kpm `8e8c7f5`, presentation artifact version 34
+- Wheel: the auto-spin loop is deleted (no wLoop, no hover slow-down, no 6 s hold). Card 01 is at the front from the first frame; the only turn it makes alone is on the way back from a slide, to the next unseen card. `tests/pc-hover.mjs` now asserts it stays still (6/6 at 390/1440/1920).
+- Slide 03: the replay card changed height at every stop (78 -> 180 px), and on PC the words column is centred against it, so the headline and paragraph jumped up to 35 px. Fix: every card the replay can show sits invisibly in the same grid cell (`.drghost`), so the box is always the tallest one. Measured 180 px at every stop, nothing moves.
+- Slide 04: the tier tower turns by itself at 3 deg/s while the slide is on screen; stops in Lite.
+- Slide 08, ROOT CAUSE: `orbit().spin()` used the CURRENT angle as its end. Opening a slide from the wheel calls it twice (soloOn + the first-look observer), so the second spin ended 50 deg off: the map stood as a diamond and its corners covered leaderboard rows 1-2. spin() now lands on the rig's own angle; the leaderboard also sits above the map so a hand-turned map passes under the names.
+
+## v37 batch 2 - board sent (2026-10-22 07:25) - OPEN, waiting on Aldi
+Board (live, private to him): https://claude.ai/artifact/TQs8QLSW7SFaoeM7QKat9t - kpm `.claude/presentation/v37-board/`.
+Problem, his words: *"no one will realise that it is a back button and also the gerak button is a fague description"*; slide 09 *"too standardised and used too many times"*; 18 *"those flying card just too fague to explain with"*; 19 *"simulate what happen when level up ... the real level that we design on the app and also the real borders"*; 20 *"cool animation to really show that the stock is empty, u can use the capybara model and remake it into some workers"*.
+
+| Row | A (my pick) | B | Cost of A |
+|---|---|---|---|
+| E back + motion | back button top-left: gold arrow tile + "Kembali" / "Kembali ke semua fitur"; motion = switch "Animasi" + Nyala/Mati | same places (top-right), words only: "‹ Kembali", "Animasi: Nyala" | the brand shifts right one button. B's cost: top-right reads as close/menu, the reason it was missed |
+| F slide 09 | capybara race: each product a runner with its pack, distance = rupiah, then packs / Rp / share per lane | bubbles: area = rupiah, they push into place | small differences (D vs E) read from numbers, not distance |
+| G slide 18 | numbered 3-step rail + one sentence per step; request slip -> DISETUJUI stamp -> the shop card walks to Andi carrying stock + debt; the "penanggung jawab" line changes name | (none - one strong option) | ~12 s a loop (was ~6) |
+| H slide 19 | XP from real sources fills the bar; NAIK PANGKAT banner; the old frame breaks away, the new rank's REAL frame lands; 6-rung ladder of the real frames | (none) | ~45 KB of real frame CSS in the page |
+| I slide 20 | warehouse: capybara workers carry cartons out, empty slots stay outlined, beacon + the app's warning at the minimum, admin presses Ajukan, Gudang Pusat truck arrives before the last carton | two warehouses with vs without the warning; the left one is stamped KOSONG | ~16 s a loop; the 3D bars go |
+
+Facts used, never invented: ranks + XP = `src/config/career.js` DEFAULT_RANKS (Bronze 0, Silver 5.000, Gold 20.000, Platinum 50.000, Diamond 100.000, Mythic 250.000); frames = `src/config/rankBorders.jsx` (the app has NO level-up animation today, so H is new design). Slide 09 numbers = the slide's own P3B/P3P.
+Still asked: his "for each of the slides as well" - capybara workers on every slide, or only these four?
+REJECTED ON PURPOSE: another bar/column chart for 09 or 20 (his "too standardised"); an icon-only back arrow (he said nobody reads it as back - the word stays); keeping "Gerak" with a tooltip (the word itself is the problem).
