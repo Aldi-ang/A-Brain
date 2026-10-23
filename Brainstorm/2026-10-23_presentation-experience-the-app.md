@@ -1,7 +1,7 @@
 ---
 title: Presentation - let viewers experience the app, not read about it
 created: 2026-10-23
-status: OPEN - waiting on Aldi (A or B)
+status: DECIDED 2026-10-23 - A
 ---
 
 # Let viewers experience the app
@@ -20,7 +20,7 @@ The app has a demo build (`src/components/DemoFrontDoor.jsx`, IS_DEMO). It is in
 | C - recorded walkthrough clips in the slides | Showing, not doing | medium, but recording needs a signed-in demo session (Claude does not sign in) | not interactive, which is the point of his ask |
 
 ## Decision
-OPEN - waiting on Aldi: A or B.
+DECIDED 2026-10-23: A, his words: *"A is efficient i guess"*. First slice = steps 1-3.
 
 ## Rejected on purpose
 C as the main answer: his ask is the feeling of the interaction ("giving them feeling on how the interaction work"), and a clip gives none.
