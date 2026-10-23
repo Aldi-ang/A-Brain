@@ -129,3 +129,6 @@ REJECTED ON PURPOSE (this round): the B options (top-right back button, bubbles,
 
 ## v37 batch 2 LIVE (2026-10-22 15:30) - presentation artifact version 35
 All five picks live, with all 11 new capybara poses (worker outfit included); none on fallback. Unlocked by his own free Hugging Face token (his words: *"i want u to run it on my pc im outside now"*). OPEN: his look at the live page.
+
+## 2026-10-23 - next ask: let viewers experience the app
+His new ask and the options (A guided mission in the real demo / B playable copy in the presentation): [[2026-10-23_presentation-experience-the-app]] - OPEN.
