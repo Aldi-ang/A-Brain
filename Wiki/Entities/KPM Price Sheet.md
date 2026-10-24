@@ -216,3 +216,6 @@ what should settle it.
 - [[2026-09-09_pricing-kpm-for-the-first-customer]] — the original measured comps, superseded in part
 - [[2026-09-10_riset-hukum-menjual-kpm]] — tax, entity, copyright, liability, escrow
 - [[2026-09-10_draft-13-pasal-kontrak-kpm]] — Pasal 6 is filled from this page
+
+## 2026-10-24 - reopened for big cigarette factories (not decided)
+He: *"bro i think 5 million is too cheap isnt? ... who pays for this app should be big company a big cigarette factory"*. The numbers above stay the answer for ONE small company (25-30 users) until he decides. Competitor prices, factory sizing, a per-user draft list and the scale precondition: [[2026-10-24_pricing-and-b2b-engineering-business]].

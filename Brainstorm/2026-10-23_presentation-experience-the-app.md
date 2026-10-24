@@ -25,7 +25,10 @@ DECIDED 2026-10-23: A, his words: *"A is efficient i guess"*. First slice = step
 ## Rejected on purpose
 C as the main answer: his ask is the feeling of the interaction ("giving them feeling on how the interaction work"), and a clip gives none.
 
-## 2026-10-24 - the step card: where it lives (OPEN - waiting on his A or B)
+## 2026-10-24 ~19:40 - DECIDED B, plus a hint key (his words in Wiki/Concepts/Aldi's Design Taste.md, 2026-10-24 section)
+*"b is easier to see and better if u add circle or square just to show what to do and also blur other outside of the box, but of course this will work as a hint button like in some puzzle game ... dont forget use indonesian language"*. Frames of B in Indonesian with PETUNJUK pressed (phone, phone Lite, PC): `Raw/2026-10-24-mission-card/mission-hint-board.png`, draft kpm `tools/mission-draft.jsx`. Next: build it for real in the demo (steps 1-3).
+
+## 2026-10-24 - the step card: where it lives (was OPEN, answered above)
 Board: `Raw/2026-10-24-mission-card/mission-board.png` (real lab frames, `?shell&places&tab=kirim&mission=a|b`, phone 375 + PC 1440; draft in kpm `tools/mission-draft.jsx`, lab only).
 Facts read for it [certain, kpm 2026-10-24]: steps 1-2 = the Owner (T2 HARTONO SUSILO has `view_master_vault` + `view_restock_vault`), Master Vault MASUK then KIRIM; step 3 = the Regional Admin (T4 HENDRA GUNAWAN, FLEET_CAPTAIN) loading the motorist T6 DIKA SAPUTRA. So the mission needs one SWITCH between step 2 and 3, and the card says so on step 3.
 
