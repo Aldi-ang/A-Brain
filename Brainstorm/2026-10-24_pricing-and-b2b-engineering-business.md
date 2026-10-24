@@ -107,3 +107,12 @@ Models applied: Chesterton's Fence (the September sheet exists for reasons - rea
 
 ## REJECTED ON PURPOSE
 - Redoing the September market numbers from scratch - they are on the price sheet; only what changed gets researched.
+
+## 2026-10-24 ~20:10 - user count CONFIRMED: 20 salesmen + 5 office (25)
+His words: *"yes around 20 salesman and 5 office"*. The options recomputed for 25 users:
+| | Per month | Pilot (3 months, half) |
+|---|---|---|
+| A Rp 200 ribu/user (my pick) | Rp 5 juta | Rp 2,5 juta |
+| B Rp 250 ribu/user | Rp 6,25 juta | Rp 3,125 juta |
+| C flat | Rp 10 juta | - |
+Leak check (Sept yardstick 3) holds at 20 field sales: ~20 x Rp 30 juta = Rp 600 juta of stock on the road, a 1% leak = Rp 6 juta/month, above A and B [likely - the Rp 30 juta per salesman is the Sept estimate]. Our Firebase cost at 25 users: ~Rp 1,4 juta/month with today's code, ~Rp 110 ribu after the fix [likely, scaled]. Price pick still OPEN.
