@@ -62,9 +62,46 @@ Worked example: 1.000 salesmen x Rp 200 ribu = Rp 200 juta/month (Rp 2,4 miliar/
 ### What a big factory asks for before it pays (pre-mortem: why the deal dies)
 A registered company (PT/CV) and tax invoices with PPN; a written SLA and support hours; a security / data review and who owns the data; often a link to their SAP; a tender that takes months; and a single-person vendor is a key-person risk for them. Opportunity cost: a mid-size kretek factory, or ONE depot of a big factory's distributor, says yes faster and becomes the proof for the big ones.
 
+## 2026-10-24 ~20:10 - his answer: first customer is a class 3 factory (Cello or Tawang)
+His words: *"well im going to sell it to cello or maybe tawang which is class 3 cigarette factory, not super big company because this is my first app i dont know how this will go really right and fieldassist is out of indonesia so i would skip that i/ll try ask for simplidots but can u do your best research, u can use consensus for this to find the exact pricing for this kinda app"*. So the big-factory question is closed (B), FieldAssist is out, he asks SimpliDOTS himself.
+
+### Indonesian prices that ARE public (read 2026-10-24 in the browser)
+| Vendor | Package | Rp per user per month | Notes |
+|---|---|---|---|
+| Distri (distri.id/harga) | Track & Go / Basic / **Advanced** / **Pro** | 25.000 / 75.000 / **150.000** / **250.000** | min 5 users. Advanced = stock, consignment, returns, invoices + payment, **sales kanvas** - the closest match to KPM. Pro adds delivery, purchasing, route optimisation, CRM [certain, read] |
+| SalesMania (salesmania.id) | 3 tiers | 25.000 / 50.000 / 75.000 | + one-time registration Rp 400.000 after trial [certain, read] |
+| Bee Sales Order Mobile (bee.id/harga-som) | base package incl. accounting | Rp 340.700/month on a yearly plan, Rp 426.700 monthly (Gold); extra mobile licence Rp 80.000 (yearly) / Rp 100.000 (monthly) | the yearly plan is ~20% cheaper than monthly [certain, read] |
+| Local SMB SFA (per MileApp's cost guide) | marketplace listings | from ~Rp 99.000 | guide also says one-time setup runs from "jutaan hingga ratusan juta"; a 10-20 rep team's first year is "puluhan juta" [likely - a vendor blog] |
+| Bizom / Salesforce (foreign, above) | | ~1,08 juta / ~1,8 juta | out of reach for a class 3 factory |
+SimpliDOTS: still quote-only - he asks.
+
+### What the research papers say (Consensus, 20 papers) - `Raw/2026-10-24_consensus_sfa-pricing-evidence.md`, thread https://consensus.app/search/i-am-pricing-a-b2b-mobile-web-app-for-a-small-indo/vmQAL61nR429gpm1UQ0UCA/
+- No paper publishes a real price for SFA / van sales / DMS software in Indonesia or similar markets - "the literature rarely publishes actual SFA/DMS SME price cards". The prices above are the only real numbers.
+- Supported: a per-user subscription, tiers, a modest one-time onboarding fee, and penetration (lower intro) pricing for a first customer when market knowledge is thin.
+- Indonesian SMEs' barriers are perceived cost and risk, lack of expertise, data security. Against a one-person vendor: strong onboarding, fast support and a clear implementation plan; one Malaysian study found dependency on the system mattered more than trust in the vendor.
+- Benefits (real-time stock, fewer errors, leakage control via locked prices and reconciliation) are well supported but almost never as hard percentages - so the value argument is his own customer's numbers (stock on the road, a 1% leak), the Sept yardstick 3.
+
+### What this means for "Rp 5 juta is too cheap"
+At 25-30 users, the closest local match costs Rp 4,5 juta (Distri Advanced) to Rp 7,5 juta (Distri Pro) a month. The Sept Rp 5 juta (~Rp 167 ribu/user) sits inside the market, not under it. Rp 10 juta (~Rp 333 ribu/user) is above every local tier read today - reachable only if the extra is services the others do not give (on-site training, his own data loaded, features made for the factory, fast WhatsApp support).
+
+### Our own cost at 30 users (scaled from the 2026-10-19 model)
+Today's code (every phone downloads everyone's sales + photos): ~Rp 2 juta/month on Blaze at 30 users, and Spark cannot hold it (~11x the free daily reads) [likely - scaled users x users from the 100-user figure]. After the two fixes: ~Rp 130 ribu/month [likely]. So the fix is worth doing BEFORE Cello too: without it, a third of a Rp 6 juta price goes to Google.
+
+### Draft for a class 3 factory (Cello / Tawang)
+| | Price |
+|---|---|
+| Per active user (salesman, motorist, admin) | Rp 200.000 / month, minimum 10 users |
+| 30 users | Rp 6 juta / month |
+| Pilot, first 3 months (intro price) | half: Rp 100.000 / user (30 users = Rp 3 juta) |
+| Yearly, paid up front | 2 months free (~17% off; Bee's yearly plan is ~20% off) |
+| Setup, once (products + shops loaded, training, printer) | Rp 7,5 juta, half waived for a written testimonial + 2 referrals (Sept rule kept) |
+Options put to him: A Rp 200 ribu/user (my pick) / B Rp 250 ribu/user (= Distri Pro) / C flat Rp 10 juta.
+
 ## Decision
 - Fork: 2 (product company) - his "who pays for this app should be big company".
-- OPEN, asked 2026-10-24: big factory first, or a mid-size factory / one distributor depot first; and will he request quotes from SimpliDOTS + FieldAssist.
+- First customer: a class 3 factory, Cello or Tawang (his 2026-10-24 ~20:10). Big-factory question closed.
+- OPEN: price per user (A/B/C above) and Cello's user count split (field vs office).
+- ANSWERED 2026-10-24: class 3 factory first; SimpliDOTS quote he asks himself; FieldAssist skipped (not in Indonesia).
 
 Models applied: Chesterton's Fence (the September sheet exists for reasons - read it before replacing it), Opportunity Cost (each research hour comes out of this week's limited quota and the mission card build), Pre-mortem (why a big-factory deal dies), Second-Order Thinking (a per-user price on code whose cost grows users x users).
 

@@ -219,3 +219,4 @@ what should settle it.
 
 ## 2026-10-24 - reopened for big cigarette factories (not decided)
 He: *"bro i think 5 million is too cheap isnt? ... who pays for this app should be big company a big cigarette factory"*. The numbers above stay the answer for ONE small company (25-30 users) until he decides. Competitor prices, factory sizing, a per-user draft list and the scale precondition: [[2026-10-24_pricing-and-b2b-engineering-business]].
+Update ~20:10: first customer = a class 3 factory (Cello or Tawang), not a big one. Local public prices read the same evening put KPM-like scope at Rp 150-250 ribu per user per month (Distri Advanced / Pro), so the Rp 5 juta above is inside the market for 30 users, not under it. Draft A/B/C and the cost-at-30-users check: same brainstorm note.
