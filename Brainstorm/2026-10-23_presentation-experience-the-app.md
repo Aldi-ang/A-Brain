@@ -24,3 +24,17 @@ DECIDED 2026-10-23: A, his words: *"A is efficient i guess"*. First slice = step
 
 ## Rejected on purpose
 C as the main answer: his ask is the feeling of the interaction ("giving them feeling on how the interaction work"), and a clip gives none.
+
+## 2026-10-24 - the step card: where it lives (OPEN - waiting on his A or B)
+Board: `Raw/2026-10-24-mission-card/mission-board.png` (real lab frames, `?shell&places&tab=kirim&mission=a|b`, phone 375 + PC 1440; draft in kpm `tools/mission-draft.jsx`, lab only).
+Facts read for it [certain, kpm 2026-10-24]: steps 1-2 = the Owner (T2 HARTONO SUSILO has `view_master_vault` + `view_restock_vault`), Master Vault MASUK then KIRIM; step 3 = the Regional Admin (T4 HENDRA GUNAWAN, FLEET_CAPTAIN) loading the motorist T6 DIKA SAPUTRA. So the mission needs one SWITCH between step 2 and 3, and the card says so on step 3.
+
+| | What | Cost |
+|---|---|---|
+| A | a card in the bottom-left corner; PC lists all 3 steps, phone only the live one | sits on top of the screen (phone: covers 255x63 px of the form) |
+| **B (my pick)** | one line under the DEMO bar's tape; phone = live step + 3 bars, PC = all 3 steps in the line | the screen moves down 34 px; covers nothing |
+
+Both: a done step's line turns into what happened ("120 packs received in the Master Vault") - a REPORT, not a hint, so it survives his 2026-09-15 "no hints panel" and 2026-10-19 "this tutorial is not needed" rules; text 14 px; amber only as an edge/ink.
+Why B: his pinned-thing rule (one line, and it is the first thing to answer), his "zero space" picks (2026-10-15), his width split (phone one thing, PC everything) inside one strip, and it lives in the DEMO bar he already approved (one door).
+Models applied: Inversion (what makes a viewer quit: a card covering the very field the step asks them to fill), Second-Order (a corner card fights the capybara and the phone drawer for the same corners).
+REJECTED ON PURPOSE: a how-to paragraph on the card (his 2026-10-19 cut); a separate tutorial button (his 2026-08-31 "one door").
