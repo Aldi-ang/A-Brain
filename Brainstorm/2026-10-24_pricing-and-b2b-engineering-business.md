@@ -116,3 +116,6 @@ His words: *"yes around 20 salesman and 5 office"*. The options recomputed for 2
 | B Rp 250 ribu/user | Rp 6,25 juta | Rp 3,125 juta |
 | C flat | Rp 10 juta | - |
 Leak check (Sept yardstick 3) holds at 20 field sales: ~20 x Rp 30 juta = Rp 600 juta of stock on the road, a 1% leak = Rp 6 juta/month, above A and B [likely - the Rp 30 juta per salesman is the Sept estimate]. Our Firebase cost at 25 users: ~Rp 1,4 juta/month with today's code, ~Rp 110 ribu after the fix [likely, scaled]. Price pick still OPEN.
+
+## 2026-10-24 ~20:15 - "is this really that cheap?" + pay-once and buy-the-code
+His words: *"is this really that cheap? but as i know there is some option to buy the licensing to pay once and use forever and also pay for the whole code but of course there is some limitation on each of these option"*. Answered from the Sept Price Sheet, nothing re-derived: perpetual licence Rp 250 juta + 20%/year maintenance (5 years = Rp 500 juta vs Rp 300 juta subscription), copyright not for sale (if a real buyer pushes: Rp 2-3 miliar, ceiling = rebuild cost Rp 1,4 miliar + premium; full transfer needs its own deed, UU 28/2014 Pasal 82(3)), escrow (contract Pasal 9) is the free answer to "what if you disappear". Price pick A/B/C still OPEN.
