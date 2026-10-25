@@ -105,3 +105,18 @@ Same prototype URL (version 2):
 - Frames: `m-1100-healthy-promo-280.png` (mid-scan), `m-1100-healthy-quarantine-300.png`, `m-390-healthy-promo-900.png`
   in this session's scratchpad `promo-chest/` (the shooting script is `shoot.mjs` there; the method is in the lesson of
   2026-10-25 "animation frames").
+
+## Round 4 (2026-10-25 20:40) - nothing may move or stutter when the chest changes
+
+> *"make sure that there is no stutering or change in formatting when the inventory is changed on the panel"*
+
+Same URL, version 3. Causes found and fixed: the phone title wrapped to two lines on Quarantine (the box grew); the wipe
+animated `clip-path` and the squares a `filter` (both repaint every frame); every turn re-parsed the item art. Now: a
+fixed one-line title row (on the phone the count sits on its own fixed row), a pane per chest + page built once and
+reused (and the first pages built while idle), the wipe = a window sliding down while the old pane inside slides up by
+the same amount (transform only), the squares power up through an opacity overlay, the chest glow crossfades three
+layers. **Measured** (CDP real time, every frame of every switch, 1100 and 390): box / dial / foot / window geometry
+identical in every state and on every frame; frame gaps 6 ms. One 120-170 ms frame only on the first switch in a
+freshly started browser, whichever width ran first - a warm page loaded next in the same browser has none, so it is the
+browser warming up, not the switch (not fixed: no evidence it reaches a real phone).
+**For the real build: the box's height must be the same for every chest - a check, not a hope.**
