@@ -167,3 +167,27 @@ sample still go to a shop that buys nothing, as Sampling does today?
 
 Models applied (stage 1): Inversion (how would a T-shirt get counted as cigarettes? -> any reader that bypasses the
 split), Reversibility Test (kind locked after creation).
+
+## The form fix + his "model" question (2026-10-25 22:20)
+
+- His frame + *"i want u to fix the collapsing panel here"*: ticking "Promo item" hid the prices, the right half went
+  empty, the form scrolled past its save button. Fixed kpm `135f7d6`: the pictures are a grid cell of their own, in the
+  right half for a promo item, under the fields for a cigarette (unchanged, measured at 1280 and 375).
+- **The form behind the sign-in CAN be seen**: `demo-emulator` -> `node tools/demo-reset-emulator.mjs` ->
+  `demo-app-emulator` (5176) -> `window.__kpmEmulatorAuth` signIn with an unsigned Google id_token for
+  demo.owner@example.com (lands on uid demo-owner) -> "Saya coba sendiri" -> vault password admin123. Stage 1's
+  "not rendered: the form" was a missed path, not a wall.
+- His question: *"dont u think we need some method to insert or upload the model for the promotional item?"* Sent as
+  🔴 DECIDE with lab frames (`?shell&vaultlist&tab=promo,t-shirt&shirt=box|card`):
+  - **A photo card** (recommended): a promo item asks for FRONT + BACK only and starts thin (90x100x3). Same box,
+    nothing new; also halves the pictures riding inside the 1 MB product document.
+  - **B real 3D file (.glb)**: a .glb is megabytes, a Firestore document holds 1 MB, so it needs Firebase Storage -
+    which only works on the paid Blaze plan (helpers.js savePhotoAndGetReference; `usePhotoStorage` is off by
+    default), plus a storage rule (no storage.rules in the repo), a 3D library, and a 3D file per item.
+  - **C leave it**: six faces; depth set by hand in the cropper.
+- Found while looking (stage-1 miss, goes with his pick): the fullscreen viewer gives a promo item a 🚬 placeholder,
+  "CUKAI: Standard" and "A standard pack of cigarettes..." (ExamineModal.jsx:105, 118, 120).
+- not-chosen: B as the default - lost on cost (paid plan + rule + library + a 3D file per item) for goods given away
+  free. Flips if he wants real shapes in the vault and will make the files.
+
+Models applied (form + model): Opportunity Cost (3D files vs stages 2-4), Reversibility Test (A does not block B).
