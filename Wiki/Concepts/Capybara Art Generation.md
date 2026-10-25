@@ -3,9 +3,9 @@ title: Capybara Art Generation
 description: How new poses and outfits of Aldi's capybara are made without changing the character - which generator kept his face and body, which routes are closed, and how a pose gets into the presentation.
 type: concept
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-25
 confidence: medium
-checked: 2026-10-22
+checked: 2026-10-25
 tags: [capybara, art, image-generation, presentation, tools]
 ---
 
@@ -46,3 +46,10 @@ See also: [[Aldi's Design Taste]] · [[Looking at the App]] · [[9Router Subordi
 ## The flying cameo uses them too (2026-10-22 17:32, presentation v36)
 His words: *"yes i want the capybara update on all models inside the presentation so that it have varieties, u can even generate other clothes for him"*. Each visit the cameo dresses for the slide on screen (`OUTFIT` map: stock slides -> worker, security -> guard, money -> cashier, reports -> office, sales -> sales, customers -> warung owner, routes -> driver), and each pause or tap shows a different gesture from that look's list (never the same one twice in a row). A look whose picture is not drawn yet is skipped, so new outfits switch on as soon as `swap.mjs` adds them.
 Quota fact: a free account's ZeroGPU allowance covered 9 pictures (~33-39 s each) before *"exceeded your ZeroGPU runs limit"* at 17:23; it refills daily. Still to draw: o-sales, o-driver, o-office, o-guard, o-cashier, o-chef, m-think, m-sit (`capy-poses/tools/outfits.sh`).
+
+## Dreamina works too - the six dialogue faces (2026-10-25 ~10:50)
+His call: *"u should remake these using dreamina ig higgsfield is unable to do that"*, after the FLUX faces kept the thumbs-up on shocked / worried / annoyed. He signed in to dreamina.capcut.com in the Browser pane himself; Claude never signs in.
+- Model: **Seedream 4.6** ("improved character consistency, efficient on credits"), 4 credits per picture, 1:1, 2K. One run of 6 pictures with ONE prompt that numbers the six expressions came back as six different faces of the same character - 24 credits. Only "annoyed" kept a thumbs-up; a 2-picture redo with "both arms firmly crossed, hands tucked under the arms and hidden, no thumbs up" fixed it (8 credits). 64 -> 32 credits left on his account.
+- Full size: each thumbnail opens a viewer whose `<img>` carries a signed `...aigc_resize_mark:1080:1080.webp` URL; `curl` downloads it with no cookies. Sources: `Raw/2026-10-25-capy-dialogue/dreamina/r-*.webp`; the cut set on the dark ground: `Raw/2026-10-25-capy-dialogue/dreamina-faces-cut.png`.
+- **Getting a local file INTO Dreamina from Claude** (the trap that cost the most turns): the page cannot reach `localhost` (fetch, `<img>`, iframe all blocked - local network access), `window.open` replaces the pane's only tab, a Ctrl+V of an image does not paste, and computer-use can never control Claude's own window (so the Windows file picker is out). What worked: (1) shrink the reference (crop + 304x384 JPEG, 15 KB); (2) send its base64 into the page in 400-character blocks, each checked against a hash computed locally first - hand-copied base64 drops characters (the first unchecked try lost 6 of 9,896); (3) Dreamina's "+" calls `showOpenFilePicker`, not a file `<input>`: replace `window.showOpenFilePicker` with a function that returns `[{ kind: 'file', name, getFile: async () => file }]`, then click "+".
+- Cut: scale 1080 -> 1024, `crop=760:760:140:30` (head + chest, same as the FLUX set), `node img.mjs cut <in> <out> 512 40`; for the app, WebP q82 (~30 KB each, alpha kept) in kpm `src/assets/capy-talk/`.
