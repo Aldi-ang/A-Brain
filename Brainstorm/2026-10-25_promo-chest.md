@@ -147,3 +147,23 @@ sample still go to a shop that buys nothing, as Sampling does today?
 4. **Giving + EOD + the switch**: a "+ Promo" bonus line on a sale (Rp 0, no limit), EOD returns the leftovers to the
    Master Vault promo chest, and the company switch moves samples into the promo chest without a pita cukai debt
    (today's debt is written at `src/MerchantSalesView.jsx:1055`).
+
+## Stage 1 built (2026-10-25 20:20 WIB, kpm `87b5637`, pushed with `d4c5520`)
+
+- **The skip list is one place, not sixty.** The products collection has exactly ONE reader in the app
+  (`useDatabaseSync.js`). It keeps the whole list as `products` and hands out `inventory` = products minus promo
+  (every cigarette screen, sum and the Sales Terminal) and `promoItems` (only the Master Vault list + the backup).
+  logicFixes "PROMO ITEMS" counts the readers: a second one is how a T-shirt would leak into a cigarette sum.
+- **not-chosen:** a `!isPromo` guard in each cigarette path (63 `convertToBks` calls in 19 files, plus every revenue /
+  target / valuation sum) - lost on: one missed site is silently wrong stock or revenue, never an error. Flips if a
+  screen ever needs cigarettes AND promo items inside ONE sum.
+- **The kind is chosen on a NEW entry only** (Reversibility Test): flipping a cigarette later would re-read its past
+  Bal sales as single pieces.
+- Promo product = `kind: 'promo', unit: 'pcs', type: 'PROMO'`, no sticks / packing / price. `convertToBks` returns the
+  plain count for it. The Master Vault list groups them under the PROMO tab, "VAULT: N pcs", no price grid.
+- **Rollout trap:** a phone still on a build before `87b5637` sees promo items as cigarettes (terminal grid at Rp 0).
+  He was told to make the four items only after every phone shows the new version.
+- Not rendered: the product form's "Promo item" box (inline in App.jsx, behind the sign-in); his ✅ TEST covers it.
+
+Models applied (stage 1): Inversion (how would a T-shirt get counted as cigarettes? -> any reader that bypasses the
+split), Reversibility Test (kind locked after creation).
