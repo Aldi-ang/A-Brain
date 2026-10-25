@@ -208,3 +208,9 @@ His "T SHIRT TAWANG" was the trigger: name-guessing missed a space - a picked ty
 Open: his "button or panel to combine these UI with the new master vault chest" = stage 2's first frames.
 Models applied: Inversion (what breaks offline / without WebGL -> the flat picture), Second-Order (demo seed feeds made-up sales -> promo kept in its own seed key).
 Not chosen: turntable pictures instead of live 3D (lighter, but only turns sideways) - flip if phones stutter.
+
+## The look: colours + printed text (2026-10-26, kpm 44c7345)
+
+His ask: *"edit the color appearance on the 3D design, and change the name on it when press edit"*. EDIT on a promo item without a photo shows LOOK: a live 3D preview, PRINTED TEXT (empty = from the name), COLOR (the goods' paint), PRINT COLOR (word + gold parts), Default colors. Any colour: the goods' own paint is content, not app UI (palette law stops at UI, like pack photos). Saved: goodsColor / printColor ('' = type default), printText, thumb (list picture snapshot, ~3 KB).
+Models applied: Second-Order (a default saved as a hex would freeze the old type's colour on a TYPE change -> '' means default), Inversion (a list picture that ignores the paint would contradict the model -> snapshot on save).
+Not chosen: preset swatches (would put blue/green chips in app UI; the native picker covers any colour).
