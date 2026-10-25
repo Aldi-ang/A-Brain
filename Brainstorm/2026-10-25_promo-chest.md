@@ -200,3 +200,11 @@ Models applied (form + model): Opportunity Cost (3D files vs stages 2-4), Revers
 
 His ask: *"can u give it like default skin for the 3D promo item like on the preview u gave me earlier"*. The preview was the lab's T-shirt card. Built as `promoSkin` (helpers.js): drawn when no photo is uploaded, never saved. A shirt word in the name gives the shirt plus the rest of the name ("T-shirt Cello" -> CELLO); any other item gives its name on a black label; the back says KPM. Used in the vault box, the vault list picture and the fullscreen viewer. Open: Stock Opname thumbnails and the stage-2 chest should use it too.
 Models applied: Inversion (a shirt drawn on a lighter would be the visible failure, so only shirt names get the shirt).
+
+## The six goods in 3D (2026-10-26, kpm a234781)
+
+His ask: *"there is no product type ... add ashtray and mug ... design 3D default for all the goods, thefore we dont actually need to upload the photo ... the uploaded photo will be these flat card ... u can use any 3D design app"*. Blender 5.0 is on his PC; `tools/promo-goods/goods.py` models T-shirt, poster, hat (6-panel cap, gold brim edge), lighter, ashtray (3 rests), mug as .glb + list pictures. The app draws the item's word on each print area (name minus the goods' own word, else KPM). TYPE picker in the form; no photo = 3D, photo = flat card; three.js only loads with the 3D view (own chunk, 142 KB zipped). Demo vault seeded with one of each (kept out of the demo's made-up sales).
+His "T SHIRT TAWANG" was the trigger: name-guessing missed a space - a picked type ends that class of miss.
+Open: his "button or panel to combine these UI with the new master vault chest" = stage 2's first frames.
+Models applied: Inversion (what breaks offline / without WebGL -> the flat picture), Second-Order (demo seed feeds made-up sales -> promo kept in its own seed key).
+Not chosen: turntable pictures instead of live 3D (lighter, but only turns sideways) - flip if phones stutter.
