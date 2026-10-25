@@ -1,0 +1,71 @@
+---
+title: Promo chest - promotional items and sampling without pita cukai return
+description: His 2026-10-25 ask for promotional items (T-shirt, poster, hat, lighter) in every storage feature, a chest per item type, game references, and sampling given away with the pita cukai. Round 1 board sent; six answers and a layout pick owed.
+type: brainstorm
+created: 2026-10-25
+status: waiting on Aldi
+tags: [storage, promo, chest, sampling, pita-cukai, master-vault, game-reference]
+---
+
+# Promo chest
+
+## His words (2026-10-25)
+
+> *"i want to add another new item, promotional item that the salesman can give to the customer as a rewards of buying our
+> cigarette or as just marketing strategy to encourage potential customer for closing, the promotional items will be Clothes
+> (tshirt of cigarette brand logo), poster of the brand logo or product, brand hat, brand lighter, but we need to update all
+> the storage related feature like regional warehouse, mastervault, agent inventory and even stock opname and any other
+> storage related features to detect the promotional items, we might need to heavily adjust how the master vault system works
+> right now for this, im thinking of some storage area that have few features and chest for each of the item types, the types
+> we have for now is quarantine items, healthy items and promotional items, we can use the chest concept for this as well lets
+> discuss about this, i want u to research for the game reference how to do this and do this the fun way and cool way"*
+
+> *"some of the cigarette company does not require to return pita cukai on sampling and they just basically give them away
+> for free with all the pita cukai as promotional items and on the other words the salesman doesnt need to return the pita
+> cukai, hence they need to make sure that the promotional item is depleted and must be depleted for just marketing, we might
+> need a new option to disable pita cukai return and put the sampling inside the promotional chest instead of its own place
+> inside the agent inventory and the EOD lets discuss about this further as well"*
+
+## Round 1 board
+
+https://claude.ai/artifact/Uo1C1TmANckUie2fXKdLXh (v2; frames PC 1440 and a true 390 phone width read back).
+
+- **Three chests everywhere**: Healthy = the ender chest, Quarantine = the yellow crate, Promo = NEW (crimson box, gold
+  ribbon and bow - an object, so it keeps its own colours; no blue, no green).
+- **Game references** (read from the wikis 2026-10-25; WebSearch was down on the 9router route and Firecrawl needs a key):
+  Minecraft shulker box (a dyed box that keeps its contents when carried = the van's promo kit); Escape from Tarkov typed
+  cases (money / medicine / ammo case, a poster tube - a case takes one kind = the promo chest takes promo only); Path of
+  Exile stash-tab affinity (items go to the tab set for their kind = MASUK sorts lines into their chest); Satisfactory
+  Dimensional Depot (cloud storage reached from anywhere = the same three chests on every screen); Resident Evil safe room
+  (item box + typewriter; our theme is RE9 Ark Lab = the Master Vault as a room, typewriter = Stock Opname, terminal =
+  MASUK/KIRIM); loot rarity (a gift drops as a reward card, gold and red).
+- **Three layouts**: A safe room (all chests on screen, box opens below, one at a time) · B stash tabs (one box, three
+  chest tabs, auto-sort) · C a three-way dial on the ender chest (his own "ender chest = general chest" rule, smallest
+  change). **My pick: A on PC + C on phone** (his per-width habit).
+- **Where it shows**: Restock MASUK/KIRIM (pieces, not bks), Master Vault, regional warehouse, Fleet loading bay (promo
+  box beside the van chest), Agent Inventory, Sales Terminal (a GIVE button with a photo), EOD (promo given + left, no
+  money), Stock Opname (counted by piece), Reports (marketing spend, shops that got a gift and later bought).
+- **Sampling with the switch off** ("Return pita cukai on sampling: OFF"): sample packs live in the promo chest as their
+  own item, given whole with a photo, no cukai debt, no pita cukai card at EOD for them, and the promo chest can only go
+  down by giving. Today: a sample opens a `cukaiDebts` line on the motorist, EOD's pita cukai card collects the strips or
+  the fine (`appSettings.cukaiFinePrice`, Rp 5.000 default) - `EODReconciliationView.jsx` expectedCukai.
+
+## Owed by him
+
+- 🔴 layout A / B / C (or the split).
+- ❓ 1 give with a sale only, to a non-buying shop too, or both · 2 T-shirt per size or one item · 3 promo left in the van at
+  EOD: stays as his kit or back to the Master Vault · 4 the pita cukai switch per company or per product · 5 photo per gift
+  and a limit per shop · 6 a cost price for marketing spend in rupiah.
+
+## Data note (for the build, not shown to him)
+
+Promo items as the SAME product list with a type (`kind: 'promo'`, unit pcs) so every storage screen that already lists
+products can sort them into the right chest; every cigarette-only path must skip them: bks/slop/bal/karton conversion,
+revenue and price tiers, pita cukai, sales targets, valuation. That skip list is where a bug would hide - write it as a
+check before the first screen changes.
+
+Models applied: Pre-mortem (without the strip, "free" samples can be sold - photo, location and a per-shop limit must
+replace the proof), Second-Order Thinking (one product list means every sum in the app meets promo items), Reversibility
+Test (a `kind` field is additive; a separate catalogue would be a one-way door).
+
+Related: [[Quarantine Chest]] · [[Gudang Pusat (Master Vault)]] · [[Aldi's Design Taste]]
