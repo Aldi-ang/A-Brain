@@ -195,3 +195,8 @@ Models applied (form + model): Opportunity Cost (3D files vs stages 2-4), Revers
 ## He picked A (2026-10-25 22:59)
 
 *"A looks simple and light i guess we could do that"*. Built kpm `1800d41`: the tick starts a thin card (90x100x3), the form asks FRONT + BACK only (the cropper cuts each face to the box shape, so side faces on a 3-deep card would be slivers), the fullscreen viewer drops the 🚬 / CUKAI / cigarette description for a promo item. Seen on the emulator at 1280 + 375. Items saved before it keep the pack size (none expected - he waits for phones to update).
+
+## Default skin (2026-10-26, kpm 7390164)
+
+His ask: *"can u give it like default skin for the 3D promo item like on the preview u gave me earlier"*. The preview was the lab's T-shirt card. Built as `promoSkin` (helpers.js): drawn when no photo is uploaded, never saved. A shirt word in the name gives the shirt plus the rest of the name ("T-shirt Cello" -> CELLO); any other item gives its name on a black label; the back says KPM. Used in the vault box, the vault list picture and the fullscreen viewer. Open: Stock Opname thumbnails and the stage-2 chest should use it too.
+Models applied: Inversion (a shirt drawn on a lighter would be the visible failure, so only shirt names get the shirt).
