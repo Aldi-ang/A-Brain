@@ -974,3 +974,24 @@ Seen: 2026-10-05
 **Would have prevented:** 2026-10-06, the round-3 brief (NEXT-SESSION 09:21) told the Cello presentation to say sales records "cannot be edited or deleted" from `firestore.rules:557`; the owner catch-all at :343 grants exactly that. A false Bukti nearly went onto a paying customer's page.
 Seen: 2026-10-06
 Fired:
+
+### 2026-10-11 — a studio that holds a DECIDED card has no button that resets every card
+**Status:** RETIRED (2026-10-24) — never fired in 13 days; tuning-studio-only trigger, no studio round since. Platitude, not structural
+**Trigger:** before publishing a tuning studio (a sound studio, a look studio - any page that saves one settings doc) where at least one card is already decided or baked.
+**Lesson:** no global reset. A reset belongs to one card, or not at all - the lists already star my pick, which is the way back. And read the saved doc after each of his saves, comparing EVERY card to the last save, not only the card he talked about.
+**Would have prevented:** 2026-10-11, sound studio round 4/5: his 09:57 save went out with the intro he had decided at 09:41 (and the message chime he had changed) put back to my picks - the exact values "My picks" sets. Caught only because the whole doc was diffed against the 09:41 one; he now has to answer a question he had already answered.
+Seen: 2026-10-11
+
+### 2026-10-11 — data written with admin rights proves nothing about what a signed-in tier can read
+**Status:** RETIRED (2026-10-24) — never fired in 13 days; no admin seed/reset since. Kept in archive for the next demo reset
+**Trigger:** before a completion claim on data written with admin rights (a seed, a reset, a migration, `Bearer owner`, firebase-admin) that people will read through the app.
+**Lesson:** sign in through the CLIENT as each tier that reads it, on the emulator with the real rules, and open their screens. The admin write and its own counts skip every rule and every shape the screens expect.
+**Would have prevented:** 2026-10-11 demo reset: logicFixes 2275/0 and the admin-SDK emulator run 17/17 were both green while the T2 dashboard read Rp 0, the T6 vault would not open, Journey called 91 shops ghosts and no team or Day Replay existed - five wrong shapes, every one found only by the tier walk, any one of which would have shipped on the green runs.
+Seen: 2026-10-11
+
+### 2026-10-11 — a new preset must fit the studio page's own limits, not only the synth
+**Status:** RETIRED (2026-10-24) — never fired in 13 days; tuning-studio-only trigger. Platitude, not structural
+**Trigger:** before publishing a tuning studio round that adds presets (a voice, a look) whose numbers sit outside the values earlier rounds used.
+**Lesson:** grep the page for every limit on those keys - slider min/max AND the restore clamp (`sane()` / LIM) - and run one save -> reload round trip on the new preset, comparing the numbers that come back.
+**Would have prevented:** 2026-10-11 round 7: The Duke (92 Hz) and Esquie / Video mumble (mouth .74 / .7) were outside the page's 100 Hz / .8 floors - a Save would have come back as 100 Hz / .8, a different voice than the one he picked, and the bake would have used it. Caught only because the artifact tool forced a full read of the live page before republishing.
+Seen: 2026-10-11
