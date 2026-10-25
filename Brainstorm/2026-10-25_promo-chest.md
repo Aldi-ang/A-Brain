@@ -85,3 +85,23 @@ container query (phone = 2x2 big squares, the dial on its own row). Promo items 
 Tested in the pane at 1280 and 375: all three switches, drag, tap, Lite; door positions measured shut at 0.6-0.9 s on the
 phone. A bug found and fixed: the title decode waited on screen frames, so in a page that is not drawing the dial
 locked - now raced with a timer (his rule: motion never holds the screen). Still owed by him: the six questions.
+
+## Round 3 (2026-10-25 20:00) - no gate, sharper items, a knob that settles from where it is let go
+
+> *"i like it but i dont like the gate animation and also this 8bit logo for the hat i want it little bit more HD and i want the button to feel more natural when spinned, i mean right now when i drag and spin it, it will snap back to the original position and then snap it back to the position i desire which is unnatural right"*
+
+Same prototype URL (version 2):
+- **The gate is gone.** The switch is his 2026-09-29 v17 scan: the old box is copied on top, the new one drawn under it,
+  and a scan line tinted by the destination (teal / yellow / gold) wipes the copy away from the top; the squares power up
+  as the line reaches them; the title decodes. One clock, 560 ms.
+- **Items redrawn as shaded vector art** (light side, shadow side, a gold brand mark): T-shirt, hat (crown panels, button,
+  brim), poster (taped, curled corner), lighter (metal head, wheel, flame), the packs (3D box with a band), the damaged
+  pack (torn, taped), the sample pack (gold FREE corner).
+- **The knob**: it turns by how far the finger goes round (not by where it presses), pulls in near a stop (a detent) and
+  clicks when it crosses into one, stiffens past the end stops, and on release settles FROM WHERE IT IS to the nearest
+  stop with a small overshoot. The round-1 bug: the release replayed the full turn from the old stop. Measured with real
+  mouse input in headless Chrome: during the drag -58 -> 38, after release 38 -> 42 -> 58, never back.
+- A turn made while the scan runs is kept: the box catches up to where the dial ended.
+- Frames: `m-1100-healthy-promo-280.png` (mid-scan), `m-1100-healthy-quarantine-300.png`, `m-390-healthy-promo-900.png`
+  in this session's scratchpad `promo-chest/` (the shooting script is `shoot.mjs` there; the method is in the lesson of
+  2026-10-25 "animation frames").

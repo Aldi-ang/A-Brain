@@ -3489,3 +3489,17 @@ Asked whether the dialogue capybara may talk like a person, his answer: *"dont u
 Same message, on the faces: *"u should remake these using dreamina ig higgsfield is unable to do that"* - Dreamina is his pick for the capybara art; it needs his sign-in on the PC (dreamina.capcut.com showed "Sign in to start creating" in the built-in browser, and no Chrome was connected).
 
 On the Dreamina talking face (small black beady eyes, 2026-10-25 11:2x): *"this one eyes is scary make sure that the eyes the same with others"*. One character = one eye style across every expression: white eyes, a round dark-brown pupil, a small shine, relaxed lids (the thinking face is the model). Tiny all-black dot eyes read as staring. Fixed with Dreamina Smart edit (the face as the only reference, "change ONLY the eyes"); the body stayed identical. Before / after: `Raw/2026-10-25-capy-dialogue/talk-eyes-fix.png`.
+
+## A gate reads as bad, 8-bit reads as low-res, and a knob must never rewind (2026-10-25, the promo dial)
+
+> *"i like it but i dont like the gate animation and also this 8bit logo for the hat i want it little bit more HD and i want the button to feel more natural when spinned ... it will snap back to the original position and then snap it back to the position i desire which is unnatural"*
+
+- **Doors closing over the box lost to the scan line, twice now** (v16 specks/sweeps -> v17 scan on 2026-09-29; blast doors
+  -> scan again here). For a box changing what it shows, the scan wipe is his switch. Do not offer doors again.
+- **"Minecraft" is the world, not the resolution.** 12x12 pixel sprites read as "8bit"; he wants the items "a little bit
+  more HD" - shaded vector art with a light side, a shadow side and a brand mark, still inside the grey Minecraft box.
+- **A physical control must continue from where the hand leaves it.** Any animation that restarts from the previous
+  state after a drag reads as a fault ("unnatural"). Settle from the current position; detents and a soft click are what
+  make a dial feel real.
+
+Source: [[../../Brainstorm/2026-10-25_promo-chest]] round 3.
