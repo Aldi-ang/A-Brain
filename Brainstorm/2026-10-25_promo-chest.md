@@ -69,3 +69,19 @@ replace the proof), Second-Order Thinking (one product list means every sum in t
 Test (a `kind` field is additive; a separate catalogue would be a one-way door).
 
 Related: [[Quarantine Chest]] · [[Gudang Pusat (Master Vault)]] · [[Aldi's Design Taste]]
+
+## Round 2 (2026-10-25 19:20) - he chose the direction of C and asked to see it move
+
+> *"i want to see those animation in action and i dont really like that formatting that u give me, i just think its gonna look bad in pc and phone btw C is a cool concept"*
+
+Read as: A and B are out, C (the dial on the ender chest) is the direction, and he judges motion only when it runs
+(same as 2026-08-24 / 2026-09-29). Prototype: https://claude.ai/artifact/V2P1rjrXhqK9oBXYEcxGa1 - the built warehouse
+box (Minecraft grey, band under the title, pages) with a three-stop dial where the quarantine hatch sits: a heavy knob,
+three lamps (ender eye / radiation sign / gift). Turn = knob overshoot + detent, blast doors in the skin of where it is
+going (steel with a teal seam / hazard tape / gift wrap with a ribbon and a bow), swap while shut, doors open, a scan
+line powers the squares, the title decodes; the ender chest's glow takes the chest's colour. Drag, tap (steps to the
+next) or tap a lamp; arrow keys; Sound (soft detent, low thud, warm open) and Lite (instant). PC and Phone views via a
+container query (phone = 2x2 big squares, the dial on its own row). Promo items are pixel sprites drawn in the page.
+Tested in the pane at 1280 and 375: all three switches, drag, tap, Lite; door positions measured shut at 0.6-0.9 s on the
+phone. A bug found and fixed: the title decode waited on screen frames, so in a page that is not drawing the dial
+locked - now raced with a timer (his rule: motion never holds the screen). Still owed by him: the six questions.
