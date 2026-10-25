@@ -3,7 +3,7 @@ title: Promo chest - promotional items and sampling without pita cukai return
 description: His 2026-10-25 ask for promotional items (T-shirt, poster, hat, lighter) in every storage feature, a chest per item type, game references, and sampling given away with the pita cukai. Round 1 board sent; six answers and a layout pick owed.
 type: brainstorm
 created: 2026-10-25
-status: waiting on Aldi
+status: decided - build stage 1 next
 tags: [storage, promo, chest, sampling, pita-cukai, master-vault, game-reference]
 ---
 
@@ -120,3 +120,30 @@ identical in every state and on every frame; frame gaps 6 ms. One 120-170 ms fra
 freshly started browser, whichever width ran first - a warm page loaded next in the same browser has none, so it is the
 browser warming up, not the switch (not fixed: no evidence it reaches a real phone).
 **For the real build: the box's height must be the same for every chest - a check, not a hope.**
+
+## His six answers (2026-10-25 21:00) - DECIDED
+
+> *"1a,2b,3b,4a,5 no limit (they buy more = receive more promotional goods), 6 dont need for cost price not function of this app"*
+
+1. **a** - a promo item is given only together with a sale, as a reward.
+2. **b** - one "T-shirt" item, no sizes.
+3. **b** - at EOD, promo items left in the van go back to the Master Vault, like the cigarettes (so EOD reconciles them:
+   loaded - given = returned; a gap is a shortage like any stock).
+4. **a** - one company switch "Return pita cukai on sampling".
+5. **No limit per shop** - *"they buy more = receive more"*. The photo half was not answered; since a gift rides on a sale
+   (1a), the sale's own handover photo covers it - no second photo (my reading, told to him).
+6. **No cost price** - *"not function of this app"*. So no marketing-spend report either; Reports only count pieces given.
+
+Layout: **C, the dial** (prototype version 3). Still open: do SAMPLES (when the switch is off) also need a sale, or can a
+sample still go to a shop that buys nothing, as Sampling does today?
+
+## The build, in four stages (one session each, in this order)
+
+1. **Promo items exist** - the same product list with `kind: 'promo'`, unit pcs, no packing; the check that every
+   cigarette-only path skips them; hidden from the Sales Terminal's grid until stage 4 (nothing sellable at Rp 0).
+2. **Storage**: the dial on Master Vault and the regional warehouse; MASUK / KIRIM put promo lines in the promo chest;
+   Stock Opname counts it by piece.
+3. **The van**: Fleet & Canvas loading bay + Agent Inventory get the promo box.
+4. **Giving + EOD + the switch**: a "+ Promo" bonus line on a sale (Rp 0, no limit), EOD returns the leftovers to the
+   Master Vault promo chest, and the company switch moves samples into the promo chest without a pita cukai debt
+   (today's debt is written at `src/MerchantSalesView.jsx:1055`).
