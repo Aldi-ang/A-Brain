@@ -314,3 +314,5 @@ His words: *"oww i want the box to appear even when not buying our goods but i w
 Default if he says nothing: bundle card greys out when the van has none of its promo item.
 REJECTED ON PURPOSE: nothing yet.
 Models applied: Inversion (how does a free give leak stock? a give with no shop/photo -> keep both required), Second-Order (a give-only receipt with no items reaches every items reader), Opportunity Cost (the 100-user scale fix waits behind this).
+
+**DECIDED 2026-10-26 16:15** - his words: *"yes, some strategy that factory offer is buy 1 bal of our product and we will give a t shirt for free this is just one variation of those strategy i want the giveaway to be allowed but recorded as always and need a real time photo of course. price is only recorded from the cigarette price only and the promotional goods is just for bonus"*. = 1 YES (giveaway with no purchase, shop + live photo required, saved as its own type, never a sale), 2 bundles = the factory offers, boss sets them, 3 (a) cigarettes price only. REJECTED ON PURPOSE: (b) a special bundle price; a give with no photo.
