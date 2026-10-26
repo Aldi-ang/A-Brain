@@ -3542,3 +3542,6 @@ His words, on a phone frame of his TAWANG poster: *"u need to redesign the poste
 - KPM is the distributor; the goods advertise a FACTORY's brand (TAWANG). A default "KPM" next to the brand reads as two companies on one item. The earlier fix (back = typed text, else KPM) was half of this - he had to say it twice.
 - Now: a second text field per item (BACK TEXT on T-shirt / lighter, BOTTOM TEXT on the poster); empty = repeat the front word or print nothing. Never invent a word for him.
 - "Show that it is a poster": a bare sheet read as a card. The tell is how a poster is HUNG - bars top and bottom, a cord - plus a printed promo layout (frame, a burst behind the headline). Same lesson as the lighter: the object must be recognisable from its silhouette, not from its label.
+
+## 2026-10-26 16:00 — a pattern carries a meaning he will read before the brand (kpm da62fe1)
+His words: *"your poster is look like some japanese propaganda bruh change it"*. The burst of rays from the centre of a red poster = the rising-sun flag. Fixed to a double frame (tobacco-label look). Rule: before shipping a decorative pattern on his goods, ask what a stranger in Indonesia would read it as - rays on red, a big circle on red, a red-white split all carry a flag. Plain frames and blocks carry nothing.
