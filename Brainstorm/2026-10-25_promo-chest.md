@@ -303,3 +303,14 @@ His *"just make it like this one"* + a Mecco korek-gas photo: see-through body (
 
 ## Poster on a hanger + his second text (2026-10-26 15:46, kpm 464e94c)
 No fixed KPM left in any print: subText = BACK TEXT (T-shirt, lighter) / BOTTOM TEXT (poster); empty = back repeats the front word, poster no bottom line. Poster = paper on top/bottom bars + cord, print = frame + burst + headline block + bottom band. His words + the taste rule: Wiki/Concepts/Aldi's Design Taste.md (2026-10-26 entry).
+
+## Round 5 (2026-10-26 16:10): give without a sale + BUNDLES - OPEN, waiting on Aldi
+His words: *"oww i want the box to appear even when not buying our goods but i want option to create bundle for our goods plus promotional goods"* (after not finding the give box: cart empty, signed in as T1 on Master Vault).
+| # | Question | Options | Cost |
+|---|---|---|---|
+| 1 | give with NO purchase? (reverses his 1a) | yes: box always open, shop + handover photo still required, nota Rp 0 with BONUS lines / no: box always visible but locked with "add what the shop buys first" | yes = engine guard `promoGiven.length && !activeCart.some(...)` and the terminal canGive change; a give-only receipt has items [] - every reader of items must accept an empty sale (dayStats, stores served count?) - CHECK before building |
+| 2 | who makes bundles | boss T1/T2 in the Master Vault, one card per bundle in the terminal (my pick) / each salesman | a new product kind or a settings doc; the terminal grid gets bundle cards; one tap = cart line + give line |
+| 3 | bundle price | (a) cigarettes price only, promo free inside (my pick) / (b) special bundle price | (b) changes revenue math (items price vs bundle) - money path, two checks |
+Default if he says nothing: bundle card greys out when the van has none of its promo item.
+REJECTED ON PURPOSE: nothing yet.
+Models applied: Inversion (how does a free give leak stock? a give with no shop/photo -> keep both required), Second-Order (a give-only receipt with no items reaches every items reader), Opportunity Cost (the 100-user scale fix waits behind this).
