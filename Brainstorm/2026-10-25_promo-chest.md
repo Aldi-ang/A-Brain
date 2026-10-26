@@ -300,3 +300,6 @@ Models applied: Inversion (what else freezes the spin? held pointer / failed loa
 
 ## The lighter remade from his photo (2026-10-26 14:56, kpm 9a163cf)
 His *"just make it like this one"* + a Mecco korek-gas photo: see-through body (material clear) with the tube and inner frame, black collar, metal top with hole + slot, black lever by default on any colour, word front + back. Details and the taste lesson: Wiki/Concepts/Aldi's Design Taste.md (2026-10-26 entry).
+
+## Poster on a hanger + his second text (2026-10-26 15:46, kpm 464e94c)
+No fixed KPM left in any print: subText = BACK TEXT (T-shirt, lighter) / BOTTOM TEXT (poster); empty = back repeats the front word, poster no bottom line. Poster = paper on top/bottom bars + cord, print = frame + burst + headline block + bottom band. His words + the taste rule: Wiki/Concepts/Aldi's Design Taste.md (2026-10-26 entry).
