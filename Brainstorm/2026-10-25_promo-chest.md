@@ -238,3 +238,19 @@ Board: https://claude.ai/artifact/AixSKQFrdHU5gzsKGpdhXv - the REAL Supply Case 
 
 Models applied: Inversion (how would the dial break round 4? -> anything placed after a variable-length list on the phone), Opportunity Cost (C's zero space buys a duplicate view and a press his 2026-10-20 "a stock number belongs where the salesman looks" rejects).
 not-chosen: C - lost on two views of one stock + promo numbers behind a press; flips if he wants the grey Minecraft box look inside the Master Vault itself.
+
+## Stage 2 built - "focus on 1" (2026-10-26 07:50, kpm 1e2d004 + 3e17861) - the dial is DROPPED
+
+**His words, on the placement board:** *"first thing first looks like we cant combined these old mastervault UI and the the new button together because both share the same function do u have any better solution for this?, well i think that we just focus on 1 and improve it, like on the old master vault we dont have any method to view the quarantine we should fix that"*.
+
+**Decision:** no dial anywhere. Each screen's EXISTING control grows a promo/quarantine stop:
+- Master Vault (Supply Case): QUARANTINE joins the tab row (right after ALL, admin only), listing products with damagedStock; the row now wraps (the hidden sideways scroll hid PROMO at 375 and squeezed the label). kpm 1e2d004.
+- Regional warehouse (WarehouseChest): the hatch he loved (2026-09-29) cycles healthy -> Quarantine -> Promo; gift-wrap doors, crimson/gold band, promo squares = list pictures in pcs; one box height in all three views. The van bay keeps its two-stop hatch (stage 3 adds the stop the same way). kpm 3e17861.
+- Restock desk: promo items under a "Promo items · pcs" heading in the picker; one pcs box, no landed cost; Bks and pcs never summed (bksOf/pcsOf). KIRIM lines carry promo: true.
+- Arrival check: promo lines counted in pcs, shelved in branches/<b>/inventory tagged kind 'promo' (the only path the rules allow - a separate subcollection would have needed a rule he deploys first). Every shelf listener splits them off: the stage-1 skip list, again, for shelves.
+- Stock Opname: promo items join the count list (the count card is unit-free, so a piece counts as a piece).
+
+**Rejected on purpose:** the dial in the Master Vault (his "both share the same function"); the placement board A/B/C (https://claude.ai/artifact/AixSKQFrdHU5gzsKGpdhXv) is superseded; a separate `branches/<b>/promo` collection (needs a new rule deployed before the code works).
+**Rollout trap:** a branch phone on a build older than 3e17861 shelves a promo arrival untagged -> read as Bks by every new build. Same rule as stage 1: every phone on the new version before the first promo KIRIM.
+**Next:** stage 3 = the van (loading bay third stop, Agent Inventory pcs group, EOD returns leftovers). NEXT-SESSION holds it.
+Models applied: Inversion (how would a T-shirt reach a Bks sum at a branch? -> any shelf listener that does not split by kind; the check counts them and went red when one was unsplit), Reversibility Test (kind tag on the existing doc vs a new collection: the tag needs no rule and can be read either way later).

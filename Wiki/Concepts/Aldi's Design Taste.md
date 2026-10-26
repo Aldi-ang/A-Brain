@@ -3503,3 +3503,18 @@ On the Dreamina talking face (small black beady eyes, 2026-10-25 11:2x): *"this 
   make a dial feel real.
 
 Source: [[../../Brainstorm/2026-10-25_promo-chest]] round 3.
+
+## One function, one control: grow the control he has, never add a twin (2026-10-26, the promo dial)
+
+> *"first thing first looks like we cant combined these old mastervault UI and the the new button together because both share the same function do u have any better solution for this?, well i think that we just focus on 1 and improve it"*
+
+- He had approved the dial as a concept (2026-10-25, "C is a cool concept") - and dropped it the moment it had to sit
+  beside the Master Vault's tab row, because both would pick what the list shows. **A new control that does what an
+  existing one does is a design bug to him, even when he liked the new one on its own page.**
+- What he chose instead: improve the one that is already there. Built as a QUARANTINE tab in the existing row, and a
+  third stop on the existing warehouse hatch (the one he said he loved, 2026-09-29).
+- **Before proposing a control, ask: which control on this screen already does this job?** If one does, the proposal is
+  a new state of it, not a new widget. A board of placements for a second control (the A/B/C board that morning) was
+  the wrong question - he answered a different one.
+
+Source: [[../../Brainstorm/2026-10-25_promo-chest]] "Stage 2 built".
