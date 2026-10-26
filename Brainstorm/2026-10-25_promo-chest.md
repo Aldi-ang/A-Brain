@@ -297,3 +297,6 @@ His report: *"the promo goods doesnt spin automatically when viewed in fullscree
 - **Decision:** the fullscreen viewer (opened on purpose to look) spins in Lite; the small Master Vault box stays still in Lite - his "nothing rotates" now reads as "nothing rotates that he did not open to look at". Same line the cigarette pack already drew.
 - If his phone still shows it still with Lite OFF: the cause is elsewhere (a held pointer that never lets go on touch, or the model failing to load -> the flat picture). Ask whether Lite is on before hunting.
 Models applied: Inversion (what else freezes the spin? held pointer / failed load / Lite - only Lite reproduced), Chesterton's Fence (the Lite gate was put there for his "nothing rotates" law - kept for the vault box, lifted only where he asked).
+
+## The lighter remade from his photo (2026-10-26 14:56, kpm 9a163cf)
+His *"just make it like this one"* + a Mecco korek-gas photo: see-through body (material clear) with the tube and inner frame, black collar, metal top with hole + slot, black lever by default on any colour, word front + back. Details and the taste lesson: Wiki/Concepts/Aldi's Design Taste.md (2026-10-26 entry).

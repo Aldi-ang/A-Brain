@@ -3530,3 +3530,9 @@ Source: [[../../Brainstorm/2026-10-25_promo-chest]] "Stage 2 built".
   **A value he types must win everywhere that value is shown.**
 
 Source: [[../../Brainstorm/2026-10-25_promo-chest]] "More paint + the back print".
+
+## 2026-10-26 — a 3D product must read as the REAL product he knows, and he will hand over the photo (kpm 9a163cf)
+His words: *"i think u need to remake the lighter because it doesnt look like a 3D lighter btw"*, then mid-build a product photo of a Mecco-style disposable gas lighter (five see-through colours) with *"just make it like this one"*.
+- What failed: the first lighter was built from generic parts (a rounded black box + a silver box + a wheel) - correct-ish in pieces, wrong as a whole. Its list picture read as a bottle. I had started a second generic guess (a BIC with a spark wheel) when his photo arrived; the photo showed NO wheel - a piezo korek gas with a flat stamped metal top and a black side lever.
+- What he means by "like this one": the exact everyday object in Indonesian shops, down to its identifying details - see-through coloured plastic showing the insides, the black collar, the metal top with its hole, the black lever on EVERY colour (so the lever default became black, not the body colour).
+- Rule for next time: before modelling or drawing a real-world object for him, ask for (or find) ONE reference photo of the local version first; a generic Western reference (BIC, Zippo) is a guess about his market.
