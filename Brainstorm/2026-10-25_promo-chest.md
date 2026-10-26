@@ -262,3 +262,16 @@ His frame of a yellow "TAWANG" T-shirt: *"we need more customizable color on thi
 - **More colours, no new export:** the .glb files already split the parts (read their node names): shirt collar, hat seams + gold button/brim edge, mug handle, lighter lever, ashtray gold ring. GOODS_PARTS (helpers.js) names them; the LOOK block shows only the pickers that type has (COLLAR / SEAMS / BUTTON + EDGE / HANDLE / LEVER / RING). Saved trimColor / accentColor; '' follows COLOR / PRINT COLOR, so saved items look the same.
 - Frames: `Raw/2026-10-26-promo-look/` (front + back, lab `?promolook`).
 - Not chosen: a separate BACK TEXT field - his words read as "the back should follow", not "let me type a second word"; flips if he asks for a different back.
+
+## Stage 3 built - the van (2026-10-26 13:15, kpm c1f9cfb)
+
+His ask, the van half: *"... as well as the agent inventory, EOD, stock opname and anything that relates with that"*; answer 3b = leftovers come back at EOD, a shortage is a shortage but costs nothing (no price).
+- **Decision (mine, a data-model door): the van's promo goods live in their OWN field, `promoCanvas`**, not lines flagged `promo: true` inside activeCanvas as the brief first said. activeCanvas is read as Bks by 14 places (every sale, supply, Stock Opname on-field, roster cards, the terminal's stock), and a phone on an older build would have offered a T-shirt at Rp 0. A separate field makes the skip list empty by construction and is invisible to old builds.
+- Bay: the warehouse hatch's third stop (healthy -> Quarantine -> Promo), same NEXT map as the regional chest - his "focus on 1" rule. Promo squares are pictures; HOW MANY has no Slop/Bal keys; every total says Bks and pcs apart.
+- Agent Inventory: the T1-T4 chest shows promo squares in pcs; the salesman's list grows a "Promo items · pcs" group (same tile as the packs).
+- EOD: counted on the same goods card; travels as `promoRemaining` / `promoExpected`; a short one flags DISPUTED, no bounty; the approval puts them back and empties promoCanvas only for a report that carries promoRemaining (an old build's report keeps them on the van, not lost).
+- Proven in the lab with the real write path (stub read-back): load 5 -> shelf 24->19, van 6->11; return 2 -> shelf 26, van 4; EOD payload carries T-shirt 4/6 apart from the cigarettes. Frames: `Raw/2026-10-26-promo-stage3/` (bay 1440 + 375, agent chest 1440, agent list 375, EOD goods card).
+- Not walked: RECONCILE & CLEAR (the lab has no confirm host) - pinned in logicFixes instead.
+- Not chosen: `promo: true` lines inside activeCanvas - cost: a guard in 14 readers and a rollout hole for old phones; flips only if one list must hold both (e.g. a future screen that sorts packs and gifts together).
+- Stage 4 (giving with a sale) still needs his answer: do SAMPLES (switch off) also need a sale, or can a sample go to a shop that buys nothing?
+Models applied: Inversion (how could a T-shirt reach a Rp sum? -> any activeCanvas reader; answer: keep it off activeCanvas), Reversibility Test (a new field can be merged later; lines inside a shared array cannot be split back out of old phones' writes), Pre-mortem on the rollout (old salesman phone + new admin, and the reverse - neither loses a piece).
