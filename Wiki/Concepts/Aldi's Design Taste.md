@@ -3518,3 +3518,15 @@ Source: [[../../Brainstorm/2026-10-25_promo-chest]] round 3.
   the wrong question - he answered a different one.
 
 Source: [[../../Brainstorm/2026-10-25_promo-chest]] "Stage 2 built".
+
+## Customizing means every visible part, and front/back must agree (2026-10-26, promo goods)
+
+> *"we need more customizable color on this, funny thing is that when i put the name on the front here the back does have different name which is the default name"*
+
+- Two colour pickers (body + print) were not enough the moment he painted a shirt yellow: the collar followed the body
+  and he could not set it. **If a part is visibly separate on the model, he expects to colour it.** Built as one picker
+  per real part, only for the types that have it.
+- A default he never set (KPM on the back) that contradicts what he typed reads as "funny" - a bug, not a feature.
+  **A value he types must win everywhere that value is shown.**
+
+Source: [[../../Brainstorm/2026-10-25_promo-chest]] "More paint + the back print".

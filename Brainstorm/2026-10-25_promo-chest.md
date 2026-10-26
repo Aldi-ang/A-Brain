@@ -254,3 +254,11 @@ not-chosen: C - lost on two views of one stock + promo numbers behind a press; f
 **Rollout trap:** a branch phone on a build older than 3e17861 shelves a promo arrival untagged -> read as Bks by every new build. Same rule as stage 1: every phone on the new version before the first promo KIRIM.
 **Next:** stage 3 = the van (loading bay third stop, Agent Inventory pcs group, EOD returns leftovers). NEXT-SESSION holds it.
 Models applied: Inversion (how would a T-shirt reach a Bks sum at a branch? -> any shelf listener that does not split by kind; the check counts them and went red when one was unsplit), Reversibility Test (kind tag on the existing doc vs a new collection: the tag needs no rule and can be read either way later).
+
+## More paint + the back print (2026-10-26 08:00, kpm 4eed16e)
+
+His frame of a yellow "TAWANG" T-shirt: *"we need more customizable color on this, funny thing is that when i put the name on the front here the back does have different name which is the default name"*.
+- **Back:** the 3D drew 'KPM' on every back print (a234781's rule). Now: the back prints the typed PRINTED TEXT; only an item with no typed text keeps KPM.
+- **More colours, no new export:** the .glb files already split the parts (read their node names): shirt collar, hat seams + gold button/brim edge, mug handle, lighter lever, ashtray gold ring. GOODS_PARTS (helpers.js) names them; the LOOK block shows only the pickers that type has (COLLAR / SEAMS / BUTTON + EDGE / HANDLE / LEVER / RING). Saved trimColor / accentColor; '' follows COLOR / PRINT COLOR, so saved items look the same.
+- Frames: `Raw/2026-10-26-promo-look/` (front + back, lab `?promolook`).
+- Not chosen: a separate BACK TEXT field - his words read as "the back should follow", not "let me type a second word"; flips if he asks for a different back.
