@@ -995,3 +995,18 @@ Seen: 2026-10-11
 **Lesson:** grep the page for every limit on those keys - slider min/max AND the restore clamp (`sane()` / LIM) - and run one save -> reload round trip on the new preset, comparing the numbers that come back.
 **Would have prevented:** 2026-10-11 round 7: The Duke (92 Hz) and Esquie / Video mumble (mouth .74 / .7) were outside the page's 100 Hz / .8 floors - a Save would have come back as 100 Hz / .8, a different voice than the one he picked, and the bake would have used it. Caught only because the artifact tool forced a full read of the live page before republishing.
 Seen: 2026-10-11
+
+### 2026-10-12 — an Edit never ends on a space
+**Status:** RETIRED (2026-10-25) — never fired in 13 days of daily className edits: the trigger (whitespace at an Edit boundary) is too narrow to notice in the moment, and a glued-class grep would false-positive on template strings, so it cannot become a check either.
+**Trigger:** before a mutating action - an Edit whose old or new text would end (or start) on whitespace, typically mid-way through a className line.
+**Lesson:** end the replaced text on a visible character (extend it to the next class or the closing quote). After any Edit on a class string, grep the commit's added lines for two classes glued together (a `]` followed straight by a letter) before committing.
+**Would have prevented:** 2026-10-12 kpm `6dd3cb7`: the WhatsApp Share edit ended on `text-[10px] ` and the space was dropped, shipping `text-[10px]shadow-md` (the button lost its size and shadow); found only by reading the commit diff, fixed in a second commit `7098386`.
+Seen: 2026-10-12
+
+### 2026-10-12 — one run of a speed A/B is noise until the variants are repeated, interleaved
+**Status:** RETIRED (2026-10-25) — never fired in 13 days: speed A/B work has not recurred. Platitude-risk; the live-measuring rule survives in the 2026-09-03 motion lesson.
+**Trigger:** before writing down or reporting that switching something off made a page faster or slower (a blur, an animation, a listener) - the moment a single before/after pair prints.
+**Lesson:** run each variant at least 3 times, interleaved (A B A B A B, not AAA BBB), and name a winner only when the ranges do not overlap. Also assert the page actually loaded (the element exists, the server answered 200) before reading any number - a dead page prints believable frame counts.
+**Would have prevented:** 2026-10-12 sidebar drag: the first real run showed the blur costing 26% (1470 vs 1094 ms busy) and it was about to go into PROGRESS as the cause; three interleaved runs gave 878-1139 vs 927-1259 - no difference, the real cost was the re-render. Before that, two probe runs read numbers off a page that never loaded (python missing, HTTP 000) and printed 171 frames anyway.
+Seen: 2026-10-12
+Fired:

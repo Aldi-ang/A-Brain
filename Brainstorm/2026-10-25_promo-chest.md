@@ -214,3 +214,27 @@ Not chosen: turntable pictures instead of live 3D (lighter, but only turns sidew
 His ask: *"edit the color appearance on the 3D design, and change the name on it when press edit"*. EDIT on a promo item without a photo shows LOOK: a live 3D preview, PRINTED TEXT (empty = from the name), COLOR (the goods' paint), PRINT COLOR (word + gold parts), Default colors. Any colour: the goods' own paint is content, not app UI (palette law stops at UI, like pack photos). Saved: goodsColor / printColor ('' = type default), printText, thumb (list picture snapshot, ~3 KB).
 Models applied: Second-Order (a default saved as a hex would freeze the old type's colour on a TYPE change -> '' means default), Inversion (a list picture that ignores the paint would contradict the model -> snapshot on save).
 Not chosen: preset swatches (would put blue/green chips in app UI; the native picker covers any colour).
+
+## Stage 2, round 1: where the dial sits in the Master Vault (2026-10-26 07:20) - OPEN, waiting on Aldi
+
+**The problem, his words:** *"well btw we might need new button or panel to combine these UI with the new master vault chest"* and *"where is the swap button that u show me last time it is not in the app? and also where do u put it we havent design it yet to combine with the recent mastervault panel"*. The dial was drawn on a standalone grey box; the Master Vault is a list (Supply Case: title, search, type tabs + ADD) beside the 3D viewer.
+
+Board: https://claude.ai/artifact/AixSKQFrdHU5gzsKGpdhXv - the REAL Supply Case from the lab (`?shell&vaultlist&tab=promo`), the prototype's own dial CSS injected in a shadow root, shot over CDP at 1440x900 and 375x812 (touch + hover:none emulated). Frames + `inject.js` + `shoot.mjs`: `Raw/2026-10-26-promo-placement/`. Dial drawn at 0.78 scale (153x107), lamp labels 11 px.
+
+| Option | What | Cost (measured) |
+|---|---|---|
+| **A beside the title** (my pick) | dial right of title + search, spans both rows; title renames per chest (Supply Case -> Promo Chest) = the switch reports | PC list -31 px (569 -> 538), phone header +27 px; search 170 px PC / 152 px phone; same both widths |
+| **B foot deck** (PC only) | deck under the list: chest name / dial / item count, like the warehouse box's deck | PC list -130 px (569 -> 439); phone falls back to A |
+| **C CHEST button** | button beside + ADD opens the grey prototype box as a panel (full screen on phone) | list -0 px; promo stock behind a press; same stock shown in two places |
+
+**Decision:** OPEN - waiting on Aldi (one letter for PC, one for phone).
+
+**Rejected on purpose (do not re-offer):**
+- The dial at the bottom of the list ON THE PHONE: the phone list is part of the page (no inner scroll), so a dial under it jumps every time a chest has more or fewer items - breaks his round-4 rule ("no stutering or change in formatting when the inventory is changed").
+- The dial on the 3D viewer's edge: on the phone the viewer is hidden until a product is opened, so the dial would be unreachable from the list (the "hidden control was the only route" fault, 2026-09-01).
+- A pinned dial bar on the phone: his pinned-toolbar rule (one line, first question only) - the dial is ~107 px.
+
+**Already settled, no question:** the regional warehouse (LoadingBay deck) - the dial takes the quarantine hatch's place, as the prototype was drawn.
+
+Models applied: Inversion (how would the dial break round 4? -> anything placed after a variable-length list on the phone), Opportunity Cost (C's zero space buys a duplicate view and a press his 2026-10-20 "a stock number belongs where the salesman looks" rejects).
+not-chosen: C - lost on two views of one stock + promo numbers behind a press; flips if he wants the grey Minecraft box look inside the Master Vault itself.
