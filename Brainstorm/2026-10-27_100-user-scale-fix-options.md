@@ -87,3 +87,6 @@ His asks: *"can the picture name be time and date instead so that its not a rand
 
 ## 22:23 WIB - photo dates in Indonesian
 His *"i want the format for date is in indonesia and use feb, jan, instead just for easier reading"* -> 27-Okt-2026_18-50-35-770 (period.js MONTHS, Ags not Agu). Cost told: Storage sorts by name, so the folder is not in time order across months.
+
+## 22:39 WIB - photo names the salesman like the record
+His *"looks like its not the agent name but the google name instead isnt it, i use my tier 1 btw"*. True gap for salesmen (photo = Google name, nota = roster name); for his T1 vault sale both are his Settings/Google name. Fixed: terminal photoAgent = roster profile name of agentProfileId, else myName (kpm, motorists passed from App).
