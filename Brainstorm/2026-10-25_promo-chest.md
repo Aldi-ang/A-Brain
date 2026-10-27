@@ -335,3 +335,12 @@ His words: *"actually offers differs for each of the regional area because some 
 - Seller region = his `location` (normalizeRegion, as every region screen). Boss (ADMIN) sees all offers; a T2 with a location sees all-area + his region only (flag if he objects).
 - OPEN: "whole sales" read as every area (built); the other reading is Grosir (wholesale) shops only - asked.
 - Models applied: Second-Order Thinking (a lock in the engine buys nothing once giveaways are free), Reversibility Test (`region` absent = all areas, so old offers stay valid and the field can be dropped).
+
+## 2026-10-27 15:50 - Round 7: his answers; option C built (team offers)
+His words: *"yes whole sales mean all areas while regional admin can make offers for his own as a team strategy as long as sales increasing"*.
+- "Whole sales" = all areas: already built (`21004b7`), nothing changed.
+- "Regional admin" = his T4 REGIONAL ADMIN (code FLEET_CAPTAIN; permissions.js L31: his HQ SALES MANAGER is the code's AREA_ADMIN). Built kpm `275f06e`, NOT pushed: Fleet & Roster -> OFFERS (T4 only) -> the same editor, WHERE locked to his region, `by` = his name. Storage moved for regional offers: promoOffers/{REGION} (one doc per region, region = doc id); all-area offers stay on settings/general; the boss's save splits the list in one batch.
+- Rule CHANGE 19 (DRAFT): read = any employee; write = FLEET_CAPTAIN on the doc named after his own location only, `bundles` only, no delete. Emulator 18/18; old rules 5 red. Push waits for his publish: pushed first, the boss's next save would move regional offers where salesmen cannot read yet.
+- OPEN (asked): T3 HQ Sales Manager - offers for every region, or none? "As long as sales increasing" - how does the boss see it: an offer-use count per region (needs the sale to remember which offer filled it), plus a quota per offer (SimpliDOTS sells "bonus barang berdasarkan kuota")?
+- REJECTED ON PURPOSE: mapSettings as the store (T4 can already write it, so no rule) - no region lock there, a Bandung admin could write Jakarta's offers. The UI-says-yes pattern.
+- Models applied: Inversion (what lets a regional admin hurt the boss: burning promo stock, offers outside his region -> doc-per-region lock + boss sees and removes every offer), Second-Order Thinking (the push order: code before rule silently hides regional offers from salesmen).
