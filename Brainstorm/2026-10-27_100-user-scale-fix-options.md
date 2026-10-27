@@ -65,3 +65,7 @@ OPEN - waiting on Aldi: A (recommended for Cello) or A + B. Put to him as one bo
 Models applied: Opportunity Cost (Rp 60 rb/month saved by B at Cello size vs 5 rebuilt screens and a money card),
 Pre-mortem (B ships -> a shop's Titip from another salesman vanishes from the terminal, extra Titip handed over),
 Reversibility (A is a switch, two-way; B changes what every salesman's phone holds).
+
+## 17:56 WIB - he misread the board
+His words: *"what are u making here actually, and those pricing is crazy cheap, what im a supposed to eat with whose prices, lets use the logic i made this app for almost a year and those pricing is not even worth it to made one of this app bruh"*.
+Cause: the cards said "Rp 76 rb per month" without "Google charges you". Those are the CLOUD BILL he pays, not his price to Cello (Rp 10 juta/month, his number). Re-explained: Cello pays him Rp 10 jt; today the bill would take ~Rp 1,52 jt of it, with A ~Rp 76 rb; at 100 users today the bill (Rp 21,8 jt) is bigger than a Rp 10 jt deal. Decision still OPEN.
