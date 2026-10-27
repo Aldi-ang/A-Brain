@@ -3545,3 +3545,7 @@ His words, on a phone frame of his TAWANG poster: *"u need to redesign the poste
 
 ## 2026-10-26 16:00 — a pattern carries a meaning he will read before the brand (kpm da62fe1)
 His words: *"your poster is look like some japanese propaganda bruh change it"*. The burst of rays from the centre of a red poster = the rising-sun flag. Fixed to a double frame (tobacco-label look). Rule: before shipping a decorative pattern on his goods, ask what a stranger in Indonesia would read it as - rays on red, a big circle on red, a red-white split all carry a flag. Plain frames and blocks carry nothing.
+
+## 2026-10-27 — asked paper OR dark, he answered BOTH, behind a toggle (kpm 903091c)
+
+Elder presentation board, A paper vs B dark: *"i want both light and dark version inside the ppt to be toggle button"*. Same shape as 2026-08-31 (given options, he designs another): when the two options are two LOOKS of one thing, expect "both, switchable" and price the toggle into the option table up front. Built as "Layar gelap" / "Layar terang" in the top bar, words only (a sun glyph rendered as an asterisk in the reading face), light by default.
