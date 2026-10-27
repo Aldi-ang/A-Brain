@@ -321,3 +321,17 @@ Models applied: Inversion (how does a free give leak stock? a give with no shop/
 - Models applied: Inversion (what turns a free T-shirt into money? -> a Rp 0 SALE would count as a store served and a sale; its own type closes that), Second-Order Thinking (a bundle summed into an Utang Barang line would be priced Rp 0 -> refused), Reversibility Test (a field on an existing doc is reversible; a new collection needs a rule he must publish).
 - REJECTED ON PURPOSE: a bundle as a product with `kind: 'bundle'` (falls into `inventory`, every Bks sum); a special bundle price (his 3a: cigarettes' price only); a new `bundles` collection (needs a rules publish first).
 - Open edge: a T2 boss may be refused writing settings/general (catch-all = vault owner + distributor admin); the editor then says "only the boss can change offers".
+
+## Round 6 (2026-10-27 12:10): regional offers - BUILT `21004b7`, two questions OPEN
+His words: *"actually offers differs for each of the regional area because some of them perform better sales than others right maybe we should have option to make bundle as a whole sales or maybe bundle that are special for the regional location"*.
+
+| Option | Cost | Status |
+|---|---|---|
+| A. One WHERE per offer: all areas or one roster region; the boss makes them all | no rule change; a 2-region offer = 2 offers | BUILT `21004b7` |
+| B. Several regions per offer (chips) | more UI, same storage | not built - A covers it with one more offer |
+| C. Each region's own admin makes his region's offers | settings/general is boss-only today -> a Firestore rule he must publish, and a per-region write check | OPEN - asked |
+| D. Region as a lock in the engine | pointless: giving without a sale is allowed, so a salesman can hand-build any deal | REJECTED ON PURPOSE |
+
+- Seller region = his `location` (normalizeRegion, as every region screen). Boss (ADMIN) sees all offers; a T2 with a location sees all-area + his region only (flag if he objects).
+- OPEN: "whole sales" read as every area (built); the other reading is Grosir (wholesale) shops only - asked.
+- Models applied: Second-Order Thinking (a lock in the engine buys nothing once giveaways are free), Reversibility Test (`region` absent = all areas, so old offers stay valid and the field can be dropped).
