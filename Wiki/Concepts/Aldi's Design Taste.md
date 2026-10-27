@@ -3559,3 +3559,5 @@ His review of the elder presentation: *"vague because not even showed, just tell
 ## 2026-10-27 — "all text is overwhelming": every screen a picture, the real app first
 
 Third call on the elder presentation, same evening: *"make sure u add picture of our app real features just to show or u can use graph or maybe some ilustration"*. His order of preference is the order to reach for: a REAL screen of the app (the lab shoots them with no login), then a chart, then a drawing. On a phone the picture goes right under the title, before the sentences: it is what an older viewer reads first. Charts for this audience carry no numbers; the bar length is the message.
+
+- 2026-10-27: *"yes add that line and dont hide the button"* - a control that cannot be used right now stays on screen and SAYS why (the Sales Terminal promo give box), never an empty gap. Same law as "every action must report".

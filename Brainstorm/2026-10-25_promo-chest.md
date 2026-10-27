@@ -353,3 +353,6 @@ His words: *"yes tier 3 and above can make offers bundle everywhere , it is bett
 
 ## 2026-10-27 23:17 WIB - T1 may give straight from the Master Vault (kpm `0d4467c`)
 His *"i didnt see any way to give the promotional goods to the customer tho"* then *"can u add so that tier 1 can give the item straight from the master vault?"*. Changes stage 4's "only off a van" rule FOR THE BOSS ONLY: VAULT mode lists the Master Vault promo stock; pieces leave products/<id>.stock in the same save as the sale (online vaultMoves, offline syncOfflineSale; shortage reported in pcs). Salesmen without a van still refused. Emulator 5/5 on the real sync (old code 4/5 red). Open: the silent empty give box when a van holds no promo - his DECIDE owed.
+
+## 2026-10-27 23:41 WIB - the give box is never hidden (kpm `c2f3d6d`)
+His *"yes add that line and dont hide the button"* answers the DECIDE: the box always shows; empty van -> "No promo goods in this van. Load them in Fleet & Canvas → PROMO."; empty Master Vault -> "...Restock them in Restock Vault."; retur -> "No promo goods with a retur. Give them on a new deal." Rendered in the lab at 375.
