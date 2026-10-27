@@ -78,3 +78,6 @@ His screen: "Billing setup can't be completed ... [OR_BACR2_59]" on his Google O
 
 ## 18:35 WIB - BLAZE IS ON
 Second try passed (Rp 400.000 card hold accepted). His screen: "Plan change completed successfully", Rp 5.393.250 free credit, 90 days; budget alert asked at Rp 200 ribu. He first landed in a Vertex AI "express mode" trial project (reverberant-vim-bn17g) - not the app; told to ignore it. Left for him: Storage Get started (Jakarta), publish storage.rules, Settings "Cloud · Blaze".
+
+## 18:51 WIB - FIX A IS LIVE
+Settings Photo storage = "Cloud · Blaze" (18:48) after Blaze, bucket Jakarta, storage.rules published + "Attach permissions". His test sale: sale_1793101835770.jpg, 27.35 KB, image/jpeg in users/(his id)/photos - *"yes it is there that is the exact photo i uploaded in the sales"*. Measured: a real sale photo is ~27 KB as a file; the cost model assumed 80 KB inside the record, so its bills are on the safe side.
