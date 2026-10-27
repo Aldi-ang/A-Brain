@@ -69,3 +69,6 @@ Reversibility (A is a switch, two-way; B changes what every salesman's phone hol
 ## 17:56 WIB - he misread the board
 His words: *"what are u making here actually, and those pricing is crazy cheap, what im a supposed to eat with whose prices, lets use the logic i made this app for almost a year and those pricing is not even worth it to made one of this app bruh"*.
 Cause: the cards said "Rp 76 rb per month" without "Google charges you". Those are the CLOUD BILL he pays, not his price to Cello (Rp 10 juta/month, his number). Re-explained: Cello pays him Rp 10 jt; today the bill would take ~Rp 1,52 jt of it, with A ~Rp 76 rb; at 100 users today the bill (Rp 21,8 jt) is bigger than a Rp 10 jt deal. Decision still OPEN.
+
+## 18:18 WIB - Storage rules drafted (kpm `bc00a52`)
+`storage.rules` (DRAFT, he publishes on Blaze day): folder owner, or an unlocked employee of that owner's company (same employee_directory lookup as firestore.rules), pictures only, under 5 MB, only photos/ and images/. Test `rules-test/test-storage-photos.mjs` 18/18, allow-all 7/18. His Blaze-day order: Blaze -> Storage Get started -> paste rules, Publish, allow Storage to read Firestore -> Settings "Cloud · Blaze".
