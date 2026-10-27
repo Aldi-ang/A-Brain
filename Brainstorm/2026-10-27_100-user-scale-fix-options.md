@@ -72,3 +72,6 @@ Cause: the cards said "Rp 76 rb per month" without "Google charges you". Those a
 
 ## 18:18 WIB - Storage rules drafted (kpm `bc00a52`)
 `storage.rules` (DRAFT, he publishes on Blaze day): folder owner, or an unlocked employee of that owner's company (same employee_directory lookup as firestore.rules), pictures only, under 5 MB, only photos/ and images/. Test `rules-test/test-storage-photos.mjs` 18/18, allow-all 7/18. His Blaze-day order: Blaze -> Storage Get started -> paste rules, Publish, allow Storage to read Firestore -> Settings "Cloud · Blaze".
+
+## 18:28 WIB - first Blaze signup FAILED
+His screen: "Billing setup can't be completed ... [OR_BACR2_59]" on his Google One payments profile (Indonesia). Meaning (Google AI Developers Forum, Google helper, Oct 2026): Google's risk check refused the Cloud signup; the email says "For your protection, a Google Cloud signup was denied". Fixes: card that allows international + recurring payments; name/address exactly as the bank; pay any unpaid Google payments profile; no VPN / ad blocker (Brave shields, uBlock), retry in Incognito; last resort Account suspension inquiry form. Not urgent - Blaze is needed on Cello day.
