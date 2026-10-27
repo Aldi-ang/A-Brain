@@ -3549,3 +3549,9 @@ His words: *"your poster is look like some japanese propaganda bruh change it"*.
 ## 2026-10-27 — asked paper OR dark, he answered BOTH, behind a toggle (kpm 903091c)
 
 Elder presentation board, A paper vs B dark: *"i want both light and dark version inside the ppt to be toggle button"*. Same shape as 2026-08-31 (given options, he designs another): when the two options are two LOOKS of one thing, expect "both, switchable" and price the toggle into the option table up front. Built as "Layar gelap" / "Layar terang" in the top bar, words only (a sun glyph rendered as an asterisk in the reading face), light by default.
+
+## 2026-10-27 — never TELL a viewer about a part of the app the page does not SHOW (kpm 6355925)
+
+His review of the elder presentation: *"vague because not even showed, just tell and the newcoming wont know what is that"* ... *"users wont even know what is peti when not showed"* ... *"read the whole ppt again and make sure that just dont tell the viewer something u dont show"*. I had kept the original's in-app names (peti, Putar Ulang Hari, Fleet & Roster, Notification Bell, papan WANTED, Di aplikasi: Journey Plan) as if the viewer already knew the app. A newcomer has never seen any of them.
+
+**The rule:** a screen part or menu name may appear only when the picture on the same screen shows it. Otherwise write what it does for the business, in his trade's words (data histori penjualan, kompetitor, repeat order). Same root as "a mark whose meaning he has to decode is decoration" (2026-10-03), now for words. Encoded as a check: kpm `.claude/presentation/tests/elder.mjs` fails on the old words.
