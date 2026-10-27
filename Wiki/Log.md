@@ -1620,3 +1620,4 @@ Five fixes, each with a guard trialled red; logicFixes 2299/2299, audit 722/722.
 - 2026-10-27 12:05 - Promo Round 5 BUILT + pushed: giveaway without a sale (`34010bb`, type GIVEAWAY, Rp 0) and factory bundles (`9403f84`, settings/general.promoBundles, BUNDLES chip in the terminal). Decision + rejected paths in [[2026-10-25_promo-chest]] (Brainstorm).
 - 2026-10-27 12:33 - Regional factory offers built + pushed (`21004b7`): WHERE = all areas or one roster region; options + the two open questions in [[2026-10-25_promo-chest]] Round 6.
 - 2026-10-27 15:50 - Team offers: T4 Regional Admin makes offers for his own region, kpm `275f06e` LOCAL (waits on rules CHANGE 19). [[2026-10-25_promo-chest]] Round 7. SimpliDOTS company profile read: Raw/2026-10-27_simplidots-company-profile.md.
+- 2026-10-27 16:25 - Offers everywhere for T1-T3 + offer results, kpm `c1e113e` LOCAL (waits on CHANGE 19 with `275f06e`). [[2026-10-25_promo-chest]] Round 8.
