@@ -1621,3 +1621,4 @@ Five fixes, each with a guard trialled red; logicFixes 2299/2299, audit 722/722.
 - 2026-10-27 12:33 - Regional factory offers built + pushed (`21004b7`): WHERE = all areas or one roster region; options + the two open questions in [[2026-10-25_promo-chest]] Round 6.
 - 2026-10-27 15:50 - Team offers: T4 Regional Admin makes offers for his own region, kpm `275f06e` LOCAL (waits on rules CHANGE 19). [[2026-10-25_promo-chest]] Round 7. SimpliDOTS company profile read: Raw/2026-10-27_simplidots-company-profile.md.
 - 2026-10-27 16:25 - Offers everywhere for T1-T3 + offer results, kpm `c1e113e` LOCAL (waits on CHANGE 19 with `275f06e`). [[2026-10-25_promo-chest]] Round 8.
+- 2026-10-27 16:35 - Rules CHANGE 18 (Grosir lock) + 19 (team offers) PUBLISHED by Aldi (whole file pasted); team offers `275f06e` + offers everywhere/results `c1e113e` pushed, latest kpm `af78fc6`. [[2026-10-25_promo-chest]] Rounds 7-8.
