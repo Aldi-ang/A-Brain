@@ -130,3 +130,5 @@ His words: *"each salesman probably bring around 5-10 slop each time and they wi
 - Cello 12 sells online at Rp 160.000-183.000 per slop (Tokopedia listings read 2026-10-25); the shop price is lower, ~Rp 150.000 used here [guessing].
 - Stock on the road: 5-10 slop x ~Rp 150 ribu = ~Rp 0,75-1,5 juta per salesman, ~Rp 15-30 juta for all 20. A 1% leak of that is Rp 150-300 ribu. **The Sept yardstick 3 assumed Rp 30 juta per salesman - 20-40x too high for Cello. The "costs less than you already lose on the road" line is dead.**
 - What still carries it is the FLOW: a salesman who restocks sells many loads a day. At 2 loads a day (~15 slop) that is ~Rp 2,25 juta/day, ~Rp 56 juta/month each, ~Rp 1,1 miliar/month for 20; 1% = ~Rp 11 juta, above the Rp 10 juta price. At 1 load a day it is ~Rp 5,6 juta, below it [both guessing on loads/day]. Asked him: slop sold per salesman per normal day, and the shop price per slop.
+
+> **Correction 2026-10-27 (17:47 WIB):** the "~Rp 4,3 juta/month at 1.000" figure above is wrong by 10x - the same model gives ~Rp 43,5 juta, because office users still download every sale. See [[2026-10-27_100-user-scale-fix-options]].
