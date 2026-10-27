@@ -304,7 +304,7 @@ His *"just make it like this one"* + a Mecco korek-gas photo: see-through body (
 ## Poster on a hanger + his second text (2026-10-26 15:46, kpm 464e94c)
 No fixed KPM left in any print: subText = BACK TEXT (T-shirt, lighter) / BOTTOM TEXT (poster); empty = back repeats the front word, poster no bottom line. Poster = paper on top/bottom bars + cord, print = frame + burst + headline block + bottom band. His words + the taste rule: Wiki/Concepts/Aldi's Design Taste.md (2026-10-26 entry).
 
-## Round 5 (2026-10-26 16:10): give without a sale + BUNDLES - OPEN, waiting on Aldi
+## Round 5 (2026-10-26 16:10): give without a sale + BUNDLES - DECIDED + BUILT 2026-10-27
 His words: *"oww i want the box to appear even when not buying our goods but i want option to create bundle for our goods plus promotional goods"* (after not finding the give box: cart empty, signed in as T1 on Master Vault).
 | # | Question | Options | Cost |
 |---|---|---|---|
@@ -316,3 +316,8 @@ REJECTED ON PURPOSE: nothing yet.
 Models applied: Inversion (how does a free give leak stock? a give with no shop/photo -> keep both required), Second-Order (a give-only receipt with no items reaches every items reader), Opportunity Cost (the 100-user scale fix waits behind this).
 
 **DECIDED 2026-10-26 16:15** - his words: *"yes, some strategy that factory offer is buy 1 bal of our product and we will give a t shirt for free this is just one variation of those strategy i want the giveaway to be allowed but recorded as always and need a real time photo of course. price is only recorded from the cigarette price only and the promotional goods is just for bonus"*. = 1 YES (giveaway with no purchase, shop + live photo required, saved as its own type, never a sale), 2 bundles = the factory offers, boss sets them, 3 (a) cigarettes price only. REJECTED ON PURPOSE: (b) a special bundle price; a give with no photo.
+
+**BUILT 2026-10-27, pushed (live):** giveaway `34010bb` - an empty cart with promo pieces commits as GIVE PROMO and saves as `type: 'GIVEAWAY'`, Rp 0, items [] (shop + live photo still required; every money/stores reader counts only `type === 'SALE'`, so it adds nothing to revenue or stores served). Factory bundles `9403f84` - stored as `settings/general.promoBundles` (salesmen already read that doc, only the boss writes it: no new collection, no rule change); the boss adds them on a saved promo item's edit panel (FACTORY OFFERS); the terminal shows a BUNDLES chip, one tap = the cigarettes as ordinary cart lines at the shop's tier + the pieces in the give box. No bundle price exists anywhere - the engine never sees a bundle.
+- Models applied: Inversion (what turns a free T-shirt into money? -> a Rp 0 SALE would count as a store served and a sale; its own type closes that), Second-Order Thinking (a bundle summed into an Utang Barang line would be priced Rp 0 -> refused), Reversibility Test (a field on an existing doc is reversible; a new collection needs a rule he must publish).
+- REJECTED ON PURPOSE: a bundle as a product with `kind: 'bundle'` (falls into `inventory`, every Bks sum); a special bundle price (his 3a: cigarettes' price only); a new `bundles` collection (needs a rules publish first).
+- Open edge: a T2 boss may be refused writing settings/general (catch-all = vault owner + distributor admin); the editor then says "only the boss can change offers".
