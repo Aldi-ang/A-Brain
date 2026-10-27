@@ -75,3 +75,6 @@ Cause: the cards said "Rp 76 rb per month" without "Google charges you". Those a
 
 ## 18:28 WIB - first Blaze signup FAILED
 His screen: "Billing setup can't be completed ... [OR_BACR2_59]" on his Google One payments profile (Indonesia). Meaning (Google AI Developers Forum, Google helper, Oct 2026): Google's risk check refused the Cloud signup; the email says "For your protection, a Google Cloud signup was denied". Fixes: card that allows international + recurring payments; name/address exactly as the bank; pay any unpaid Google payments profile; no VPN / ad blocker (Brave shields, uBlock), retry in Incognito; last resort Account suspension inquiry form. Not urgent - Blaze is needed on Cello day.
+
+## 18:35 WIB - BLAZE IS ON
+Second try passed (Rp 400.000 card hold accepted). His screen: "Plan change completed successfully", Rp 5.393.250 free credit, 90 days; budget alert asked at Rp 200 ribu. He first landed in a Vertex AI "express mode" trial project (reverberant-vim-bn17g) - not the app; told to ignore it. Left for him: Storage Get started (Jakarta), publish storage.rules, Settings "Cloud · Blaze".
