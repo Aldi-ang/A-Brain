@@ -54,7 +54,7 @@ managers download only their region - is what makes it a straight line, and it n
 (none today). Still cheap next to Rp 200 jt/month of revenue at 1.000 users. [likely - model]
 
 ## Decision
-OPEN - waiting on Aldi: A (recommended for Cello) or A + B. Put to him as one board, 2026-10-27 17:47 WIB.
+DECIDED 2026-10-27 ~18:02: **A**. His words: *"i see then use option A to minimize the cost"*. Built + pushed 18:11 in kpm `740d614` (helper fileOrKeepPhoto; terminal shop photo + offline sync). Works only once Blaze is on and Settings shows "Cloud · Blaze". Next: Storage rules draft. B stays open for 50+ users.
 
 ## Rejected on purpose
 - B before A: B is the risky half (5 screens, a money card) and the smaller saving.
