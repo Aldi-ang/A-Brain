@@ -81,3 +81,6 @@ Second try passed (Rp 400.000 card hold accepted). His screen: "Plan change comp
 
 ## 18:51 WIB - FIX A IS LIVE
 Settings Photo storage = "Cloud · Blaze" (18:48) after Blaze, bucket Jakarta, storage.rules published + "Attach permissions". His test sale: sale_1793101835770.jpg, 27.35 KB, image/jpeg in users/(his id)/photos - *"yes it is there that is the exact photo i uploaded in the sales"*. Measured: a real sale photo is ~27 KB as a file; the cost model assumed 80 KB inside the record, so its bills are on the safe side.
+
+## 21:33 WIB - photo file names + storage cost (kpm `1cc72f6`)
+His asks: *"can the picture name be time and date instead so that its not a random jpg name"*, *"also put the agent name and store name in the uploaded jpg so that we know the exact detail"*, *"have u updated to minimize the cost for this storage as well?"*. Done: names like sale_2026-10-27_18-50-35-770_BUDI_TOKO-SINAR.jpg (photoStamp + nameTag in helpers.js; milliseconds keep names unique; offline uses the queue time so retries overwrite). Storage cost: storing is a few thousand rupiah a month at Cello size; the remaining lever was re-downloads, fixed with Cache-Control private, max-age=31536000 (emulator: kept, still image/jpeg). Reading "names IN the jpg" taken as the FILE NAME; writing them onto the picture itself was offered, not built.
