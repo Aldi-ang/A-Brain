@@ -1623,3 +1623,4 @@ Five fixes, each with a guard trialled red; logicFixes 2299/2299, audit 722/722.
 - 2026-10-27 16:25 - Offers everywhere for T1-T3 + offer results, kpm `c1e113e` LOCAL (waits on CHANGE 19 with `275f06e`). [[2026-10-25_promo-chest]] Round 8.
 - 2026-10-27 16:35 - Rules CHANGE 18 (Grosir lock) + 19 (team offers) PUBLISHED by Aldi (whole file pasted); team offers `275f06e` + offers everywhere/results `c1e113e` pushed, latest kpm `af78fc6`. [[2026-10-25_promo-chest]] Rounds 7-8.
 - 2026-10-27 17:10 - Fleet panels in front (blur), dark dropdown lists, many-item bundles, bundle price for T1-T3 (matrix key set_bundle_price), kpm b8753e4 pushed. [[2026-10-25_promo-chest]].
+- 2026-10-27 17:35 - All offer tests approved by Aldi; offer results moved to REPORTS -> Offer Performance, kpm 5c94f59 pushed. [[2026-10-25_promo-chest]].
