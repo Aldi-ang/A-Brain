@@ -66,3 +66,10 @@ OPEN - waiting on Aldi: the three seat questions (or "your picks"); whether Cell
 Models applied: Inversion (how a company gets seats for free: add past the button, lock-and-replace, write the limit
 itself, share one login), Chesterton's Fence (Landlord Dashboard + SUSPEND already exist - build the seat number on
 them, do not invent a second admin screen), Sunk Cost (a year of work does not set the price; the customer's alternative does).
+
+## 08:30 WIB - ANSWERED
+His words: *"1 = yes owner is 1 seat, 2 = yes locked login keep it seat , they can change the email and everything but it will stays at 1 seat until they delete them, i just think that 400k per people is cheap enough isnt? well if u want to compare our stuff with distri make sure that our features and their features is being compared, so its not just the price, its the UI the safety the ergonomics, features and how effective and efficient the app would be , cello does sell from distributor also and they have their own salesman as well"*.
+- DECIDED: every login incl. the owner = 1 seat; locked keeps it; an email change keeps the same seat; only deleting frees it; extra seat Rp 400 ribu/month.
+- Rp 400 ribu is NOT cheap by the market read 2026-10-24 (Distri Pro Rp 250 ribu, Advanced Rp 150 ribu, SalesMania <= Rp 75 ribu, Bee extra licence Rp 80-100 ribu): it is the top. It holds as a package price only - which is why he wants the full comparison (features, UI, safety, ergonomics, efficiency), not price alone.
+- Cello sells through distributors AND its own salesmen -> the factory portal moves up (rank 5 -> worth designing after the seat limit).
+- Seat design details (licence doc, seats outside users/<bossUid>, push order): in kpm .claude/NEXT-SESSION.md top block.
