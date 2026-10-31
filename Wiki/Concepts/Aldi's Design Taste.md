@@ -3561,3 +3561,11 @@ His review of the elder presentation: *"vague because not even showed, just tell
 Third call on the elder presentation, same evening: *"make sure u add picture of our app real features just to show or u can use graph or maybe some ilustration"*. His order of preference is the order to reach for: a REAL screen of the app (the lab shoots them with no login), then a chart, then a drawing. On a phone the picture goes right under the title, before the sentences: it is what an older viewer reads first. Charts for this audience carry no numbers; the bar length is the message.
 
 - 2026-10-27: *"yes add that line and dont hide the button"* - a control that cannot be used right now stays on screen and SAYS why (the Sales Terminal promo give box), never an empty gap. Same law as "every action must report".
+
+## 2026-10-31 — a big button filled with amber is "too bright"; the "+" plate is the primary (kpm arrival flow)
+
+Shown the arrival-flow board (Sales Terminal: GPS reaches a shop -> TAKE ORDER or a one-tap status; the Manifest as a left side panel), his whole answer: *"yes build that but change the fill color on the take order because it is too bright"*. The drawn TAKE ORDER was the MAKE DEAL button's amber gradient fill at full width and 60 px tall.
+
+**What it confirms:** the law "AMBER IS AN EDGE AND AN INK. IT IS NOT A FILL." (2026-08-21) and the size refinement under it - a small amber thing is fine, a wide amber slab is not. Built as the ware "+" plate (`bg-[var(--duke-fill-plank)]`, amber edge, amber ink), the same family as the buttons he presses all day; in light mode the same tokens give a pale plate with brown ink. A self-check pins it (no `bg-` / `from-` / `to-` amber on TAKE ORDER).
+
+**How to apply:** a primary action on a new sheet borrows the "+" plate, not the MAKE DEAL fill. He approved the layout and the flow in the same sentence - a colour note is not a rejection, so build the rest as drawn.

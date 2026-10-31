@@ -27,7 +27,7 @@ ANSWERED 2026-10-31 20:38: closing = closing a DEAL (his *"its mean A"*). Next: 
 - A second list of statuses in the terminal (his one-function-one-control rule) - reuse VISIT_TAGS.
 - Building before frames (his show-him rule).
 
-## The board (2026-10-31 21:04 WIB) - OPEN, waiting on Aldi
+## The board (2026-10-31 21:04 WIB) - DECIDED: his *"yes build that but change the fill color on the take order because it is too bright"*
 `Raw/2026-10-31-arrival-flow/board.png` - 12 frames on the real lab terminal (`?shell&terminal&many`, GPS pinned on Toko Berkah Jaya over CDP so the terminal locks the shop itself), phone 375 dpr 2 with touch media, light, Lite, PC 1440. Sent with one 🔴 DECIDE: build it like the gold frames?
 
 | Step | Today | After (drawn) | Cost he has not priced |
@@ -41,6 +41,9 @@ Facts found while drawing:
 - The terminal checks GPS ONCE (open, shop cleared, or the button) - `MerchantSalesView.jsx:449-451`, no `watchPosition`. Journey has one (`JourneyView.jsx:267`). "Whenever in range" needs the same watch, foreground only.
 - Re-lock loop: after a status is saved the shop clears, `verifyLocation` runs again and the SAME shop (still under 50 m) locks again -> the sheet would reopen forever. Skip shops already reported today (`lastVisit === today`).
 - The save must be Journey's shape exactly (`JourneyView.jsx:938-951`): `lastVisit`, `lastVisitNote "[tag] note"`, `lastVisitTag`, `lastVisitedBy`, `openRequest` for 📝, audit `VISIT_REPORT` with `{ storeId, tag, agentId }` - DayReplay + dayLog `readReport` parse that sentence.
+
+## Built (2026-10-31 21:50 WIB)
+As drawn, except TAKE ORDER = the ware "+" plate (dark fill, amber edge + ink). Frames from the real code: `Raw/2026-10-31-arrival-flow/built/board.png`. Found while building: index.css `button:has(> svg:only-child)` (min-height 44px, made for icon-only buttons) also catches an icon + bare-text button and beats `min-h-[60px]` - the words go in a `<span>`. The re-lock loop was solved without touching the auto-lock: the sheet asks once per shop per day, and a GPS-picked shop is let go past twice the fence with an empty manifest.
 
 ## Rejected on purpose (board round)
 - Opening the panel by a swipe from the screen edge: iPhone Safari uses that swipe for "back". Tap the tab; a drag that starts ON the tab is fine. Installed app (manifest `display: 'standalone'`) has no such swipe.
