@@ -21,7 +21,7 @@ The Journey Visit Report already has his statuses - `VISIT_TAGS` (kpm `src/utils
 | shop SHUT (= Store Closed) | one-tap status, visit done |
 
 ## Decision
-OPEN - waiting on Aldi: the reading of "closing"; then frames (375 + 1440 + Lite) and one DECIDE. Brief: kpm `.claude/NEXT-SESSION.md` top block.
+ANSWERED 2026-10-31 20:38: closing = closing a DEAL (his *"its mean A"*). Next: frames (375 + 1440 + Lite) and one DECIDE. Brief: kpm `.claude/NEXT-SESSION.md` top block.
 
 ## Rejected on purpose
 - A second list of statuses in the terminal (his one-function-one-control rule) - reuse VISIT_TAGS.
