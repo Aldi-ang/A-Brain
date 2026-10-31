@@ -1,0 +1,85 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Arrival Flow Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=JetBrains+Mono:wght@700&display=swap">
+<style>
+/* One band per step of his flow: TODAY on the left, AFTER beside it, the captions under the step name.
+   Single dark look on purpose (the app's own ground); every colour is set here. */
+:root { --ground: #0b0a09; --panel: #14110e; --line: #2b2621; --ink: #efe8db; --muted: #a39b90; --gold: #e2b64a; --amber: #d08a2e; --rose: #e0606a;
+  --display: "Rajdhani", "Segoe UI", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, Consolas, monospace; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 500 17px/1.45 var(--display); padding: 24px 16px 40px; }
+.wrap { max-width: 1240px; margin: 0 auto; display: grid; gap: 26px; }
+.ask { border: 1px solid var(--amber); border-radius: 12px; padding: 16px 18px; background: var(--panel); display: grid; gap: 6px; }
+.ask b { font: 700 24px/1.2 var(--display); letter-spacing: .02em; }
+.ask p { margin: 0; color: var(--muted); max-width: 80ch; }
+.step { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px; }
+.step h2 { margin: 0; font: 700 26px/1.1 var(--display); letter-spacing: .03em; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.step h2 .k { font: 700 14px/1 var(--mono); color: #000; background: var(--gold); padding: 6px 9px; border-radius: 4px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.facts li { font: 700 13px/1.2 var(--mono); padding: 7px 10px; border-radius: 6px; background: var(--panel); border: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.facts li.good { border-color: #6b5a28; color: var(--gold); }
+.facts li.cost { border-color: #5a2a2e; color: var(--rose); }
+.why { margin: 0; max-width: 82ch; }
+.frames { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.frames.three { grid-template-columns: repeat(3, minmax(0, 270px)); }
+figure { margin: 0; display: grid; gap: 6px; min-width: 0; }
+figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 10px; }
+figure.today img { border-color: #4a443c; filter: saturate(.85); }
+figure.after img { border-color: var(--gold); }
+figcaption { font: 700 12px/1.3 var(--mono); letter-spacing: .08em; color: var(--muted); }
+figure.after figcaption { color: var(--gold); }
+.pc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.foot { color: var(--muted); font-size: 15px; max-width: 86ch; margin: 0; }
+</style>
+<div class="wrap">
+  <div class="ask">
+    <b>🔴 DECIDE: build the Sales Terminal like the gold frames?</b>
+    <p>Grey frames are the app today. Gold frames are the new flow, drawn on the real terminal in the lab, phone 375 px. Your flow: reach a shop, the app asks what happened, a status that is not an order is saved with one tap, TAKE ORDER opens the full terminal, and the Manifest slides out from the left instead of up from the bottom.</p>
+  </div>
+
+  <section class="step">
+    <h2><span class="k">1</span> You reach a shop</h2>
+    <ul class="facts"><li class="good">GPS picks the shop by itself (it already does)</li><li class="good">one tap = visit saved</li><li class="good">buttons 48–60 px tall</li><li>same 6 statuses as the Journey visit report</li></ul>
+    <p class="why">Today the terminal picks the shop and then waits: to report "stock full" the salesman has to leave and use Journey. After: the question comes first. TAKE ORDER is the big button; Stock Full, Competitor Issue, Store Closed and Routine Check save in one tap and the visit is done. New Request asks for one line of text first, because the request is the text.</p>
+    <div class="frames">
+      <figure class="today"><img src="p-today.png" alt="Today: terminal with the shop picked, nothing asked"><figcaption>TODAY · PHONE</figcaption></figure>
+      <figure class="after"><img src="p-arrive.png" alt="After: the arrival sheet with Take order and five statuses"><figcaption>AFTER · PHONE</figcaption></figure>
+      <figure class="after"><img src="p-arrive-light.png" alt="After in light mode"><figcaption>AFTER · LIGHT MODE</figcaption></figure>
+      <figure class="after"><img src="c-arrive.png" alt="After on the PC: the same question as a card"><figcaption>AFTER · PC 1440</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <h2><span class="k">2</span> TAKE ORDER: the Manifest slides out from the left</h2>
+    <ul class="facts"><li class="cost">today: the open Manifest covers 447 px of the wares</li><li class="good">after: a panel 323 px wide, pulled sideways</li><li class="good">the tab rides on the panel's edge: tap it again to close</li></ul>
+    <p class="why">Everything that lives in the Manifest moves with it unchanged: customer, sale/retur, payment, the promo give box, the proof photo and SIGN. The tab you tapped stays stuck to the panel's edge, so the same tab opens it and closes it. Lite mode: same panel, it just appears without the slide.</p>
+    <div class="frames">
+      <figure class="today"><img src="p-todayopen.png" alt="Today: the Manifest pulled up over half the wares"><figcaption>TODAY · PULLED UP</figcaption></figure>
+      <figure class="after"><img src="p-open.png" alt="After: the Manifest as a left panel"><figcaption>AFTER · PULLED OUT</figcaption></figure>
+      <figure class="after"><img src="p-open-lite.png" alt="After in Lite mode"><figcaption>AFTER · LITE MODE</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <h2><span class="k">3</span> The Manifest tucked away</h2>
+    <ul class="facts"><li class="good">wares get the whole screen: +104 px at the bottom</li><li class="good">tab 20 px on the left edge, same height as the menu ribbon on the right</li><li class="cost">the running total is no longer on screen all the time</li></ul>
+    <p class="why">Today the closed Manifest bar at the bottom always shows the total and the last ware added. With the bar gone, that job moves to a flag: after every +, a flag slides out of the tab with the ware and the new total for 2 seconds, then folds back in. The count stays on the tab.</p>
+    <div class="frames three">
+      <figure class="today"><img src="p-today.png" alt="Today: the bar at the bottom"><figcaption>TODAY · BAR AT THE BOTTOM</figcaption></figure>
+      <figure class="after"><img src="p-tucked.png" alt="After: tab on the left, wares full height"><figcaption>AFTER · TUCKED</figcaption></figure>
+      <figure class="after"><img src="p-flag.png" alt="After: the flag right after a plus"><figcaption>AFTER · 2 S AFTER A +</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <h2><span class="k">PC</span> Nothing changes on the PC</h2>
+    <p class="why">On the PC the Manifest is already a fixed column on the left, so only the arrival question (step 1) is new there.</p>
+    <div class="pc">
+      <figure class="today"><img src="c-today.png" alt="PC today and after: the Manifest is the left column"><figcaption>PC 1440 · TODAY = AFTER</figcaption></figure>
+      <figure class="after"><img src="c-arrive.png" alt="PC after: the arrival card"><figcaption>PC 1440 · ARRIVAL CARD</figcaption></figure>
+    </div>
+  </section>
+
+  <p class="foot">On an iPhone in Safari, a swipe that starts at the very left edge of the screen means "go back". So the tab opens with a tap; dragging it works too. When the app is installed on the home screen there is no such swipe.</p>
+</div>
