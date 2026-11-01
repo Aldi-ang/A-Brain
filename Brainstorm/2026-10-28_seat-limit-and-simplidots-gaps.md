@@ -73,3 +73,11 @@ His words: *"1 = yes owner is 1 seat, 2 = yes locked login keep it seat , they c
 - Rp 400 ribu is NOT cheap by the market read 2026-10-24 (Distri Pro Rp 250 ribu, Advanced Rp 150 ribu, SalesMania <= Rp 75 ribu, Bee extra licence Rp 80-100 ribu): it is the top. It holds as a package price only - which is why he wants the full comparison (features, UI, safety, ergonomics, efficiency), not price alone.
 - Cello sells through distributors AND its own salesmen -> the factory portal moves up (rank 5 -> worth designing after the seat limit).
 - Seat design details (licence doc, seats outside users/<bossUid>, push order): in kpm .claude/NEXT-SESSION.md top block.
+
+## 2026-11-01 18:15 WIB - BUILT (kpm 2f2eb69, pushed)
+- How: `licenses/<bossUid> { seats }` (his alone) + `seats/<bossUid>_<n> { bossUid, n, login }` outside `users/<bossUid>`; rules CHANGE 20 - a new login under a licence must name a seat whose doc names it back. Mechanism and every rule: the commit message.
+- Checked: rules-test/test-seat-limit.mjs 27/27; the live rules fail 11 of the same lines (a T2 adds a person with no seat), allow-all fails 17. logicFixes 2629/2629, audit 723/723.
+- Owner's own record: the email-keyed record becomes `employee_directory/<uid>` (bossUid = uid) at the owner's vault setup (App.jsx account migration). The landlord's Save seats refuses an owner whose bossUid is still the email; the rule exempts only a record keyed by the signer's own uid.
+- Known ceiling (ponytail, in utils/seats.js): rules only check "number <= limit and free", so a company he licenses BELOW its head count could refill a freed low number from outside the app - its ceiling is the head count on licence day. The app itself refuses while used >= limit.
+- OPEN - waiting on Aldi: publish CHANGE 20 in the Console, then set seats per company.
+- Frames: Raw/2026-11-01-seat-limit/ (fleet 375 full company + toast, fleet 1440, add form 1440, landlord 375 + 1440).
