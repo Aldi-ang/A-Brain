@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  body { margin: 0; background: #14161a; color: #e8e2d4; font: 22px/1.4 "Segoe UI", sans-serif; width: 1400px; }
+  .wrap { padding: 32px; }
+  h1 { margin: 0 0 6px; font-size: 32px; color: #e9b949; }
+  .sub { margin: 0 0 24px; color: #a8a090; font-size: 20px; }
+  .row { display: flex; gap: 28px; }
+  .col { flex: 1; }
+  .col h2 { margin: 0 0 10px; font-size: 24px; }
+  .crop { width: 380px; height: 432px; border: 4px solid #3a3e46; border-radius: 8px;
+          background-repeat: no-repeat; background-size: 2304px auto; background-position: -1883px -432px; }
+  .bad .crop { border-color: #d9534f; } .bad h2 { color: #ff8a80; }
+  .good .crop { border-color: #e9b949; } .good h2 { color: #e9b949; }
+  .col p { margin: 10px 0 0; font-size: 20px; }
+</style></head><body><div class="wrap">
+  <h1>TODAY box on the PC, built: each salesman sees only his own day</h1>
+  <p class="sub">Same lab test as before: Lab Salesman's shops paid him Rp 750.000 at 2 shops, Budi's shops paid Budi Rp 4.030.000 at 3 shops.</p>
+  <div class="row">
+    <div class="col bad"><h2>BEFORE: salesman</h2><div class="crop" style="background-image:url(today.png)"></div>
+      <p>Rp 4.780.000, 5 shops, Budi's Toko Lancar as his last customer.</p></div>
+    <div class="col good"><h2>AFTER: salesman</h2><div class="crop" style="background-image:url(after.png)"></div>
+      <p>Rp 750.000, 2 shops, his own last customer Warung Bu Sri.</p></div>
+    <div class="col good"><h2>AFTER: you (boss)</h2><div class="crop" style="background-image:url(boss.png)"></div>
+      <p>Unchanged: the whole company, Rp 4.780.000 from 5 shops.</p></div>
+  </div>
+</div></body></html>

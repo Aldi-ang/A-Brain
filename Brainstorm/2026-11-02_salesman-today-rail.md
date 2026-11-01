@@ -1,6 +1,6 @@
 ---
 date: 2026-11-02
-status: OPEN — waiting on Aldi
+status: DECIDED A, BUILT
 ---
 # The salesman's TODAY box counts the whole team
 
@@ -27,3 +27,6 @@ OPEN — waiting on Aldi. Question sent: "❓ ANSWER: Should a salesman's TODAY 
 - `customerBrief(transactions, customerName)` (:1652) stays company-wide: a shop's history across salesmen is the point of the brief.
 
 Models applied: Inversion (what does a salesman do with a wrong cash number at EOD), Second-Order Thinking (a rules fix moves every salesman screen), Chesterton's Fence (why the list is company-wide: the boss's screens).
+
+## 2026-11-02 05:54 WIB - DECIDED A, BUILT (kpm 1a1ca16)
+His answer: *"A"*. Salesman rail filtered by `agentId === agentProfileId` unless `userRole === 'ADMIN'`. Lab DOM: salesman Rp 750.000 / 2 / Warung Bu Sri, boss Rp 4.780.000 / 5 / Toko Lancar. Board: [[Raw/2026-11-02-today-rail/board-after.png]].

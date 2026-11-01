@@ -89,3 +89,7 @@ Distri hands-on (needs account) · their YouTube demos · KPM sale taps 5-8 (rea
 Models applied: Inversion (how Cello says no: salesmen reject the English screens, the data review finds no paper, the
 office still retypes - each became a ranked fix), Opportunity Cost (Rp 45 jt/yr above Pro is what the package must buy),
 Second-Order Thinking (the factory view also makes distributors' salesmen into paid seats).
+
+## 2026-11-02 05:54 WIB - his ask (verbatim)
+*"btw we need to update the app so that it will be better from distri and simplidots make sure use your researc as comparison to make our app better compared to them later"*
+Next ONE job (kpm NEXT-SESSION.md): merge this note's 7 fixes with the SimpliDOTS gap table into one ranked list (seat limit + own-numbers rail are DONE), then ONE board + ONE 🔴 DECIDE on what to build first.
