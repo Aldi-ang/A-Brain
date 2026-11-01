@@ -1,6 +1,6 @@
 ---
 date: 2026-11-02
-status: OPEN — waiting on Aldi
+status: DECIDED A + B; C OPEN (more talk)
 ---
 # Beat Distri and SimpliDOTS - one ranked list
 
@@ -43,3 +43,8 @@ OPEN — waiting on Aldi. Asked: "🔴 DECIDE: Which one do I build first - A, B
 - Treating the 10-28 pick ("safety sheet first") as decided - he never answered it.
 
 Models applied: Inversion (how Cello says no: salesmen reject English screens -> A; a supervisor cannot see who visits without selling -> B; the factory cannot see its distributors -> C), Opportunity Cost (A is the biggest job but the deal rides on it), Pre-mortem (F: a fake-GPS "check" a web app cannot really do would be a promise the pitch cannot keep).
+
+## 2026-11-02 06:10 WIB - DECIDED: A and B, C later
+His words: *"do A and B first . we need further discussion for C"*.
+A round 1 (Sales Terminal) words board sent: [[Raw/2026-11-02-indonesian/board.png]] + [[Raw/2026-11-02-indonesian/words.png]] (124 words, the mock swap in `Raw/2026-11-02-indonesian/inject.js` = the dictionary to build from). Size measured: ~263 English strings on the 3 salesman screens (terminal 175, Journey 75, evening hand-in 12) plus strings built in code -> 3 rounds: terminal, Journey, hand-in.
+Asked: "❓ ANSWER: Are these Indonesian words right? Say "ok" or name the ones to change." and "🔴 DECIDE: Who sees Indonesian?" (my default: everyone Indonesian except his own login, an EN/ID button on each phone).
