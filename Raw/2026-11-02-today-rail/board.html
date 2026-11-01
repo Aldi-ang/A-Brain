@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  body { margin: 0; background: #14161a; color: #e8e2d4; font: 22px/1.4 "Segoe UI", sans-serif; width: 1400px; }
+  .wrap { padding: 32px; }
+  h1 { margin: 0 0 6px; font-size: 34px; color: #e9b949; }
+  .sub { margin: 0 0 24px; color: #a8a090; font-size: 20px; }
+  .row { display: flex; gap: 28px; align-items: flex-start; }
+  .crop { flex: none; width: 380px; height: 432px; border: 4px solid #d9534f; border-radius: 8px;
+          background: url(today.png) no-repeat; background-size: 2304px auto; background-position: -1883px -432px; }
+  .cards { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+  .card { background: #1f2228; border: 2px solid #3a3e46; border-radius: 8px; padding: 14px 18px; }
+  .card h2 { margin: 0 0 6px; font-size: 22px; color: #e9b949; }
+  .card p { margin: 2px 0; }
+  .card.box { border-color: #d9534f; }
+  .card.box h2 { color: #ff8a80; }
+  b { color: #fff; }
+  .full { margin-top: 28px; }
+  .full img { width: 100%; border: 2px solid #3a3e46; border-radius: 8px; display: block; }
+  .full p { margin: 8px 0 0; color: #a8a090; font-size: 20px; }
+</style></head><body><div class="wrap">
+  <h1>Sales Terminal on the PC: the TODAY box shows the whole team, not the salesman</h1>
+  <p class="sub">Lab test, real terminal code. Two salesmen sold today. The one signed in is "Lab Salesman".</p>
+  <div class="row">
+    <div class="crop"></div>
+    <div class="cards">
+      <div class="card">
+        <h2>Lab Salesman (signed in, looking at this screen)</h2>
+        <p>Toko Berkah Jaya paid him Rp 450.000 · Warung Bu Sri paid him Rp 300.000</p>
+        <p>= <b>Rp 750.000 in his cash box, 2 shops</b></p>
+      </div>
+      <div class="card">
+        <h2>Budi Santoso (another salesman)</h2>
+        <p>Toko Sumber Rejeki Rp 1.850.000 · Kios Maju Mundur Rp 1.200.000 · Toko Lancar Rp 980.000</p>
+        <p>= <b>Rp 4.030.000 in Budi's cash box, 3 shops</b></p>
+      </div>
+      <div class="card box">
+        <h2>What the TODAY box tells Lab Salesman</h2>
+        <p>TAKEN <b>Rp 4.780.000</b> (his + Budi's money together)</p>
+        <p>STORES DONE <b>5</b> (he did 2)</p>
+        <p>LAST CUSTOMER <b>Toko Lancar</b> (that was Budi's sale, not his)</p>
+      </div>
+    </div>
+  </div>
+  <div class="full">
+    <img src="today.png">
+    <p>Where it sits: the right edge of the Sales Terminal, PC only (wide screens). The phone does not show this box.</p>
+  </div>
+</div></body></html>
