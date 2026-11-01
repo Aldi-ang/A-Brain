@@ -93,3 +93,4 @@ Second-Order Thinking (the factory view also makes distributors' salesmen into p
 ## 2026-11-02 05:54 WIB - his ask (verbatim)
 *"btw we need to update the app so that it will be better from distri and simplidots make sure use your researc as comparison to make our app better compared to them later"*
 Next ONE job (kpm NEXT-SESSION.md): merge this note's 7 fixes with the SimpliDOTS gap table into one ranked list (seat limit + own-numbers rail are DONE), then ONE board + ONE 🔴 DECIDE on what to build first.
+Merged + ranked 2026-11-02 05:59: [[2026-11-02_beat-distri-simplidots]].
