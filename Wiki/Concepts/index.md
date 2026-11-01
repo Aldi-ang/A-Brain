@@ -73,6 +73,7 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 - [[A Cache Saying No]] — why the app showed ACCESS DENIED to its own owner for twenty seconds: Firestore answering a lookup from the local cache, and the rule that a negative from the cache is not evidence while a positive still is.
 - [[The Book as a Stack of Sheets]] — the tutorial book rebuilt on the Framer interactive-book technique: the four things that make a page a sheet, why the leaves had to become the chapters, and why a phone turns to -90 instead of -180. **Built 2026-09-01, his judgement still owed.**
 - [[A Named Import Can Shadow a Global]] — `new Map()` built a lucide icon instead of a hash map. Green build, 1,693 checks green, black screen.
+- [[SFX Toolkit]] — earshot, real-sound, real-sfx, faster-whisper, kokoro-onnx (+ xtool, openverse-dev): stored 2026-11-01, where each lives and which fit the rule below.
 - [[Sounds Come From Aldi]] — every sound in KPM is a file he picked. Three rounds have been lost to inventing one instead, the third *after* the first two were written down in the file that was open. Also the ffmpeg method that works, and why audibility can never be proven from here.
 
 - [[Ownership Moves, History Does Not]] — a store hand-off used to overwrite the seller on every past sale to move the debt. The rows keep their author now; ownership moved to the store record instead. Includes why the rewrite could not just be deleted.

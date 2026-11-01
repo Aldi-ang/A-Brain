@@ -51,6 +51,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
   harness lied first
 - [[The Rule That Never Applied]] — three same-day CSS bugs where the declaration was written
   correctly and still lost; greping the source proves it was typed, not that it applies
+- [[SFX Toolkit]] — the sound tools stored 2026-11-01 for the SFX upgrade (earshot, real-sfx, faster-whisper, kokoro) and which ones fit the rule below
 - [[Sounds Come From Aldi]] — a sound is a file he chose, never one generated in code and never
   one borrowed from another meaning. Three rounds lost to that, the ffmpeg cut method that
   finally worked, and why audibility is his phone's test and never this environment's

@@ -55,6 +55,7 @@ The house rules this project follows so mistakes don't repeat.
 - [[Looking at the App]] — measuring is not looking. How to render a real KPM screen without the HTTPS dev server or a Google login, and why a new measuring tool is itself unverified until one of its readings is confirmed independently.
 - [[Capybara Art Generation]] — the generator that kept his capybara identical (FLUX Kontext, his sprite as reference), the cut-out, and the fallback block in the presentation
 - [[Concepts/Looking Inside the App]] — 2026-09-08: http dev mode, seeded emulator, the vault opened as data, and the five checks holding the dev door shut.
+- [[SFX Toolkit]] — the stored sound tools for the SFX upgrade (2026-11-01); the listening ones fit his rule, the ones that make sounds in code do not
 - [[Sounds Come From Aldi]] — the audio version of the same discipline, and the sharpest example of a written lesson failing to prevent its own repeat. Every sound is a file he picked; three rounds were spent proving that, the third one after rounds 1 and 2 were already recorded in the source file being edited. Audibility cannot be verified here at all — `playSound` is gated behind a real user gesture the preview pane cannot produce.
 - [[Draft-Then-Deploy Discipline]] — a Firestore rule change is only a draft until a human deploys it by hand.
 - [[Rules Draft Process]] — the summary this discipline was built from: document a blocked fix, don't silently skip it.
