@@ -48,6 +48,19 @@ out.photo = await ev(`(() => { const b = document.querySelector('[data-guide="ph
   const s = getComputedStyle(b), t = getComputedStyle(b.querySelector('span') || b), p = getComputedStyle(b.parentElement.closest('.kpm-parchment') || document.body);
   return { bg: s.backgroundColor, border: s.borderStyle + ' ' + s.borderColor, ink: t.color, font: t.fontSize, h: Math.round(b.getBoundingClientRect().height), paper: p.backgroundColor }; })()`);
 await sleep(400); out.photoShot = await shot(`${tag}-${w}-photo`);
+/* the key close up, at rest and held down (CDP forces :active - the same rule a thumb triggers) */
+const box = await ev(`(() => { const b = document.querySelector('[data-guide="photo"]'); const r = b.getBoundingClientRect();
+  return { x: Math.max(0, r.x - 16), y: r.y - 44, width: r.width + 32, height: r.height + 64 }; })()`);
+const clip = async (name) => { const file = `${DIR}${name}.png`; rmSync(file, { force: true });
+  const r = await send('Page.captureScreenshot', { format: 'png', clip: { ...box, scale: 1 } }); writeFileSync(file, Buffer.from(r.result.data, 'base64')); return statSync(file).size; };
+out.key = await clip(`${tag}-${w}-key`);
+await send('DOM.enable'); await send('CSS.enable');
+const root = (await send('DOM.getDocument', { depth: 0 })).result.root.nodeId;
+const node = (await send('DOM.querySelector', { nodeId: root, selector: '[data-guide="photo"]' })).result.nodeId;
+await send('CSS.forcePseudoState', { nodeId: node, forcedPseudoClasses: ['active'] }); await sleep(500);
+out.pressed = await ev(`(() => { const s = getComputedStyle(document.querySelector('[data-guide="photo"]')); return { translate: s.translate, edge: s.borderBottomWidth, bgSize: s.backgroundSize }; })()`);
+out.keyPress = await clip(`${tag}-${w}-key-press`);
+await send('CSS.forcePseudoState', { nodeId: node, forcedPseudoClasses: [] });
 /* the folded header (AFTER only): press it, measure the opened box, shoot it */
 out.fold = await ev(`(() => { const h = document.querySelector('[data-guide="promo-give"] > button[aria-expanded]'); if (!h) return null; const was = h.getAttribute('aria-expanded'); h.click(); return was; })()`);
 if (out.fold !== null) { await sleep(400);

@@ -3592,3 +3592,16 @@ as background.** Dashed edge = his NOTICE look; a required step gets a solid pla
 (6.4:1, was 2.7:1), the same plate as the selected MODE JUAL; MAKE DEAL stays dim until the photo exists, so there is
 one lit plate per step. Built and pushed kpm `a79c0ca`; board `Raw/2026-11-02-terminal-tidy/board.png`. His reaction
 to the brass plate: not yet given.
+
+**CORRECTION, same evening (17:50).** The brass plate in point (3) above was a mistake, and a repeat one. His verdict:
+
+> *"that button is really bad quality change that i hate it even the fill color is bad"* · then *"make the button 3D for that camera"*
+
+It broke [[#🔴 AMBER IS AN EDGE AND AN INK. IT IS NOT A FILL. (2026-08-21)]] - the third time an amber/brass fill was
+shipped after that law was written. The grep before designing looked for "camera", "collapse", "dashed" and never for
+the colour about to be used. **Before choosing any fill for a control, grep this file for the colour word itself
+(amber, brass, gold, fill).** What replaced it (kpm `f530178`, board `Raw/2026-11-02-terminal-tidy/board-key.png`):
+the camera KEY - a black cap whose 6 px bottom border is its side (depth as a border, since Lite Mode strips
+shadows), the camera in a round lens in amber INK, and the press his keys already make: the cap sinks 4 px into its
+side and the 3 px amber charge line runs along the bottom while held. "3D" read the same way as 2026-09-03: physical
+depth and a press that sinks, not lift and not WebGL. His reaction to the key: not yet given.
