@@ -81,6 +81,17 @@ const B = [   /* pop-up messages */
   ['Not on the vehicle today:', 'Tidak ada di mobil hari ini:'],
 ];
 const D = [['Hutang Barang (already built)', 'Utang Barang - so it matches "Utang" on the customer card and in every pop-up']];
+/* found after the board was sent (his 17:06 screenshots + the 17:15 frames) - numbered AFTER D so lines 1-84 keep their numbers */
+const E = [
+  ['[1000] pcs in the Master Vault · [6] pcs in the van', '[1000] pcs di Gudang Pusat · [6] pcs di mobil'],
+  ['Please complete damage reasons for all items.', 'Lengkapi alasan kerusakan untuk semua barang.'],
+  ['You lack healthy vehicle stock to exchange. Switch to "Hutang Barang" or "Buyback".', 'Stok bagus di mobil tidak cukup untuk tukar barang. Ganti ke "Utang Barang" atau "Beli Kembali".'],
+  ['Awaiting GPS...', 'Menunggu GPS...'],
+  ['MAKE DEAL (the big button)', 'SIMPAN TRANSAKSI'],
+  ['GIVE PROMO (the big button, promo only)', 'BERIKAN PROMO'],
+  ['SIGN MANIFEST > (the big button, no shop yet)', 'PILIH PELANGGAN >'],
+  ['[1.800] Bks left in the vehicle · [9.6 km] · [3] left today (PC right side)', 'sisa [1.800] Bks di mobil · [9,6 km] · sisa [3] toko hari ini'],
+];
 
 let n = 0;
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
@@ -95,7 +106,8 @@ table{border-collapse:collapse;width:100%;font-size:17px}td{padding:4px 8px;bord
 <p class="sub">Gold = a name or number the app fills in, not translated. ✓ = a word you already agreed. Tell me the NUMBER of any line to change.</p>
 <div class="row"><div class="col"><h2>Sales Terminal</h2><table>${rows(A)}</table><h2>Pop-up messages</h2><table>${rows(B.slice(0, 20))}</table></div>
 <div class="col"><h2>Menu, header, Settings (every screen)</h2><table>${rows(C)}</table><h2>Pop-up messages (more)</h2><table>${rows(B.slice(20))}</table>
-<h2>One old word to change</h2><table>${rows(D)}</table></div></div></div></body></html>`;
+<h2>One old word to change</h2><table>${rows(D)}</table></div></div>
+<h2>Found after this board was first sent (85-92)</h2><table>${rows(E)}</table></div></body></html>`;
 writeFileSync(DIR + 'words-1b.html', html);
 
 const png = DIR + 'words-1b.png'; rmSync(png, { force: true });

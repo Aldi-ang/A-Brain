@@ -3569,3 +3569,26 @@ Shown the arrival-flow board (Sales Terminal: GPS reaches a shop -> TAKE ORDER o
 **What it confirms:** the law "AMBER IS AN EDGE AND AN INK. IT IS NOT A FILL." (2026-08-21) and the size refinement under it - a small amber thing is fine, a wide amber slab is not. Built as the ware "+" plate (`bg-[var(--duke-fill-plank)]`, amber edge, amber ink), the same family as the buttons he presses all day; in light mode the same tokens give a pale plate with brown ink. A self-check pins it (no `bg-` / `from-` / `to-` amber on TAKE ORDER).
 
 **How to apply:** a primary action on a new sheet borrows the "+" plate, not the MAKE DEAL fill. He approved the layout and the flow in the same sentence - a colour note is not a rejection, so build the rest as drawn.
+
+
+## One customer box, the promo list folds, a required step is a lit plate (2026-11-02, 17:06)
+
+Three phone screenshots of the live Sales Terminal and two messages. Verbatim:
+
+> *"btw i feels like we dont need 2 pelanggan textbox since we are be able to pull it from the side, just erase the top
+> pelanggan box i guess, and also hide the promo goods on default and press it to open the promo goods panel just to
+> save some space"*
+
+> *"another thing to redesign is make sure that the capture button to be more visible because it is camouflage with its
+> background"*
+
+What it settles. (1) **Two controls for one value: keep the one inside the panel where the work happens.** The strip
+above the manifest and the paper's Nama Pelanggan box opened the same picker; he cut the one OUTSIDE the paper. Its ✕
+(the only clear button) had to move with it - a removal that strands a control is not the removal he asked for.
+(2) **The fifth fold he has chosen** (after PROJECTED VALUE, ADMIN TOOLS, DEL/EDIT, the Journey store tools): the promo
+goods are not used on every deal, so the list folds and starts shut. His 2026-10-27 "dont hide the button" still holds
+- the header stays, is the press, and shows the pcs already given while shut. (3) **A dashed transparent button reads
+as background.** Dashed edge = his NOTICE look; a required step gets a solid plate. Built: brass plate + dark ink
+(6.4:1, was 2.7:1), the same plate as the selected MODE JUAL; MAKE DEAL stays dim until the photo exists, so there is
+one lit plate per step. Built and pushed kpm `a79c0ca`; board `Raw/2026-11-02-terminal-tidy/board.png`. His reaction
+to the brass plate: not yet given.
