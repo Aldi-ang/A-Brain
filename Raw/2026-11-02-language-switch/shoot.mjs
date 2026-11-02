@@ -33,7 +33,7 @@ if (phone) {
   await send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 5 });
   await send('Emulation.setEmulatedMedia', { features: [{ name: 'hover', value: 'none' }, { name: 'pointer', value: 'coarse' }] });
 }
-await send('Page.addScriptToEvaluateOnNewDocument', { source: `try { localStorage.setItem('kpm_lang', ${JSON.stringify(lang)}); } catch (e) {}` });
+if (lang !== 'none') await send('Page.addScriptToEvaluateOnNewDocument', { source: `try { localStorage.setItem('kpm_lang', ${JSON.stringify(lang)}); } catch (e) {}` });
 await send('Page.navigate', { url: `http://localhost:4190/tools/ponder-lab.html?${query}` }); await sleep(6000);
 let pressed = null;
 if (press) {
