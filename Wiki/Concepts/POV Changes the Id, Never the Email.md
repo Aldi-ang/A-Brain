@@ -79,3 +79,9 @@ than guessed at.
 - [[A Hijacked UID Is Not an Identity]]
 - [[UI Says Yes, Server Says No Pattern]]
 - [[Handoff Eligibility]]
+
+## Gap found 2026-11-02: the costume does not carry its place
+
+His report (verbatim): *"the test account cant see any of the customer therefore i cant accept the the consignment as regional admin test acccount, make sure that all the test account also works well"*.
+
+Mechanism (code read): `previewIdentity` (povPreview.js) moves name, agentId and userRole onto the owner's user, but not `location`. The owner is the raw Firebase user, which has no `location`. The shop list (useDatabaseSync, fed `user?.location` at App.jsx:604/606) then puts every Tier 4-6 costume in team `UNASSIGNED` (permissions.js:354), whatever place he picked. With folder access on, that team has no ticks: Tier 5-6 get an empty list, Tier 4 sees only `holdTeam == 'UNASSIGNED'`. Tier 2-3 see every shop (`seesEveryShop`), so they should be fine. The other screens already fall back to the test agent's roster `location` (App.jsx:5401, :5445, :5549); only the shop list does not. Not a data gap and not a rules gap: Firestore sees his real Tier 1 the whole time. Status: waiting on his rank.

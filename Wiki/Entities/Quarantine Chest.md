@@ -62,3 +62,9 @@ branch = its own `branches/<loc>/inventory` row. **Never read `damagedStock` off
 ## Related
 
 [[Aldi's Design Taste]] · [[Gudang Pusat (Master Vault)]] · [[Looking at the App]]
+
+## Gap found 2026-11-02: a Master Vault exchange never reaches the crate
+
+His report (verbatim): *"tukar guling from goods taken from master vault and completed the transaction should go to the master vault quarantine right now its just gone"*.
+
+Mechanism (code read, not yet reproduced): an exchange (Retur on, Tukar Ganti) is saved as `type: 'SALE'` with each line `condition: 'DAMAGED'` (MerchantSalesView.jsx:836, :1243-1245). The engine takes the replacement off `stock` (useTransactionEngine.js:287-289) and keeps the damaged packs only as `forensicData.quarantineCargo` on the receipt (:36-45). For a van, the EOD reads that cargo (EODReconciliationView.jsx:242-250) and the EOD approval adds it to `damagedStock` (App.jsx:2464-2478). The boss in VAULT mode has no van and no EOD, so nothing ever adds it: the packs exist only as a line on the receipt. The offline path (`vaultPending`, utils/vanSync.js) has the same gap. Fix = add `damagedStock` in the same transaction as the sale, for the no-van case only. Status: waiting on his rank.
