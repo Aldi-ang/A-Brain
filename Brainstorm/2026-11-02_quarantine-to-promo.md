@@ -1,6 +1,6 @@
 ---
 date: 2026-11-02
-status: OPEN — waiting on Aldi
+status: DECIDED 2026-11-02, built kpm 6db6916
 project: kpm
 ---
 
@@ -37,7 +37,7 @@ itself (same place it sits) / B: pick a regional warehouse to send them to.
 - Same batch as the `damagedStock` decrement, so a failed write moves nothing.
 
 ## Decision
-OPEN — waiting on Aldi (🔴 DECIDE A/B, and Master Vault crates A/B).
+DECIDED 2026-11-02 19:10, his words: *"A and B, when damaged good enter the master vault they should have option to repair or convert it as sampling"*. A = a promo item per cigarette; B = a Master Vault crate picks the regional warehouse; plus REPAIR on Master Vault crates (damaged Bks back to good stock). RTV and Penalty kept. Built + pushed kpm `6db6916`; board `Raw/2026-11-02-quarantine-promo/board.png`.
 
 ## Rejected on purpose
 - Converting into an existing T-shirt/hat item: damaged cigarettes do not become T-shirts.
