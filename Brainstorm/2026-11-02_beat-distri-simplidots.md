@@ -48,3 +48,7 @@ Models applied: Inversion (how Cello says no: salesmen reject English screens ->
 His words: *"do A and B first . we need further discussion for C"*.
 A round 1 (Sales Terminal) words board sent: [[Raw/2026-11-02-indonesian/board.png]] + [[Raw/2026-11-02-indonesian/words.png]] (124 words, the mock swap in `Raw/2026-11-02-indonesian/inject.js` = the dictionary to build from). Size measured: ~263 English strings on the 3 salesman screens (terminal 175, Journey 75, evening hand-in 12) plus strings built in code -> 3 rounds: terminal, Journey, hand-in.
 Asked: "❓ ANSWER: Are these Indonesian words right? Say "ok" or name the ones to change." and "🔴 DECIDE: Who sees Indonesian?" (my default: everyone Indonesian except his own login, an EN/ID button on each phone).
+
+## 2026-11-02 09:24 WIB - his word fixes, round 1
+His words: *"5 this sentence is not translated in indonesia well, sc2  minta peningkatan pada level harga, sc3 tulis jenis kerusakannya. example here should be contoh not misalnya/mis"*. Applied in `Raw/2026-11-02-indonesian/inject.js`: pricing-tier request = "Minta peningkatan pada level harga" (and "Requested Pricing Tier" -> "Level harga yang diminta", same word), damage = "Tulis jenis kerusakannya...", "e.g." = "contoh:". His "5" is unnamed (no screenshot reached the session) -> all 19 sentences rewritten. Board: [[Raw/2026-11-02-indonesian/changes.png]].
+Asked: "❓ ANSWER: Which number was your "5"? Or say "ok" if the new words are right." and "🔴 DECIDE: Who sees Indonesian?" (still owed).
