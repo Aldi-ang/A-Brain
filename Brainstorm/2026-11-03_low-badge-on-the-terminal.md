@@ -23,5 +23,7 @@ Menipis" -> ask the Gudang Pusat for stock, presentation slide 20); the terminal
 | B. Own terminal line | LOW on the terminal only under a small van-sized amount (e.g. 2 Slop), one setting | a new setting + a check |
 | C. Keep it | lower the product's Min stock / the company default | no code; the warehouse warning moves with it |
 
-**Decision:** OPEN — waiting on Aldi.
-**Rejected on purpose:** none yet.
+**Decision (2026-11-03, his words):** *"1 slop and below is considered as low"* = option B with the line fixed at 1 Slop
+(no setting - he gave the number). Built kpm `43dfd19`: `isLowOnTerminal` in utils/stockThreshold.js; the warehouse
+warning keeps `isLowStock` (3 Bal default).
+**Rejected on purpose:** A (no LOW on the terminal) and C (lower Min stock - would have dragged the warehouse warning down).
