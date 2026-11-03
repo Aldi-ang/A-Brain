@@ -1,6 +1,6 @@
 ---
 type: brainstorm
-status: OPEN — waiting on Aldi (full price or cheaper?)
+status: DECIDED 2026-11-03 - B (full OR cheaper price, per the factory) + matrix key, Tier 3 and above; board first
 date: 2026-11-03
 ---
 
@@ -39,3 +39,5 @@ OPEN — asked: *"When a damaged pack is sold again, does the shop pay the full 
 - Moving raw quarantine packs into the van's damaged crate as they are: that crate means "hand in at EOD", so sellable and returned packs would mix.
 
 Models applied: Opportunity Cost (way out #1 already built - nothing to pay for), Second-Order Thinking (the van crate's meaning collides with EOD), Chesterton's Fence (why the bay only shows quarantine).
+
+**DECIDED 2026-11-03 09:40**, his words: *"there is 2 option, can be sold at full price or cheaper price according to the factory decision, but if we add these option to edit the pricing the only one that can do that is tier 3 and above as default and put it on the matrix as well"* = B, with the price (full or cheaper) set by Tier 3 and above, a new key on the permission matrix. Next: a board before any code. The van-crate collision above still applies: the sellable lot must be its own lot, never the hand-in crate.

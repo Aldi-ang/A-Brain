@@ -356,3 +356,5 @@ His *"i didnt see any way to give the promotional goods to the customer tho"* th
 
 ## 2026-10-27 23:41 WIB - the give box is never hidden (kpm `c2f3d6d`)
 His *"yes add that line and dont hide the button"* answers the DECIDE: the box always shows; empty van -> "No promo goods in this van. Load them in Fleet & Canvas → PROMO."; empty Master Vault -> "...Restock them in Restock Vault."; retur -> "No promo goods with a retur. Give them on a new deal." Rendered in the lab at 375.
+
+**2026-11-03 - answer 4a was never built.** The promo build was marked COMPLETE (4 of 4) on 2026-10-26 with no stage for the company switch "Return pita cukai on sampling". He asked again 2026-11-03: *"btw i ask u to make the toggle button to turn on/off the pita cukai on EOD because not all company want the pita cukai back and they just giveaway sampling with all the pita cukai attached on them"*. Queued in kpm .claude/NEXT-SESSION.md (after #5). Lesson written: a build called COMPLETE must account for every numbered answer.
