@@ -3614,3 +3614,13 @@ sweep, the frame zooming in). And *"the EOD animation should stay until all the 
 completed"* - a reward moment must not be cut short by a fixed timer; it ends when its story ends. When he names the
 presentation, port THAT slide's timing (2.6 s count, 1.7 s rank-up hold) and keep the house rules where they clash (no
 gold text, no shadow, no filter) - see [[The Player Card]].
+
+## 2026-11-03 — the photo button belongs to the PAPER: his pick B "PHOTO CORNER" (kpm 49012b9)
+
+After the black 3D camera key (2026-11-02) he said *"i want the button to be still in theme of the resident evil village
+manifest paper not tech like this"*, and from three paper-themed options (ink stamp box / photo corners / typewriter key)
+picked *"PHOTO CORNER"*. Read: on the manifest, a control should look like something printed on or pasted into the
+paper - not a device sitting on top of it. "3D" was never the point; belonging to the paper is. Built: an empty album
+spot, 4 black corners, a serif italic word, brown ink, no fill; the photo he takes sits in the same corners. Detail
+that mattered: the frame must shrink to the photo, or the corners hold a letterbox instead of the picture. Proof:
+A-Brain `Raw/2026-11-03-paper-key/built-board.png`.
