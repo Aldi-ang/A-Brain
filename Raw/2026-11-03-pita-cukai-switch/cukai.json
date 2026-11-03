@@ -1,0 +1,40 @@
+{
+ "eodOn": {
+  "card": "CARD 1 OF 4",
+  "cukaiCard": true,
+  "stampsAsked": false,
+  "file": "eodOn.png"
+ },
+ "eodOff": {
+  "card": "CARD 1 OF 3",
+  "cukaiCard": false,
+  "stampsAsked": false,
+  "file": "eodOff.png"
+ },
+ "vanOn": {
+  "cukaiDue": true,
+  "file": "vanOn.png"
+ },
+ "vanOff": {
+  "cukaiDue": false,
+  "file": "vanOff.png"
+ },
+ "settingsBefore": {
+  "read": "Charges salesmen",
+  "pressed": [
+   "Collected at EOD:true",
+   "Off:false"
+  ],
+  "file": "settings-on.png"
+ },
+ "settingsAfter": {
+  "read": "Pita cukai off",
+  "pressed": [
+   "Collected at EOD:false",
+   "Off:true"
+  ],
+  "file": "settings-off.png"
+ },
+ "writes": "[]",
+ "errors": []
+}

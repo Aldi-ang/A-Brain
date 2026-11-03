@@ -22,6 +22,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Gudang Pusat (Master Vault)]] — the main warehouse's ONE name, and why the `'MASTER'` beside it
   is a Firestore routing value that must never follow the rename
 - [[Quarantine Chest]] — the hub for damaged stock's chest: the crate + the healthy/Quarantine switch,
+- [[Pita Cukai Switch]] — pita cukai at EOD on/off (2026-11-03)
   which screens have it (Agent Inventory, Fleet & Roster) and which are next, the shared piece, the data rule
 - [[The Place Registry]] — factories and warehouses as records with fixed addresses; why the
   warehouse half already existed, and why the route boxes now search instead of create
