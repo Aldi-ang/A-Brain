@@ -21,6 +21,7 @@ fixed/deployed right now," always check the real `kpm-inventory` git repo, not t
 
 ## 🔒 Security & Permissions
 - [[Concepts/A Hijacked UID Is Not an Identity]] — the uid hijack meets any per-person key: 2026-09-07 privilege escalation, both guards, and what it deliberately did NOT break.
+- [[Concepts/Language Switch]] — Indonesian/English per phone; rounds 1 + 1b live (2026-11-03), traps: toast colour from words, demo text in the shared dictionary.
 - [[Concepts/POV Changes the Id, Never the Email]] — the preview's one blind spot: email-first lookups. 2026-09-08 agent inventory, the second instance still open, and why rewriting the email is the wrong repair.
 - [[Concepts/A Retry Must Land Where the First Try Landed]] — 2026-09-08: the offline duplicate, and why losing a sale is worse than duplicating one.
 

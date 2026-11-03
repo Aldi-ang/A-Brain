@@ -92,6 +92,17 @@ const E = [
   ['SIGN MANIFEST > (the big button, no shop yet)', 'PILIH PELANGGAN >'],
   ['[1.800] Bks left in the vehicle · [9.6 km] · [3] left today (PC right side)', 'sisa [1.800] Bks di mobil · [9,6 km] · sisa [3] toko hari ini'],
 ];
+/* added while BUILDING round 1b (2026-11-03) - each one reuses a word he already agreed; numbered after 92 */
+const F = [
+  ['Last order (PC right side, under the shop)', 'Pesanan terakhir'],
+  ['Proof (the photo, if it fails to load)', 'Bukti'],
+  ['Awaiting GPS Lock... (new shop form)', 'Menunggu GPS...'],
+  ['System Active · Lite (top bar, Lite on)', 'Sistem Aktif · Ringan'],
+  ['Unlock Master Vault (menu lock button)', 'Buka Gudang Pusat'],
+  ['Device · 02 (Settings, Language card)', 'Perangkat · 02'],
+  ['network error (inside the pop-ups)', 'jaringan bermasalah'],
+  ['SALES (big title on top) - now the menu word', 'TERMINAL PENJUALAN'],
+];
 
 let n = 0;
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
@@ -107,7 +118,8 @@ table{border-collapse:collapse;width:100%;font-size:17px}td{padding:4px 8px;bord
 <div class="row"><div class="col"><h2>Sales Terminal</h2><table>${rows(A)}</table><h2>Pop-up messages</h2><table>${rows(B.slice(0, 20))}</table></div>
 <div class="col"><h2>Menu, header, Settings (every screen)</h2><table>${rows(C)}</table><h2>Pop-up messages (more)</h2><table>${rows(B.slice(20))}</table>
 <h2>One old word to change</h2><table>${rows(D)}</table></div></div>
-<h2>Found after this board was first sent (85-92)</h2><table>${rows(E)}</table></div></body></html>`;
+<h2>Found after this board was first sent (85-92)</h2><table>${rows(E)}</table>
+<h2>Added while building (93-100) - words you already agreed, reused</h2><table>${rows(F)}</table></div></body></html>`;
 writeFileSync(DIR + 'words-1b.html', html);
 
 const png = DIR + 'words-1b.png'; rmSync(png, { force: true });

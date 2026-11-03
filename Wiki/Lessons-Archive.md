@@ -1010,3 +1010,13 @@ Seen: 2026-10-12
 **Would have prevented:** 2026-10-12 sidebar drag: the first real run showed the blur costing 26% (1470 vs 1094 ms busy) and it was about to go into PROGRESS as the cause; three interleaved runs gave 878-1139 vs 927-1259 - no difference, the real cost was the re-render. Before that, two probe runs read numbers off a page that never loaded (python missing, HTTP 000) and printed 171 frames anyway.
 Seen: 2026-10-12
 Fired:
+
+
+### 2026-10-20 — an escape typed into an editor's new text lands as the raw character
+**Status:** RETIRED (2026-11-02) — never fired in 14+ days; the trigger (an Edit holding a `\u` escape) is too narrow to fire. Structural form if it recurs: an audit check that src/ holds no raw U+00A0.
+**Trigger:** before a mutating action - an Edit whose new text holds a `\u` escape (`\u00a0`, `\u2014`) that must stay an escape in the source.
+**Lesson:** the editor writes the decoded character (an invisible no-break space), not the six-character escape. Write such a line through a small script that emits the escape, or run `grep -n <line> | cat -A` right after the edit and fix any `M-BM-`.
+**Would have prevented:** 2026-10-20, the terminal count chip: raw no-break spaces landed in helpers.js, MerchantSalesView.jsx and the check file; a check written with the escape failed against the raw character (one failed run, one fix pass), and the invisible character shipped in kpm a2bf766 until e31c310.
+Seen: 2026-10-20
+
+*Archived 2026-11-03 (retired 2026-11-02, ARCHIVE DUE at session start).*
