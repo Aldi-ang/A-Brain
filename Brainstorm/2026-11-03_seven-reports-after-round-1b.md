@@ -1,6 +1,6 @@
 ---
 type: brainstorm
-status: OPEN — waiting on Aldi's rank
+status: DECIDED his order (3, 2, 1A, 5, 7, 6, 4) - 3 2 1 BUILT kpm aece6e3 + a90d0d1; 5 next; 7 board sent; 6 + 4 asked
 date: 2026-11-03
 ---
 
@@ -38,7 +38,7 @@ Recommended order: 3, 2, 1 (A), 5, 7, 6, 4.
 
 ## Decision
 
-OPEN — waiting on Aldi's rank.
+DECIDED 2026-11-03 09:00, his words: *"YOUR ORDER"* = 3, 2, 1A, 5, 7, 6, 4. Built + live: 3 + 2 (kpm aece6e3), 1A (kpm a90d0d1). 7: board `Raw/2026-11-03-paper-key/board.png` (A ink stamp box, B photo corners, C typewriter key) - his pick owed.
 
 ## Rejected on purpose
 
