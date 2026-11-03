@@ -127,7 +127,13 @@ bans filters, so it scales and fades only. Both audit checks went red on the fir
 **Found on the way.** The stamp had no z-index, so on the PC the History column's folder card painted over "VERIF..." -
 true since the stamp moved over the list; caught only because the PC frame was looked at. Now z-index 60 + a check.
 
-**Open:** the salesman's own Shift Closed screen still has the nixie count (XpGain), not slide 19 - asked him.
+**The salesman's side (kpm c2f8aae).** His answer: *"of course the receiver/salesman should see this too and they can
+replay it all the time as long as there is no updated EOD one"*. His own slot (same one-per-salesman rule) plays BY ITSELF
+once per device when he opens his EOD screen (localStorage `kpm_eod_replay_seen_<agent>`), then the header's "Replay
+last EOD +N XP" plays it until his next approved night takes the slot. Two lab finds: the salesman's screen mounts no
+card list, so the frame CSS + filters were missing (a bare gold square) - NightReplay mounts them itself; and on the
+phone the chips sat on the name - below 768 px they sit at the photo's foot. The XpGain nixie on Shift Closed stays as
+the night's summary.
 
 ## Related
 
