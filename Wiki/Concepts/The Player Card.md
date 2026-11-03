@@ -102,6 +102,33 @@ plain div. Lite's `animation: none` left the hidden box's list gap: a 12 px nudg
 samples from rest + frozen moments). Phone: card 284 px through all writes, seal 1.0 for 1.56 s, card 284 -> 0
 while the Late panel goes 450 -> 248 and lands on 248. Board: `board.png` there.
 
+## The EOD replay - slide 19 on the real card (2026-11-03, kpm cd8b942)
+
+His words: *"the EOD animation should stay until all the level up or exp gain increase is completed and this data or
+animation for that day should be saved inside the history file so that i can retry it again in that day if there is a new
+EOD then delete the older one and update it with the new one, i want the animation like the one we have on the
+presentation"*. "The presentation" = slide 19 "Kartu Pemain" of `.claude/presentation/kpm-semua-terkendali.html`
+(`lvGo` / `lvUp`, CSS `.lv-*`).
+
+**What it does.** The confirm freezes the card at the XP before (to = before + tonight's gain, never the live ledger,
+which lands mid-way and would jump). Under the stamp: 2.6 s ease-out count per leg, chips for the sources, and each rank
+crossed lands as banner + sweep + burst + avatar zoom + rank roll, held 1.7 s (`useXpReplay`, legs from `xpLegs` in
+career.js). The replay's end fades the stamp, then the card folds - no fixed clock. A tap skips. Lite: end number at once.
+
+**The replay slot.** ONE per salesman: his newest verified CASH_STOCK night with `dayXP`; the next approved night takes
+it - his "delete the older one". No new field: the report already had `dayXP` + `xpBreakdown`, and the replay counts
+from (XP now - dayXP) to XP now. Ledger mode only (`useCareerLedger`).
+
+**Where the house rules beat the slide.** The slide's banner is gold on near-black; the app's audit (G32) bans --gold as
+text in the control system, so the band is `--sunk` with `--accent-ink` - readable in light and dark. The slide's
+burst is a box-shadow; the card's rule is no shadow, so it is a border + radial glow. The slide's avatar zoom blurs; G30
+bans filters, so it scales and fades only. Both audit checks went red on the first cut.
+
+**Found on the way.** The stamp had no z-index, so on the PC the History column's folder card painted over "VERIF..." -
+true since the stamp moved over the list; caught only because the PC frame was looked at. Now z-index 60 + a check.
+
+**Open:** the salesman's own Shift Closed screen still has the nixie count (XpGain), not slide 19 - asked him.
+
 ## Related
 
 - [[EOD Per-Part Verification]] — what each ✓ credits and what a ✕ writes.

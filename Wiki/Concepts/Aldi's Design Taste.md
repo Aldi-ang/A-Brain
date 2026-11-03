@@ -3605,3 +3605,12 @@ the camera KEY - a black cap whose 6 px bottom border is its side (depth as a bo
 shadows), the camera in a round lens in amber INK, and the press his keys already make: the cap sinks 4 px into its
 side and the 3 px amber charge line runs along the bottom while held. "3D" read the same way as 2026-09-03: physical
 depth and a press that sinks, not lift and not WebGL. His reaction to the key: not yet given.
+
+## 2026-11-03 — the presentation is his motion reference: "like the one we have on the presentation" (kpm cd8b942)
+
+Asked for the EOD animation, he did not describe it - he pointed at his own deck: *"i want the animation like the one we
+have on the presentation"* (slide 19 "Kartu Pemain": the XP counting up with source chips, the "Naik pangkat" banner, the
+sweep, the frame zooming in). And *"the EOD animation should stay until all the level up or exp gain increase is
+completed"* - a reward moment must not be cut short by a fixed timer; it ends when its story ends. When he names the
+presentation, port THAT slide's timing (2.6 s count, 1.7 s rank-up hold) and keep the house rules where they clash (no
+gold text, no shadow, no filter) - see [[The Player Card]].

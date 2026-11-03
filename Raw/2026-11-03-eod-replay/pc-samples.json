@@ -1,0 +1,5590 @@
+{
+ "query": "shell&eod&admin&live&rankup",
+ "w": "1280",
+ "h": "900",
+ "pressed": "pressed",
+ "run": {
+  "rest": {
+   "t": 1,
+   "seal": null,
+   "xp": 19990,
+   "rank": "Silver",
+   "ban": null,
+   "chips": 0,
+   "h": 190,
+   "fold": false
+  },
+  "s": [
+   {
+    "t": 64,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 90,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 123,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 186,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 218,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 249,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 281,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 346,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 376,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 406,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 468,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 500,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 532,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 566,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 611,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 659,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 689,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 735,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 781,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 812,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 842,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 888,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 936,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 961,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1003,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1052,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1102,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1124,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1188,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1219,
+    "seal": null,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1242,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1289,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1336,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1361,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1409,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1458,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1482,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1527,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1572,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1603,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1645,
+    "seal": 0,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1694,
+    "seal": 0.13,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1724,
+    "seal": 0.45,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1760,
+    "seal": 0.7,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1809,
+    "seal": 0.87,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1856,
+    "seal": 0.93,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1882,
+    "seal": 0.97,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1930,
+    "seal": 0.99,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1979,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2004,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2057,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2088,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2140,
+    "seal": 1,
+    "xp": 19991,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2179,
+    "seal": 1,
+    "xp": 19991,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2212,
+    "seal": 1,
+    "xp": 19991,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2253,
+    "seal": 1,
+    "xp": 19991,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2282,
+    "seal": 1,
+    "xp": 19992,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2345,
+    "seal": 1,
+    "xp": 19992,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2368,
+    "seal": 1,
+    "xp": 19992,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2414,
+    "seal": 1,
+    "xp": 19992,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2460,
+    "seal": 1,
+    "xp": 19992,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2491,
+    "seal": 1,
+    "xp": 19992,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2539,
+    "seal": 1,
+    "xp": 19992,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2568,
+    "seal": 1,
+    "xp": 19992,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2616,
+    "seal": 1,
+    "xp": 19994,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2643,
+    "seal": 1,
+    "xp": 19994,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2689,
+    "seal": 1,
+    "xp": 19994,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2722,
+    "seal": 1,
+    "xp": 19994,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2765,
+    "seal": 1,
+    "xp": 19995,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2817,
+    "seal": 1,
+    "xp": 19995,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2846,
+    "seal": 1,
+    "xp": 19995,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2890,
+    "seal": 1,
+    "xp": 19995,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2934,
+    "seal": 1,
+    "xp": 19996,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2964,
+    "seal": 1,
+    "xp": 19996,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3009,
+    "seal": 1,
+    "xp": 19996,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3053,
+    "seal": 1,
+    "xp": 19996,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3080,
+    "seal": 1,
+    "xp": 19996,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3125,
+    "seal": 1,
+    "xp": 19997,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3170,
+    "seal": 1,
+    "xp": 19997,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3218,
+    "seal": 1,
+    "xp": 19997,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3245,
+    "seal": 1,
+    "xp": 19997,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3286,
+    "seal": 1,
+    "xp": 19997,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3336,
+    "seal": 1,
+    "xp": 19997,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3370,
+    "seal": 1,
+    "xp": 19998,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3407,
+    "seal": 1,
+    "xp": 19998,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3449,
+    "seal": 1,
+    "xp": 19998,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3486,
+    "seal": 1,
+    "xp": 19998,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3522,
+    "seal": 1,
+    "xp": 19998,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3572,
+    "seal": 1,
+    "xp": 19998,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3618,
+    "seal": 1,
+    "xp": 19998,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3641,
+    "seal": 1,
+    "xp": 19998,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3688,
+    "seal": 1,
+    "xp": 19999,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3738,
+    "seal": 1,
+    "xp": 19999,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3763,
+    "seal": 1,
+    "xp": 19999,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3807,
+    "seal": 1,
+    "xp": 19999,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3852,
+    "seal": 1,
+    "xp": 19999,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3897,
+    "seal": 1,
+    "xp": 19999,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3920,
+    "seal": 1,
+    "xp": 19999,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3963,
+    "seal": 1,
+    "xp": 19999,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4015,
+    "seal": 1,
+    "xp": 19999,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4042,
+    "seal": 1,
+    "xp": 19999,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4083,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4131,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4180,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4205,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4250,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4298,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4322,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4371,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4406,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4459,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4487,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4535,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4564,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4609,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4652,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4682,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4724,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4765,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4803,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4841,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4890,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4922,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4961,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5004,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5046,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5092,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5123,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5163,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5201,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5246,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5282,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5324,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5361,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5404,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5440,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5495,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5527,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5574,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5605,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5652,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5684,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5731,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5762,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5809,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5840,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5881,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5923,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 5964,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6002,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6045,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6081,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6133,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6164,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6210,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6241,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6288,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6336,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6367,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6403,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold (off)",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6444,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold (off)",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6481,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold (off)",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6522,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold (off)",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6560,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold (off)",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6603,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold (off)",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6644,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6692,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6723,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6769,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6816,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6845,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6881,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6924,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 6966,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7002,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7045,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7081,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7130,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7161,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7207,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7245,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7282,
+    "seal": 1,
+    "xp": 20001,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7328,
+    "seal": 1,
+    "xp": 20003,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7364,
+    "seal": 1,
+    "xp": 20004,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7400,
+    "seal": 1,
+    "xp": 20005,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7444,
+    "seal": 1,
+    "xp": 20006,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7482,
+    "seal": 1,
+    "xp": 20007,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7525,
+    "seal": 1,
+    "xp": 20008,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7564,
+    "seal": 1,
+    "xp": 20010,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7601,
+    "seal": 1,
+    "xp": 20011,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7642,
+    "seal": 1,
+    "xp": 20012,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7682,
+    "seal": 1,
+    "xp": 20013,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7729,
+    "seal": 1,
+    "xp": 20014,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7764,
+    "seal": 1,
+    "xp": 20015,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7801,
+    "seal": 1,
+    "xp": 20016,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7844,
+    "seal": 1,
+    "xp": 20017,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7880,
+    "seal": 1,
+    "xp": 20018,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7928,
+    "seal": 1,
+    "xp": 20019,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 7967,
+    "seal": 1,
+    "xp": 20020,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8011,
+    "seal": 1,
+    "xp": 20020,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8044,
+    "seal": 1,
+    "xp": 20021,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8081,
+    "seal": 1,
+    "xp": 20022,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8124,
+    "seal": 1,
+    "xp": 20023,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8161,
+    "seal": 1,
+    "xp": 20024,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8207,
+    "seal": 1,
+    "xp": 20024,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8245,
+    "seal": 1,
+    "xp": 20025,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8289,
+    "seal": 1,
+    "xp": 20026,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8334,
+    "seal": 1,
+    "xp": 20027,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8367,
+    "seal": 1,
+    "xp": 20028,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8407,
+    "seal": 1,
+    "xp": 20028,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8454,
+    "seal": 1,
+    "xp": 20028,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8486,
+    "seal": 1,
+    "xp": 20028,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8532,
+    "seal": 1,
+    "xp": 20028,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8570,
+    "seal": 1,
+    "xp": 20031,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8612,
+    "seal": 1,
+    "xp": 20032,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8660,
+    "seal": 1,
+    "xp": 20032,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8685,
+    "seal": 1,
+    "xp": 20033,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8746,
+    "seal": 1,
+    "xp": 20034,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8773,
+    "seal": 1,
+    "xp": 20034,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8811,
+    "seal": 1,
+    "xp": 20034,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8856,
+    "seal": 1,
+    "xp": 20035,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8885,
+    "seal": 1,
+    "xp": 20035,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8933,
+    "seal": 1,
+    "xp": 20036,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 8964,
+    "seal": 1,
+    "xp": 20036,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9017,
+    "seal": 1,
+    "xp": 20037,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9048,
+    "seal": 1,
+    "xp": 20037,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9087,
+    "seal": 1,
+    "xp": 20037,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9140,
+    "seal": 1,
+    "xp": 20038,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9166,
+    "seal": 1,
+    "xp": 20038,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9219,
+    "seal": 1,
+    "xp": 20039,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9244,
+    "seal": 1,
+    "xp": 20039,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9302,
+    "seal": 1,
+    "xp": 20039,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9335,
+    "seal": 1,
+    "xp": 20039,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9371,
+    "seal": 1,
+    "xp": 20040,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9406,
+    "seal": 1,
+    "xp": 20040,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9468,
+    "seal": 1,
+    "xp": 20040,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9497,
+    "seal": 1,
+    "xp": 20040,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9528,
+    "seal": 1,
+    "xp": 20040,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9569,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9625,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9658,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9691,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9732,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9765,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9814,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9844,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9882,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9931,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 9979,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10004,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10052,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10110,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10143,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10173,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10203,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10264,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10296,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10327,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10373,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10422,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10452,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10484,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10546,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10577,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10608,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10654,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10702,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10733,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10764,
+    "seal": 1,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10809,
+    "seal": 0.97,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10859,
+    "seal": 0.88,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10882,
+    "seal": 0.81,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10925,
+    "seal": 0.67,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 10973,
+    "seal": 0.48,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 11003,
+    "seal": 0.35,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 11042,
+    "seal": 0.17,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 11092,
+    "seal": 0,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 189,
+    "fold": true
+   },
+   {
+    "t": 11126,
+    "seal": 0,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 175,
+    "fold": true
+   },
+   {
+    "t": 11172,
+    "seal": 0,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 108,
+    "fold": true
+   },
+   {
+    "t": 11205,
+    "seal": 0,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 58,
+    "fold": true
+   },
+   {
+    "t": 11243,
+    "seal": 0,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 29,
+    "fold": true
+   },
+   {
+    "t": 11294,
+    "seal": 0,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 10,
+    "fold": true
+   },
+   {
+    "t": 11324,
+    "seal": 0,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 3,
+    "fold": true
+   },
+   {
+    "t": 11370,
+    "seal": 0,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 0,
+    "fold": true
+   },
+   {
+    "t": 11402,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11449,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11495,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11527,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11573,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11603,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11649,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11681,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11728,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11774,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11805,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11845,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11881,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11924,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 11961,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12002,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12045,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12082,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12132,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12164,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12211,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12241,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12287,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12333,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12364,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12412,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12444,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12490,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12522,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12567,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12615,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12646,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12694,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12724,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12771,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12802,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12846,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12882,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 12924,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   }
+  ]
+ },
+ "frames": [
+  {
+   "label": "1-counting",
+   "shown": {
+    "t": 2138,
+    "seal": 1,
+    "xp": 19991,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   "file": "pc-1-counting.png"
+  },
+  {
+   "label": "2-rankup",
+   "shown": {
+    "t": 5635,
+    "seal": 1,
+    "xp": 20000,
+    "rank": "Gold",
+    "ban": "Gold",
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   "file": "pc-2-rankup.png"
+  },
+  {
+   "label": "3-counted",
+   "shown": {
+    "t": 8155,
+    "seal": 1,
+    "xp": 20024,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   "file": "pc-3-counted.png"
+  },
+  {
+   "label": "4-folding",
+   "shown": {
+    "t": 11092,
+    "seal": 0,
+    "xp": 20041,
+    "rank": "Gold",
+    "ban": null,
+    "chips": 0,
+    "h": 189,
+    "fold": true
+   },
+   "file": "pc-4-folding.png"
+  }
+ ],
+ "hist": {
+  "clicked": [
+   "MUNTILAN1 salesman",
+   "Budi Santoso3 nights",
+   "November 20263 nights",
+   "date 3 November 2026",
+   "date 2 November 2026",
+   "date 1 November 2026"
+  ],
+  "replays": 1,
+  "rowText": "EOD NightDamaged13.48cash & stock · pita cukaiRp 1.675.00040 Pcs(+2 Paid) Replay Force Res"
+ },
+ "rp": "opened",
+ "replayShot": {
+  "shown": {
+   "t": 851,
+   "seal": 1,
+   "xp": 19940,
+   "rank": "Silver",
+   "ban": null,
+   "chips": 1,
+   "h": 190,
+   "fold": false
+  },
+  "file": "pc-5-replay.png"
+ },
+ "rep": {
+  "r": [
+   {
+    "t": 41,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 90,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 138,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 162,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 212,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 253,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 284,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 326,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 375,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 405,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 441,
+    "seal": 0,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 489,
+    "seal": 0.27,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 538,
+    "seal": 0.6,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 560,
+    "seal": 0.77,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 617,
+    "seal": 0.9,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 641,
+    "seal": 0.95,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 687,
+    "seal": 0.98,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 732,
+    "seal": 0.99,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 762,
+    "seal": 1,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 808,
+    "seal": 1,
+    "xp": 19939,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 852,
+    "seal": 1,
+    "xp": 19940,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 882,
+    "seal": 1,
+    "xp": 19941,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 936,
+    "seal": 1,
+    "xp": 19942,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 966,
+    "seal": 1,
+    "xp": 19942,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1013,
+    "seal": 1,
+    "xp": 19945,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1045,
+    "seal": 1,
+    "xp": 19946,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1082,
+    "seal": 1,
+    "xp": 19948,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1123,
+    "seal": 1,
+    "xp": 19949,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1168,
+    "seal": 1,
+    "xp": 19949,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1213,
+    "seal": 1,
+    "xp": 19949,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 1,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1251,
+    "seal": 1,
+    "xp": 19954,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1287,
+    "seal": 1,
+    "xp": 19955,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1342,
+    "seal": 1,
+    "xp": 19956,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1364,
+    "seal": 1,
+    "xp": 19958,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1407,
+    "seal": 1,
+    "xp": 19959,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1448,
+    "seal": 1,
+    "xp": 19960,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1485,
+    "seal": 1,
+    "xp": 19961,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1528,
+    "seal": 1,
+    "xp": 19962,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1561,
+    "seal": 1,
+    "xp": 19963,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 2,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1604,
+    "seal": 1,
+    "xp": 19965,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1644,
+    "seal": 1,
+    "xp": 19966,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1681,
+    "seal": 1,
+    "xp": 19967,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1723,
+    "seal": 1,
+    "xp": 19968,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1764,
+    "seal": 1,
+    "xp": 19969,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1802,
+    "seal": 1,
+    "xp": 19970,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1845,
+    "seal": 1,
+    "xp": 19971,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1881,
+    "seal": 1,
+    "xp": 19972,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1922,
+    "seal": 1,
+    "xp": 19973,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 1963,
+    "seal": 1,
+    "xp": 19974,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2001,
+    "seal": 1,
+    "xp": 19975,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2044,
+    "seal": 1,
+    "xp": 19975,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2084,
+    "seal": 1,
+    "xp": 19976,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2122,
+    "seal": 1,
+    "xp": 19977,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2163,
+    "seal": 1,
+    "xp": 19978,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2205,
+    "seal": 1,
+    "xp": 19979,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2243,
+    "seal": 1,
+    "xp": 19979,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2285,
+    "seal": 1,
+    "xp": 19980,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2322,
+    "seal": 1,
+    "xp": 19981,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2363,
+    "seal": 1,
+    "xp": 19981,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2400,
+    "seal": 1,
+    "xp": 19982,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2444,
+    "seal": 1,
+    "xp": 19983,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2484,
+    "seal": 1,
+    "xp": 19983,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2521,
+    "seal": 1,
+    "xp": 19984,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2563,
+    "seal": 1,
+    "xp": 19984,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2601,
+    "seal": 1,
+    "xp": 19985,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2645,
+    "seal": 1,
+    "xp": 19985,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2684,
+    "seal": 1,
+    "xp": 19986,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2722,
+    "seal": 1,
+    "xp": 19986,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2763,
+    "seal": 1,
+    "xp": 19987,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2803,
+    "seal": 1,
+    "xp": 19987,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2845,
+    "seal": 1,
+    "xp": 19987,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2882,
+    "seal": 1,
+    "xp": 19988,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2923,
+    "seal": 1,
+    "xp": 19988,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 2964,
+    "seal": 1,
+    "xp": 19988,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3003,
+    "seal": 1,
+    "xp": 19989,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3045,
+    "seal": 1,
+    "xp": 19989,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3082,
+    "seal": 1,
+    "xp": 19989,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3122,
+    "seal": 1,
+    "xp": 19989,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3163,
+    "seal": 1,
+    "xp": 19989,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3203,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3244,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3282,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3323,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3364,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3403,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3443,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3483,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3525,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3562,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3604,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3641,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3683,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3721,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3764,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3804,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3841,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3883,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3925,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 3962,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4005,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4041,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4083,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4123,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4162,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4203,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4245,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4281,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4326,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 3,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4365,
+    "seal": 1,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4406,
+    "seal": 0.98,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4442,
+    "seal": 0.91,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4484,
+    "seal": 0.8,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4526,
+    "seal": 0.66,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4562,
+    "seal": 0.51,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4606,
+    "seal": 0.33,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4641,
+    "seal": 0.15,
+    "xp": 19990,
+    "rank": "Silver",
+    "ban": null,
+    "chips": 0,
+    "h": 190,
+    "fold": false
+   },
+   {
+    "t": 4681,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 4726,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 4762,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 4804,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 4842,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 4881,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 4926,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 4962,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5004,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5041,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5083,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5125,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5162,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5204,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5241,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5283,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5326,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5362,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5405,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5441,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5483,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5522,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5562,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5604,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5641,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5683,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5721,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5763,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5804,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5842,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5881,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5926,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 5962,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6004,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6041,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6083,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6125,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6162,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6201,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6241,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6283,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6326,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6362,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6403,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6441,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6483,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6525,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6562,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6604,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6641,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6682,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6726,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6761,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6804,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6841,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6883,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6926,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 6962,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7004,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7041,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7083,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7126,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7162,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7204,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7241,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7283,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7325,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7362,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7404,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7441,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7483,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7526,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7562,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7604,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7641,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7683,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7722,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7762,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7801,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7841,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7883,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7925,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 7962,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8002,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8040,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8083,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8125,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8162,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8203,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8241,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8283,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8326,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8362,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8404,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8441,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8483,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8526,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8562,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8604,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8642,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8682,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8726,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8768,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8804,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8841,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8883,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8926,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 8962,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   },
+   {
+    "t": 9004,
+    "seal": null,
+    "xp": null,
+    "rank": null,
+    "ban": null,
+    "chips": 0,
+    "h": null,
+    "fold": false
+   }
+  ],
+  "open": false
+ },
+ "errors": []
+}
