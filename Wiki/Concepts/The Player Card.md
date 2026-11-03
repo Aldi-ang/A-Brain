@@ -3,9 +3,9 @@ title: The Player Card
 description: The boss's EOD review as one card per salesman — the profile's head, a body that grows open with the handover one line per part — and the three stages it ships in.
 type: concept
 created: 2026-09-20
-updated: 2026-09-21
+updated: 2026-11-03
 confidence: high
-checked: 2026-09-21
+checked: 2026-11-03
 tags: [kpm, eod, design, player-card, agent-profile]
 ---
 
@@ -75,6 +75,32 @@ app). `onTap` is the head's one action: the card grows open, the profile opens t
 gain on the salesman's panel is the nixie — his "standardize effect, one number instrument" — mounting at 0
 and rolling to `dayXP` 400 ms after the block shows, the breakdown rows rising in at 1000 ms (one moment, one
 animation; "norak" was two at once). Nothing on either screen loops.
+
+## The stamp holds, then the card folds (#5, 2026-11-03)
+
+His words: *"snap my screen and gone right away"* (the VERIFIED stamp on the boss's review list).
+
+**Root cause, two layers.** (1) The seal stage lived `EOD_SEAL_MS` = 900 ms while the seal only landed at
+450 + 320 = 770 ms: ~130 ms on screen, then unmounted with no exit. (2) The card left before the stamp began:
+`handleVerifyEOD` commits a `runTransaction` (the snapshot drops the report at once), then awaits `logAudit`,
+and only then did PlayerCard call `onSealed`. A lab whose approve never removes the report cannot show (2) -
+the old lab said so in a comment and nobody built the variant.
+
+**Fix (`42dcd0e`).** PlayerCard calls `onHold()` right after the confirm, before any write; the list keeps the
+night at its old index, built from the LIVE reports, so its lines tick as each write lands; `onSealed(allIn)`
+afterwards (false = let go). Seal lands 770 ms, holds to 2270, fades by 2570; the card folds (grid rows
+1fr -> 0fr, 300 ms) by 2870; stage = 2900. The night's last card folds INTO "No pending reports." (the box
+unfolds on the same clock) so the phone's History Log glides. Lite: stamp at full strength for the stage, no
+motion.
+
+**Traps the sampler caught (each now pinned by a logicFixes check).** `.kpm-arrive > :nth-child(n)
+{ animation-delay }` outranks a bare `.kpm-fold` - a 2nd child unfolded at 25 ms instead of 2570; write
+`.kpm-arrive > .kpm-fold`. Padding floors a `0fr` grid track (the box stayed 66 px) - the grid child must be a
+plain div. Lite's `animation: none` left the hidden box's list gap: a 12 px nudge.
+
+**Proof.** Lab `?shell&eod&admin&live` + `Raw/2026-11-03-eod-stamp/stamp.mjs` (headless Chrome, real time, 40 ms
+samples from rest + frozen moments). Phone: card 284 px through all writes, seal 1.0 for 1.56 s, card 284 -> 0
+while the Late panel goes 450 -> 248 and lands on 248. Board: `board.png` there.
 
 ## Related
 
