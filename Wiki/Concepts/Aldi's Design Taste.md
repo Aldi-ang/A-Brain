@@ -3624,3 +3624,7 @@ paper - not a device sitting on top of it. "3D" was never the point; belonging t
 spot, 4 black corners, a serif italic word, brown ink, no fill; the photo he takes sits in the same corners. Detail
 that mattered: the frame must shrink to the photo, or the corners hold a letterbox instead of the picture. Proof:
 A-Brain `Raw/2026-11-03-paper-key/built-board.png`.
+
+## 2026-11-04 — asked for the main button on the paper, he took the quiet one: *"i like B better"* (kpm 9eae2d1)
+
+Board: the real SIMPAN TRANSAKSI button as A printed block (black ink, amber bolt; my recommendation for being the strongest), B rubber stamp (no fill, double ink line; I captioned it "the easiest of the three to overlook"), C wax seal (ink frame, small amber disc). He picked B. Read with PHOTO CORNER (2026-11-03): on the manifest, looking like the paper outranks shouting, even for the one button every sale ends on. So do not recommend the loudest option on the paper by default, and do not expect a small amber mark to win him back to amber. The caption's warning did not move him; test it on a phone in the sun before treating it as a problem. Proof: A-Brain `Raw/2026-11-04-save-button/board.png` and `built-board.png`.

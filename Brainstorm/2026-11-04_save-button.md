@@ -1,7 +1,7 @@
 ---
 title: The save button on the manifest paper
 created: 2026-11-04
-status: OPEN - waiting on Aldi (A, B or C)
+status: DECIDED B, built + live kpm 9eae2d1
 tags: [kpm, sales-terminal, design, brainstorm]
 ---
 
@@ -27,9 +27,9 @@ All three cost the same to build, on this one button.
 
 ## Decision
 
-OPEN - waiting on Aldi. Asked (verbatim): **🔴 DECIDE: Which save button do you want on the manifest paper: A, B or C?**
+**His pick, 2026-11-04:** *"i like B better"*. Built + live `9eae2d1` as `.kpm-save-stamp`. Proof: `Raw/2026-11-04-save-button/built-board.png`. My recommendation was A; he took the one that looks most like the paper.
 
-**To build on his pick:** a theme.css class with fixed ink (it is printed on the paper in both themes), the words in a `<span>` (lesson: an icon beside a bare text node keeps the 44 px min-height), press = 1 px sink and darker ink, `:disabled` as on the board. Both Retur types use the red version: the MODE switch and the Retur type control already say which one it is (today: brass for exchange, red for refund). One line + a check that the label never wraps at PC.
+**How it was built:** a theme.css class with fixed ink (it is printed on the paper in both themes), the words in a `<span>` (lesson: an icon beside a bare text node keeps the 44 px min-height), press = 1 px sink and darker ink, `:disabled` as on the board. Both Retur types use the red version: the MODE switch and the Retur type control already say which one it is (today: brass for exchange, red for refund). One line + a check that the label never wraps at PC.
 
 **Also found, not asked:** the two "Same as last time" buttons (MerchantSalesView.jsx ~2685, ~3067) carry the same wide amber fill.
 

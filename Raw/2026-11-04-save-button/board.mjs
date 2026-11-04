@@ -37,6 +37,8 @@ const V = {
     ${B}[data-retur]:enabled{color:${BLOOD}!important;border-color:${BLOOD}!important}
     ${B}[data-retur]:enabled > svg{background:${BLOOD};fill:none!important;color:${CREAM}!important}`,
 };
+const BUILT = process.argv[2] === 'built';
+if (BUILT) { for (const k of Object.keys(V)) delete V[k]; V.built = ''; }
 const port = 9300 + Math.floor(Math.random() * 500);
 rmSync(DIR + 'prof', { recursive: true, force: true });
 const chrome = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', `--remote-debugging-port=${port}`, `--user-data-dir=${DIR}prof`, '--hide-scrollbars', '--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream', 'about:blank']);
@@ -139,6 +141,22 @@ for (const [k, css] of Object.entries(V)) {
   await snap(`${k}-pc-ready`, await around(14, 96, 10));
 }
 log.errors = errors.slice(0, 3);
+if (BUILT) {
+  const heights = await ev(`(() => { const s = getComputedStyle(document.querySelector('${B}')); return { minHeight: s.minHeight, font: s.fontFamily.slice(0, 16), border: s.borderTopStyle + ' ' + s.borderTopWidth, bg: s.backgroundColor }; })()`);
+  console.log(JSON.stringify({ phone: log.built.ready, pc: log.built.pc, computedPc: heights, dim: log.dimState, retur: log.returState, liteOn: log.liteOn, errors: log.errors }));
+  const row = (t, f) => `<div class="f"><div class="s">${t}</div><img src="built-${f}.png"></div>`;
+  writeFileSync(DIR + 'built-board.html', `<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#14161a;color:#e8e2d4;font:18px/1.35 "Segoe UI",sans-serif;width:1300px}
+.wrap{padding:24px}h1{margin:0 0 14px;font-size:26px;color:#e9b949}.row{display:grid;grid-template-columns:repeat(3,400px);gap:18px 22px;align-items:start}.f img{display:block;width:400px;border:1px solid #2a2d33}.s{font-size:14px;color:#a8a090;margin:0 0 4px}</style></head><body><div class="wrap">
+<h1>B - Rubber stamp, as built (real terminal, Indonesian)</h1><div class="row">${row('Ready, phone', 'phone-ready')}${row('Held down', 'phone-held')}${row('Not ready: it says why', 'phone-dim')}${row('Retur mode', 'phone-retur')}${row('Lite Mode on', 'phone-lite')}${row('PC', 'pc-ready')}</div></div></body></html>`);
+  await send('Page.navigate', { url: pathToFileURL(DIR + 'built-board.html').href }); await sleep(1200);
+  await send('Emulation.setTouchEmulationEnabled', { enabled: false });
+  await send('Emulation.setDeviceMetricsOverride', { width: 1300, height: 700, deviceScaleFactor: 1, mobile: false });
+  const bh = await ev('document.body.scrollHeight');
+  await send('Emulation.setDeviceMetricsOverride', { width: 1300, height: bh, deviceScaleFactor: 1, mobile: false }); await sleep(400);
+  const bp = DIR + 'built-board.png'; rmSync(bp, { force: true });
+  const br = await send('Page.captureScreenshot', { format: 'png' }); writeFileSync(bp, Buffer.from(br.result.data, 'base64'));
+  console.log(JSON.stringify({ builtBoard: statSync(bp).size, bh })); ws.close(); chrome.kill(); process.exit(0);
+}
 const short = (k) => ({ phone: log[k].ready, pc: log[k].pc });
 console.log(JSON.stringify({ today: short('today'), a: short('a'), b: short('b'), c: short('c'), dim: log.dimState, returBtn: log.returBtn, retur: log.returState, returReason: log.returReason, liteOn: log.liteOn, errors: log.errors }));
 
