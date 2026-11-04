@@ -1,7 +1,7 @@
 ---
 title: Approving a Stock Opname count wipes the quarantine number
 created: 2026-11-04
-status: OPEN, diagnosed + reproduced in the lab, no app code changed, waiting on his A or B
+status: BUILT + live kpm 52afe9c; A or B still his
 tags: [kpm, stock-opname, quarantine, bug, brainstorm]
 ---
 
@@ -40,6 +40,16 @@ An approved count stays in `pending_audits` with its expected and counted number
 - Difference = good + new damaged - expected good, so quarantine stops looking like missing goods.
 - The Damaged box becomes "new damaged packs found today"; empty means none. Approve moves those from good stock into Quarantine, where every decision is made (his "all the damaged item status should go into the quarantine vault").
 - Old quarantine packs stay on show on the row but are not counted, unless he asks.
+
+## Then he gave the exact case, 2026-11-04
+
+*"it happens when there is for example, 1000 healthy goods and 10 damaged goods, i put all the total count whici is 1010 inside the healthy goods, and keep the damaged good as 0 and the app didnt recognize that and seems like the counting is on point and accurate ... i confirm the reports and all the damaged good is gone converted into healthy goods instead, this is the exact bug u need to work on, make sure damaged and healthy goods have different count number they are different do add it into one, even when they are the same kind of product, so the damage stock is not missing but converted without information"*
+
+**Built + live `52afe9c`.** The real cause was the added-together comparison: 1010 + 0 against 1000 + 10 is 0, so it read as a match and Approve wrote good +10, damaged -10. Each count now has its own difference, and Approve never lowers Quarantine or turns damaged packs into good stock. A one-time Put back sits on counts approved under the old rule. Full story: the commit message. Proof: `Raw/2026-11-04-opname/built-two-counts-row.jpg`, `built-two-counts-hq.jpg`, `built-put-back.jpg`.
+
+**What this replaced below:** "The fix in both options" said the Damaged box would mean new damage only. His words make it a real count, so it stays a count of every damaged pack, and only NEW damage asks for a kind.
+
+**Still his:** A or B below. Approve keeps correcting good stock (A) until he says otherwise.
 
 ## Decision
 
