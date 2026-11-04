@@ -3,9 +3,9 @@ title: Headquarters Is Not a Cabang
 description: 'Headquarters' is the master vault, not a branch. Anything posted there sees an empty branch warehouse forever — which is what broke the POV test agent, and what 20c4a0a fixed on the shipping form.
 type: concept
 created: 2026-08-30
-updated: 2026-08-30
+updated: 2026-11-04
 confidence: high
-checked: 2026-08-30
+checked: 2026-11-04
 tags: [kpm, logistics, warehouse, pov, permissions]
 ---
 
@@ -62,6 +62,10 @@ agent's location there. That would have been a real hole:
 Relaxing it would either break the write or **mint a login for a fake person**. Moving a costume is
 a `location` merge on a `motorists` document and touches no directory row at all. **When a request
 names a rule to remove, check whether the rule is the obstacle before removing it.**
+
+## A third time, by spelling (2026-11-04)
+
+The Fleet & Roster Edit form offers places in capitals and saves what is picked, so moving his Admin van to headquarters stored `HEADQUARTERS`. Every test matches `Headquarters` exactly, so the van read an empty fake branch: *"it created its own warehouse"*. A name typed into many exact matches is the real trap; the next fix is one case-blind check that everything calls, plus an audit line that fails on a new exact match. Full findings: [[2026-11-04_master-vault-and-three-bugs]].
 
 See also: [[The Eight Warehouse Gaps]] · [[Logistics and Stock Movement]] ·
 [[A Check Points at a File, Not at a Behaviour]] · [[The KPM Control System]]
