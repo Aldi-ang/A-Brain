@@ -1,7 +1,7 @@
 ---
 title: Stock Opname for someone posted at the Master Vault
 created: 2026-11-04
-status: DECIDED by him, built + live kpm a60d191
+status: DECIDED by him, built + live kpm a60d191, day picker kpm b35f2a0
 tags: [kpm, stock-opname, warehouse, brainstorm]
 ---
 
@@ -35,6 +35,12 @@ Built + live `a60d191`: T4 only by default; one count per warehouse, Monday to S
 **What I chose without asking, each easy to change:** the week is Monday to Sunday (`weekStartKey`); the owner's own counts and the demo are not limited; the T3 no longer has the screen by default; no reminder (he did not ask).
 
 **Open, his to do:** a saved permission matrix wins over the defaults, so on the live app Settings > Tiers & Logic must show Stock Opname on T4 and off for the rest. The live rules were not checked; a real T4 phone is the test.
+
+**Then he added, 2026-11-04:** *"actually we as tier 3 and above should have power to set the stock opname day, one specific day for the stock opname so that the interval of the stock opname is the same each time"*
+
+Built + live `b35f2a0`: one day for the company (settings/general.opnameDay), picked by T1 to T3 in Settings, on the screen a T3 actually gets. The week starts that day and the count opens only that day. Rules CHANGE 22 lets a T3 write that one field; **draft until he publishes**. Proof: `Raw/2026-11-04-opname/built-day-closed.jpg`, `built-day-t3-settings.jpg`.
+
+**What I chose without asking:** one day for the whole company, not per warehouse; strictly that day, so a missed day waits for next week unless a T3 moves the day. Only he can say whether a late count should be allowed instead.
 
 ## Rejected on purpose (by me, he has not seen these)
 

@@ -141,3 +141,9 @@ watching what happened**.
 His words: *"there is only 1 submission needed each regional warehouse, not everyone should count, stock opname as default only be able to be seen by regional admin/T4 at default and they are the only one who should do that, if there is help from other member it is outside of this app ability to detect or care about it, lets take the stock opname submission each week as a group homework and the the team leader is the one who submit it, which is the T4"*
 
 One count per warehouse per calendar week, submitted by the T4, reviewed by the owner as before. How it works and why the mark sits on the roster card: [[2026-11-04_opname-at-master-vault]].
+
+## 2026-11-04 — one count day for the company (kpm `b35f2a0`)
+
+His words: *"actually we as tier 3 and above should have power to set the stock opname day, one specific day for the stock opname so that the interval of the stock opname is the same each time"*
+
+T1 to T3 pick the day; the count opens only that day, so every count is a week after the last. A count sent back can be redone on any day. Details: [[2026-11-04_opname-at-master-vault]].
