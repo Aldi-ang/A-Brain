@@ -1,7 +1,7 @@
 ---
 title: Master Vault, Bandung and the Admin van (his 3 bug reports)
 created: 2026-11-04
-status: OPEN — waiting on Aldi (which first; then the rank rule and the setting)
+status: C built and live; B + his setting waiting on the rank answer; A after that
 tags: [kpm, warehouse, fleet-roster, sales-terminal, brainstorm]
 ---
 
@@ -47,7 +47,15 @@ Both R1 and R2 cost: a van loaded from the Master Vault before the switch return
 
 ## Decision
 
-OPEN — waiting on Aldi. Asked (verbatim): **❓ ANSWER: Which bug do I fix first? Reply with the letters in your order, for example "C, B, A".**
+**Order: his pick, 2026-11-04:** *"your order, btw what about the system where we can customize where the HQ are and of course the master vault?"* = C, B, A, and the setting (S1) is wanted, not optional.
+
+**C: DONE + live `df7f807`.** One test in supply.js (`isMasterVaultPlace`, `isNonBranch`, `canonicalPlace`, `vanUsesBranch`). Proof: `Raw/2026-11-03-hq-bugs/after-gudang-pusat.jpg`.
+
+**B: OPEN.** Asked (verbatim): **🔴 DECIDE: When someone's van loads or returns stock, should the place on their card decide for every rank (1), or should Tier 1 and 2 always use the Master Vault (2)?** Recommended 1 (R2 above).
+
+**S1 as it will be built (told to him):** Settings gets one line, "Master Vault is at: [place]". The name Headquarters ALWAYS keeps counting as the Master Vault as well, so old cards never become an empty warehouse: the same bug he filmed, one level up. So `isHqName` in supply.js becomes "the word Headquarters OR the picked place", in that one function. If the picked place's regional shelf still holds stock, refuse and say how much (it would drop out of view: Master Vault stock is `products`, a shelf is `branches/X/inventory`). Saved in `settings/general` like his other company switches. Reversible. Check the rules before relying on it.
+
+**Known edge of C:** a T3/T4 login saved in capitals keeps its capitals when they save a card, on purpose: `firestore.rules` create needs the exact place on their own login. Reads are case-blind, so nothing breaks. Rules also compare a card's stored place to a regional admin's login exactly, so a T3/T4 whose spelling differs from their team's card is refused an edit; true before this fix too.
 
 ## Rejected on purpose (by me, he has not seen these)
 
