@@ -135,3 +135,9 @@ watching what happened**.
 - [[Anti-Recurrence Check]] — the green-suite lesson and the prove-it-fails rule
 - [[Aldi's Design Taste]] — why the cause picker reuses the damage reel
 - [[../Entities/Tier System]] — `canSeeExpectedCount` is the tier gate on blind counting
+
+## 2026-11-04 — the count became a weekly group homework (kpm `a60d191`)
+
+His words: *"there is only 1 submission needed each regional warehouse, not everyone should count, stock opname as default only be able to be seen by regional admin/T4 at default and they are the only one who should do that, if there is help from other member it is outside of this app ability to detect or care about it, lets take the stock opname submission each week as a group homework and the the team leader is the one who submit it, which is the T4"*
+
+One count per warehouse per calendar week, submitted by the T4, reviewed by the owner as before. How it works and why the mark sits on the roster card: [[2026-11-04_opname-at-master-vault]].

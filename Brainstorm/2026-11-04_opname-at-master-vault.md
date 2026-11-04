@@ -1,7 +1,7 @@
 ---
 title: Stock Opname for someone posted at the Master Vault
 created: 2026-11-04
-status: OPEN - waiting on Aldi (who may count it)
+status: DECIDED by him, built + live kpm a60d191
 tags: [kpm, stock-opname, warehouse, brainstorm]
 ---
 
@@ -28,9 +28,13 @@ Console in the lab: only the usual 500 on a static file, no listener or permissi
 
 ## Decision
 
-OPEN - waiting on Aldi. Asked (verbatim): **🔴 DECIDE: Who posted at the Master Vault may count it in Stock Opname: 1 everyone posted there, or 2 only Tier 3 and 4?**
+**His answer turned down both my options, 2026-11-04:** *"there is only 1 submission needed each regional warehouse, not everyone should count, stock opname as default only be able to be seen by regional admin/T4 at default and they are the only one who should do that, if there is help from other member it is outside of this app ability to detect or care about it, lets take the stock opname submission each week as a group homework and the the team leader is the one who submit it, which is the T4"*
 
-**Proposed fix, NOT trialled:** `const isAreaAdmin = !isHighCommand && (!user?.location || !isMasterVaultPlace(user.location));` That one name drives the listener, the list, `auditType` (MASTER_VAULT, so approval writes `products`) and the title. Blank location stays as it is (no list), it must not fall through to the Master Vault. Tag only when `!showExpectedWhileCounting`. Filter on `a.auditType === 'MASTER_VAULT'`. Option 2 adds the rank test.
+Built + live `a60d191`: T4 only by default; one count per warehouse, Monday to Sunday; the mark on the leader's roster card (pending_audits is closed to a T4 by the rules, proven in `rules-test/test-opname-week.mjs`, 7/7 on the repo's rules); a second count refused; a count sent back reopens the week with the reason. Findings 1, 2 and 3 above are fixed in the same commit. Proof: `Raw/2026-11-04-opname/built-week-submitted.jpg`, `built-t4-at-headquarters.jpg`.
+
+**What I chose without asking, each easy to change:** the week is Monday to Sunday (`weekStartKey`); the owner's own counts and the demo are not limited; the T3 no longer has the screen by default; no reminder (he did not ask).
+
+**Open, his to do:** a saved permission matrix wins over the defaults, so on the live app Settings > Tiers & Logic must show Stock Opname on T4 and off for the rest. The live rules were not checked; a real T4 phone is the test.
 
 ## Rejected on purpose (by me, he has not seen these)
 
