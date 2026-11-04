@@ -1,7 +1,7 @@
 ---
 title: Master Vault, Bandung and the Admin van (his 3 bug reports)
 created: 2026-11-04
-status: C built and live; B + his setting waiting on the rank answer; A after that
+status: C, B and S1 built and live; A (the button) next, needs frames and his pick
 tags: [kpm, warehouse, fleet-roster, sales-terminal, brainstorm]
 ---
 
@@ -51,11 +51,16 @@ Both R1 and R2 cost: a van loaded from the Master Vault before the switch return
 
 **C: DONE + live `df7f807`.** One test in supply.js (`isMasterVaultPlace`, `isNonBranch`, `canonicalPlace`, `vanUsesBranch`). Proof: `Raw/2026-11-03-hq-bugs/after-gudang-pusat.jpg`.
 
-**B: OPEN.** Asked (verbatim): **🔴 DECIDE: When someone's van loads or returns stock, should the place on their card decide for every rank (1), or should Tier 1 and 2 always use the Master Vault (2)?** Recommended 1 (R2 above).
+**B: DECIDED + live `ffc37d1`.** His words: *"well how we restock should be according to the location of that cards not according to tiers, if im tier 1 and im locating myself in the region A then i will examine and only can take goods from region A except if i bring my goods in my agent inventory from HQ to region A, when this happen they can bring the goods from HQ to other region because it is in their agent inventory the whole time, of course this system needs a confirmation for whoever have the ability to move roster around the region, on the other words moving agent card with goods in their inventory must, the app must show confirmation for whoever trying to edit and change that card location, just a simple confirm and notification about the goods detail will do"* = R2 with no rank exception. A van's warehouse is the place on its card. Goods in a van travel with it and no stock moves. Saving a new place on a loaded card asks first and lists the goods, then a notification repeats them (the Fleet edit form and the owner's test-account rack).
 
-**S1 as it will be built (told to him):** Settings gets one line, "Master Vault is at: [place]". The name Headquarters ALWAYS keeps counting as the Master Vault as well, so old cards never become an empty warehouse: the same bug he filmed, one level up. So `isHqName` in supply.js becomes "the word Headquarters OR the picked place", in that one function. If the picked place's regional shelf still holds stock, refuse and say how much (it would drop out of view: Master Vault stock is `products`, a shelf is `branches/X/inventory`). Saved in `settings/general` like his other company switches. Reversible. Check the rules before relying on it.
+**S1: live `cf22ad1`, Settings > Company 08, proof `Raw/2026-11-03-hq-bugs/settings-master-vault.jpg`. As built:** Settings gets one line, "Master Vault is at: [place]". The name Headquarters ALWAYS keeps counting as the Master Vault as well, so old cards never become an empty warehouse: the same bug he filmed, one level up. So `isHqName` in supply.js becomes "the word Headquarters OR the picked place", in that one function. If the picked place's regional shelf still holds stock, refuse and say how much (it would drop out of view: Master Vault stock is `products`, a shelf is `branches/X/inventory`). Saved in `settings/general` like his other company switches. Reversible. Check the rules before relying on it.
 
 **Known edge of C:** a T3/T4 login saved in capitals keeps its capitals when they save a card, on purpose: `firestore.rules` create needs the exact place on their own login. Reads are case-blind, so nothing breaks. Rules also compare a card's stored place to a regional admin's login exactly, so a T3/T4 whose spelling differs from their team's card is refused an edit; true before this fix too.
+
+**Found while building, NOT fixed, not asked:**
+- Stock Opname: `isAreaAdmin = userRole !== 'ADMIN'` reads `branches/<their location>/inventory` (StockOpnameView.jsx:234), so a T3/T4 posted at the Master Vault probably counts an empty shelf. From reading, not rendered.
+- Two spellings of one branch (`Bandung` and `BANDUNG`) are two shelves in Firestore, shown as one roster tab. Cannot tell from here whether his data has any.
+- `toastSeverity.selfcheck.mjs`: 2 fails, the same on the commit before this work.
 
 ## Rejected on purpose (by me, he has not seen these)
 

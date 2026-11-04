@@ -282,4 +282,10 @@ twin of `REQ-185204`, because the gate is only visible with both states on one s
 slightly sharper: a scan is now the thing that starts the clock. 🔴 And the one physical test is
 still owed — print a label, scan it on the Android phone. Nothing in the repo can settle that.
 
+## A van's warehouse is the place on its card (2026-11-04)
+
+Rank no longer decides. His words: *"well how we restock should be according to the location of that cards not according to tiers, if im tier 1 and im locating myself in the region A then i will examine and only can take goods from region A except if i bring my goods in my agent inventory from HQ to region A, when this happen they can bring the goods from HQ to other region because it is in their agent inventory the whole time, of course this system needs a confirmation for whoever have the ability to move roster around the region, on the other words moving agent card with goods in their inventory must, the app must show confirmation for whoever trying to edit and change that card location, just a simple confirm and notification about the goods detail will do"*
+
+So a tier 1 posted in region A loads from and returns to region A's shelf. Goods already in the van stay in the van when the card moves; moving a loaded card asks first and lists them. Which place IS the Master Vault is one company setting (Settings > Company 08). One rule, `vanUsesBranch` in `utils/supply.js`, kpm `ffc37d1` + `cf22ad1`. Full findings: [[2026-11-04_master-vault-and-three-bugs]].
+
 See also: [[../Entities/The Place Registry]] · [[Anti-Recurrence Check]]
