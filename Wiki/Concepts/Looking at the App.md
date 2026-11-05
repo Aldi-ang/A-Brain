@@ -655,3 +655,7 @@ Found while building presentation v28 (kpm `ada673e`):
 
 ## A board of four frames, reliably (2026-10-24)
 Four live lab iframes in ONE headless page: only the first booted, three came back blank (same race as above). What worked: one CDP shot per frame (a copy of `.claude/presentation/tests/pc-guide.mjs`'s launcher: `Emulation.setDeviceMetricsOverride` to 375x812 or 1440x900, navigate, wait 4.5 s, `Page.captureScreenshot`), then a board page of plain `<img>` tags shot with `--allow-file-access-from-files`. Serve the lab with `npx vite preview --config tools/ponder-lab.config.mjs --port 4187 --strictPort` - `python` on this PC is only the Microsoft Store stub (exit 49). Example: `Raw/2026-10-24-mission-card/`.
+
+## One JSX, two outlets: the real screen in the lab and a page he can press on his phone (2026-11-05)
+
+A draft written as one React file with its CSS in a string can do both. In the lab, a portal puts it into the real screen for frames (`tools/opname-drafts.jsx`, `mountInLab`). For the phone, `Raw/2026-11-05-opname-board/build-drafts.mjs` bundles it with the repo's own esbuild into one self-contained HTML page, with the app's real colour values read from the lab by the shooter into `tokens.json`, and `publish_files` sends that page as a private Artifact. Layout is written with container queries, so the page's "Phone width" switch shows the phone layout on a PC. A draft that must bundle alone cannot import `utils/helpers.js`.
