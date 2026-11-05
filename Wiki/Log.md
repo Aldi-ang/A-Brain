@@ -12,6 +12,9 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-11-05 20:49 — Stock Opname Worklist built + live (kpm d16c9ad)
+His pick on phone and PC. Each product accepted or rejected on its own, tier 3 and above by default with a matrix key, rules CHANGE 23 waiting for his publish. Decision: [[2026-11-05_opname-board-looks]].
+
 ## 2026-11-05 18:06 — Stock Opname board: he left the game theme, three business drafts sent; new technique: one JSX for the lab and an Artifact
 Research + options: [[2026-11-05_opname-board-looks]]. Taste: [[Aldi's Design Taste]], the 2026-11-05 entry. Technique: [[Looking at the App]], last section. No app code changed; his pick is owed.
 

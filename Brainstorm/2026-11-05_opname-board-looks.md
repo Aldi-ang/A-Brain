@@ -1,7 +1,7 @@
 ---
 title: Stock Opname board - three looks
 created: 2026-11-05
-status: round 1 closed (he took B, then left the game theme); round 2 OPEN, waiting on Aldi
+status: DECIDED, Draft 2 the Worklist on phone and PC; BUILT + live kpm d16c9ad
 tags: [kpm, stock-opname, design, brainstorm]
 ---
 
@@ -102,3 +102,13 @@ Made-up numbers, no Firestore rules, no real tiers. The look was read in headles
 Models applied: Inversion (a mis-tap on Accept lowers real stock, hence Undo), Opportunity Cost (numbers on top against a higher first row), Reversibility Test (Accept writes stock, so Undo must hold the write, never reverse it), Chesterton's Fence (why Accept-all was on the rejected list before putting it back).
 
 Files: `Raw/2026-11-05-opname-board/` also holds `drafts-phone.png`, `drafts-pc.png`, `drafts.mjs`, `build-drafts.mjs`, `tokens.json`, and copies of `opname-drafts.jsx` and `opname-drafts-page.jsx`. Live page: https://claude.ai/artifact/5aEV4TKsQsjcKDpmQSKSNT
+
+## Decided, 2026-11-05 20:49
+
+**His words:** *"worklist is my favorite one, both pc and phone looks great"*. He kept the two additions I flagged (Accept all matching, the 5 second Undo) by not removing them.
+
+Built + live kpm `d16c9ad`; the full story is the commit message. Proof: `Raw/2026-11-05-opname-board/built-board.png`, `built-toast-phone.png`; the walk that presses it is `built.mjs`.
+
+**One thing changed from the note above:** Undo reverses the batch instead of holding the write. Reversibility Test again: `increment(n)` then `increment(-n)` nets zero whatever sold in between, while a write held on the device dies with the tab, and the screen would already have said Accepted.
+
+Still asked (verbatim): **❓ ANSWER: If a team leader submits a count that skipped some products, should the app refuse it until every product with stock is counted (1), or accept it and show those products as Not counted on your list (2, how it works now)?** Recommended 1, as real systems count every unit.
