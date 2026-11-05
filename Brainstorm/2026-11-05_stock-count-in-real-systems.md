@@ -1,7 +1,7 @@
 ---
 title: How real warehouse systems run a stock count, against ours
 created: 2026-11-05
-status: OPEN, research reported, no count code changed, waiting on his 2 answers
+status: option 1 BUILT + live kpm c88a3ac; the board and product-by-product are the next job
 tags: [kpm, stock-opname, research, brainstorm]
 ---
 
@@ -51,6 +51,24 @@ Option 1 also makes an empty box "not counted", so a real 0 has to be typed. Rec
 Asked (verbatim): **🔴 DECIDE: After you confirm a count, should both numbers become exactly what was counted (1, how real systems work), or should Quarantine keep only going up (2, how it works now)?**
 
 And (verbatim): **❓ ANSWER: Which of these do you want, in what order? A truly blind count, B every product must be counted, C approve product by product, D show the money on each difference. Reply with the letters, for example "B, A, D".**
+
+## His answer, 2026-11-05
+
+*"yes become the real number that is counted, we have blind count for tier 4 and below right and dont we have the matric to toggle the blind counting as well? we also should approve product by product , then maybe we should make confirmation button for each of the product then, so maybe we make some dashboard for regional admin and tier 3 and above, this one panel show regional warehouse stock opname status one by one, swap able with animation and swap button, futuristic panel like features, where we as high tiers can see each of the products inside the warehouse status, we can see how many are them are already confirmed counting by the regional admin, when there is a missing item what the real system do to decide with their employees or is it human interaction to deal with that, if there is human interaction to deal with that? and i want our system to be able to accept and reject each of the item instead of all at once just to upgrade our stock opname system like the real one, the regional admin and upper tiers should see the missing item, what kind of the damaged or missing goods and their value so we know how much lost value we loss"*
+
+**Built + live `c88a3ac`:** option 1 and a truly blind count; the full story is the commit message. Proof: `Raw/2026-11-04-opname/built-blind-flagged.jpg`.
+
+**His question about the blind switch:** he was right that it exists: the matrix key `view_expected_count`, "Stock Count: see expected number while counting", T1-T3 by default. It leaked after one digit; that was the bug.
+
+## What real systems do about a missing item: people decide
+
+The system finds the difference and holds it; it does not decide who is at fault.
+
+- Oracle Inventory (first-party): counts over tolerance are recounted automatically up to a limit, then held for approval. An employee with access can "approve adjustments, recount an item in question, reject the count or take no action until further investigation". https://docs.oracle.com/cd/A60725_05/html/comnls/us/inv/ccadj.htm
+- Microsoft Dynamics (first-party): a difference goes to Pending review; a supervisor adjusts and accepts it, and it is rejected if not approved. https://learn.microsoft.com/en-us/dynamics365/supply-chain/warehousing/cycle-counting
+- DIXANI investigation guide (third party): a variance "should not be treated as an automatic instruction to adjust the system". Recount with a second person who has not seen the first count, check every storage place including quarantine and returns, trace receipts, picks and transfers, label each cause confirmed, ruled out or unresolved, give someone the open checks, get approval, then post. https://dixani.com/guides/investigate-inventory-variances/
+
+Nothing read has a system charging an employee by itself. Whether anyone pays is the company's decision; KPM has that as Penalty in Quarantine.
 
 ## Patch notes (built, same day)
 

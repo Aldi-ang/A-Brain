@@ -153,3 +153,7 @@ T1 to T3 pick the day; the count opens only that day, so every count is a week a
 His words: *"it happens when there is for example, 1000 healthy goods and 10 damaged goods, i put all the total count whici is 1010 inside the healthy goods, and keep the damaged good as 0 and the app didnt recognize that and seems like the counting is on point and accurate ... i confirm the reports and all the damaged good is gone converted into healthy goods instead, this is the exact bug u need to work on, make sure damaged and healthy goods have different count number they are different do add it into one, even when they are the same kind of product, so the damage stock is not missing but converted without information"*
 
 The chain had one hole left: the count added the two numbers, so damaged packs typed as good read as a perfect count and Approve turned them into sellable stock with no trace. Details: [[2026-11-04_opname-wipes-quarantine]].
+
+## 2026-11-05 — after confirmation the book is the count (kpm `c88a3ac`)
+
+His words: *"yes become the real number that is counted"*. Both numbers follow the count; damaged typed as good cannot be confirmed; an empty box is not a zero; a blind count judges nothing until Submit. Details: [[2026-11-05_stock-count-in-real-systems]].
