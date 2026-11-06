@@ -77,3 +77,7 @@ His "i want u to put patch notes button inside the app": built + live `c785e1e`,
 ## Gap B decided, 2026-11-05 22:24
 
 Asked whether a count that skips products should be refused, he handed it back: *"how the real app or stock opname works? u tell me this is to answer your own question"*. Answered from the table above: the list is fixed before counting (Microsoft counts the whole location, SAP keeps a worklist with a finish line), and the person counting does not choose what to skip. Built + live kpm `74388e3`: Submit is refused and names what is left, a typed 0 counts, a recount and the boss's own counts are free. Honest limit: these five sources are all that was read, and SAP's own screens were not opened. Cost named to him: a reload still loses typed numbers. Asked (verbatim): **❓ ANSWER: Should the numbers a team leader types be kept on the phone until they press Submit, so a reload or a dead battery loses nothing (1), or stay as they are now, lost on a reload (2)?**
+
+## Typed numbers kept until Submit, 2026-11-06 09:23
+
+Asked whether a team leader's numbers should survive a reload or a dead battery, he answered *"1 of course it is a huge quality of life update tho"*. Built + live `ed23208`, the story is its commit message. Proof `Raw/2026-11-06-opname-draft/phone-came-back.png`, walk `walk.mjs` beside it. Not proven on a real phone with a real camera switch. Rules CHANGE 22 and 23 count as published on his word, *"i already paste the new rules in the firestore"*.
