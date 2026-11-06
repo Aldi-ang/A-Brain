@@ -3638,3 +3638,11 @@ Board: Stock Opname review as A the hatch (my pick, on "the object wins"), B a r
 **How to apply:** one data point, on one panel. Do not strip the rest of the app. For a new decision or money panel for high tiers, ask or draw the serious version beside the themed one, instead of assuming the world. His pick among the three drafts will say how far "serious" goes. Same pattern as 2026-08-31 and 2026-09-30: given options, he specifies a new brief.
 
 **2026-11-05 20:49, his pick:** *"worklist is my favorite one, both pc and phone looks great"*. Of three business drafts he took my recommendation, the same answer on both devices, and asked for no changes: tabs with the loss on each, numbers on top, the list starts on what still waits. So on a money panel for high tiers, the plain worklist is proven. Live kpm d16c9ad.
+
+## "i hate the amber fill color": the Stock Opname tabs (2026-11-06 19:21)
+
+> *when we got the quota i also want u to redesign those button because i hate the amber fill color*
+
+"Those" = Monitor, HQ Audits, Quarantine, New Count, the row in the picture he had just sent. **Third time on the same point:** "use it for little things", then 2026-10-20 *"and remember i dont like this full amber fill the panel"* (see "The switches were amber slabs"). My miss: the same morning I gave all four tabs one look (kpm df98751) and kept the amber slab on the chosen one, without reading that section. Nobody asked for the slab; it was what was there.
+
+**How to apply:** a chosen tab is a mark, not a slab: `--raised` + gold word + a thin gold bar is the answer he already accepted on the switches. Before shipping any tab, switch or chosen state with `bg-[var(--gold)]` over a whole button, read that section. Not built yet: next job, frames first.
