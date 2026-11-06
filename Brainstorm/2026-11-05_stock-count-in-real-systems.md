@@ -81,3 +81,5 @@ Asked whether a count that skips products should be refused, he handed it back: 
 ## Typed numbers kept until Submit, 2026-11-06 09:23
 
 Asked whether a team leader's numbers should survive a reload or a dead battery, he answered *"1 of course it is a huge quality of life update tho"*. Built + live `ed23208`, the story is its commit message. Proof `Raw/2026-11-06-opname-draft/phone-came-back.png`, walk `walk.mjs` beside it. Not proven on a real phone with a real camera switch. Rules CHANGE 22 and 23 count as published on his word, *"i already paste the new rules in the firestore"*.
+
+Test 1 retold, 2026-11-06 09:58: his report and the real-app walk are in kpm `df98751`; proof `Raw/2026-11-06-opname-draft/real-t4-came-back.png`, `board-tabs-pc.png`. Why the test read as lost: [[POV Changes the Id, Never the Email]]. Tab strip on the phone left as it is, his 2026-09-18 board 3 = A; `board-tabs-phone.png` holds a drawn one-row option, never asked.
