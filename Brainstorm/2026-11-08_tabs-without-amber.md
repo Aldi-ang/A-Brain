@@ -2,7 +2,7 @@
 title: "The Stock Opname tabs without the amber fill"
 type: brainstorm
 created: 2026-11-08
-status: OPEN — waiting on Aldi
+status: DECIDED 2026-11-08 05:52 — 2 all, BUILT kpm 23abaa3
 tags: [kpm, design, stock-opname, amber]
 ---
 
@@ -26,7 +26,9 @@ Board: `Raw/2026-11-08-tabs-amber/board.png` (PC dark, PC light, phone; HQ Audit
 - **Scope:** the same amber chosen-state is on 3 more tab rows: Quarantine Active/History (StockOpnameView ~1318), EOD Setoran review/submit (EODReconciliationView 393/397), Sampel date range (SamplingManager 128). The other 22 amber lines in the app are badges and action buttons, not tabs: not in this question.
 
 ## Decision
-OPEN — waiting on Aldi. Asked (verbatim): **🔴 DECIDE: Which look do you want for the chosen tab: 1 a dark plate with a gold bar under it, like your Settings switches, or 2 only a gold line under it, like the warehouse tabs below? Add "all" if the other three tab rows that still have the amber fill should get the same look: Quarantine's Active / History, EOD Setoran's two tabs, and Sampel's date tabs.** Recommended 1.
+**2026-11-08 05:52, his answer: *"2 all"*.** The gold underline, on all four rows, against my recommendation of 1. Built kpm 23abaa3: `.kpm-tab-on`, nine chosen states. Found while checking it: EOD Setoran's tab box was a fixed `bg-black/50`, which put the dark word on a dark grey in the light theme; it takes `--sunk` now. Proof `Raw/2026-11-08-tabs-amber/built.png`.
+
+Was: OPEN — waiting on Aldi. Asked (verbatim): **🔴 DECIDE: Which look do you want for the chosen tab: 1 a dark plate with a gold bar under it, like your Settings switches, or 2 only a gold line under it, like the warehouse tabs below? Add "all" if the other three tab rows that still have the amber fill should get the same look: Quarantine's Active / History, EOD Setoran's two tabs, and Sampel's date tabs.** Recommended 1.
 
 ## Rejected on purpose
 - A bar that slides between the four tabs: tabs are pressed many times a day, so no motion; and it would need a measured indicator like `.kpm-wl-ind`. Static bar, no animation.
