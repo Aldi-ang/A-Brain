@@ -1,0 +1,272 @@
+{
+ "dark": {
+  "today": {
+   "f": "f/dark-today.png",
+   "text": "1",
+   "ratio": 4.02,
+   "h": 21,
+   "font": "11px 700",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  },
+  "A": {
+   "f": "f/dark-A.png",
+   "text": "1",
+   "ratio": 6.42,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  },
+  "B": {
+   "f": "f/dark-B.png",
+   "text": "1",
+   "ratio": 8.04,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  },
+  "C": {
+   "f": "f/dark-C.png",
+   "text": "1",
+   "ratio": 6.59,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  }
+ },
+ "dark-on": {
+  "today": {
+   "f": "f/dark-on-today.png",
+   "text": "1",
+   "ratio": 4.02,
+   "h": 21,
+   "font": "11px 600",
+   "clip": {
+    "x": 78.171875,
+    "y": 143.5,
+    "width": 126.453125,
+    "height": 60
+   }
+  },
+  "A": {
+   "f": "f/dark-on-A.png",
+   "text": "1",
+   "ratio": 6.42,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 77.28125,
+    "y": 143.5,
+    "width": 129.125,
+    "height": 60
+   }
+  },
+  "B": {
+   "f": "f/dark-on-B.png",
+   "text": "1",
+   "ratio": 8.04,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 77.203125,
+    "y": 143.5,
+    "width": 129.359375,
+    "height": 60
+   }
+  },
+  "C": {
+   "f": "f/dark-on-C.png",
+   "text": "1",
+   "ratio": 6.59,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 77.28125,
+    "y": 143.5,
+    "width": 129.125,
+    "height": 60
+   }
+  }
+ },
+ "light": {
+  "today": {
+   "f": "f/light-today.png",
+   "text": "1",
+   "ratio": 5.84,
+   "h": 21,
+   "font": "11px 700",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  },
+  "A": {
+   "f": "f/light-A.png",
+   "text": "1",
+   "ratio": 6.42,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  },
+  "B": {
+   "f": "f/light-B.png",
+   "text": "1",
+   "ratio": 5.87,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  },
+  "C": {
+   "f": "f/light-C.png",
+   "text": "1",
+   "ratio": 4.54,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  }
+ },
+ "light-on": {
+  "today": {
+   "f": "f/light-on-today.png",
+   "text": "1",
+   "ratio": 5.84,
+   "h": 21,
+   "font": "11px 600",
+   "clip": {
+    "x": 78.171875,
+    "y": 143.5,
+    "width": 126.453125,
+    "height": 60
+   }
+  },
+  "A": {
+   "f": "f/light-on-A.png",
+   "text": "1",
+   "ratio": 6.42,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 77.28125,
+    "y": 143.5,
+    "width": 129.125,
+    "height": 60
+   }
+  },
+  "B": {
+   "f": "f/light-on-B.png",
+   "text": "1",
+   "ratio": 5.87,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 77.203125,
+    "y": 143.5,
+    "width": 129.359375,
+    "height": 60
+   }
+  },
+  "C": {
+   "f": "f/light-on-C.png",
+   "text": "1",
+   "ratio": 4.54,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 77.28125,
+    "y": 143.5,
+    "width": 129.125,
+    "height": 60
+   }
+  }
+ },
+ "lite": {
+  "today": {
+   "f": "f/lite-today.png",
+   "text": "1",
+   "ratio": 4.02,
+   "h": 21,
+   "font": "11px 700",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  },
+  "A": {
+   "f": "f/lite-A.png",
+   "text": "1",
+   "ratio": 6.42,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  },
+  "B": {
+   "f": "f/lite-B.png",
+   "text": "1",
+   "ratio": 8.04,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  },
+  "C": {
+   "f": "f/lite-C.png",
+   "text": "1",
+   "ratio": 6.59,
+   "h": 20,
+   "font": "13px 800",
+   "clip": {
+    "x": 187,
+    "y": 221,
+    "width": 183,
+    "height": 60
+   }
+  }
+ }
+}
