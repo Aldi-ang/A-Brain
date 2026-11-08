@@ -1,0 +1,1310 @@
+{
+ "mode": "phone",
+ "tier": "T3",
+ "screens": {
+  "agent_profile": {
+   "heads": [
+    "AGENT DIRECTORY",
+    "RINA WIJAYA",
+    "LIVE FINANCIAL MATRIX",
+    "OPERATOR CREDENTIALS"
+   ],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": [
+     "LIVE FINANCIAL MATRIX",
+     "ROSTER CONTROL: DENIED",
+     "TARIK BARANG: DENIED"
+    ]
+   },
+   "empty": [
+    "No Data"
+   ],
+   "shot": "phone-T3-s-agent_profile.png 309204",
+   "book": {
+    "text": "PONDER / SECTION 15/17 / Profile / Agent Profile / Profil, tier, dan pencapaian. / CONTENT / 01 / 01 / Membaca profil / SEGERA / Apa yang menaikkan tier. / KPM / SIAP 07/21 / Command / Restock / Sales / Vault / Agent / Opname / Setoran / Piutang / Fleet / Jour",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 646
+      }
+     ],
+     "toasts": [],
+     "bad": [
+      "LIVE FINANCIAL MATRIX",
+      "ROSTER CONTROL: DENIED",
+      "TARIK BARANG: DENIED"
+     ]
+    }
+   },
+   "bookShot": "phone-T3-b-agent_profile.png 208339",
+   "lessons": {},
+   "errors": []
+  },
+  "dashboard": {
+   "heads": [
+    "BULAN INI",
+    "PERPUTARAN INVENTARIS",
+    "LEADERBOARD"
+   ],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [
+    "Tidak ada periode pembanding"
+   ],
+   "shot": "phone-T3-s-dashboard.png 136392",
+   "book": {
+    "text": "PONDER / SECTION 01/17 / Command / Command Center / Angka ringkasan seluruh perusahaan. Cuma dibaca, tidak mengubah apa pun. / CONTENT / 01 / 01 / Membaca Command Center / SEGERA / Jendela 7 hari, dan mana yang bukan tren. / KPM / SIAP 07/21 / Command / Restoc",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 646
+      }
+     ],
+     "toasts": [],
+     "bad": []
+    }
+   },
+   "bookShot": "phone-T3-b-dashboard.png 220211",
+   "lessons": {},
+   "errors": []
+  },
+  "map_war_room": {
+   "heads": [],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "phone-T3-s-map_war_room.png 263455",
+   "book": {
+    "text": "PONDER / SECTION 11/17 / Map / Map System / Semua titik pelanggan di satu peta. / CONTENT / 01 / 01 / Membaca peta / SEGERA / Apa arti tiap warna titik. / KPM / SIAP 07/21 / Command / Restock / Sales / Vault / Agent / Opname / Setoran / Piutang / Fleet / Journ",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 646
+      }
+     ],
+     "toasts": [],
+     "bad": []
+    }
+   },
+   "bookShot": "phone-T3-b-map_war_room.png 212181",
+   "lessons": {},
+   "errors": []
+  },
+  "journey": {
+   "heads": [
+    "MISSION FEED\nALL ▾",
+    "JAWA BARAT",
+    "JAWA TENGAH"
+   ],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "phone-T3-s-journey.png 191247",
+   "book": {
+    "text": "PONDER / SECTION 10/17 / Journey / Journey Plan / Rute kunjungan, dan siapa yang dikunjungi hari ini. / CONTENT / 01 / 01 / Menyusun rute / SEGERA / Urutan kunjungan dan apa yang dicatat di tiap titik. / KPM / SIAP 07/21 / Command / Restock / Sales / Vault / A",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 646
+      }
+     ],
+     "toasts": [],
+     "bad": []
+    }
+   },
+   "bookShot": "phone-T3-b-journey.png 213664",
+   "lessons": {},
+   "errors": []
+  },
+  "fleet": {
+   "heads": [
+    "HEADQUARTERS ROSTER"
+   ],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [
+    "Van empty",
+    "EMPTY",
+    "Van empty",
+    "EMPTY"
+   ],
+   "shot": "phone-T3-s-fleet.png 295101",
+   "book": {
+    "text": "PONDER / SECTION 09/17 / Fleet / Fleet & Canvas / Memuat van, dan stok yang ikut jalan. / CONTENT / 01 / 01 / Loading Bay / BUKA / Menarik kotak cuma menyusun muatan. Stok baru pindah saat Muat van ditekan. / KPM / SIAP 07/21 / Command / Restock / Sales / Vaul",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 646
+      }
+     ],
+     "toasts": [],
+     "bad": []
+    }
+   },
+   "bookShot": "phone-T3-b-fleet.png 217108",
+   "lessons": {
+    "Loading Bay": {
+     "open": {
+      "label": "Loading Bay",
+      "box": [
+       0,
+       0,
+       390,
+       844
+      ],
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": []
+      }
+     },
+     "f1": "phone-T3-L-fleet-LoadingBay-a.png 105484",
+     "mid": {
+      "text": "LOADING BAY / Menarik kotak cuma menyusun muatan; stok pindah saat Muat van ditekan / Gudang Bandung / 6 barang · 3.130 Bks / Cari barang di gudang / 900 / Cello Chocolate / 1.240 / Cello Mint / 360 / Cello Kopi / 480 / Cello Grape / 1 / 2 / QUARANTINE / halaman 1/2 / GUDANG / VAN / GRAND MAX / QUAR",
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": []
+      }
+     },
+     "f2": "phone-T3-L-fleet-LoadingBay-b.png 108583",
+     "f3": "phone-T3-L-fleet-LoadingBay-c.png 111188"
+    }
+   },
+   "errors": []
+  },
+  "agent_inventory": {
+   "heads": [
+    "MANIFEST · RINA WIJAYA"
+   ],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [
+    "kosong hari ini"
+   ],
+   "shot": "phone-T3-s-agent_inventory.png 241563",
+   "book": {
+    "text": "PONDER / SECTION 05/17 / Agent / Agent Inventory / Barang yang sedang dibawa salesman. / CONTENT / 01 / 01 / Agent Chest / BUKA / Isi van sebagai peti: enam kotak satu halaman. Menarik kotak cuma menata susunan. / KPM / SIAP 07/21 / Command / Restock / Sales /",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 646
+      }
+     ],
+     "toasts": [],
+     "bad": [
+      " halaman. Menarik kotak cuma menata susunan."
+     ]
+    }
+   },
+   "bookShot": "phone-T3-b-agent_inventory.png 217107",
+   "lessons": {
+    "Agent Chest": {
+     "open": {
+      "label": "Agent Chest",
+      "box": [
+       0,
+       0,
+       390,
+       844
+      ],
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": [
+        "gai peti; menarik kotak cuma menata susunan"
+       ]
+      }
+     },
+     "f1": "phone-T3-L-agent_inventory-AgentChest-a.png 126799",
+     "mid": {
+      "text": "AGENT CHEST / Isi van sebagai peti; menarik kotak cuma menata susunan / VAN · GRAND MAX / ᔑ / ʖ / ᓵ / ↸ / ᒷ / ⎓ / ⊣ / ꖌ / CATATAN HARI INI / 4 PENJUALAN · 2 SAMPEL / Budi inventory / 1.199 Bks / 600 / Cello Green 16 / 120 / Djarum Coklat 12 / 40 / Sampoerna Mild 16 / 200 / Gudang Garam 12 / 80 / Cel",
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": [
+        "gai peti; menarik kotak cuma menata susunan"
+       ]
+      }
+     },
+     "f2": "phone-T3-L-agent_inventory-AgentChest-b.png 152985",
+     "f3": "phone-T3-L-agent_inventory-AgentChest-c.png 116126"
+    }
+   },
+   "errors": []
+  },
+  "restock_vault": {
+   "heads": [
+    "STOCK BY WAREHOUSE"
+   ],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "phone-T3-s-restock_vault.png 117911",
+   "book": {
+    "text": "PONDER / SECTION 02/17 / Restock / Restock Vault / Barang masuk dari pabrik, kirim ke cabang, dan di mana semua barang berada. / CONTENT / 04 / 01 / Goods Received / BUKA / Panel paling atas: mencatat barang yang baru datang, dan biaya yang menempel padanya. /",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 646
+      }
+     ],
+     "toasts": [],
+     "bad": []
+    }
+   },
+   "bookShot": "phone-T3-b-restock_vault.png 283302",
+   "lessons": {
+    "Goods Received": {
+     "open": {
+      "label": "Goods Received",
+      "box": [
+       0,
+       0,
+       390,
+       844
+      ],
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": []
+      }
+     },
+     "f1": "phone-T3-L-restock_vault-GoodsReceived-a.png 90161",
+     "mid": {
+      "text": "GOODS RECEIVED / Mencatat barang yang baru datang, dan biaya yang menempel padanya / TARGET PRODUKSI BULAN INI / + SET / Belum ada target bulan ini. / ASAL / Pabrik Kudus / ⇄ / TUJUAN / Gudang Pusat (Master Vault) / DELIVERY NOTE (APP) / SJ-185108 / DELIVERY NOTE (FACTORY) / PK/26/0812 / TANGGAL / 2",
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": [
+        "Target produksi cuma catatan bulanan."
+       ]
+      }
+     },
+     "f2": "phone-T3-L-restock_vault-GoodsReceived-b.png 77578",
+     "f3": "phone-T3-L-restock_vault-GoodsReceived-c.png 82529"
+    },
+    "Stock by Warehouse": {
+     "open": {
+      "label": "Stock by Warehouse",
+      "box": [
+       0,
+       0,
+       390,
+       844
+      ],
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": []
+      }
+     },
+     "f1": "phone-T3-L-restock_vault-StockbyWarehou-a.png 64574",
+     "mid": {
+      "text": "STOCK BY WAREHOUSE / Di mana semua barang berada, dan gudang mana yang harus diisi duluan / WAREHOUSE / IN STOCK / SHIPPING / AGENT INVENTORY / SOLD (7D) / AVG / MONTH / EST. DAYS LEFT / SEND AT LEAST / GUDANG PUSAT / 1.240 / — / 180 / 56 / ≈240 / per item / — / Cello Chocolate / OLDEST PACK 12 DAYS",
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": []
+      }
+     },
+     "f2": "phone-T3-L-restock_vault-StockbyWarehou-b.png 72648",
+     "f3": "phone-T3-L-restock_vault-StockbyWarehou-c.png 60199"
+    },
+    "Shipment Plan": {
+     "open": {
+      "label": "Shipment Plan",
+      "box": [
+       0,
+       0,
+       390,
+       844
+      ],
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": []
+      }
+     },
+     "f1": "phone-T3-L-restock_vault-ShipmentPlan-a.png 61336",
+     "mid": {
+      "text": "SHIPMENT PLAN / Kalau barangnya tidak cukup untuk semua cabang, siapa yang dikirim duluan / PRODUCT / MASTER VAULT HAS / BANDUNG / SOLO / SEMARANG / ALL BRANCHES NEED / SHORT BY / Cello Chocolate / 900 / 440 / 610 / 350 / 1.400 / −500 / Cello Mint / 12.921 / 120 / 0 / — / 120 / covered / Cello Kopi ",
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": []
+      }
+     },
+     "f2": "phone-T3-L-restock_vault-ShipmentPlan-b.png 73235",
+     "f3": "phone-T3-L-restock_vault-ShipmentPlan-c.png 70258"
+    },
+    "Regional Warehouse": {
+     "open": {
+      "label": "Regional Warehouse",
+      "box": [
+       0,
+       0,
+       390,
+       844
+      ],
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": []
+      }
+     },
+     "f1": "phone-T3-L-restock_vault-RegionalWareho-a.png 108520",
+     "mid": {
+      "text": "REGIONAL WAREHOUSE / Panel gudang cabang: lima tab, dan dua hal yang sekarang diatur oleh HQ / GUDANG BANDUNG / on the way · count on arrival / INCOMING2 / REQUEST0 / STOCK4 / BOOK3 / DATA INDUK0 / SEDANG DIKIRIM / 2 belum selesai / Cello Chocolate / KRM-2609 · dari HQ / SEDANG DIKIRIM / Scan barang",
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": []
+      }
+     },
+     "f2": "phone-T3-L-restock_vault-RegionalWareho-b.png 97721",
+     "f3": "phone-T3-L-restock_vault-RegionalWareho-c.png 100384"
+    }
+   },
+   "errors": [
+    "warning: Places listener: permission-denied",
+    "error: [2026-11-08T11:24:44.448Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: ca9) CONTEXT: {\"ve\":-1}",
+    "error: [2026-11-08T11:24:44.449Z]  @firebase/firestore: Firestore (12.11.0): INTERNAL UNHANDLED ERROR:  Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: ca9) CONTEXT: {\"ve\":-1}\n    at __PRIVATE__fail ",
+    "throw: Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: ca9) CONTEXT: {\"ve\":-1}\n    at __PRIVATE__fail (http://localhost:5176/node_modules/.vite/deps/firebase_firestore.js?v=eed4f97f:2593:32)\n    at _",
+    "error: [2026-11-08T11:24:44.455Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp",
+    "error: [2026-11-08T11:24:44.456Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp"
+   ]
+  },
+  "sales": {
+   "heads": [],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "phone-T3-s-sales.png 123780",
+   "book": "no book button",
+   "errors": [
+    "error: [2026-11-08T11:26:06.573Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp",
+    "error: [2026-11-08T11:26:06.576Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp",
+    "throw: Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: ca9) CONTEXT: {\\\"ve\\\":-1}\\n    at __PRIVATE__f",
+    "error: [2026-11-08T11:26:06.585Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp",
+    "error: [2026-11-08T11:26:06.586Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp"
+   ]
+  },
+  "receivables": {
+   "missing": true,
+   "shot": "phone-T3-s-receivables.png 123780",
+   "book": "no book button",
+   "errors": []
+  },
+  "eod": {
+   "missing": true,
+   "shot": "phone-T3-s-eod.png 127566",
+   "book": "no book button",
+   "errors": []
+  },
+  "stock_opname": {
+   "missing": true,
+   "shot": "phone-T3-s-stock_opname.png 123780",
+   "book": "no book button",
+   "errors": []
+  },
+  "transactions": {
+   "missing": true,
+   "shot": "phone-T3-s-transactions.png 123780",
+   "book": "no book button",
+   "errors": []
+  },
+  "settings": {
+   "missing": true,
+   "shot": "phone-T3-s-settings.png 123780",
+   "book": "no book button",
+   "errors": []
+  }
+ },
+ "picker": {
+  "found": true,
+  "text": "DEMO\nNo role · tap SWITCH\nSWITCH\nMODE RINGAN · P07B\nPUSAT KENDALI\n1\nDEMO · WALKER@GMAIL.COM\nPICK WHO TO BE\n\nEach card is a real account and opens the app with its own rights.\n\nT2\nOWNER\nSees the whole company: money, stock and every salesman.\n›\nT3\nHQ SALES MANAGER\nRuns the sales team across every reg",
+  "stat": {
+   "sw": 390,
+   "vw": 390,
+   "sh": 844,
+   "wide": [
+    {
+     "tag": "div",
+     "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+     "text": "",
+     "right": 646
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch-corner",
+     "text": "",
+     "right": 646
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch kpm-merch-idle",
+     "text": "",
+     "right": 646
+    }
+   ],
+   "toasts": [
+    "⚠️ PROTOCOL ALERT: TIME FOR USB SAFE BACKUP!"
+   ],
+   "bad": []
+  }
+ },
+ "pickerShot": "phone-T3-0-picker.png 109372",
+ "gate": {
+  "gate": true,
+  "stat": {
+   "sw": 390,
+   "vw": 390,
+   "sh": 844,
+   "wide": [],
+   "toasts": [
+    "Latest version\n·\n52a9044"
+   ],
+   "bad": []
+  }
+ },
+ "gateShot": "phone-T3-1-gate.png 33500",
+ "inside": {
+  "text": "DEMO\nT3 · HQ Sales Manager\nSWITCH\nAGENT CAPYBARA\n\nHalo, selamat datang di KPM! Saya Agent Capybara, pemandu Anda di demo ini.\n\nLANJUT ▼\nSISTEM AKTIF\nPUSAT KENDALI\n1\nPANEL · LIVE\nBULAN INI\nCLOUD\nUSB\nSAVE POINT\n\n \n\nHARI\nMINGGU\nBULAN\nTAHUN\nOMZET\nSisa 22 tanggal\nRp 414.195.000\n28% DARI TARGET\nTarget Rp 1,5 M\nPERBANDINGAN PERIODE\nTidak ada periode pembanding\nVOLUME DISTRIBUSI\n24% dari 1050 bal\n250\nKOMP",
+  "stat": {
+   "sw": 390,
+   "vw": 390,
+   "sh": 844,
+   "wide": [
+    {
+     "tag": "div",
+     "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+     "text": "",
+     "right": 646
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch-corner",
+     "text": "",
+     "right": 646
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch kpm-merch-idle",
+     "text": "",
+     "right": 646
+    }
+   ],
+   "toasts": [
+    "⚠️ PROTOCOL ALERT: TIME FOR USB SAFE BACKUP!"
+   ],
+   "bad": []
+  }
+ },
+ "homeShot": "phone-T3-2-home.png 254485",
+ "greet": [
+  "Halo, selamat datang di KPM! Saya Agent Capybara, pemandu Anda di demo ini.",
+  "Kita akan menjalankan satu putaran barang dalam 8 langkah: dari pabrik ke Master Vault, ke gudang wilayah, ke tas salesman, ke toko, lalu sisa barang dan barang rusak kembali ke gudang dan stoknya dihitung.",
+  "Eits! Langkah 1 dikerjakan oleh Owner, bukan oleh akun ini.",
+  "Silakan tekan SWITCH di pojok atas dan masuk sebagai Owner, HARTONO SUSILO."
+ ],
+ "choicesShot": "phone-T3-2b-choices.png 263464",
+ "guide": {
+  "ring": [
+   291,
+   -3,
+   93,
+   40
+  ],
+  "box": [
+   38,
+   49,
+   340,
+   100
+  ],
+  "say": "LANGKAH 1/8 / ✕ / Langkah ini untuk Owner. Tekan SWITCH, lalu pilih HARTONO SUSILO.",
+  "stat": {
+   "sw": 390,
+   "vw": 390,
+   "sh": 844,
+   "wide": [
+    {
+     "tag": "div",
+     "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+     "text": "",
+     "right": 646
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch-corner",
+     "text": "",
+     "right": 646
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch kpm-merch-idle",
+     "text": "",
+     "right": 646
+    }
+   ],
+   "toasts": [
+    "LANGKAH 1/8\n✕\n\nLangkah ini untuk Owner. Tekan SWITCH, lalu pilih HARTONO SUSILO."
+   ],
+   "bad": []
+  }
+ },
+ "guideShot": "phone-T3-2c-guide.png 172395",
+ "bar": {
+  "text": "DEMO / T3 · HQ Sales Manager / SWITCH",
+  "box": [
+   0,
+   0,
+   390,
+   37
+  ],
+  "sw": 390,
+  "cw": 390
+ },
+ "switch": {
+  "sw": 390,
+  "vw": 390,
+  "sh": 844,
+  "wide": [
+   {
+    "tag": "div",
+    "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+    "text": "",
+    "right": 646
+   },
+   {
+    "tag": "div",
+    "cls": "kpm-merch-corner",
+    "text": "",
+    "right": 646
+   },
+   {
+    "tag": "div",
+    "cls": "kpm-merch kpm-merch-idle",
+    "text": "",
+    "right": 646
+   }
+  ],
+  "toasts": [],
+  "bad": []
+ },
+ "switchShot": "phone-T3-3-switch.png 110434",
+ "mission": {
+  "text": "1/8 / Terima hasil produksi di Master Vault · sebagai Owner",
+  "box": [
+   0,
+   37,
+   390,
+   34
+  ],
+  "hint": {
+   "text": "AGENT CAPYBARA / Eits! Langkah 1 dikerjakan oleh Owner, bukan oleh akun ini. / LANJUT ▼",
+   "box": [
+    0,
+    582,
+    390,
+    262
+   ]
+  },
+  "stat": {
+   "sw": 390,
+   "vw": 390,
+   "sh": 844,
+   "wide": [
+    {
+     "tag": "div",
+     "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+     "text": "",
+     "right": 646
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch-corner",
+     "text": "",
+     "right": 646
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch kpm-merch-idle",
+     "text": "",
+     "right": 646
+    }
+   ],
+   "toasts": [],
+   "bad": []
+  }
+ },
+ "missionShot": "phone-T3-4-mission.png 252135",
+ "nav": [
+  {
+   "id": "agent_profile",
+   "label": ""
+  },
+  {
+   "id": "dashboard",
+   "label": ""
+  },
+  {
+   "id": "map_war_room",
+   "label": ""
+  },
+  {
+   "id": "journey",
+   "label": ""
+  },
+  {
+   "id": "fleet",
+   "label": ""
+  },
+  {
+   "id": "agent_inventory",
+   "label": ""
+  },
+  {
+   "id": "restock_vault",
+   "label": ""
+  },
+  {
+   "id": "sales",
+   "label": ""
+  },
+  {
+   "id": "receivables",
+   "label": ""
+  },
+  {
+   "id": "eod",
+   "label": ""
+  },
+  {
+   "id": "stock_opname",
+   "label": ""
+  },
+  {
+   "id": "transactions",
+   "label": ""
+  },
+  {
+   "id": "settings",
+   "label": ""
+  }
+ ],
+ "navShot": "phone-T3-5-nav.png 134820",
+ "errorsEnd": []
+}

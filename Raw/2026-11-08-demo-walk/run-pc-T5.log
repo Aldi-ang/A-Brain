@@ -1,0 +1,139 @@
+{
+ "mode": "pc",
+ "tier": "T5",
+ "screens": {
+  "agent_profile": {
+   "heads": [
+    "AGUS PRASETYO",
+    "LIVE FINANCIAL MATRIX",
+    "OPERATOR CREDENTIALS",
+    "SERVICE RECORD"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": [
+     "LIVE FINANCIAL MATRIX",
+     "ROSTER CONTROL: DENIED",
+     "TARIK BARANG: DENIED"
+    ]
+   },
+   "empty": [
+    "No Data"
+   ],
+   "shot": "pc-T5-s-agent_profile.png 316756",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / PANDUAN / MENCATAT SAMPLING / Stok tetap berkurang walau tidak ada uang masuk. / BELUM DITULIS / 15 / ",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 1664
+      }
+     ],
+     "toasts": [],
+     "bad": [
+      "LIVE FINANCIAL MATRIX",
+      "ROSTER CONTROL: DENIED",
+      "TARIK BARANG: DENIED"
+     ]
+    }
+   },
+   "bookShot": "pc-T5-b-agent_profile.png 120640",
+   "lessons": {},
+   "errors": []
+  },
+  "map_war_room": {
+   "heads": [],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [
+     "146\nSHOPS\n112\nNEED A VISIT"
+    ],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "pc-T5-s-map_war_room.png 339755",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / PANDUAN / LOADING BAY / Menarik kotak cuma menyusun muatan. Stok baru pindah saat Muat van ditekan. / ",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "re

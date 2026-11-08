@@ -1,0 +1,140 @@
+{
+ "mode": "pc",
+ "tier": "T3",
+ "screens": {
+  "agent_profile": {
+   "heads": [
+    "AGENT DIRECTORY",
+    "RINA WIJAYA",
+    "LIVE FINANCIAL MATRIX",
+    "OPERATOR CREDENTIALS"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": [
+     "LIVE FINANCIAL MATRIX",
+     "ROSTER CONTROL: DENIED",
+     "TARIK BARANG: DENIED"
+    ]
+   },
+   "empty": [
+    "No Data"
+   ],
+   "shot": "pc-T3-s-agent_profile.png 329433",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / PANDUAN / MENCATAT SAMPLING / Stok tetap berkurang walau tidak ada uang masuk. / BELUM DITULIS / 15 / ",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 1664
+      }
+     ],
+     "toasts": [],
+     "bad": [
+      "LIVE FINANCIAL MATRIX",
+      "ROSTER CONTROL: DENIED",
+      "TARIK BARANG: DENIED"
+     ]
+    }
+   },
+   "bookShot": "pc-T3-b-agent_profile.png 121500",
+   "lessons": {},
+   "errors": []
+  },
+  "dashboard": {
+   "heads": [
+    "BULAN INI",
+    "PERPUTARAN INVENTARIS",
+    "LEADERBOARD"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [
+    "Tidak ada periode pembanding"
+   ],
+   "shot": "pc-T3-s-dashboard.png 113915",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / COMMAND CENTER / Angka ringkasan seluruh perusahaan. Cuma dibaca, tidak mengubah apa pun. / 01 / Memba",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+   

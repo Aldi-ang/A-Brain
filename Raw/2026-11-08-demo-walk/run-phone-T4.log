@@ -1,0 +1,137 @@
+{
+ "mode": "phone",
+ "tier": "T4",
+ "screens": {
+  "agent_profile": {
+   "heads": [
+    "HENDRA GUNAWAN",
+    "LIVE FINANCIAL MATRIX",
+    "OPERATOR CREDENTIALS",
+    "SERVICE RECORD"
+   ],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": [
+     "LIVE FINANCIAL MATRIX",
+     "ROSTER CONTROL: DENIED",
+     "TARIK BARANG: DENIED"
+    ]
+   },
+   "empty": [
+    "No Data"
+   ],
+   "shot": "phone-T4-s-agent_profile.png 302377",
+   "book": {
+    "text": "PONDER / SECTION 15/17 / Profile / Agent Profile / Profil, tier, dan pencapaian. / CONTENT / 01 / 01 / Membaca profil / SEGERA / Apa yang menaikkan tier. / KPM / SIAP 07/21 / Command / Restock / Sales / Vault / Agent / Opname / Setoran / Piutang / Fleet / Jour",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 646
+      }
+     ],
+     "toasts": [],
+     "bad": [
+      "LIVE FINANCIAL MATRIX",
+      "ROSTER CONTROL: DENIED",
+      "TARIK BARANG: DENIED"
+     ]
+    }
+   },
+   "bookShot": "phone-T4-b-agent_profile.png 208529",
+   "lessons": {},
+   "errors": []
+  },
+  "map_war_room": {
+   "heads": [],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "phone-T4-s-map_war_room.png 262419",
+   "book": {
+    "text": "PONDER / SECTION 11/17 / Map / Map System / Semua titik pelanggan di satu peta. / CONTENT / 01 / 01 / Membaca peta / SEGERA / Apa arti tiap warna titik. / KPM / SIAP 07/21 / Command / Restock / Sales / Vault / Agent / Opname / Setoran / Piutang / Fleet / Journ",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-tran

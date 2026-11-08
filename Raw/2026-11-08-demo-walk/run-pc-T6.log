@@ -1,0 +1,139 @@
+{
+ "mode": "pc",
+ "tier": "T6",
+ "screens": {
+  "agent_profile": {
+   "heads": [
+    "DIKA SAPUTRA",
+    "LIVE FINANCIAL MATRIX",
+    "OPERATOR CREDENTIALS",
+    "SERVICE RECORD"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": [
+     "LIVE FINANCIAL MATRIX",
+     "ROSTER CONTROL: DENIED"
+    ]
+   },
+   "empty": [
+    "No Data"
+   ],
+   "shot": "pc-T6-s-agent_profile.png 322626",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / PANDUAN / MENCATAT SAMPLING / Stok tetap berkurang walau tidak ada uang masuk. / BELUM DITULIS / 15 / ",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 1664
+      }
+     ],
+     "toasts": [],
+     "bad": [
+      "LIVE FINANCIAL MATRIX",
+      "ROSTER CONTROL: DENIED"
+     ]
+    }
+   },
+   "bookShot": "pc-T6-b-agent_profile.png 121168",
+   "lessons": {},
+   "errors": []
+  },
+  "journey": {
+   "heads": [
+    "MISSION FEED\nSUNDAY · ALL · ALL TEAMS\n6/146SECURED",
+    "JAWA BARAT",
+    "JAWA TENGAH"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "pc-T6-s-journey.png 188661",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / PANDUAN / PIUTANG VS TITIPAN / Mana yang uang kamu, mana yang barang kamu. / BELUM DITULIS / 10 / 17 /",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 

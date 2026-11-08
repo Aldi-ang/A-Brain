@@ -1,0 +1,139 @@
+{
+ "mode": "phone",
+ "tier": "T6",
+ "screens": {
+  "agent_profile": {
+   "heads": [
+    "DIKA SAPUTRA",
+    "LIVE FINANCIAL MATRIX",
+    "OPERATOR CREDENTIALS",
+    "SERVICE RECORD"
+   ],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": [
+     "LIVE FINANCIAL MATRIX",
+     "ROSTER CONTROL: DENIED"
+    ]
+   },
+   "empty": [
+    "No Data"
+   ],
+   "shot": "phone-T6-s-agent_profile.png 339556",
+   "book": {
+    "text": "PONDER / SECTION 15/17 / Profile / Agent Profile / Profil, tier, dan pencapaian. / CONTENT / 01 / 01 / Membaca profil / SEGERA / Apa yang menaikkan tier. / KPM / SIAP 07/21 / Command / Restock / Sales / Vault / Agent / Opname / Setoran / Piutang / Fleet / Jour",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 646
+      }
+     ],
+     "toasts": [],
+     "bad": [
+      "LIVE FINANCIAL MATRIX",
+      "ROSTER CONTROL: DENIED"
+     ]
+    }
+   },
+   "bookShot": "phone-T6-b-agent_profile.png 207605",
+   "lessons": {},
+   "errors": []
+  },
+  "journey": {
+   "heads": [
+    "MISSION FEED\nALL ▾",
+    "JAWA BARAT",
+    "JAWA TENGAH"
+   ],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "phone-T6-s-journey.png 216491",
+   "book": {
+    "text": "PONDER / SECTION 10/17 / Journey / Journey Plan / Rute kunjungan, dan siapa yang dikunjungi hari ini. / CONTENT / 01 / 01 / Menyusun rute / SEGERA / Urutan kunjungan dan apa yang dicatat di tiap titik. / KPM / SIAP 07/21 / Command / Restock / Sales / Vault / A",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transfor

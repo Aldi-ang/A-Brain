@@ -1,0 +1,882 @@
+{
+ "mode": "pc",
+ "tier": "T3",
+ "screens": {
+  "agent_profile": {
+   "heads": [
+    "AGENT DIRECTORY",
+    "RINA WIJAYA",
+    "LIVE FINANCIAL MATRIX",
+    "OPERATOR CREDENTIALS"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": [
+     "LIVE FINANCIAL MATRIX",
+     "ROSTER CONTROL: DENIED",
+     "TARIK BARANG: DENIED"
+    ]
+   },
+   "empty": [
+    "No Data"
+   ],
+   "shot": "pc-T3-s-agent_profile.png 329433",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / PANDUAN / MENCATAT SAMPLING / Stok tetap berkurang walau tidak ada uang masuk. / BELUM DITULIS / 15 / ",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 1664
+      }
+     ],
+     "toasts": [],
+     "bad": [
+      "LIVE FINANCIAL MATRIX",
+      "ROSTER CONTROL: DENIED",
+      "TARIK BARANG: DENIED"
+     ]
+    }
+   },
+   "bookShot": "pc-T3-b-agent_profile.png 121500",
+   "lessons": {},
+   "errors": []
+  },
+  "dashboard": {
+   "heads": [
+    "BULAN INI",
+    "PERPUTARAN INVENTARIS",
+    "LEADERBOARD"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [
+    "Tidak ada periode pembanding"
+   ],
+   "shot": "pc-T3-s-dashboard.png 113915",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / COMMAND CENTER / Angka ringkasan seluruh perusahaan. Cuma dibaca, tidak mengubah apa pun. / 01 / Memba",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 1664
+      }
+     ],
+     "toasts": [],
+     "bad": []
+    }
+   },
+   "bookShot": "pc-T3-b-dashboard.png 133902",
+   "lessons": {},
+   "errors": []
+  },
+  "map_war_room": {
+   "heads": [],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [
+     "146\nSHOPS\n112\nNEED A VISIT"
+    ],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "pc-T3-s-map_war_room.png 341327",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / PANDUAN / LOADING BAY / Menarik kotak cuma menyusun muatan. Stok baru pindah saat Muat van ditekan. / ",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 1664
+      }
+     ],
+     "toasts": [
+      "146\nSHOPS\n112\nNEED A VISIT"
+     ],
+     "bad": [
+      " keluar tanpa dibayar, dan siapa yang menanggungnya."
+     ]
+    }
+   },
+   "bookShot": "pc-T3-b-map_war_room.png 142586",
+   "lessons": {},
+   "errors": []
+  },
+  "journey": {
+   "heads": [
+    "MISSION FEED\nSUNDAY · ALL · ALL TEAMS\n6/146SECURED",
+    "JAWA BARAT",
+    "JAWA TENGAH"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "pc-T3-s-journey.png 188990",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / PANDUAN / PIUTANG VS TITIPAN / Mana yang uang kamu, mana yang barang kamu. / BELUM DITULIS / 10 / 17 /",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 1664
+      }
+     ],
+     "toasts": [],
+     "bad": []
+    }
+   },
+   "bookShot": "pc-T3-b-journey.png 139030",
+   "lessons": {},
+   "errors": []
+  },
+  "fleet": {
+   "heads": [
+    "HEADQUARTERS ROSTER"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [
+    "Van empty",
+    "EMPTY",
+    "Van empty",
+    "EMPTY"
+   ],
+   "shot": "pc-T3-s-fleet.png 214530",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / PANDUAN / SETORAN HARIAN / Angka kamu dibandingkan dengan penjualan hari itu, dan kenapa tidak bisa di",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 1664
+      }
+     ],
+     "toasts": [],
+     "bad": []
+    }
+   },
+   "bookShot": "pc-T3-b-fleet.png 136076",
+   "lessons": {},
+   "errors": []
+  },
+  "agent_inventory": {
+   "heads": [
+    "MANIFEST · RINA WIJAYA"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [
+    "kosong hari ini"
+   ],
+   "shot": "pc-T3-s-agent_inventory.png 174714",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / PANDUAN / TITIP VS LUNAS / Beda barang titipan dan barang yang sudah dibayar. / BELUM DITULIS / 5 / 17",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 1664
+      }
+     ],
+     "toasts": [],
+     "bad": [
+      " halaman. Menarik kotak cuma menata susunan."
+     ]
+    }
+   },
+   "bookShot": "pc-T3-b-agent_inventory.png 113232",
+   "lessons": {},
+   "errors": []
+  },
+  "restock_vault": {
+   "heads": [
+    "STOCK BY WAREHOUSE"
+   ],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 1664
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 1664
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "pc-T3-s-restock_vault.png 117787",
+   "book": {
+    "text": "COMMAND / RESTOCK / SALES / VAULT / AGENT / OPNAME / SETORAN / PIUTANG / FLEET / JOURNEY / MAP / CUSTOMER / SAMPLING / REPORTS / PROFILE / AUDIT / SETTINGS / COMMAND CENTER / Angka ringkasan seluruh perusahaan. Cuma dibaca, tidak mengubah apa pun. / 01 / Memba",
+    "box": [
+     0,
+     0,
+     1280,
+     800
+    ],
+    "stat": {
+     "sw": 1280,
+     "vw": 1280,
+     "sh": 800,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 1664
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 1664
+      }
+     ],
+     "toasts": [],
+     "bad": []
+    }
+   },
+   "bookShot": "pc-T3-b-restock_vault.png 189564",
+   "lessons": {},
+   "errors": [
+    "warning: Places listener: permission-denied",
+    "error: [2026-11-08T11:47:10.512Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: ca9) CONTEXT: {\"ve\":-1}",
+    "error: [2026-11-08T11:47:10.513Z]  @firebase/firestore: Firestore (12.11.0): INTERNAL UNHANDLED ERROR:  Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: ca9) CONTEXT: {\"ve\":-1}\n    at __PRIVATE__fail ",
+    "throw: Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: ca9) CONTEXT: {\"ve\":-1}\n    at __PRIVATE__fail (http://localhost:5176/node_modules/.vite/deps/firebase_firestore.js?v=eed4f97f:2593:32)\n    at _",
+    "error: [2026-11-08T11:47:11.301Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp",
+    "throw: Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: ca9) CONTEXT: {\\\"ve\\\":-1}\\n    at __PRIVATE__f"
+   ]
+  },
+  "sales": {
+   "heads": [],
+   "stat": {
+    "sw": 1280,
+    "vw": 1280,
+    "sh": 800,
+    "wide": [],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "pc-T3-s-sales.png 102345",
+   "book": "no book button",
+   "errors": [
+    "error: [2026-11-08T11:47:18.030Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp",
+    "error: [2026-11-08T11:47:18.039Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp",
+    "throw: Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: ca9) CONTEXT: {\\\"ve\\\":-1}\\n    at __PRIVATE__f",
+    "error: [2026-11-08T11:47:18.060Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp",
+    "error: [2026-11-08T11:47:18.061Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp",
+    "error: [2026-11-08T11:47:18.062Z]  @firebase/firestore: Firestore (12.11.0): FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexpected state (ID: b815) CONTEXT: {\"Pc\":\"Error: FIRESTORE (12.11.0) INTERNAL ASSERTION FAILED: Unexp"
+   ]
+  },
+  "receivables": {
+   "missing": true,
+   "shot": "pc-T3-s-receivables.png 102345",
+   "book": "no book button",
+   "errors": []
+  },
+  "eod": {
+   "missing": true,
+   "shot": "pc-T3-s-eod.png 102345",
+   "book": "no book button",
+   "errors": []
+  },
+  "stock_opname": {
+   "missing": true,
+   "shot": "pc-T3-s-stock_opname.png 102345",
+   "book": "no book button",
+   "errors": []
+  },
+  "transactions": {
+   "missing": true,
+   "shot": "pc-T3-s-transactions.png 102345",
+   "book": "no book button",
+   "errors": []
+  },
+  "settings": {
+   "missing": true,
+   "shot": "pc-T3-s-settings.png 102345",
+   "book": "no book button",
+   "errors": []
+  }
+ },
+ "picker": {
+  "found": true,
+  "text": "DEMO\nYou are walker@gmail.com · no role - pick a person under SWITCH · resets every night at 00:05 WIB\nSWITCH\nMODE KS2KTIF\nPUSAT KENDALI\nPANDUAN\nCATATAN UPDATE\nTERSINKRON\n1\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n:\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n:\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n8 N",
+  "stat": {
+   "sw": 1280,
+   "vw": 1280,
+   "sh": 800,
+   "wide": [
+    {
+     "tag": "div",
+     "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+     "text": "",
+     "right": 1664
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch-corner",
+     "text": "",
+     "right": 1664
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch kpm-merch-idle",
+     "text": "",
+     "right": 1664
+    }
+   ],
+   "toasts": [
+    "⚠️ PROTOCOL ALERT: TIME FOR USB SAFE BACKUP!"
+   ],
+   "bad": []
+  }
+ },
+ "pickerShot": "pc-T3-0-picker.png 47169",
+ "gate": {
+  "gate": true,
+  "stat": {
+   "sw": 1280,
+   "vw": 1280,
+   "sh": 800,
+   "wide": [],
+   "toasts": [
+    "Latest version\n·\n52a9044"
+   ],
+   "bad": []
+  }
+ },
+ "gateShot": "pc-T3-1-gate.png 21015",
+ "inside": {
+  "text": "DEMO\nYou are RINA WIJAYA · HQ Sales Manager (T3) · resets every night at 00:05 WIB\nSWITCH\nAGENT CAPYBARA\n\nHalo, selamat datang di KPM! Saya Agent Capybara, pemandu Anda di demo ini.\n\nLANJUT ▼\nPROFIL SALES\nPUSAT KENDALI\nPETA\nRENCANA RUTE\nARMADA & KANVAS\nSTOK SALES\nISI STOK GUDANG\nTERMINAL PENJUALAN\nPIUTANG & TITIP\nSETORAN SORE\nSTOK OPNAME\nLAPORAN\nPENGATURAN\nSISTEM AKTIF\nPUSAT KENDALI\nPANDUAN\nCATATA",
+  "stat": {
+   "sw": 1280,
+   "vw": 1280,
+   "sh": 800,
+   "wide": [
+    {
+     "tag": "div",
+     "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+     "text": "",
+     "right": 1664
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch-corner",
+     "text": "",
+     "right": 1664
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch kpm-merch-idle",
+     "text": "",
+     "right": 1664
+    }
+   ],
+   "toasts": [
+    "⚠️ PROTOCOL ALERT: TIME FOR USB SAFE BACKUP!"
+   ],
+   "bad": []
+  }
+ },
+ "homeShot": "pc-T3-2-home.png 239943",
+ "greet": [
+  "Halo, selamat datang di KPM! Saya Agent Capybara, pemandu Anda di demo ini.",
+  "Kita akan menjalankan satu putaran barang dalam 8 langkah: dari pabrik ke Master Vault, ke gudang wilayah, ke tas salesman, ke toko, lalu sisa barang dan barang rusak kembali ke gudang dan stoknya dihitung.",
+  "Eits! Langkah 1 dikerjakan oleh Owner, bukan oleh akun ini.",
+  "Silakan tekan SWITCH di pojok atas dan masuk sebagai Owner, HARTONO SUSILO."
+ ],
+ "choicesShot": "pc-T3-2b-choices.png 243145",
+ "guide": {
+  "ring": [
+   1181,
+   -3,
+   93,
+   40
+  ],
+  "box": [
+   928,
+   49,
+   340,
+   100
+  ],
+  "say": "LANGKAH 1/8 / ✕ / Langkah ini untuk Owner. Tekan SWITCH, lalu pilih HARTONO SUSILO.",
+  "stat": {
+   "sw": 1280,
+   "vw": 1280,
+   "sh": 800,
+   "wide": [
+    {
+     "tag": "div",
+     "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+     "text": "",
+     "right": 1664
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch-corner",
+     "text": "",
+     "right": 1664
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch kpm-merch-idle",
+     "text": "",
+     "right": 1664
+    }
+   ],
+   "toasts": [
+    "LANGKAH 1/8\n✕\n\nLangkah ini untuk Owner. Tekan SWITCH, lalu pilih HARTONO SUSILO."
+   ],
+   "bad": []
+  }
+ },
+ "guideShot": "pc-T3-2c-guide.png 142905",
+ "bar": {
+  "text": "DEMO / You are RINA WIJAYA · HQ Sales Manager (T3) · resets every night at 00:05 WIB / SWITCH",
+  "box": [
+   0,
+   0,
+   1280,
+   37
+  ],
+  "sw": 1280,
+  "cw": 1280
+ },
+ "switch": {
+  "sw": 1280,
+  "vw": 1280,
+  "sh": 800,
+  "wide": [
+   {
+    "tag": "div",
+    "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+    "text": "",
+    "right": 1664
+   },
+   {
+    "tag": "div",
+    "cls": "kpm-merch-corner",
+    "text": "",
+    "right": 1664
+   },
+   {
+    "tag": "div",
+    "cls": "kpm-merch kpm-merch-idle",
+    "text": "",
+    "right": 1664
+   }
+  ],
+  "toasts": [],
+  "bad": []
+ },
+ "switchShot": "pc-T3-3-switch.png 115634",
+ "mission": {
+  "text": "MISI 1/8 / 1 / Terima hasil produksi di Master Vault / · sebagai Owner / 2 / 3 / 4 / 5 / 6 / 7 / 8 / PETUNJUK",
+  "box": [
+   0,
+   37,
+   1280,
+   34
+  ],
+  "hint": {
+   "text": "AGENT CAPYBARA / Eits! Langkah 1 dikerjakan oleh Owner, bukan oleh akun ini. / LANJUT ▼",
+   "box": [
+    150,
+    476,
+    980,
+    324
+   ]
+  },
+  "stat": {
+   "sw": 1280,
+   "vw": 1280,
+   "sh": 800,
+   "wide": [
+    {
+     "tag": "div",
+     "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+     "text": "",
+     "right": 1664
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch-corner",
+     "text": "",
+     "right": 1664
+    },
+    {
+     "tag": "div",
+     "cls": "kpm-merch kpm-merch-idle",
+     "text": "",
+     "right": 1664
+    }
+   ],
+   "toasts": [],
+   "bad": []
+  }
+ },
+ "missionShot": "pc-T3-4-mission.png 230424",
+ "nav": [
+  {
+   "id": "agent_profile",
+   "label": "PROFIL SALES"
+  },
+  {
+   "id": "dashboard",
+   "label": "PUSAT KENDALI"
+  },
+  {
+   "id": "map_war_room",
+   "label": "PETA"
+  },
+  {
+   "id": "journey",
+   "label": "RENCANA RUTE"
+  },
+  {
+   "id": "fleet",
+   "label": "ARMADA & KANVAS"
+  },
+  {
+   "id": "agent_inventory",
+   "label": "STOK SALES"
+  },
+  {
+   "id": "restock_vault",
+   "label": "ISI STOK GUDANG"
+  },
+  {
+   "id": "sales",
+   "label": "TERMINAL PENJUALAN"
+  },
+  {
+   "id": "receivables",
+   "label": "PIUTANG & TITIP"
+  },
+  {
+   "id": "eod",
+   "label": "SETORAN SORE"
+  },
+  {
+   "id": "stock_opname",
+   "label": "STOK OPNAME"
+  },
+  {
+   "id": "transactions",
+   "label": "LAPORAN"
+  },
+  {
+   "id": "settings",
+   "label": "PENGATURAN"
+  }
+ ],
+ "navShot": "pc-T3-5-nav.png 113546",
+ "errorsEnd": []
+}

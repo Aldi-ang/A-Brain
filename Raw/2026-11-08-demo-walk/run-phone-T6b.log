@@ -1,0 +1,129 @@
+{
+ "mode": "phone",
+ "tier": "T6",
+ "screens": {
+  "agent_inventory": {
+   "heads": [
+    "MANIFEST · DIKA SAPUTRA",
+    "SALES",
+    "SAMPLES"
+   ],
+   "stat": {
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "wide": [
+     {
+      "tag": "div",
+      "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch-corner",
+      "text": "",
+      "right": 646
+     },
+     {
+      "tag": "div",
+      "cls": "kpm-merch kpm-merch-idle",
+      "text": "",
+      "right": 646
+     }
+    ],
+    "toasts": [],
+    "bad": []
+   },
+   "empty": [],
+   "shot": "phone-T6-s-agent_inventory.png 159267",
+   "book": {
+    "text": "PONDER / SECTION 05/17 / Agent / Agent Inventory / Barang yang sedang dibawa salesman. / CONTENT / 01 / 01 / Agent Chest / BUKA / Isi van sebagai peti: enam kotak satu halaman. Menarik kotak cuma menata susunan. / KPM / SIAP 07/21 / Command / Restock / Sales /",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "stat": {
+     "sw": 390,
+     "vw": 390,
+     "sh": 844,
+     "wide": [
+      {
+       "tag": "div",
+       "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch-corner",
+       "text": "",
+       "right": 646
+      },
+      {
+       "tag": "div",
+       "cls": "kpm-merch kpm-merch-idle",
+       "text": "",
+       "right": 646
+      }
+     ],
+     "toasts": [],
+     "bad": [
+      " halaman. Menarik kotak cuma menata susunan."
+     ]
+    }
+   },
+   "bookShot": "phone-T6-b-agent_inventory.png 217152",
+   "lessons": {
+    "Agent Chest": {
+     "open": {
+      "label": "Agent Chest",
+      "box": [
+       0,
+       0,
+       390,
+       844
+      ],
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative w-32 h-32 md:w-48 md:h-48 transition-transform dura",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch-corner",
+         "text": "",
+         "right": 646
+        },
+        {
+         "tag": "div",
+         "cls": "kpm-merch kpm-merch-idle",
+         "text": "",
+         "right": 646
+        }
+       ],
+       "toasts": [],
+       "bad": [
+        "gai peti; menarik kotak cuma menata susunan"
+       ]
+      }
+     },
+     "f1": "phone-T6-L-agent_inventory-AgentChest-a.png 126435",
+     "mid": {
+      "text": "AGENT CHEST / Isi van sebagai peti; menarik kotak cuma menata susunan / VAN · GRAND MAX / ᔑ / ʖ / ᓵ / ↸ / ᒷ / ⎓ / ⊣ / ꖌ / CATATAN HARI INI / 4 PENJUALAN · 2 SAMPEL / Budi inventory / 1.199 Bks / 600 / Cello Green 16 / 120 / Djarum Coklat 12 / 40 / Sampoerna Mild 16 / 200 / Gudang Garam 12 / 80 / Cel",
+      "stat": {
+       "sw": 390,
+       "vw": 390,
+       "sh": 844,
+       "wide": [
+        {
+         "tag": "div",
+         "cls": "relative 
