@@ -2,7 +2,7 @@
 title: "Claude and Antigravity on one project, one brain"
 type: brainstorm
 created: 2026-11-08
-status: BUILT (GEMINI.md, kpm repo) · OPEN — who puts Antigravity's work live (🔴 asked) · skill links need Aldi's one PowerShell line
+status: BUILT (GEMINI.md, kpm repo) · DECIDED 2026-11-08 13:41 — option 1, Claude leads, Antigravity does the task file · skill links need Aldi's one PowerShell line
 tags: [kpm, tooling, antigravity, a-brain, workflow]
 ---
 
@@ -41,6 +41,14 @@ Knowledge) is a scratchpad; its results go to `.claude/PROGRESS.md` (🔵 ANTIGR
 OPEN — asked (verbatim): **🔴 DECIDE: When Antigravity finishes a change, who puts it live? 1 Antigravity saves it on your
 PC only, then Claude checks it and puts it live (safer; one short Claude turn each time). 2 Antigravity puts it live
 itself after the same three checks (faster; nobody looks again before your users see it).** Recommended 1. Built as 1.
+
+DECIDED, his answer (2026-11-08 13:41): *"1 is safer so lets do that, i want u alucard on claude is the one who
+responsible for our app project and i want antigravity as your partner to do your task"*.
+Built from it: Claude leads. Antigravity does ONE task at a time from `.claude/ANTIGRAVITY-TASK.md` (Status OPEN /
+DONE / NONE, a "Touch only" list, a "Done when"), writes its Result there, commits on the PC, never pushes, never edits
+PROGRESS / NEXT-SESSION (one writer for the notes). Claude reads `git show` of every `Antigravity:` commit before any
+push, because a push carries every local commit. Rule lives in CLAUDE.md "Antigravity" (both tools read it).
+First task handed over: the 2 old toast check fails (a self-contained fix in one check file, no app code).
 
 Not done: linking 8 of Claude's skills into `~/.gemini/config/skills` (junctions, one copy for both tools). Claude Code's
 safety check refused that write; Aldi was given the one PowerShell line.

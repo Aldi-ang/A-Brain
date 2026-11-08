@@ -115,4 +115,4 @@ sit here indefinitely once it's actually decided.
 - [[2026-11-08_tabs-without-amber]] - DECIDED "2 all", BUILT kpm 23abaa3: the Stock Opname tabs without the amber fill, 1 plate + gold bar or 2 gold underline, and whether the other 3 amber tab rows follow
 - [[2026-11-08_reorder-button-without-amber]] - DECIDED "1 better", BUILT kpm cca32e1: the two Same as last time buttons without the amber gradient, 1 gold edge no fill or 2 dark plate
 - [[2026-11-08_quarantine-sell-again-board]] - DECIDED 1 (after its own pack), BUILT stage 1 (owner) kpm e589cab + 2ce81a5, stage 2 Tier 3 next: Quarantine Sell Again board, where the damaged pack sits on the shelf (1 after its pack, 2 at the end)
-- [[2026-11-08_claude-and-antigravity-together]] - BUILT GEMINI.md, OPEN who pushes Antigravity's work: Claude and Antigravity on one project with one brain (A-Brain), one writer at a time, split by strength
+- [[2026-11-08_claude-and-antigravity-together]] - BUILT GEMINI.md, DECIDED Claude leads + pushes, Antigravity does the task file: Claude and Antigravity on one project with one brain (A-Brain), one writer at a time, split by strength
