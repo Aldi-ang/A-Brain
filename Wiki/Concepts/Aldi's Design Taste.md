@@ -3654,3 +3654,8 @@ Board: Stock Opname review as A the hatch (my pick, on "the object wins"), B a r
 **2026-11-08 07:04, his pick:** *"1 better"*, for the Same as last time buttons: no fill, a gold edge around a plain word, over a dark plate with a gold word. Second time in one day he took the option with no plate. Built kpm cca32e1.
 
 **2026-11-08 08:57, his pick:** *"1 is easier to find use that"*, for where a damaged pack put back on sale sits on the Sales Terminal shelf: right after its own pack, over all damaged packs at the end under a thin line. His reason is finding, not looks. He did not object to the crate button or the price box drawn beside it. [[2026-11-08_quarantine-sell-again-board]]
+
+
+## A count badge must move, and a plain circle loses even when it reads (2026-11-08)
+
+Shown three static count badges on the HQ Audits tab (solid red circle 6.42:1, red ring 8.04:1, soft fill 6.59:1 - all legible, all fixing the 4.02:1 of today): *"all looks bad, i dont like all"*, then *"i want small animation and effeect for that"*. Same lesson as the map counter (*"change the circle and number to better symbol"*): a counter is an object with a small life, not a coloured dot. Passing contrast got none of them picked. Round 2 offered the app's nixie tube, a red tag with one ripple, a red edge with a passing shine - each plays on arrival or change and stops (his 2026-09-18 "too much of those blinking light"). Board: Raw/2026-11-08-badges/.
