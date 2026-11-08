@@ -2,7 +2,7 @@
 title: "The Same as last time buttons without the amber gradient"
 type: brainstorm
 created: 2026-11-08
-status: OPEN — waiting on Aldi
+status: DECIDED 2026-11-08 07:04 — 1, BUILT kpm cca32e1
 tags: [kpm, design, sales-terminal, amber]
 ---
 
@@ -25,7 +25,9 @@ Board: `Raw/2026-11-08-reorder-button/board.png`; shooter `looks.mjs` beside it.
 - **2:** a grey plate with a gold word reads close to a DISABLED button at a glance, on a card he presses outdoors one-handed. A gold bar under it was drawn first and did not show (the button's own ::after won), so it was dropped from the board rather than faked.
 
 ## Decision
-OPEN — waiting on Aldi. Asked (verbatim): **🔴 DECIDE: Which look do you want for the two "Sama seperti terakhir" buttons (on the shop card on the phone, and in the "Sebelum masuk" panel on the PC): 1 no fill, a gold edge around a plain word, or 2 a dark plate with a gold word?** Recommended 1.
+**2026-11-08 07:04, his answer: *"1 better"*.** Built kpm cca32e1 as `.kpm-reorder`. Proof `Raw/2026-11-08-reorder-button/built.png`.
+
+Was: OPEN — waiting on Aldi. Asked (verbatim): **🔴 DECIDE: Which look do you want for the two "Sama seperti terakhir" buttons (on the shop card on the phone, and in the "Sebelum masuk" panel on the PC): 1 no fill, a gold edge around a plain word, or 2 a dark plate with a gold word?** Recommended 1.
 
 ## Rejected on purpose
 - Keeping a thinner amber fill or a softer gradient: still a slab, and the gradient is the very thing he named.
