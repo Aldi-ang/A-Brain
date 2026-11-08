@@ -1,7 +1,8 @@
 ---
 title: "Sidebar marks fade out in light mode — the rail has no ground of its own"
 description: Aldi's screenshot 2026-08-24. The rail icons go from readable at the top to nearly invisible at the bottom in light mode. Traced, not fixed — he asked for it on the list, and the fix is his choice between two.
-status: To Do — diagnosed, waiting on his pick
+status: Done
+done: "2149f8a + d6bc470 (2026-08-24): the rail got its own faceplate in light mode"
 area: Theme / Sidebar
 priority: High
 created: 2026-08-24

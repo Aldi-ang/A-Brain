@@ -16,6 +16,8 @@ system" — it's a task tracker, not a knowledge page, so it doesn't go through 
 
 ## Items here (as of 2026-07-27)
 
+> The table below is old (2026-07 to 2026-08). The live status is the `status:` line in each note, which Backlog.base shows; ticked against the app 2026-11-08.
+
 | Item | Status |
 |---|---|
 | 🔴 **SWEEP 2026-08-18 — START HERE** | **To Do — read first.** 75 confirmed problems from the 14-agent workflow sweep, ranked, plus the 3 order options to choose from. Every detail file below hangs off this one |

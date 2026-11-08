@@ -2,6 +2,7 @@
 title: Three screens he asked to redesign - Sampling, Customers, Stock Opname
 description: Filed 2026-08-16 in one message alongside EOD. Only one of the four named an actual defect; the other three are ambitions, and he said explicitly that the design conversation comes first.
 status: To Do
+progress: "partly: Customers (2026-10-20/21) and Stock Opname (2026-11) are redesigned; Sampling is not"
 area: Feature Redesign
 priority: Medium
 created: 2026-08-17

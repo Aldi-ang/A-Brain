@@ -1,7 +1,8 @@
 ---
 title: Consignment hand-off has no eligibility rule
 description: A store can be offered to the agent who already owns it, and to any agent in any region. Aldi gave the rule on 2026-09-05; one half of it still needs clarifying.
-status: To Do
+status: Done
+done: "dace958 + 43cd4f3 + 8731c2b (2026-09-06): the wrong receiver is refused in the picker and at the write; approval by matrix and region, his 2026-09-05 rule"
 area: Store transfers
 priority: HIGH
 created: 2026-09-05

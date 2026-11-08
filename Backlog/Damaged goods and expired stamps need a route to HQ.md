@@ -2,6 +2,7 @@
 title: Damaged goods and expired stamps need a route to HQ
 description: Stock Opname submits a COUNT of damaged stock for HQ verification; it never MOVES anything. Expired pita cukai has no return path at all. Both are gaps he named himself.
 status: To Do
+progress: "partly: Quarantine now deals with damaged packs where they sit (Sell Again, Sample, Repair at HQ, 2026-11); moving them up to HQ and a return path for expired stamps are not built"
 area: Stock Opname / Master Vault
 priority: Medium
 created: 2026-08-17

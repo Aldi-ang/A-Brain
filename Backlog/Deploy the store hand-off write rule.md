@@ -1,7 +1,8 @@
 ---
 title: Deploy the store hand-off write rule
 description: The app already refuses it. The server does not yet. One rule to add to firestore.rules and deploy by hand — only Aldi can run this.
-status: To Do
+status: Done
+done: "2026-11-08 check: the live rules already refuse it, stricter than planned - a salesperson can never update or delete a transaction (firestore.rules, transactions: allow update, delete: if false)"
 area: Permissions & Bugfixes
 priority: HIGH
 created: 2026-09-05

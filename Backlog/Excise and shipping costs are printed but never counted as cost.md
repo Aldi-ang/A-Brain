@@ -1,7 +1,8 @@
 ---
 title: Excise and shipping costs are printed but never counted as cost
 description: Every production batch records a true landed cost including cukai, shipping and labour. Three screens display it. No profit calculation in the app reads it, so every margin is overstated.
-status: Done — by design (his call 2026-10-19)
+status: Done
+done: "by design (his call 2026-10-19"
 area: Procurement / Reporting
 priority: Medium
 created: 2026-08-18

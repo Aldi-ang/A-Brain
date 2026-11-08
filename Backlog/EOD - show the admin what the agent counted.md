@@ -2,6 +2,7 @@
 title: EOD - show the admin what the agent counted
 description: The agent now submits a `cards` field with what they physically counted and the rows behind it. The admin review screen does not display it, so the entire point of the redesign is currently invisible.
 status: To Do
+progress: "partly: d859d41 (2026-08-18) - the admin report uses what he counted and names the gap; the gap per product is still not shown"
 area: EOD Setoran
 priority: High
 created: 2026-08-17

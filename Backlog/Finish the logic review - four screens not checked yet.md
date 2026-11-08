@@ -2,6 +2,7 @@
 title: Finish the logic review - four screens not checked yet
 description: The 2026-08-17 review covered the money and stock paths and ran out of time. Journey, Map, Fleet Canvas and Customers were never opened. Same method, same output format.
 status: To Do
+progress: "partly: the map screen was swept 2026-08-18 (SWEEP - the map screen); Journey, Fleet Canvas and Customers not yet"
 area: Whole app
 priority: Medium
 created: 2026-08-17

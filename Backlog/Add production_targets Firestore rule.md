@@ -1,7 +1,8 @@
 ---
 title: Add production_targets Firestore rule
 description: Explicit rule drafted and committed, matches existing catch-all exactly — no behavior change. Draft only, needs its own deploy or can ride along with the next rules deploy.
-status: Ready to Deploy
+status: Done
+done: "2026-11-08 check: the rule is in the published rules (firestore.rules.deployed-baseline, match /production_targets)"
 area: Permissions & Bugfixes
 priority: Low
 created: 2026-07-26

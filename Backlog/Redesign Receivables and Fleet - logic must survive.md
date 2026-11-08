@@ -1,7 +1,8 @@
 ---
 title: "Redesign Receivables & Consignment, and the whole Fleet & Roster — logic must survive"
 description: Asked for by Aldi 2026-08-24. Both screens are 0% themed — they have no light mode at all, not just an ugly one. Measured, risk-ranked, and with the exact seams a redesign must not cut.
-status: To Do — measured, not started
+status: To Do
+progress: "measured, not started"
 area: UI rework
 priority: High
 created: 2026-08-24

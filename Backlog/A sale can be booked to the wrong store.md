@@ -1,7 +1,8 @@
 ---
 title: A sale can be booked to the wrong store
 description: The customer lookup accepts a partial name match and takes the first one it finds, so an exact match can lose to a different store whose name merely contains what was typed.
-status: Done — found already fixed 2026-10-19 (exact name match first, helpers.js findShop + useTransactionEngine handleMerchantSale)
+status: Done
+done: "found already fixed 2026-10-19 (exact name match first, helpers.js findShop + useTransactionEngine handleMerchantSale"
 area: Sales
 priority: Medium
 created: 2026-08-17

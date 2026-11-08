@@ -1,7 +1,8 @@
 ---
 title: "Test the new Stock Opname on a real screen — 2026-08-21 build"
 description: Five features shipped to the count screen in one day and none of them has been seen running. Audits and a prototype are not the same as a phone in his hand.
-status: Partly done — Claude drove it 2026-08-23; three items still need a branch account
+status: To Do
+progress: "partly done 2026-08-23 (three items need a branch account); the count screen was rebuilt 2026-11-04/05, so re-check which items still apply"
 area: Stock Opname
 priority: High
 created: 2026-08-21

@@ -1,7 +1,8 @@
 ---
 title: What the agent counts at EOD is never used for anything
 description: The EOD report is built from the system's own expected figures, not from what the agent counted. The counted numbers are attached as a side note that nothing reads, so a cash shortage cannot be detected.
-status: Done — d859d41 + 7f96d19 (2026-08-18); admin report card still to show the gap per product
+status: Done
+done: "d859d41 + 7f96d19 (2026-08-18); admin report card still to show the gap per product"
 area: EOD
 priority: HIGHEST
 created: 2026-08-17

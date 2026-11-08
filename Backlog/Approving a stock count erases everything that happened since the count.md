@@ -1,7 +1,8 @@
 ---
 title: Approving a stock count erases everything that happened since the count
 description: HQ approval writes the counted number straight over current stock. Every sale, restock and EOD return between the count and the approval is silently undone.
-status: Done — 5c4d3c7 (2026-08-18)
+status: Done
+done: "5c4d3c7 (2026-08-18"
 area: Stock Opname
 priority: HIGH
 created: 2026-08-17

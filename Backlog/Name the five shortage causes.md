@@ -1,7 +1,8 @@
 ---
 title: "Name the five shortage causes — only Aldi can"
 description: The stock-count cause picker shipped with five words Claude invented. Records keep whatever string was saved, so the list has to be settled before agents count with it, not after.
-status: To Do
+status: Done
+done: "a3c0dff (2026-08-23): his \"for the 5 cause we can just add that as default for now\"; renaming stays his to ask for"
 area: Stock Opname
 priority: High
 created: 2026-08-22

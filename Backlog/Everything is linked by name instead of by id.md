@@ -2,6 +2,7 @@
 title: Everything is linked by name instead of by id
 description: A sale records the store's NAME, never its id. Agent assignments record the agent's NAME. Rename either one, or have two shops share a name, and the records silently attach to the wrong thing.
 status: To Do
+progress: "partly: hand-offs and the map find a shop by its id (505ddcf, a3a9cf6); a sale still saves the shop name"
 area: Whole app / data model
 priority: HIGH
 created: 2026-08-17

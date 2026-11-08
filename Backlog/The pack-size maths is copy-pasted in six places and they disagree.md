@@ -1,7 +1,8 @@
 ---
 title: The pack-size maths is copy-pasted in seven places and they disagree
 description: Converting Slop/Bal/Karton into packs is hand-written in at least seven places. Three of them are wrong in different ways. This is the root cause behind several separate stock bugs.
-status: Done — f51a3a9 (2026-08-18)
+status: Done
+done: "f51a3a9 (2026-08-18"
 area: Stock / whole app
 priority: HIGH
 created: 2026-08-17

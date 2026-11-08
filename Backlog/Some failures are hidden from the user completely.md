@@ -1,7 +1,8 @@
 ---
 title: Some failures are hidden from the user completely
 description: Seven write paths catch their own errors and say nothing - five of them consecutive save functions in the map store panel, including the price tier.
-status: Done — b3f6dae (2026-08-18)
+status: Done
+done: "b3f6dae (2026-08-18"
 area: Whole app
 priority: HIGH
 created: 2026-08-17

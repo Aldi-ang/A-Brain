@@ -1,7 +1,8 @@
 ---
 title: The app day rolls over at 7am instead of midnight
 description: Every transaction's date field is stamped in UTC, so "today" on the route board runs 07:00 to 07:00 WIB. An agent who starts before 7am sees his visited stores reset mid-morning. The EOD money is not affected.
-status: Done — 60c53d8 (2026-08-23)
+status: Done
+done: "60c53d8 (2026-08-23"
 area: Journey Plan / Fleet
 priority: Medium
 created: 2026-08-17
