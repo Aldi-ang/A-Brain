@@ -2,7 +2,7 @@
 title: "Quarantine way out #2: the Sell Again board"
 type: brainstorm
 created: 2026-11-08
-status: OPEN — waiting on Aldi
+status: DECIDED 2026-11-08 08:57 — 1 (right after its own pack), not built
 tags: [kpm, design, quarantine, sales-terminal, permissions]
 ---
 
@@ -31,4 +31,6 @@ Not drawn: the van. The lot is planned as its own product (`<NAME> · RUSAK`, li
 - A torn pita cukai may make a pack unsellable (2026-11-03 note): Sell Again lets a person look first, it never runs on its own.
 
 ## Decision
-OPEN — waiting on Aldi. Asked (verbatim): **🔴 DECIDE: Where should a damaged pack you put back on sale sit on the Sales Terminal shelf: 1 right after its own pack, or 2 all damaged packs together at the end of the shelf, under a thin line?** Recommended 1.
+**2026-11-08 08:57, his answer: *"1 is easier to find use that"*.** Shelf 1. A (crate button) and B (price box) stood without objection. Not built yet: a big job on money paths, to be planned first in a fresh session.
+
+Was: OPEN — waiting on Aldi. Asked (verbatim): **🔴 DECIDE: Where should a damaged pack you put back on sale sit on the Sales Terminal shelf: 1 right after its own pack, or 2 all damaged packs together at the end of the shelf, under a thin line?** Recommended 1.
