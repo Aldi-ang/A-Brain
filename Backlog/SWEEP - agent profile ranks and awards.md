@@ -1,5 +1,18 @@
 # SWEEP — agent profile, ranks and awards
 
+## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
+
+✅ fixed 1 · 🔴 still open 0 · ❔ not confirmed 4 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).
+Tested: all 16 self-check suites pass (logicFixes 2836/2836 holds a check for every ✅ that names a section).
+
+- 1 ✅ A1, fd562f4 (rank in XP units)
+- 2 ❔
+- 3 ❔
+- 4 ❔
+- 5 ❔
+
+---
+
 5 confirmed problems in `src/AgentProfileView.jsx`.
 
 *(Two more findings in this file are about permissions and live in

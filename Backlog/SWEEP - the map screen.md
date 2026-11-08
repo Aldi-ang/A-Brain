@@ -1,5 +1,28 @@
 # SWEEP — the map screen (Map Mission Control)
 
+## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
+
+✅ fixed 7 · 🔴 still open 3 · ❔ not confirmed 5 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).
+Tested: all 16 self-check suites pass (logicFixes 2836/2836 holds a check for every ✅ that names a section).
+
+- 1 ✅ A4, ed4b2b2 (a sector saves)
+- 2 ✅ A5, ed4b2b2 (the dropdown offers prices)
+- 3 ✅ likely: the XP sum site writes seasonXP on every run (MapMissionControl.jsx ~1482)
+- 4 ✅ S4, a3a9cf6 (a shop by key, counted once)
+- 5 ✅ likely: an outlet cannot be saved without a real pin since dda8ec6
+- 6 ✅ likely: the zone reads boundary.feature OR boundary.geometry (~1980)
+- 7 🔴 the border cache key is still per app, not per person (utils/borderCache.js, cello_map_bnd_<appId>)
+- 8 ❔ the rank engine now takes rules as a prop; check where they are loaded
+- 9 🔴 Clear All still empties the screen and cache when the database refused (handleWipeAll: setBoundaries([]) after the catch)
+- 10 ❔ code moved; check which list the cleanse/audit get
+- 11 ❔ code moved; check toggleFolderVisibility for batching
+- 12 ❔ code moved; check the duplicate-upload check
+- 13 🔴 a failed upload sets an error nothing shows (setError("Upload failed."), no render found)
+- 14 ✅ RETURN is subtracted with the payments (~1167)
+- 15 ❔ check handleSaveNewStore for the duplicate finder and region
+
+---
+
 15 confirmed problems in `src/MapMissionControl.jsx`. This screen was never reviewed by hand
 before, and it turned out to be the worst-affected file in the app.
 

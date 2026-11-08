@@ -1,5 +1,31 @@
 # SWEEP — App.jsx admin handlers
 
+## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
+
+✅ fixed 6 · 🔴 still open 0 · ❔ not confirmed 12 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).
+Tested: all 16 self-check suites pass (logicFixes 2836/2836 holds a check for every ✅ that names a section).
+
+- 1 ✅ #8, ec3fda7 (damaged EOD returns converted)
+- 2 ✅ 505ddcf (hand-off by key)
+- 3 ✅ not a bug (07fd2ac, a check keeps it refuted); deletes go to the owning tenant since 150a5c9
+- 4 ❔ the hand-off flow was rebuilt in September
+- 5 ✅ closed by 39cd90d: a hand-off moves the shop, never the sales
+- 6 ❔
+- 7 ❔
+- 8 ❔
+- 9 ❔ the vault and fingerprints were rebuilt (2026-10)
+- 10 ❔
+- 11 ❔ (design limit, not a code slip)
+- 12 ❔
+- 13 ❔
+- 14 ❔
+- 15 ❔
+- 16 ✅ one low-stock rule (utils/stockThreshold.js; stockThreshold.selfcheck guards the 50 and the 5)
+- 17 ❔
+- 18 ✅ the EOD verifier reads the company's own badge config (App.jsx progressionBadges)
+
+---
+
 18 confirmed problems in `src/App.jsx` — the master vault, EOD verify, store hand-offs,
 backups, sampling and the delete tools.
 

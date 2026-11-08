@@ -1,5 +1,29 @@
 # SWEEP — the sales terminal (Merchant Sales + the sale engine)
 
+## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
+
+✅ fixed 8 · 🔴 still open 6 · ❔ not confirmed 2 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).
+Tested: all 16 self-check suites pass (logicFixes 2836/2836 holds a check for every ✅ that names a section).
+
+- 1 ✅ A2, fd562f4 (only an all-IOU basket is Cash)
+- 2 ✅ A3, d8f792f; buyback is off since 2714b12
+- 3 ✅ #9, 0bafb39 (a committed sale never reads "failed")
+- 4 ✅ #14, 14e0f62 (a buyback is a loss)
+- 5 ✅ closed by 2714b12: buyback is off, so no buyback debt exists
+- 6 ✅ S1, 264c138 (no tier suffix)
+- 7 ✅ S1, 264c138 (exact lookup)
+- 8 🔴 the tier auto-promoter still multiplies Bal by a fixed 200 (MerchantSalesView.jsx, "qtyInBks *= 200")
+- 9 🔴 an exchange IOU for a walk-in is still dropped: the IOU is saved only when a registered shop is selected (MerchantSalesView.jsx ~1367)
+- 10 🔴 GPS error still does not lock the sale: isGpsRestricted only covers manual_override (~1765)
+- 11 ❔ the nota was rebuilt; check the printed tier
+- 12 🔴 the typing guard compares the line's unit with packs (updateCartItem, "maxStock"); the save itself still refuses an oversell (the van transaction)
+- 13 ❔ the nota was rebuilt; check its pack sizes
+- 14 🔴 the GPS pick still selects the nearest shop with a full cart (verifyLocation, handleCustomerSelect(inRange[0]))
+- 15 🔴 the auto-promoter catch still only logs ("Auto-Promoter Failed")
+- 16 ✅ closed: buyback is off; RETUR is now only an exchange and moves no money; RETURN is the consignment return every debt reader handles
+
+---
+
 16 confirmed problems in `src/MerchantSalesView.jsx` and `src/hooks/useTransactionEngine.js`.
 This is the screen agents touch most, so it carries the most.
 

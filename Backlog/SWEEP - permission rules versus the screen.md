@@ -1,5 +1,19 @@
 # SWEEP — permission rules versus the screen
 
+## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
+
+✅ fixed 2 · 🔴 still open 0 · ❔ not confirmed 4 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).
+Tested: all 16 self-check suites pass (logicFixes 2836/2836 holds a check for every ✅ that names a section).
+
+- 1 ❔ customers moved to folders (rules CHANGE 17, live 2026-10-20); check the old flag path is gone
+- 2 ✅ the rules let nobody create their own sign-in record (firestore.rules, employee_directory: self-service is delete only)
+- 3 ❔
+- 4 ❔
+- 5 ✅ likely: Fleet & canvas by matrix (7496258) and the hand-off tiers (CHANGE 14 isFleetTier)
+- 6 ❔
+
+---
+
 6 confirmed problems where `firestore.rules` (the server's own rulebook, which cannot be
 bypassed) and the app's permission matrix disagree.
 

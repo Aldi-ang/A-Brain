@@ -1,5 +1,20 @@
 # SWEEP — warehouse and restock
 
+## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
+
+✅ fixed 1 · 🔴 still open 0 · ❔ not confirmed 6 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).
+Tested: all 16 self-check suites pass (logicFixes 2836/2836 holds a check for every ✅ that names a section).
+
+- 1 ✅ S14, 655e7f1 (HQ stock deducted, not recomputed)
+- 2 ❔
+- 3 ❔
+- 4 ❔
+- 5 ❔ (the sales rollup c0a510f may cover it)
+- 6 ❔
+- 7 ❔
+
+---
+
 7 confirmed problems in `src/components/BranchWarehouseManager.jsx` and
 `src/RestockVaultView.jsx`.
 

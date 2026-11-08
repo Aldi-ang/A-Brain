@@ -1,5 +1,20 @@
 # SWEEP — history reports and the audit vault
 
+## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
+
+✅ fixed 2 · 🔴 still open 0 · ❔ not confirmed 5 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).
+Tested: all 16 self-check suites pass (logicFixes 2836/2836 holds a check for every ✅ that names a section).
+
+- 1 ✅ #12, ec3fda7 (the edit box converts from real packing fields)
+- 2 ❔
+- 3 ✅ likely: f46bc4a (goods that come back stop counting as sold)
+- 4 ❔
+- 5 ❔
+- 6 ❔
+- 7 ❔
+
+---
+
 7 confirmed problems in `src/components/HistoryReportView.jsx` and
 `src/components/AuditVaultView.jsx`.
 
