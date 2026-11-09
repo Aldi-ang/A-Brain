@@ -1020,3 +1020,12 @@ Fired:
 Seen: 2026-10-20
 
 *Archived 2026-11-03 (retired 2026-11-02, ARCHIVE DUE at session start).*
+
+### 2026-10-25 — a Bash line with a reader and no input hangs the tool for the full timeout
+**Status:** RETIRED (2026-11-08) — never fired in 14+ days: writing files with Write and feeding readers with heredocs is the habit now, so the prose guarded nothing
+**Trigger:** before a mutating action - a Bash command holding `cat >`, `tee` or any program that reads stdin, with no heredoc or pipe feeding THAT program (a heredoc further along the line feeds only its own command).
+**Lesson:** the Bash tool has no terminal to send end-of-input, so the reader waits until the 120 s timeout. To write a file use the Write tool; to run a script, Write it to the scratchpad and run the file. Never chain a stray reader in front of the real command.
+**Would have prevented:** 2026-10-25 ~15:20, the DemoMission header rewrite: `cat > "$TMPDIR/dm.py" 2>/dev/null; python - <<'EOF'` blocked on the `cat`, hit the 120 s timeout, went to the background, and cost a TaskStop, a check that the file was untouched, and a redo through Write.
+Seen: 2026-10-25
+
+*Archived 2026-11-10 (retired 2026-11-08, ARCHIVE DUE at session start).*

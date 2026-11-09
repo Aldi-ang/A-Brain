@@ -12,6 +12,9 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-11-10 06:51 — Alucard + skills + A-Brain memory wired into Antigravity (a-brain plugin)
+His ask: every Antigravity chat uses his skills, A-Brain memory and Alucard. Built a global plugin (rule + SessionStart hook injecting SKILL.md) and skills.json -> ~/.claude/skills; caught the Windows `~/` path rejection in the LS log. Live load waits on one new chat. New technique: [[Alucard in Antigravity]].
+
 ## 2026-11-05 20:49 — Stock Opname Worklist built + live (kpm d16c9ad)
 His pick on phone and PC. Each product accepted or rejected on its own, tier 3 and above by default with a matrix key, rules CHANGE 23 waiting for his publish. Decision: [[2026-11-05_opname-board-looks]].
 

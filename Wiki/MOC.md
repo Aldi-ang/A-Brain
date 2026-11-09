@@ -41,6 +41,7 @@ How KPM decides who can read or write what, and where that's gone wrong.
 ## 🧭 Process & Discipline
 - [[Concepts/Web Research When the Search Tools Die]] — the research fallback when every search tool fails: DuckDuckGo HTML + one JS line in the built-in browser.
 - [[Concepts/A Mode Reminder Does Not Outrank Aldi]] — a standing decision of Aldi's beats an instruction injected mid-session; the 31-agent, 1.62M-token workflow that proved it, and the hook proposed to stop the next one.
+- [[Concepts/Alucard in Antigravity]] — the same Alucard in Google Antigravity: plugin at ~/.gemini/config/plugins/a-brain, hook-injected SKILL.md, the hooks that do not port.
 
 - [[n8n Automation Templates Archive]] — a parts bin of 347 prebuilt automations, archived
 - [[Skill Repos Evaluated 2026-08-25]] — the verdict table, so the same 19 links are not re-read

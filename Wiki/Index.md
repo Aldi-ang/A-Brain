@@ -143,6 +143,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[Concepts/A Stored Name Is Not the Name of Record]] — the stored agent name is a frozen Google displayName; the id on the row is the fact. Also why the hand-off left every "who manages this" reader naming the previous agent.
 - [[Concepts/Email Is a Document ID, Not a Field]] — telling a structural required field from a tidy one before relaxing it, and the duplicate check that breaks when you do.
 - [[Concepts/A Hijacked UID Is Not an Identity]] — a substituted uid turned the vault grace into a privilege escalation; grep the hijacked field, not the feature.
+- [[Concepts/Alucard in Antigravity]] — Alucard, his skills and A-Brain memory in every Antigravity chat via a SessionStart hook; what ports, what does not, how to check it fired.
 - [[Concepts/POV Changes the Id, Never the Email]] — wrong only under POV? grep the screen for user?.email and ask which identity it trusted.
 - [[Concepts/Language Switch]] — EN/ID per phone: where the words live, the rounds, and why translating a pop-up can change its colour.
 - [[Concepts/A Retry Must Land Where the First Try Landed]] — decide the document id when the record is QUEUED; acknowledge at the granularity you commit at.
