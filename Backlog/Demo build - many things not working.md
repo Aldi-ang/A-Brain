@@ -84,3 +84,13 @@ Proof: Raw/2026-11-09-badge-test/ (scripts: seed.mjs, test.mjs, vanload.mjs, who
 ## Next
 
 Waiting on his ranking of the board. No app code before it (his diagnose-first rule). TRAP: never touch the live demo project (kpm-demo-f4d74 / Vercel kpm-demo); fixes go through the emulator + the normal push; demo data fixes live in `api/_demoCompany.js` (the nightly reset rewrites the demo from it).
+
+## 2026-11-09 evening - his call: fix logic, permission and wording here; LOOK-only items move to the professional edition
+
+| # | Result |
+|---|---|
+| 3 | **Fixed, live 3249fe7.** T6 default rights gain view_eod (permissions.js TIER_6 + the fallback list). A company with a saved tier matrix ticks it in Settings. |
+| 14 | **Fixed, live 3249fe7.** Guide words match the buttons; the lesson book's two "kamu" lines say "Anda". |
+| 15 | Half fixed, live 3249fe7: the USB reminder needs the unlocked vault. Still open: Auto-Promoter fails silently for T6 (customer lastVisit/tier update refused). |
+| 5-8, 9-10, 13 | Moved to the professional edition (screens get redrawn there). See Brainstorm/2026-11-09_professional-edition.md. |
+| 1, 12 | Open: #1 needs a demo walk; #12 needs his choice of lessons. |
