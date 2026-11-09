@@ -12,3 +12,5 @@ Frames: L00-order.png (the order drawer), L01-receipt-after-deal.png (the sale's
 Walk scripts: pick.js / cart.js / open-order.js / deal.js / close-receipt.js through `../2026-11-08-demo-walk/drive.mjs run`.
 Traps met: the terminal keeps a desk copy of SIMPAN TRANSAKSI off to the left (x -170) - tap the copy inside the screen;
 the phone's deal key lives in the PESANAN drawer on the left edge; the shop list's first button is "Selesai".
+
+His call, 2026-11-10: *"yes only sales raise the shop level"* - a sale only RAISES a level; lowering stays the monthly Season Rank Audit on the map.
