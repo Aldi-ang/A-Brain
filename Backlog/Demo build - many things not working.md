@@ -93,4 +93,5 @@ Waiting on his ranking of the board. No app code before it (his diagnose-first r
 | 14 | **Fixed, live 3249fe7.** Guide words match the buttons; the lesson book's two "kamu" lines say "Anda". |
 | 15 | Half fixed, live 3249fe7: the USB reminder needs the unlocked vault. Still open: Auto-Promoter fails silently for T6 (customer lastVisit/tier update refused). |
 | 5-8, 9-10, 13 | Moved to the professional edition (screens get redrawn there). See Brainstorm/2026-11-09_professional-edition.md. |
-| 1, 12 | Open: #1 needs a demo walk; #12 needs his choice of lessons. |
+| 1 | **Fixed, live (this push).** The guide starts the owner's vault steps (1, 2, 7) with the unlock: it points at UNLOCK SYSTEM (or the menu's Unlock Vault) and gives admin123; it stays on after the unlock. Walked on the demo emulator: Raw/2026-11-09-demo-unlock. |
+| 12 | Open: needs his choice of lessons. |
