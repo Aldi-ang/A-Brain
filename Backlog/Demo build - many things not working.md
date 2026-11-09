@@ -5,8 +5,8 @@ status: Waiting
 area: Demo
 priority: High
 created: 2026-11-03
-updated: 2026-11-08
-progress: walked 2026-11-08 on the local emulator (demo company, real rules); findings + frames below; no app code changed; waiting on his rank
+updated: 2026-11-09
+progress: 2026-11-09 his "continue your work from your list" - #11 and #2 fixed + pushed (da8cad3, ac00398); #4 and #2's cause = rules drafts CHANGE 25 + 26 waiting for his publish in BOTH projects; #1, #3, guide, lessons, wording next
 ---
 
 # Demo build - many things not working
@@ -69,6 +69,17 @@ Not shown anywhere (no mission step, lesson only "Segera"):
 - Journey Plan, Map System, Customers (add a shop, folders, hand-off), Sampling
 - Agent Profile (XP, ranks, leaderboard), Audit Logs, Settings (tiers + permissions, language, Lite Mode)
 - People: T3 (HQ Sales Manager) and T5 (Sales Canvas) have no mission step at all - 2 of the 5 demo logins do nothing in the story.
+
+## 2026-11-09 — worked in my order (his "continue your work from your list", no ranking)
+
+| # | Result |
+|---|---|
+| 4 | **Not live.** T3/T4/T5/T6 are refused `places` (warehouse list) by the PUBLISHED rules - only the owner/T1/T2 catch-all covered it. The black screen is DEV-ONLY: React StrictMode subscribes twice + the Firestore multi-tab cache asserts (ca9); with StrictMode removed the refusal stays and nothing crashes. Draft **CHANGE 25** (every login reads places). rules-test/test-places-read.mjs. |
+| 11 | **Fixed, live da8cad3.** Product Performance now mounts only for T1/T2 (permissions.js canReadSalesTotals) - the rules keep sales totals an office screen. Demo: T3/T4 no error, T2 the panel. |
+| 2 | **Fixed, live ac00398** (the screen part): helpers.js plainSaveError - "Gagal: Ditolak: login ini tidak punya izin untuk menyimpan ini", never rules text. The cause: the motorists rule wanted canEditRoster for ANY card change; draft **CHANGE 26** lets a T3 anywhere / a T4 in region change only the van lists. Demo on the draft: Hendra loaded 50 Bks into Dika's van. rules-test/test-van-load.mjs. |
+
+Rules publish needed in TWO places: the KPM project and the demo project kpm-demo-f4d74 (its rules were last published 2026-10-13).
+Proof: Raw/2026-11-09-badge-test/ (scripts: seed.mjs, test.mjs, vanload.mjs, whois.mjs).
 
 ## Next
 
