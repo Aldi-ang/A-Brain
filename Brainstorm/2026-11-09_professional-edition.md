@@ -1,7 +1,7 @@
 ---
 title: Professional edition - a serious face for customers, the game edition kept as his resume
 created: 2026-11-09
-status: discussing (no plan yet - his order: fix every open bug first)
+status: answered - option C; plan next (his order: fix every open bug first)
 tags: [brainstorm, business, redesign, certification]
 ---
 
@@ -53,6 +53,16 @@ tags: [brainstorm, business, redesign, certification]
 2. His own company's staff: move to the professional edition, or keep using the game one? (decides C vs A)
 3. Capybara + lessons in the professional edition: quiet version, or gone?
 4. Owner setup: wait and build it as the professional edition's first screens? (recommended)
+
+## His answers (verbatim, 2026-11-09)
+> "well the first customer will still be cigarette factory that own by my mom uncle, around 25 salesman total, 2 company staff will use the professional edition of course, capybara will stay as our tutors and mascot for our company even in professional version,yes lets build the setup screen in professional edition next, there is few things that i want u to keep of course so please dont change all the animation features components, some button and animation could still also be used, like those intro, i want to keep it that way, either way just ask me before u make changes and give me the draft like the usual work we use to do"
+
+- First customer: a cigarette factory (his mother's uncle), ~25 salesmen.
+- Both companies' staff use the professional edition -> option C: the game edition is frozen as his showcase, no double work.
+- Capybara stays: tutor + company mascot, in the professional edition too.
+- Owner setup = the professional edition's first screens.
+- KEEP LIST is his: some animations, buttons, components stay (the intro named). Nothing is removed without his yes on a draft (board), the usual way.
+- Next: a keep/change board of every animation and component, then the plan.
 
 Models applied: Second-Order Thinking (two live copies -> double fixes), Reversibility Test (freezing is reversible; a
 second database is close to one-way), Pre-Mortem (silent money break in mixed files), Opportunity Cost (redesign time vs
