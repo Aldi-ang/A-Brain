@@ -91,7 +91,7 @@ Waiting on his ranking of the board. No app code before it (his diagnose-first r
 |---|---|
 | 3 | **Fixed, live 3249fe7.** T6 default rights gain view_eod (permissions.js TIER_6 + the fallback list). A company with a saved tier matrix ticks it in Settings. |
 | 14 | **Fixed, live 3249fe7.** Guide words match the buttons; the lesson book's two "kamu" lines say "Anda". |
-| 15 | Half fixed, live 3249fe7: the USB reminder needs the unlocked vault. Promoter DIAGNOSED 2026-11-09: every salesman (T3-T6, not only T6) is refused reading the level targets (appSettings/tierRules), so no salesman's sale ever updates the shop's last visit or level; no level targets = no visit date for anyone. Raw/2026-11-09-promoter/RESULT.md. Waiting on his pick (rules CHANGE 27 + app split). |
+| 15 | **Fixed (app live this push; rules CHANGE 27 waits for his publish).** USB reminder: 3249fe7. The shop after a sale: the visit date always saves, the level follows his Settings targets (one formula, utils/storeLevel.js), every seller once CHANGE 27 is published. Raw/2026-11-09-shop-level/RESULT.md. |
 | 5-8, 9-10, 13 | Moved to the professional edition (screens get redrawn there). See Brainstorm/2026-11-09_professional-edition.md. |
 | 1 | **Fixed, live (this push).** The guide starts the owner's vault steps (1, 2, 7) with the unlock: it points at UNLOCK SYSTEM (or the menu's Unlock Vault) and gives admin123; it stays on after the unlock. Walked on the demo emulator: Raw/2026-11-09-demo-unlock. |
 | 12 | Open: needs his choice of lessons. |
