@@ -4,7 +4,7 @@ description: How Alucard, his Claude Code skills and A-Brain memory are loaded i
 type: concept
 created: 2026-11-10
 updated: 2026-11-10
-confidence: likely
+confidence: certain
 checked: 2026-11-10
 tags: [antigravity, alucard, skills, memory, setup]
 ---
@@ -14,8 +14,21 @@ tags: [antigravity, alucard, skills, memory, setup]
 **His ask, 2026-11-10:** *"i want all the skills and memory of A-Brain to be used inside antigravity at all time
 and also i want alucard agent to be use there can we do that?"*
 
-**Status:** built and self-checked; the live load inside Antigravity is UNVERIFIED until one new chat is opened
-and `last-fired.txt` (below) exists. `confidence: likely` until then.
+**Status:** live. The hook fired in a real chat at 2026-11-10 06:56 WIB (`last-fired.txt`: convo 27678e44,
+kpm workspace, 60,706 bytes injected); the reply named itself Alucard, quoted PROGRESS correctly and ended with the
+§11 closing line. Skills listing inside Antigravity is still unverified - only the absence of the path error proves it.
+
+## Already there before this: the partner split (2026-11-08)
+
+kpm-inventory-main has its own `GEMINI.md` (commits 1497ebe, 8f5e6ae, bae4cd3). His words, 2026-11-08: *"i want u
+alucard on claude is the one who responsible for our app project and i want antigravity as your partner to do your
+task"*, and on who puts work live, *"1 is safer so lets do that"*. So in that repo Antigravity takes one task at a time
+from `.claude/ANTIGRAVITY-TASK.md`, commits locally, never pushes, and never edits `PROGRESS.md` or `NEXT-SESSION.md`.
+
+This note's plugin was built without finding that file (no vault note carried it - the graph found nothing for
+"antigravity"). The first live chat showed the clash: Alucard §11 tells it to write PROGRESS.md and NEXT-SESSION.md.
+Fixed in the plugin rule: **a workspace's own role file outranks Alucard**, with the kpm split written out. Guarded by
+`test.mjs` (run RED first).
 
 ## What was built
 
@@ -26,7 +39,7 @@ and `last-fired.txt` (below) exists. `confidence: likely` until then.
 | SessionStart hook | `plugins/a-brain/hooks.json` → `session-start.mjs` | injects the FULL `~/.claude/skills/alucard/SKILL.md` into every new chat, plus lessons-health; in a kpm workspace also progress-head, session-start-context, vault-gap |
 | skills | `C:/Users/ASUS/.gemini/config/skills.json` → `C:/Users/ASUS/.claude/skills` | all ~114 Claude Code skills, by name + description only (progressive disclosure) |
 | copied skills | `plugins/a-brain/skills/{caveman,karpathy-guidelines,ponytail}` | the three Alucard §0/§6 needs that are NOT in `~/.claude/skills` (Claude app plugin / Skills-Library / ponytail plugin cache) |
-| self-check | `plugins/a-brain/test.mjs` | 17 checks; `node test.mjs` from the plugin folder. The `~/`-path guard was run RED on the old value first |
+| self-check | `plugins/a-brain/test.mjs` | 18 checks; `node test.mjs` from the plugin folder. The `~/`-path guard was run RED on the old value first |
 
 **Single source on purpose:** Alucard's SKILL.md is read at every chat start, never copied, so an approved edit in
 Claude Code reaches Antigravity on the next chat. The three copied skills are third-party and stable.
