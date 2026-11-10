@@ -83,3 +83,22 @@ images video or sfx just use other platform to make your work lighter"*.
   watch the size (6 clips in the precache); swap the sprite sheets; voice by mood (deal -> excited, ? -> curious).
 - Found for later: skills.sh higgsfield-ai/skills@higgsfield-generate (236K installs, official org) - needs his
   Higgsfield account; the backup if Flow's clips do not keep the drawing.
+
+## Round 5 (2026-11-11 05:47 WIB) - the Jett voice by mood + smooth idle / talk clips LIVE (a7e0ab7)
+
+Antigravity's round 4 delivered 8 Jett takes (AI Studio) and 6 Flow clips (reviewed 62369ce). His verdict on the clips:
+idle and talk fine, deal "awkward ... keep showing thumbs up" - the thumbs-up is drawn into the start frame, so the deal
+clip is his to remake from round5/deal-start-v2.png (deal-2 at 4.8 s: front view, both hands down).
+
+- Voice: cut5.mjs voice -> 25 phrases (happy 6, curious 6, approving 7, excited 6), 1.0-3.1 s each, J4 (rate 1.26),
+  cut only at pauses of 0.25 s+, short ones joined to their neighbour (his October "minimum 3 words"), inner pauses
+  capped at 0.3 s, levelled to mean -30 dB / peak -6 dB. The first cut (top-3 gaps per take) made 0.3 s grunts - dropped.
+- Clips: idle-1 and talk-2, keyed (chromakey 0x00ff00 0.2 / 0.06 + despill), 12 fps, 200px, q60, preset drawing:
+  518 KB and 529 KB. Crops 644:644:319:38 (idle) and 624:624:329:42 (talk) land the start pose on the old frame 1
+  (x 49-144, y 0-196) - the old sheets were 3% apart in size, which was a 5 px hop between idle and talk.
+- Loop seam: first frame against the last one shown, PSNR 47.8 dB (idle) and 44.3 dB (talk); mid-clip 21-26 dB.
+- Processor (cpu/cpu.mjs, headless Chrome, page + graphics process, two runs, old sheet -> new clip): alcove
+  6.7-7.4% -> 2.3-4.9%, corner 4.9-5.4% -> 0.8-3.7%, hidden 0.1-0.2% -> 0.0-0.1% of one core.
+- The idle clip's small gap at the wrist is in the OLD sheet's own frame 1 (the sleeve and the glove never touched);
+  he saw it and said fine.
+- Not tried: 24 fps (994 KB a clip), animated AVIF (smaller, but unmeasured on his phones).

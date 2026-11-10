@@ -191,3 +191,11 @@ design this from scart from the start, i want the SIMS kinda noise"*. The receip
 the round-eight shape again: a MADE sound because he asked, through a board he picks from. Made with Google AI Studio's
 free voices speaking invented gibberish (never real Simlish words). Board: https://claude.ai/artifact/3s4aXiddpLFTCtuGUnq3mJ.
 Details: Raw/2026-11-10-sound-board/RESULT.md, round 2.
+
+## Round eleven - the made voice is live, by mood (2026-11-11 05:47 WIB)
+
+His pick from round ten (Jett, at the smaller J4 size) went live in a7e0ab7 as 25 whole phrases in four moods, with the
+smooth idle / talk clips. Two things it taught: (1) a spoken take is cut at its PAUSES and short pieces are joined, not
+at the three longest gaps - the first cut made 0.3-second grunts, the very thing he refused three times in October;
+(2) his clip verdicts come as one sentence about one hand ("keep showing thumbs up") - look for what is drawn into the
+START frame before blaming the motion. Proof and numbers: [[../../Raw/2026-11-10-sound-board/RESULT|RESULT.md]] round 5.

@@ -1,0 +1,37 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>capybara cost</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0b0a09; }
+  .kpm-merch { width: 100%; height: 100%; background-repeat: no-repeat; background-position: 0 0; }
+
+  /* OLD - theme.css at 8b23bb1: a 2000px sheet on a ::before strip, stepped by transform */
+  .old.kpm-merch-idle { overflow: hidden; position: relative; }
+  .old.kpm-merch-idle::before { content: ''; position: absolute; left: 0; top: 0; height: 200px; background-repeat: no-repeat; background-position: 0 0;
+    width: 2000px; background-image: url('old-idle.png'); background-size: 2000px 200px; animation: kpmMerchIdle 3s steps(10, end) infinite; }
+  @keyframes kpmMerchIdle { to { transform: translateX(-2000px); } }
+
+  /* NEW - an animated picture */
+  .new.kpm-merch-idle { overflow: hidden; position: relative; background-size: 200px 200px; background-image: url('merchant-idle.webp'); }
+
+  /* the alcove, as theme.css draws it: him + two blurred shadow copies */
+  .alcove { position: relative; width: 200px; height: 200px; margin: 40px; }
+  .alcove .fig { position: relative; z-index: 3; width: 200px; height: 200px; filter: drop-shadow(0 -2px 16px rgba(70,160,255,.26)); }
+  .alcove .sh { position: absolute; bottom: 0; left: 50%; margin-left: -100px; width: 200px; height: 200px; z-index: 1; pointer-events: none;
+    filter: brightness(0) blur(5px); transform-origin: 50% 100%; }
+  .alcove .sh.a { transform: translateX(30px) skewX(-27deg) scale(1.06,.88); opacity: .5; }
+  .alcove .sh.b { transform: translateX(-26px) skewX(22deg) scale(.98,.8); opacity: .34; }
+
+  /* the corner mascot, as CapybaraMascot + theme.css place him */
+  .corner-wrap { position: fixed; right: 0; bottom: 0; width: 192px; height: 192px; }
+  .corner-wrap.hidden { opacity: 0; pointer-events: none; transform: translateX(200%); }
+  .kpm-merch-corner { position: absolute; right: 0; bottom: 0; width: 200px; height: 200px; transform: scale(.96); transform-origin: 100% 100%; }
+  .kpm-merch-corner > .kpm-merch { position: absolute; inset: 0; }
+</style>
+<body>
+<script>
+  const v = location.search.slice(1), [age, where] = v.split('-');
+  const merch = (extra) => `<div class="${extra} kpm-merch kpm-merch-idle ${age}"></div>`;
+  if (where === 'alcove') document.body.innerHTML = `<div class="alcove">${merch('fig sh a')}${merch('fig sh b')}${merch('fig')}</div>`;
+  if (where === 'corner' || where === 'hidden') document.body.innerHTML = `<div class="corner-wrap ${where === 'hidden' ? 'hidden' : ''}"><div class="kpm-merch-corner">${merch('')}</div></div>`;
+</script>

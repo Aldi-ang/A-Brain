@@ -1,0 +1,177 @@
+[
+ {
+  "name": "capy-happy-1",
+  "len": 2.17,
+  "bursts": 2,
+  "from": "happy-1 0.15-2.77",
+  "gain": -15.1
+ },
+ {
+  "name": "capy-happy-2",
+  "len": 1.49,
+  "bursts": 3,
+  "from": "happy-1 3.09-4.79",
+  "gain": -13.6
+ },
+ {
+  "name": "capy-happy-3",
+  "len": 1.49,
+  "bursts": 4,
+  "from": "happy-1 5.41-7.25",
+  "gain": -14.6
+ },
+ {
+  "name": "capy-happy-4",
+  "len": 1.29,
+  "bursts": 3,
+  "from": "happy-1 7.82-9.32",
+  "gain": -11.8
+ },
+ {
+  "name": "capy-happy-5",
+  "len": 2.23,
+  "bursts": 4,
+  "from": "happy-2 0.23-3.37",
+  "gain": -13.3
+ },
+ {
+  "name": "capy-happy-6",
+  "len": 2.23,
+  "bursts": 5,
+  "from": "happy-2 4.10-7.40",
+  "gain": -12.5
+ },
+ {
+  "name": "capy-curious-1",
+  "len": 1.29,
+  "bursts": 2,
+  "from": "curious-1 0.31-1.88",
+  "gain": -12.3
+ },
+ {
+  "name": "capy-curious-2",
+  "len": 1.02,
+  "bursts": 2,
+  "from": "curious-1 2.80-4.37",
+  "gain": -9.6
+ },
+ {
+  "name": "capy-curious-3",
+  "len": 1.9,
+  "bursts": 3,
+  "from": "curious-1 5.25-8.36",
+  "gain": -8.8
+ },
+ {
+  "name": "capy-curious-4",
+  "len": 1.02,
+  "bursts": 2,
+  "from": "curious-2 0.30-1.79",
+  "gain": -13.1
+ },
+ {
+  "name": "capy-curious-5",
+  "len": 1.49,
+  "bursts": 2,
+  "from": "curious-2 2.26-4.09",
+  "gain": -9.9
+ },
+ {
+  "name": "capy-curious-6",
+  "len": 1.9,
+  "bursts": 4,
+  "from": "curious-2 4.85-7.66",
+  "gain": -11.6
+ },
+ {
+  "name": "capy-approving-1",
+  "len": 2.03,
+  "bursts": 4,
+  "from": "approving-1 0.19-2.66",
+  "gain": -12.1
+ },
+ {
+  "name": "capy-approving-2",
+  "len": 1.42,
+  "bursts": 2,
+  "from": "approving-1 3.68-5.50",
+  "gain": -5.1
+ },
+ {
+  "name": "capy-approving-3",
+  "len": 1.49,
+  "bursts": 2,
+  "from": "approving-1 6.36-8.28",
+  "gain": -9.2
+ },
+ {
+  "name": "capy-approving-4",
+  "len": 1.18,
+  "bursts": 3,
+  "from": "approving-1 8.88-10.96",
+  "gain": -6.2
+ },
+ {
+  "name": "capy-approving-5",
+  "len": 1.15,
+  "bursts": 4,
+  "from": "approving-2 0.27-1.80",
+  "gain": -14
+ },
+ {
+  "name": "capy-approving-6",
+  "len": 2.1,
+  "bursts": 3,
+  "from": "approving-2 2.87-5.39",
+  "gain": -10.4
+ },
+ {
+  "name": "capy-approving-7",
+  "len": 0.95,
+  "bursts": 3,
+  "from": "approving-2 6.29-7.83",
+  "gain": -10.7
+ },
+ {
+  "name": "capy-excited-1",
+  "len": 3.05,
+  "bursts": 5,
+  "from": "excited-1 0.30-4.08",
+  "gain": -15
+ },
+ {
+  "name": "capy-excited-2",
+  "len": 2.3,
+  "bursts": 7,
+  "from": "excited-1 4.34-7.16",
+  "gain": -10.9
+ },
+ {
+  "name": "capy-excited-3",
+  "len": 2.03,
+  "bursts": 5,
+  "from": "excited-1 7.60-9.99",
+  "gain": -8.7
+ },
+ {
+  "name": "capy-excited-4",
+  "len": 1.69,
+  "bursts": 4,
+  "from": "excited-2 0.00-1.99",
+  "gain": -13.5
+ },
+ {
+  "name": "capy-excited-5",
+  "len": 2.1,
+  "bursts": 4,
+  "from": "excited-2 2.56-5.36",
+  "gain": -13.1
+ },
+ {
+  "name": "capy-excited-6",
+  "len": 1.49,
+  "bursts": 3,
+  "from": "excited-2 6.00-7.87",
+  "gain": -12.2
+ }
+]
