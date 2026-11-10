@@ -18,3 +18,9 @@ Not done live: a Dika sale through the UI - the T6 meets the vault gate, and a p
 geo.js answers every location read with AMANAH BARU's spot (-6.965387, 107.575909) -> the terminal says LOKASI COCOK, 0 m. Then 3 packs, the handover photo, SIMPAN TRANSAKSI.
 Before: Unranked, last visit 2026-01-01, 3 sales. After: **Bronze**, last visit **2026-11-10** by **DIKA SAPUTRA**, 4 sales; the capybara said "LEVEL UP! AMANAH BARU EARNED B...". Frames mission-g01 (gate), g04 (receipt), g05 (after).
 Trap: on a fresh visitor the capybara welcome covers the terminal - talk-through.js presses LANJUT until it is gone, before any tap.
+
+## The same sale on the LIVE demo (kpm-demo-one), 2026-11-10 07:28 WIB
+
+He typed admin123 at Dika's gate in the pane (a password is not typed by Claude on a public host); everything after by Claude. The same location swap (geo.js inline) -> the arrival card "POSISI DI SINI · 0 M · GPS ✓ AMANAH BARU" (L1), AMBIL PESANAN, 3 packs American Spirit Rp 690.000 cash (L2), SIMPAN TRANSAKSI -> receipt (L3) + "LEVEL UP! AMANAH BARU EARNED BRONZE.", no error toast.
+Live database (REST as Dika): AMANAH BARU tier **Bronze**, lastVisit **2026-11-10**, lastVisitedBy **DIKA SAPUTRA**, updated 00:28:32Z. Before: Unranked, 2026-10-26 by AGUS PRASETYO. Rules CHANGE 27 + app 0f2472a proven live end to end.
+Seen on the receipt: the demo company still prints "KPM DEMO" (api/_demoCompany.js company name) - the rename to DSM is still his yes to give.
