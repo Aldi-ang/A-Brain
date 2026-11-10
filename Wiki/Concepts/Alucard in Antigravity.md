@@ -83,6 +83,20 @@ in particular would push from a second tool and needs his own yes.
 - Cost: a kpm-workspace chat starts with ~61 KB injected (~15k tokens, [likely]); other workspaces ~49 KB. That is
   Antigravity's (Google) quota, not the Claude plan.
 
+## What to hand it - thinking, never clicking (his call, 2026-11-10)
+
+Aldi, after its round-4 media run (AI Studio voice takes + Flow clips) went slow and asked him for permission over
+and over: *"next time we just give antigravity job thats need thinking, not physical like this, it takes so much time,
+and its job is really inefficient, i rather ask u make the prompt and give me the step to input inside google flow or
+ai studio to work faster"*.
+
+- Give it: read-only audits (the 38-findings sweep), research, reviews, self-contained code fixes.
+- Never give it: driving a browser or clicking through a website (AI Studio, Flow, test walks). Each new browser action
+  asked him once, the sign-in had to be his, and its first try made nothing at all.
+- Media from Google tools: Claude writes the exact prompts and click steps; Aldi pastes them into Flow / AI Studio
+  himself and drops the files in a folder. Faster for him, no quota for either agent.
+- Same rule lives in the app's `CLAUDE.md` (Antigravity section).
+
 ## How to check it fired
 
 1. Fully close Antigravity, reopen (skills.json was fixed after it started), open any new chat.
