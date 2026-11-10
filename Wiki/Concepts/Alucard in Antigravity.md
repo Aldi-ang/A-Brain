@@ -30,6 +30,9 @@ This note's plugin was built without finding that file (no vault note carried it
 Fixed in the plugin rule: **a workspace's own role file outranks Alucard**, with the kpm split written out. Guarded by
 `test.mjs` (run RED first).
 
+**Decided 2026-11-10 07:00 WIB.** Asked "partner or full Alucard lead in kpm?", his answer: *"Keep partner"*. Do not
+re-propose Antigravity as kpm lead (REJECTED ON PURPOSE: two writers on PROGRESS.md / NEXT-SESSION.md).
+
 ## What was built
 
 | Piece | Path | Does |
