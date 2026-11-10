@@ -65,3 +65,21 @@ gemini pro benefit to make it"*.
   from AI Studio "Get code" before the first scripted call.
 - automation/phone-shot.mjs fixed: Edge 157 returns at once and writes the PNG seconds later (polled now); its own
   profile; the width probe is a strip at the top of the shot.
+
+## Round 4 (2026-11-10 16:25 WIB) - his picks C2 + J4; receipt LIVE; media handed to Antigravity
+
+His words: *"c2 and j4 use both but add variation on the voice because there are several emotion for the animation right
+and i want moving animation for those capybara, smooth one, as smooth as sim city kinda animation so that this voice is
+actually fit it well, u can use higgsfield or gemini to do that or antigravity your choice, since we have limited quota
+this week i will start using fable to start our new UI design and professional shift on our app but for generating
+images video or sfx just use other platform to make your work lighter"*.
+- C2 LIVE: kpm 839cd01 (public/sounds/sale-chaching.mp3, saleDone, VOLUMES 1 / BOOST 1, sign.mp3 removed).
+- Today's sprites are choppy by construction: idle 10 frames in 3 s (3.3 fps), talk 13 in 2.4 s (5.4 fps), deal one pose.
+- Antigravity task (kpm .claude/ANTIGRAVITY-TASK.md): 4 moods x 2 Jett takes (happy / curious / approving / excited -
+  scripts and mood lines in the task) + Flow "Frames to Video" with the SAME first and last frame (= a seamless loop)
+  for idle / talk / deal, 2 versions each, on flat green. Start frames: round4/frames/*-start.png (sprite frame 1,
+  lanczos to 640 px, on 0x00FF00 1280x720). The 38-findings audit is QUEUED behind it in the same file.
+- Then Claude: J4 (rate 1.26) + split per mood; chroma key the clips (despill) -> animated WebP with alpha (iOS 14+),
+  watch the size (6 clips in the precache); swap the sprite sheets; voice by mood (deal -> excited, ? -> curious).
+- Found for later: skills.sh higgsfield-ai/skills@higgsfield-generate (236K installs, official org) - needs his
+  Higgsfield account; the backup if Flow's clips do not keep the drawing.
