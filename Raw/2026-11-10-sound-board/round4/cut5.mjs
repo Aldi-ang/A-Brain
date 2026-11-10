@@ -105,7 +105,7 @@ if (mode === 'video') {
   for (const n of names) {
     const src = fs.existsSync(R4 + '/video/' + n + '.mp4') ? R4 + '/video/' + n + '.mp4' : R4 + '/../round5/' + n + '.mp4';
     // drop the last frame: it IS the first one, and showing it twice hitches the loop
-    const T = (dur(src) - 1 / 24).toFixed(3);
+    const T = process.env.T || (dur(src) - 1 / 24).toFixed(3);   // T: end the loop earlier, on the frame that matches frame 1 best (the deal clip drifts in its last 5 frames)
     // PRE: a denoise before the key - Veo's flat colours shimmer frame to frame, and every shimmer is a changed pixel to store
     const pre = process.env.PRE ? process.env.PRE + ',' : '';
     const vf = pre + KEY + ',despill=type=green:mix=0.6,crop=' + S + ':' + S + ':' + X + ':' + Y + ',scale=' + size + ':' + size + ':flags=lanczos,fps=' + fps + ',format=yuva420p';
