@@ -57,13 +57,13 @@ button.ghost { background: transparent; color: var(--fg); border: 1px solid var(
 
   <section aria-labelledby="h-receipt">
     <h2 id="h-receipt">1 · The sound when the receipt shows up</h2>
-    <p class="when">Plays once when a sale is saved. All three new ones are under 0.8 seconds, as loud as your message sound, with no extra boost.</p>
+    <p class="when">Plays once when a sale is saved. Your cha-ching in two lengths, both at the volume of your message sound, with no extra boost.</p>
     <div id="receipt"></div>
   </section>
 
   <section aria-labelledby="h-voice">
-    <h2 id="h-voice">2 · The capybara's voice</h2>
-    <p class="when">Each PLAY says a real capybara line, a little different every time, the way the app does it.</p>
+    <h2 id="h-voice">2 · The capybara's new voice</h2>
+    <p class="when">Four Google voices speaking a made-up language, like a life-sim game character. Each PLAY says a different phrase. I can't hear them, so there is no pick from me. Once you choose one, I make 20 to 30 phrases in it: happy, curious, excited.</p>
     <div id="voice"></div>
   </section>
 
@@ -81,7 +81,7 @@ button.ghost { background: transparent; color: var(--fg); border: 1px solid var(
       <button class="play" id="sale-pick" type="button">My picks</button>
     </div>
   </section>
-  <p class="note">The new sounds are your own pen recording (cut shorter) and two free Kenney recordings (CC0, free for paid apps). Nothing here is in the app yet: it changes after you pick.</p>
+  <p class="note">The cha-ching is the clip you sent, cut and levelled. The four voices were made with Google AI Studio's free voices from a made-up script (no real words). Nothing here is in the app yet: it changes after you pick.</p>
 </main>
 
 <div class="pickbar"><div><span id="pick" aria-live="polite"></span><button class="play" id="copy" type="button">Copy</button></div></div>
@@ -99,16 +99,18 @@ const TODAY_LEN = 4.13;
 /* the receipt sound: today = his sign.mp3 through the app's gain stage (0.9 x 2.4 = 2.16, past full scale) */
 const RECEIPT = [
   { id: 'today', name: 'Pen signature, full', tag: 'today', what: 'Your pen recording, all of it, played 2.2 times louder than the file, so it crackles. The capybara starts talking half a second in.', file: 'sign', gain: 2.16, len: 4.13, loud: 100, hot: true },
-  { id: 'R1', name: 'Your pen, first stroke', tag: 'my pick', what: 'The same pen recording, cut to its first stroke. Still your sound, about one eighth as long.', file: 'r1', gain: 1, len: 0.49, loud: 51 },
-  { id: 'R2', name: 'Soft pluck', what: 'A short plucked-strings jingle, warm and quick.', file: 'r2', gain: 1, len: 0.49, loud: 57 },
-  { id: 'R3', name: 'Coins', what: 'A real handful of coins: money moved.', file: 'r3', gain: 1, len: 0.70, loud: 43 },
+  { id: 'C1', name: 'Cha-ching, short', tag: 'my pick', what: 'Your cha-ching: the register and coins, with the bell ring faded out early.', file: 'c1', gain: 1, len: 0.80, loud: 58 },
+  { id: 'C2', name: 'Cha-ching, full ring', what: 'Your cha-ching with more of the bell ring left in.', file: 'c2', gain: 1, len: 1.60, loud: 57 },
 ];
-/* the voice: A = the first sentence only (still 3 words at least, his rule) at 0.6 of today's loudness */
+/* the voice: today's mumble for comparison, then the four AI Studio voices - each PLAY is one phrase from that voice's pool */
+const POOLS = /*@@POOLS@@*/;
 const VOICES = [
-  { id: 'today', name: 'Mumble, every sentence', tag: 'today', what: 'Says every sentence of the line. About 1.6 seconds on average, up to 2.7.', mode: 'full', k: 1 },
-  { id: 'A', name: 'Shorter and softer mumble', tag: 'my pick', what: 'The same voice, first sentence only, still 3 words or more. About 1.1 seconds, up to 1.8, and 40% quieter.', mode: 'first', k: 0.6 },
-  { id: 'B', name: 'A real speaking voice', what: 'Kokoro, a free voice that runs on your PC, reading the line in English. Locked: it needs a 115 MB download first, and I am asking for your OK in the chat.', locked: true },
-  { id: 'C', name: 'Silent', what: 'No voice at all. Only his speech bubble.', mode: 'none' },
+  { id: 'today', name: 'Mumble', tag: 'today', what: 'Today\'s mumble. About 1.6 seconds on average, up to 2.7.', mode: 'full', k: 1 },
+  { id: 'Neno', name: 'Neno', what: 'Deep and velvety. Google lists it as its deepest pitch.', pool: 'neno' },
+  { id: 'Jett', name: 'Jett', what: 'Deep and warm, soft-spoken.', pool: 'jett' },
+  { id: 'Mako', name: 'Mako', what: 'Low and lively, the most playful of the four.', pool: 'mako' },
+  { id: 'Rami', name: 'Rami', what: 'Low, warm and easy-going.', pool: 'rami' },
+  { id: 'Silent', name: 'Silent', what: 'No voice at all. Only his speech bubble.', mode: 'none' },
 ];
 const OFTEN = [
   { id: 'sale', name: 'After a sale', what: 'Right after the receipt sound. My pick: off, the receipt sound already says it.', lines: DEAL, rec: false },
@@ -117,7 +119,7 @@ const OFTEN = [
   { id: 'peek', name: 'When he pops up on his own', what: 'Every 1.5 to 3.5 minutes, nobody asked. My pick: off.', lines: PEEK, rec: false },
 ];
 
-let ctx = null, bufs = {}, ready = null, playing = [];
+let ctx = null, bufs = {}, ready = null, playing = [], lastPhrase = '';
 function b64(s) { const b = atob(s), u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u.buffer; }
 function boot() {
   if (ready) return ready;
@@ -137,6 +139,7 @@ function hit(name, gain, at = 0, rate = 1) {
 function capyName(x) { return 'capy-' + x.on + '-' + x.v + '-' + x.len + (x.rise ? '-r' : ''); }
 function say(line, voice, at = 0) {
   if (!voice || voice.mode === 'none' || voice.locked) return at;
+  if (voice.pool) { const p = POOLS[voice.pool].filter((x) => x.name !== lastPhrase); lastPhrase = rnd(p).name; return hit(lastPhrase, 1, at); }
   const text = voice.mode === 'first' ? (line.match(/^[^.!?]*[.!?]?/) || [line])[0] : line;
   const steps = window.KPM_CHIP.plan(text, CAPY, { seed: (Math.random() * 4294967296) >>> 0 });
   let end = at;
@@ -147,13 +150,13 @@ function say(line, voice, at = 0) {
 const rnd = (a) => a[Math.floor(Math.random() * a.length)];
 async function run(btn, fn) { await boot(); stopAll(); document.querySelectorAll('button.on').forEach((b) => b.classList.remove('on')); btn.classList.add('on'); const end = fn(); setTimeout(() => btn.classList.remove('on'), Math.max(300, end * 1000 + 200)); }
 
-const state = { receipt: 'R1', voice: 'A', often: Object.fromEntries(OFTEN.map((o) => [o.id, o.rec])) };
+const state = { receipt: 'C1', voice: '', often: Object.fromEntries(OFTEN.map((o) => [o.id, o.rec])) };
 function row(group, o, checked, onPlay) {
   const d = document.createElement('div');
   d.className = 'opt' + (o.id === 'today' ? ' today' : '') + (checked ? ' picked' : '');
   const id = group + '-' + o.id;
   d.innerHTML = `<input type="radio" name="${group}" id="${id}" ${checked ? 'checked' : ''}>
-    <label for="${id}"><span class="name">${o.id === 'today' ? '' : o.id + ' · '}${o.name}${o.tag ? `<span class="tag ${o.tag === 'today' ? 'old' : ''}">${o.tag}</span>` : ''}</span><span class="what">${o.what}</span></label>
+    <label for="${id}"><span class="name">${o.id === 'today' || o.id === o.name ? '' : o.id + ' · '}${o.name}${o.tag ? `<span class="tag ${o.tag === 'today' ? 'old' : ''}">${o.tag}</span>` : ''}</span><span class="what">${o.what}</span></label>
     <button class="play" type="button" ${o.locked || o.mode === 'none' ? 'disabled' : ''}>${o.locked ? 'Locked' : o.mode === 'none' ? 'No sound' : 'Play'}</button>`;
   if (o.len) d.insertAdjacentHTML('beforeend', `<div class="meter"><span>${o.len.toFixed(2)} s</span><span class="bar"><i class="${o.hot ? 'hot' : ''}" style="width:${(o.len / TODAY_LEN * 100).toFixed(0)}%"></i></span><span>loud</span><span class="bar"><i class="${o.hot ? 'hot' : ''}" style="width:${o.loud}%"></i></span></div>`);
   d.querySelector('input').addEventListener('change', () => { state[group] = o.id; render(); });
@@ -173,7 +176,7 @@ function render() {
     return d;
   }));
   const on = OFTEN.filter((o) => state.often[o.id]).map((o) => o.id);
-  document.getElementById('pick').textContent = `Receipt ${state.receipt} · Voice ${state.voice} · Talks on: ${on.length ? on.join(', ') : 'nothing'}`;
+  document.getElementById('pick').textContent = `Receipt ${state.receipt} · Voice ${state.voice || '(pick one)'} · Talks on: ${on.length ? on.join(', ') : 'nothing'}`;
 }
 document.getElementById('sale-today').addEventListener('click', (e) => run(e.currentTarget, () => Math.max(hit('sign', 2.16), say(rnd(DEAL), VOICES[0], 0.52))));
 document.getElementById('sale-pick').addEventListener('click', (e) => run(e.currentTarget, () => {

@@ -182,3 +182,12 @@ His words: *"https://www.youtube.com/watch?v=uv0CgsTU-Ow study this to learn abo
 His reference (youtube uv0CgsTU-Ow) makes a character voice from a REAL voice: a 13.4 ms slice (5 cycles at 372 Hz) cut out and pasted in a loop. So the strongest version of what he wants starts from a recorded voice - his own is the obvious source, and it fits this page's rule exactly. Until he sends one, the studio offers a made human-like voice (glottal pulse + formants, chip.js). The intro is made too, but elegant: bells, glass, air, stereo, a hall - never pulse waves.
 
 **The tool for all of this now has a home (2026-10-11):** [[Sound Studio]] - `A-Brain/Tools/sound-studio/`.
+
+## Round ten - he sends the file again, and asks for a made voice (2026-11-10 09:10 WIB)
+
+*"for receipt use this SFX instead https://www.youtube.com/watch?v=EuLJv2qONRY"* and *"the capybara noise we need to
+design this from scart from the start, i want the SIMS kinda noise"*. The receipt follows the rule as always: his file
+(a YouTube cha-ching, now fetchable with yt-dlp - the "cannot fetch YouTube" line above is out of date). The capybara is
+the round-eight shape again: a MADE sound because he asked, through a board he picks from. Made with Google AI Studio's
+free voices speaking invented gibberish (never real Simlish words). Board: https://claude.ai/artifact/3s4aXiddpLFTCtuGUnq3mJ.
+Details: Raw/2026-11-10-sound-board/RESULT.md, round 2.
