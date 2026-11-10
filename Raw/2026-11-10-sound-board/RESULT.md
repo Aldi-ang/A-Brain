@@ -50,3 +50,18 @@ right or u can use any of the google features ... google flow, google music, gem
   at once (temp files deleted after). Claude in Chrome was not connected today; the built-in pane is signed in.
 - Antigravity: its one task slot is OPEN (the 38 August findings). The voice is a taste call, so it stays Claude's;
   generating the full phrase pool in his picked voice is a good Antigravity task once the slot is free.
+
+## Round 3 (2026-11-10 16:12 WIB) - Jett, smaller (board v4)
+
+His words: *"jett is the best but it is still sound so human maybe u need to make it sound as like it sound like a small
+animal but in sims style?, i have the gemini key from the google ai studio if u want to"* and *"u can use my gemini or my
+gemini pro benefit to make it"*.
+- Board v4: Jett as recorded + J4 / J7 / J10 = the same phrases played at rate 1.26 / 1.498 / 1.782 (+4 / +7 / +10
+  semitones). A rate change raises pitch AND shrinks the throat (formants) - the smaller-animal sound; a formant-keeping
+  shift would sound like a man singing higher. Bake later with ffmpeg asetrate=24000*r,aresample=24000.
+- Next: 20-30 phrases (happy / curious / excited) in Jett, same style text, new gibberish; size applied after. Route:
+  his Gemini API key in C:/Users/ASUS/.gemini/.env (GEMINI_API_KEY=...) - he types it, I only read the file - or the
+  AI Studio pane (free, ~5 tool calls per take of 4 phrases). API voice name for "Jett" not yet confirmed - read it
+  from AI Studio "Get code" before the first scripted call.
+- automation/phone-shot.mjs fixed: Edge 157 returns at once and writes the PNG seconds later (polled now); its own
+  profile; the width probe is a strip at the top of the shot.
