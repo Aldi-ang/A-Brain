@@ -1,0 +1,192 @@
+<title>Sale Sound Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one column of pick-rows, like the terminal's own slate panels; gold marks the one picked. Palette law: slate + gold, no blue, no green. */
+:root {
+  --bg: #1b1f24; --panel: #252a31; --line: #363d46; --fg: #e9e6df; --muted: #a09d96; --gold: #d9a441; --gold-ink: #1b1f24; --warn: #d9734a;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif; --body: "Barlow", "Segoe UI", sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --bg: #f1efea; --panel: #ffffff; --line: #d9d5cc; --fg: #22262b; --muted: #6a6760; --gold: #9a6a12; --gold-ink: #ffffff; --warn: #b4532a; color-scheme: light; } }
+:root[data-theme="light"] { --bg: #f1efea; --panel: #ffffff; --line: #d9d5cc; --fg: #22262b; --muted: #6a6760; --gold: #9a6a12; --gold-ink: #ffffff; --warn: #b4532a; color-scheme: light; }
+body { background: var(--bg); color: var(--fg); font: 16px/1.5 var(--body); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 120px; }
+main { max-width: 640px; margin: 0 auto; display: grid; gap: 28px; }
+h1 { font: 700 2.1rem/1 var(--display); letter-spacing: .02em; text-transform: uppercase; margin: 0; text-wrap: balance; }
+h2 { font: 700 1.35rem/1.1 var(--display); letter-spacing: .04em; text-transform: uppercase; margin: 0; }
+p { margin: 0; }
+.lead { color: var(--muted); max-width: 60ch; }
+section { display: grid; gap: 12px; }
+.when { color: var(--muted); font-size: .95rem; }
+.opt { display: grid; grid-template-columns: auto 1fr auto; gap: 10px 12px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+.opt.picked { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+.opt.today { border-style: dashed; }
+.opt input { width: 20px; height: 20px; accent-color: var(--gold); margin: 0; }
+.opt label { display: grid; gap: 2px; min-width: 0; cursor: pointer; }
+.name { font-weight: 600; }
+.tag { font: 600 .72rem/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-left: 6px; }
+.tag.old { color: var(--muted); }
+.what { color: var(--muted); font-size: .92rem; }
+.meter { grid-column: 2 / 4; display: grid; grid-template-columns: 4.5em 1fr; gap: 2px 8px; font: 500 .75rem/1.4 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { height: 6px; align-self: center; background: var(--line); border-radius: 3px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--gold); }
+.bar i.hot { background: var(--warn); }
+button.play { font: 600 .9rem/1 var(--body); color: var(--gold-ink); background: var(--gold); border: 0; border-radius: 8px; padding: 10px 14px; min-width: 64px; cursor: pointer; }
+button.play:disabled { background: var(--line); color: var(--muted); cursor: not-allowed; }
+button.play.on { outline: 2px solid var(--fg); outline-offset: 2px; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.toggle { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+.toggle input { width: 20px; height: 20px; accent-color: var(--gold); margin: 0; }
+.both { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.both button { padding: 14px; }
+button.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+.pickbar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--panel); border-top: 1px solid var(--gold); padding: 12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.pickbar div { max-width: 640px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
+#pick { font: 500 .85rem/1.35 var(--mono); min-width: 0; overflow-wrap: anywhere; user-select: all; }
+.note { font-size: .85rem; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<main>
+  <header style="display:grid;gap:8px">
+    <h1>Sale Sound Board</h1>
+    <p class="lead">Tap PLAY to hear each one at your phone's normal volume. Pick one in every group. Your picks show in the gold bar at the bottom: copy it and paste it to me.</p>
+  </header>
+
+  <section aria-labelledby="h-receipt">
+    <h2 id="h-receipt">1 · The sound when the receipt shows up</h2>
+    <p class="when">Plays once when a sale is saved. All three new ones are under 0.8 seconds, as loud as your message sound, with no extra boost.</p>
+    <div id="receipt"></div>
+  </section>
+
+  <section aria-labelledby="h-voice">
+    <h2 id="h-voice">2 · The capybara's voice</h2>
+    <p class="when">Each PLAY says a real capybara line, a little different every time, the way the app does it.</p>
+    <div id="voice"></div>
+  </section>
+
+  <section aria-labelledby="h-often">
+    <h2 id="h-often">3 · When the capybara talks out loud</h2>
+    <p class="when">Ticked = he talks. Unticked = his speech bubble still shows, with no sound. Today all four are ticked.</p>
+    <div id="often" style="display:grid;gap:8px"></div>
+  </section>
+
+  <section aria-labelledby="h-whole">
+    <h2 id="h-whole">4 · Hear a whole sale</h2>
+    <p class="when">The receipt sound plus the capybara, exactly as the sale screen would play them.</p>
+    <div class="both">
+      <button class="play ghost" id="sale-today" type="button">Today</button>
+      <button class="play" id="sale-pick" type="button">My picks</button>
+    </div>
+  </section>
+  <p class="note">The new sounds are your own pen recording (cut shorter) and two free Kenney recordings (CC0, free for paid apps). Nothing here is in the app yet: it changes after you pick.</p>
+</main>
+
+<div class="pickbar"><div><span id="pick" aria-live="polite"></span><button class="play" id="copy" type="button">Copy</button></div></div>
+
+<script>/*@@CHIP@@*/</script>
+<script>
+const DATA = /*@@DATA@@*/;
+const VOICE = /*@@VOICE@@*/;
+const DEAL = ["Deal's done. Good haul.", "Stock's moving. I like that.", "Clean trade. Next route?", "Counted and paid. We're square."];
+const NEWS = ["Sector Configuration Saved!", "Welcome back, Boss!", "Route saved.", "Stock count updated."];
+const CART = ["Right, that's noted.", "Into the book it goes.", "Good pick.", "Aye, one more."];
+const PEEK = ["Quiet day out there.", "Ready when you are, Boss.", "Fresh stock, fresh roads."];
+const TODAY_LEN = 4.13;
+
+/* the receipt sound: today = his sign.mp3 through the app's gain stage (0.9 x 2.4 = 2.16, past full scale) */
+const RECEIPT = [
+  { id: 'today', name: 'Pen signature, full', tag: 'today', what: 'Your pen recording, all of it, played 2.2 times louder than the file, so it crackles. The capybara starts talking half a second in.', file: 'sign', gain: 2.16, len: 4.13, loud: 100, hot: true },
+  { id: 'R1', name: 'Your pen, first stroke', tag: 'my pick', what: 'The same pen recording, cut to its first stroke. Still your sound, about one eighth as long.', file: 'r1', gain: 1, len: 0.49, loud: 51 },
+  { id: 'R2', name: 'Soft pluck', what: 'A short plucked-strings jingle, warm and quick.', file: 'r2', gain: 1, len: 0.49, loud: 57 },
+  { id: 'R3', name: 'Coins', what: 'A real handful of coins: money moved.', file: 'r3', gain: 1, len: 0.70, loud: 43 },
+];
+/* the voice: A = the first sentence only (still 3 words at least, his rule) at 0.6 of today's loudness */
+const VOICES = [
+  { id: 'today', name: 'Mumble, every sentence', tag: 'today', what: 'Says every sentence of the line. About 1.6 seconds on average, up to 2.7.', mode: 'full', k: 1 },
+  { id: 'A', name: 'Shorter and softer mumble', tag: 'my pick', what: 'The same voice, first sentence only, still 3 words or more. About 1.1 seconds, up to 1.8, and 40% quieter.', mode: 'first', k: 0.6 },
+  { id: 'B', name: 'A real speaking voice', what: 'Kokoro, a free voice that runs on your PC, reading the line in English. Locked: it needs a 115 MB download first, and I am asking for your OK in the chat.', locked: true },
+  { id: 'C', name: 'Silent', what: 'No voice at all. Only his speech bubble.', mode: 'none' },
+];
+const OFTEN = [
+  { id: 'sale', name: 'After a sale', what: 'Right after the receipt sound. My pick: off, the receipt sound already says it.', lines: DEAL, rec: false },
+  { id: 'news', name: 'App news, like "Saved"', what: 'When something you did worked. My pick: on.', lines: NEWS, rec: true },
+  { id: 'cart', name: 'While adding items to the cart', what: 'Up to once every 6 seconds while you tap items. My pick: off.', lines: CART, rec: false },
+  { id: 'peek', name: 'When he pops up on his own', what: 'Every 1.5 to 3.5 minutes, nobody asked. My pick: off.', lines: PEEK, rec: false },
+];
+
+let ctx = null, bufs = {}, ready = null, playing = [];
+function b64(s) { const b = atob(s), u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u.buffer; }
+function boot() {
+  if (ready) return ready;
+  ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const all = Object.entries(DATA).concat(Object.entries(VOICE));
+  ready = Promise.all(all.map(([k, v]) => new Promise((ok) => ctx.decodeAudioData(b64(v), (b) => { bufs[k] = b; ok(); }, () => ok())))).then(() => ctx.resume());
+  return ready;
+}
+function stopAll() { for (const s of playing) { try { s.stop(); } catch (e) {} } playing = []; }
+function hit(name, gain, at = 0, rate = 1) {
+  const b = bufs[name]; if (!b) return 0;
+  const s = ctx.createBufferSource(), g = ctx.createGain();
+  s.buffer = b; s.playbackRate.value = rate; g.gain.value = gain;
+  s.connect(g).connect(ctx.destination); s.start(ctx.currentTime + 0.03 + at); playing.push(s);
+  return at + b.duration / rate;
+}
+function capyName(x) { return 'capy-' + x.on + '-' + x.v + '-' + x.len + (x.rise ? '-r' : ''); }
+function say(line, voice, at = 0) {
+  if (!voice || voice.mode === 'none' || voice.locked) return at;
+  const text = voice.mode === 'first' ? (line.match(/^[^.!?]*[.!?]?/) || [line])[0] : line;
+  const steps = window.KPM_CHIP.plan(text, CAPY, { seed: (Math.random() * 4294967296) >>> 0 });
+  let end = at;
+  /* the app plays each syllable at min(1, plan gain) of the file; the board does the same, times the option's level */
+  for (const x of steps) end = Math.max(end, hit(capyName(x), Math.min(1, x.gain) * voice.k, at + x.at, x.rate));
+  return end;
+}
+const rnd = (a) => a[Math.floor(Math.random() * a.length)];
+async function run(btn, fn) { await boot(); stopAll(); document.querySelectorAll('button.on').forEach((b) => b.classList.remove('on')); btn.classList.add('on'); const end = fn(); setTimeout(() => btn.classList.remove('on'), Math.max(300, end * 1000 + 200)); }
+
+const state = { receipt: 'R1', voice: 'A', often: Object.fromEntries(OFTEN.map((o) => [o.id, o.rec])) };
+function row(group, o, checked, onPlay) {
+  const d = document.createElement('div');
+  d.className = 'opt' + (o.id === 'today' ? ' today' : '') + (checked ? ' picked' : '');
+  const id = group + '-' + o.id;
+  d.innerHTML = `<input type="radio" name="${group}" id="${id}" ${checked ? 'checked' : ''}>
+    <label for="${id}"><span class="name">${o.id === 'today' ? '' : o.id + ' · '}${o.name}${o.tag ? `<span class="tag ${o.tag === 'today' ? 'old' : ''}">${o.tag}</span>` : ''}</span><span class="what">${o.what}</span></label>
+    <button class="play" type="button" ${o.locked || o.mode === 'none' ? 'disabled' : ''}>${o.locked ? 'Locked' : o.mode === 'none' ? 'No sound' : 'Play'}</button>`;
+  if (o.len) d.insertAdjacentHTML('beforeend', `<div class="meter"><span>${o.len.toFixed(2)} s</span><span class="bar"><i class="${o.hot ? 'hot' : ''}" style="width:${(o.len / TODAY_LEN * 100).toFixed(0)}%"></i></span><span>loud</span><span class="bar"><i class="${o.hot ? 'hot' : ''}" style="width:${o.loud}%"></i></span></div>`);
+  d.querySelector('input').addEventListener('change', () => { state[group] = o.id; render(); });
+  d.querySelector('button').addEventListener('click', (e) => run(e.currentTarget, onPlay));
+  return d;
+}
+function render() {
+  const R = document.getElementById('receipt'), V = document.getElementById('voice'), O = document.getElementById('often');
+  R.replaceChildren(...RECEIPT.map((o) => row('receipt', o, state.receipt === o.id, () => o.id === 'today' ? Math.max(hit(o.file, o.gain), say(rnd(DEAL), VOICES[0], 0.52)) : hit(o.file, o.gain))));
+  R.style.cssText = V.style.cssText = 'display:grid;gap:8px';
+  V.replaceChildren(...VOICES.map((o) => row('voice', o, state.voice === o.id, () => say(rnd(DEAL), o))));
+  O.replaceChildren(...OFTEN.map((o) => {
+    const d = document.createElement('div'); d.className = 'toggle';
+    d.innerHTML = `<input type="checkbox" id="often-${o.id}" ${state.often[o.id] ? 'checked' : ''}><label for="often-${o.id}" style="display:grid;gap:2px;min-width:0;cursor:pointer"><span class="name">${o.name}</span><span class="what">${o.what}</span></label><button class="play" type="button">Play</button>`;
+    d.querySelector('input').addEventListener('change', (e) => { state.often[o.id] = e.target.checked; render(); });
+    d.querySelector('button').addEventListener('click', (e) => run(e.currentTarget, () => say(rnd(o.lines), VOICES.find((v) => v.id === state.voice))));
+    return d;
+  }));
+  const on = OFTEN.filter((o) => state.often[o.id]).map((o) => o.id);
+  document.getElementById('pick').textContent = `Receipt ${state.receipt} · Voice ${state.voice} · Talks on: ${on.length ? on.join(', ') : 'nothing'}`;
+}
+document.getElementById('sale-today').addEventListener('click', (e) => run(e.currentTarget, () => Math.max(hit('sign', 2.16), say(rnd(DEAL), VOICES[0], 0.52))));
+document.getElementById('sale-pick').addEventListener('click', (e) => run(e.currentTarget, () => {
+  const r = RECEIPT.find((o) => o.id === state.receipt), v = VOICES.find((o) => o.id === state.voice);
+  const end = hit(r.file, r.gain);
+  return state.often.sale ? Math.max(end, say(rnd(DEAL), v, r.id === 'today' ? 0.52 : end + 0.1)) : end;
+}));
+document.getElementById('copy').addEventListener('click', (e) => {
+  const t = document.getElementById('pick').textContent, b = e.currentTarget;
+  const done = () => { b.textContent = 'Copied'; setTimeout(() => (b.textContent = 'Copy'), 1500); };
+  try { navigator.clipboard.writeText(t).then(done, () => { getSelection().selectAllChildren(document.getElementById('pick')); b.textContent = 'Select + copy'; }); }
+  catch (err) { getSelection().selectAllChildren(document.getElementById('pick')); }
+});
+const CAPY = /*@@CAPY@@*/;
+render();
+</script>
