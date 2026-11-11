@@ -102,3 +102,19 @@ clip is his to remake from round5/deal-start-v2.png (deal-2 at 4.8 s: front view
 - The idle clip's small gap at the wrist is in the OLD sheet's own frame 1 (the sleeve and the glove never touched);
   he saw it and said fine.
 - Not tried: 24 fps (994 KB a clip), animated AVIF (smaller, but unmeasured on his phones).
+
+## Round 6 (2026-11-11 10:33 WIB) - the deal is HIS thumbs-up clip, LIVE (7990d52)
+
+The morning's hands-down clips (round5/deal-3, deal-4, from my start frame and prompt) were good but he made his own
+instead: round5/deal-vaultboy.mp4, started from the TALK clip's start frame - "i change the animation for the deal here
+i want u to use that". Same start pose as idle and talk (x 481-780, y 44-656 in the source), so the talk crop
+624:624:329:42 puts all three clips on one spot. Thumb up from 1.25 s to 6.25 s of 7.9 s; loop seam 0.2%; 578 KB.
+
+- A picture coming back on screen restarts from frame 1 (Chromium, seen in the pane: shown 3 s / hidden 2 s twice, the
+  third showing had the thumb up at +1.2 s; free-running would have been at 7.0 s and pause-resume at 7.2 s, both
+  standing). Not tested on iPhone Safari.
+- The deal mood went from 3 s to 7.6 s so the gesture finishes.
+- The coin (work/coin-board.png): at its old spot it covers his raised wrist; above the thumb it clips the top edge;
+  off looks clean. Live: off on the clip, kept on the Lite Mode drawing. His call is open.
+- What it taught: when he makes his own start frame he picks the pose the OTHER clips already share - a gesture clip
+  should start where idle stands, not from a new drawing. My deal-start-v2 (front view) would have jumped on entry.
