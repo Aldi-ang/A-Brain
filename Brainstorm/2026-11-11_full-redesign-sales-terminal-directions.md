@@ -1,7 +1,7 @@
 ---
 title: Full redesign, step 1 + 2 - screen ranking and three Sales Terminal directions
 created: 2026-11-11
-status: DECIDED B (not built); game look saved as kpm tag game-edition-v1; one repository, three links (game link not set up yet)
+status: B BUILT and live (kpm cb8f5244, 2026-11-11 18:33); OPEN - two questions with Aldi (shared top bar, the slip's save button); game look saved as kpm tag game-edition-v1; one repository, three links (game link not set up yet)
 tags: [brainstorm, redesign, sales-terminal, professional-edition]
 ---
 
@@ -99,3 +99,34 @@ Models applied: Inversion (what makes a redesign fail here: a silent break in th
 
 ## Rejected on purpose (editions)
 - 2, a second repository for the game edition - he chose one repository; can still be made later from the tag.
+
+## B is BUILT and live (2026-11-11 18:33 WIB, kpm `cb8f5244`)
+His brief, verbatim: "Build direction B (Price list) for the Sales Terminal. I picked it on 2026-11-11. ... Change the LOOK only in src/MerchantSalesView.jsx. The money math in that file must not change. ... Phone first, then PC. ... Show me rendered frames of the real screen (today beside built) before pushing."
+
+Boards (real app, demo salesman, 375 x 812 with touch, 1440 x 900, dark + light): `Raw/2026-11-11-redesign-today/BUILT-PHONE.png`, `BUILT-PC.png` (page `board-built.html`, frames `built-*.png`). The full list of what changed is the commit message.
+
+| Measured at 375 | Today | Built |
+|---|---|---|
+| Whole products before scrolling | 5 | 5 (the drawing: 8) |
+| Row height | about 104 px card | 73 px line |
+| Picture | 64 px square, 3D | 44 x 56, flat, whole pack |
+| The total | behind the edge tab | always in the bottom bar |
+
+Why 5 and not 8: the shared top bar (big title + icon row, about 205 px on the phone) is the app shell, on all 17 screens, outside the one file he allowed. The drawing carried a one-row bar.
+
+### Where the built screen differs from the drawing, on purpose
+| Thing | Built | Why | Open? |
+|---|---|---|---|
+| Top bar | unchanged (game look) | another file, shared by every screen | 🔴 asked: rebuild it as one row next, before Journey Plan? |
+| Save button on the slip | his rubber stamp (2026-11-03 pick) | his own recent pick, check-enforced; the drawing had a dark Bayar plate | 🔴 asked: keep the stamp or the dark plate? |
+| Cart lines on the slip | the full editor (4 unit boxes, unit, price type) | the drawing's one-line rows cannot set units or the price type | no |
+| PC page | still scrolls as a page | the capybara's walk-out depends on that scroll | no |
+| Stock column on the PC | one line that flips (units / Bks) | his flip stays; the drawing showed both lines at once | no |
+
+### What the build taught (for the next 16 screens)
+- B's language, as classes: `font-mono` on the screen root (Rajdhani everywhere), flat `--duke-fill-ground`, rows `border-b border-[var(--duke-edge-1)]`, a lit tab = `border-b-2` gold line under a plain word, cream = `--duke-paper-2` with `--duke-on-plate` ink, one grid template shared by a table's head and rows with `lg:contents` on the phone's wrappers (one DOM for both widths).
+- The shell scrolls the screen under its header: an always-visible bar must be `fixed` (first frame had it below the fold).
+- About 15 checks pinned the old look by class string. Each was re-pinned to B with its reason, none deleted.
+- Not rendered before the push: Lite Mode, retur mode, the BUNDLES kind, the owner's stock-source switch, a LOW count.
+
+Models applied (build): Chesterton's Fence (the stamp, the photo corners and the flip are his named picks - kept, and the stamp put to him instead of replaced), Inversion (what breaks a look-only job: a second way to pay or to save - so one payment list feeds both selects and Bayar only opens the slip), Reversibility (the old look is one `git checkout game-edition-v1 -- src/MerchantSalesView.jsx` away).

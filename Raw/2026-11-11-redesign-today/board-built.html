@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Sales Terminal - today beside built (B, Price list)</title>
+<style>
+  body { margin: 0; padding: 24px; background: #ece7dc; color: #1c1a17; font: 15px/1.4 "Segoe UI", system-ui, sans-serif; }
+  h1 { margin: 0 0 4px; font-size: 22px; }
+  p.sub { margin: 0 0 18px; color: #55504a; }
+  .row { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
+  figure { margin: 0; }
+  figure img { display: block; border: 1px solid #b9b2a3; background: #111; }
+  figcaption { margin-top: 8px; max-width: var(--w); }
+  figcaption b { display: block; font-size: 16px; }
+  .phone img { width: 375px; } .phone { --w: 375px; }
+  .pc img { width: 720px; } .pc { --w: 720px; }
+  body.pc-board .phone, body.phone-board .pc { display: none; }
+</style>
+<body>
+<script>document.body.className = location.search.includes('pc') ? 'pc-board' : 'phone-board';</script>
+<h1>Sales Terminal: today beside built</h1>
+<p class="sub">Direction B, the Price list. Real screen, demo salesman, same data. 11 Nov 2026.</p>
+<div class="row">
+  <figure class="phone"><img src="today-p-sales.png"><figcaption><b>1 · Today (phone)</b>Big cards, three letter styles. The total hides behind the PESANAN tab on the left edge.</figcaption></figure>
+  <figure class="phone"><img src="built-p-sales.png"><figcaption><b>2 · Built (phone)</b>One ruled line per product. Shop and payment on top. Total and Bayar always at the bottom.</figcaption></figure>
+  <figure class="phone"><img src="built-p-slip.png"><figcaption><b>3 · Built: after Bayar</b>The order slip slides in, flat cream with dark ink. Photo and save are still here, unchanged.</figcaption></figure>
+
+  <figure class="pc"><img src="today-d-sales.png"><figcaption><b>1 · Today (PC)</b>Order on the left, three big cards per row, the day's numbers in a side column.</figcaption></figure>
+  <figure class="pc"><img src="built-d-day.png"><figcaption><b>2 · Built (PC), no shop chosen</b>A table with columns. The day's numbers in one strip on top. The cream slip on the right, under the capybara's room.</figcaption></figure>
+  <figure class="pc"><img src="built-d-cart.png"><figcaption><b>3 · Built (PC), shop chosen</b>The strip becomes that shop's file: last order, usual basket, "Same as last time", and any warning.</figcaption></figure>
+  <figure class="pc"><img src="built-d-light.png"><figcaption><b>4 · Built (PC), light theme</b>Same screen in the light theme.</figcaption></figure>
+</div>
+</body>
