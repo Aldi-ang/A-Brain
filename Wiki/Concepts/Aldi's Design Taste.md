@@ -3659,3 +3659,14 @@ Board: Stock Opname review as A the hatch (my pick, on "the object wins"), B a r
 ## A count badge must move, and a plain circle loses even when it reads (2026-11-08)
 
 Shown three static count badges on the HQ Audits tab (solid red circle 6.42:1, red ring 8.04:1, soft fill 6.59:1 - all legible, all fixing the 4.02:1 of today): *"all looks bad, i dont like all"*, then *"i want small animation and effeect for that"*. Same lesson as the map counter (*"change the circle and number to better symbol"*): a counter is an object with a small life, not a coloured dot. Passing contrast got none of them picked. Round 2 offered the app's nixie tube, a red tag with one ripple, a red edge with a passing shine - each plays on arrival or change and stops (his 2026-09-18 "too much of those blinking light"). Board: Raw/2026-11-08-badges/.
+
+## "Most professional" = the price list: ruled lines beat cards for the business look (2026-11-11)
+
+Shown the Sales Terminal as Today / A Tidy (today's cards, smaller) / B Price list (one ruled line per product, a table with columns on the PC, the day's numbers in one strip, a cream order slip) / C Cashier (picture tiles, one tap adds one), phone 375 and PC 1440, his words:
+
+> *"B looks the best i think it looks most professional"*
+
+- For the professional edition he took the densest, quietest option: 8 products before scrolling on the phone against 5 today, no card frames, sentence-case labels, one letter style. Same instinct as "doesnt take a lot of space" (2026-09-17) and "Cleanest won" (2026-09-03).
+- He did not mention the cost named beside it (the big 3D pack picture goes; the phone photo is 44 px wide). A picture is not what "professional" means to him on a selling screen.
+- This does NOT undo "flat cards read as a template" (2026-10-06): that was a presentation scene. On a work screen, rows with visible rules, tabular numbers and a strong total read as business software to him.
+- Same message: the game look is his resume and must stay showable beside the professional one - saved as kpm tag `game-edition-v1`. Board + note: Brainstorm/2026-11-11_full-redesign-sales-terminal-directions.md.

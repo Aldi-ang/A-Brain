@@ -1,7 +1,7 @@
 ---
 title: Full redesign, step 1 + 2 - screen ranking and three Sales Terminal directions
 created: 2026-11-11
-status: OPEN - waiting on Aldi (pick A / B / C, and the freeze question)
+status: DECIDED B (not built) + game look saved as kpm tag game-edition-v1; where the two editions live still open
 tags: [brainstorm, redesign, sales-terminal, professional-edition]
 ---
 
@@ -60,10 +60,23 @@ Kept in all three: the palette law (amber only as a mark or as text on dark; the
 B. Evidence from his taste file: "doesnt take a lot of space ... bigger button as well users need it" (2026-09-17), the shop cards "too smooth ... not even the lines to separate the information" (2026-10-20), "Cleanest won" (2026-09-03).
 not-chosen: A - lost on products per screen (6 vs 8 on the phone). Flips if the salesmen find a pack by its picture, not its name: B's phone picture is 44 px wide.
 
-## Decision
-OPEN - waiting on Aldi: A / B / C. Also open: whether the game look is frozen (a named restore point + the demo address) BEFORE the first redesigned screen is pushed to the live branch - his 2026-11-09 "i dont want u to overwrite this whole app, i want the recent app we build as my resume".
+## Decision (2026-11-11 17:52 WIB, verbatim)
+> "B looks the best i think it looks most professional, actually yes i want the existing build app, game inspiration DSM should be
+> stored somewhere else inside my github, so that if i want to show off my resume i can do that as well, and if i want to show off
+> the profession version also can, what do u think the wisest method to do that?, dont worry about the order, any order is fine by me"
+
+- **B, Price list** - Sales Terminal, phone and PC. NOT built yet.
+- **The game look is saved** (done 17:55 WIB): kpm tag `game-edition-v1` + branch `game-edition`, both on GitHub at `4e07d2f4`, the last game-look commit.
+- **The screen order is free**: "any order is fine by me".
+
+### Where the two editions live - options put to him, STILL OPEN
+| | How | Cost |
+|---|---|---|
+| 1. One repository, two branches (recommended, half done) | `game-edition` stays frozen; `phase0-solid-ground` becomes the professional app. The demo address is pointed at `game-edition` in Vercel (Settings > Git > Production Branch), so the showcase has its own live link | one setting, his to change; not yet verified which branch the demo's Vercel project builds today |
+| 2. A second repository for the game edition | he makes an empty repository, the tag is pushed into it, it gets its own Vercel project | a second project to set up (env keys, domain); gives a separate GitHub page for a resume |
+| Public code | either option, switched to public | NOT recommended without a review: the game edition and the professional app share the same rules and money code, so a public copy shows a stranger how the paid app works inside |
 
 ## Rejected on purpose
-Nothing yet.
+- A (Tidy) and C (Cashier) for the Sales Terminal - he took B on "most professional".
 
 Models applied: Inversion (what makes a redesign fail here: a silent break in the 3,768-line file that also does the money math - so A is the low-risk pole), Chesterton's Fence (the stock chip, the 44 px rule and the capybara room each exist because he asked; kept in all three), Reversibility Test (pushing a new look to the live branch replaces the look he called his resume - hence the freeze question first).
