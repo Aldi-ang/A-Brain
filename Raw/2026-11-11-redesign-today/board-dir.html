@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Direction board</title>
+<style>
+  body { margin: 0; background: #1b1a18; color: #efe9dc; font: 16px/1.4 "Segoe UI", Arial, sans-serif; }
+  h1 { font-size: 28px; margin: 0; padding: 26px 32px 2px; }
+  .sub { padding: 0 32px 18px; color: #b9b1a0; max-width: 1500px; }
+  .grid { display: grid; gap: 26px; padding: 0 32px 34px; }
+  .phone { grid-template-columns: repeat(4, 375px); width: 1642px; }
+  .pc { grid-template-columns: repeat(2, 1000px); width: 2090px; }
+  figure { margin: 0; }
+  h2 { font-size: 22px; margin: 0 0 8px; }
+  h2 b { display: inline-block; min-width: 30px; height: 30px; line-height: 30px; text-align: center; border-radius: 6px; background: #efe9dc; color: #1b1a18; margin-right: 8px; padding: 0 6px; }
+  h2 .t { background: none; color: #b9b1a0; border: 1px solid #6a645c; }
+  img { display: block; width: 100%; border: 1px solid #6a645c; }
+  figcaption { margin-top: 10px; color: #d9d2c2; font-size: 16px; }
+  figcaption strong { color: #fff; }
+</style>
+<script>
+const mode = new URLSearchParams(location.search).get('m') || 'phone';
+const s = mode === 'phone' ? 'p' : 'd';
+const cap = {
+  T: { phone: '<strong>5 products</strong> fit before scrolling. The total is hidden behind the PESANAN tab on the left edge.', pc: '<strong>3 products</strong> fit before scrolling. The cards are large; three different letter styles share the screen.' },
+  A: { phone: '<strong>Same shape as today, cleaned up.</strong> The top takes half the space. Total and the order button stay at the bottom. <strong>6 products</strong> fit.', pc: '<strong>Same three parts as today</strong>, order on the left. Smaller cards: <strong>8 products</strong> fit. Smallest change, lowest risk.' },
+  B: { phone: '<strong>A price list.</strong> One ruled line per product. Customer and payment at the top, total and Pay at the bottom. <strong>8 products</strong> fit.', pc: '<strong>A price list with columns</strong>, the day\'s numbers in one strip, the order slip on the right. <strong>9 products</strong> fit. Reads most like business software.' },
+  C: { phone: '<strong>A cashier screen.</strong> Big picture tiles; one tap adds one. Biggest buttons, but only <strong>4 products</strong> fit.', pc: '<strong>Picture tiles</strong>, kinds on the left, order slip on the right. <strong>10 products</strong> fit. Adding works differently, so it needs the most testing.' },
+};
+const name = { T: 'Today', A: 'Tidy', B: 'Price list', C: 'Cashier' };
+document.write(`<h1>Sales Terminal: 3 directions, ${mode === 'phone' ? 'phone (375 wide)' : 'PC (1440 wide)'}</h1>
+<div class="sub">Same products, same prices, same colours as the app today. The three drawings show an order with 2 items so the total is visible; today's frame has an empty order. The capybara and his room are the same picture as today, untouched.</div>
+<div class="grid ${mode}">${['T', 'A', 'B', 'C'].map((k) => `<figure><h2><b class="${k === 'T' ? 't' : ''}">${k === 'T' ? 'Now' : k}</b>${name[k]}</h2>
+<img src="${k === 'T' ? `today-${s}-sales.png` : `dir-${k}-${s}.png`}"><figcaption>${cap[k][mode]}</figcaption></figure>`).join('')}</div>`);
+</script>

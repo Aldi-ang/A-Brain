@@ -1,0 +1,234 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sales Terminal directions</title>
+<style>
+@font-face { font-family: Rajdhani; font-weight: 500; src: url("file:///D:/APP%20DEVELOPMENT/kpm%20inventory%20main%20FILES/kpm-inventory-main/node_modules/@fontsource/rajdhani/files/rajdhani-latin-500-normal.woff2"); }
+@font-face { font-family: Rajdhani; font-weight: 600; src: url("file:///D:/APP%20DEVELOPMENT/kpm%20inventory%20main%20FILES/kpm-inventory-main/node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2"); }
+@font-face { font-family: Rajdhani; font-weight: 700; src: url("file:///D:/APP%20DEVELOPMENT/kpm%20inventory%20main%20FILES/kpm-inventory-main/node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2"); }
+/* the app's own dark tokens, read off the running app 2026-11-11 */
+:root { --g: #0A0908; --panel: #14110e; --panel2: #1b1713; --l1: #26231F; --l2: #3E3A35; --l3: #6A645C; --ink: #E8E4DE; --mut: #A39B90;
+  --gold: #D08A2E; --red: #B4524A; --redt: #E08C82; --paper: #D2C9B4; --pink: #131211; --pmut: #3A3733; --pline: #8E856F; }
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--g); color: var(--ink); font: 14px/1.35 "Segoe UI", system-ui, sans-serif; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+h1, h3, .num, .rj, button { font-family: Rajdhani, sans-serif; }
+.num { font-variant-numeric: tabular-nums; }
+button { cursor: pointer; }
+button:disabled { opacity: .32; }
+svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- the bar every screen shares ---------- */
+.hd { flex: none; height: 52px; display: flex; align-items: center; gap: 4px; padding: 0 4px; border-bottom: 1px solid var(--l2); background: var(--panel); }
+.hd h1 { font-weight: 700; font-size: 19px; letter-spacing: .03em; }
+.hd .sp { flex: 1; }
+.ic { width: 44px; height: 44px; border: 0; background: none; color: var(--ink); display: grid; place-items: center; }
+.sync { display: flex; align-items: center; gap: 6px; color: var(--mut); font-size: 13px; padding: 0 6px; }
+.sync i { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.sync span, .hd .lnk, .hd .clock { display: none; }
+
+/* ---------- shared parts ---------- */
+.tabs { display: flex; gap: 6px; }
+.tab { height: 40px; padding: 0 14px; border: 1px solid var(--l3); border-radius: 8px; font: 600 15px Rajdhani; color: var(--mut); display: grid; place-items: center; background: none; }
+.tab.on { color: var(--ink); border-color: var(--gold); box-shadow: inset 0 -3px 0 var(--gold); }
+.utabs { display: flex; gap: 18px; }
+.utab { height: 44px; border: 0; border-bottom: 3px solid transparent; background: none; font: 600 16px Rajdhani; color: var(--mut); }
+.utab.on { color: var(--ink); border-color: var(--gold); }
+.search { height: 44px; border: 1px solid var(--l3); border-radius: 8px; display: flex; align-items: center; gap: 8px; padding: 0 12px; color: var(--mut); font-size: 15px; background: #0d0b0a; min-width: 0; }
+.search svg { width: 18px; height: 18px; flex: none; }
+.ph { display: block; background: #0d0b0a; border-radius: 6px; overflow: hidden; }
+.ph img { width: 100%; height: 100%; object-fit: contain; display: block; }
+h3 { font-weight: 700; font-size: 15.5px; line-height: 1.18; letter-spacing: .02em; }
+.price { color: var(--gold); font-weight: 700; font-size: 18px; white-space: nowrap; }
+.chip { display: inline-block; font-size: 12.5px; color: var(--ink); border: 1px solid var(--l3); border-radius: 5px; padding: 1px 7px; white-space: nowrap; }
+.chip.out { color: var(--redt); border-color: var(--red); }
+.out h3, .out .ph img { opacity: .5; }
+.step { display: flex; align-items: center; flex: none; }
+.step button { width: 42px; height: 44px; border: 1px solid var(--l3); border-radius: 8px; background: var(--panel2); color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1; }
+.step .plus { border-color: var(--gold); color: var(--gold); }
+.step b { width: 28px; text-align: center; font-size: 18px; font-weight: 700; color: var(--mut); }
+.step.on b { color: var(--ink); }
+.list { flex: 1; min-height: 0; overflow: hidden; grid-auto-rows: max-content; }
+.bar { flex: none; height: 68px; background: var(--panel); border-top: 1px solid var(--l3); display: flex; align-items: center; gap: 12px; padding: 0 12px; }
+.bar .t { flex: 1; min-width: 0; }
+.bar small { display: block; color: var(--mut); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar b { font-size: 23px; font-weight: 700; line-height: 1.05; }
+.cta { height: 48px; padding: 0 18px; border-radius: 8px; border: 0; background: var(--ink); color: #0A0908; font-weight: 700; font-size: 17px; letter-spacing: .02em; white-space: nowrap; }
+.cust { flex: none; height: 46px; display: flex; align-items: center; gap: 8px; padding: 0 12px; background: var(--panel2); border-bottom: 1px solid var(--l2); font-size: 13px; color: var(--mut); }
+.cust b { font: 700 16px Rajdhani; color: var(--ink); letter-spacing: .02em; }
+.cust .sp { flex: 1; }
+.cust .pay { border: 1px solid var(--l3); border-radius: 6px; padding: 3px 9px; color: var(--ink); }
+
+/* the order slip: cream paper, dark ink (gold is never text on a light ground) */
+.slip { display: flex; flex-direction: column; border: 1px solid var(--l2); border-radius: 10px; overflow: hidden; min-height: 0; }
+.capy { flex: none; overflow: hidden; border-bottom: 1px solid var(--l2); }
+.capy div { width: 416px; height: 196px; background: url(today-d-sales.png) -28px -274px no-repeat; transform-origin: 0 0; }
+.paper { flex: 1; background: var(--paper); color: var(--pink); padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; min-height: 0; }
+.paper label { font-size: 12.5px; color: var(--pmut); margin-bottom: -4px; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #46423C; border-radius: 8px; overflow: hidden; }
+.seg b { height: 40px; display: grid; place-items: center; font: 600 15px Rajdhani; color: var(--pmut); }
+.seg .on { background: var(--pink); color: #F4F1EB; }
+.field { height: 44px; border: 1px solid #46423C; border-radius: 6px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; font: 700 16px Rajdhani; letter-spacing: .02em; }
+.lines { margin-top: 4px; border-top: 1px solid #46423C; }
+.lines div { display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; border-bottom: 1px dashed var(--pline); font-size: 14px; }
+.lines div b { font: 700 16px Rajdhani; white-space: nowrap; }
+.lines i { font-style: normal; color: var(--pmut); }
+.grow { flex: 1; }
+.tot { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; color: var(--pmut); }
+.tot b { font: 700 32px/1 Rajdhani; color: var(--pink); }
+.payb { height: 52px; border: 0; border-radius: 8px; background: var(--pink); color: #F4F1EB; font-weight: 700; font-size: 19px; letter-spacing: .03em; }
+.stat { padding: 12px 0; border-bottom: 1px solid var(--l2); }
+.stat small { display: block; color: var(--mut); font-size: 12.5px; }
+.stat b { display: block; font: 700 24px/1.15 Rajdhani; }
+.stat em { font-style: normal; font-size: 12.5px; color: var(--mut); }
+.stat .warn { color: var(--redt); font-size: 17px; }
+
+/* ---------- A: Rapi (today's shape, tidied) ---------- */
+.A .ctl { flex: none; padding: 10px 12px; display: grid; gap: 8px; }
+.A .list { padding: 0 12px; display: grid; gap: 8px; align-content: start; }
+.a-card { display: grid; grid-template-columns: 50px 1fr auto; gap: 10px; align-items: center; border: 1px solid var(--l2); border-radius: 10px; background: var(--panel); padding: 8px 10px; }
+.a-card .ph { width: 50px; height: 62px; }
+.a-card .ln { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 4px; }
+
+/* ---------- B: Daftar harga (price list) ---------- */
+.B .ctl { flex: none; padding: 0 12px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--l2); }
+.B .ctl .search { flex: 1; height: 38px; }
+.B .list { padding: 0 12px; }
+.b-row { display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center; min-height: 68px; padding: 7px 0; border-bottom: 1px solid var(--l2); }
+.b-row .ph { width: 44px; height: 54px; }
+.b-row p { font-size: 13px; color: var(--mut); margin-top: 2px; }
+.b-row p .price { font-size: 16px; }
+.b-row .red { color: var(--redt); }
+.b-row .step:not(.on) button:first-child, .b-row .step:not(.on) b { display: none; }
+.b-row .step:not(.on) .plus { width: 48px; }
+
+/* ---------- C: Kasir (cashier tiles) ---------- */
+.C .ctl { flex: none; padding: 10px 12px; display: flex; gap: 8px; align-items: center; }
+.C .ctl .search { flex: 1; height: 40px; }
+.C .list { padding: 0 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
+.c-tile { border: 1px solid var(--l2); border-radius: 10px; background: var(--panel); overflow: hidden; display: flex; flex-direction: column; }
+.c-tile .ph { flex: none; height: 100px; border-radius: 0; border-bottom: 1px solid var(--l2); padding: 6px; position: relative; }
+.c-tile .badge { position: absolute; top: 6px; right: 6px; min-width: 26px; height: 26px; border-radius: 13px; background: var(--gold); color: #0A0908; font: 700 16px/26px Rajdhani; text-align: center; padding: 0 6px; }
+.c-tile .bd { padding: 8px 10px 10px; display: flex; flex-direction: column; gap: 5px; flex: 1; }
+.c-tile h3 { font-size: 14.5px; min-height: 34px; }
+.c-tile .ln { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 6px; }
+.c-tile .ln span:last-child { font-size: 12px; color: var(--mut); white-space: nowrap; }
+.c-tile .ln .red { color: var(--redt); }
+.c-tile .add { height: 44px; border: 1px solid var(--gold); border-radius: 8px; background: none; color: var(--gold); font-weight: 700; font-size: 16px; }
+.c-tile .step { justify-content: space-between; }
+.c-tile .step button { width: 48px; }
+
+/* ================= PC ================= */
+@media (min-width: 900px) {
+  .hd { height: 56px; padding: 0 16px; gap: 10px; }
+  .hd h1 { font-size: 22px; }
+  .sync span, .hd .lnk, .hd .clock { display: inline; }
+  .hd .lnk { color: var(--mut); font-size: 13px; padding: 7px 11px; border: 1px solid var(--l2); border-radius: 8px; }
+  .hd .clock { font: 600 19px Rajdhani; color: var(--ink); padding: 0 6px 0 10px; font-variant-numeric: tabular-nums; }
+  .wrap { flex: 1; min-height: 0; display: grid; gap: 20px; padding: 20px; }
+  .col { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+  .bar, .cust { display: none; }
+  .ctl { padding: 0 0 14px !important; border: 0 !important; display: flex !important; align-items: center; gap: 14px !important; }
+  .ctl .search { flex: 1; height: 44px !important; }
+  .list { padding: 0 !important; }
+  h3 { font-size: 16.5px; }
+
+  .A .wrap { grid-template-columns: 360px 1fr 224px; }
+  .A .list { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .a-card { grid-template-columns: 1fr; gap: 0; padding: 0; overflow: hidden; align-items: stretch; }
+  .a-card .ph { width: auto; height: 138px; border-radius: 0; border-bottom: 1px solid var(--l2); padding: 10px; }
+  .a-card .bd { padding: 10px 12px 0; }
+  .a-card h3 { min-height: 39px; }
+  .a-card .ln { justify-content: space-between; margin-top: 8px; }
+  .a-card .step { padding: 10px 12px 12px; justify-content: flex-end; }
+  .rail { border: 1px solid var(--l2); border-radius: 10px; padding: 4px 16px 12px; background: var(--panel); }
+  .rail .stat:last-child { border: 0; }
+
+  .B .wrap { grid-template-columns: 1fr 400px; }
+  .strip { flex: none; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--l2); border-radius: 10px; background: var(--panel); margin-bottom: 16px; }
+  .strip .stat { border: 0; border-right: 1px solid var(--l2); padding: 12px 16px; }
+  .strip .stat:last-child { border: 0; }
+  .B .list { border: 1px solid var(--l2); border-radius: 10px; background: var(--panel); overflow: hidden; flex: 0 1 auto; }
+  .b-head, .b-row { grid-template-columns: 48px minmax(0, 1fr) 90px 170px 110px 132px; gap: 16px; padding: 0 16px; }
+  .b-head { display: grid; align-items: center; height: 38px; background: var(--panel2); border-bottom: 1px solid var(--l3); font-size: 12.5px; color: var(--mut); letter-spacing: .03em; }
+  .b-head .r, .b-row .r { text-align: right; justify-self: end; }
+  .b-row { min-height: 64px; }
+  .b-row:last-child { border: 0; }
+  .b-row .ph { width: 40px; height: 50px; }
+  .b-row .price { font-size: 19px; }
+  .b-row .mut { color: var(--mut); font-size: 13.5px; }
+  .b-row .stk small { display: block; color: var(--mut); font-size: 12px; }
+
+  .C .wrap { grid-template-columns: 220px 1fr 380px; }
+  .C .side { gap: 14px; }
+  .C .vt { display: grid; gap: 6px; }
+  .C .vt .tab { justify-items: start; height: 44px; font-size: 16px; }
+  .C .list { grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .c-tile .ph { height: 128px; }
+  .c-tile h3 { font-size: 15px; min-height: 36px; }
+}
+@media (max-width: 899px) { .pc { display: none !important; } .wrap, .col { display: contents; } }
+</style>
+<body>
+<script>
+const P = [
+  { n: 'AMERICAN SPIRIT - TURQUOISE', t: 'Natural', s: '1 Bal 10 Slop', b: '300 Bks', p: '265 rb' },
+  { n: 'CELLO COFFEE & CARAMEL KRETEK', t: 'SKT', s: '1 Bal 10 Slop', b: '300 Bks', p: '10,5 rb' },
+  { n: 'CELLO CHOCOLATE', t: 'SKT', s: '3 Bal', b: '300 Bks', p: '12,5 rb' },
+  { n: 'CELLO MMRAPI', t: 'SKT', s: '', p: '10,5 rb' },
+  { n: 'CELLO GREEN', t: 'SKT', s: '', p: '9,5 rb' },
+  { n: 'CELLO TEH MANIS', t: 'SKT', s: '', p: '9,5 rb' },
+];
+const cart = { 1: 2, 2: 1 };
+const D = new URLSearchParams(location.search).get('d') || 'A';
+const pc = innerWidth >= 900;
+const I = { menu: '<svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>', bell: '<svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 1 12 0c0 6 2 7 2 7H4s2-1 2-7M10 20a2 2 0 0 0 4 0"/></svg>',
+  find: '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>' };
+const img = (i) => `<div class="ph"><img src="img/p${i}.jpg" alt=""></div>`;
+const chip = (p) => p.s ? `<span class="chip">${p.s}</span>` : '<span class="chip out">Kosong</span>';
+const step = (i) => { const q = cart[i] || 0; return `<div class="step ${q ? 'on' : ''}"><button ${q ? '' : 'disabled'}>&minus;</button><b class="num">${q}</b><button class="plus" ${P[i].s ? '' : 'disabled'}>+</button></div>`; };
+const hd = `<header class="hd"><button class="ic" aria-label="Menu">${I.menu}</button><h1>Terminal Penjualan</h1><span class="sp"></span>
+  <span class="lnk">Panduan</span><span class="lnk">Catatan update</span><span class="sync"><i></i><span>Tersinkron</span></span>
+  <button class="ic" aria-label="Inbox">${I.bell}</button><span class="clock">17:34</span></header>`;
+const search = `<div class="search">${I.find}<span>Cari barang</span></div>`;
+const tabs = (c = 'tab', w = 'tabs') => `<div class="${w}"><button class="${c} on">Semua</button><button class="${c}">Natural</button><button class="${c}">SKT</button></div>`;
+const slip = (s) => `<aside class="slip pc"><div class="capy" style="height:${Math.round(196 * s)}px"><div style="transform:scale(${s})"></div></div><div class="paper">
+  <div class="seg"><b class="on">Jual</b><b>Retur</b></div>
+  <label>Pelanggan</label><div class="field">TOKO PURNAMA<span>&#9662;</span></div>
+  <label>Cara bayar</label><div class="field">Tunai<span>&#9662;</span></div>
+  <div class="lines"><div><span>CELLO COFFEE &amp; CARAMEL KRETEK <i>&times; 2 Bks</i></span><b>21.000</b></div><div><span>CELLO CHOCOLATE <i>&times; 1 Bks</i></span><b>12.500</b></div></div>
+  <span class="grow"></span><div class="tot"><span>Total &middot; 3 Bks</span><b>Rp 33.500</b></div><button class="payb">Bayar</button></div></aside>`;
+const stats = [['Uang masuk hari ini', 'Rp 29.805.000', '&#9650; 50% dari kemarin'], ['Toko selesai', '5', '&#9660; 1 dari kemarin'], ['Pelanggan terakhir', 'TOKO PURNAMA', '5 jam lalu &middot; Rp 2.870.000'], ['Stok menipis', '<span class="warn">AMERICAN SPIRIT</span>', 'sisa 300 Bks di Gudang Pusat']]
+  .map(([a, b, c]) => `<div class="stat"><small>${a}</small><b class="num">${b}</b><em>${c}</em></div>`).join('');
+const bar = (cta) => `<footer class="bar"><div class="t"><small>Pesanan &middot; TOKO PURNAMA &middot; 3 Bks</small><b class="num">Rp 33.500</b></div><button class="cta">${cta}</button></footer>`;
+const cust = `<div class="cust"><span>Pelanggan</span><b>TOKO PURNAMA</b><span>&#9662;</span><span class="sp"></span><span class="pay">Tunai &#9662;</span></div>`;
+
+const A = () => `${hd}<div class="wrap">${slip(360 / 416)}
+  <main class="col"><div class="ctl">${tabs()}${search}</div><div class="list">${P.map((p, i) => `<article class="a-card ${p.s ? '' : 'out'}">${img(i)}
+    <div class="bd"><h3>${p.n}</h3><div class="ln"><span class="price num">${p.p}</span>${chip(p)}</div></div>${step(i)}</article>`).join('')}</div></main>
+  <aside class="rail pc">${stats}</aside></div>${bar('Lihat pesanan')}`;
+
+const B = () => `${hd}${cust}<div class="wrap"><main class="col"><div class="strip pc">${stats}</div>
+  <div class="ctl">${tabs('utab', 'utabs')}${search}</div>
+  <div class="list"><div class="b-head pc"><span></span><span>Barang</span><span>Jenis</span><span>Stok di mobil</span><span class="r">Harga ecer</span><span class="r">Jumlah</span></div>
+  ${P.map((p, i) => pc
+    ? `<div class="b-row ${p.s ? '' : 'out'}">${img(i)}<h3>${p.n}</h3><span class="mut">${p.t}</span><span class="stk">${p.s ? `${p.s}<small>${p.b}</small>` : '<span class="chip out">Kosong</span>'}</span><span class="price num r">${p.p}</span><span class="r">${step(i)}</span></div>`
+    : `<div class="b-row ${p.s ? '' : 'out'}">${img(i)}<div><h3>${p.n}</h3><p><span class="price num">${p.p}</span> &middot; ${p.s || '<span class="red">Kosong</span>'}</p></div>${step(i)}</div>`).join('')}</div></main>
+  ${slip(400 / 416)}</div>${bar('Bayar')}`;
+
+const C = () => `${hd}${cust}<div class="wrap"><aside class="col side pc"><div class="vt">${tabs('tab', 'vt')}</div><div class="rail">${stats}</div></aside>
+  <main class="col"><div class="ctl">${pc ? '' : tabs()}${search}</div><div class="list">${P.map((p, i) => { const q = cart[i] || 0; return `<article class="c-tile ${p.s ? '' : 'out'}">
+    <div class="ph"><img src="img/p${i}.jpg" alt="">${q ? `<span class="badge">${q}</span>` : ''}</div><div class="bd"><h3>${p.n}</h3>
+    <div class="ln"><span class="price num">${p.p}</span>${p.s ? `<span>${p.s}</span>` : '<span class="red">Kosong</span>'}</div><span class="grow"></span>
+    ${q ? step(i) : `<button class="add" ${p.s ? '' : 'disabled'}>+ Tambah</button>`}</div></article>`; }).join('')}</div></main>
+  ${slip(380 / 416)}</div>${bar('Bayar')}`;
+
+document.body.className = D;
+document.body.innerHTML = ({ A, B, C })[D]();
+/* how many products fit before scrolling: measured, never typed */
+document.fonts.load("700 16px Rajdhani").then(() => document.fonts.ready).then(() => { const list = document.querySelector('.list'); const items = [...list.querySelectorAll('.a-card, .b-row, .c-tile')];
+  const r0 = items[0].getBoundingClientRect(); const cols = items.filter((e) => Math.abs(e.getBoundingClientRect().top - r0.top) < 2).length;
+  const next = items.find((e) => e.getBoundingClientRect().top > r0.top + 2); const pitch = next ? next.getBoundingClientRect().top - r0.top : r0.height;
+  const end = document.querySelector('.bar') && !pc ? document.querySelector('.bar').getBoundingClientRect().top : innerHeight - (pc ? 20 : 0);
+  const shown = items.filter((e) => e.getBoundingClientRect().bottom <= end + 1).length;
+  window.__fit = { cols, pitch: Math.round(pitch), listTop: Math.round(r0.top), fits: Math.floor((end - r0.top + (pitch - r0.height)) / pitch) * cols, shown, font: document.fonts.check('700 16px Rajdhani'), sw: document.documentElement.scrollWidth }; });
+</script>
