@@ -1,7 +1,7 @@
 ---
 title: Full redesign, step 1 + 2 - screen ranking and three Sales Terminal directions
 created: 2026-11-11
-status: DECIDED B (not built) + game look saved as kpm tag game-edition-v1; where the two editions live still open
+status: DECIDED B (not built); game look saved as kpm tag game-edition-v1; one repository, three links (game link not set up yet)
 tags: [brainstorm, redesign, sales-terminal, professional-edition]
 ---
 
@@ -80,3 +80,22 @@ not-chosen: A - lost on products per screen (6 vs 8 on the phone). Flips if the 
 - A (Tidy) and C (Cashier) for the Sales Terminal - he took B on "most professional".
 
 Models applied: Inversion (what makes a redesign fail here: a silent break in the 3,768-line file that also does the money math - so A is the low-risk pole), Chesterton's Fence (the stock chip, the 44 px rule and the capybara room each exist because he asked; kept in all three), Reversibility Test (pushing a new look to the live branch replaces the look he called his resume - hence the freeze question first).
+
+## Where the editions live - DECIDED 1, with three links (2026-11-11 18:00 WIB, verbatim)
+> "i choose 1 because the demo will be better when we make the professional one right and we dont need the demo for the gaming one,
+> we dont have to spend anymore quota on the gaming one so there will be 3 app link i think, 1 is for the real professsional, 2 is
+> demo professional and 3 is game version"
+
+| Link | Shows | Built from | State |
+|---|---|---|---|
+| 1 Real professional | the companies' live app | `phase0-solid-ground` | exists; turns professional screen by screen |
+| 2 Demo professional | the same build with the fake company | `phase0-solid-ground`, demo project | exists; follows link 1 by itself, nothing to switch |
+| 3 Game version | the frozen showcase | branch `game-edition` / tag `game-edition-v1` | code saved; NO live link yet |
+
+- So the push of B is NOT blocked by anything: the demo address is meant to follow the professional build.
+- No more work goes into the game edition ("we dont have to spend anymore quota on the gaming one").
+- Link 3 is a later, small job and mostly his clicks in Vercel. Two things to check when it is set up, neither verified yet (the docs lookup failed today): (a) a link for a branch that is not the project's main branch may sit behind a Vercel sign-in wall, in which case the game version needs its own Vercel project whose main branch is `game-edition`; (b) that build must carry the DEMO keys (the fake company's database) - a game build with the real keys would open the real company data in the old look. Its sign-in address also has to be added in the demo Firebase project (Authentication > Settings > Authorized domains).
+- Known ceiling: the game version reads the demo database the professional demo also uses. If the professional edition ever changes how data is stored, the frozen game build may stop reading it; the fix then is its own copy of the demo database.
+
+## Rejected on purpose (editions)
+- 2, a second repository for the game edition - he chose one repository; can still be made later from the tag.
