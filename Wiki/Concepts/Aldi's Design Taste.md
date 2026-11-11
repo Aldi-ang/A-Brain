@@ -3670,3 +3670,14 @@ Shown the Sales Terminal as Today / A Tidy (today's cards, smaller) / B Price li
 - He did not mention the cost named beside it (the big 3D pack picture goes; the phone photo is 44 px wide). A picture is not what "professional" means to him on a selling screen.
 - This does NOT undo "flat cards read as a template" (2026-10-06): that was a presentation scene. On a work screen, rows with visible rules, tabular numbers and a strong total read as business software to him.
 - Same message: the game look is his resume and must stay showable beside the professional one - saved as kpm tag `game-edition-v1`. Board + note: Brainstorm/2026-11-11_full-redesign-sales-terminal-directions.md.
+
+## Shown B built, he asked for MORE of it: the top bar, the shopping list, and the capybara off the panel (2026-11-12)
+
+Shown the built Sales Terminal in direction B (boards BUILT-PHONE.png / BUILT-PC.png, kpm cb8f5244) with two questions - rebuild the shared top bar as one row, and keep the rubber-stamp save button or a dark plate:
+
+> *"yes we should redesign to make it more professional, make the shopping list professional as well, and dont forget the capybara on the right is blocking the shopping panel"*
+
+- "Professional" reaches every part of the screen he can see: the header that was left in the game look, and the order lines that were still boxed, dashed cards. A half-converted screen reads to him as not done. Convert the whole visible surface of a screen, or say which part is left and why, before showing it.
+- He answered the stamp question by scope, not by name: the save button went with "the shopping list". His own 2026-11-04 stamp pick did not survive the professional edition - a pick made for the game look is not a pick for the professional one.
+- **The capybara may live on a work screen only where he takes nothing from the work.** He named it himself, unasked. The drawing he picked had the room on top of the order slip; built, the room held 280 px of a 651 px panel and the total was under the fold. A mascot that costs the order panel its space is "blocking", even when it is exactly where the drawing put it.
+- Built from it (kpm 1695539c): ruled order lines, the item's money beside its name, Total pinned with a dark save button, the PC screen fitted to the window, the room scrolling away with the order, his corner visit only while he speaks and at the bottom-left. Board: Raw/2026-11-11-redesign-today/PANEL-V2.png.

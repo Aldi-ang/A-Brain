@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Sales Terminal - the shopping panel, before and now</title>
+<style>
+  body { margin: 0; padding: 24px; background: #ece7dc; color: #1c1a17; font: 15px/1.4 "Segoe UI", system-ui, sans-serif; }
+  h1 { margin: 0 0 4px; font-size: 22px; }
+  p.sub { margin: 0 0 18px; color: #55504a; }
+  .row { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 26px; }
+  figure { margin: 0; }
+  figure img { display: block; border: 1px solid #b9b2a3; background: #111; }
+  figcaption { margin-top: 8px; max-width: var(--w); }
+  figcaption b { display: block; font-size: 16px; }
+  .pc img { width: 620px; } .pc { --w: 620px; }
+  .phone img { width: 375px; } .phone { --w: 375px; }
+</style>
+<body>
+<h1>Sales Terminal: the shopping panel, yesterday and now</h1>
+<p class="sub">Real screen, demo salesman, same cart (2 items, Rp 30.000). 12 Nov 2026.</p>
+<div class="row">
+  <figure class="pc"><img src="built-d-cart.png"><figcaption><b>1 · Yesterday (PC)</b>The capybara's room holds the top of the panel. The items, the total and the save button are below the screen.</figcaption></figure>
+  <figure class="pc"><img src="v2-d-cart.png"><figcaption><b>2 · Now (PC), panel at the top</b>The screen fits the window. Total and the save button are always in view.</figcaption></figure>
+  <figure class="pc"><img src="v2-d-scrolled.png"><figcaption><b>3 · Now (PC), panel scrolled</b>Scroll the panel and the room moves away: the whole panel is the order. Each item is one clean line.</figcaption></figure>
+</div>
+<div class="row">
+  <figure class="phone"><img src="built-p-slip.png"><figcaption><b>4 · Yesterday (phone)</b>Boxed cards with dashed edges, a pink remove box, the old stamp button.</figcaption></figure>
+  <figure class="phone"><img src="v2-p-slip.png"><figcaption><b>5 · Now (phone)</b>Ruled lines, the item's total beside its name, a quiet remove (x). Total and a plain save button stay at the bottom.</figcaption></figure>
+</div>
+</body>

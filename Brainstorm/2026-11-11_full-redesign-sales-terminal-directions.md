@@ -129,4 +129,26 @@ Why 5 and not 8: the shared top bar (big title + icon row, about 205 px on the p
 - About 15 checks pinned the old look by class string. Each was re-pinned to B with its reason, none deleted.
 - Not rendered before the push: Lite Mode, retur mode, the BUNDLES kind, the owner's stock-source switch, a LOW count.
 
+## His answer to the built screen (2026-11-12, verbatim) and what it changed (kpm 1695539c)
+> "yes we should redesign to make it more professional, make the shopping list professional as well, and dont forget the capybara on the right is blocking the shopping panel"
+
+| His words | Read as | State |
+|---|---|---|
+| "yes we should redesign to make it more professional" | yes to question 1: the shared top bar as one row | NOT built - the next job (NEXT-SESSION top). OPEN: which of the 5 buttons stay on the phone's row |
+| "make the shopping list professional as well" | the order lines AND the save button (question 2 answered by scope) | built, live |
+| "the capybara on the right is blocking the shopping panel" | the room held 280 px of the 651 px panel; the total was under the fold; his corner visit stood on the slip | built, live |
+
+What was built: ruled order lines (the item's money beside its name, a quiet x), Total pinned with a dark save button, the PC screen fitted to the shell's scroll box (measured) so the table scrolls inside itself, the room inside the slip's own scroll (not sticky), his corner visit only while he speaks and at the bottom-left. Board: `Raw/2026-11-11-redesign-today/PANEL-V2.png` (yesterday beside now).
+
+The capybara options weighed, since this touches "his room untouched":
+| Option | Cost | Verdict |
+|---|---|---|
+| Room scrolls with the order; visit only when speaking, bottom-left | he is out of sight while the order is scrolled and he is idle | BUILT |
+| Shrink the room to about 190 px (the drawing's size) | his sprite is 200 px tall; a scale blurs the pixel art | rejected |
+| Room leaves the PC terminal, he only visits (as on the phone) | removes the room he asked to keep | rejected |
+| Visit always shown, moved to the bottom-left | first frame: he stood on the product names of the last rows | rejected after seeing it |
+Flips if he says he misses seeing him: then the visit can show idle too, small, in the hint bar's row.
+
+Models applied (panel): Inversion (what makes a mascot a cost: taking space from the order, or standing on a number), Second-Order (fitting the screen to the window ends the page scroll his walk-out used - so the walk-out now listens to the slip's scroll), Chesterton's Fence (the stamp was his own pick; replaced only because his answer covered it).
+
 Models applied (build): Chesterton's Fence (the stamp, the photo corners and the flip are his named picks - kept, and the stamp put to him instead of replaced), Inversion (what breaks a look-only job: a second way to pay or to save - so one payment list feeds both selects and Bayar only opens the slip), Reversibility (the old look is one `git checkout game-edition-v1 -- src/MerchantSalesView.jsx` away).
