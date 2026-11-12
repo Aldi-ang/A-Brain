@@ -114,6 +114,27 @@ Choices made while building, not asked first - each one is one condition to flip
 Not exercised for real: the gate at the save (the lab has no proof photo). It is pinned by text and the gate itself is
 checked on real cases.
 
+## Stage B built and live, 2026-11-12 18:25 WIB (kpm 20131db3) - NOT the way the plan said
+
+The plan (decision 7) was one new record per shop per package plus a Console rule. While building, the shop's own
+sales turned out to already be that record: every sale stores `offers` with `taps` (online and offline), sales can
+never be edited or deleted (`transactions: update, delete: false`), every salesman may read them, and the terminal
+already reads a shop's sales by name for the shop-level check (no index). So stage B counts the sales.
+
+| | New record (the plan) | The shop's sales (built) |
+|---|---|---|
+| Console rule for him to publish | yes | none |
+| Extra write per package sale | yes, could fail or be skipped by a phone | none |
+| Survives a new phone | yes | yes |
+| Return gives the limit back | must be coded around | cannot: a return is its own sale |
+| Boss sees who took it | new screen | already in the sales and Offer Performance |
+
+not-chosen: the new record - lost on a rule to publish and a write that can fail. Flips if: a shop's sales stop being
+readable to salesmen, or one shop passes ~1k sales (then an index or the record).
+Known edges: an old sale typed under another name is not counted; an offline sale can be counted twice for the moment
+it syncs (refuses a package, never a sale). The assignment id (decision 8) is not built: only a rule needs it.
+Also proven this round: stage A's check at save, for real (another salesman's shop refused, nothing written).
+
 ## Rejected on purpose
 
 - **A limit per deal** (my first recommendation, before he explained): it does not stop a second sale to the same shop an hour later. His per-shop rule is the right one.
