@@ -132,7 +132,9 @@ if (mismatch.length) {
 
 const oversize = entries.filter((e) => e.lines > MAX_LINES);
 if (oversize.length) {
-  problems.push(`RUNAWAY LENGTH — ${oversize.map((e) => `"${e.title}" (${e.lines} lines)`).join(', ')}.`);
+  // the count and the 3 longest only: the full list was ~27 titles, printed at every session start (his 2026-11-12 "it waste my 13%")
+  const longest = [...oversize].sort((x, y) => y.lines - x.lines).slice(0, 3);
+  problems.push(`RUNAWAY LENGTH — ${oversize.length} entries; the longest: ${longest.map((e) => `"${e.title}" (${e.lines} lines)`).join(', ')}.`);
 }
 
 const tally = `${entries.length} entries — ${live.length} LIVE, ${likely.length} LIKELY, ${retired.length} RETIRED`;
