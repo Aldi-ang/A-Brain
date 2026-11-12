@@ -184,3 +184,8 @@ Models applied: Second-Order Thinking (who hears the bell), Inversion (what if T
 His words: "yes i think tier 4 and above can refresh that immediately and test it yourself" (to: should tier 3+ be able to clear one shop's package count). He picked tier 4 and above, wider than the tier 3 asked. Built as customer.bundleReset[package id] = time of the clear; the count reads only sales after it; the sales stay untouched; audit BUNDLE_COUNT_CLEARED. Button on the terminal package card, only when that count is full.
 Cost he accepted: every clear is also a way around the limit - stage D's report should name cleared shops too.
 Rejected on purpose: deleting or editing the sale (sales can never be edited, by rule) · a counter field on the shop (two sources of truth with the sales).
+
+## Stage D built and live, 2026-11-13 06:30 WIB (kpm 3f5e71bb) - the package rules A-D are complete
+Where: Sales History > Context Analytics, under Offer Performance (same period and region fence; not in a field agent's own report). "Package, then Retur within 7 days": one row per Retur of a package's cigarettes at the same shop within 7 days, tied to the LATEST package sale before it. Plus "Package counts cleared, last 30 days" from customers bundleReset.
+Caught in the lab: the first version listed one Retur twice when the shop had two package sales - fixed before the push, and the self-check holds it.
+Rejected on purpose: blocking or undoing anything (his rule: show, not stop) · a new screen (one line beside the offers it is about) · reading outside the report period (ceiling noted in the code).
