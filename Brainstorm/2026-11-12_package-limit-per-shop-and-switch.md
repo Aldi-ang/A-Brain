@@ -158,7 +158,11 @@ a side door. The tier-4 confirmation queue means nothing until this is closed.
 | B. Leave it, report self-assignments to the boss | nothing changes for salesmen | the package limit stays a suggestion |
 | C. A + a database rule that only T1-T4 may change assignedAgent | closes it in the database too | a rule he publishes; every other writer of assignedAgent (CustomerManager.jsx:662 transfer) must be checked first |
 
-Question put to him (verbatim in kpm PROGRESS 2026-11-12 18:47). Second-Order Thinking applied: the change alters what a
+Question put to him (verbatim in kpm PROGRESS 2026-11-12 18:47).
+
+**DECIDED 2026-11-12 21:30 WIB:** *"i think i only give the paintbrush features for tier 4 and above in default bro"* - he
+believed it was already locked; the pens were, the two Assign Fleet boxes were not. Built option A (kpm 9eda75b5): choosing
+a shop's salesman = tier 1-4, pins stay open. Option C (the database rule) is still open. Second-Order Thinking applied: the change alters what a
 salesman does every day, so it is his, not mine.
 
 ## Rejected on purpose
