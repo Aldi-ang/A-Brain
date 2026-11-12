@@ -3689,3 +3689,13 @@ Shown the built Sales Terminal in direction B (boards BUILT-PHONE.png / BUILT-PC
 What he circled on the Sales Terminal: SEMUA / SKT / NATURAL / SK... as plain words with a gold underline, squeezed into 58% of the phone row beside the search, the lit one cut in half, directly under a second underlined row (the stock sources). Built (kpm 00cf1b51): bordered buttons on their own phone row, the lit one takes the gold edge. **No verdict from him yet.**
 
 Second half of the sentence: a count he can only TYPE reads to him as "no add button". A number box needs a minus and a plus beside it, like the product rows. Applied to the promo goods on the order slip, and a plus mark was added to the package card (one big press that did not say so).
+
+## 2026-11-12 — a control that LOOKS like the others must BEHAVE like the others
+
+> *"but there is no minus button on the promo and i think we should add limit option on the promo as well manageable by tier 3 and above on default also there is no SFX and animation on the button press, unlike others add and minus button, btw what i meant before was not promo but paket i was wrong"*
+
+The package card had been given a plus MARK (a drawn square, not a button) and a count. He read it as a broken button within one look: no minus beside it, no click sound, no press movement. Rule taken: when a new control borrows the look of an existing one, it borrows ALL of it - the partner button, the sound, the press animation - or it does not borrow the look. Built (kpm 6257a8df): − n + on the package card with the product row's own classes and sounds.
+
+Also: his word "promo" meant PAKET (the package offers), not the promo goods on the slip. Ask which SCREEN when a noun has two homes; the first build answered the wrong one (the − + on the slip stays, it was missing too).
+
+OPEN: the package limit (his idea, "manageable by tier 3 and above on default") - what the number counts is his to pick; asked 2026-11-12, see PROGRESS.
