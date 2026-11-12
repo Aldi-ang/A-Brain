@@ -3681,3 +3681,11 @@ Shown the built Sales Terminal in direction B (boards BUILT-PHONE.png / BUILT-PC
 - He answered the stamp question by scope, not by name: the save button went with "the shopping list". His own 2026-11-04 stamp pick did not survive the professional edition - a pick made for the game look is not a pick for the professional one.
 - **The capybara may live on a work screen only where he takes nothing from the work.** He named it himself, unasked. The drawing he picked had the room on top of the order slip; built, the room held 280 px of a 651 px panel and the total was under the fold. A mascot that costs the order panel its space is "blocking", even when it is exactly where the drawing put it.
 - Built from it (kpm 1695539c): ruled order lines, the item's money beside its name, Total pinned with a dark save button, the PC screen fitted to the window, the room scrolling away with the order, his corner visit only while he speaks and at the bottom-left. Board: Raw/2026-11-11-redesign-today/PANEL-V2.png.
+
+## 2026-11-12 — the item-type strip beside the search: "redesign this panel"
+
+> *"i want u to redesign this panel that show type of the items here and also looks like promo doesnt have add button"*
+
+What he circled on the Sales Terminal: SEMUA / SKT / NATURAL / SK... as plain words with a gold underline, squeezed into 58% of the phone row beside the search, the lit one cut in half, directly under a second underlined row (the stock sources). Built (kpm 00cf1b51): bordered buttons on their own phone row, the lit one takes the gold edge. **No verdict from him yet.**
+
+Second half of the sentence: a count he can only TYPE reads to him as "no add button". A number box needs a minus and a plus beside it, like the product rows. Applied to the promo goods on the order slip, and a plus mark was added to the package card (one big press that did not say so).
