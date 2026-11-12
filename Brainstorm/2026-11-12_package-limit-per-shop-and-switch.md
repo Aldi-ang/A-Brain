@@ -54,6 +54,30 @@ So three things, per package: a limit **per shop**, a rule for **which shops** m
 
 The switch (on/off, T3 and above by default, a key in the permission table beside `set_bundle_price`) needs no answer and is agreed.
 
+## His answers, 2026-11-12 12:10 WIB
+
+> *"by seeing your recommendation all is good but i can see 2 flaw here ticket in the database one, what if there is 2 agent in the same place trying to turn their internet off then making those paket deal? well i have recommendation how to fix that is the only sales that can sell bundle to that stores is the one who is assigned to that stores, this way only 1 way ticket for each agent and stores right, and another flaw that i see here is this return goods is making everything complicated TBH, i still have no solution for that, this returning goods system could cause a lot of flaws inside the system isnt it. decide 1 = A, decide 2 = we should add time limit from days to week or months or forever for this, decide 3 = i dont understand what u mean, decide 4= see my recommendation for that one and we re discuss it again"*
+
+| Question | His answer |
+|---|---|
+| 1. New shop | **A** - a new shop waits |
+| 2. How long | a time limit per package: **days, weeks, months, or forever** |
+| 3. Hand-giving | not understood - asked again with an example |
+| 4. Ticket | his own rule instead: **only the salesman assigned to a shop can sell it a package**; discuss again |
+| Returns | he has no solution; asks whether returns are a wider flaw |
+
+**He was right about the ticket.** Two phones with no signal both hand the goods over; the database refuses the second one hours later, when the lighter is already gone and a real sale would be thrown away. A wall that falls after the goods left is not a wall.
+
+**What his rule changes, checked in the code:**
+- One salesman per shop means one phone per shop, so the phone's own check (which also sees its own unsent sales) is enough. The two-phone case is gone.
+- It merges with answer A: "a boss assigned this shop to a salesman" IS the boss's confirmation of a new shop. An unassigned shop gets no package.
+- ⚠️ The assignment today is the salesman's NAME as free text (`assignedAgent`, written in `JourneyView.jsx`, matched loosely; `firestore.rules` says so itself near the customers block). The phone can compare it; the database cannot trust it. To make the rule firm, an assignment must also store the salesman's id from now on (a new field beside the name - old shops keep working on the name).
+- A small record per shop per package is still needed (a "stamp": who took it, when): the time limit needs the date even after a new phone or a reinstall, and the boss needs to see it. With one writer per shop it can never collide, so it never costs a sale.
+
+**Returns, my view:** do not solve it, bound it. If a return never gives the limit back, the worst a return trick can win is one lighter per shop per period - which is the promo's own budget. Add one report line for the boss (took a package, returned the cigarettes within 7 days) to SEE it, not to block it. Returns in general are a separate question and a good read-only audit for Antigravity.
+
+Still open after this round: question 3 (re-asked), the stamp rule, the return rule, the Antigravity audit.
+
 ## Rejected on purpose
 
 - **A limit per deal** (my first recommendation, before he explained): it does not stop a second sale to the same shop an hour later. His per-shop rule is the right one.
