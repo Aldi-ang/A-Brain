@@ -1,7 +1,7 @@
 ---
 title: Package (Paket) limit per shop, who may take it, and an on/off switch
 date: 2026-11-12
-status: DECIDED 2026-11-12 — not built; the build brief is kpm .claude/NEXT-SESSION.md
+status: DECIDED 2026-11-12 — stage A live (kpm 141dd879); stage B (the limit over days) is the brief in kpm .claude/NEXT-SESSION.md
 related: "[[2026-11-11_full-redesign-sales-terminal-directions]]"
 ---
 
@@ -93,6 +93,26 @@ Still open after this round: question 3 (re-asked), the stamp rule, the return r
 | The total side of the phone bar opens the order list | yes; built and live, kpm df1fd6d6 |
 
 Build order (kpm `.claude/NEXT-SESSION.md`): A phone-only checks and the editor fields · B the rule, the record, the limit window · C the new-shop confirmation queue · D the returns report line.
+
+## Stage A built and live, 2026-11-12 17:45 WIB (kpm 141dd879)
+
+Built: the on/off switch, which shops (Retail / Grosir / both), the limit fields, two matrix keys (`switch_bundle`,
+`set_bundle_limit`, tiers 1-3 by default); the terminal refuses with the reason on the card (off, no registered shop,
+Ecer, nobody assigned, another salesman's shop, already in this order); package items are closed in the hand-give list.
+
+Choices made while building, not asked first - each one is one condition to flip:
+
+| Choice | Why | Flips if |
+|---|---|---|
+| The assigned-salesman match is EXACT (roster name or sign-in name), not the picker's loose `includes` | "Adi" would open Aditya's shops; a wrong refusal costs a package, not a sale | real owners get refused because their roster name and sign-in name differ from the assignment text |
+| The boss account is held to the same rule: it cannot sell a package to a shop assigned to someone else | his words name no exception | he says the boss is free of it (asked, see PROGRESS) |
+| The boss account still gives package items by hand | his 2026-10-27 *"can u add so that tier 1 can give the item straight from the master vault?"* | he wants the boss closed too |
+| A switched-off package still closes its item in the hand-give list | switching a package off must not reopen the leak it closed | he wants an off package to free its item |
+| The gift is capped by the cigarettes still in the cart | add a package, take the cigarettes out, keep the lighter: a hand-give through the back door | never |
+| The limit stops a second package in ONE order only; the editor says so | the count over days needs the per-shop record (stage B) | stage B ships |
+
+Not exercised for real: the gate at the save (the lab has no proof photo). It is pinned by text and the gate itself is
+checked on real cases.
 
 ## Rejected on purpose
 
