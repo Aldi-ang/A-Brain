@@ -149,6 +149,19 @@ The capybara options weighed, since this touches "his room untouched":
 | Visit always shown, moved to the bottom-left | first frame: he stood on the product names of the last rows | rejected after seeing it |
 Flips if he says he misses seeing him: then the visit can show idle too, small, in the hint bar's row.
 
+## The shared top bar, one row - DECIDED and built (2026-11-12 06:36 WIB, kpm HASHV3)
+Asked: "On the phone one row holds the title and about 3 buttons. Today there are 5 (Panduan, Catatan update, the sync sign, the light/dark switch, the bell). Which stay on the row? Recommended: the sync sign and the bell stay; Panduan, Catatan update and the light/dark switch move into the side menu."
+His answer, verbatim: "recommended".
+
+| Option | Cost | Verdict |
+|---|---|---|
+| Sync sign + bell on the row; book, patch notes, light/dark switch (and Lite Mode) in the side menu | three controls are one pull away on the phone | BUILT - his pick |
+| All five as smaller icons on the row | under 44 px, and a long title is cut | not offered as the pick; rejected by his 44 px rule |
+| A "more" button that opens the second row | a new control and a new state | not built; flips if he says the menu is too far for the light/dark switch |
+
+Measured at 375 x 812, Sales Terminal: bar about 205 px -> 53 px; list top 328 -> 246 px; whole products before scrolling 5 -> 6 (7 without the demo bar; the drawing's 8 assumed a 56 px bar and no customer strip wrap). PC: about 110 -> 69 px, every button kept. The owner's 17 menu marks stayed at 46 px after the profile face and the exit button were set side by side (they fell to 41 px first). Board: `Raw/2026-11-11-redesign-today/TOPBAR-V3.png`.
+The moved controls are the same components mounted once; a `desk` media query picks the bar or the menu (two copies = two modals and two unread dots).
+
 Models applied (panel): Inversion (what makes a mascot a cost: taking space from the order, or standing on a number), Second-Order (fitting the screen to the window ends the page scroll his walk-out used - so the walk-out now listens to the slip's scroll), Chesterton's Fence (the stamp was his own pick; replaced only because his answer covered it).
 
 Models applied (build): Chesterton's Fence (the stamp, the photo corners and the flip are his named picks - kept, and the stamp put to him instead of replaced), Inversion (what breaks a look-only job: a second way to pay or to save - so one payment list feeds both selects and Bayar only opens the slip), Reversibility (the old look is one `git checkout game-edition-v1 -- src/MerchantSalesView.jsx` away).
