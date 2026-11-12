@@ -1,7 +1,7 @@
 ---
 title: Package (Paket) limit per shop, who may take it, and an on/off switch
 date: 2026-11-12
-status: OPEN — waiting on Aldi (4 questions, see the bottom)
+status: DECIDED 2026-11-12 — not built; the build brief is kpm .claude/NEXT-SESSION.md
 related: "[[2026-11-11_full-redesign-sales-terminal-directions]]"
 ---
 
@@ -77,6 +77,22 @@ The switch (on/off, T3 and above by default, a key in the permission table besid
 **Returns, my view:** do not solve it, bound it. If a return never gives the limit back, the worst a return trick can win is one lighter per shop per period - which is the promo's own budget. Add one report line for the boss (took a package, returned the cigarettes within 7 days) to SEE it, not to block it. Returns in general are a separate question and a good read-only audit for Antigravity.
 
 Still open after this round: question 3 (re-asked), the stamp rule, the return rule, the Antigravity audit.
+
+## DECIDED, 2026-11-12 12:24 WIB
+
+> *"boss assign here means, should be regional manager tier 4 as default who are responsible for that confirming the new customer, but higher tier inside that team can also see that, for example if tier 3 visit muntilan then that tier 3 can see the confirmation coming to its account as well . yes to all recommendation"*
+
+| Question | Decision |
+|---|---|
+| 3. Hand-giving a package item | closed in the slip list ("package only"); items in no package can still be given by hand |
+| 5. A shop nobody assigned | gets no package; this is also how a new shop waits |
+| 6. Returns | never give the limit back; nothing else changes in Retur; one report line for the boss |
+| 7. Database record + assignment id | yes; he publishes the rule in the Console |
+| Who confirms a new shop | **tier 4 (Regional Admin, the code's FLEET_CAPTAIN) by default**; a higher tier inside that team sees the same request - a tier 3 visiting Muntilan sees it on his account too |
+| Antigravity reads the Retur path | yes; queued behind its open task (the 38-findings audit) |
+| The total side of the phone bar opens the order list | yes; built and live, kpm df1fd6d6 |
+
+Build order (kpm `.claude/NEXT-SESSION.md`): A phone-only checks and the editor fields · B the rule, the record, the limit window · C the new-shop confirmation queue · D the returns report line.
 
 ## Rejected on purpose
 
