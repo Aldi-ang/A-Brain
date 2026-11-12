@@ -144,6 +144,23 @@ once saved). Built narrower than "free of the rule": a shop with NO salesman sti
 wait is how a new shop gets confirmed (stage C). Flips if he wants T1-T3 to sell packages to unconfirmed new shops too.
 The per-shop limit stays right with two sellers on one shop: it counts the shop's sales, whoever made them.
 
+## Stage C stopped on a finding, 2026-11-12 18:45 WIB - OPEN, waiting on Aldi
+
+Journey Plan lets ANY signed-in user assign any shop to any salesman (`src/JourneyView.jsx:459`
+`const canAssignAgent = !!user;`; `view_journey` is in every tier's list, T5 included), and the database lets any
+salesman with shop-edit access change `assignedAgent` (`firestore.rules:751`). So a salesman can register a new shop,
+assign it to himself in Journey Plan and sell it a package straight away: trick 2 from the Inversion table, back through
+a side door. The tier-4 confirmation queue means nothing until this is closed.
+
+| Option | Buys | Costs |
+|---|---|---|
+| A. Assigning in Journey Plan = tier 1-4 only (recommended) | the "assigned salesman" rule becomes real on the phone | a salesman can no longer plan his own route by taking shops; if he does that today, his work changes |
+| B. Leave it, report self-assignments to the boss | nothing changes for salesmen | the package limit stays a suggestion |
+| C. A + a database rule that only T1-T4 may change assignedAgent | closes it in the database too | a rule he publishes; every other writer of assignedAgent (CustomerManager.jsx:662 transfer) must be checked first |
+
+Question put to him (verbatim in kpm PROGRESS 2026-11-12 18:47). Second-Order Thinking applied: the change alters what a
+salesman does every day, so it is his, not mine.
+
 ## Rejected on purpose
 
 - **A limit per deal** (my first recommendation, before he explained): it does not stop a second sale to the same shop an hour later. His per-shop rule is the right one.
