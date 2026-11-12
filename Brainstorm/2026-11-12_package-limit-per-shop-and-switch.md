@@ -135,6 +135,15 @@ Known edges: an old sale typed under another name is not counted; an offline sal
 it syncs (refuses a package, never a sale). The assignment id (decision 8) is not built: only a rule needs it.
 Also proven this round: stage A's check at save, for real (another salesman's shop refused, nothing written).
 
+## The boss and the assigned-salesman rule, DECIDED 2026-11-12 18:30 WIB (kpm aabead7e)
+
+> *"well only tier 1.2.3 can have that ability as default and do your test"*
+
+Tiers 1-3 may sell a package to a shop assigned to another salesman (matrix key `sell_bundle_any_shop`, his switch wins
+once saved). Built narrower than "free of the rule": a shop with NO salesman still waits for every tier, because that
+wait is how a new shop gets confirmed (stage C). Flips if he wants T1-T3 to sell packages to unconfirmed new shops too.
+The per-shop limit stays right with two sellers on one shop: it counts the shop's sales, whoever made them.
+
 ## Rejected on purpose
 
 - **A limit per deal** (my first recommendation, before he explained): it does not stop a second sale to the same shop an hour later. His per-shop rule is the right one.
