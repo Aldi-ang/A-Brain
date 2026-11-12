@@ -165,3 +165,5 @@ The moved controls are the same components mounted once; a `desk` media query pi
 Models applied (panel): Inversion (what makes a mascot a cost: taking space from the order, or standing on a number), Second-Order (fitting the screen to the window ends the page scroll his walk-out used - so the walk-out now listens to the slip's scroll), Chesterton's Fence (the stamp was his own pick; replaced only because his answer covered it).
 
 Models applied (build): Chesterton's Fence (the stamp, the photo corners and the flip are his named picks - kept, and the stamp put to him instead of replaced), Inversion (what breaks a look-only job: a second way to pay or to save - so one payment list feeds both selects and Bayar only opens the slip), Reversibility (the old look is one `git checkout game-edition-v1 -- src/MerchantSalesView.jsx` away).
+
+- 2026-11-12: the package limit, eligibility and switch grew out of this redesign - [[2026-11-12_package-limit-per-shop-and-switch]]
