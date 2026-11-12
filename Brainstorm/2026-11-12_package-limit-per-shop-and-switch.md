@@ -179,3 +179,8 @@ Found on the way: an 'ADMIN' bell line was read only by the boss's own account, 
 No Console rule: tier 4 already writes customers (isSalesman + region/folder lines).
 Rejected on purpose: putting the queue in Journey Plan (it already has the per-shop owner box; the directory is where Grosir is decided, so one place for both asks) · a "new shop" age limit on the list (any shop with no salesman gets no package, old or new; the list shows 8 then "Show all").
 Models applied: Second-Order Thinking (who hears the bell), Inversion (what if T4 never sees it - the bell gap).
+
+## Clear count DECIDED and built, 2026-11-13 05:55 WIB (kpm 63e79fb6)
+His words: "yes i think tier 4 and above can refresh that immediately and test it yourself" (to: should tier 3+ be able to clear one shop's package count). He picked tier 4 and above, wider than the tier 3 asked. Built as customer.bundleReset[package id] = time of the clear; the count reads only sales after it; the sales stay untouched; audit BUNDLE_COUNT_CLEARED. Button on the terminal package card, only when that count is full.
+Cost he accepted: every clear is also a way around the limit - stage D's report should name cleared shops too.
+Rejected on purpose: deleting or editing the sale (sales can never be edited, by rule) · a counter field on the shop (two sources of truth with the sales).
