@@ -172,3 +172,10 @@ salesman does every day, so it is his, not mine.
 - **Boss approval per sale (C)**: flips only if a package ever carries something expensive enough that one wrong give matters more than the lost speed.
 
 Models applied: Inversion (the table of tricks), Second-Order Thinking (a per-shop limit makes registering shops valuable, so registration becomes the weak point), Reversibility Test (a claim ticket is written once and is hard to take back - which is the point, but a "reset" for T3 must be designed with it).
+
+## Stage C built and live, 2026-11-13 05:30 WIB (kpm 56942b48)
+Where: Customer Directory, under the Grosir requests, for the same people (tier 1-4 or the boss's unlock): "Shops waiting for a salesman", only shops with no salesman that person may edit (his region or folders). Give picks a name from the roster (never typed - the terminal matches exactly), asks first, writes assignedAgent + assignedBy + assignedAt, reports.
+Found on the way: an 'ADMIN' bell line was read only by the boss's own account, so a tier 4 who confirms Grosir never heard a Grosir request. Now tier 1-4 also get GROSIR_REQUEST and NEW_SHOP lines; every other 'ADMIN' line unchanged.
+No Console rule: tier 4 already writes customers (isSalesman + region/folder lines).
+Rejected on purpose: putting the queue in Journey Plan (it already has the per-shop owner box; the directory is where Grosir is decided, so one place for both asks) · a "new shop" age limit on the list (any shop with no salesman gets no package, old or new; the list shows 8 then "Show all").
+Models applied: Second-Order Thinking (who hears the bell), Inversion (what if T4 never sees it - the bell gap).
