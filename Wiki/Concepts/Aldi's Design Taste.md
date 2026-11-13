@@ -3699,3 +3699,12 @@ The package card had been given a plus MARK (a drawn square, not a button) and a
 Also: his word "promo" meant PAKET (the package offers), not the promo goods on the slip. Ask which SCREEN when a noun has two homes; the first build answered the wrong one (the − + on the slip stays, it was missing too).
 
 OPEN: the package limit (his idea, "manageable by tier 3 and above on default") - what the number counts is his to pick; asked 2026-11-12, see PROGRESS.
+
+
+## 2026-11-13 — the game look gives way to a professional one, motion stays
+
+> *"switch to plain words and i want better professional pin looking but stays animated but simple and clear and effective"*
+
+His answer to the Journey Plan ideas talk (tiers 2-6, phone and laptop). Two calls in one line: the game words go (Mission Feed, Engage Target, Secured became Today's Route, Sell, Visited; kpm 97ea6d3b), and the pixel chests on the map become professional pins. One thing from the game years stays on purpose: motion. Read it as the default for any "professional version" work: plain words, clean shapes, one small animation with a job, never a still screen.
+
+Board: Raw/2026-11-13-map-pins/board.html (artifact CAdePSN2SQamUsQv5BJoBs): A drop pin that hops, B round pin that pops (my pick), C flat dot that fills. OPEN: his letter.
