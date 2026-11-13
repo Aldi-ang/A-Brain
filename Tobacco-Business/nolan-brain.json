@@ -2,15 +2,13 @@
   "agentName": "Nolan",
   "version": "1.0.0",
   "accountEmail": "adikaryasukses99@gmail.com",
-  "lastUpdated": "2026-11-13T00:47:23.334Z",
+  "lastUpdated": "2026-11-13T05:10:45.316Z",
   "githubRepo": "Aldi-ang/A-Brain",
   "githubBranch": "main",
   "githubFilePath": "Tobacco-Business/nolan-brain.json",
   "autoSyncGithub": true,
   "learnedRules": [
-    "Grade D+ diklasifikasikan sebagai bagian dari Grade D dan Grade C+ diklasifikasikan sebagai bagian dari Grade C dalam pelaporan stok.",
-    "Setiap grade dengan tanda plus (+) harus diklasifikasikan sebagai bagian dari grade utamanya (contoh: C+ adalah C, E+ adalah E) dalam pelaporan dan pencarian stok.",
-    "Grade D+ harus dikategorikan sebagai bagian dari Grade D dalam pelaporan stok dan pencarian bahan.",
+    "Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.",
     "Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.",
     "Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.",
     "Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.",
@@ -18,25 +16,11 @@
   ],
   "decisionEpisodes": [
     {
-      "id": "ep-chat-1794530843333",
-      "timestamp": "2026-11-13T00:47:23.333Z",
-      "type": "USER_FEEDBACK",
-      "summary": "Instruksi / Preferensi dari Chat: \"apakah kita punya tembakau C dan D?\"",
-      "learnedTakeaway": "Grade D+ diklasifikasikan sebagai bagian dari Grade D dan Grade C+ diklasifikasikan sebagai bagian dari Grade C dalam pelaporan stok."
-    },
-    {
-      "id": "ep-chat-1794530204270",
-      "timestamp": "2026-11-13T00:36:44.270Z",
-      "type": "USER_FEEDBACK",
-      "summary": "Instruksi / Preferensi dari Chat: \"itu juga bekerja pada semua seri E+ termasuk E , C+ termasuk C dan seterusnya\"",
-      "learnedTakeaway": "Setiap grade dengan tanda plus (+) harus diklasifikasikan sebagai bagian dari grade utamanya (contoh: C+ adalah C, E+ adalah E) dalam pelaporan dan pencarian stok."
-    },
-    {
-      "id": "ep-chat-1794530163752",
-      "timestamp": "2026-11-13T00:36:03.752Z",
-      "type": "USER_FEEDBACK",
-      "summary": "Instruksi / Preferensi dari Chat: \"Temabakau D+ juga termasuk tembakau D ingat itu\"",
-      "learnedTakeaway": "Grade D+ harus dikategorikan sebagai bagian dari Grade D dalam pelaporan stok dan pencarian bahan."
+      "id": "ep-1794546645316",
+      "timestamp": "2026-11-13T05:10:45.316Z",
+      "type": "RAW_PURCHASE",
+      "summary": "Stok Mentah Baru: MTL Srinthil Baru (Muntilan) [Grade E] • Netto 0 kg • HPP Rp 0/kg",
+      "learnedTakeaway": "Transaksi tanpa data berat bersih dan HPP membuat efisiensi margin pabrik tidak terukur."
     },
     {
       "id": "ep-1794462047453",
@@ -140,15 +124,16 @@
   "factoryProfiles": [
     {
       "factoryName": "CELLO MUNTILAN",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
+      "acceptedCount": 4,
+      "rejectedCount": 1,
       "preferredGrades": [
-        "E"
+        "E",
+        "D"
       ],
-      "avgAcceptedHppPerKg": 90000,
-      "avgTargetPricePerKg": 135000,
-      "sensorySweetSpot": "Power 4.3/5 • Sugar 4.1/5 • Aroma 4.2/5",
-      "notes": "Siap menerima pengiriman gulungan sampel baru."
+      "avgAcceptedHppPerKg": 82750,
+      "avgTargetPricePerKg": 115000,
+      "sensorySweetSpot": "Power 3.9/5 • Sugar 4.0/5 • Aroma 4.3/5",
+      "notes": "4 seri Diterima/Accepted, rata-rata margin positif."
     },
     {
       "factoryName": "PT Gudang Garam Tbk - Kediri",
@@ -162,19 +147,44 @@
       "avgTargetPricePerKg": 0,
       "sensorySweetSpot": "Belum ada histori seri",
       "notes": "Siap menerima pengiriman gulungan sampel baru."
+    },
+    {
+      "factoryName": "PT Djarum Kudus (Divisi Pembelian Daun)",
+      "acceptedCount": 0,
+      "rejectedCount": 0,
+      "preferredGrades": [
+        "E"
+      ],
+      "avgAcceptedHppPerKg": 90000,
+      "avgTargetPricePerKg": 135000,
+      "sensorySweetSpot": "Power 4.3/5 • Sugar 4.1/5 • Aroma 4.6/5",
+      "notes": "Siap menerima pengiriman gulungan sampel baru."
+    },
+    {
+      "factoryName": "PR Sukun Kudus",
+      "acceptedCount": 0,
+      "rejectedCount": 0,
+      "preferredGrades": [
+        "D",
+        "E"
+      ],
+      "avgAcceptedHppPerKg": 0,
+      "avgTargetPricePerKg": 0,
+      "sensorySweetSpot": "Belum ada histori seri",
+      "notes": "Siap menerima pengiriman gulungan sampel baru."
     }
   ],
-  "lastSyncedToGithub": "2026-11-13T00:47:29.654Z",
+  "lastSyncedToGithub": "2026-11-13T05:10:45.327Z",
   "latestWarehouseSnapshot": {
-    "rawCount": 3,
-    "totalRawNetKg": 139,
-    "totalModalRp": 9854000,
-    "totalWeightProfitRp": 1100000,
-    "totalWeightProfitKg": 16,
-    "finishedCount": 1,
-    "acceptedCount": 0,
-    "rejectedCount": 0,
-    "acceptedProfitRp": 0,
+    "rawCount": 4,
+    "totalRawNetKg": 560,
+    "totalModalRp": 14857000,
+    "totalWeightProfitRp": 984000,
+    "totalWeightProfitKg": 12,
+    "finishedCount": 7,
+    "acceptedCount": 4,
+    "rejectedCount": 1,
+    "acceptedProfitRp": 6562485,
     "rollCount": 2
   }
 }
