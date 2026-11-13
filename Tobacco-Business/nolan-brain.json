@@ -2,18 +2,26 @@
   "agentName": "Nolan",
   "version": "1.0.0",
   "accountEmail": "adikaryasukses99@gmail.com",
-  "lastUpdated": "2026-11-12T05:40:47.454Z",
+  "lastUpdated": "2026-11-13T00:36:03.752Z",
   "githubRepo": "Aldi-ang/A-Brain",
   "githubBranch": "main",
   "githubFilePath": "Tobacco-Business/nolan-brain.json",
   "autoSyncGithub": true,
   "learnedRules": [
+    "Grade D+ harus dikategorikan sebagai bagian dari Grade D dalam pelaporan stok dan pencarian bahan.",
     "Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.",
     "Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.",
     "Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.",
     "Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan."
   ],
   "decisionEpisodes": [
+    {
+      "id": "ep-chat-1794530163752",
+      "timestamp": "2026-11-13T00:36:03.752Z",
+      "type": "USER_FEEDBACK",
+      "summary": "Instruksi / Preferensi dari Chat: \"Temabakau D+ juga termasuk tembakau D ingat itu\"",
+      "learnedTakeaway": "Grade D+ harus dikategorikan sebagai bagian dari Grade D dalam pelaporan stok dan pencarian bahan."
+    },
     {
       "id": "ep-1794462047453",
       "timestamp": "2026-11-12T05:40:47.453Z",
@@ -116,16 +124,15 @@
   "factoryProfiles": [
     {
       "factoryName": "CELLO MUNTILAN",
-      "acceptedCount": 4,
-      "rejectedCount": 1,
+      "acceptedCount": 0,
+      "rejectedCount": 0,
       "preferredGrades": [
-        "E",
-        "D"
+        "E"
       ],
-      "avgAcceptedHppPerKg": 82750,
-      "avgTargetPricePerKg": 115000,
-      "sensorySweetSpot": "Power 3.9/5 • Sugar 4.0/5 • Aroma 4.3/5",
-      "notes": "4 seri Diterima/Accepted, rata-rata margin positif."
+      "avgAcceptedHppPerKg": 90000,
+      "avgTargetPricePerKg": 135000,
+      "sensorySweetSpot": "Power 4.3/5 • Sugar 4.1/5 • Aroma 4.2/5",
+      "notes": "Siap menerima pengiriman gulungan sampel baru."
     },
     {
       "factoryName": "PT Gudang Garam Tbk - Kediri",
@@ -139,44 +146,19 @@
       "avgTargetPricePerKg": 0,
       "sensorySweetSpot": "Belum ada histori seri",
       "notes": "Siap menerima pengiriman gulungan sampel baru."
-    },
-    {
-      "factoryName": "PT Djarum Kudus (Divisi Pembelian Daun)",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "preferredGrades": [
-        "E"
-      ],
-      "avgAcceptedHppPerKg": 90000,
-      "avgTargetPricePerKg": 135000,
-      "sensorySweetSpot": "Power 4.3/5 • Sugar 4.1/5 • Aroma 4.6/5",
-      "notes": "Siap menerima pengiriman gulungan sampel baru."
-    },
-    {
-      "factoryName": "PR Sukun Kudus",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "preferredGrades": [
-        "D",
-        "E"
-      ],
-      "avgAcceptedHppPerKg": 0,
-      "avgTargetPricePerKg": 0,
-      "sensorySweetSpot": "Belum ada histori seri",
-      "notes": "Siap menerima pengiriman gulungan sampel baru."
     }
   ],
-  "lastSyncedToGithub": "2026-11-12T05:40:47.464Z",
+  "lastSyncedToGithub": "2026-11-13T00:36:10.083Z",
   "latestWarehouseSnapshot": {
-    "rawCount": 4,
-    "totalRawNetKg": 560,
-    "totalModalRp": 14857000,
-    "totalWeightProfitRp": 984000,
-    "totalWeightProfitKg": 12,
-    "finishedCount": 7,
-    "acceptedCount": 4,
-    "rejectedCount": 1,
-    "acceptedProfitRp": 6562485,
+    "rawCount": 3,
+    "totalRawNetKg": 139,
+    "totalModalRp": 9854000,
+    "totalWeightProfitRp": 1100000,
+    "totalWeightProfitKg": 16,
+    "finishedCount": 1,
+    "acceptedCount": 0,
+    "rejectedCount": 0,
+    "acceptedProfitRp": 0,
     "rollCount": 2
   }
 }
