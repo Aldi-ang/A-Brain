@@ -2,30 +2,31 @@
 
 - **Agent Name:** Nolan
 - **Account:** `adikaryasukses99@gmail.com`
-- **Last Updated:** 2026-11-12T05:40:47.454Z
+- **Last Updated:** 2026-11-13T00:36:03.752Z
 - **Repository:** `Aldi-ang/A-Brain` (`main`)
 
 ## 📊 Live Warehouse & Profit Snapshot
-- **Total Raw Tobacco Types:** 4 jenis (560 kg sisa stok)
-- **Total Modal / Inventory Value:** Rp 14.857.000
-- **Weight Profit (Rp):** Rp 984.000
-- **Weight Profit (KG):** 12 kg
-- **Total Finished Serials:** 7 seri (Accepted: 4, Rejected: 1)
-- **Projected Factory Profit (Accepted):** Rp 6.562.485
+- **Total Raw Tobacco Types:** 3 jenis (139 kg sisa stok)
+- **Total Modal / Inventory Value:** Rp 9.854.000
+- **Weight Profit (Rp):** Rp 1.100.000
+- **Weight Profit (KG):** 16 kg
+- **Total Finished Serials:** 1 seri (Accepted: 0, Rejected: 0)
+- **Projected Factory Profit (Accepted):** Rp 0
 
-## 🎯 Learned Blending Rules & Heuristics (4)
-1. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
-2. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
-3. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
-4. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
+## 🎯 Learned Blending Rules & Heuristics (5)
+1. Grade D+ harus dikategorikan sebagai bagian dari Grade D dalam pelaporan stok dan pencarian bahan.
+2. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
+3. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
+4. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
+5. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
 
 ## 🏭 Factory Profiles & Preferences
 ### CELLO MUNTILAN
-- **Accepted / Rejected:** 4 Diterima / 1 Reject
-- **Preferred Grades:** E, D
-- **Avg HPP / Target Price:** Rp 82.750/kg → Rp 115.000/kg
-- **Sensory Profile:** Power 3.9/5 • Sugar 4.0/5 • Aroma 4.3/5
-- **Notes:** 4 seri Diterima/Accepted, rata-rata margin positif.
+- **Accepted / Rejected:** 0 Diterima / 0 Reject
+- **Preferred Grades:** E
+- **Avg HPP / Target Price:** Rp 90.000/kg → Rp 135.000/kg
+- **Sensory Profile:** Power 4.3/5 • Sugar 4.1/5 • Aroma 4.2/5
+- **Notes:** Siap menerima pengiriman gulungan sampel baru.
 
 ### PT Gudang Garam Tbk - Kediri
 - **Accepted / Rejected:** 0 Diterima / 0 Reject
@@ -34,21 +35,9 @@
 - **Sensory Profile:** Belum ada histori seri
 - **Notes:** Siap menerima pengiriman gulungan sampel baru.
 
-### PT Djarum Kudus (Divisi Pembelian Daun)
-- **Accepted / Rejected:** 0 Diterima / 0 Reject
-- **Preferred Grades:** E
-- **Avg HPP / Target Price:** Rp 90.000/kg → Rp 135.000/kg
-- **Sensory Profile:** Power 4.3/5 • Sugar 4.1/5 • Aroma 4.6/5
-- **Notes:** Siap menerima pengiriman gulungan sampel baru.
-
-### PR Sukun Kudus
-- **Accepted / Rejected:** 0 Diterima / 0 Reject
-- **Preferred Grades:** D, E
-- **Avg HPP / Target Price:** Rp 0/kg → Rp 0/kg
-- **Sensory Profile:** Belum ada histori seri
-- **Notes:** Siap menerima pengiriman gulungan sampel baru.
-
 ## 📜 Recent Decision & Learning Episodes
+- **[2026-11-13] (USER_FEEDBACK)** Instruksi / Preferensi dari Chat: "Temabakau D+ juga termasuk tembakau D ingat itu"
+  - *Takeaway:* Grade D+ harus dikategorikan sebagai bagian dari Grade D dalam pelaporan stok dan pencarian bahan.
 - **[2026-11-12] (BLEND_CREATED)** Racikan "Campuran Temanggung + Magelang + Madura + Boyolali (2026-11-12) [Seri AK 1]" (2 Seri) → CELLO MUNTILAN [Grade E] • HPP Rp 78.145/kg
   - *Takeaway:* Pola keputusan pengguna berhasil direkam ke histori pembelajaran Nolan.
 - **[2026-11-03] (FACTORY_ACCEPTED)** Seri 57 (CELLO MUNTILAN - Seri 57) → CELLO MUNTILAN [Grade E]
