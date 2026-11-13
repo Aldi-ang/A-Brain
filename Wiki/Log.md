@@ -1640,3 +1640,4 @@ Five fixes, each with a guard trialled red; logicFixes 2299/2299, audit 722/722.
 
 - 2026-11-13 11:29 - Journey Plan plain words LIVE (kpm 97ea6d3b). Map pins board published (artifact CAdePSN2SQamUsQv5BJoBs, Raw/2026-11-13-map-pins/): A drop / B round / C flat dot, my pick B; his letter owed. [[Aldi's Design Taste]].
 - 2026-11-13 12:01 - Map pins board round 2 (same artifact CAdePSN2SQamUsQv5BJoBs): his "pin is too small ... what if some flag" - A flag / B flag with word / C big pin, my pick A. Raw/2026-11-13-map-pins/board.html replaced.
+- 2026-11-13 18:51 - Map pins: he picked B and asked for the word "knitted on" the flag. Board round 3 (same artifact, Version 3): sewn-on flag, before / now close up. Raw/2026-11-13-map-pins/board.html replaced. Rules file sent again for CHANGE 28. Publishing a Fix: clipboard now set as UTF-8 (clip garbles the em dashes).
