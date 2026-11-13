@@ -2,12 +2,13 @@
   "agentName": "Nolan",
   "version": "1.0.0",
   "accountEmail": "adikaryasukses99@gmail.com",
-  "lastUpdated": "2026-11-13T00:36:44.270Z",
+  "lastUpdated": "2026-11-13T00:47:23.334Z",
   "githubRepo": "Aldi-ang/A-Brain",
   "githubBranch": "main",
   "githubFilePath": "Tobacco-Business/nolan-brain.json",
   "autoSyncGithub": true,
   "learnedRules": [
+    "Grade D+ diklasifikasikan sebagai bagian dari Grade D dan Grade C+ diklasifikasikan sebagai bagian dari Grade C dalam pelaporan stok.",
     "Setiap grade dengan tanda plus (+) harus diklasifikasikan sebagai bagian dari grade utamanya (contoh: C+ adalah C, E+ adalah E) dalam pelaporan dan pencarian stok.",
     "Grade D+ harus dikategorikan sebagai bagian dari Grade D dalam pelaporan stok dan pencarian bahan.",
     "Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.",
@@ -16,6 +17,13 @@
     "Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan."
   ],
   "decisionEpisodes": [
+    {
+      "id": "ep-chat-1794530843333",
+      "timestamp": "2026-11-13T00:47:23.333Z",
+      "type": "USER_FEEDBACK",
+      "summary": "Instruksi / Preferensi dari Chat: \"apakah kita punya tembakau C dan D?\"",
+      "learnedTakeaway": "Grade D+ diklasifikasikan sebagai bagian dari Grade D dan Grade C+ diklasifikasikan sebagai bagian dari Grade C dalam pelaporan stok."
+    },
     {
       "id": "ep-chat-1794530204270",
       "timestamp": "2026-11-13T00:36:44.270Z",
@@ -156,7 +164,7 @@
       "notes": "Siap menerima pengiriman gulungan sampel baru."
     }
   ],
-  "lastSyncedToGithub": "2026-11-13T00:36:50.603Z",
+  "lastSyncedToGithub": "2026-11-13T00:47:29.654Z",
   "latestWarehouseSnapshot": {
     "rawCount": 3,
     "totalRawNetKg": 139,
