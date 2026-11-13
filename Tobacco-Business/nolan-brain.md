@@ -2,7 +2,7 @@
 
 - **Agent Name:** Nolan
 - **Account:** `adikaryasukses99@gmail.com`
-- **Last Updated:** 2026-11-13T00:36:03.752Z
+- **Last Updated:** 2026-11-13T00:36:44.270Z
 - **Repository:** `Aldi-ang/A-Brain` (`main`)
 
 ## 📊 Live Warehouse & Profit Snapshot
@@ -13,12 +13,13 @@
 - **Total Finished Serials:** 1 seri (Accepted: 0, Rejected: 0)
 - **Projected Factory Profit (Accepted):** Rp 0
 
-## 🎯 Learned Blending Rules & Heuristics (5)
-1. Grade D+ harus dikategorikan sebagai bagian dari Grade D dalam pelaporan stok dan pencarian bahan.
-2. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
-3. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
-4. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
-5. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
+## 🎯 Learned Blending Rules & Heuristics (6)
+1. Setiap grade dengan tanda plus (+) harus diklasifikasikan sebagai bagian dari grade utamanya (contoh: C+ adalah C, E+ adalah E) dalam pelaporan dan pencarian stok.
+2. Grade D+ harus dikategorikan sebagai bagian dari Grade D dalam pelaporan stok dan pencarian bahan.
+3. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
+4. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
+5. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
+6. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
 
 ## 🏭 Factory Profiles & Preferences
 ### CELLO MUNTILAN
@@ -36,6 +37,8 @@
 - **Notes:** Siap menerima pengiriman gulungan sampel baru.
 
 ## 📜 Recent Decision & Learning Episodes
+- **[2026-11-13] (USER_FEEDBACK)** Instruksi / Preferensi dari Chat: "itu juga bekerja pada semua seri E+ termasuk E , C+ termasuk C dan seterusnya"
+  - *Takeaway:* Setiap grade dengan tanda plus (+) harus diklasifikasikan sebagai bagian dari grade utamanya (contoh: C+ adalah C, E+ adalah E) dalam pelaporan dan pencarian stok.
 - **[2026-11-13] (USER_FEEDBACK)** Instruksi / Preferensi dari Chat: "Temabakau D+ juga termasuk tembakau D ingat itu"
   - *Takeaway:* Grade D+ harus dikategorikan sebagai bagian dari Grade D dalam pelaporan stok dan pencarian bahan.
 - **[2026-11-12] (BLEND_CREATED)** Racikan "Campuran Temanggung + Magelang + Madura + Boyolali (2026-11-12) [Seri AK 1]" (2 Seri) → CELLO MUNTILAN [Grade E] • HPP Rp 78.145/kg
