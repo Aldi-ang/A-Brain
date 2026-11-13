@@ -3707,4 +3707,6 @@ OPEN: the package limit (his idea, "manageable by tier 3 and above on default") 
 
 His answer to the Journey Plan ideas talk (tiers 2-6, phone and laptop). Two calls in one line: the game words go (Mission Feed, Engage Target, Secured became Today's Route, Sell, Visited; kpm 97ea6d3b), and the pixel chests on the map become professional pins. One thing from the game years stays on purpose: motion. Read it as the default for any "professional version" work: plain words, clean shapes, one small animation with a job, never a still screen.
 
-Board: Raw/2026-11-13-map-pins/board.html (artifact CAdePSN2SQamUsQv5BJoBs): A drop pin that hops, B round pin that pops (my pick), C flat dot that fills. OPEN: his letter.
+Board: Raw/2026-11-13-map-pins/board.html (artifact CAdePSN2SQamUsQv5BJoBs): A drop pin that hops, B round pin that pops (my pick), C flat dot that fills. Round 2, same day: *"the pin is too small to show its content i think, what if some flag or something? so that it will be more clear to show the store status after visit"*. The 14 px picture in a 24 px pin head was the problem; his own idea, a flag, became the board: a visit plants a flag (A, 18 px picture), a flag with the word (B), or a bigger pin (C), my pick A. Lesson for map marks: the result of a visit must read from arm's length on a phone, so it gets its own shape (flag vs pin), not only a colour and a small picture. Flags taking over meant his old red flag for "no salesman" becomes a red ? pin in A and B, told to him on the board.
+
+OPEN: his letter (A, B or C).

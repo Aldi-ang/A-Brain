@@ -1639,3 +1639,4 @@ Five fixes, each with a guard trialled red; logicFixes 2299/2299, audit 722/722.
 - 2026-11-01 18:15 - Seat limit BUILT (kpm 2f2eb69, pushed): licence + numbered seat per login, rules CHANGE 20 drafted (not published; he publishes before the first licence), rules-test 27/27 (live rules fail 11). Frames Raw/2026-11-01-seat-limit/. Brainstorm/2026-10-28_seat-limit-and-simplidots-gaps.md has the BUILT section.
 
 - 2026-11-13 11:29 - Journey Plan plain words LIVE (kpm 97ea6d3b). Map pins board published (artifact CAdePSN2SQamUsQv5BJoBs, Raw/2026-11-13-map-pins/): A drop / B round / C flat dot, my pick B; his letter owed. [[Aldi's Design Taste]].
+- 2026-11-13 12:01 - Map pins board round 2 (same artifact CAdePSN2SQamUsQv5BJoBs): his "pin is too small ... what if some flag" - A flag / B flag with word / C big pin, my pick A. Raw/2026-11-13-map-pins/board.html replaced.

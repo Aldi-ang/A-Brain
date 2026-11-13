@@ -7,7 +7,7 @@
   --bg: #0e0d0c; --panel: #161412; --line: #3e3a35; --ink: #e8e4de; --ink-dim: #a39b90; --amber: #ff9d00;
   --land: #2a2928; --road: #393735; --road-hi: #4a4744; --water: #1b1b1d; --map-ink: #77716a;
   --money: #e2a12e; --plain: #dfd5bc; --problem: #b4524a; --closed: #4a453f; --todo: #1b1917;
-  --on-light: #2b2318; --on-dark: #f2eee4; --closed-ink: #c9c2b6; --problem-ink: #e08c82;
+  --on-light: #2b2318; --on-dark: #f2eee4; --closed-ink: #c9c2b6; --problem-ink: #e08c82; --pole: #d6cfc2;
   --display: "Rajdhani", "Arial Narrow", system-ui, sans-serif;
   --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
@@ -37,9 +37,10 @@ section { display: grid; gap: 12px; min-width: 0; }
 .m-road-hi { stroke: var(--road-hi); fill: none; } .m-txt { fill: var(--map-ink); font: 600 7px var(--mono); letter-spacing: .12em; }
 .marks { position: absolute; inset: 0; }
 .mk { position: absolute; }
-.mk.pin { transform: translate(-14px, calc(-1 * var(--ay))); }
+.mk.p { transform: translate(-14px, -31px); }
+.mk.f { transform: translate(-7px, -44px); }
+.mk.g { transform: translate(-18px, -41px); }
 .mk.mid { transform: translate(-50%, -50%); }
-.s-a { --ay: 35.5px; } .s-b { --ay: 31px; } .s-c { --ay: 14px; }
 .bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 .play { appearance: none; border: 0; border-radius: 3px; background: #dfd5bc; color: #2b2318; font: 800 12px/1 var(--body); letter-spacing: .14em;
   text-transform: uppercase; padding: 0 18px; min-height: 44px; cursor: pointer; }
@@ -48,73 +49,101 @@ section { display: grid; gap: 12px; min-width: 0; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .grid.wide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .cell { appearance: none; border: 0; margin: 0; background: var(--land); color: var(--ink); display: grid; justify-items: center; align-content: end; gap: 8px;
-  min-height: 112px; padding: 26px 6px 10px; cursor: pointer; font: inherit; }
-.cell .slot { position: relative; height: 44px; width: 100%; display: grid; place-items: end center; }
+  min-height: 124px; padding: 24px 4px 10px; cursor: pointer; font: inherit; }
+.cell .slot { position: relative; height: 54px; width: 100%; display: grid; place-items: end center; }
 .cell .lbl { font: 600 11.5px/1.3 var(--mono); text-align: center; color: var(--ink-dim); text-transform: uppercase; letter-spacing: .04em; }
-.cell .pn .nm { display: none; }
-.wide .cell { min-height: 124px; }
+.cell .nm { display: none; }
 @media (min-width: 620px) { .grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } .grid.wide { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; max-width: 64ch; }
 li::marker { color: var(--amber); }
 .pick { border-left: 2px solid var(--amber); padding: 4px 0 4px 14px; }
-.pick b { font-family: var(--display); letter-spacing: .08em; text-transform: uppercase; }
+.pick b, .change b { font-family: var(--display); letter-spacing: .08em; text-transform: uppercase; }
+.change { border-left: 2px solid var(--problem); padding: 4px 0 4px 14px; }
 
-/* ---------- THE PIN (this block is what goes into the app) ---------- */
-.pn { position: relative; width: 28px; font-family: var(--mono); color: var(--ink); }
-.pn .pop { position: relative; width: 28px; transform-origin: 50% 100%; }
-.pn.s-c .pop { transform-origin: 50% 50%; }
-.pn svg.body { display: block; width: 28px; overflow: visible; }
-.pn .body path { stroke: var(--c); stroke-width: 2.5; stroke-linejoin: round; }
-.pn .base { fill: var(--todo); }
-.pn .fill { fill: var(--fam, var(--todo)); opacity: 0; }
-.pn.v .fill { opacity: 1; }
-.pn.f-money { --fam: var(--money); --gl: var(--on-light); --word: var(--money); }
-.pn.f-plain { --fam: var(--plain); --gl: var(--on-light); --word: var(--plain); }
-.pn.f-problem { --fam: var(--problem); --gl: var(--on-dark); --word: var(--problem-ink); }
-.pn.f-closed { --fam: var(--closed); --gl: var(--closed-ink); --word: var(--closed-ink); }
-.pn.s-a { --hy: 14px; --h: 37px; } .pn.s-b { --hy: 13px; --h: 33px; } .pn.s-c { --hy: 14px; --h: 28px; }
-.pn .gl { position: absolute; left: 14px; top: var(--hy); width: 14px; height: 14px; margin: -7px 0 0 -7px; color: var(--gl); }
-.pn .gl svg { display: block; width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.pn .dot { position: absolute; left: 14px; top: var(--hy); width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: var(--c); }
-.pn .rip { position: absolute; left: 14px; top: var(--hy); width: 24px; height: 24px; margin: -12px 0 0 -12px; border-radius: 50%;
-  border: 2px solid var(--fam, var(--c)); opacity: 0; pointer-events: none; }
-.pn.s-a .rip { top: 35px; height: 9px; margin-top: -4.5px; }
-.pn .nm { position: absolute; left: 50%; top: calc(var(--h) + 1px); transform: translateX(-50%); white-space: nowrap; font-size: 10.5px; font-weight: 600;
-  letter-spacing: .02em; text-shadow: 0 0 2px #000, 0 0 3px #000, 0 1px 2px #000; pointer-events: none; }
-.pn .nm b { display: none; margin-left: 6px; font-weight: 700; color: var(--word); }
-.mk:hover .pn .nm b, .mk.held .pn .nm b { display: inline; }
-.pn .tag { position: absolute; left: 50%; bottom: calc(100% + 3px); transform: translateX(-50%); display: flex; align-items: center; gap: 4px; padding: 1px 5px;
-  background: #0e0d0c; border: 1px solid var(--line); border-radius: 3px; font-size: 10px; font-weight: 700; white-space: nowrap; }
-.pn .tag i { width: 6px; height: 6px; border-radius: 50%; background: var(--c); }
+/* ---------- shared by every map object (this part goes into the app) ---------- */
+.f-money { --fam: var(--money); --gl: var(--on-light); --word: var(--money); }
+.f-plain { --fam: var(--plain); --gl: var(--on-light); --word: var(--plain); }
+.f-problem { --fam: var(--problem); --gl: var(--on-dark); --word: var(--problem-ink); }
+.f-closed { --fam: var(--closed); --gl: var(--closed-ink); --word: var(--closed-ink); }
+.nm { position: absolute; transform: translateX(-50%); white-space: nowrap; font: 600 10.5px/1.3 var(--mono); letter-spacing: .02em; color: var(--ink);
+  text-shadow: 0 0 2px #000, 0 0 3px #000, 0 1px 2px #000; pointer-events: none; }
+.nm b { display: none; margin-left: 6px; font-weight: 700; color: var(--word); }
+.mk:hover .nm b, .mk.held .nm b { display: inline; }
+.tag { position: absolute; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; padding: 1px 5px; background: #0e0d0c;
+  border: 1px solid var(--line); border-radius: 3px; font: 700 10px/1.3 var(--mono); white-space: nowrap; color: var(--ink); }
+.tag i { width: 6px; height: 6px; border-radius: 50%; background: var(--c); }
 .bd { position: absolute; width: 14px; height: 14px; border-radius: 50%; box-shadow: 0 0 0 1.5px #0a0908; display: grid; place-items: center; }
-.pn .bd { top: calc(var(--hy) - 15px); }
-.bd.flag { left: -3px; background: var(--problem); }
+.bd.flag { background: var(--problem); }
 .bd.flag svg { width: 8px; height: 8px; fill: var(--on-dark); }
-.bd.req { right: -3px; background: var(--money); color: var(--on-light); font: 800 10px/1 var(--body); }
+.bd.req { background: var(--money); color: var(--on-light); font: 800 10px/1 var(--body); }
 .bd.req::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 2px solid var(--money); animation: ping 2.4s ease-out infinite; }
-@keyframes ping { 0% { transform: scale(1); opacity: .9; } 55%, 100% { transform: scale(2.2); opacity: 0; } }
+.rip { position: absolute; border-radius: 50%; border: 2px solid var(--fam, var(--c)); opacity: 0; pointer-events: none; }
+.gl svg { display: block; width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
 
-/* the visit moment: A hops, B pops, C fills from the middle; all three ripple once */
-.pn.burst .fill { animation: fade 240ms 80ms ease-out both; }
-.pn.burst .gl svg { animation: glyph 320ms 170ms cubic-bezier(.2, .8, .3, 1.25) both; }
-.pn.burst .rip { animation: rip 760ms 80ms ease-out both; }
-.pn.burst.s-a .pop { animation: hop 560ms cubic-bezier(.3, .7, .4, 1) both; }
-.pn.burst.s-b .pop { animation: pop 480ms cubic-bezier(.3, .7, .4, 1) both; }
-.pn.burst.s-c .fill { animation: grow 380ms cubic-bezier(.2, .8, .3, 1) both; transform-box: view-box; transform-origin: 14px 14px; }
-@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+/* a shop still to visit: a small round pin in its salesman's colour */
+.pn { position: relative; width: 28px; height: 33px; }
+.pn svg { display: block; width: 28px; height: 33px; overflow: visible; }
+.pn path { fill: var(--todo); stroke: var(--c); stroke-width: 2.5; stroke-linejoin: round; }
+.pn .dot { position: absolute; left: 14px; top: 13px; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: var(--c); }
+.pn.nb path { stroke: var(--problem); stroke-dasharray: 3.4 2.4; }
+.pn .q { position: absolute; left: 14px; top: 13px; transform: translate(-50%, -50%); font: 800 14px/1 var(--body); color: var(--problem-ink); }
+.pn .nm { left: 14px; top: 34px; }
+.pn .tag { left: 14px; bottom: calc(100% + 3px); }
+.pn .bd { top: -2px; } .pn .bd.flag { left: -3px; } .pn .bd.req { right: -3px; }
+
+/* A and B: a visit plants a flag. The pole's foot is the shop's door; the strip by the pole is the salesman's colour */
+.fl { position: relative; width: 44px; height: 46px; }
+.fl svg.pole { position: absolute; left: 0; top: 0; width: 14px; height: 46px; overflow: visible; }
+.fl .pole .d { stroke: #0a0908; stroke-width: 3.6; stroke-linecap: round; }
+.fl .pole .l { stroke: var(--pole); stroke-width: 1.6; stroke-linecap: round; }
+.fl .base { position: absolute; left: 7px; top: 44px; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 1.5px #0a0908; }
+.fl .bn { position: absolute; left: 8px; top: 4px; height: 25px; transform-origin: 0 100%; }
+.fl .wv { position: relative; height: 25px; transform-origin: 0 50%; }
+.fl .wv svg { display: block; height: 25px; overflow: visible; }
+.fl .wv .cloth { fill: var(--fam); stroke: #0a0908; stroke-width: 1.5; stroke-linejoin: round; }
+.fl .wv .hoist { fill: var(--c); }
+.fl .in { position: absolute; left: 4px; top: 0; bottom: 0; right: 6px; display: flex; align-items: center; justify-content: center; gap: 4px; color: var(--gl); }
+.fl .gl { width: 18px; height: 18px; flex: none; } .fl .gl svg { stroke-width: 2.3; }
+.fl.word .gl { width: 15px; height: 15px; }
+.fl .wd { font: 700 9.5px/1 var(--mono); letter-spacing: .04em; }
+.fl .bd.req { top: -6px; right: -5px; }
+.fl .rip { left: 7px; top: 44px; width: 22px; height: 8px; margin: -4px 0 0 -11px; }
+.fl .nm { left: 7px; top: 50px; }
+.fl .tag { bottom: calc(100% + 2px); }
+.fl.burst .bn { animation: raise 340ms cubic-bezier(.2, .8, .3, 1) both; }
+.fl.burst .wv { animation: wave 760ms 300ms ease-out both; }
+.fl.burst .gl svg { animation: glyph 300ms 260ms cubic-bezier(.2, .8, .3, 1.25) both; }
+.fl.burst .rip { animation: rip 700ms ease-out both; }
+@keyframes raise { from { transform: translateY(20px) scaleY(.3); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes wave { 0% { transform: none; } 25% { transform: skewY(-7deg) scaleX(.93); } 50% { transform: skewY(5deg) scaleX(.97); } 75% { transform: skewY(-2deg); } 100% { transform: none; } }
+
+/* C: no flag, the visited pin grows */
+.bp { position: relative; width: 36px; height: 43px; }
+.bp .pop { position: relative; width: 36px; height: 43px; transform-origin: 50% 100%; }
+.bp svg { display: block; width: 36px; height: 43px; overflow: visible; }
+.bp path { fill: var(--fam); stroke: var(--c); stroke-width: 2.5; stroke-linejoin: round; }
+.bp .gl { position: absolute; left: 18px; top: 17px; width: 20px; height: 20px; margin: -10px 0 0 -10px; color: var(--gl); }
+.bp .gl svg { stroke-width: 2.2; }
+.bp .rip { left: 18px; top: 17px; width: 32px; height: 32px; margin: -16px 0 0 -16px; }
+.bp .bd { top: -2px; } .bp .bd.req { right: -3px; }
+.bp .nm { left: 18px; top: 44px; }
+.bp .tag { left: 18px; bottom: calc(100% + 3px); }
+.bp.burst .pop { animation: pop 480ms cubic-bezier(.3, .7, .4, 1) both; }
+.bp.burst .gl svg { animation: glyph 320ms 170ms cubic-bezier(.2, .8, .3, 1.25) both; }
+.bp.burst .rip { animation: rip 760ms 80ms ease-out both; }
+
 @keyframes glyph { from { transform: scale(.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 @keyframes rip { from { transform: scale(1); opacity: .85; } to { transform: scale(2.6); opacity: 0; } }
-@keyframes hop { 0% { transform: translateY(0) scale(1, 1); } 35% { transform: translateY(-11px) scale(.95, 1.06); } 70% { transform: translateY(0) scale(1.08, .9); } 100% { transform: none; } }
 @keyframes pop { 0% { transform: scale(.72); } 45% { transform: scale(1.16); } 72% { transform: scale(.97); } 100% { transform: none; } }
-@keyframes grow { from { transform: scale(.2); opacity: .2; } to { transform: scale(1); opacity: 1; } }
+@keyframes ping { 0% { transform: scale(1); opacity: .9; } 55%, 100% { transform: scale(2.2); opacity: 0; } }
 
 /* a group of shops: the count, and a ring that fills gold with the share already visited */
 .pc { position: relative; width: 38px; height: 38px; border-radius: 50%; background: conic-gradient(var(--money) calc(var(--f) * 1turn), #4a453f 0);
   box-shadow: 0 1px 3px rgba(0, 0, 0, .6); }
 .pc::before { content: ""; position: absolute; inset: 3.5px; border-radius: 50%; background: var(--todo); }
 .pc b { position: absolute; inset: 0; display: grid; place-items: center; font: 700 13px/1 var(--mono); color: var(--ink); }
-.pc .bd { top: -3px; }
+.pc .bd { top: -3px; } .pc .bd.req { right: -3px; }
 
 /* a salesman: his initials on his team colour; the halo says he is out right now */
 .pa { position: relative; isolation: isolate; width: 28px; height: 28px; border-radius: 50%; background: var(--c); border: 2px solid var(--ink);
@@ -129,21 +158,21 @@ li::marker { color: var(--amber); }
 .crowd .more { margin-left: 4px; font: 700 11px/1 var(--mono); padding: 3px 5px; background: #0e0d0c; border: 1px solid var(--line); border-radius: 3px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .pn *, .pa, .pa::before, .pa *, .bd.req::after { animation: none !important; }
+  .fl *, .bp *, .pa, .pa::before, .pa *, .bd.req::after { animation: none !important; }
 }
 </style>
 
 <div class="wrap">
   <header style="display:grid;gap:10px">
     <h1>New map pins</h1>
-    <p class="dim">Three looks for the shops on the Journey Plan map. All three show what the chests showed: whose shop it is, whether it was visited, what happened there, a red flag for a shop with no salesman, and a ! for an open request.</p>
+    <p class="dim">Your note: the pin was too small to show what happened. Now a visit plants a flag. Its shape says visited from across the map, its colour says money, no sale, problem or closed, and the picture on it is bigger. Shops still to visit stay small round pins in their salesman's colour.</p>
   </header>
 
   <section>
     <div class="tabs" role="tablist" aria-label="Pin look">
-      <button role="tab" id="tab-a" data-shape="a" aria-selected="false">A &middot; Drop pin<small>hops when visited</small></button>
-      <button role="tab" id="tab-b" data-shape="b" aria-selected="true">B &middot; Round pin<small>my pick &middot; pops</small></button>
-      <button role="tab" id="tab-c" data-shape="c" aria-selected="false">C &middot; Flat dot<small>fills from the middle</small></button>
+      <button role="tab" id="tab-a" data-mode="a" aria-selected="true">A &middot; Flag<small>my pick &middot; rises and waves</small></button>
+      <button role="tab" id="tab-b" data-mode="b" aria-selected="false">B &middot; Flag with word<small>the word on the flag</small></button>
+      <button role="tab" id="tab-c" data-mode="c" aria-selected="false">C &middot; Big pin<small>no flag, the pin grows</small></button>
     </div>
     <div class="stage">
       <svg class="map" viewBox="0 0 360 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -158,17 +187,17 @@ li::marker { color: var(--amber); }
         <text class="m-txt" x="260" y="250" transform="rotate(-80 260 250)">JL. BRAGA</text>
         <text class="m-txt" x="200" y="226">SUNGAI CIKAPUNDUNG</text>
       </svg>
-      <div class="marks s-b" id="marks"></div>
+      <div class="marks" id="marks"></div>
     </div>
     <div class="bar">
       <button class="play" id="play" type="button">Play a visit</button>
-      <p>Warung Sumber Rejeki gets its sale. Point at a pin, or hold it on the phone, to read what happened there.</p>
+      <p>Warung Sumber Rejeki gets its sale. Point at a flag, or hold it on the phone, to read what happened there.</p>
     </div>
   </section>
 
   <section>
     <h2>Every visit result</h2>
-    <p class="dim">The picture inside tells them apart without colour. Gold means money, cream means no sale, red means a problem, grey means closed. Tap one to play it.</p>
+    <p class="dim">Gold means money, cream means no sale, red means a problem, grey means closed. The picture tells them apart without colour. Tap one to play it.</p>
     <div class="grid" id="results"></div>
   </section>
 
@@ -180,22 +209,20 @@ li::marker { color: var(--amber); }
   <section>
     <h2>Stays the same</h2>
     <ul>
-      <li>Every shop keeps its name under the pin. The word for what happened shows when you point at it or hold it.</li>
-      <li>The salesman's own shops carry his initials and the stop number above the pin.</li>
-      <li>The Day Replay plays on the same pins.</li>
+      <li>Every shop keeps its name under the pin or flag. In A and C the word for what happened shows when you point at it or hold it.</li>
+      <li>The salesman's own shops carry his initials and the stop number on top.</li>
+      <li>The Day Replay plants the same flags.</li>
       <li>In Lite mode nothing moves.</li>
     </ul>
-    <p class="pick"><b>My pick: B.</b> The round head holds the picture bigger than a drop pin of the same height, and its short tail still points at the shop. On a full phone map it covers fewer shop names.</p>
+    <p class="change"><b>One change in A and B.</b> A shop with no salesman was a red flag. Flags now mean a visit, so it becomes a red ? pin. C keeps the red flag.</p>
+    <p class="pick"><b>My pick: A.</b> The flag shape alone says visited, even from far out, and the picture on it is bigger. B is the clearest up close, but a long word like COMPETITOR makes the flag almost three times as wide, and it covers the shop names next to it. C is the smallest change, but from far away a big pin and a small pin look alike.</p>
     <p class="dim">Answer with A, B or C. If something should change, say it in your own words.</p>
   </section>
 </div>
 
 <script>
-const SHAPES = {
-  a: { d: 'M14 35.5 L4.15 20.86 A12 12 0 1 1 23.85 20.86 Z', vb: '0 0 28 37' },
-  b: { d: 'M9.5 24.12 A12 12 0 1 1 18.5 24.12 L14 31 Z', vb: '0 0 28 33' },
-  c: { d: 'M3 14 A11 11 0 1 1 25 14 A11 11 0 1 1 3 14 Z', vb: '0 0 28 28' },
-};
+const ROUND = 'M9.5 24.12 A12 12 0 1 1 18.5 24.12 L14 31 Z';
+const BIG = 'M12 31.83 A16 16 0 1 1 24 31.83 L18 41 Z';
 const FAMILY = { sold: 'money', order: 'money', full: 'plain', request: 'plain', routine: 'plain', issue: 'problem', swap: 'problem', closed: 'closed' };
 const WORD = { sold: 'Sale', order: 'Order', full: 'Full', request: 'Request', routine: 'Check', issue: 'Competitor', swap: 'Exchange', closed: 'Closed' };
 const g = (p) => `<svg viewBox="0 0 24 24" aria-hidden="true">${p}</svg>`;
@@ -211,80 +238,97 @@ const GLYPH = {
 };
 const FLAG = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1v8.5h1.3V6.2h4.9L7 3.8l1.2-2.6z"/></svg>';
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
-let shape = 'b';
+let mode = 'a';
 
-function pin({ outcome = null, ring = '#6a645c', play = '', tag = '', free = false, req = false, name = '' }) {
-  const S = SHAPES[shape];
-  const fam = outcome ? ` v f-${FAMILY[outcome]}` : '';
-  return `<div class="pn s-${shape}${fam}${play ? ' ' + play : ''}" style="--c:${ring}">`
-    + (tag ? `<span class="tag"><i></i>${esc(tag)}</span>` : '')
-    + `<div class="pop"><svg class="body" viewBox="${S.vb}"><path class="base" d="${S.d}"/><path class="fill" d="${S.d}"/></svg>`
-    + `<i class="rip"></i>${outcome ? `<span class="gl">${GLYPH[outcome]}</span>` : '<i class="dot"></i>'}`
-    + (free ? `<i class="bd flag">${FLAG}</i>` : '') + (req ? '<i class="bd req">!</i>' : '') + '</div>'
-    + `<span class="nm">${name ? esc(name) : ''}${outcome ? `<b>${WORD[outcome].toUpperCase()}</b>` : ''}</span></div>`;
+/* a shop still to visit (all three looks) */
+function smallPin({ ring = '#6a645c', tag = '', req = false, name = '', nobody = false }) {
+  const q = nobody && mode !== 'c';
+  return `<div class="pn${q ? ' nb' : ''}" style="--c:${ring}">` + (tag ? `<span class="tag"><i></i>${esc(tag)}</span>` : '')
+    + `<svg viewBox="0 0 28 33"><path d="${ROUND}"/></svg>` + (q ? '<span class="q">?</span>' : '<i class="dot"></i>')
+    + (nobody && mode === 'c' ? `<i class="bd flag">${FLAG}</i>` : '') + (req ? '<i class="bd req">!</i>' : '')
+    + `<span class="nm">${esc(name)}</span></div>`;
 }
-const group = (n, seen, free, req) => `<div class="pc" style="--f:${(seen / n).toFixed(3)}"><b>${n}</b>${free ? `<i class="bd flag">${FLAG}</i>` : ''}${req ? '<i class="bd req">!</i>' : ''}</div>`;
+/* A and B: the flag. Its width fits the word in B (IBM Plex Mono is 0.6 em a letter) */
+function flag({ outcome, ring, play = '', tag = '', req = false, name = '' }) {
+  const word = mode === 'b', W = word ? Math.round(40 + 5.7 * WORD[outcome].length) : 38;
+  const up = WORD[outcome].toUpperCase();
+  return `<div class="fl f-${FAMILY[outcome]}${word ? ' word' : ''}${play ? ' ' + play : ''}" style="--c:${ring};width:${10 + W}px">`
+    + (tag ? `<span class="tag" style="left:${8 + W / 2}px"><i></i>${esc(tag)}</span>` : '')
+    + '<svg class="pole" viewBox="0 0 14 46"><path class="d" d="M7 4V44"/><path class="l" d="M7 4V44"/></svg><i class="rip"></i><i class="base"></i>'
+    + `<div class="bn" style="width:${W}px"><div class="wv"><svg viewBox="0 0 ${W} 25" width="${W}"><path class="cloth" d="M0 0H${W}L${W - 6} 12.5L${W} 25H0Z"/><rect class="hoist" x=".75" y=".75" width="3.5" height="23.5"/></svg>`
+    + `<span class="in"><span class="gl">${GLYPH[outcome]}</span>${word ? `<b class="wd">${up}</b>` : ''}</span></div>`
+    + (req ? '<i class="bd req">!</i>' : '') + '</div>'
+    + `<span class="nm">${esc(name)}${word ? '' : `<b>${up}</b>`}</span></div>`;
+}
+/* C: the visited pin grows */
+function bigPin({ outcome, ring, play = '', tag = '', req = false, name = '' }) {
+  return `<div class="bp f-${FAMILY[outcome]}${play ? ' ' + play : ''}" style="--c:${ring}">` + (tag ? `<span class="tag"><i></i>${esc(tag)}</span>` : '')
+    + `<div class="pop"><svg viewBox="0 0 36 43"><path d="${BIG}"/></svg><i class="rip"></i><span class="gl">${GLYPH[outcome]}</span>`
+    + (req ? '<i class="bd req">!</i>' : '') + '</div>'
+    + `<span class="nm">${esc(name)}<b>${WORD[outcome].toUpperCase()}</b></span></div>`;
+}
+const mark = (o) => !o.outcome ? { html: smallPin(o), a: 'p' } : mode === 'c' ? { html: bigPin(o), a: 'g' } : { html: flag(o), a: 'f' };
+const group = (n, seen, free, req) => `<div class="pc" style="--f:${(seen / n).toFixed(3)}"><b>${n}</b>${free ? `<i class="bd flag" style="left:-3px">${FLAG}</i>` : ''}${req ? '<i class="bd req">!</i>' : ''}</div>`;
 const inkOn = (hex) => { const [r, gg, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255); return 0.2126 * r + 0.7152 * gg + 0.0722 * b > 0.6 ? '#2b2318' : '#f2eee4'; };
 const man = (ini, c, selling = false) => `<div class="pa" style="--c:${c};--pa-ink:${inkOn(c)}">${esc(ini)}${selling ? '<i class="coin"></i>' : ''}</div>`;
 
 const BS = '#a855f7', AR = '#ec4899', NOBODY = '#6a645c';
 const scene = [
-  { id: 'hero', x: 28, y: 36, o: { ring: BS, tag: 'BS · 2', name: 'Warung Sumber Rejeki' } },
-  { x: 66, y: 27, o: { ring: AR, outcome: 'closed', name: 'Kios Maju Mundur' } },
-  { x: 80, y: 61, o: { ring: AR, outcome: 'issue', name: 'Toko Berkah Jaya' } },
-  { x: 50, y: 55, o: { ring: BS, outcome: 'order', name: 'Toko Sinar Jaya' } },
-  { x: 16, y: 71, o: { ring: BS, tag: 'BS · 3', req: true, name: 'Toko Lancar' } },
-  { x: 52, y: 84, o: { ring: NOBODY, free: true, name: 'Toko Baru Makmur' } },
+  { id: 'hero', x: 24, y: 38, o: { ring: BS, tag: 'BS · 2', name: 'Warung Sumber Rejeki' } },
+  { x: 60, y: 24, o: { ring: AR, outcome: 'closed', name: 'Kios Maju Mundur' } },
+  { x: 68, y: 64, o: { ring: AR, outcome: 'issue', name: 'Toko Berkah Jaya' } },
+  { x: 46, y: 54, o: { ring: BS, outcome: 'order', name: 'Toko Sinar Jaya' } },
+  { x: 14, y: 72, o: { ring: BS, tag: 'BS · 3', req: true, name: 'Toko Lancar' } },
+  { x: 50, y: 86, o: { ring: NOBODY, nobody: true, name: 'Toko Baru Makmur' } },
 ];
 const marks = document.getElementById('marks');
 function drawScene(heroOutcome = null, play = '') {
-  marks.className = `marks s-${shape}`;
   marks.innerHTML = scene.map((s) => {
-    const o = s.id === 'hero' ? { ...s.o, outcome: heroOutcome, play } : s.o;
-    return `<div class="mk pin" style="left:${s.x}%;top:${s.y}%">${pin(o)}</div>`;
+    const m = mark(s.id === 'hero' ? { ...s.o, outcome: heroOutcome, play } : s.o);
+    return `<div class="mk ${m.a}" style="left:${s.x}%;top:${s.y}%">${m.html}</div>`;
   }).join('')
-    + `<div class="mk mid" style="left:88%;top:16%">${group(6, 4, false, true)}</div>`
-    + `<div class="mk mid" style="left:38%;top:52%">${man('BS', BS)}</div>`;
+    + `<div class="mk mid" style="left:90%;top:14%">${group(6, 4, false, true)}</div>`
+    + `<div class="mk mid" style="left:34%;top:70%">${man('BS', BS)}</div>`;
 }
 function playVisit() {
   drawScene(null);
-  setTimeout(() => drawScene('sold', 'burst'), 380);
+  setTimeout(() => drawScene('sold', 'burst'), 420);
 }
 
 const RESULTS = [null, 'sold', 'order', 'full', 'request', 'routine', 'issue', 'swap', 'closed'];
 function drawResults() {
   document.getElementById('results').innerHTML = RESULTS.map((k, i) =>
-    `<button class="cell" type="button" data-i="${i}"><span class="slot">${pin({ outcome: k, ring: BS })}</span><span class="lbl">${k ? WORD[k] : 'To visit'}</span></button>`).join('');
+    `<button class="cell" type="button" data-i="${i}"><span class="slot">${mark({ outcome: k, ring: BS }).html}</span><span class="lbl">${k ? WORD[k] : 'To visit'}</span></button>`).join('');
 }
 function drawExtras() {
   const items = [
-    [pin({ ring: NOBODY, free: true }), 'No salesman yet'],
-    [pin({ ring: BS, req: true }), 'Open request'],
-    [pin({ ring: BS, tag: 'BS · 3' }), 'His shop, stop 3'],
+    [smallPin({ nobody: true }), 'No salesman yet'],
+    [smallPin({ ring: BS, req: true }), 'Open request'],
+    [smallPin({ ring: BS, tag: 'BS · 3' }), 'His shop, stop 3'],
+    [mark({ outcome: 'request', ring: BS, req: true }).html, 'Visited, request still open'],
     [group(6, 4), '6 shops here, 4 visited'],
     [man('BS', BS), 'Salesman out now'],
     [man('AR', AR, true), 'Salesman selling'],
     [`<div class="crowd">${man('BS', BS)}${man('AR', AR)}${man('DW', '#f59e0b')}<span class="more">+2</span></div>`, '5 salesmen here'],
-    [group(4, 1, true), 'A group with a shop that has no salesman'],
   ];
   document.getElementById('extras').innerHTML = items.map(([h, l]) => `<div class="cell"><span class="slot">${h}</span><span class="lbl">${l}</span></div>`).join('');
 }
-function setShape(s) {
-  shape = s;
-  document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.shape === s)));
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.mode === m)));
   drawResults(); drawExtras(); playVisit();
 }
-document.querySelector('.tabs').addEventListener('click', (e) => { const b = e.target.closest('button[data-shape]'); if (b) setShape(b.dataset.shape); });
+document.querySelector('.tabs').addEventListener('click', (e) => { const b = e.target.closest('button[data-mode]'); if (b) setMode(b.dataset.mode); });
 document.getElementById('play').addEventListener('click', playVisit);
 document.getElementById('results').addEventListener('click', (e) => {
   const b = e.target.closest('.cell'); if (!b) return;
   const k = RESULTS[+b.dataset.i];
-  b.querySelector('.slot').innerHTML = pin({ outcome: k, ring: BS, play: k ? 'burst' : '' });
+  b.querySelector('.slot').innerHTML = mark({ outcome: k, ring: BS, play: k ? 'burst' : '' }).html;
 });
 let held = 0;
 marks.addEventListener('pointerdown', (e) => {
   const m = e.target.closest('.mk'); if (!m || e.pointerType === 'mouse') return;
   m.classList.add('held'); clearTimeout(held); held = setTimeout(() => m.classList.remove('held'), 1800);
 });
-setShape('b');
+setMode('a');
 </script>
