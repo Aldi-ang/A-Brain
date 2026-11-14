@@ -58,4 +58,8 @@ Result after his run (07:57 WIB): 3 GPU entries and 6 startup entries written, B
 
 08:10 WIB: after he restarted Steam, no app holds the dGPU and it reached D3 (asleep) at 08:10:04, about 100 s after Steam started. Trap: `nvidia-smi` wakes the dGPU itself, so read the sleep state from `Get-PnpDeviceProperty ... DEVPKEY_Device_PowerData` (second DWORD minus 1 = D-state), not from nvidia-smi.
 
-Options 4-8 still OPEN — waiting on Aldi.
+08:20-08:46 WIB, game log (nvidia-smi every 5 s, Turbo, on AC), after he said *"but with turbo the temperatur usually already around 90 degrees tho"*. 179 rows with GPU load >= 50% (about 15 min): GPU temp avg 85.6 C, max 87.0 C; software thermal slowdown active in 162 of 179 rows; power avg 63.7 W (cap 100 W, never reached because heat stops it first); clock avg 1475 MHz (min 975, max 1890); GPU load avg only 69%. Armoury Crate screenshot at 08:45: CPU 95 C at 74% use, GPU 83 C, fans 4800 / 5200 RPM, RAM 14.6 / 15.4 GB.
+
+Root cause: HEAT, not settings. The GPU is held back by temperature almost the whole time, so option 5 (GPU overclock) is REJECTED: it would add heat for no FPS. Fans already near full speed, so dust and old thermal paste are the likely reason (service-center clean + repaste). Next options: raise the back, cap FPS, GPU undervolt, service clean.
+
+Options 4, 6, 7, 8 still OPEN — waiting on Aldi.
