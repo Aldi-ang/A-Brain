@@ -679,3 +679,4 @@ Traps found on the first run:
 - There is no iPhone on Windows: an iPhone-only question still needs his own phone.
 
 First result: the Day Log paper (kpm 1a3a934a / 0fc4318c), printed from the phone's Chrome. Android's print screen showed only the paper, one page, for "Print his day" and for "Print team day": the frame's `print()` prints the frame, not the app. Board: `Raw/2026-11-14-android-print/board.png`.
+- Who uses which phone (Aldi, 2026-11-14): *"i have both android and phone but most of the users of this app would be on android"* - so this emulator is the main phone check; his own iPhone is the only iPhone check. The driver script is kept at `Raw/2026-11-14-android-print/cdp.mjs`.
