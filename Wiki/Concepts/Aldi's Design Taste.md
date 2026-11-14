@@ -3735,3 +3735,7 @@ Picked 07:55: *"plant it looks the best"* - A, over my B (hoist). He chose the b
 
 OPEN: his letter.
 Picked ~08:50: *"we need both C and B one to see all and one to see each person, B is a good dashboard, buth make sure that u make it clean and clear"* - not my A. He took the route drawing (C) over the plain list for one man, and the team sheet as a "dashboard". "Clean and clear" on a paper = fewer marks per line: the board's B (a strip of tiny squares in three looks under every man) was the busiest of the three.
+
+2026-11-14 ~09:15, mid-build of the Day Log paper, on the board's route drawing (pins + dashed line on a blank box): *"seeing the receipt and location should also show the map in full and its regional information, because drawing of map pins and lines doesnt give any information really"*.
+- A location he will read must sit on a REAL map: streets, place names, the area borders and names. An abstract sketch "gives no information" even when it is accurate. My board had sold the sketch as "prints clean"; clean without context lost.
+- Built that way (kpm 1a3a934a, live): Esri street map in grey, Journey Plan's own area borders + names, "Areas: Muntilan 6 · Mungkid 6" under it, the pins numbered on top. B (the team sheet) made cleaner than the board: one row of even marks per man, totals at the bottom.
