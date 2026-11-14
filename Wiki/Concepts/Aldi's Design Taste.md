@@ -3743,3 +3743,5 @@ Picked ~08:50: *"we need both C and B one to see all and one to see each person,
 2026-11-14 09:30, on the paper map (his crop: two area names run together, a pin on a letter): *"make sure this features is maximized first and make sure that there is no intersection in words and make sure it looks the best for phone and pc"*.
 - No text may touch other text or a marker, at ANY size he will see. A layout that is right on one fixture is not enough: prove it with a hard case (things metres apart) at the phone size AND the PC size. Built as a check (kpm 0fc4318c).
 - "Best on phone" = its own frame drawn for the phone, not the PC picture shrunk.
+
+- 2026-11-14 - Day Replay, a pressed shop on the phone map: shown NOW (the card names the shop, no pin is marked) beside an example gold glow + ring on the pressed pin, he said *"q2= sure"*. Taste: what you pressed must show on the map too, not only in the card. Board: `Raw/2026-11-14-day-replay-mark/board.png`.
