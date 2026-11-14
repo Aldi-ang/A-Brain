@@ -46,4 +46,10 @@ Models applied: Inversion, Opportunity Cost.
 
 ## Decision
 
-OPEN — waiting on Aldi.
+2026-11-14 07:54 WIB — his words: *"there is no power saving option when the power is plugged for that brave, i can just close it actually and can u make pressing all the commands on one press instead make it simple for me"*.
+
+Built `C:\Users\ASUS\OneDrive\Desktop\Game Mode.bat` (double-click): options 1-3 in one press (GPU preference for Brave + Steam, 6 startup entries disabled through `StartupApproved\Run`, closes Brave / Razer Cortex / Overwolf / uTorrent / Spotify / Lunar / Gemini, asks Y/N before closing Claude). Dry run printed every command. Trap found on the way: `taskkill /im Overwolf*` treats `*` literally; only `/fi "IMAGENAME eq Overwolf*"` matches (tested on a fake name).
+
+Also found: McAfee is the active antivirus (mc-fw-host 455 MB) with Defender passive. Removing McAfee is his call; Defender takes over by itself.
+
+Options 4-8 still OPEN — waiting on Aldi.
