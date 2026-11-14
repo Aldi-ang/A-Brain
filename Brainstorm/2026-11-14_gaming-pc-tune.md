@@ -52,4 +52,6 @@ Built `C:\Users\ASUS\OneDrive\Desktop\Game Mode.bat` (double-click): options 1-3
 
 Also found: McAfee is the active antivirus (mc-fw-host 455 MB) with Defender passive. Removing McAfee is his call; Defender takes over by itself.
 
+Result after his run (07:57 WIB): 3 GPU entries and 6 startup entries written, Brave closed, RAM free 1.5 -> 3.7 GB, dGPU P0 28.28 W -> P8 13.31 W (Steam still on it until restarted). Razer Cortex NOT closed: `taskkill` -> "Access is denied" (it starts from HKLM Run as admin). Fix is to uninstall Cortex, not to make the .bat ask for admin.
+
 Options 4-8 still OPEN — waiting on Aldi.
