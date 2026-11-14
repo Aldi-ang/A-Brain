@@ -2,7 +2,7 @@
 title: A big-company demo for the professional edition
 type: brainstorm
 created: 2026-11-14
-status: BUILT 2026-11-14 (kpm 2a02b48d) - the live switch OPEN, waiting on Aldi
+status: BUILT 2026-11-14 (kpm 2a02b48d) - live switch DECIDED yes (17:40), after the tutorial walk
 tags: [kpm, demo, professional-edition, testing]
 ---
 
@@ -53,7 +53,7 @@ Emulator, the real handler + rules: big 34/34, 2,841 docs in 7.4 s, a second res
 
 **A wrong premise caught before building:** the 15:35 note said the live demo has "NO salesmen, NO sales". That was demo/seed.json, the reset's INPUT; the reset itself makes 4 sellers and 487 sales (~Rp 1,5 miliar a month).
 
-OPEN - waiting on Aldi: 🔴 "should the live demo's nightly reset build the big company?" Yes = visitors meet the big company from the next 00:05 WIB reset (a production write); before the switch, the capybara tutorial is walked on it once (25 roster cards, Dika's 29 shops). No = it stays in the emulator lab for my tests.
+DECIDED 17:40: his *"yes"* - the live demo becomes the big company. Order kept: the capybara tutorial walked on it first (NEXT-SESSION), then the switch. Asked: 🔴 "should the live demo's nightly reset build the big company?" Yes = visitors meet the big company from the next 00:05 WIB reset (a production write); before the switch, the capybara tutorial is walked on it once (25 roster cards, Dika's 29 shops). No = it stays in the emulator lab for my tests.
 
 ## REJECTED ON PURPOSE
 - A: over the free write allowance and the 60 s reset, every night.
