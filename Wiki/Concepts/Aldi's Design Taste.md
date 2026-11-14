@@ -3724,3 +3724,13 @@ Shown three new looks for the salesman beside the new flags (A an initials patch
 - Board: Raw/2026-11-14-man-flag/board.html (artifact N2RJeQQbiZMzCwQxFKZsQZ): A plant it, B hoist it (my pick), C cheer. [[../../Brainstorm/2026-11-14_pixel-man-and-flag]]
 
 Picked 07:55: *"plant it looks the best"* - A, over my B (hoist). He chose the bigger, harder motion again: the stab reads from arm's length. Built the same morning, parked with the pins (kpm wip/map-pins 10a66db7).
+
+## 2026-11-14 — "ship and yes": the planting man everywhere, and a paper for the busy admin
+
+> *"ship and yes, and also add paper like Todays log that can be printed when admin doesnt want to see the whole animation for each of the person to see its activities in a single paper page"*
+
+- "yes" = the Day Replay's man plants the flag too, instead of holding up the coin / crate / note. One scene, the same everywhere (kpm 7a3dc370, live).
+- He keeps the animation and adds a plain way around it: the replay stays for watching, a paper for checking. Motion is for the moment; a record is for reading.
+- Board: Raw/2026-11-14-day-log-paper/board.html (artifact 9p4FCMUngPDqijLBvbuifL): A one salesman per sheet (my pick), B the team on one sheet, C one salesman with his route. [[../../Brainstorm/2026-11-14_day-log-paper]]
+
+OPEN: his letter.
