@@ -54,4 +54,6 @@ Also found: McAfee is the active antivirus (mc-fw-host 455 MB) with Defender pas
 
 Result after his run (07:57 WIB): 3 GPU entries and 6 startup entries written, Brave closed, RAM free 1.5 -> 3.7 GB, dGPU P0 28.28 W -> P8 13.31 W (Steam still on it until restarted). Razer Cortex NOT closed: `taskkill` -> "Access is denied" (it starts from HKLM Run as admin). Fix is to uninstall Cortex, not to make the .bat ask for admin.
 
+08:05 WIB: he uninstalled Razer Cortex himself (asked first *"but cortex does help isnt? i clean this pc and optimize gaming with that before?"*). Checked: no process, no uninstall entry, no HKLM Run entry, no service.
+
 Options 4-8 still OPEN — waiting on Aldi.
