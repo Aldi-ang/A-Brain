@@ -2,7 +2,7 @@
 
 - **Agent Name:** Nolan
 - **Account:** `adikaryasukses99@gmail.com`
-- **Last Updated:** 2026-11-13T12:40:36.823Z
+- **Last Updated:** 2026-11-14T02:14:55.122Z
 - **Repository:** `Aldi-ang/A-Brain` (`main`)
 
 ## 📊 Live Warehouse & Profit Snapshot
@@ -13,13 +13,14 @@
 - **Total Finished Serials:** 7 seri (Accepted: 4, Rejected: 1)
 - **Projected Factory Profit (Accepted):** Rp 6.562.485
 
-## 🎯 Learned Blending Rules & Heuristics (6)
-1. Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.
-2. Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.
-3. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
-4. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
-5. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
-6. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
+## 🎯 Learned Blending Rules & Heuristics (7)
+1. Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.
+2. Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.
+3. Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.
+4. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
+5. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
+6. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
+7. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
 
 ## 🏭 Factory Profiles & Preferences
 ### CELLO MUNTILAN
@@ -51,6 +52,8 @@
 - **Notes:** Siap menerima pengiriman gulungan sampel baru.
 
 ## 📜 Recent Decision & Learning Episodes
+- **[2026-11-14] (RAW_PURCHASE)** Stok Mentah Baru: MTL Srinthil Radial (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
+  - *Takeaway:* Data pembelian mentah tanpa berat bersih dan HPP yang akurat tidak dapat dihitung margin keuntungan profitnya.
 - **[2026-11-13] (RAW_PURCHASE)** Stok Mentah Baru: MTL Srinthil Radial (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
   - *Takeaway:* Data pembelian mentah tanpa berat bersih dan HPP yang akurat menghambat validasi margin profit pabrik.
 - **[2026-11-13] (RAW_PURCHASE)** Stok Mentah Baru: MTL Srinthil Baru (Muntilan) [Grade E] • Netto 0 kg • HPP Rp 0/kg
