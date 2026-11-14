@@ -28,7 +28,12 @@ Today the live demo (rebuilt every night by api/demo-reset.js from demo/seed.jso
 - C wastes the work for his pitch: visitors would still meet an empty company.
 
 ## DECISION
-OPEN - waiting on Aldi. Asked 15:35: B, "yes" or his own numbers. The job is NEXT-SESSION top in kpm.
+B accepted (15:40): *"yes just like the previous demo that we made right exactly the same, with tutorial capybara also but with the newest version of the app, but if this takes a long time and quota then we can do it at last, because dont making the demo causing double job since we havent redesign most of the segment inside this app right ... or do u have other pov?"*
+
+Timing OPEN - waiting on Aldi: "split" (my pick) or "all at the end".
+- Split: the company's data now (a generator that feeds the lab for testing every redesign at real size, later the live demo's nightly seed); the capybara tutorial, the demo door and the live seed swap last. His double-job worry is right for those - they point at screens still being redesigned - and wrong for the data: redesigns change looks, not data ("same logic").
+- not-chosen: all at the end - loses real-size test data for every redesign until then. flips if the data model is about to change.
+- not-chosen: the whole demo now - the tutorial would be redone after each redesign.
 
 ## REJECTED ON PURPOSE
 - A: over the free write allowance and the 60 s reset, every night.
