@@ -56,4 +56,6 @@ Result after his run (07:57 WIB): 3 GPU entries and 6 startup entries written, B
 
 08:05 WIB: he uninstalled Razer Cortex himself (asked first *"but cortex does help isnt? i clean this pc and optimize gaming with that before?"*). Checked: no process, no uninstall entry, no HKLM Run entry, no service.
 
+08:10 WIB: after he restarted Steam, no app holds the dGPU and it reached D3 (asleep) at 08:10:04, about 100 s after Steam started. Trap: `nvidia-smi` wakes the dGPU itself, so read the sleep state from `Get-PnpDeviceProperty ... DEVPKEY_Device_PowerData` (second DWORD minus 1 = D-state), not from nvidia-smi.
+
 Options 4-8 still OPEN — waiting on Aldi.
