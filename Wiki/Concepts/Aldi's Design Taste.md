@@ -3712,3 +3712,15 @@ Board: Raw/2026-11-13-map-pins/board.html (artifact CAdePSN2SQamUsQv5BJoBs): A d
 Round 3, same day: he picked **B** (flag with word, "because it is clear") and asked *"i want the animation to be more clear as in looks like the words and symbol is knitted on the flag ... the flag and the content inside it is not in line and not naturally connected right, i want more realism on this, the effect when flag capture was really nice i like it"*. Round 2 tilted the cloth as one flat sheet with the word laid on top and the picture popping in on its own, so it read as a sticker. Round 3: cloth, stitched hem, picture and word are one drawing; a wave runs from the pole to the tip, every letter rides and tilts with it, the folds shade the word too, and the rise he liked stays. Lesson: anything printed on a moving surface moves with the surface, never on its own clock.
 
 OPEN: his "build".
+
+## 2026-11-14 — the pixel man stays; he must DO something to the flag
+
+Shown three new looks for the salesman beside the new flags (A an initials patch, B a location pin, C a flat figure; board 2tnxGyfVT1Fr9hJqVRyE7c), he kept the old one:
+
+> *"actually i like the pixel guy better, but instead of opening chest we should do something to make it look like its interacting with the flag instead, what do u think?"*
+
+- The professional turn of 2026-11-13 stops at the man: the markers that carry data went plain, the character keeps the game look.
+- The object wins again, now as an ACTION: the man has to do something to the thing at the shop (the chest opened; now the flag), not stand beside it holding a prop. Today's coin is a prop, and it shows at closed shops too.
+- Board: Raw/2026-11-14-man-flag/board.html (artifact N2RJeQQbiZMzCwQxFKZsQZ): A plant it, B hoist it (my pick), C cheer. [[../../Brainstorm/2026-11-14_pixel-man-and-flag]]
+
+OPEN: his letter.

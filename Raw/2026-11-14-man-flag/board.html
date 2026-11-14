@@ -1,0 +1,320 @@
+<title>Pixel Man and the Flag</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<style>
+/* layout: a header, one result switch, three scene cards in a row (one column on a phone); each card = map size, then zoomed */
+:root {
+  --bg: #0e0d0c; --panel: #161412; --line: #3e3a35; --ink: #e8e4de; --dim: #a39d94; --gold: #e2a12e; --land: #2a2928;
+  --display: "Rajdhani", "Arial Narrow", sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font: 400 14px/1.5 var(--body); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 28px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 20px; }
+.eyebrow { font: 700 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+h1 { font: 700 34px/1.05 var(--display); margin: 8px 0 0; text-wrap: balance; }
+.lede { margin: 8px 0 0; color: var(--dim); max-width: 64ch; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bar .lbl { font: 700 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); margin-right: 4px; }
+.chip { font: 600 13px/1 var(--mono); padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; transition: transform 160ms cubic-bezier(.23, 1, .32, 1); }
+.chip[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
+.chip:active { transform: scale(.97); }
+.chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+#again { margin-left: auto; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+.card { min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: grid; gap: 10px; align-content: start; }
+.card.pick { border-color: var(--gold); }
+.card h2 { margin: 0; font: 700 23px/1 var(--display); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.card h2 .k { color: var(--gold); }
+.badge { font: 700 10px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: #2b2318; background: var(--gold); padding: 4px 6px; border-radius: 4px; }
+.card p { margin: 0; }
+.card .still { color: var(--dim); font-size: 13px; }
+.tile { position: relative; border-radius: 8px; overflow: hidden; display: grid; place-items: center;
+  background: linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px) 0 0 / 24px 24px, var(--land); }
+.tile .tag { position: absolute; left: 8px; top: 6px; font: 700 10px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.tile.small { height: 100px; }
+.tile.big { padding-block: 22px 10px; }
+.foot { color: var(--dim); max-width: 70ch; margin: 0; }
+.stage { position: relative; }
+.s3 { position: relative; }
+.s3 > .stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+.man { position: absolute; width: 33px; height: 42px; z-index: 2; }
+.man svg { display: block; }
+.shd { position: absolute; width: 20px; height: 5px; border-radius: 50%; background: rgba(0, 0, 0, .45); }
+
+/* the flag: the same drawing and colours as the built map pins (mapSprites flagSvg, expedition.css) */
+.kx-fl { position: absolute; height: 46px; }
+.kx-fl .pole { position: absolute; left: 0; top: 0; width: 14px; height: 46px; overflow: visible; }
+.kx-fl .pole .d { stroke: #0a0908; stroke-width: 3.6; stroke-linecap: round; }
+.kx-fl .pole .l { stroke: #d6cfc2; stroke-width: 1.6; stroke-linecap: round; }
+.kx-fl .base { position: absolute; left: 7px; top: 44px; width: 12px; height: 12px; margin: -6px 0 0 -6px; box-sizing: border-box; border-radius: 50%; background: var(--c); border: 1.5px solid #0a0908; }
+.kx-fl .bn { position: absolute; left: 8px; top: 4px; height: 25px; transform-origin: 0 100%; }
+.kx-fl .rip { position: absolute; left: 7px; top: 44px; width: 22px; height: 8px; margin: -4px 0 0 -11px; border-radius: 50%; border: 2px solid var(--fam); opacity: 0; pointer-events: none; }
+.kx-fl.f-money { --fam: #e2a12e; --gl: #2b2318; --hem: rgba(70, 45, 8, .5); --emb: rgba(255, 246, 222, .7); }
+.kx-fl.f-plain { --fam: #dfd5bc; --gl: #2b2318; --hem: rgba(70, 56, 34, .45); --emb: rgba(255, 255, 255, .8); }
+.kx-fl.f-problem { --fam: #b4524a; --gl: #f2eee4; --hem: rgba(255, 228, 220, .42); --emb: rgba(44, 8, 6, .6); }
+.kx-fl.f-closed { --fam: #4a453f; --gl: #c9c2b6; --hem: rgba(255, 255, 255, .28); --emb: rgba(0, 0, 0, .65); }
+.kx-sf { display: block; overflow: visible; }
+.kx-sf .cl { fill: var(--fam); }
+.kx-sf .ho { fill: var(--c); }
+.kx-sf .hm { fill: none; stroke: var(--hem); stroke-width: .7; stroke-dasharray: 1.6 1.2; }
+.kx-sf .ed { fill: none; stroke: #0a0908; stroke-width: 1.5; stroke-linejoin: round; }
+.kx-sf .tx { font: 700 9.5px/1 ui-monospace, "Cascadia Mono", Consolas, "Roboto Mono", "Droid Sans Mono", monospace; text-anchor: middle; fill: var(--gl); }
+.kx-sf .tx.em { fill: var(--emb); }
+.kx-sf .gp { fill: none; stroke: var(--gl); stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+.kx-sf .gp.em { stroke: var(--emb); }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Journey Plan · the salesman at a shop</div>
+    <h1>Pixel man and the flag</h1>
+    <p class="lede">Today, when he reaches a shop, he holds a coin up beside the flag. Here he works the flag itself. Same pixel man, same flag, shown at map size and zoomed in. Pick a result to see each one.</p>
+  </header>
+
+  <div class="bar" role="group" aria-label="Visit result">
+    <span class="lbl">Result</span>
+    <button class="chip" id="o-sold" data-o="sold" aria-pressed="true">SALE</button>
+    <button class="chip" id="o-order" data-o="order" aria-pressed="false">ORDER</button>
+    <button class="chip" id="o-closed" data-o="closed" aria-pressed="false">CLOSED</button>
+    <button class="chip" id="o-issue" data-o="issue" aria-pressed="false">COMPETITOR</button>
+    <button class="chip" id="again">Play again</button>
+  </div>
+
+  <section class="cards">
+    <article class="card" data-kind="A">
+      <h2><span class="k">A</span> Plant it</h2>
+      <div class="tile small"><span class="tag">map size</span><div class="s1"></div></div>
+      <div class="tile big"><span class="tag">zoom</span><div class="s3"></div></div>
+      <p>He lifts the pole and stabs it into the ground. The cloth opens, then waves.</p>
+      <p class="still">Lite mode: his hand on the pole, flag open, no wave.</p>
+    </article>
+    <article class="card pick" data-kind="B">
+      <h2><span class="k">B</span> Hoist it <span class="badge">my pick</span></h2>
+      <div class="tile small"><span class="tag">map size</span><div class="s1"></div></div>
+      <div class="tile big"><span class="tag">zoom</span><div class="s3"></div></div>
+      <p>The pole pops up. He pulls three times and the flag climbs to the top, waving as it goes.</p>
+      <p class="still">Lite mode: his hand on the pole, flag at the top, no wave.</p>
+    </article>
+    <article class="card" data-kind="C">
+      <h2><span class="k">C</span> Cheer</h2>
+      <div class="tile small"><span class="tag">map size</span><div class="s1"></div></div>
+      <div class="tile big"><span class="tag">zoom</span><div class="s3"></div></div>
+      <p>The flag rises by itself, like now. He jumps twice with both arms up.</p>
+      <p class="still">Lite mode: standing beside the flag, no wave.</p>
+    </article>
+  </section>
+
+  <p class="foot">Only the man at the shop changes. The flag, its word and its wave stay as built. Walking men and the group of men on a cluster stay the same.</p>
+</div>
+
+<script>
+/* ---- the flag, copied from the built map pins (mapSprites.js on wip/map-pins); `begin` = when the wave starts ---- */
+const SIGN_FAMILY = { sold: 'money', order: 'money', full: 'plain', request: 'plain', routine: 'plain', issue: 'problem', swap: 'problem', closed: 'closed' };
+const SIGN_WORD = { sold: 'SALE', order: 'ORDER', full: 'FULL', issue: 'COMPETITOR', request: 'REQUEST', closed: 'CLOSED', routine: 'CHECK', swap: 'EXCHANGE' };
+const FLAG_PIC = {
+  sold: '<rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/>',
+  order: '<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>',
+  full: '<rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M4 9.5h16M4 15h16"/>',
+  request: '<path d="M20 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/>',
+  routine: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  issue: '<path d="M5 5l11 11M19 5 8 16M13 19l5-5M6 14l5 5M17.5 17.5l2.5 2.5M6.5 17.5 4 20"/>',
+  swap: '<path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/>',
+  closed: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+};
+const FH = 25, NOTCH = 6, GUST = 2.0;
+const EMB = { money: -0.5, plain: -0.5, problem: 0.6, closed: 0.6 };
+const n1 = (v) => String(+v.toFixed(1)), n2 = (v) => String(+v.toFixed(2)), n3 = (v) => String(+v.toFixed(3));
+const flagWidth = (o) => Math.round(40 + 5.7 * SIGN_WORD[o].length);
+const cloth = (W) => {
+  const A = 2.2 + 0.01 * W, k = 2 * Math.PI / 26, w = 2 * Math.PI / 0.44, kr = 2 * Math.PI / 30;
+  const prof = (x) => Math.pow(Math.max(0, x) / W, 1.15);
+  const raw = (t) => (1 - Math.exp(-t / 0.08)) * Math.exp(-t / 0.55);
+  let top = 0; for (let t = 0; t < 1; t += 0.005) top = Math.max(top, raw(t));
+  return { env: (t) => raw(t) / top,
+    d: (x, y, t, e) => { const u = x + 0.35 * (y - FH / 2); return prof(x) * (0.9 * Math.sin(kr * u + 0.8) + A * e * Math.sin(k * u - w * t)); } };
+};
+let flagUid = 0;
+const flagSvg = (outcome, begin) => {
+  const fam = SIGN_FAMILY[outcome], up = SIGN_WORD[outcome], W = flagWidth(outcome), id = 'kxf' + (++flagUid);
+  const { d, env } = cloth(W);
+  const F = 41;
+  const ts = Array.from({ length: F }, (_, i) => i * GUST / (F - 1));
+  const es = ts.map((t, i) => (i === F - 1 ? 0 : env(t)));
+  const frames = (fn) => ts.map((_, i) => fn(i));
+  const at2 = (x, y, i) => [x * (1 - 0.03 * es[i]), y + d(x, y, ts[i], es[i])];
+  const slope = (x, i) => (d(x + 0.6, FH / 2, ts[i], es[i]) - d(x - 0.6, FH / 2, ts[i], es[i])) / (1.2 * (1 - 0.03 * es[i]));
+  const time = `begin="${begin}s" dur="2s" fill="freeze"`;
+  const anim = (attr, v) => `<animate attributeName="${attr}" values="${v.join(';')}" ${time}/>`;
+  const turn = (type, v) => `<animateTransform attributeName="transform" type="${type}" values="${v.join(';')}" ${time}/>`;
+  const M = Math.ceil(W / 4.5);
+  const edge = (i, x0, x1, yT, yB, xn, close) => {
+    const p = [];
+    for (let j = 0; j <= M; j++) p.push(at2(x0 + (x1 - x0) * j / M, yT, i));
+    p.push(at2(xn, FH / 2, i));
+    for (let j = M; j >= 0; j--) p.push(at2(x0 + (x1 - x0) * j / M, yB, i));
+    return 'M' + p.map(([x, y]) => n1(x) + ' ' + n1(y)).join('L') + (close ? 'Z' : '');
+  };
+  const body = frames((i) => edge(i, 0, W, 0, FH, W - NOTCH, true));
+  const hem = frames((i) => edge(i, 5.2, W - 3.2, 2, FH - 2, W - 8.2, false));
+  const LW = 5.7, LS = 0.4, GS = 15, GAP = 4;
+  const x0 = (W - 2) / 2 - (GS + GAP + up.length * LW + (up.length - 1) * LS) / 2, lift = EMB[fam];
+  const piece = (x, inner) => {
+    const tr = frames((i) => at2(x, FH / 2, i).map(n1).join(','));
+    const ro = frames((i) => n1(Math.atan(slope(x, i)) * 180 / Math.PI));
+    return `<g transform="translate(${tr[0].replace(',', ' ')})">${turn('translate', tr)}<g transform="rotate(${ro[0]})">${turn('rotate', ro)}${inner}</g></g>`;
+  };
+  const pic = (cls, dy) => `<g class="${cls}" transform="translate(0 ${dy}) scale(.625) translate(-12 -12)">${FLAG_PIC[outcome]}</g>`;
+  const pieces = piece(x0 + GS / 2, pic('gp em', lift) + pic('gp', 0))
+    + [...up].map((ch, j) => piece(x0 + GS + GAP + j * (LW + LS) + LW / 2, `<text class="tx em" y="${n2(3.35 + lift)}">${ch}</text><text class="tx" y="3.35">${ch}</text>`)).join('');
+  const S = Math.ceil(W / 4);
+  const fold = (gid, sign, k, max) => `<linearGradient id="${gid}" gradientUnits="userSpaceOnUse" x1="0" y1="${FH / 2}" x2="${n1(W / 1.1225)}" y2="${n1(FH / 2 + 0.35 * W / 1.1225)}">`
+    + Array.from({ length: S + 1 }, (_, s) => {
+      const v = frames((i) => n2(Math.min(max, Math.max(0, sign * k * slope(W * s / S, i)))));
+      return `<stop offset="${n3(s / S)}" stop-color="${sign > 0 ? '#000' : '#fff'}" stop-opacity="${v[0]}">${anim('stop-opacity', v)}</stop>`;
+    }).join('') + '</linearGradient>';
+  return `<svg class="kx-sf" viewBox="0 0 ${W} ${FH}" width="${W}" height="${FH}" aria-hidden="true"><defs>`
+    + `<path id="${id}" d="${body[0]}">${anim('d', body)}</path>${fold(id + 's', 1, 0.42, 0.3)}${fold(id + 'h', -1, 0.34, 0.22)}</defs>`
+    + `<use href="#${id}" class="cl"/><rect class="ho" x=".75" y=".75" width="3.5" height="23.5"/>`
+    + `<path class="hm" d="${hem[0]}">${anim('d', hem)}</path>${pieces}`
+    + `<use href="#${id}" fill="url(#${id}s)"/><use href="#${id}" fill="url(#${id}h)"/><use href="#${id}" class="ed"/></svg>`;
+};
+
+/* ---- the pixel man, the app's own 10 x 14 drawing (mapSprites personSvg); reach / pull / cheer are the new poses ---- */
+const px = (rows, pal) => {
+  let out = '';
+  rows.forEach((row, y) => {
+    for (let x = 0; x < row.length;) {
+      const ch = row[x]; let w = 1;
+      while (row[x + w] === ch) w++;
+      if (ch !== '.') out += `<rect x="${x}" y="${y}" width="${w}" height="1" ${pal[ch]}/>`;
+      x += w;
+    }
+  });
+  return out;
+};
+const darker = (hex, k = 0.7) => '#' + [1, 3, 5].map((i) => Math.round(parseInt(hex.slice(i, i + 2), 16) * k).toString(16).padStart(2, '0')).join('');
+const pal = (hair, c) => ({ O: 'fill="#0A0908"', h: `fill="${hair}"`, s: 'fill="#E2AE80"', z: 'fill="#C48C5E"', e: 'fill="#2A1A10"',
+  c: `fill="${c}"`, C: `fill="${darker(c)}"`, p: 'fill="#3A3530"', f: 'fill="#17130F"' });
+const HEAD = ['..OOOOOO..', '.OhhhhhhO.', '.OhsssshO.', '.OsessesO.', '.OsszzssO.'];
+const TORSO = ['OccccccccO', 'OcCccccCcO', 'OcCccccCcO', 'OsCccccCsO', 'OOppppppOO'];
+const LEGS = ['.OppOOppO.', '.OppOOppO.', '.OffO.OffO', '.OOOO.OOOO'];
+/* 11 columns: the 11th is where his fist closes on the pole (reach = up high, pull = at his chest) */
+const pad = (rows) => rows.map((r) => r.padEnd(11, '.'));
+const POSES = {
+  stand: pad(HEAD.concat(TORSO, LEGS)),
+  reach: pad(['..OOOOOO.ss', '.OhhhhhhOcs', '.OhsssshOc', '.OsessesOc', '.OsszzssOc', 'OccccccccO', 'OcCccccCcO', 'OcCccccCcO', 'OsCccccCcO', 'OOppppppOO'].concat(LEGS)),
+  pull: pad(HEAD.concat(['Occcccccccs', 'OcCccccCccs', 'OcCccccCcO', 'OsCccccCcO', 'OOppppppOO'], LEGS)),
+  cheer: pad(['s.OOOOOO.s', 'cOhhhhhhOc', 'cOhsssshOc', 'cOsessesOc', 'cOsszzssOc', 'OccccccccO', 'OcCccccCcO', 'OcCccccCcO', 'OcCccccCcO', 'OOppppppOO'].concat(LEGS)),
+};
+const HAIR = '#2B1A0E', SHIRT = '#C46A3A';
+const manSvg = () => {
+  const P = pal(HAIR, SHIRT);
+  return '<svg viewBox="0 0 11 14" width="33" height="42" shape-rendering="crispEdges" aria-hidden="true">'
+    + Object.entries(POSES).map(([k, rows]) => `<g class="p-${k}">${px(rows, P)}</g>`).join('') + '</svg>';
+};
+
+/* ---- one scene: the flag's pole at x 30 of the stage, the man 25 px left of it: his arm runs beside the pole, his hand touches it ---- */
+const BEGIN = { A: 0.52, B: 0.24, C: 0.24 };
+let outcome = 'sold', timer = 0;
+const scene = (k) => {
+  const W = flagWidth(outcome), sw = 30 + 10 + W + 10, sh = 72;
+  return { sw, sh, html: `<div class="stage" data-k="${k}" style="width:${sw}px;height:${sh}px">`
+    + '<i class="shd" style="left:11px;top:59px"></i>'
+    + `<div class="kx-fl f-${SIGN_FAMILY[outcome]}" style="--c:${SHIRT};left:30px;top:16px;width:${10 + W}px">`
+    + '<svg class="pole" viewBox="0 0 14 46" aria-hidden="true"><path class="d" d="M7 4V44"/><path class="l" d="M7 4V44"/></svg><i class="rip"></i><i class="base"></i>'
+    + `<div class="bn" style="width:${W}px">${flagSvg(outcome, BEGIN[k])}</div></div>`
+    + `<div class="man" style="left:5px;top:20px">${manSvg()}</div></div>` };
+};
+
+/* ---- timing: every track shares one 2.6 s clock, so one currentTime freezes the whole board ---- */
+const T = 2.6, OUT = 'cubic-bezier(.23, 1, .32, 1)', IN = 'cubic-bezier(.5, 0, .9, .6)', POP = 'cubic-bezier(.2, .8, .3, 1)';
+const track = (el, prop, pts) => {
+  const kf = [];
+  if (pts[0][0] > 0) kf.push({ offset: 0, [prop]: pts[0][1] });
+  for (const [t, v, e] of pts) { const f = { offset: Math.min(1, t / T), [prop]: v }; if (e) f.easing = e; kf.push(f); }
+  if (pts[pts.length - 1][0] < T) kf.push({ offset: 1, [prop]: pts[pts.length - 1][1] });
+  el.animate(kf, { duration: T * 1000, fill: 'both' });
+};
+const poses = (man, seq) => Object.keys(POSES).forEach((k) => {
+  const pts = [];
+  seq.forEach(([t, n], i) => { if (i) pts.push([t, seq[i - 1][1] === k ? 1 : 0]); pts.push([t, n === k ? 1 : 0]); });
+  track(man.querySelector('.p-' + k), 'opacity', pts);
+});
+const ground = (s, t0) => {
+  const rip = s.querySelector('.rip'), base = s.querySelector('.base');
+  track(rip, 'opacity', [[t0, 0], [t0, 0.85], [t0 + 0.7, 0]]);
+  track(rip, 'transform', [[t0, 'scale(1)', 'ease-out'], [t0 + 0.7, 'scale(2.6)']]);
+  track(base, 'opacity', [[t0, 0], [t0, 1]]);
+  track(base, 'transform', [[t0, 'scale(.4)', OUT], [t0 + 0.25, 'scale(1)']]);
+};
+const dips = (man, ts) => track(man, 'transform', ts.flatMap((t) => [[t, 'translateY(0px)', OUT], [t + 0.06, 'translateY(1.5px)', 'ease-in-out'], [t + 0.18, 'translateY(0px)']]));
+const RUN = {
+  A(s, pole, bn, man) {   /* lift, stab, the cloth unrolls from the pole */
+    bn.style.transformOrigin = '0 50%';
+    poses(man, [[0, 'reach'], [0.44, 'pull']]);
+    track(pole, 'transform', [[0, 'translateY(-4px)', OUT], [0.30, 'translateY(-12px)', IN], [0.44, 'translateY(0px)']]);
+    track(bn, 'transform', [[0, 'translateY(-4px) scaleX(.12)', OUT], [0.30, 'translateY(-12px) scaleX(.12)', IN], [0.44, 'translateY(0px) scaleX(.12)'],
+      [0.52, 'translateY(0px) scaleX(.12)', OUT], [0.88, 'translateY(0px) scaleX(1)']]);
+    ground(s, 0.44); dips(man, [0.44]);
+  },
+  B(s, pole, bn, man) {   /* the pole pops up, three pulls, the flag climbs 5 px a pull */
+    pole.style.transformOrigin = '50% 95.65%';
+    poses(man, [[0, 'stand'], [0.25, 'reach'], [0.40, 'pull'], [0.55, 'reach'], [0.70, 'pull'], [0.85, 'reach'], [1.00, 'pull']]);
+    track(pole, 'transform', [[0, 'scaleY(0)', OUT], [0.22, 'scaleY(1)']]);
+    track(bn, 'opacity', [[0.12, 0, 'ease-out'], [0.24, 1]]);
+    track(bn, 'transform', [[0, 'translateY(15px)'], [0.40, 'translateY(15px)', OUT], [0.55, 'translateY(10px)'], [0.70, 'translateY(10px)', OUT],
+      [0.85, 'translateY(5px)'], [1.00, 'translateY(5px)', OUT], [1.15, 'translateY(0px)']]);
+    ground(s, 0); dips(man, [0.40, 0.70, 1.00]);
+  },
+  C(s, pole, bn, man) {   /* today's rise, and two jumps */
+    poses(man, [[0, 'stand'], [0.30, 'cheer'], [1.25, 'stand']]);
+    track(bn, 'transform', [[0, 'translateY(20px) scaleY(.3)', POP], [0.34, 'translateY(0px) scaleY(1)']]);
+    track(bn, 'opacity', [[0, 0, POP], [0.34, 1]]);
+    ground(s, 0);
+    track(man, 'transform', [[0.30, 'translateY(0px)', OUT], [0.45, 'translateY(-6px)', IN], [0.60, 'translateY(0px)'],
+      [0.70, 'translateY(0px)', OUT], [0.85, 'translateY(-6px)', IN], [1.00, 'translateY(0px)']]);
+  },
+};
+
+const fit = () => document.querySelectorAll('.s3').forEach((z) => {
+  const sw = +z.dataset.sw, sh = +z.dataset.sh, avail = z.parentElement.clientWidth - 24;
+  const k = Math.max(1, Math.min(3, Math.floor(avail / sw * 10) / 10));
+  z.style.width = sw * k + 'px'; z.style.height = sh * k + 'px';
+  z.firstElementChild.style.transform = `scale(${k})`;
+  z.parentElement.querySelector('.tag').textContent = `zoom ${k}x`;
+});
+const build = () => {
+  document.querySelectorAll('.card').forEach((card) => {
+    const sc = scene(card.dataset.kind), z = card.querySelector('.s3');
+    card.querySelector('.s1').innerHTML = sc.html;
+    z.innerHTML = sc.html; z.dataset.sw = sc.sw; z.dataset.sh = sc.sh;
+  });
+  fit();
+};
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const freeze = (t) => {
+  clearTimeout(timer);
+  document.getAnimations().forEach((a) => { a.pause(); a.currentTime = t * 1000; });
+  document.querySelectorAll('svg.kx-sf').forEach((v) => { try { v.pauseAnimations(); v.setCurrentTime(t); } catch (e) { /* no SMIL clock */ } });
+};
+window.freeze = freeze;
+const play = () => {
+  clearTimeout(timer);
+  build();
+  document.querySelectorAll('.stage').forEach((s) => RUN[s.dataset.k](s, s.querySelector('.pole'), s.querySelector('.bn'), s.querySelector('.man')));
+  document.querySelectorAll('svg.kx-sf').forEach((v) => { try { v.setCurrentTime(0); v.unpauseAnimations(); } catch (e) { /* no SMIL clock */ } });
+  if (reduce) { freeze(T); return; }
+  timer = setTimeout(play, (T + 1.6) * 1000);
+};
+document.querySelectorAll('[data-o]').forEach((b) => b.addEventListener('click', () => {
+  outcome = b.dataset.o;
+  document.querySelectorAll('[data-o]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  play();
+}));
+document.getElementById('again').addEventListener('click', play);
+addEventListener('resize', fit);
+play();
+</script>
