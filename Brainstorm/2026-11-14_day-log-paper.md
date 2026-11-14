@@ -1,7 +1,7 @@
 ---
 title: Day Log on paper
 date: 2026-11-14
-status: OPEN — waiting on Aldi
+status: DECIDED — B + C
 confidence: medium
 checked: 2026-11-14
 ---
@@ -36,7 +36,7 @@ record: whoever signs it has checked the day - two signature lines, nothing more
 useless: two pages for one man; the board keeps every option to one sheet).
 
 ## DECISION
-OPEN — waiting on Aldi (A / B / C, and per person vs everyone).
+**B + C** (his 2026-11-14 ~08:50: *"we need both C and B one to see all and one to see each person, B is a good dashboard, buth make sure that u make it clean and clear"*). Both readings were right: C per person, B for the team. B must come out cleaner than the board. Not built yet.
 
 ## REJECTED ON PURPOSE
 - A screenshot of the map in the print: map tiles print badly and slowly; C draws the route from the pins instead.
