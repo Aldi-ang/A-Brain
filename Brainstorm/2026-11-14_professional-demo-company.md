@@ -2,7 +2,7 @@
 title: A big-company demo for the professional edition
 type: brainstorm
 created: 2026-11-14
-status: OPEN - waiting on Aldi
+status: BUILT 2026-11-14 (kpm 2a02b48d) - the live switch OPEN, waiting on Aldi
 tags: [kpm, demo, professional-edition, testing]
 ---
 
@@ -34,6 +34,26 @@ Timing OPEN - waiting on Aldi: "split" (my pick) or "all at the end".
 - Split: the company's data now (a generator that feeds the lab for testing every redesign at real size, later the live demo's nightly seed); the capybara tutorial, the demo door and the live seed swap last. His double-job worry is right for those - they point at screens still being redesigned - and wrong for the data: redesigns change looks, not data ("same logic").
 - not-chosen: all at the end - loses real-size test data for every redesign until then. flips if the data model is about to change.
 - not-chosen: the whole demo now - the tutorial would be redone after each redesign.
+
+## BUILT (2026-11-14 17:07, kpm `2a02b48d`) - the data, off on the live demo
+His 15:57 *"u can build the simulation now for maximum quality for our app testing and building"*. `buildDemoCompany(seed, now, vault, { big: true })` in api/_demoCompany.js; the live reset builds it only when the demo's server has DEMO_SIZE=big.
+
+| | Small (live today) | Big |
+|---|---|---|
+| People / salesmen | 9 / 4 | 25 / 20 (16 new practice salesmen) |
+| Teams / areas | 2 / - | 2 / 3 (Kab. Magelang = HQ; Kab. Bandung + Bandung Barat; Kota Bandung + Cimahi) |
+| Shops | 148 | 600 (452 made 60-300 m from a real shop of the same kecamatan) |
+| Single sales | 487 over 4 weeks | 1,540 over the last week |
+| Month tallies | 2 months | 6 months, Rp 12,36 miliar of sales to shops |
+| Writes a reset | 897 | 2,841 (budget 7,500 = 30 s of the 60 s, under half the free 20,000) |
+
+Emulator, the real handler + rules: big 34/34, 2,841 docs in 7.4 s, a second reset leaves the same counts.
+
+**The check the plan asked for, answered:** option B assumed the screens read older months from totals. Measured in the code: only Product Performance (Reports, T1/T2 only) reads `sales_stats`; the Reports archive ("Pull archive", HistoryReportView via fetchHistoricalTransactions) and Day Replay read single sales. So the 6 months show only as per-product totals, and the archive reaches back 1 week (the small company: 4 weeks). Four weeks in full for 20 salesmen = ~7,500 docs, at the budget - not done. Related: [[Summaries/The Panel That Never Reads a Transaction]] (the same panel and rollup).
+
+**A wrong premise caught before building:** the 15:35 note said the live demo has "NO salesmen, NO sales". That was demo/seed.json, the reset's INPUT; the reset itself makes 4 sellers and 487 sales (~Rp 1,5 miliar a month).
+
+OPEN - waiting on Aldi: 🔴 "should the live demo's nightly reset build the big company?" Yes = visitors meet the big company from the next 00:05 WIB reset (a production write); before the switch, the capybara tutorial is walked on it once (25 roster cards, Dika's 29 shops). No = it stays in the emulator lab for my tests.
 
 ## REJECTED ON PURPOSE
 - A: over the free write allowance and the 60 s reset, every night.
