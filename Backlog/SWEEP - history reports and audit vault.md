@@ -1,5 +1,17 @@
 # SWEEP — history reports and the audit vault
 
+## Settled 2026-11-14 - the 5 ❔ lines, read in today's code by Antigravity
+
+Source: kpm commit bf2018d7 (.claude/ANTIGRAVITY-TASK.md). Claude spot-checked 4 of the 38 in the code on 2026-11-14 (App #11, App #13, History #5, Map #8): all 4 held. These answers replace the ❔ marks in the block below.
+
+| Finding | Answer | file:line | One sentence |
+| --- | --- | --- | --- |
+| #2 | OPEN | `src/components/HistoryReportView.jsx:142-156,251-259` | `reportData` builds folders from current `boss.location` (`:142-149`) and `motorist.location` (`:150-156`), while `contextualTransactions` still filters `selectedAgent` by stored `t.agentName` (`:252`) and `ADMIN` regions by `isMasterVaultPlace(selectedRegion)` (`:255`). |
+| #4 | OPEN | `src/components/HistoryReportView.jsx:395-401` | `handleEditSubmit` updates the transaction doc and `sales_stats` via `tallySaleOp`, without adjusting product `stock` or recomputing `totalProfit`. |
+| #5 | OPEN | `src/components/HistoryReportView.jsx:289` | `stats` still subtracts every `RETUR` from `payments['Cash']` regardless of the transaction's payment `method`. |
+| #6 | OPEN | `src/components/AuditVaultView.jsx:28,149,159` | `snapshotId` and `snapshotPath` appear only in `AuditVaultView.jsx` and are never written by any logger, so Revert and the snapshot badge can never appear. |
+| #7 | OPEN | `src/components/AuditVaultView.jsx:79-82,171` | The `onSnapshot` error callback only runs `console.error` and `setLoading(false)` (`:79-82`), setting no error state so denied reads render `/// Sector Empty ///` (`:171`). |
+
 ## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
 
 ✅ fixed 2 · 🔴 still open 0 · ❔ not confirmed 5 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).

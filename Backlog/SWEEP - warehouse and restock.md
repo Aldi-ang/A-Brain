@@ -1,5 +1,18 @@
 # SWEEP — warehouse and restock
 
+## Settled 2026-11-14 - the 6 ❔ lines, read in today's code by Antigravity
+
+Source: kpm commit bf2018d7 (.claude/ANTIGRAVITY-TASK.md). Claude spot-checked 4 of the 38 in the code on 2026-11-14 (App #11, App #13, History #5, Map #8): all 4 held. These answers replace the ❔ marks in the block below.
+
+| Finding | Answer | file:line | One sentence |
+| --- | --- | --- | --- |
+| #2 | FIXED | `src/components/BranchWarehouseManager.jsx:767-769` | `handleConfirmReceipt` reads `orderSnap` inside `runTransaction` and throws if `orderData.status === 'DELIVERED' \|\| orderData.status === 'DISPUTED'`, blocking double-crediting. |
+| #3 | OPEN | `src/components/BranchWarehouseManager.jsx:286,599,773` | `branchLocation` (`:286`), branch inventory listener (`:599`), and `handleConfirmReceipt` (`:773`) still interpolate `userLocation`/`order.branch` into `branches/.../inventory` without `.replace(/\//g, '-')`. |
+| #4 | OPEN | `src/RestockVaultView.jsx:827-834,1824` | Outbound rows render `Hapus` (`:1824`) wired to `handleDeleteRequest(po.id)` (`:827-834`), which deletes `stock_requests/{orderId}` without blocking `IN_TRANSIT` orders or reversing HQ stock. |
+| #5 | OPEN | `src/RestockVaultView.jsx:1174-1183` | `producedFor` (`:1174-1183`) still totals monthly target progress from `procurements`, which `src/hooks/useDatabaseSync.js:109` queries with `where('timestamp', '>=', sevenDaysAgo)`. |
+| #6 | OPEN | `src/RestockVaultView.jsx:275,280,285,1700-1703` | Listener error callbacks in `RestockVaultView.jsx` (`:275,:280,:285`), `BranchWarehouseManager.jsx` (`:574,:587,:604`), and `useDatabaseSync.js:109` only `console.warn`, so denied reads render the normal empty state. |
+| #7 | OPEN | `src/RestockVaultView.jsx:606,634,709` | `Number(...) \|\| 0` guards at `:452`, `:634`, and `:709` (and `src/utils/helpers.js:284-285`) prevent `NaN`, but `:606` still only checks `totalItemsReceived + promoPcs <= 0` so a cart with a blank-quantity line saves that line as `0`. |
+
 ## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
 
 ✅ fixed 1 · 🔴 still open 0 · ❔ not confirmed 6 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).

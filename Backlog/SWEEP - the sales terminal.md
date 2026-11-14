@@ -1,5 +1,14 @@
 # SWEEP — the sales terminal (Merchant Sales + the sale engine)
 
+## Settled 2026-11-14 - the 2 ❔ lines, read in today's code by Antigravity
+
+Source: kpm commit bf2018d7 (.claude/ANTIGRAVITY-TASK.md). Claude spot-checked 4 of the 38 in the code on 2026-11-14 (App #11, App #13, History #5, Map #8): all 4 held. These answers replace the ❔ marks in the block below.
+
+| Finding | Answer | file:line | One sentence |
+| --- | --- | --- | --- |
+| #11 | OPEN | `src/MerchantSalesView.jsx:3192,3351` | The receipt modal still sets `activeTier` from `receiptData.items?.[0]?.priceTier \|\| 'Retail'` (`:3192`), so an IOU-fulfillment first line sets the whole nota's `Tipe Harga` (`:3351`) and catalogue column prices to Retail. |
+| #13 | OPEN | `src/MerchantSalesView.jsx:3220-3229` | When `!inventory.find(...)` (`:3221`), the receipt modal still multiplies and divides by hardcoded `10` (`:3222-3226`) instead of using stored pack sizes. |
+
 ## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
 
 ✅ fixed 8 · 🔴 still open 6 · ❔ not confirmed 2 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).

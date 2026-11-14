@@ -1,5 +1,16 @@
 # SWEEP — agent profile, ranks and awards
 
+## Settled 2026-11-14 - the 4 ❔ lines, read in today's code by Antigravity
+
+Source: kpm commit bf2018d7 (.claude/ANTIGRAVITY-TASK.md). Claude spot-checked 4 of the 38 in the code on 2026-11-14 (App #11, App #13, History #5, Map #8): all 4 held. These answers replace the ❔ marks in the block below.
+
+| Finding | Answer | file:line | One sentence |
+| --- | --- | --- | --- |
+| #2 | OPEN | `src/AgentProfileView.jsx:442-563` | `(transactions \|\| []).forEach` clamps `Math.max(0, titipIssued - titipCollected)` at `:562`, so unpaid consignment debt older than the 7-day feed vanishes and out-of-window repayments can zero the headline. |
+| #3 | OPEN | `src/AgentProfileView.jsx:587-609` | The `stats` `useMemo` reads `useCareerLedger` and `career?.[activeAgent.id]` (`:587-588`), but its dependency array (`:609`) omits `career` and `useCareerLedger`. |
+| #4 | OPEN | `src/AgentProfileView.jsx:282,341,393,637-644` | The rank-up `useEffect` (`:637-644`) runs whenever `canEditProfile` (`:209`) rather than own profile only, and all three `master_owner` writes (`:282`, `:341`, `:393`) still call `setDoc` without `{ merge: true }`. |
+| #5 | OPEN | `src/AgentProfileView.jsx:363` | `handleGrantAward` still writes `grantedBy: userId, grantedByName: activeAgent.name \|\| 'Admin'`, storing the vault owner ID alongside the recipient's name. |
+
 ## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
 
 ✅ fixed 1 · 🔴 still open 0 · ❔ not confirmed 4 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).

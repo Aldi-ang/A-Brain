@@ -1,5 +1,7 @@
 # SWEEP 2026-08-18 — START HERE
 
+> **2026-11-14:** the 38 ❔ findings are settled: 1 FIXED, 37 OPEN, 0 gone, 0 can't tell (Antigravity, kpm bf2018d7; Claude spot-checked 4, all held). Each sweep note has a "Settled 2026-11-14" block above its old status.
+
 > 📖 **The whole list in one readable page (all 75, plain English, ranked):**
 > **https://claude.ai/code/artifact/a394be49-4ab3-48e8-88b4-71dab447b794**
 > Private until Aldi shares it. Same content as the files below, written to be read

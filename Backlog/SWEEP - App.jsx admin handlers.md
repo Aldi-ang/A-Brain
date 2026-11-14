@@ -1,5 +1,24 @@
 # SWEEP — App.jsx admin handlers
 
+## Settled 2026-11-14 - the 12 ❔ lines, read in today's code by Antigravity
+
+Source: kpm commit bf2018d7 (.claude/ANTIGRAVITY-TASK.md). Claude spot-checked 4 of the 38 in the code on 2026-11-14 (App #11, App #13, History #5, Map #8): all 4 held. These answers replace the ❔ marks in the block below.
+
+| Finding | Answer | file:line | One sentence |
+| --- | --- | --- | --- |
+| #4 | OPEN | `src/App.jsx:2242-2290` | `handleApproveTransfer` still creates both notification docs (`:2243`, `:2255`, `:2267`, `:2278`) before `commitInChunks` (`:2290`), leaving notifications sent if the batch fails. |
+| #6 | OPEN | `src/App.jsx:3703-3744,5262` | The product edit modal includes `<input name="stock" .../>` (`:5262`) and `handleSaveProduct` reads `stock` (`:3703-3704`) into `data` passed directly to `updateDoc` (`:3743`). |
+| #7 | OPEN | `src/App.jsx:2504-2508` | `handleVerifyEOD` runs `t.update(txRef, { 'forensicData.eodCredited': true })` for each ID in `creditedTxIds` without reading via `t.get(txRef)` to verify the transaction still exists. |
+| #8 | OPEN | `src/App.jsx:4386-4400` | `handleImportSharedConfig` overwrites `settings/general` without `{ merge: true }` (`:4387`) and sets imported product docs (`:4395-4400`) without stripping `stock`, `minStock`, or `damagedStock`. |
+| #9 | OPEN | `src/App.jsx:1239-1272,1482-1489` | `handleChangePin` (`:1482-1489`) opens Setup Mode whose `handleSetupSecurity` calls `setDoc(vaultDoc, security)` without `{ merge: true }` (`:1272`), replacing `passkeys` with only `[passkey]` (`:1239-1248`). |
+| #10 | OPEN | `src/App.jsx:818-829` | `handleMasterProtocol` queues three downloads via `setTimeout` (`:819-821`) and immediately sets `sessionStatus` (`:826`) and logs `MASTER_BACKUP` (`:828`) before any download runs. |
+| #11 | OPEN | `src/App.jsx:1434-1445,1470-1479` | Recovery OTP now passes `to_email: user.email` (`:1443`), but `newOtp` is still generated in the browser (`:1434`), held in React state (`:1435`), and verified client-side (`:1471`). |
+| #12 | OPEN | `src/App.jsx:3501-3543` | `handleDeleteConsignmentData` (`:3502`, no success toast at `:3519-3520`) and `handleDeleteHistory` (`:3526`) both filter only the 7-day `transactions` prop, and `handleDeleteHistory` reports `Deleted ${targets.length} records` (`:3541`). |
+| #13 | OPEN | `src/App.jsx:4120` | `handleUpdateSampling` still sets `const newQty = parseInt(updatedData.qty);`, dropping fractional pack quantities. |
+| #14 | OPEN | `src/App.jsx:2745,2762,2805-2812` | `handleRecalculateCareer` reads `eod_reports` via `getDocs` (`:2762`), writes `{ base, baseThrough: cutoffDay, live: {} }` (`:2805-2812`), and intentionally leaves `credited` untouched (`:2745`), keeping the snapshot-to-commit race open. |
+| #15 | OPEN | `src/App.jsx:4091-4114,4147-4176` | `handleDeleteSampling` skips van stock restoration when `!agentDoc.exists()` (`:4092-4105`) yet still deletes the sample (`:4110`) and shows `Sample deleted & stock restored.` (`:4113`). |
+| #17 | OPEN | `src/App.jsx:3000-3011,3066-3105` | `handleLogin` notifies on sign-in failure (`:3291-3292`), but in `unsubAuth` a failed `liveProfileRef` fetch still only logs `console.warn` (`:3010`) and the outer `Traffic Cop Error` catch (`:3066-3105`) drops to `UNAUTHORIZED` without notifying the user. |
+
 ## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
 
 ✅ fixed 6 · 🔴 still open 0 · ❔ not confirmed 12 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).

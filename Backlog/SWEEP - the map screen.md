@@ -1,5 +1,17 @@
 # SWEEP — the map screen (Map Mission Control)
 
+## Settled 2026-11-14 - the 5 ❔ lines, read in today's code by Antigravity
+
+Source: kpm commit bf2018d7 (.claude/ANTIGRAVITY-TASK.md). Claude spot-checked 4 of the 38 in the code on 2026-11-14 (App #11, App #13, History #5, Map #8): all 4 held. These answers replace the ❔ marks in the block below.
+
+| Finding | Answer | file:line | One sentence |
+| --- | --- | --- | --- |
+| #8 | OPEN | `src/MapMissionControl.jsx:16,1417-1425` | `TierAutomationEngine` `catch` now calls `notify` (`:1425`) instead of failing silently, but `getDoc` is still omitted from the `firebase/firestore` import at `:16`, so `:1417-1419` still throw and tier rules never load. |
+| #10 | OPEN | `src/MapMissionControl.jsx:1476,1544,1919-1927,2337` | `MapMissionControl` passes the filtered `mapPoints` (`:1919-1927`) into `<TierAutomationEngine mapPoints={mapPoints} .../>` (`:2337`), so `runDataCleanse` (`:1476`) and `runSimulation` (`:1544`) still process only stores matching active filters. |
+| #11 | OPEN | `src/MapMissionControl.jsx:648-663` | `toggleFolderVisibility` still runs un-awaited per-border `saveBoundaryToFirebase(target)` inside `forEach` (`:656-662`) where write failures are only logged via `console.error` (`:532`). |
+| #12 | OPEN | `src/MapMissionControl.jsx:801` | `handleFileUpload` still checks duplicates against `b.name === name && (b.folderName \|\| b.level) === targetFolder`, scoped only to `targetFolder`. |
+| #15 | OPEN | `src/MapMissionControl.jsx:1786-1817` | `handleSaveNewStore` still saves new stores (`:1792-1805`) with no duplicate check (`findShop` is imported at `:17` but unused here) and without setting `region` or `city`. |
+
 ## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
 
 ✅ fixed 7 · 🔴 still open 3 · ❔ not confirmed 5 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).

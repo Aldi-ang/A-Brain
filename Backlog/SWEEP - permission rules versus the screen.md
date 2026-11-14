@@ -1,5 +1,16 @@
 # SWEEP — permission rules versus the screen
 
+## Settled 2026-11-14 - the 4 ❔ lines, read in today's code by Antigravity
+
+Source: kpm commit bf2018d7 (.claude/ANTIGRAVITY-TASK.md). Claude spot-checked 4 of the 38 in the code on 2026-11-14 (App #11, App #13, History #5, Map #8): all 4 held. These answers replace the ❔ marks in the block below.
+
+| Finding | Answer | file:line | One sentence |
+| --- | --- | --- | --- |
+| #1 | OPEN | `firestore.rules:200-209,261-300,765-778` | `customerAccessLevel` (`:200-209`) still checks raw `profile.get('userRole', 'NONE')` with no legacy tag mapping and defaults to `'global'`; CHANGE 17 (`:261-300`) adds folder limits only when `settings/customer_access.on == true`, leaving the old path active otherwise and on `create` (`:769`). |
+| #3 | OPEN | `src/AgentProfileView.jsx:829,1007` | Shared `settings/{docId}` was closed (`firestore.rules:544-546`) and writes moved to `users/{userId}/settings/progression` (`:157,379`), but the UI still gates Rank Config on `edit_rank_config` while `firestore.rules:958` has `allow write: if false` on `settings/{docId}` (allowing only T1/T2 via `:561-562`). |
+| #4 | OPEN | `src/AgentProfileView.jsx:209,1025` | `AgentProfileView.jsx` still gates `Grant Award` on `edit_agent_roles` (`:1025`) and profile edits on `canEditProfile` (`:209`), whereas `firestore.rules:986-994` sets `allow write: if false` on `career/{agentId}` and has no `create` rule on `awards` (only T1/T2 catch-all and `:879` `canEditRoster == true` on `motorists`). |
+| #6 | OPEN | `firestore.rules:206-208` | `src/config/permissions.js:387-391` ranks `customers_edit_global` above `customers_edit_own_region` above `customers_view_only`, while `firestore.rules:206-208` still checks `'customers_view_only'` before `'customers_edit_own_region'` and `'global'`. |
+
 ## Status, checked against the app 2026-11-08 (Claude, his "check the notes, fixes and test it yourself")
 
 ✅ fixed 2 · 🔴 still open 0 · ❔ not confirmed 4 (that code was rewritten since August; it needs a read before anyone calls it fixed or open).
