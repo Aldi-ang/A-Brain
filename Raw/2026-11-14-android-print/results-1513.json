@@ -1,0 +1,35 @@
+{
+ "results": [
+  {
+   "name": "Hold a crowded flag shows its hidden name",
+   "ok": true,
+   "detail": "during the hold: [\"visible\",\"Warung Bu Sri\"]; after letting go: 0 held"
+  },
+  {
+   "name": "Full screen opens",
+   "ok": true,
+   "detail": "exit key present: true|true"
+  },
+  {
+   "name": "Day Replay: pressing a pin opens its card",
+   "ok": true,
+   "detail": "pressed Toko Berkah Jaya; card says \"TOKO BERKAH JAYA\"; marked pin: \"Toko Berkah Jaya\""
+  },
+  {
+   "name": "Full screen closes again",
+   "ok": true,
+   "detail": "no EXIT key after pressing it"
+  },
+  {
+   "name": "Day Replay Print: Android print screen opens on the paper",
+   "ok": true,
+   "detail": "paper \"Day Log Budi Santoso 2026-11-14\"; window: com.android.printspooler/com.android.printspooler.ui.PrintActivity"
+  },
+  {
+   "name": "Close takes the paper away",
+   "ok": true,
+   "detail": "no .kx-paper after Close"
+  }
+ ],
+ "errs": []
+}
