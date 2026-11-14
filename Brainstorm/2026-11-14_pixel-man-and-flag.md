@@ -1,7 +1,7 @@
 ---
 title: Pixel man and the flag
 date: 2026-11-14
-status: OPEN — waiting on Aldi
+status: DECIDED — A, plant it
 confidence: medium
 checked: 2026-11-14
 ---
@@ -40,7 +40,7 @@ result, the flag does) · Inversion (what makes it read wrong: the hand not on t
 that) · Opportunity Cost (C costs least and buys least).
 
 ## DECISION
-OPEN — waiting on Aldi (A / B / C).
+**A - plant it** (his 2026-11-14 08:05: *"plant it looks the best"*), over my pick B. Built in kpm 10a66db7 (wip/map-pins, not live). Day Replay left as is: his call.
 
 ## REJECTED ON PURPOSE
 - He walks away after planting: where the man stands comes from the live team data, not from the moment.

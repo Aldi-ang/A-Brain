@@ -3723,4 +3723,4 @@ Shown three new looks for the salesman beside the new flags (A an initials patch
 - The object wins again, now as an ACTION: the man has to do something to the thing at the shop (the chest opened; now the flag), not stand beside it holding a prop. Today's coin is a prop, and it shows at closed shops too.
 - Board: Raw/2026-11-14-man-flag/board.html (artifact N2RJeQQbiZMzCwQxFKZsQZ): A plant it, B hoist it (my pick), C cheer. [[../../Brainstorm/2026-11-14_pixel-man-and-flag]]
 
-OPEN: his letter.
+Picked 08:05: *"plant it looks the best"* - A, over my B (hoist). He chose the bigger, harder motion again: the stab reads from arm's length. Built the same morning, parked with the pins (kpm wip/map-pins 10a66db7).
