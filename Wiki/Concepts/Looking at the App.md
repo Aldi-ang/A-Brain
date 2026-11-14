@@ -3,9 +3,9 @@ title: Looking at the App
 description: How to actually see a KPM screen before claiming a visual fix — the theme lab harness, why the dev server cannot be opened directly, and the three ways the harness lied before it told the truth.
 type: concept
 created: 2026-08-16
-updated: 2026-09-18
+updated: 2026-11-14
 confidence: high
-checked: 2026-09-15
+checked: 2026-11-14
 tags: [pattern, verification, design, tooling, kpm]
 ---
 
@@ -659,3 +659,23 @@ Four live lab iframes in ONE headless page: only the first booted, three came ba
 ## One JSX, two outlets: the real screen in the lab and a page he can press on his phone (2026-11-05)
 
 A draft written as one React file with its CSS in a string can do both. In the lab, a portal puts it into the real screen for frames (`tools/opname-drafts.jsx`, `mountInLab`). For the phone, `Raw/2026-11-05-opname-board/build-drafts.mjs` bundles it with the repo's own esbuild into one self-contained HTML page, with the app's real colour values read from the lab by the shooter into `tokens.json`, and `publish_files` sends that page as a private Artifact. Layout is written with container queries, so the page's "Phone width" switch shows the phone layout on a PC. A draft that must bundle alone cannot import `utils/helpers.js`.
+
+## A REAL Android phone: Google's emulator on this PC (2026-11-14)
+
+Why: the lab (headless Chrome at 375 with phone media) shows how a screen LOOKS on a phone. It cannot show what the phone's own system does - printing, the share sheet, the camera, "add to home screen" - because PC Chrome does those with the PC engine, so a lab test of them cannot fail. Aldi asked for a real test (*"try test it yourself and i let me know the result because u can make the simulator for that right"*) and OK'd the 2.5 GB download and Google's Android SDK license (*"yes to all continue"*).
+
+What is installed: `C:\Users\ASUS\AppData\Local\Android\Sdk` - cmdline-tools (latest), platform-tools 37.0.1, emulator 37.2.13, `system-images;android-35;google_apis_playstore;x86_64` r9 (Android 15, Chrome 124 inside). Only `android-sdk-license` was accepted. WHPX is usable (`emulator -accel-check`). The phone: AVD `kpm_phone` (Pixel 7: 412 CSS px wide, DPR 2.625). Chrome's first run: "Use without an account", usage data switched OFF.
+
+How to run a phone test (the phone boots in about 40 s):
+1. Set `ANDROID_HOME` to the Sdk; start `emulator -avd kpm_phone -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect` in the background; wait for `adb shell getprop sys.boot_completed` = 1.
+2. Build the lab (`npx vite build --config tools/ponder-lab.config.mjs`) and start launch.json `ponder-lab-built-ipv4` (vite preview on 127.0.0.1:4188).
+3. `adb reverse tcp:4187 tcp:4188`, then open `http://localhost:4187/tools/ponder-lab.html?shell&journey&exp&admin` in the phone's Chrome. Localhost keeps it a secure context ([[Secure Context Requirement]]); `10.0.2.2` would not.
+4. Drive Chrome over its DevTools socket: `adb forward tcp:9223 localabstract:chrome_devtools_remote`, then CDP - `Runtime.evaluate` finds a button's box, `Input.dispatchTouchEvent` presses it (a real tap, so `print()` runs as the user's press). Android's own screens (the print screen, Chrome's dialogs): `adb exec-out screencap -p` and `adb shell input tap x y` (screens are 1080x2400).
+5. Done: `adb emu kill`.
+
+Traps found on the first run:
+- **The lab server on `localhost` listens on IPv6 only** (`[::1]:4187`) and `adb reverse` connects over IPv4: the phone shows Chrome's error page (`chrome-error://chromewebdata/`). Fix: the `ponder-lab-built-ipv4` config (`--host 127.0.0.1`, port 4188) plus `adb reverse tcp:4187 tcp:4188`.
+- The emulator's Chrome is the one inside the system image (124 here), not the newest, and it cannot update without a Google sign-in. Say the version with any result.
+- There is no iPhone on Windows: an iPhone-only question still needs his own phone.
+
+First result: the Day Log paper (kpm 1a3a934a / 0fc4318c), printed from the phone's Chrome. Android's print screen showed only the paper, one page, for "Print his day" and for "Print team day": the frame's `print()` prints the frame, not the app. Board: `Raw/2026-11-14-android-print/board.png`.
