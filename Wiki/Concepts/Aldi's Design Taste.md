@@ -3739,3 +3739,7 @@ Picked ~08:50: *"we need both C and B one to see all and one to see each person,
 2026-11-14 ~09:15, mid-build of the Day Log paper, on the board's route drawing (pins + dashed line on a blank box): *"seeing the receipt and location should also show the map in full and its regional information, because drawing of map pins and lines doesnt give any information really"*.
 - A location he will read must sit on a REAL map: streets, place names, the area borders and names. An abstract sketch "gives no information" even when it is accurate. My board had sold the sketch as "prints clean"; clean without context lost.
 - Built that way (kpm 1a3a934a, live): Esri street map in grey, Journey Plan's own area borders + names, "Areas: Muntilan 6 · Mungkid 6" under it, the pins numbered on top. B (the team sheet) made cleaner than the board: one row of even marks per man, totals at the bottom.
+
+2026-11-14 09:30, on the paper map (his crop: two area names run together, a pin on a letter): *"make sure this features is maximized first and make sure that there is no intersection in words and make sure it looks the best for phone and pc"*.
+- No text may touch other text or a marker, at ANY size he will see. A layout that is right on one fixture is not enough: prove it with a hard case (things metres apart) at the phone size AND the PC size. Built as a check (kpm 0fc4318c).
+- "Best on phone" = its own frame drawn for the phone, not the PC picture shrunk.
