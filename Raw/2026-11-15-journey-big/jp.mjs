@@ -126,7 +126,7 @@ else if (cmd === 'key') {
 } else if (cmd === 'journey') {
     /* the clock starts in the page the moment before the finger lands on the menu's Journey Plan key */
     let jm = await aim('[data-mark="journey"]');
-    if (!jm) {
+    if (!jm || !jm.hitsIt) {   // laid out in the closed drawer (off the screen) counts as not there
         const menu = await aim('text=^\\s*(menu|open menu|open navigation|buka menu)\\s*$');
         if (!menu) { console.log('NO MENU KEY', JSON.stringify(brief(await run(state)))); process.exit(1); }
         console.log('menu', JSON.stringify(menu)); await touch(menu.x, menu.y); await sleep(900);

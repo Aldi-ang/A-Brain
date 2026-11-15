@@ -2,7 +2,7 @@
 title: Journey Plan on the big demo company - the phone test
 type: brainstorm
 created: 2026-11-15
-status: OPEN - waiting on Aldi (which fixes, in what order)
+status: A-D DONE, LIVE 9352941a (2026-11-15 12:50 WIB); E waits on his phone test; F not picked
 tags: [kpm, journey-plan, demo, testing, android, iphone, speed]
 confidence: high (every number below was measured; the iPhone row is a simulation)
 checked: 2026-11-15
@@ -51,7 +51,21 @@ No refused listener or console error in any run (lesson check for #1-#4).
 | F | #7: close the 46 px band | CSS | look only |
 
 ## DECISION
-OPEN - waiting on Aldi: which of A-F, in what order. My pick: A, B, C, D in one job (small, each gets a check); E as its own job if his phone test says "slow"; F only if he wants it.
+His pick (2026-11-15 morning): A, B, C, D now; B = name the teammate - *"add some notification and warning that this store is occupied by teammate name"*.
+
+DONE, LIVE 9352941a (pushed 2026-11-15 12:50 WIB). Measured after the fix on the lab phone (Pixel 7 emulator, dev server on the emulator data):
+| | before | after |
+|---|---|---|
+| A, Android 412 | map 839 px on a 783 screen, key names cut | map 71-783, 6 keys named |
+| A, Android 390 | map 773 on 717 | map 71-717, keys 631-689 |
+| C, Android | salesman row y 13 under the DEMO bar | y 84, the map under the finger |
+| C, iPhone 13 sim | row y 60 under the DEMO bar; keys 719-787 of 844 | row y 131; keys unchanged 719-787 |
+| B | empty streets, no message | "Toko Subur Baleendah is DEDE SUPRIATNA's shop, not BAGUS SETIAWAN's - only BAGUS SETIAWAN's shops show while he is pressed." (412 y 83, 390 y 94) |
+| D | top 36 visited vs Team 228 done | top 264 = 228 that bought + 36 visit-only |
+Board: Raw/2026-11-15-journey-big/board-ad.png. Gates: selfcheck 2972/2972 (3 new, RED on old code), build, audit 725/725, demo build check.
+Lab traps this round: the note is a toast and is gone ~3 s after Enter - shoot right after the key; `am start` with a URL opens a SECOND Chrome tab and the hidden one freezes every CDP script (close it via /json/close); the Find box sits in a fold opened by the "Today's Route" header.
+
+STILL OPEN: E (vault gate 23.5 s on a first visit, big company) - after his phone test of the live demo from 2026-11-16 00:05 WIB. F (46 px band) - not picked.
 
 ## REJECTED ON PURPOSE
 - Timing on the vite dev server: React's dev timers inflate it 4-8x.

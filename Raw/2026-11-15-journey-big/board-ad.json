@@ -1,0 +1,49 @@
+{
+ "title": "Journey Plan fixes A-D - before and after",
+ "sub": "Same big demo company (600 shops, 20 salesmen). Left of each arrow: this morning's test. Right: the fixed app. Android = the Pixel 7 phone in the lab (Chrome 124). iPhone = a PC Chrome pretending to be an iPhone 13 opened from the home screen (notch drawn on, a simulation). Gold dashed box = something wrong.",
+ "width": 1240,
+ "frameW": 220,
+ "sections": [
+  {
+   "h": "A + C. Full map on Android",
+   "items": [
+    { "pair": [
+      { "img": "b412-3-fullmap.jpg", "css": [412, 783], "marks": [ { "x": 56, "y": 6, "w": 352, "h": 44, "t": "under the DEMO bar" }, { "x": 11, "y": 749, "w": 391, "h": 33, "t": "names cut off", "up": true } ], "cap": "<b>Before, 412 wide.</b> Map 839 px tall on a 783 px screen." },
+      { "img": "a412-2-fullmap.jpg", "css": [412, 783], "cap": "<b>After.</b> Map ends at the screen's bottom (71-783). All 6 keys show their names. Salesman row below the DEMO bar." }
+    ] },
+    { "pair": [
+      { "img": "b390-4-fullmap.jpg", "css": [390, 717], "marks": [ { "x": 56, "y": 6, "w": 334, "h": 44, "t": "under the DEMO bar" }, { "x": 11, "y": 682, "w": 368, "h": 34, "t": "names cut off", "up": true } ], "cap": "<b>Before, 390 wide.</b> Map 773 px tall on a 717 px screen." },
+      { "img": "c390-2-fullmap.jpg", "css": [390, 717], "cap": "<b>After.</b> Map 71-717 on a 717 screen. Keys at 631-689, names whole. Salesman row at y 84, below the DEMO bar." }
+    ] }
+   ]
+  },
+  {
+   "h": "C. Full map on the iPhone home-screen app",
+   "items": [
+    { "pair": [
+      { "img": "n390-3-fullmap.jpg", "css": [390, 844], "notch": true, "marks": [ { "x": 56, "y": 53, "w": 334, "h": 44, "t": "under the DEMO bar" } ], "cap": "<b>Before.</b> Keys already fit. Salesman row under the DEMO bar (y 60)." },
+      { "img": "m390-3-fullmap.jpg", "css": [390, 844], "notch": true, "cap": "<b>After.</b> Keys in the same place (719-787 of 844). Salesman row at y 131, below the DEMO bar and the guide line." }
+    ] }
+   ]
+  },
+  {
+   "h": "B. Find a shop while one salesman is pressed",
+   "items": [
+    { "pair": [
+      { "img": "b412-5-find.jpg", "css": [412, 735], "marks": [ { "x": 8, "y": 537, "w": 396, "h": 158, "t": "no shop, no message", "up": true } ], "cap": "<b>Before.</b> The map flies to empty streets and says nothing." },
+      { "img": "a412-3-find.jpg", "css": [412, 783], "cap": "<b>After, 412.</b> A note says whose shop it is: DEDE SUPRIATNA's, not BAGUS SETIAWAN's." }
+    ] },
+    { "img": "c390-3-find.jpg", "css": [390, 717], "cap": "<b>After, 390.</b> The same note, at the top of the screen." }
+   ]
+  },
+  {
+   "h": "D. Demo: shops that bought today count as visited",
+   "items": [
+    { "pair": [
+      { "img": "b412-1-open.jpg", "css": [412, 783], "marks": [ { "x": 252, "y": 188, "w": 146, "h": 36, "t": "36 visited" }, { "x": 248, "y": 590, "w": 150, "h": 30, "t": "228 done" } ], "cap": "<b>Before.</b> Top: 36 visited. Team box: 228 done." },
+      { "img": "a412-1-open.jpg", "css": [412, 783], "cap": "<b>After.</b> Top: 264 visited = the 228 shops that bought + the 36 visited without buying. The live demo shows it after the next 00:05 WIB reset." }
+    ] }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "steps": [
+  {
+   "k": "phone",
+   "v": {
+    "w": 390,
+    "h": 844,
+    "hoverNone": true,
+    "coarse": true,
+    "safe": [
+     "47px",
+     "34px"
+    ],
+    "hook": true
+   }
+  },
+  {
+   "k": "in the app",
+   "v": "after 4 steps"
+  },
+  {
+   "k": "NOT FOUND",
+   "v": "[aria-label=\"Tutup petunjuk\"] "
+  },
+  {
+   "k": "journey shops drawn (PC Chrome, not a phone speed)",
+   "v": 1372
+  },
+  {
+   "k": "shot",
+   "v": "m390-1-open.jpg 92726 bytes"
+  },
+  {
+   "k": "shot",
+   "v": "m390-2-salesman.jpg 95086 bytes"
+  },
+  {
+   "k": "shot",
+   "v": "m390-3-fullmap.jpg 111922 bytes"
+  },
+  {
+   "k": "full map",
+   "v": {
+    "vh": 844,
+    "map": [
+     0,
+     71,
+     390,
+     773
+    ],
+    "dock": [
+     11,
+     719,
+     368,
+     68
+    ],
+    "firstChip": [
+     61,
+     131,
+     86,
+     32
+    ],
+    "atY20": "kpm-demo-bar hide-on-print"
+   }
+  },
+  {
+   "k": "shot",
+   "v": "m390-4-replay.jpg 110951 bytes"
+  }
+ ],
+ "errors": [],
+ "env": {
+  "w": 390,
+  "h": 844,
+  "hoverNone": true,
+  "coarse": true,
+  "safe": [
+   "47px",
+   "34px"
+  ],
+  "hook": true
+ },
+ "full": {
+  "vh": 844,
+  "map": [
+   0,
+   71,
+   390,
+   773
+  ],
+  "dock": [
+   11,
+   719,
+   368,
+   68
+  ],
+  "firstChip": [
+   61,
+   131,
+   86,
+   32
+  ],
+  "atY20": "kpm-demo-bar hide-on-print"
+ },
+ "journeyMs": 1372
+}
