@@ -65,6 +65,8 @@ DONE, LIVE 9352941a (pushed 2026-11-15 12:50 WIB). Measured after the fix on the
 Board: Raw/2026-11-15-journey-big/board-ad.png. Gates: selfcheck 2972/2972 (3 new, RED on old code), build, audit 725/725, demo build check.
 Lab traps this round: the note is a toast and is gone ~3 s after Enter - shoot right after the key; `am start` with a URL opens a SECOND Chrome tab and the hidden one freezes every CDP script (close it via /json/close); the Find box sits in a fold opened by the "Today's Route" header.
 
+ORDER AFTER A-D (2026-11-15 13:21): he asked *"dont we continue with the demo application or the fleet and roster yet?"*, then *"whatever the order as long as all done, efficiently and effectively"*. Claude's order: the Q2 Day Replay mark (smallest, same screen) -> Fleet & Roster -> the demo tutorial + demo door (his split: last). E jumps first if his phone test says slow.
+
 STILL OPEN: E (vault gate 23.5 s on a first visit, big company) - after his phone test of the live demo from 2026-11-16 00:05 WIB. F (46 px band) - not picked.
 
 ## REJECTED ON PURPOSE
