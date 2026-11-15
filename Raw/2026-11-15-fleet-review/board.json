@@ -1,0 +1,51 @@
+{
+ "title": "Fleet & Roster - today vs proposed (strike what you don't want)",
+ "sub": "Lab, big demo company (24 people, 2 areas), Sunday. Left of each arrow = the app today. Right = proposed, running in the lab only - nothing proposed is live. Checked as the owner (Hartono), the regional admin (Hendra) and a salesman (Dika: he has no Fleet screen, on purpose). Numbers are measured in the page, not guessed.",
+ "width": 1240,
+ "frameW": 250,
+ "sections": [
+  {
+   "h": "1. Who leads the team - owner on the PC, Bandung tab",
+   "items": [
+    { "pair": [
+      { "img": "own-pc-0.png", "w": 540, "cap": "<b>Today.</b> Dewi Lestari, Bandung's regional admin, is the 13th card - on page 2, no crown. The HQ sales manager gets a crown and goes first. Hendra (regional admin, HQ) is 9th, page 2 of his own roster." },
+      { "img": "new-own-pc-0.png", "w": 540, "cap": "<b>Proposed.</b> Dewi first, with a crown. On the HQ tab: Rina (HQ sales manager) first, Hendra second, both crowned. Salesmen keep their order." } ] }
+   ]
+  },
+  {
+   "h": "2. Regional admin on the phone (390 px) - the first screen, nobody picked yet",
+   "items": [
+    { "pair": [
+      { "img": "t4-390-0.png", "cap": "<b>Today.</b> The title is cut: \"HEADQUARTERS l\" (needs 240 px, has 175). \"11 · 8 vans loaded\" takes 2 lines. Page keys 1 2 AND a sideways swipe move the same cards. Hendra himself is on page 2." },
+      { "img": "new-t4-390-0.png", "cap": "<b>Proposed.</b> OFFERS shows its gift icon only on the phone, so the title fits (225 of 225 px - a longer area name still ends in …). One line under it. No page keys: one swipe row of all 11. The whole screen fits without scrolling." } ] },
+    { "img": "t4-390-1.png", "cap": "<b>Today, one scroll down:</b> PEOPLE 11 and VANS LOADED 8 / 11 - the line under the title already says both. <b>Proposed</b> keeps only BKS IN THE VANS and OVERRIDE REQUESTS (right frame above)." }
+   ]
+  },
+  {
+   "h": "3. Loading Bagus's van on the phone - the regional admin's main job",
+   "note": "Tap 1 = a box in the warehouse. Tap 2 = a square in the van. Then HOW MANY, then MUAT VAN. Nothing about the chests changes; only where the screen goes.",
+   "items": [
+    { "pair": [
+      { "img": "today-t4-390-tap1-0.png", "cap": "<b>Today, after tap 1.</b> \"dipilih · ketuk kotak di van\" - but the van's empty square is at 886 px, under the 844 px screen. He has to find it." },
+      { "img": "new-t4-390-tap1-0.png", "cap": "<b>Proposed, after tap 1.</b> The screen glides down to the van. The empty square (gold dashes) is at 438 px, ready for tap 2." } ] },
+    { "pair": [
+      { "img": "today-t4-390-tap2-0.png", "cap": "<b>Today, after MASUKKAN 100 BKS.</b> The screen goes back up to the warehouse. The muatan list and MUAT VAN are under the screen (1,062 px). Nothing on screen says a load is waiting." },
+      { "img": "new-t4-390-tap2-0.png", "cap": "<b>Proposed.</b> A gold bar at the bottom: \"Muatan · 1 barang · +100 Bks · LIHAT\". It only scrolls - MUAT VAN still moves the stock, so it is still pressed where the list can be read." } ] },
+    { "img": "new-t4-390-jump-0.png", "cap": "<b>Proposed - one press on the bar.</b> The list and \"MUAT VAN · 100 BKS MASUK\" are on screen (501 px); the bar goes away. On the PC nothing changes - there the list sits beside the chests." }
+   ]
+  },
+  {
+   "h": "4. The list under the van (Itemized Asset Ledger)",
+   "items": [
+    { "pair": [
+      { "img": "t4-390-pick-3.png", "cap": "<b>Today.</b> Each loaded row says one number twice: \"Active Load: 300 Bks\" and \"LEFT: 300\"." },
+      { "img": "new-t4-390-pick-3.png", "cap": "<b>Proposed.</b> \"Active Load\" only shows when the van holds that item in Slop or Bal (then it is new news). The page is 105 px shorter (2,609 → 2,504)." } ] }
+   ]
+  },
+  {
+   "h": "5. Found, but not on this board",
+   "note": "<b>\"VAN · VAN\"</b> under the van chest: the demo puts the word Van where the number plate goes - a demo-data fix, not the screen. <b>Two languages on one screen</b> (the chests in Indonesian, the roster in English) - that belongs to the language switch job. <b>Demo only:</b> the top of the HOW MANY box (the item's photo and name) sits under the DEMO strip on the phone - I will measure it before proposing anything.",
+   "items": []
+  }
+ ]
+}

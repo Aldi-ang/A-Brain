@@ -1,7 +1,7 @@
 ---
 title: Fleet & Roster review - as every user, big demo company
 created: 2026-11-15
-status: OPEN — findings measured, board not made yet (paused 16:02 on his "pause a while i will go bro")
+status: OPEN — board sent 2026-11-15 16:42, his strikes owed
 confidence: measured in the lab (frames + DOM numbers), not on a real phone
 ---
 
@@ -32,10 +32,20 @@ Console clean in every run (no permission-denied). Numbers agree: bar INITIAL 12
 | 10 | T5/T6 | Salesmen have no `view_fleet` (`permissions.js:196-203`); live: DIKA's menu has no fleet key | - | by design, nothing to review |
 
 ## OPTIONS / COSTS
-Not drawn yet. Next: owner 390 frames, trial 1-6 in the working tree, TODAY vs PROPOSED board, `git stash push` by file, send, he strikes.
+Board: `Raw/2026-11-15-fleet-review/board.png`. Trial: git stash "fleet-review trial 2026-11-15" (3 files, +41/-10).
+
+| Board # | Proposed | Measured cost / gain |
+|---|---|---|
+| 1 | T4 crowned + ranked under T3, above salesmen | Dewi 13th (page 2) -> 1st; Hendra 9th -> 2nd. 2 lines |
+| 2 | phone: OFFERS icon-only, title tracking normal, one swipe row (matchMedia listener), 4 tiles -> 2 | title needs 240 / has 175 -> 225 / 225 (0 px spare: a longer area name still ends in …); line 30 -> 15 px; first screen fits 844 |
+| 3 | phone: glide to the van after tap 1; gold muatan bar that only scrolls | van square 886 -> 438 px; MUAT VAN 1,062 px (under) -> 501 px after one press. First try (block nearest) put the bar over the van row - changed to center |
+| 4 | "Active Load" only when the unit is not Bks | page 2,609 -> 2,504 px; keeps the info for a Slop/Bal van |
+
+Not trialled: #7 (demo seed plates), #8 (language switch job), #9 (demo sheet top - measure first).
+Trap met on the way: a width read once at render kept the phone's single row on the PC after a resize - now a matchMedia listener.
 
 ## DECISION
-OPEN — waiting on the board (not made).
+OPEN — waiting on his strikes (board sent 2026-11-15 16:42).
 
 ## REJECTED ON PURPOSE
 - Redrawing the chests' order on the phone (his approved Minecraft chest design) - #4 is answered by a jump bar, not a re-layout.
