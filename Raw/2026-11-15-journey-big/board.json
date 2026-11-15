@@ -1,0 +1,37 @@
+{
+ "title": "Journey Plan on the big demo company - phone test",
+ "sub": "Big company: 600 shops, 20 salesmen, 1,544 sales. Rows 1-2: the Android phone in the lab (Pixel 7, Chrome 124) running the live app's own production code. Row 3: a PC Chrome pretending to be an iPhone 13 opened from the home screen - the notch, the clock and the home bar are drawn on, so it is a simulation. Gold dashed box = something wrong.",
+ "width": 1240,
+ "frameW": 220,
+ "sections": [
+  {
+   "h": "1. Android phone - 412 px wide",
+   "items": [
+    { "img": "b412-1-open.jpg", "css": [412, 783], "marks": [ { "x": 252, "y": 188, "w": 146, "h": 36, "t": "36 visited" }, { "x": 248, "y": 590, "w": 150, "h": 30, "t": "228 done" } ], "cap": "<b>Open.</b> Shops appear 1.8-2.2 s after the tap. Top: 36 shops visited today. Team box: 228 shops done. They should match - the demo data is wrong here, not the app." },
+    { "img": "b412-2-salesman.jpg", "css": [412, 783], "cap": "<b>AW pressed.</b> Only his shops stay on the map, with his road." },
+    { "img": "b412-3-fullmap.jpg", "css": [412, 783], "marks": [ { "x": 56, "y": 6, "w": 352, "h": 44, "t": "salesman row: under the DEMO bar" }, { "x": 11, "y": 749, "w": 391, "h": 33, "t": "keys: names cut off", "up": true } ], "cap": "<b>Full map.</b> It is 839 px tall on a 783 px screen, so the bottom keys lose their names. The salesman row is hidden under the DEMO bar." },
+    { "img": "b412-4-replay.jpg", "css": [412, 783], "cap": "<b>Day Replay playing.</b> Flags, road, timeline and keys all fit." },
+    { "img": "b412-5-find.jpg", "css": [412, 735], "marks": [ { "x": 8, "y": 537, "w": 396, "h": 158, "t": "no shop here", "up": true } ], "cap": "<b>Find a shop while AW is pressed.</b> The map flies to Toko Subur Baleendah, but only AW's shops are drawn: empty streets and no message." }
+   ]
+  },
+  {
+   "h": "2. iPhone 13 size (390 px) on the same phone",
+   "items": [
+    { "img": "b390-1-open.jpg", "css": [390, 717], "cap": "<b>Open.</b> Shops appear 3.8 s after the tap (first open after the page loaded again)." },
+    { "img": "b390-2-find.jpg", "css": [390, 669], "cap": "<b>Find a shop, nobody pressed.</b> The map flies there and the shops around it are drawn - this way it works." },
+    { "img": "b390-3-salesman.jpg", "css": [390, 717], "cap": "<b>AW pressed.</b> His card and chips fit at 390." },
+    { "img": "b390-4-fullmap.jpg", "css": [390, 717], "marks": [ { "x": 56, "y": 6, "w": 334, "h": 44, "t": "salesman row: under the DEMO bar" }, { "x": 11, "y": 682, "w": 368, "h": 34, "t": "keys: names cut off", "up": true } ], "cap": "<b>Full map.</b> 773 px tall on a 717 px screen: the same cut keys and the same hidden row." },
+    { "img": "b390-5-replay.jpg", "css": [390, 717], "cap": "<b>Day Replay playing</b> at 390." }
+   ]
+  },
+  {
+   "h": "3. iPhone 13 from the home screen, with the notch (simulation)",
+   "items": [
+    { "img": "n390-1-open.jpg", "css": [390, 844], "notch": true, "cap": "<b>Open.</b> The DEMO bar starts under the notch - the app keeps clear of it." },
+    { "img": "n390-2-salesman.jpg", "css": [390, 844], "notch": true, "cap": "<b>AW pressed.</b>" },
+    { "img": "n390-3-fullmap.jpg", "css": [390, 844], "notch": true, "marks": [ { "x": 56, "y": 53, "w": 334, "h": 44, "t": "salesman row: under the DEMO bar" } ], "cap": "<b>Full map.</b> The keys fit above the home bar (a home-screen app has no address bar). The salesman row is still under the DEMO bar." },
+    { "img": "n390-4-replay.jpg", "css": [390, 844], "notch": true, "cap": "<b>Day Replay playing.</b>" }
+   ]
+  }
+ ]
+}

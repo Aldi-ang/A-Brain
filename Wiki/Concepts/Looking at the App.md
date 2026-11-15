@@ -680,3 +680,19 @@ Traps found on the first run:
 
 First result: the Day Log paper (kpm 1a3a934a / 0fc4318c), printed from the phone's Chrome. Android's print screen showed only the paper, one page, for "Print his day" and for "Print team day": the frame's `print()` prints the frame, not the app. Board: `Raw/2026-11-14-android-print/board.png`.
 - Who uses which phone (Aldi, 2026-11-14): *"i have both android and phone but most of the users of this app would be on android"* - so this emulator is the main phone check; his own iPhone is the only iPhone check. The driver script is kept at `Raw/2026-11-14-android-print/cdp.mjs`.
+
+## SPEED IS MEASURED ON A PRODUCTION BUILD, and `demo-build` is the REAL demo project (2026-11-15)
+
+Two traps from the Journey Plan big-company test ([[2026-11-15_journey-plan-big-company-test]]):
+
+- **The vite dev server (5176) lies about speed.** Journey Plan took 8-17 s to show its shops there and 1.8-2.2 s on the production build, same phone, same data. A CPU profile of the dev open: about 6 of 10 s were React's dev-only work - `now` called by `startProfilerTimer` / `startEffectTimer` (react-dom's dev timers) and `jsxDEV`. A crash on the dev server is a separate trap (StrictMode, lessons). The vault gate was the exception: 22.9 s dev, 23.5 s production - that wait is real.
+- **launch.json `demo-build` (4195) serves dist-demo, and a vite build never connects to the emulator** - firebase.js line 71 gates the emulator AND `window.__kpmEmulatorAuth` on `import.meta.env.DEV`. So the page on 4195 talks to the LIVE demo project: pressing SIGN IN WITH GOOGLE there opened the real accounts.google.com (stopped, nothing typed, tab closed). Before any sign-in on a served build: `grep -l __kpmEmulatorAuth dist-demo/assets/*.js` must name a file.
+
+How to get the production build onto the lab data (one build, never committed):
+1. Stop every preview server (the dev server watches dist-demo).
+2. `cp src/config/firebase.js <scratchpad>`; `sed -i '71s/import\.meta\.env\.DEV && //' src/config/firebase.js`.
+3. `npx cross-env VITE_DEMO=1 vite build --mode httpdev --outDir dist-demo` (17 s), then copy firebase.js back at once and prove `git diff src/config/firebase.js` is 0 lines.
+4. preview_start `demo-build`; `adb reverse tcp:4195 tcp:4195`; `node Raw/2026-11-15-journey-big/fresh.mjs http://localhost:4195` (wipes the origin, old service worker included); `walk4195.mjs --tier=T2 --gate-only` signs in and opens the vault.
+5. Afterwards rebuild dist-demo the normal way (`npx cross-env VITE_DEMO=1 vite build --outDir dist-demo`) and run `node src/config/demoBuild.check.mjs`: the gate check reads that folder.
+
+The iPhone notch, simulated: PC Chrome 157, 390x844, DPR 3, touch + hover none + pointer coarse, an iPhone user agent, `Emulation.setSafeAreaInsetsOverride { insets: { top: 47, bottom: 34 } }` - all in ONE process (`Raw/2026-11-15-journey-big/notch.mjs`), because every override ends with its session. Assert `env(safe-area-inset-top)` reads 47px before the first frame. On the Android emulator's Chrome tab it reads 0px.

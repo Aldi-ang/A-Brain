@@ -1029,3 +1029,12 @@ Seen: 2026-10-20
 Seen: 2026-10-25
 
 *Archived 2026-11-10 (retired 2026-11-08, ARCHIVE DUE at session start).*
+
+### 2026-10-31 — an overlay's z-index only counts inside its parent's stacking context
+**Status:** RETIRED (2026-11-14) — never fired in 14+ days; createPortal for shell overlays is the app pattern now, the prose recalled nothing
+**Trigger:** before a completion claim - a fixed overlay (veil, ring, caption) rendered from inside a component that sits in the shell (the demo bar, a panel) and meant to sit over menus or portals.
+**Lesson:** render it with createPortal(..., document.body); a high z-index inside an ancestor that makes a stacking context (a z-index / transform / filter parent) loses to a lower z-index at the page root. Check it on the phone with the menu OPEN, not on the PC.
+**Would have prevented:** 2026-10-25, the mission guide's z 400 was drawn under the phone menu (z 90) - found only by opening the menu in the lab; cost a fix, a re-render and a new self-check line.
+Seen: 2026-10-25
+
+*Archived 2026-11-15 (retired 2026-11-14, ARCHIVE DUE at session start).*
