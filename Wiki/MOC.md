@@ -54,6 +54,7 @@ The house rules this project follows so mistakes don't repeat.
 - [[The Rule That Never Applied]] — the CSS-shaped version of the same discipline: a Tailwind class, source order and a filled animation each beat a correct rule in one day. Measure the computed value, don't grep the source.
 - [[Lift the Dialog, Never Push the Rest Down]] — a z-index move crosses every layer between the old number and the new one. The toast-over-dialog fix, the five reports the obvious fix would have silenced, and the layer map.
 - [[Publishing a Fix]] — the automated publish: guard red then green, selfcheck + build + audit, push, confirm origin, he reads the hash on the vault card. Rules are never part of it.
+- [[Demo Guide on the Phone]] — the demo guide on the phone: six off-screen boxes fixed (b9a6c3a5), the ring-following walk, what is still open.
 - [[Looking at the App]] — measuring is not looking. How to render a real KPM screen without the HTTPS dev server or a Google login, and why a new measuring tool is itself unverified until one of its readings is confirmed independently.
 - [[Capybara Art Generation]] — the generator that kept his capybara identical (FLUX Kontext, his sprite as reference), the cut-out, and the fallback block in the presentation
 - [[Concepts/Looking Inside the App]] — 2026-09-08: http dev mode, seeded emulator, the vault opened as data, and the five checks holding the dev door shut.

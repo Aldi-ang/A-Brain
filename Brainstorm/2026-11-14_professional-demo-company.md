@@ -60,3 +60,10 @@ DECIDED 17:40: his *"yes"* - the live demo becomes the big company. Order kept: 
 - Manual iPhone test lists: he will not run them; Safari-only behaviour (its print screen, its hold-to-copy menu) stays untested, accepted because most users are on Android.
 
 Models applied: Pre-mortem (the nightly rebuild under load), Opportunity Cost (lab-only data vs the demo visitors see), Second-Order Thinking (a bigger seed changes the reset, not only the screens).
+
+## 2026-11-15 07:28 - the walk, and the switch HELD (OPEN - waiting on Aldi)
+- The tutorial walk found 6 guide gaps on the phone - none caused by the big company - fixed and live in kpm b9a6c3a5. [[Demo Guide on the Phone]].
+- Speed on the lab phone (emulator + dev server + Firestore emulator; slower than a real phone, so the ratio is the signal): vault open ~9.5 s on a first visit to the small company; on the big company 18-22 s after a SWITCH and 33 s+ on a first visit; PROSES RETUR stayed busy 16 s.
+- The switch was edited, then taken back out before the push (4 edits, listed in kpm .claude/NEXT-SESSION.md).
+- OPEN - waiting on Aldi: "Switch the live demo to the big company tonight, and you check the speed on your own phone tomorrow?" My pick: yes - one setting (DEMO_SIZE=small) or one push puts the small company back the same day.
+- Models applied: Reversibility Test (one setting back), Opportunity Cost (his phone answers in a minute what the lab cannot), Second-Order Thinking (a 20 s wait at every SWITCH is a prospect's first impression).

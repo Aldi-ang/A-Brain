@@ -1,0 +1,32 @@
+{
+ "title": "Demo tutorial on an Android phone: the guide's box now lands on the right button",
+ "sub": "A visitor walked all 8 steps on the big demo company on Google's Android phone emulator (Pixel 7 size, Chrome 124). Every press was a real finger tap in the middle of the guide's box. Live now: b9a6c3a5. The big company itself is NOT switched on - see the question.",
+ "width": 1240,
+ "frameW": 230,
+ "sections": [
+  { "h": "Fixed: the box pointed off the screen or at the wrong thing", "items": [
+   { "pair": [ { "img": "before-fix-s4-03.jpg", "cap": "<b>Before</b> · step 4 \"choose the shop\": the box was off the left edge, the screen only went dark" },
+               { "img": "final-s4-03-pilih-toko-yang.jpg", "cap": "<b>Now</b> · the box sits on the phone's own customer bar" } ] },
+   { "pair": [ { "img": "final-s4-05-buka-pesanan-dulu.jpg", "cap": "<b>Now</b> · a button inside the order: first \"open the order\" on Bayar" },
+               { "img": "final-s4-05-tekan-foto-serah.jpg", "cap": "then the photo key. <b>Before</b>: off the left edge, like the shop" } ] },
+   { "pair": [ { "img": "phone-now.png", "cap": "<b>Before</b> · after the sale the box sat on the receipt's title (the button it meant was under the receipt)" },
+               { "img": "final-s5-02-tutup-notanya-dulu.jpg", "cap": "<b>Now</b> · \"close the receipt first\" on CLOSE RECEIPT" } ] },
+   { "img": "final-s5-04-tutup-pesanan-dulu.jpg", "cap": "<b>Now</b> · the open order covers the shelf: \"close the order first\". <b>Before</b>: the box's middle sat on Free sample" },
+   { "img": "final-s6-03-suratnya-sudah-lengkap.jpg", "cap": "<b>Now</b> · the EOD send key is scrolled back on the screen. <b>Before</b>: 5 px of it showed" },
+   { "img": "final-s8-03-isi-juga-kotak.jpg", "cap": "<b>Now</b> · stock count: \"fill this box too\". <b>Before</b>: it said Submit after one box and the app refused" }
+  ] },
+  { "h": "The 8 steps on the phone, big company", "items": [
+   { "img": "final-s1-06-pilih-barang-yang.jpg", "cap": "1 · Owner: goods in from the factory" },
+   { "img": "final-s2-07-tekan-kirim-sekarang.jpg", "cap": "2 · Owner: send goods to the area warehouse" },
+   { "img": "final-s3-04-lalu-ketuk-kotak.jpg", "cap": "3 · Regional admin: load Dika's van" },
+   { "img": "final-s4-04-tekan-pada-barang.jpg", "cap": "4 · Dika: sell to a shop" },
+   { "img": "final-s5-07-tekan-proses-retur.jpg", "cap": "5 · Dika: take back a damaged pack" },
+   { "img": "final-s6-02-hitung-tiap-kartu.jpg", "cap": "6 · Dika: count the day (EOD)" },
+   { "img": "final-s7-05-tekan-untuk-menyetujui.jpg", "cap": "7 · Owner: approve Dika's EOD" },
+   { "img": "final-s8-04-tekan-submit-to.jpg", "cap": "8 · Owner: count the Master Vault - Submit" }
+  ] },
+  { "h": "Still open", "note": "Step 8: a count that is different from the stock has to be typed twice (\"Count this one again\"). The app says so on the row, but the guide does not explain it yet, so a visitor who types any number gets stuck there.", "items": [
+   { "img": "final-stuck-s8.jpg", "cap": "the refusal a visitor sees after Submit" }
+  ] }
+ ]
+}

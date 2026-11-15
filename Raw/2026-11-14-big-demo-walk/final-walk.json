@@ -1,0 +1,1733 @@
+{
+ "chrome": "Chrome/124.0.6367.219",
+ "beats": [
+  {
+   "k": 5,
+   "step": 1,
+   "beat": "bagian 1 dari 8",
+   "say": "Master Vault masih terkunci. Tekan tombol ini, lalu ketik sandi admin123.",
+   "land": {
+    "ring": [
+     107,
+     463,
+     198,
+     64
+    ],
+    "cap": [
+     60,
+     539,
+     340,
+     99
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "UNLOCK SYSTEM"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s1-01-master-vault-masih.jpg"
+  },
+  {
+   "k": 8,
+   "step": 1,
+   "beat": "bagian 2 dari 8",
+   "say": "Buka menu, lalu pilih Restock Vault.",
+   "land": {
+    "ring": [
+     392,
+     124,
+     26,
+     144
+    ],
+    "cap": [
+     60,
+     280,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "Open navigation"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s1-02-buka-menu-lalu.jpg"
+  },
+  {
+   "k": 9,
+   "step": 1,
+   "beat": "bagian 2 dari 8",
+   "say": "Buka Restock Vault dari menu.",
+   "land": {
+    "ring": [
+     357,
+     242,
+     88,
+     54
+    ],
+    "cap": [
+     60,
+     308,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "BUTTON"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s1-02-buka-restock-vault.jpg"
+  },
+  {
+   "k": 10,
+   "step": 1,
+   "beat": "bagian 4 dari 8",
+   "say": "Pilih Asal: Produksi Pusat.",
+   "land": {
+    "ring": [
+     37,
+     698,
+     339,
+     91
+    ],
+    "cap": [
+     37,
+     609,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "INPUT"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s1-04-pilih-asal-produksi.jpg"
+  },
+  {
+   "k": 15,
+   "step": 1,
+   "beat": "bagian 6 dari 8",
+   "say": "Pilih barang yang datang dari pabrik.",
+   "land": {
+    "ring": [
+     21,
+     -219,
+     371,
+     403
+    ],
+    "cap": [
+     21,
+     196,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": ""
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s1-06-pilih-barang-yang.jpg"
+  },
+  {
+   "k": 16,
+   "step": 1,
+   "beat": "bagian 7 dari 8",
+   "say": "Isi jumlahnya dalam karton, bal, slop atau bks.",
+   "land": {
+    "ring": [
+     37,
+     442,
+     338,
+     347
+    ],
+    "cap": [
+     37,
+     353,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "Cello Mmrapi KARTON BAL SLOP BKS = 0 Bks 1 KARTON "
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s1-07-isi-jumlahnya-dalam.jpg"
+  },
+  {
+   "k": 17,
+   "step": 1,
+   "beat": "bagian 8 dari 8",
+   "say": "Tekan Simpan surat jalan.",
+   "land": {
+    "ring": [
+     37,
+     1548,
+     184,
+     56
+    ],
+    "cap": [
+     36,
+     690,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": ""
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s1-08-tekan-simpan-surat.jpg"
+  },
+  {
+   "k": 20,
+   "step": 2,
+   "beat": "bagian 3 dari 7",
+   "say": "Tekan KIRIM. Di sini barang keluar dari Master Vault.",
+   "land": {
+    "ring": [
+     111,
+     118,
+     96,
+     56
+    ],
+    "cap": [
+     60,
+     186,
+     340,
+     99
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "KIRIM1"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s2-03-tekan-kirim-di.jpg"
+  },
+  {
+   "k": 21,
+   "step": 2,
+   "beat": "bagian 7 dari 7",
+   "say": "Tekan Kirim sekarang, lalu setujui.",
+   "land": {
+    "ring": [
+     234,
+     733,
+     142,
+     56
+    ],
+    "cap": [
+     60,
+     644,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "MENYIMPAN..."
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s2-07-tekan-kirim-sekarang.jpg"
+  },
+  {
+   "k": 23,
+   "step": 2,
+   "beat": "bagian 3 dari 7",
+   "say": "Tekan KIRIM. Di sini barang keluar dari Master Vault.",
+   "land": {
+    "ring": [
+     112,
+     118,
+     96,
+     56
+    ],
+    "cap": [
+     60,
+     186,
+     340,
+     99
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "KIRIM1"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s2-03-tekan-kirim-di.jpg"
+  },
+  {
+   "k": 24,
+   "step": 2,
+   "beat": "bagian 5 dari 7",
+   "say": "Pilih barang yang mau dikirim.",
+   "land": {
+    "ring": [
+     21,
+     207,
+     371,
+     402
+    ],
+    "cap": [
+     21,
+     621,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "INPUT"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s2-05-pilih-barang-yang.jpg"
+  },
+  {
+   "k": 25,
+   "step": 2,
+   "beat": "bagian 6 dari 7",
+   "say": "Isi jumlah yang dikirim.",
+   "land": {
+    "ring": [
+     37,
+     423,
+     338,
+     366
+    ],
+    "cap": [
+     37,
+     334,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "American Spirit - Turquoise KARTON BAL SLOP BKS = "
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s2-06-isi-jumlah-yang.jpg"
+  },
+  {
+   "k": 26,
+   "step": 2,
+   "beat": "bagian 7 dari 7",
+   "say": "Tekan Kirim sekarang, lalu setujui.",
+   "land": {
+    "ring": [
+     37,
+     1389,
+     158,
+     56
+    ],
+    "cap": [
+     36,
+     690,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": ""
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s2-07-tekan-kirim-sekarang.jpg"
+  },
+  {
+   "k": 29,
+   "step": 3,
+   "beat": "bagian 1 dari 1",
+   "say": "Langkah ini untuk Regional Admin. Tekan SWITCH, lalu pilih HENDRA GUNAWAN.",
+   "land": {
+    "ring": [
+     313,
+     -3,
+     93,
+     40
+    ],
+    "cap": [
+     60,
+     49,
+     340,
+     99
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "SWITCH"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s3-01-langkah-ini-untuk.jpg"
+  },
+  {
+   "k": 35,
+   "step": 3,
+   "beat": "bagian 1 dari 6",
+   "say": "Buka menu, lalu pilih Fleet & Canvas.",
+   "land": {
+    "ring": [
+     392,
+     124,
+     26,
+     144
+    ],
+    "cap": [
+     60,
+     280,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "Open navigation"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s3-01-buka-menu-lalu.jpg"
+  },
+  {
+   "k": 36,
+   "step": 3,
+   "beat": "bagian 1 dari 6",
+   "say": "Buka Fleet & Canvas dari menu.",
+   "land": {
+    "ring": [
+     323,
+     178,
+     87,
+     89
+    ],
+    "cap": [
+     60,
+     279,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "BUTTON"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s3-01-buka-fleet-canvas.jpg"
+  },
+  {
+   "k": 37,
+   "step": 3,
+   "beat": "bagian 2 dari 6",
+   "say": "Pilih DIKA SAPUTRA.",
+   "land": {
+    "ring": [
+     179,
+     334,
+     200,
+     267
+    ],
+    "cap": [
+     60,
+     613,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "DIKA SAPUTRA DS DIKA SAPUTRA Motorist • Motor 900 "
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s3-02-pilih-dika-saputra.jpg"
+  },
+  {
+   "k": 38,
+   "step": 3,
+   "beat": "bagian 3 dari 6",
+   "say": "Ketuk satu barang di gudang.",
+   "land": {
+    "ring": [
+     49,
+     536,
+     314,
+     84
+    ],
+    "cap": [
+     49,
+     632,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "990 American Spirit - Turquoise 593 Cello Coffee &"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s3-03-ketuk-satu-barang.jpg"
+  },
+  {
+   "k": 39,
+   "step": 3,
+   "beat": "bagian 4 dari 6",
+   "say": "Lalu ketuk kotak kosong di van Dika.",
+   "land": {
+    "ring": [
+     49,
+     706,
+     314,
+     83
+    ],
+    "cap": [
+     49,
+     617,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "300 American Spirit - Turquoise 300 Cello Coffee &"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s3-04-lalu-ketuk-kotak.jpg"
+  },
+  {
+   "k": 40,
+   "step": 3,
+   "beat": "bagian 5 dari 6",
+   "say": "Isi jumlahnya, lalu tekan Masukkan ke van.",
+   "land": {
+    "ring": [
+     10,
+     6,
+     392,
+     388
+    ],
+    "cap": [
+     12,
+     406,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "Muat barang ke tas Dika"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s3-05-isi-jumlahnya-lalu.jpg"
+  },
+  {
+   "k": 42,
+   "step": 3,
+   "beat": "bagian 6 dari 6",
+   "say": "Tekan Muat van.",
+   "land": {
+    "ring": [
+     40,
+     725,
+     333,
+     64
+    ],
+    "cap": [
+     40,
+     636,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "MUAT VAN · 10 BKS MASUK"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s3-06-tekan-muat-van.jpg"
+  },
+  {
+   "k": 43,
+   "step": 4,
+   "beat": "bagian 1 dari 1",
+   "say": "Langkah ini untuk Sales Motorist. Tekan SWITCH, lalu pilih DIKA SAPUTRA.",
+   "land": {
+    "ring": [
+     313,
+     -3,
+     93,
+     40
+    ],
+    "cap": [
+     60,
+     49,
+     340,
+     99
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "SWITCH"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s4-01-langkah-ini-untuk.jpg"
+  },
+  {
+   "k": 49,
+   "step": 4,
+   "beat": "bagian 1 dari 6",
+   "say": "Buka menu, lalu pilih Sales Terminal.",
+   "land": {
+    "ring": [
+     392,
+     124,
+     26,
+     144
+    ],
+    "cap": [
+     60,
+     280,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "Open navigation"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s4-01-buka-menu-lalu.jpg"
+  },
+  {
+   "k": 50,
+   "step": 4,
+   "beat": "bagian 1 dari 6",
+   "say": "Buka Sales Terminal dari menu.",
+   "land": {
+    "ring": [
+     323,
+     221,
+     87,
+     132
+    ],
+    "cap": [
+     60,
+     365,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "BUTTON"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s4-01-buka-sales-terminal.jpg"
+  },
+  {
+   "k": 51,
+   "step": 4,
+   "beat": "bagian 3 dari 6",
+   "say": "Pilih toko yang Anda kunjungi.",
+   "land": {
+    "ring": [
+     14,
+     132,
+     307,
+     56
+    ],
+    "cap": [
+     14,
+     200,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "Ketuk untuk memilih pelanggan"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s4-03-pilih-toko-yang.jpg"
+  },
+  {
+   "k": 52,
+   "step": 4,
+   "beat": "bagian 3 dari 6",
+   "say": "Pilih tokonya dari daftar.",
+   "land": {
+    "ring": [
+     -6,
+     -6,
+     424,
+     385
+    ],
+    "cap": [
+     12,
+     391,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "SIAPA YANG BELI? SELESAI AMANAH BARU TERDATA ANEKA"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s4-03-pilih-tokonya-dari.jpg"
+  },
+  {
+   "k": 53,
+   "step": 4,
+   "beat": "bagian 4 dari 6",
+   "say": "Tekan + pada barang yang dibeli toko. Jumlahnya bisa diubah di Manifest.",
+   "land": {
+    "ring": [
+     2,
+     265,
+     408,
+     524
+    ],
+    "cap": [
+     12,
+     154,
+     340,
+     99
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "AMERICAN SPIRIT - TURQUOISE 230 rb 1 Bal 11 Slop 3"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s4-04-tekan-pada-barang.jpg"
+  },
+  {
+   "k": 54,
+   "step": 4,
+   "beat": "bagian 5 dari 6",
+   "say": "Buka pesanan dulu: tekan tombol ini.",
+   "land": {
+    "ring": [
+     308,
+     721,
+     98,
+     60
+    ],
+    "cap": [
+     60,
+     632,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "Bayar"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s4-05-buka-pesanan-dulu.jpg"
+  },
+  {
+   "k": 55,
+   "step": 4,
+   "beat": "bagian 5 dari 6",
+   "say": "Tekan Foto serah terima otomatis.",
+   "land": {
+    "ring": [
+     10,
+     600,
+     319,
+     88
+    ],
+    "cap": [
+     12,
+     511,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "Foto serah terima otomatis (demo)"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s4-05-tekan-foto-serah.jpg"
+  },
+  {
+   "k": 56,
+   "step": 4,
+   "beat": "bagian 6 dari 6",
+   "say": "Tekan SIMPAN TRANSAKSI.",
+   "land": {
+    "ring": [
+     10,
+     717,
+     319,
+     64
+    ],
+    "cap": [
+     12,
+     628,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "SIMPAN TRANSAKSI"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s4-06-tekan-simpan-transaksi.jpg"
+  },
+  {
+   "k": 67,
+   "step": 5,
+   "beat": "bagian 2 dari 7",
+   "say": "Tutup notanya dulu: tekan tombol ini.",
+   "land": {
+    "ring": [
+     20,
+     600,
+     373,
+     61
+    ],
+    "cap": [
+     20,
+     511,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "CLOSE RECEIPT"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s5-02-tutup-notanya-dulu.jpg"
+  },
+  {
+   "k": 68,
+   "step": 5,
+   "beat": "bagian 2 dari 7",
+   "say": "Tekan Retur Mode.",
+   "land": {
+    "ring": [
+     164,
+     129,
+     168,
+     56
+    ],
+    "cap": [
+     60,
+     197,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "MODE RETUR"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s5-02-tekan-retur-mode.jpg"
+  },
+  {
+   "k": 69,
+   "step": 5,
+   "beat": "bagian 3 dari 7",
+   "say": "Pilih toko yang Anda kunjungi.",
+   "land": {
+    "ring": [
+     6,
+     206,
+     327,
+     56
+    ],
+    "cap": [
+     12,
+     274,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "Choose customer"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s5-03-pilih-toko-yang.jpg"
+  },
+  {
+   "k": 70,
+   "step": 5,
+   "beat": "bagian 3 dari 7",
+   "say": "Pilih tokonya dari daftar.",
+   "land": {
+    "ring": [
+     -6,
+     -6,
+     424,
+     385
+    ],
+    "cap": [
+     12,
+     391,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "SIAPA YANG BELI? SELESAI AMANAH BARU TERDATA ANEKA"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s5-03-pilih-tokonya-dari.jpg"
+  },
+  {
+   "k": 71,
+   "step": 5,
+   "beat": "bagian 4 dari 7",
+   "say": "Tutup pesanan dulu: tekan tombol ini.",
+   "land": {
+    "ring": [
+     -6,
+     64,
+     351,
+     64
+    ],
+    "cap": [
+     12,
+     140,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "PESANAN (0) Kosong — ketuk barang untuk menambahka"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s5-04-tutup-pesanan-dulu.jpg"
+  },
+  {
+   "k": 72,
+   "step": 5,
+   "beat": "bagian 4 dari 7",
+   "say": "Tekan + pada barang rusak yang dikembalikan toko.",
+   "land": {
+    "ring": [
+     2,
+     265,
+     408,
+     524
+    ],
+    "cap": [
+     12,
+     154,
+     340,
+     99
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "1 Bal 10 Slop 9 Bks 309 Bks"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s5-04-tekan-pada-barang.jpg"
+  },
+  {
+   "k": 73,
+   "step": 5,
+   "beat": "bagian 5 dari 7",
+   "say": "Buka pesanan dulu: tekan tombol ini.",
+   "land": {
+    "ring": [
+     310,
+     721,
+     96,
+     60
+    ],
+    "cap": [
+     60,
+     632,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "Retur"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s5-05-buka-pesanan-dulu.jpg"
+  },
+  {
+   "k": 74,
+   "step": 5,
+   "beat": "bagian 5 dari 7",
+   "say": "Barangnya sudah ditandai Damaged. Pilih alasan rusaknya.",
+   "land": {
+    "ring": [
+     183,
+     627,
+     142,
+     41
+    ],
+    "cap": [
+     60,
+     516,
+     340,
+     99
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "-- Select Reason -- Kedaluwarsa Rusak kena air Sob"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s5-05-barangnya-sudah-ditandai.jpg"
+  },
+  {
+   "k": 75,
+   "step": 5,
+   "beat": "bagian 6 dari 7",
+   "say": "Tekan Foto serah terima otomatis.",
+   "land": {
+    "ring": [
+     10,
+     600,
+     319,
+     88
+    ],
+    "cap": [
+     12,
+     511,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "Foto serah terima otomatis (demo)"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s5-06-tekan-foto-serah.jpg"
+  },
+  {
+   "k": 76,
+   "step": 5,
+   "beat": "bagian 7 dari 7",
+   "say": "Tekan PROSES RETUR.",
+   "land": {
+    "ring": [
+     10,
+     717,
+     319,
+     64
+    ],
+    "cap": [
+     12,
+     628,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "PROSES RETUR"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s5-07-tekan-proses-retur.jpg"
+  },
+  {
+   "k": 85,
+   "step": 6,
+   "beat": "bagian 1 dari 3",
+   "say": "Tutup notanya dulu: tekan tombol ini.",
+   "land": {
+    "ring": [
+     20,
+     600,
+     373,
+     61
+    ],
+    "cap": [
+     20,
+     511,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "CLOSE RECEIPT"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s6-01-tutup-notanya-dulu.jpg"
+  },
+  {
+   "k": 86,
+   "step": 6,
+   "beat": "bagian 1 dari 3",
+   "say": "Buka menu, lalu pilih EOD Setoran.",
+   "land": {
+    "ring": [
+     392,
+     124,
+     26,
+     144
+    ],
+    "cap": [
+     60,
+     280,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "Open navigation"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s6-01-buka-menu-lalu.jpg"
+  },
+  {
+   "k": 87,
+   "step": 6,
+   "beat": "bagian 1 dari 3",
+   "say": "Buka EOD Setoran dari menu.",
+   "land": {
+    "ring": [
+     239,
+     349,
+     88,
+     132
+    ],
+    "cap": [
+     60,
+     493,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "BUTTON"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s6-01-buka-eod-setoran.jpg"
+  },
+  {
+   "k": 88,
+   "step": 6,
+   "beat": "bagian 2 dari 3",
+   "say": "Hitung tiap kartu: uang tunai, transfer, barang kembali dan pita cukai. Isi angkanya, lalu tekan tombol di bawah kartu.",
+   "land": {
+    "ring": [
+     10,
+     485,
+     392,
+     304
+    ],
+    "cap": [
+     12,
+     352,
+     340,
+     121
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "CLOSED · FRI 13 NOV 2 / 29 STORES ON THE ROUTE"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s6-02-hitung-tiap-kartu.jpg"
+  },
+  {
+   "k": 99,
+   "step": 6,
+   "beat": "bagian 3 dari 3",
+   "say": "Suratnya sudah lengkap. Tekan kirim.",
+   "land": {
+    "ring": [
+     10,
+     724,
+     392,
+     65
+    ],
+    "cap": [
+     12,
+     635,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "Send to the regional admin"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s6-03-suratnya-sudah-lengkap.jpg"
+  },
+  {
+   "k": 100,
+   "step": 7,
+   "beat": "bagian 1 dari 1",
+   "say": "Langkah ini untuk Owner. Tekan SWITCH, lalu pilih HARTONO SUSILO.",
+   "land": {
+    "ring": [
+     313,
+     -3,
+     93,
+     40
+    ],
+    "cap": [
+     60,
+     49,
+     340,
+     99
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "SWITCH"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s7-01-langkah-ini-untuk.jpg"
+  },
+  {
+   "k": 107,
+   "step": 7,
+   "beat": "bagian 1 dari 6",
+   "say": "Master Vault masih terkunci. Tekan tombol ini, lalu ketik sandi admin123.",
+   "land": {
+    "ring": [
+     107,
+     463,
+     198,
+     64
+    ],
+    "cap": [
+     60,
+     539,
+     340,
+     99
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "UNLOCK SYSTEM"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s7-01-master-vault-masih.jpg"
+  },
+  {
+   "k": 109,
+   "step": 7,
+   "beat": "bagian 2 dari 6",
+   "say": "Buka menu, lalu pilih EOD Setoran.",
+   "land": {
+    "ring": [
+     392,
+     124,
+     26,
+     144
+    ],
+    "cap": [
+     60,
+     280,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "Open navigation"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s7-02-buka-menu-lalu.jpg"
+  },
+  {
+   "k": 110,
+   "step": 7,
+   "beat": "bagian 2 dari 6",
+   "say": "Buka EOD Setoran dari menu.",
+   "land": {
+    "ring": [
+     239,
+     342,
+     88,
+     53
+    ],
+    "cap": [
+     60,
+     407,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "BUTTON"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s7-02-buka-eod-setoran.jpg"
+  },
+  {
+   "k": 111,
+   "step": 7,
+   "beat": "bagian 2 dari 6",
+   "say": "Buka menu, lalu pilih EOD Setoran.",
+   "land": {
+    "ring": [
+     392,
+     124,
+     26,
+     144
+    ],
+    "cap": [
+     60,
+     280,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "Open navigation"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s7-02-buka-menu-lalu.jpg"
+  },
+  {
+   "k": 112,
+   "step": 7,
+   "beat": "bagian 5 dari 6",
+   "say": "Tekan ✓ untuk menyetujui bagian ini.",
+   "land": {
+    "ring": [
+     273,
+     733,
+     56,
+     56
+    ],
+    "cap": [
+     60,
+     644,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "approve Cash"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s7-05-tekan-untuk-menyetujui.jpg"
+  },
+  {
+   "k": 118,
+   "step": 7,
+   "beat": "bagian 6 dari 6",
+   "say": "Tekan tombol Approve, lalu setujui.",
+   "land": {
+    "ring": [
+     27,
+     725,
+     358,
+     64
+    ],
+    "cap": [
+     27,
+     636,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "APPROVE SHORT (6)"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s7-06-tekan-tombol-approve.jpg"
+  },
+  {
+   "k": 124,
+   "step": 8,
+   "beat": "bagian 1 dari 4",
+   "say": "Buka menu, lalu pilih Stock Opname.",
+   "land": {
+    "ring": [
+     392,
+     124,
+     26,
+     144
+    ],
+    "cap": [
+     60,
+     280,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "Open navigation"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s8-01-buka-menu-lalu.jpg"
+  },
+  {
+   "k": 125,
+   "step": 8,
+   "beat": "bagian 1 dari 4",
+   "say": "Buka Stock Opname dari menu.",
+   "land": {
+    "ring": [
+     323,
+     342,
+     87,
+     53
+    ],
+    "cap": [
+     60,
+     407,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "BUTTON"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s8-01-buka-stock-opname.jpg"
+  },
+  {
+   "k": 126,
+   "step": 8,
+   "beat": "bagian 1 dari 4",
+   "say": "Buka menu, lalu pilih Stock Opname.",
+   "land": {
+    "ring": [
+     392,
+     124,
+     26,
+     144
+    ],
+    "cap": [
+     60,
+     280,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": "Open navigation"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s8-01-buka-menu-lalu.jpg"
+  },
+  {
+   "k": 127,
+   "step": 8,
+   "beat": "bagian 3 dari 4",
+   "say": "Isi jumlah fisik barang yang Anda hitung.",
+   "land": {
+    "ring": [
+     32,
+     508,
+     176,
+     62
+    ],
+    "cap": [
+     32,
+     582,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "INPUT"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s8-03-isi-jumlah-fisik.jpg"
+  },
+  {
+   "k": 128,
+   "step": 8,
+   "beat": "bagian 3 dari 4",
+   "say": "Isi juga kotak ini: ketik 0 kalau tidak ada.",
+   "land": {
+    "ring": [
+     208,
+     508,
+     177,
+     62
+    ],
+    "cap": [
+     60,
+     582,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "INPUT"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s8-03-isi-juga-kotak.jpg"
+  },
+  {
+   "k": 0,
+   "step": 8,
+   "beat": "bagian 3 dari 4",
+   "say": "Isi juga kotak ini: ketik 0 kalau tidak ada.",
+   "land": {
+    "ring": [
+     208,
+     508,
+     177,
+     62
+    ],
+    "cap": [
+     60,
+     582,
+     340,
+     77
+    ],
+    "inView": true,
+    "capOverRing": false,
+    "hit": "INPUT"
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s8-03-isi-juga-kotak.jpg"
+  },
+  {
+   "k": 1,
+   "step": 8,
+   "beat": "bagian 4 dari 4",
+   "say": "Tekan Submit to HQ.",
+   "land": {
+    "ring": [
+     119,
+     3967,
+     274,
+     56
+    ],
+    "cap": [
+     36,
+     690,
+     340,
+     77
+    ],
+    "inView": false,
+    "capOverRing": false,
+    "hit": ""
+   },
+   "vw": 412,
+   "vh": 783,
+   "frame": "final-s8-04-tekan-submit-to.jpg"
+  }
+ ],
+ "events": [
+  {
+   "k": 6,
+   "toast": "Latest version · cad93344"
+  },
+  {
+   "k": 6,
+   "gate": "Demo vault password: admin123",
+   "openMs": null,
+   "info": {
+    "gate": true,
+    "len": 8,
+    "btn": "OPEN THE VAULT (disabled)",
+    "text": "OPEN THE VAULT Demo vault password: admin123 Fingerprint · Lost your key? Log out Latest version · cad93344"
+   },
+   "frame": "final-gate-6.jpg"
+  },
+  {
+   "k": 6,
+   "gateStill": "final-gate-still-6.jpg"
+  },
+  {
+   "k": 7,
+   "gate": "Demo vault password: admin123",
+   "openMs": 946,
+   "info": {
+    "gate": false
+   },
+   "frame": "final-gate-7.jpg"
+  },
+  {
+   "k": 8,
+   "toast": "⚠️ PROTOCOL ALERT: TIME FOR USB SAFE BACKUP!"
+  },
+  {
+   "k": 20,
+   "toast": "MISI 1/8 SELESAI: 10 Bks masuk ke Master Vault."
+  },
+  {
+   "k": 20,
+   "busyMs": 1333,
+   "before": "1|bagian 8 dari 8|Tekan Simpan surat jalan."
+  },
+  {
+   "k": 23,
+   "busyMs": 3166,
+   "before": "2|bagian 7 dari 7|Tekan Kirim sekarang, lalu setujui."
+  },
+  {
+   "k": 28,
+   "dialog": "CONFIRM Kirim 10 Bks ke BANDUNG? Stok HQ langsung dipotong sekarang. Cabang baru bertambah setelah mereka menghitung barangnya. CANCEL CONFIRM",
+   "frame": "final-dialog-28.jpg"
+  },
+  {
+   "k": 29,
+   "toast": "MISI 2/8 SELESAI: 10 Bks dikirim ke BANDUNG."
+  },
+  {
+   "k": 31,
+   "gate": "Demo vault password: admin123",
+   "openMs": 21686,
+   "info": {
+    "gate": false
+   },
+   "frame": "final-gate-31.jpg"
+  },
+  {
+   "k": 39,
+   "toast": "American Spirit - Turquoise dipilih · ketuk kotak di van"
+  },
+  {
+   "k": 42,
+   "toast": "+10 Bks American Spirit - Turquoise ke van — belum tercatat"
+  },
+  {
+   "k": 43,
+   "toast": "tersimpan"
+  },
+  {
+   "k": 43,
+   "toast": "✓ Van DIKA SAPUTRA tercatat · 1 dimuat · 10 Bks · SJ-20261115-nt-2-0654"
+  },
+  {
+   "k": 43,
+   "toast": "MISI 3/8 SELESAI: 10 Bks masuk ke tas DIKA SAPUTRA."
+  },
+  {
+   "k": 45,
+   "gate": "Demo vault password: admin123",
+   "openMs": 18287,
+   "info": {
+    "gate": false
+   },
+   "frame": "final-gate-45.jpg"
+  },
+  {
+   "k": 51,
+   "toast": "Pesanan · 0 barang Rp 0"
+  },
+  {
+   "k": 53,
+   "toast": "Pesanan · AMANAH BARU · 0 barang Rp 0"
+  },
+  {
+   "k": 54,
+   "toast": "Ditambahkan · American Spirit - Turquoise Rp 230.000"
+  },
+  {
+   "k": 55,
+   "toast": "Pesanan · AMANAH BARU · 1 barang Rp 230.000"
+  },
+  {
+   "k": 67,
+   "toast": "MISI 4/8 SELESAI: Terjual Rp 230.000 ke AMANAH BARU."
+  },
+  {
+   "k": 67,
+   "busyMs": 16352,
+   "before": "4|bagian 6 dari 6|Tekan SIMPAN TRANSAKSI."
+  },
+  {
+   "k": 73,
+   "toast": "Ditambahkan · American Spirit - Turquoise Rp 0"
+  },
+  {
+   "k": 74,
+   "toast": "Pesanan · AMANAH BARU · 1 barang Rp 0"
+  },
+  {
+   "k": 85,
+   "toast": "MISI 5/8 SELESAI: 1 Bks barang rusak dari AMANAH BARU masuk karantina tas."
+  },
+  {
+   "k": 85,
+   "busyMs": 12761,
+   "before": "5|bagian 7 dari 7|Tekan PROSES RETUR."
+  },
+  {
+   "k": 100,
+   "toast": "MISI 6/8 SELESAI: Laporan akhir hari DIKA SAPUTRA terkirim."
+  },
+  {
+   "k": 108,
+   "gate": "Demo vault password: admin123",
+   "openMs": 20968,
+   "info": {
+    "gate": false
+   },
+   "frame": "final-gate-108.jpg"
+  },
+  {
+   "k": 119,
+   "dialog": "CONFIRM Approve cash, transfer, stock back, damaged goods, pita cukai, bounty for DIKA SAPUTRA? They are short Rp 4.225.000: • Cash short — Rp 4.225.000 Approving records each of those as a bounty in their name, which th",
+   "frame": "final-dialog-119.jpg"
+  },
+  {
+   "k": 124,
+   "toast": "MISI 7/8 SELESAI: EOD DIKA SAPUTRA disetujui, sisa barang dan 1 Bks barang rusak kembali ke Master Vault."
+  },
+  {
+   "k": 124,
+   "busyMs": 7848,
+   "before": "7|bagian 6 dari 6|Tekan tombol Approve, lalu setujui."
+  },
+  {
+   "k": 3,
+   "toast": "Count these again before submitting: American Spirit - Turquoise"
+  }
+ ],
+ "wantTier": "T2",
+ "stuck": {
+  "step": 8,
+  "beat": "bagian 4 dari 4",
+  "say": "Tekan Submit to HQ.",
+  "why": "same press 3 times",
+  "dump": {
+   "ring": [
+    119,
+    733,
+    274,
+    56
+   ],
+   "active": "<button data-guide=\"submit-count\" class=\"flex-1 md:flex-none justify-center bg-[var(--gold)] hover:bg-[var(--gold)] text-[var(--gold-ink)] disabled:bg-[var(--sunk)] disabled:text-[var(--ink-dim)] disabled:border disabled:border-[var(--line)",
+   "stack": [
+    "BUTTON.flex-1 md:flex-none justify-center bg-[var(--gold)",
+    "DIV.flex w-full md:w-auto gap-3",
+    "DIV.p-4 bg-[var(--sunk)] border-t border-[var(--line)]",
+    "DIV.flex-1 bg-[var(--sunk)] rounded-xl border border-["
+   ],
+   "html": "<button data-guide=\"submit-count\" class=\"flex-1 md:flex-none justify-center bg-[var(--gold)] hover:bg-[var(--gold)] text-[var(--gold-ink)] disabled:bg-[var(--sunk)] disabled:text-[var(--ink-dim)] disabled:border disabled:border-[var(--line)] disabled:shadow-none disabled:cursor-not-allowed px-4 lg:px-8 py-3 md:py-2 rounded-lg font-black shadow-lg flex items-center gap-2 transition-all active:scale-95 tracking-widest uppercase text-xs\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-send\" aria-hidden=\"true\"><path d=\"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z\"></path><path d=\"m21.854 2.147-10.94 10.939\"></path></svg> Submit to HQ</button>",
+   "text": "SUBMIT TO HQ"
+  },
+  "frame": "final-stuck-s8.jpg"
+ }
+}
