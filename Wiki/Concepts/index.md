@@ -27,6 +27,7 @@ For the authoritative flat catalog, always check [[../Index]] first.
 - [[Lancelot the Tobacco Ledger Agent]]
 - [[Looking at the App]]
 - [[Demo Guide on the Phone]]
+- [[Bug Hunt Kit (Claude-BugHunter)]]
 - [[Capybara Art Generation]]
 - [[Publishing a Fix]]
 - [[Looking Inside the App]] — past the login without a real credential: the http dev mode, a local Firebase emulator with a fake company, and the rule that a gate wanting a secret is opened by writing where the secret is STORED, not by typing into the field.

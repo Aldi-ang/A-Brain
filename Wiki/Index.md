@@ -47,6 +47,7 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[A Resize Mid-Unlock Wiped the Name]] — the Samsung unlock with no name: a resize rebuilt the dots mid-sequence; how it was reproduced headless (2026-10-01).
 - [[Publishing a Fix]] — from "fix it" to live with no window: a push of phase0-solid-ground IS the live app (Vercel); checks before, origin check after; rules stay his (Console); the cloud path is untested.
 - [[Demo Guide on the Phone]] — the demo guide must ring a button the visitor can see and press; the 2026-11-14 phone walk found six that did not, and the walk method that cannot pass by accident.
+- [[Bug Hunt Kit (Claude-BugHunter)]] — his bug-hunting skill set for when the app is finished: stored in Skills-Library, not installed; the safety verdict (caution) and how to point it at his own app only.
 - [[Looking at the App]] — how to actually SEE a KPM screen before claiming a visual fix: the
 - [[Concepts/Looking Inside the App]] — the emulator setup; every screen behind the login is verifiable now, real data still is not.
   theme-lab harness, why the dev server cannot be opened directly, and the three ways the
