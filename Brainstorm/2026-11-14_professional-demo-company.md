@@ -67,3 +67,6 @@ Models applied: Pre-mortem (the nightly rebuild under load), Opportunity Cost (l
 - The switch was edited, then taken back out before the push (4 edits, listed in kpm .claude/NEXT-SESSION.md).
 - OPEN - waiting on Aldi: "Switch the live demo to the big company tonight, and you check the speed on your own phone tomorrow?" My pick: yes - one setting (DEMO_SIZE=small) or one push puts the small company back the same day.
 - Models applied: Reversibility Test (one setting back), Opportunity Cost (his phone answers in a minute what the lab cannot), Second-Order Thinking (a 20 s wait at every SWITCH is a prospect's first impression).
+
+## 2026-11-15 07:56 - DECISION: big company on the live demo (his words)
+"yes, to make sure that there is no problem when big company want to use my system is simulate it big" - so the speed finding is not a reason to wait, it is what the big demo is FOR: the problems a real big customer would hit show up here first. Switch in: kpm 6eea6e92, live from the next 00:05 WIB reset; DEMO_SIZE=small on the demo's Vercel project undoes it without code. Open: his phone test (SWITCH twice: fast or slow); the slow vault (~20 s after a SWITCH on the lab phone) is now a product problem, not a demo one.
