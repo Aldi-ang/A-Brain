@@ -72,3 +72,16 @@ Trial stash "fleet-review trial 2026-11-15" is now mostly moot; #1 (T4 crown/ran
 DECISION: OPEN - his yes on the direction + the suggested-load rule.
 REJECTED ON PURPOSE: polishing the game look (his refusal); a drag-and-drop load (professional = typed counts with − n +, his 2026-11-12 rule); a separate Loading module (he chose "inside Fleet & Roster" on 2026-09-22 - the sheet lives in the same screen).
 Models applied: Chesterton's Fence (every chest feature - preset, copy, quarantine, consignment, geofence, Surat Jalan - kept as a plain control), Second-Order Thinking (a suggested load changes what a regional admin loads: shown as a suggestion he presses, never auto-filled), Reversibility (the game look stays in tag game-edition-v1).
+
+## Round 3 (2026-11-15 ~17:55) - he asked for an artifact with options
+
+> *"can u make it artifact instead so that i can review it on detail and give me options to choose from so that we can have more choice for the professional UI u can use anything u have right now to do that"*
+
+Artifact: https://claude.ai/artifact/7fzwdpnKC3dcAksJqyvTEi (source Raw/2026-11-15-fleet-review/fleet-options.html). A configurator, live preview on phone or PC, real lab numbers, working − n +, Fill suggested, Load van (count-up + report).
+| Row | Options |
+|---|---|
+| Team list | A Ledger table · B Van tiles (bar = how full the van still is) · C Status lanes (Not loaded / On route / Back and settled) |
+| Loading a van | 1 Load sheet · 2 Warehouse to van (two lists, Add) · 3 Quick slip (suggested chips + lines, like the order slip) |
+| PC layout | X Side by side · Y Slide-over panel · Z Own page (as the phone) |
+Checked once before publishing: script parses, Fill + Load run at 1280 and 390 with no errors; the one look found the page wider than the phone (grid child min-width) - fixed, not re-looked.
+DECISION: OPEN - his picks (the page's "Copy my picks" gives one line).

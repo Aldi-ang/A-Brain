@@ -1,0 +1,307 @@
+<title>Fleet &amp; Roster Options</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a configurator - three rows of options on top, one live preview (phone or PC) under them, picks summary at the bottom.
+   Palette law of KPM: slate + gold, no blue, no green; gold is never text on a light ground (light theme uses ink for accent text). */
+:root{
+  --bg:#121418;--panel:#1a1d23;--raised:#22262d;--line:#2e323a;--ink:#ece8df;--muted:#9c978e;--dim:#6f6b64;
+  --gold:#d9a441;--gold-ink:#16130c;--accent-ink:#d9a441;--sel:#262218;--danger:#d0654f;
+  --font:"Inter","Segoe UI",system-ui,sans-serif;color-scheme:dark}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#eef0f3;--panel:#ffffff;--raised:#f5f6f8;--line:#dcdfe5;--ink:#1c1f24;--muted:#5d646e;--dim:#8a909a;
+  --gold:#d9a441;--gold-ink:#16130c;--accent-ink:#1c1f24;--sel:#f8f0dd;--danger:#b4462f;color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#eef0f3;--panel:#ffffff;--raised:#f5f6f8;--line:#dcdfe5;--ink:#1c1f24;--muted:#5d646e;--dim:#8a909a;
+  --gold:#d9a441;--gold-ink:#16130c;--accent-ink:#1c1f24;--sel:#f8f0dd;--danger:#b4462f;color-scheme:light}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:14px/1.45 var(--font);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 96px}
+.num{font-variant-numeric:tabular-nums}
+h1{font-size:22px;margin:0 0 4px;text-wrap:balance}h2{font-size:15px;margin:0 0 8px}
+.lead{color:var(--muted);max-width:70ch;margin:0 0 18px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:18px}
+.wrap>*,.stagewrap{min-width:0}  /* the scaled device keeps its full layout width; without this the grid column grows past the phone */
+/* option rows */
+.axis{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.axis h2 small{color:var(--muted);font-weight:500;margin-left:6px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.opt{text-align:left;border:1px solid var(--line);background:var(--raised);color:var(--ink);border-radius:10px;padding:10px 12px;font:inherit;cursor:pointer;display:grid;gap:3px}
+.opt b{font-size:14px}.opt span{color:var(--muted);font-size:12.5px}
+.opt[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+.opt:focus-visible,.k:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--raised);color:var(--muted);font:600 13px var(--font);padding:7px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--gold);color:var(--gold-ink)}
+.note{color:var(--muted);font-size:12.5px}
+/* preview stage: a fixed-width device, scaled down to fit */
+.stagewrap{position:relative;overflow:hidden}
+.device{transform-origin:0 0;background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.device.pc{width:1180px;height:720px}.device.phone{width:390px;height:780px;border-radius:26px;margin:0 auto}
+.app{height:100%;display:flex;flex-direction:column;font-size:14px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--panel)}
+.top .t{font-weight:700;font-size:17px}.top small{color:var(--muted);font-weight:500;margin-left:8px;font-size:12px}
+.k{border:1px solid var(--line);background:var(--raised);color:var(--ink);border-radius:8px;padding:7px 12px;font:600 13px var(--font);cursor:pointer;display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.k.gold{background:var(--gold);color:var(--gold-ink);border-color:var(--gold)}
+.k:disabled{opacity:.45;cursor:default}
+.strip{display:flex;border-bottom:1px solid var(--line);background:var(--panel)}
+.strip div{flex:1;padding:9px 18px;border-right:1px solid var(--line);min-width:0}.strip div:last-child{border-right:0}
+.strip small{display:block;color:var(--muted);font-size:11px}.strip b{font-size:17px;font-variant-numeric:tabular-nums}
+.tools{display:flex;gap:8px;align-items:center;padding:10px 16px;flex-wrap:wrap}
+.search{flex:1;min-width:120px;border:1px solid var(--line);background:var(--raised);border-radius:8px;padding:7px 12px;color:var(--dim);font-size:13px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:12.5px;color:var(--muted);background:transparent;font-family:var(--font)}
+.chip.on{border-color:var(--gold);color:var(--accent-ink);font-weight:600}
+.scroll{flex:1;overflow:auto;min-height:0}
+table{width:100%;border-collapse:collapse}
+th{font:600 11px var(--font);color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+th.r,td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.grp td{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.05em;padding-top:12px}
+tr.pick{cursor:pointer}tr.pick:hover td{background:var(--raised)}
+tr.sel td{background:var(--sel)}tr.sel td:first-child{box-shadow:inset 3px 0 0 var(--gold)}
+.who b{display:block;font-weight:600}.who small{color:var(--muted);font-size:12px}
+.tag{font-size:11px;border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--muted);white-space:nowrap}
+.tag.lead{border-color:var(--gold);color:var(--accent-ink)}
+.st{font-size:12px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}.st i{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.st.off i{background:var(--dim)}.st.done i{background:var(--ink)}
+.meter{height:4px;background:var(--line);border-radius:2px;margin-top:4px;width:72px;margin-left:auto;overflow:hidden}.meter i{display:block;height:100%;background:var(--gold)}
+.step{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--raised)}
+.step button{width:32px;height:32px;border:0;background:transparent;color:var(--muted);font:700 16px var(--font);cursor:pointer}
+.step em{font-style:normal;min-width:46px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700;transition:transform .12s}
+.step.on{border-color:var(--gold)}.step.on em{color:var(--accent-ink)}
+.step em.tick{transform:scale(1.18)}
+.sug{font-size:11px;color:var(--accent-ink);font-weight:600}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);padding:0 14px;overflow:hidden;white-space:nowrap}
+.tabs span{padding:9px 11px;color:var(--muted);font-size:13px;border-bottom:2px solid transparent}.tabs span.on{color:var(--ink);border-bottom-color:var(--gold);font-weight:600}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 16px;border-top:1px solid var(--line);background:var(--panel)}
+.foot .sum{color:var(--muted);font-size:13px}.foot .sum b{color:var(--ink);font-variant-numeric:tabular-nums}
+.phead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 16px 8px}
+.phead h3{margin:0;font-size:16px}.phead small{color:var(--muted)}
+.kpis{display:flex;gap:16px}.kpis div{text-align:right}.kpis small{display:block;color:var(--muted);font-size:11px}.kpis b{font-variant-numeric:tabular-nums;font-size:15px}
+/* roster B: tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;padding:12px 16px}
+.tile{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel);cursor:pointer;display:grid;gap:6px}
+.tile.sel{border-color:var(--gold);background:var(--sel)}
+.tile .l1{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.van{height:8px;border-radius:4px;background:var(--line);overflow:hidden}.van i{display:block;height:100%;background:var(--gold)}
+.tile small{color:var(--muted);font-size:12px}
+.leads{display:flex;gap:8px;flex-wrap:wrap;padding:10px 16px 0}
+/* roster C: lanes */
+.lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px 16px;min-height:0}
+.lane{background:var(--raised);border:1px solid var(--line);border-radius:10px;padding:8px;display:grid;gap:6px;align-content:start}
+.lane h4{margin:2px 4px 4px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer}
+.card.sel{border-color:var(--gold);background:var(--sel)}
+.card .l1{display:flex;justify-content:space-between;gap:8px}.card small{color:var(--muted);font-size:12px}
+.empty{color:var(--dim);font-size:12px;padding:8px 6px}
+/* load 2: transfer */
+.xfer{display:grid;grid-template-columns:1fr 44px 1fr;gap:8px;padding:10px 16px;min-height:0}
+.box{border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+.box h4{margin:0;padding:8px 10px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;background:var(--panel)}
+.li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line)}
+.li small{display:block;color:var(--muted);font-size:12px}
+.li.add{background:var(--sel)}
+.mid{display:grid;place-items:center;color:var(--accent-ink);font-size:20px}
+/* load 3: slip */
+.slip{display:grid;gap:10px;padding:10px 16px}
+.sugrow{display:flex;gap:8px;flex-wrap:wrap}
+.sline{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.sline small{display:block;color:var(--muted);font-size:12px}
+.x{border:1px solid var(--line);background:var(--raised);color:var(--muted);border-radius:8px;width:32px;height:32px;cursor:pointer;font:700 15px var(--font)}
+/* PC layouts */
+.split{flex:1;display:grid;grid-template-columns:540px 1fr;min-height:0}
+.split>div{min-height:0;display:flex;flex-direction:column}.split>div:first-child{border-right:1px solid var(--line)}
+.layer{position:relative;flex:1;min-height:0;display:flex;flex-direction:column}
+.drawer{position:absolute;top:0;right:0;bottom:0;width:640px;background:var(--panel);border-left:1px solid var(--line);box-shadow:-18px 0 40px rgba(0,0,0,.35);display:flex;flex-direction:column;animation:slide .22s ease-out}
+@keyframes slide{from{transform:translateX(30px);opacity:.4}to{transform:none;opacity:1}}
+.back{color:var(--muted);font-size:13px;cursor:pointer;background:none;border:0;padding:0;font-family:var(--font)}
+.toast{position:absolute;left:50%;bottom:70px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 14px;border-radius:10px;font-size:13px;font-weight:600;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+/* picks bar */
+.picks{position:fixed;left:0;right:0;bottom:0;background:var(--panel);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;gap:10px;align-items:center;justify-content:space-between;z-index:5}
+.picks b{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion: reduce){.drawer{animation:none}.step em{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Fleet &amp; Roster, professional versions</h1>
+    <p class="lead">Pick one option on each row. The preview below changes as you pick, and its buttons work: try − and +, "Fill suggested" and "Load van". Numbers are the lab's big demo company (HQ team, Gudang Pusat) at 17:34 on 15 Nov. Nothing here is the live app.</p>
+  </header>
+
+  <section class="axis" aria-labelledby="ax1"><h2 id="ax1">1 · The team list <small>how the roster looks</small></h2><div class="opts" id="o-roster"></div></section>
+  <section class="axis" aria-labelledby="ax2"><h2 id="ax2">2 · Loading a van <small>how the admin puts stock in</small></h2><div class="opts" id="o-load"></div></section>
+  <section class="axis" aria-labelledby="ax3"><h2 id="ax3">3 · Where one person opens on the PC <small>the phone always opens a full page</small></h2><div class="opts" id="o-layout"></div></section>
+
+  <section class="axis" aria-labelledby="ax4">
+    <div class="bar"><h2 id="ax4" style="margin:0">Preview</h2>
+      <div class="seg" role="group" aria-label="Preview size"><button type="button" id="v-phone">Phone</button><button type="button" id="v-pc">PC</button></div></div>
+    <p class="note" id="pv-note"></p>
+    <div class="stagewrap" id="wrap"><div class="device" id="dev"></div></div>
+  </section>
+</div>
+
+<div class="picks"><span>Your picks: <b id="pk"></b></span><button type="button" class="k gold" id="copy">Copy my picks</button></div>
+
+<script>
+const OPT = {
+  roster: [
+    ['A', 'Ledger table', 'One ruled line per person with loaded, sold and left in columns. Same family as your Sales Terminal "price list" pick. Densest.'],
+    ['B', 'Van tiles', 'A small tile per person with a bar showing how full the van still is. Easier to scan, takes more room.'],
+    ['C', 'Status lanes', 'Three columns: Not loaded, On route, Back and settled. Shows at a glance who still needs a load this morning.']],
+  load: [
+    ['1', 'Load sheet', 'Every product on one line: warehouse, in van, last day sold, and a − n + box. Fill suggested puts last day\'s sales minus what is in the van.'],
+    ['2', 'Warehouse to van', 'Two lists side by side. Press Add on a warehouse product, set how many, and it lands in the van list. Shows the move.'],
+    ['3', 'Quick slip', 'Like the Sales Terminal order slip: suggested products as chips, a line per product you add, the total pinned. Best with many products.']],
+  layout: [
+    ['X', 'Side by side', 'The list stays on the left, the person\'s van on the right. No page change.'],
+    ['Y', 'Slide-over panel', 'The list keeps the full width; the person\'s van slides in from the right and closes with ×.'],
+    ['Z', 'Own page', 'The person opens as a full page with a back link, the same as the phone.']]
+};
+const PEOPLE = [
+  { n: 'Rina Wijaya', r: 'HQ sales manager', lead: 1 }, { n: 'Hendra Gunawan', r: 'Regional admin', lead: 1 },
+  { n: 'Admin (Boss Vehicle)', r: 'Canvas · van', ld: 0, sd: 0, lf: 0 },
+  { n: 'Bagus Setiawan', r: 'Canvas · van', ld: 1342, sd: 442, lf: 900 }, { n: 'Budi Santoso', r: 'Canvas · van', ld: 1426, sd: 526, lf: 900 },
+  { n: 'Dika Saputra', r: 'Motorist · motor', ld: 1225, sd: 325, lf: 900 }, { n: 'Eko Prasetya', r: 'Motorist · motor', ld: 1185, sd: 285, lf: 900 },
+  { n: 'Joko Purnomo', r: 'Motorist · motor', ld: 1427, sd: 527, lf: 900 }, { n: 'Ratna Sari', r: 'Motorist · motor', ld: 1083, sd: 183, lf: 900 },
+  { n: 'Sri Lestari', r: 'Motorist · motor', ld: 1387, sd: 487, lf: 900 }, { n: 'Wahyu Nugroho', r: 'Canvas · van', ld: 1179, sd: 279, lf: 900 }];
+const PRODUCTS = [
+  { id: 'ast', n: 'American Spirit – Turquoise', wh: 1000, van: 300, sold: 2 }, { id: 'ccc', n: 'Cello Coffee & Caramel kretek', wh: 593, van: 300, sold: 40 },
+  { id: 'cch', n: 'Cello Chocolate', wh: 10161, van: 300, sold: 180 }, { id: 'cgr', n: 'Cello Green', wh: 9948, van: 0, sold: 100 },
+  { id: 'cmm', n: 'Cello Mmrapi', wh: 9845, van: 0, sold: 70 }, { id: 'ctm', n: 'Cello Teh Manis', wh: 7981, van: 0, sold: 50 }];
+const sug = (p) => Math.max(0, p.sold - p.van);
+const fmt = (v) => Number(v).toLocaleString('id-ID');
+const store = { get(k, d) { try { const v = localStorage.getItem('fleetopt-' + k); return v == null ? d : v; } catch { return d; } }, set(k, v) { try { localStorage.setItem('fleetopt-' + k, v); } catch {} } };
+const S = { roster: store.get('roster', 'A'), load: store.get('load', '1'), layout: store.get('layout', 'X'),
+  view: store.get('view', innerWidth < 760 ? 'phone' : 'pc'), who: 'Bagus Setiawan', open: true, qty: {}, toast: '', loaded: {}, slip: [] };
+
+/* a short click, the same idea as the Sales Terminal's − + sound; only after a press, and quiet */
+let ac;
+function click() { try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); const o = ac.createOscillator(), g = ac.createGain();
+  o.frequency.value = 880; g.gain.setValueAtTime(.05, ac.currentTime); g.gain.exponentialRampToValueAtTime(.0001, ac.currentTime + .06);
+  o.connect(g).connect(ac.destination); o.start(); o.stop(ac.currentTime + .07); } catch {} }
+
+const person = () => PEOPLE.find((p) => p.n === S.who);
+const status = (p) => p.lead ? 'lead' : (S.loaded[p.n] ? 'loaded' : p.ld > 0 ? 'route' : 'off');
+const stTag = (p) => ({ lead: '<span class="tag lead">Leader</span>', route: '<span class="st"><i></i>On route</span>',
+  loaded: '<span class="st"><i></i>Loaded</span>', off: '<span class="st off"><i></i>Not loaded</span>' })[status(p)];
+const pct = (p) => p.ld ? Math.round(100 * p.sd / p.ld) : 0;
+const vanIn = (pr) => pr.van + (S.loaded[S.who]?.[pr.id] || 0);
+const totals = () => { const add = PRODUCTS.reduce((s, p) => s + (S.qty[p.id] || 0), 0); return { add, lines: PRODUCTS.filter((p) => S.qty[p.id] > 0).length }; };
+const team = PEOPLE.filter((p) => !p.lead);
+const dayStrip = (short) => { const loaded = team.filter((p) => p.ld > 0 || S.loaded[p.n]).length;
+  const inVans = team.reduce((s, p) => s + p.lf, 0) + Object.values(S.loaded).reduce((s, m) => s + Object.values(m).reduce((a, b) => a + b, 0), 0);
+  const sold = team.reduce((s, p) => s + p.sd, 0);
+  return `<div class="strip"><div><small>Vans loaded</small><b>${loaded} of ${team.length}</b></div><div><small>In ${short ? 'vans' : 'the vans now'}</small><b>${fmt(inVans)}${short ? '' : ' Bks'}</b></div><div><small>Sold today</small><b>${fmt(sold)}${short ? '' : ' Bks'}</b></div>${short ? '' : '<div><small>Override requests</small><b>0</b></div>'}</div>`; };
+
+/* ---------- 1 · roster ---------- */
+function roster(phone) {
+  const pick = (p) => `data-who="${p.n}"`;
+  const sel = (p) => (S.open && p.n === S.who ? ' sel' : '');
+  const right = (p) => p.ld ? `<b class="num">${fmt(p.lf)}</b><small>sold ${fmt(p.sd)} · ${pct(p)}%</small>` : '<small>van empty</small>';
+  if (S.roster === 'A') {
+    if (phone) return `<div class="scroll">${grp('LEADERS')}${PEOPLE.filter((p) => p.lead).map((p) => `<div class="li"><div class="who"><b>${p.n}</b><small>${p.r}</small></div>${stTag(p)}</div>`).join('')}
+      ${grp('SALESMEN · LEFT IN VAN')}${team.map((p) => `<div class="li pickli${sel(p)}" ${pick(p)} role="button" tabindex="0"><div class="who"><b>${p.n}</b><small>${stTag(p)} · ${p.r.split(' · ')[1]}</small></div><div style="text-align:right">${right(p)}</div></div>`).join('')}</div>`;
+    return `<div class="scroll"><table><tr><th>Name</th><th>Status</th><th class="r">Loaded</th><th class="r">Sold</th><th class="r">Left</th></tr>
+      <tr class="grp"><td colspan="5">LEADERS</td></tr>${PEOPLE.filter((p) => p.lead).map((p) => `<tr><td class="who"><b>${p.n}</b><small>${p.r}</small></td><td>${stTag(p)}</td><td class="r">—</td><td class="r">—</td><td class="r">—</td></tr>`).join('')}
+      <tr class="grp"><td colspan="5">SALESMEN · A–Z</td></tr>${team.map((p) => `<tr class="pick${sel(p)}" ${pick(p)} tabindex="0"><td class="who"><b>${p.n}</b><small>${p.r}</small></td><td>${stTag(p)}</td><td class="r">${fmt(p.ld)}</td><td class="r">${fmt(p.sd)}<div class="meter"><i style="width:${pct(p)}%"></i></div></td><td class="r">${fmt(p.lf)}</td></tr>`).join('')}</table></div>`;
+  }
+  if (S.roster === 'B') return `<div class="scroll"><div class="leads">${PEOPLE.filter((p) => p.lead).map((p) => `<span class="tag lead">${p.n} · ${p.r}</span>`).join('')}</div>
+    <div class="tiles" style="${phone ? 'grid-template-columns:1fr 1fr' : ''}">${team.map((p) => `<div class="tile${sel(p)}" ${pick(p)} role="button" tabindex="0"><div class="l1"><b>${p.n.split(' (')[0]}</b>${phone ? '' : stTag(p)}</div>
+      <div class="van" title="left in van"><i style="width:${p.ld ? Math.round(100 * p.lf / p.ld) : 0}%"></i></div><small class="num">${p.ld ? `${fmt(p.lf)} left of ${fmt(p.ld)} · sold ${pct(p)}%` : 'van empty'}</small></div>`).join('')}</div></div>`;
+  const lanes = [['Not loaded', team.filter((p) => status(p) === 'off')], ['On route', team.filter((p) => ['route', 'loaded'].includes(status(p)))], ['Back and settled', []]];
+  const cards = (list) => list.length ? list.map((p) => `<div class="card${sel(p)}" ${pick(p)} role="button" tabindex="0"><div class="l1"><b>${p.n}</b><span class="num">${p.ld ? fmt(p.lf) : '—'}</span></div><small>${p.r}${p.ld ? ` · sold ${pct(p)}%` : ''}</small></div>`).join('') : '<p class="empty">Nobody yet</p>';
+  if (phone) { const ln = S.lane ?? 1; return `<div class="tools"><div class="seg" role="group" aria-label="Status">${lanes.map(([t, l], i) => `<button type="button" data-lane="${i}" aria-pressed="${i === ln}">${t} ${l.length}</button>`).join('')}</div></div><div class="scroll" style="padding:0 16px 12px;display:grid;gap:8px;align-content:start">${cards(lanes[ln][1])}</div>`; }
+  return `<div class="scroll"><div class="leads">${PEOPLE.filter((p) => p.lead).map((p) => `<span class="tag lead">${p.n} · ${p.r}</span>`).join('')}</div><div class="lanes">${lanes.map(([t, l]) => `<div class="lane"><h4><span>${t}</span><span>${l.length}</span></h4>${cards(l)}</div>`).join('')}</div></div>`;
+}
+const grp = (t) => `<div class="li" style="color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.05em">${t}</div>`;
+
+/* ---------- 2 · load ---------- */
+const stepper = (p) => { const q = S.qty[p.id] || 0; return `<span class="step${q ? ' on' : ''}"><button type="button" data-d="-1" data-p="${p.id}" aria-label="Less ${p.n}">−</button><em id="q-${p.id}">${fmt(q)}</em><button type="button" data-d="1" data-p="${p.id}" aria-label="More ${p.n}">+</button></span>`; };
+function load(phone) {
+  const p = person(); const t = totals();
+  const head = `<div class="phead"><div>${phone || S.layout === 'Z' ? '<button type="button" class="back" data-act="close">‹ Roster</button>' : ''}<h3>${p.n}</h3><small>${p.r} · loads from Gudang Pusat${p.n === 'Bagus Setiawan' ? '' : ' · product lines drawn from Bagus\'s van'}</small></div>
+    ${S.layout === 'Y' && !phone ? '<button type="button" class="x" data-act="close" aria-label="Close">×</button>' : ''}</div>
+    <div class="strip"><div><small>Loaded</small><b class="num">${fmt(p.ld + Object.values(S.loaded[p.n] || {}).reduce((a, b) => a + b, 0))}</b></div><div><small>Sold</small><b class="num">${fmt(p.sd)}</b></div><div><small>Left in van</small><b class="num">${fmt(p.lf + Object.values(S.loaded[p.n] || {}).reduce((a, b) => a + b, 0))}</b></div></div>
+    <div class="tabs"><span class="on">Load</span><span>Return</span><span>Damaged 0</span><span>Consignment</span>${phone ? '' : '<span>Requests</span>'}</div>`;
+  const helpers = `<div class="tools"><button type="button" class="k" data-act="fill">Fill suggested</button><button type="button" class="k" data-act="usual">Usual load</button><button type="button" class="k" data-act="copy">${phone ? 'Copy…' : 'Copy a teammate'}</button>${phone ? '' : '<span class="note" style="margin-left:auto">Suggested = last day\'s sales − what is still in the van</span>'}</div>`;
+  const foot = `<div class="foot"><span class="sum">${t.lines} product${t.lines === 1 ? '' : 's'} · <b>+${fmt(t.add)} Bks</b>${phone ? '' : ` · van after loading <b>${fmt(p.lf + Object.values(S.loaded[p.n] || {}).reduce((a, b) => a + b, 0) + t.add)} Bks</b>`}</span><span style="display:flex;gap:8px">${phone ? '' : '<button type="button" class="k" data-act="clear">Clear</button>'}<button type="button" class="k gold" data-act="load" ${t.add ? '' : 'disabled'}>Load van · ${fmt(t.add)} Bks</button></span></div>`;
+  let body;
+  const order = phone ? [...PRODUCTS].sort((a, b) => sug(b) - sug(a)) : PRODUCTS;
+  if (S.load === '1') {
+    body = phone ? `<div class="scroll">${order.map((pr) => `<div class="li" style="display:block"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><b>${pr.n}</b>${stepper(pr)}</div><small class="num">Warehouse ${fmt(pr.wh)} · in van ${fmt(vanIn(pr))} · last day sold ${fmt(pr.sold)}${sug(pr) ? ' · <span class="sug">suggested ' + sug(pr) + '</span>' : ''}</small></div>`).join('')}</div>`
+      : `<div class="scroll"><table><tr><th>Product</th><th class="r">Warehouse</th><th class="r">In van</th><th class="r">Last day sold</th><th class="r">Load (Bks)</th></tr>${order.map((pr) => `<tr><td>${pr.n}${sug(pr) ? ' <span class="sug">· suggested ' + sug(pr) + '</span>' : ''}</td><td class="r">${fmt(pr.wh)}</td><td class="r" id="v-${pr.id}">${fmt(vanIn(pr))}</td><td class="r">${fmt(pr.sold)}</td><td class="r">${stepper(pr)}</td></tr>`).join('')}</table></div>`;
+  } else if (S.load === '2') {
+    const whBox = `<div class="box"><h4><span>Gudang Pusat</span><span class="num">${PRODUCTS.length} products</span></h4><div class="scroll">${order.map((pr) => `<div class="li${S.qty[pr.id] ? ' add' : ''}"><div><b style="font-weight:600">${pr.n}</b><small class="num">${fmt(pr.wh - (S.qty[pr.id] || 0))} in warehouse${sug(pr) ? ' · <span class="sug">suggested ' + sug(pr) + '</span>' : ''}</small></div>${S.qty[pr.id] ? stepper(pr) : `<button type="button" class="k" data-add="${pr.id}">Add</button>`}</div>`).join('')}</div></div>`;
+    const vanBox = `<div class="box"><h4><span>${p.n.split(' ')[0]}'s van</span><span class="num">${fmt(PRODUCTS.reduce((s, pr) => s + vanIn(pr) + (S.qty[pr.id] || 0), 0))} Bks after</span></h4><div class="scroll">${PRODUCTS.filter((pr) => vanIn(pr) || S.qty[pr.id]).map((pr) => `<div class="li${S.qty[pr.id] ? ' add' : ''}"><span>${pr.n}</span><span class="num">${fmt(vanIn(pr))}${S.qty[pr.id] ? ` <b class="sug">+${fmt(S.qty[pr.id])}</b>` : ''}</span></div>`).join('')}</div></div>`;
+    body = phone ? `<div class="scroll" style="display:grid;gap:10px;padding:10px 16px;align-content:start">${vanBox}${whBox}</div>` : `<div class="xfer" style="flex:1">${whBox}<div class="mid" aria-hidden="true">→</div>${vanBox}</div>`;
+  } else {
+    const lines = PRODUCTS.filter((pr) => S.qty[pr.id] > 0);
+    body = `<div class="scroll"><div class="slip"><div class="search">Type a product name…</div>
+      <div><p class="note" style="margin:0 0 6px">Suggested for today (last day sold − in van)</p><div class="sugrow">${PRODUCTS.filter((pr) => sug(pr) && !S.qty[pr.id]).map((pr) => `<button type="button" class="chip" data-add="${pr.id}" data-n="${sug(pr)}">+ ${pr.n} · ${sug(pr)}</button>`).join('') || '<span class="note">All suggestions added</span>'}</div></div>
+      <div>${lines.length ? lines.map((pr) => `<div class="sline"><div><b style="font-weight:600">${pr.n}</b><small class="num">in van ${fmt(vanIn(pr))} → ${fmt(vanIn(pr) + S.qty[pr.id])}</small></div>${stepper(pr)}<button type="button" class="x" data-rm="${pr.id}" aria-label="Remove ${pr.n}">×</button></div>`).join('') : '<p class="empty">No products on the slip yet. Tap a suggestion or type a name.</p>'}</div></div></div>`;
+  }
+  return head + (S.load === '3' ? '' : helpers) + body + foot + (S.toast ? `<div class="toast" role="status">${S.toast}</div>` : '');
+}
+
+/* ---------- the device ---------- */
+function render() {
+  const phone = S.view === 'phone', dev = document.getElementById('dev');
+  dev.className = 'device ' + (phone ? 'phone' : 'pc');
+  const top = (t) => `<div class="top"><span class="t">${t}${phone ? '' : '<small>Headquarters · Sunday 15 Nov</small>'}</span><span style="display:flex;gap:8px">${phone ? '<button type="button" class="k">+ Add</button>' : '<button type="button" class="k">Team offers</button><button type="button" class="k">+ Add person</button>'}</span></div>`;
+  const filters = `<div class="tools"><div class="search">Search name, plate…</div><span class="chip on">HQ 11</span><span class="chip">Bandung 13</span></div>`;
+  let html;
+  if (phone) html = S.open ? `<div class="app" style="position:relative">${load(true)}</div>` : `<div class="app">${top('Fleet &amp; Roster')}${dayStrip(true)}${filters}${roster(true)}</div>`;
+  else if (S.layout === 'X') html = `<div class="app">${top('Fleet &amp; Roster')}${dayStrip()}<div class="split"><div>${filters}${roster(false)}</div><div style="position:relative">${S.open ? load(false) : '<p class="empty" style="padding:24px">Pick a person on the left to see their van.</p>'}</div></div></div>`;
+  else if (S.layout === 'Y') html = `<div class="app">${top('Fleet &amp; Roster')}${dayStrip()}<div class="layer">${filters}${roster(false)}${S.open ? `<div class="drawer">${load(false)}</div>` : ''}</div></div>`;
+  else html = S.open ? `<div class="app" style="position:relative">${top('Fleet &amp; Roster')}${load(false)}</div>` : `<div class="app">${top('Fleet &amp; Roster')}${dayStrip()}${filters}${roster(false)}</div>`;
+  dev.innerHTML = html;
+  for (const ax of ['roster', 'load', 'layout']) document.querySelectorAll(`#o-${ax} .opt`).forEach((b) => b.setAttribute('aria-pressed', b.dataset.v === S[ax]));
+  document.getElementById('v-phone').setAttribute('aria-pressed', phone); document.getElementById('v-pc').setAttribute('aria-pressed', !phone);
+  document.getElementById('pv-note').textContent = phone ? (S.open ? 'Phone · one person open. "‹ Roster" goes back to the list.' : 'Phone · the list. Tap a salesman to open his van.')
+    : `PC · ${OPT.layout.find((o) => o[0] === S.layout)[1].toLowerCase()}. ${S.open ? 'Bagus is open.' : 'Pick a salesman.'}`;
+  const pick = (ax) => { const o = OPT[ax].find((x) => x[0] === S[ax]); return `${o[0]} ${o[1]}`; };
+  document.getElementById('pk').textContent = `Team list ${pick('roster')} · Loading ${pick('load')} · PC ${pick('layout')}`;
+  fit();
+}
+function fit() { const wrap = document.getElementById('wrap'), dev = document.getElementById('dev');
+  const w = dev.offsetWidth, h = dev.offsetHeight, s = Math.min(1, (wrap.clientWidth - 2) / w);
+  dev.style.transform = `scale(${s})`; wrap.style.height = Math.ceil(h * s) + 'px';
+  dev.style.marginLeft = S.view === 'phone' ? Math.max(0, (wrap.clientWidth - w * s) / 2) / s + 'px' : '0'; }
+
+/* ---------- options ---------- */
+for (const ax of ['roster', 'load', 'layout']) document.getElementById('o-' + ax).innerHTML = OPT[ax].map(([v, t, d]) =>
+  `<button type="button" class="opt" data-ax="${ax}" data-v="${v}" aria-pressed="false"><b>${v} · ${t}</b><span>${d}</span></button>`).join('');
+document.addEventListener('click', (e) => {
+  const o = e.target.closest('.opt'); if (o) { S[o.dataset.ax] = o.dataset.v; store.set(o.dataset.ax, o.dataset.v); if (o.dataset.ax === 'layout' && S.view === 'phone') S.view = 'pc'; S.open = true; return render(); }
+  if (e.target.closest('#v-phone')) { S.view = 'phone'; store.set('view', 'phone'); return render(); }
+  if (e.target.closest('#v-pc')) { S.view = 'pc'; store.set('view', 'pc'); return render(); }
+  if (e.target.closest('#copy')) { const t = 'My Fleet & Roster picks: ' + document.getElementById('pk').textContent;
+    const b = document.getElementById('copy'); navigator.clipboard?.writeText(t).then(() => { b.textContent = 'Copied'; setTimeout(() => (b.textContent = 'Copy my picks'), 1500); }).catch(() => { b.textContent = 'Select the text on the left'; }); return; }
+  const dev = e.target.closest('#dev'); if (!dev) return;
+  const lane = e.target.closest('[data-lane]'); if (lane) { S.lane = +lane.dataset.lane; return render(); }
+  const who = e.target.closest('[data-who]'); if (who) { S.who = who.dataset.who; S.open = true; S.qty = {}; S.toast = ''; return render(); }
+  const st = e.target.closest('[data-d]'); if (st) { const id = st.dataset.p, pr = PRODUCTS.find((p) => p.id === id);
+    S.qty[id] = Math.max(0, Math.min(pr.wh, (S.qty[id] || 0) + 10 * +st.dataset.d)); click(); S.toast = ''; render();
+    const em = document.getElementById('q-' + id); if (em && !matchMedia('(prefers-reduced-motion: reduce)').matches) { em.classList.add('tick'); setTimeout(() => em.classList.remove('tick'), 130); } return; }
+  const add = e.target.closest('[data-add]'); if (add) { const pr = PRODUCTS.find((p) => p.id === add.dataset.add); S.qty[pr.id] = +add.dataset.n || sug(pr) || 10; click(); S.toast = ''; return render(); }
+  const rm = e.target.closest('[data-rm]'); if (rm) { delete S.qty[rm.dataset.rm]; return render(); }
+  const act = e.target.closest('[data-act]')?.dataset.act; if (!act) return;
+  if (act === 'close') { S.open = false; S.toast = ''; return render(); }
+  if (act === 'clear') { S.qty = {}; return render(); }
+  if (act === 'fill') { PRODUCTS.forEach((p) => { if (sug(p)) S.qty[p.id] = sug(p); }); click(); S.toast = 'Filled 3 suggested products · +220 Bks'; return render(); }
+  if (act === 'usual' || act === 'copy') { S.toast = act === 'usual' ? 'Usual load: none saved for Bagus in the lab' : 'Copy a teammate: pick whose load to copy (drawn later)'; return render(); }
+  if (act === 'load') { const t = totals(); if (!t.add) return; const m = S.loaded[S.who] = S.loaded[S.who] || {};
+    const before = Object.fromEntries(PRODUCTS.map((p) => [p.id, vanIn(p)]));
+    PRODUCTS.forEach((p) => { if (S.qty[p.id]) m[p.id] = (m[p.id] || 0) + S.qty[p.id]; }); const moved = { ...S.qty }; S.qty = {};
+    S.toast = `Van loaded · +${fmt(t.add)} Bks · Surat Jalan ready`; render();
+    /* the one motion with a job: the In van numbers count up to their new value, once */
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) Object.keys(moved).forEach((id) => { const el = document.getElementById('v-' + id); if (!el) return;
+      const to = before[id] + moved[id], t0 = performance.now(); const step = (now) => { const k = Math.min(1, (now - t0) / 600); el.textContent = fmt(Math.round(before[id] + moved[id] * k)); if (k < 1) requestAnimationFrame(step); else el.textContent = fmt(to); }; requestAnimationFrame(step); });
+    return; }
+});
+document.addEventListener('keydown', (e) => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('[data-who]')) { e.preventDefault(); e.target.click(); } });
+addEventListener('resize', fit);
+S.open = S.view !== 'phone';
+render();
+</script>
