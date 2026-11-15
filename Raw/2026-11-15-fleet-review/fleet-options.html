@@ -16,19 +16,27 @@
   --bg:#eef0f3;--panel:#ffffff;--raised:#f5f6f8;--line:#dcdfe5;--ink:#1c1f24;--muted:#5d646e;--dim:#8a909a;
   --gold:#d9a441;--gold-ink:#16130c;--accent-ink:#1c1f24;--sel:#f8f0dd;--danger:#b4462f;color-scheme:light}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font:14px/1.45 var(--font);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 96px}
+body{background:var(--bg);color:var(--ink);font:14px/1.45 var(--font);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 32px}
 .num{font-variant-numeric:tabular-nums}
 h1{font-size:22px;margin:0 0 4px;text-wrap:balance}h2{font-size:15px;margin:0 0 8px}
 .lead{color:var(--muted);max-width:70ch;margin:0 0 18px}
 .wrap{max-width:1240px;margin:0 auto;display:grid;gap:18px}
 .wrap>*,.stagewrap{min-width:0}  /* the scaled device keeps its full layout width; without this the grid column grows past the phone */
-/* option rows */
-.axis{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
-.axis h2 small{color:var(--muted);font-weight:500;margin-left:6px}
-.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
-.opt{text-align:left;border:1px solid var(--line);background:var(--raised);color:var(--ink);border-radius:10px;padding:10px 12px;font:inherit;cursor:pointer;display:grid;gap:3px}
-.opt b{font-size:14px}.opt span{color:var(--muted);font-size:12.5px}
-.opt[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+/* the choices and the preview share one screen: a side column on a wide screen, a bar pinned at the top on a phone */
+.layout{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+.controls{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:10px;z-index:5}
+@media (min-width:1000px){.layout{grid-template-columns:360px minmax(0,1fr);align-items:start}.controls{position:sticky;top:calc(12px + env(safe-area-inset-top,0px))}}
+@media (max-width:999px){.controls{position:sticky;top:env(safe-area-inset-top,0px);gap:7px;padding:10px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+  .row:not(.hot) .desc{display:none}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}}
+.ctl-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.row{display:grid;grid-template-columns:62px minmax(0,1fr);gap:4px 8px;align-items:center}
+.row .lbl{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.row .btns{display:flex;gap:6px;min-width:0}
+.opt{flex:1;min-width:0;border:1px solid var(--line);background:var(--raised);color:var(--ink);border-radius:8px;padding:7px 6px;font:600 12.5px var(--font);cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.opt[aria-pressed="true"]{background:var(--gold);color:var(--gold-ink);border-color:var(--gold)}
+.desc{grid-column:2;font-size:12.5px;color:var(--muted);margin:0}
+.preview{display:grid;gap:8px;min-width:0}
 .opt:focus-visible,.k:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
@@ -117,31 +125,31 @@ tr.sel td{background:var(--sel)}tr.sel td:first-child{box-shadow:inset 3px 0 0 v
 @keyframes slide{from{transform:translateX(30px);opacity:.4}to{transform:none;opacity:1}}
 .back{color:var(--muted);font-size:13px;cursor:pointer;background:none;border:0;padding:0;font-family:var(--font)}
 .toast{position:absolute;left:50%;bottom:70px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 14px;border-radius:10px;font-size:13px;font-weight:600;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.3)}
-/* picks bar */
-.picks{position:fixed;left:0;right:0;bottom:0;background:var(--panel);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;gap:10px;align-items:center;justify-content:space-between;z-index:5}
-.picks b{font-variant-numeric:tabular-nums}
+.pk{font-size:12px;color:var(--muted)}.pk b{color:var(--ink);font-weight:600}
 @media (prefers-reduced-motion: reduce){.drawer{animation:none}.step em{transition:none}}
 </style>
 
 <div class="wrap">
   <header>
     <h1>Fleet &amp; Roster, professional versions</h1>
-    <p class="lead">Pick one option on each row. The preview below changes as you pick, and its buttons work: try − and +, "Fill suggested" and "Load van". Numbers are the lab's big demo company (HQ team, Gudang Pusat) at 17:34 on 15 Nov. Nothing here is the live app.</p>
+    <p class="lead">Tap a letter in each row; the preview changes at once, and its buttons work (− and +, Fill suggested, Load van). Real numbers from the lab's demo company, HQ team, 15 Nov. Not the live app.</p>
   </header>
 
-  <section class="axis" aria-labelledby="ax1"><h2 id="ax1">1 · The team list <small>how the roster looks</small></h2><div class="opts" id="o-roster"></div></section>
-  <section class="axis" aria-labelledby="ax2"><h2 id="ax2">2 · Loading a van <small>how the admin puts stock in</small></h2><div class="opts" id="o-load"></div></section>
-  <section class="axis" aria-labelledby="ax3"><h2 id="ax3">3 · Where one person opens on the PC <small>the phone always opens a full page</small></h2><div class="opts" id="o-layout"></div></section>
-
-  <section class="axis" aria-labelledby="ax4">
-    <div class="bar"><h2 id="ax4" style="margin:0">Preview</h2>
-      <div class="seg" role="group" aria-label="Preview size"><button type="button" id="v-phone">Phone</button><button type="button" id="v-pc">PC</button></div></div>
-    <p class="note" id="pv-note"></p>
-    <div class="stagewrap" id="wrap"><div class="device" id="dev"></div></div>
-  </section>
+  <div class="layout">
+    <section class="controls" aria-label="Choices">
+      <div class="ctl-top"><div class="seg" role="group" aria-label="Preview size"><button type="button" id="v-phone">Phone</button><button type="button" id="v-pc">PC</button></div>
+        <button type="button" class="k gold" id="copy">Copy my picks</button></div>
+      <div class="row" id="r-roster"><span class="lbl">Team</span><div class="btns" id="o-roster"></div><p class="desc" id="d-roster"></p></div>
+      <div class="row" id="r-load"><span class="lbl">Loading</span><div class="btns" id="o-load"></div><p class="desc" id="d-load"></p></div>
+      <div class="row" id="r-layout"><span class="lbl">PC layout</span><div class="btns" id="o-layout"></div><p class="desc" id="d-layout"></p></div>
+      <p class="pk" id="pk"></p>
+    </section>
+    <section class="preview" aria-label="Preview">
+      <p class="note" id="pv-note" style="margin:0"></p>
+      <div class="stagewrap" id="wrap"><div class="device" id="dev"></div></div>
+    </section>
+  </div>
 </div>
-
-<div class="picks"><span>Your picks: <b id="pk"></b></span><button type="button" class="k gold" id="copy">Copy my picks</button></div>
 
 <script>
 const OPT = {
@@ -169,7 +177,7 @@ const PRODUCTS = [
   { id: 'ast', n: 'American Spirit – Turquoise', wh: 1000, van: 300, sold: 2 }, { id: 'ccc', n: 'Cello Coffee & Caramel kretek', wh: 593, van: 300, sold: 40 },
   { id: 'cch', n: 'Cello Chocolate', wh: 10161, van: 300, sold: 180 }, { id: 'cgr', n: 'Cello Green', wh: 9948, van: 0, sold: 100 },
   { id: 'cmm', n: 'Cello Mmrapi', wh: 9845, van: 0, sold: 70 }, { id: 'ctm', n: 'Cello Teh Manis', wh: 7981, van: 0, sold: 50 }];
-const sug = (p) => Math.max(0, p.sold - p.van);
+const sug = (p) => Math.max(0, p.sold - vanIn(p));   /* what is in the van NOW, so a load just made is not suggested again */
 const fmt = (v) => Number(v).toLocaleString('id-ID');
 const store = { get(k, d) { try { const v = localStorage.getItem('fleetopt-' + k); return v == null ? d : v; } catch { return d; } }, set(k, v) { try { localStorage.setItem('fleetopt-' + k, v); } catch {} } };
 const S = { roster: store.get('roster', 'A'), load: store.get('load', '1'), layout: store.get('layout', 'X'),
@@ -256,12 +264,17 @@ function render() {
   else if (S.layout === 'Y') html = `<div class="app">${top('Fleet &amp; Roster')}${dayStrip()}<div class="layer">${filters}${roster(false)}${S.open ? `<div class="drawer">${load(false)}</div>` : ''}</div></div>`;
   else html = S.open ? `<div class="app" style="position:relative">${top('Fleet &amp; Roster')}${load(false)}</div>` : `<div class="app">${top('Fleet &amp; Roster')}${dayStrip()}${filters}${roster(false)}</div>`;
   dev.innerHTML = html;
-  for (const ax of ['roster', 'load', 'layout']) document.querySelectorAll(`#o-${ax} .opt`).forEach((b) => b.setAttribute('aria-pressed', b.dataset.v === S[ax]));
+  for (const ax of ['roster', 'load', 'layout']) {
+    document.querySelectorAll(`#o-${ax} .opt`).forEach((b) => b.setAttribute('aria-pressed', b.dataset.v === S[ax]));
+    const o = OPT[ax].find((x) => x[0] === S[ax]);
+    document.getElementById('d-' + ax).textContent = `${o[0]} · ${o[1]}: ${o[2]}`;
+    document.getElementById('r-' + ax).classList.toggle('hot', (S.hot || 'roster') === ax);
+  }
   document.getElementById('v-phone').setAttribute('aria-pressed', phone); document.getElementById('v-pc').setAttribute('aria-pressed', !phone);
   document.getElementById('pv-note').textContent = phone ? (S.open ? 'Phone · one person open. "‹ Roster" goes back to the list.' : 'Phone · the list. Tap a salesman to open his van.')
     : `PC · ${OPT.layout.find((o) => o[0] === S.layout)[1].toLowerCase()}. ${S.open ? 'Bagus is open.' : 'Pick a salesman.'}`;
   const pick = (ax) => { const o = OPT[ax].find((x) => x[0] === S[ax]); return `${o[0]} ${o[1]}`; };
-  document.getElementById('pk').textContent = `Team list ${pick('roster')} · Loading ${pick('load')} · PC ${pick('layout')}`;
+  document.getElementById('pk').innerHTML = `Your picks: <b>Team list ${pick('roster')} · Loading ${pick('load')} · PC ${pick('layout')}</b>`;
   fit();
 }
 function fit() { const wrap = document.getElementById('wrap'), dev = document.getElementById('dev');
@@ -270,13 +283,14 @@ function fit() { const wrap = document.getElementById('wrap'), dev = document.ge
   dev.style.marginLeft = S.view === 'phone' ? Math.max(0, (wrap.clientWidth - w * s) / 2) / s + 'px' : '0'; }
 
 /* ---------- options ---------- */
-for (const ax of ['roster', 'load', 'layout']) document.getElementById('o-' + ax).innerHTML = OPT[ax].map(([v, t, d]) =>
-  `<button type="button" class="opt" data-ax="${ax}" data-v="${v}" aria-pressed="false"><b>${v} · ${t}</b><span>${d}</span></button>`).join('');
+const SHORT = { A: 'Ledger', B: 'Tiles', C: 'Lanes', 1: 'Sheet', 2: 'Lists', 3: 'Slip', X: 'Split', Y: 'Panel', Z: 'Page' };
+for (const ax of ['roster', 'load', 'layout']) document.getElementById('o-' + ax).innerHTML = OPT[ax].map(([v, t]) =>
+  `<button type="button" class="opt" data-ax="${ax}" data-v="${v}" aria-pressed="false" title="${v} · ${t}">${v} ${SHORT[v]}</button>`).join('');
 document.addEventListener('click', (e) => {
-  const o = e.target.closest('.opt'); if (o) { S[o.dataset.ax] = o.dataset.v; store.set(o.dataset.ax, o.dataset.v); if (o.dataset.ax === 'layout' && S.view === 'phone') S.view = 'pc'; S.open = true; return render(); }
+  const o = e.target.closest('.opt'); if (o) { S[o.dataset.ax] = o.dataset.v; S.hot = o.dataset.ax; store.set(o.dataset.ax, o.dataset.v); if (o.dataset.ax === 'layout' && S.view === 'phone') S.view = 'pc'; S.open = true; return render(); }
   if (e.target.closest('#v-phone')) { S.view = 'phone'; store.set('view', 'phone'); return render(); }
   if (e.target.closest('#v-pc')) { S.view = 'pc'; store.set('view', 'pc'); return render(); }
-  if (e.target.closest('#copy')) { const t = 'My Fleet & Roster picks: ' + document.getElementById('pk').textContent;
+  if (e.target.closest('#copy')) { const t = 'My Fleet & Roster picks: ' + document.querySelector('#pk b').textContent;
     const b = document.getElementById('copy'); navigator.clipboard?.writeText(t).then(() => { b.textContent = 'Copied'; setTimeout(() => (b.textContent = 'Copy my picks'), 1500); }).catch(() => { b.textContent = 'Select the text on the left'; }); return; }
   const dev = e.target.closest('#dev'); if (!dev) return;
   const lane = e.target.closest('[data-lane]'); if (lane) { S.lane = +lane.dataset.lane; return render(); }
@@ -289,12 +303,15 @@ document.addEventListener('click', (e) => {
   const act = e.target.closest('[data-act]')?.dataset.act; if (!act) return;
   if (act === 'close') { S.open = false; S.toast = ''; return render(); }
   if (act === 'clear') { S.qty = {}; return render(); }
-  if (act === 'fill') { PRODUCTS.forEach((p) => { if (sug(p)) S.qty[p.id] = sug(p); }); click(); S.toast = 'Filled 3 suggested products · +220 Bks'; return render(); }
+  if (act === 'fill') { const f = PRODUCTS.filter((p) => sug(p)); f.forEach((p) => { S.qty[p.id] = sug(p); }); click();
+    S.toast = f.length ? `Filled ${f.length} suggested product${f.length === 1 ? '' : 's'} · +${fmt(totals().add)} Bks` : 'Nothing to suggest: the van already holds last day\'s sales';
+    clearTimeout(S.tt); S.tt = setTimeout(() => { S.toast = ''; render(); }, 3500); return render(); }
   if (act === 'usual' || act === 'copy') { S.toast = act === 'usual' ? 'Usual load: none saved for Bagus in the lab' : 'Copy a teammate: pick whose load to copy (drawn later)'; return render(); }
   if (act === 'load') { const t = totals(); if (!t.add) return; const m = S.loaded[S.who] = S.loaded[S.who] || {};
     const before = Object.fromEntries(PRODUCTS.map((p) => [p.id, vanIn(p)]));
     PRODUCTS.forEach((p) => { if (S.qty[p.id]) m[p.id] = (m[p.id] || 0) + S.qty[p.id]; }); const moved = { ...S.qty }; S.qty = {};
     S.toast = `Van loaded · +${fmt(t.add)} Bks · Surat Jalan ready`; render();
+    clearTimeout(S.tt); S.tt = setTimeout(() => { S.toast = ''; render(); }, 3500);
     /* the one motion with a job: the In van numbers count up to their new value, once */
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) Object.keys(moved).forEach((id) => { const el = document.getElementById('v-' + id); if (!el) return;
       const to = before[id] + moved[id], t0 = performance.now(); const step = (now) => { const k = Math.min(1, (now - t0) / 600); el.textContent = fmt(Math.round(before[id] + moved[id] * k)); if (k < 1) requestAnimationFrame(step); else el.textContent = fmt(to); }; requestAnimationFrame(step); });

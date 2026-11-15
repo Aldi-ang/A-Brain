@@ -85,3 +85,5 @@ Artifact: https://claude.ai/artifact/7fzwdpnKC3dcAksJqyvTEi (source Raw/2026-11-
 | PC layout | X Side by side · Y Slide-over panel · Z Own page (as the phone) |
 Checked once before publishing: script parses, Fill + Load run at 1280 and 390 with no errors; the one look found the page wider than the phone (grid child min-width) - fixed, not re-looked.
 DECISION: OPEN - his picks (the page's "Copy my picks" gives one line).
+
+Round 3b (18:0x): his "its hard to see when i scroll up and down" - the choices moved beside the preview (PC) / into a bar pinned at the top (phone), short option names, one description line for the row last touched. Version 2 of the same artifact.
