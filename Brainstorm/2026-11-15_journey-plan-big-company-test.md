@@ -113,3 +113,12 @@ Traps hit on the trial (not shipped): a component class `display:none` loses to 
 
 DECISION: OPEN - waiting on Aldi to strike what he does not want; the rest gets built from the stash with a check each, then Fleet & Roster.
 Models applied: Chesterton's Fence (strip + fold kept), Inversion (the pressed shop hidden under its own card), Second-Order Thinking (the one line becomes the salesman's own).
+
+## DECISION 2026-11-15 15:15 - all seven kept, BUILT and LIVE (kpm 8b3130b2)
+His words: *"i think everything is fine u may continue"*. Built from the stash, then dropped. What changed on the way from trial to build:
+- Chips: a shared FIRST name gets the whole name (Budi Santoso / Budi Setiawan would both be "BUDI S").
+- Search key: focus moved INTO the tap (a timer focus does not raise the iOS keyboard).
+- The shut fold's band: cause found - a grid gap still counts before a 0-height row; a negative margin only moved the row and stretch refilled it to 10 px. Now margins on the phone, none on the shut fold: map top 407 -> 357 at 390, band 24 px.
+- Speed (a) was not "reuse the icons" (they were already cached): react-leaflet calls setLatLng for every NEW position array, and in the cluster group each one is a remove + re-add that rebuilds a bubble's icon. Probe seticon.js: 4,502 setIcon calls per open (4,462 the same icon, one bubble 2,232 times), 354 ms -> 40 calls, 1-2 ms with pinAt (one array per spot). PC dev server; the phone production build was not re-timed.
+- Capybara: hidden on the phone's full map (display none on the map, block after Exit).
+Frames after the build: Raw/2026-11-15-journey-review/fix-390-*, salesfix-390-*, fix-pc-1-top.png.

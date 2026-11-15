@@ -76,6 +76,8 @@ try {
             count: T('.kx-feed-count'), meta3: T('.kx-feed .kx-meta3'), map: R(document.querySelector('.kx-map')),
             team: T('.kx-ph'), pick: T('.kx-pick button'), mchips: T('.kx-mchips button'), tags: [...new Set(T('.kx-sm .tag'))].slice(0, 40),
             panel: R(document.querySelector('.kx-panel')),
+            fold: (() => { const g = document.querySelector('.kx-feed > .grid'); if (!g) return null; const cs = getComputedStyle(g), k = g.firstElementChild;
+                return [cs.height, cs.marginTop, cs.gridTemplateRows, cs.rowGap, k && getComputedStyle(k).height, k && getComputedStyle(k).minHeight, k?.firstElementChild && getComputedStyle(k.firstElementChild).height]; })(),
         };
     })()`);
     console.log(JSON.stringify(m));
@@ -89,6 +91,15 @@ try {
             return [...p.children].filter((b) => { const r = b.getBoundingClientRect(); return r.left >= -1 && r.right <= innerWidth + 1; }).map((b) => b.innerText.trim()).join(' | '); })()`));
         await sleep(700);
         await shot(`${pre}-2-team`);
+        /* --capy: the full map on the phone - is the capybara hidden? (he stood over the Exit corner on Android) */
+        if (process.argv.includes('--capy')) {
+            await js(`window.scrollTo(0, 0); document.querySelectorAll('.overflow-y-auto').forEach((e) => { e.scrollTop = 0; }); document.querySelector('.kx-mapkey.k-full')?.click(); true`);
+            await sleep(1500);
+            console.log('capy on full map:', await js(`JSON.stringify({ full: !!document.querySelector('.kx-map.kx-full'), capy: [...document.querySelectorAll('.kpm-capy')].map((e) => getComputedStyle(e).display) })`));
+            await shot(`${pre}-4-full`);
+            await js(`document.querySelector('.kx-mapkey.k-full')?.click(); true`); await sleep(900);
+            console.log('capy after exit:', await js(`JSON.stringify({ full: !!document.querySelector('.kx-map.kx-full'), capy: [...document.querySelectorAll('.kpm-capy')].map((e) => getComputedStyle(e).display) })`));
+        }
         /* --find: the search key on the header (the trial) - one press, the fold opens with Find focused */
         if (process.argv.includes('--find')) {
             await js(`window.scrollTo(0, 0); document.querySelectorAll('.overflow-y-auto').forEach((e) => { e.scrollTop = 0; }); document.querySelector('.kx-find-key')?.click(); true`);
