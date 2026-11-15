@@ -121,8 +121,10 @@ tr.sel td{background:var(--sel)}tr.sel td:first-child{box-shadow:inset 3px 0 0 v
 .split{flex:1;display:grid;grid-template-columns:540px 1fr;min-height:0}
 .split>div{min-height:0;display:flex;flex-direction:column}.split>div:first-child{border-right:1px solid var(--line)}
 .layer{position:relative;flex:1;min-height:0;display:flex;flex-direction:column}
-.drawer{position:absolute;top:0;right:0;bottom:0;width:640px;background:var(--panel);border-left:1px solid var(--line);box-shadow:-18px 0 40px rgba(0,0,0,.35);display:flex;flex-direction:column;animation:slide .22s ease-out}
-@keyframes slide{from{transform:translateX(30px);opacity:.4}to{transform:none;opacity:1}}
+.drawer{position:absolute;top:0;right:0;bottom:0;width:640px;background:var(--panel);border-left:1px solid var(--line);box-shadow:-18px 0 40px rgba(0,0,0,.35);display:flex;flex-direction:column}
+/* the slide plays once, when the panel OPENS - never again on a − + press (that replay was the flicker) */
+.drawer.in{animation:slide .26s cubic-bezier(.22,1,.36,1)}
+@keyframes slide{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
 .back{color:var(--muted);font-size:13px;cursor:pointer;background:none;border:0;padding:0;font-family:var(--font)}
 .toast{position:absolute;left:50%;bottom:70px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 14px;border-radius:10px;font-size:13px;font-weight:600;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .pk{font-size:12px;color:var(--muted)}.pk b{color:var(--ink);font-weight:600}
@@ -261,9 +263,10 @@ function render() {
   let html;
   if (phone) html = S.open ? `<div class="app" style="position:relative">${load(true)}</div>` : `<div class="app">${top('Fleet &amp; Roster')}${dayStrip(true)}${filters}${roster(true)}</div>`;
   else if (S.layout === 'X') html = `<div class="app">${top('Fleet &amp; Roster')}${dayStrip()}<div class="split"><div>${filters}${roster(false)}</div><div style="position:relative">${S.open ? load(false) : '<p class="empty" style="padding:24px">Pick a person on the left to see their van.</p>'}</div></div></div>`;
-  else if (S.layout === 'Y') html = `<div class="app">${top('Fleet &amp; Roster')}${dayStrip()}<div class="layer">${filters}${roster(false)}${S.open ? `<div class="drawer">${load(false)}</div>` : ''}</div></div>`;
+  else if (S.layout === 'Y') html = `<div class="app">${top('Fleet &amp; Roster')}${dayStrip()}<div class="layer">${filters}${roster(false)}${S.open ? `<div class="drawer${S.anim ? ' in' : ''}">${load(false)}</div>` : ''}</div></div>`;
   else html = S.open ? `<div class="app" style="position:relative">${top('Fleet &amp; Roster')}${load(false)}</div>` : `<div class="app">${top('Fleet &amp; Roster')}${dayStrip()}${filters}${roster(false)}</div>`;
   dev.innerHTML = html;
+  S.anim = false;
   for (const ax of ['roster', 'load', 'layout']) {
     document.querySelectorAll(`#o-${ax} .opt`).forEach((b) => b.setAttribute('aria-pressed', b.dataset.v === S[ax]));
     const o = OPT[ax].find((x) => x[0] === S[ax]);
@@ -287,14 +290,14 @@ const SHORT = { A: 'Ledger', B: 'Tiles', C: 'Lanes', 1: 'Sheet', 2: 'Lists', 3: 
 for (const ax of ['roster', 'load', 'layout']) document.getElementById('o-' + ax).innerHTML = OPT[ax].map(([v, t]) =>
   `<button type="button" class="opt" data-ax="${ax}" data-v="${v}" aria-pressed="false" title="${v} · ${t}">${v} ${SHORT[v]}</button>`).join('');
 document.addEventListener('click', (e) => {
-  const o = e.target.closest('.opt'); if (o) { S[o.dataset.ax] = o.dataset.v; S.hot = o.dataset.ax; store.set(o.dataset.ax, o.dataset.v); if (o.dataset.ax === 'layout' && S.view === 'phone') S.view = 'pc'; S.open = true; return render(); }
+  const o = e.target.closest('.opt'); if (o) { S[o.dataset.ax] = o.dataset.v; S.hot = o.dataset.ax; store.set(o.dataset.ax, o.dataset.v); if (o.dataset.ax === 'layout' && S.view === 'phone') S.view = 'pc'; S.open = true; S.anim = true; return render(); }
   if (e.target.closest('#v-phone')) { S.view = 'phone'; store.set('view', 'phone'); return render(); }
   if (e.target.closest('#v-pc')) { S.view = 'pc'; store.set('view', 'pc'); return render(); }
   if (e.target.closest('#copy')) { const t = 'My Fleet & Roster picks: ' + document.querySelector('#pk b').textContent;
     const b = document.getElementById('copy'); navigator.clipboard?.writeText(t).then(() => { b.textContent = 'Copied'; setTimeout(() => (b.textContent = 'Copy my picks'), 1500); }).catch(() => { b.textContent = 'Select the text on the left'; }); return; }
   const dev = e.target.closest('#dev'); if (!dev) return;
   const lane = e.target.closest('[data-lane]'); if (lane) { S.lane = +lane.dataset.lane; return render(); }
-  const who = e.target.closest('[data-who]'); if (who) { S.who = who.dataset.who; S.open = true; S.qty = {}; S.toast = ''; return render(); }
+  const who = e.target.closest('[data-who]'); if (who) { S.anim = !S.open || S.who !== who.dataset.who; S.who = who.dataset.who; S.open = true; S.qty = {}; S.toast = ''; return render(); }
   const st = e.target.closest('[data-d]'); if (st) { const id = st.dataset.p, pr = PRODUCTS.find((p) => p.id === id);
     S.qty[id] = Math.max(0, Math.min(pr.wh, (S.qty[id] || 0) + 10 * +st.dataset.d)); click(); S.toast = ''; render();
     const em = document.getElementById('q-' + id); if (em && !matchMedia('(prefers-reduced-motion: reduce)').matches) { em.classList.add('tick'); setTimeout(() => em.classList.remove('tick'), 130); } return; }

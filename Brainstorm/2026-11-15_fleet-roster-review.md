@@ -1,7 +1,7 @@
 ---
 title: Fleet & Roster review - as every user, big demo company
 created: 2026-11-15
-status: OPEN — board sent 2026-11-15 16:42, his strikes owed
+status: DECIDED 2026-11-15 18:4x — A Ledger · 1 Load sheet · Y Slide-over; build owed
 confidence: measured in the lab (frames + DOM numbers), not on a real phone
 ---
 
@@ -87,3 +87,6 @@ Checked once before publishing: script parses, Fill + Load run at 1280 and 390 w
 DECISION: OPEN - his picks (the page's "Copy my picks" gives one line).
 
 Round 3b (18:0x): his "its hard to see when i scroll up and down" - the choices moved beside the preview (PC) / into a bar pinned at the top (phone), short option names, one description line for the row last touched. Version 2 of the same artifact.
+
+## DECISION (2026-11-15 18:4x)
+PICKED: Team list A Ledger table · Loading 1 Load sheet · PC Y Slide-over panel; "smooth and elegant and not flickering". Suggested load = last day sold − in van (stated in the option he picked). Build brief = kpm .claude/NEXT-SESSION.md. Artifact v3 fixed the panel replay he saw.
