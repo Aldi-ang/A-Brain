@@ -1,0 +1,53 @@
+{
+ "title": "Journey Plan - today vs proposed (strike what you don't want)",
+ "sub": "Lab, big demo company (600 shops, 20 salesmen), Sunday. Left of each arrow = the app today. Right = proposed, running in the lab only - nothing proposed is live. Your picks stay: the 160 px map strip and the fold. Gold dashed box = what changes. Section 5 is already built (your \"q2 = sure\").",
+ "width": 1240,
+ "frameW": 250,
+ "sections": [
+  {
+   "h": "1. Owner on the phone (390 px) - the top of the screen",
+   "items": [
+    { "pair": [
+      { "img": "today-390-1-top.png", "css": [390, 844], "marks": [ { "x": 18, "y": 247, "w": 354, "h": 60, "t": "3 tiles" }, { "x": 18, "y": 361, "w": 354, "h": 46, "t": "46 px empty" } ],
+        "cap": "<b>Today.</b> \"336 shops left\" is 600 - 264, the number just above it, said twice. Find a shop only opens from \"ALL ▾\". The map starts at 407 px." },
+      { "img": "new-390-1-top.png", "css": [390, 844], "marks": [ { "x": 18, "y": 247, "w": 354, "h": 32, "t": "one line" }, { "x": 326, "y": 140, "w": 44, "h": 44, "t": "find" } ],
+        "cap": "<b>Proposed.</b> One line: 20 salesmen out · 0 overdue. A search key beside \"ALL ▾\". Empty band 46 → 34 px. The map starts at 367 px - 40 px higher." } ] },
+    { "img": "new-390-3-find.png", "css": [390, 844], "cap": "<b>Proposed - one press on the search key.</b> The fold opens and the shop box is ready to type (the keyboard comes up on a real phone)." }
+   ]
+  },
+  {
+   "h": "2. Owner on the phone - the Team box",
+   "items": [
+    { "pair": [
+      { "img": "today-390-2-team.png", "cap": "<b>Today.</b> Two \"BS 11/28\" (Budi Santoso and Bagus Setiawan) and three \"DS\" (Dadang, Dede, Dika) - you cannot tell who is who. Top says 264 visited, here 228/588 \"shops\"." },
+      { "img": "new-390-2-team.png", "cap": "<b>Proposed.</b> When two men share letters, the chip shows the first name: BAGUS, BUDI, DADANG, DEDE, DIKA. Others keep their letters. \"228/588 sold\" - 264 shops visited, 228 of them bought." } ] }
+   ]
+  },
+  {
+   "h": "3. Salesman (Dika, tier 6) on the phone - checked for the first time",
+   "items": [
+    { "pair": [
+      { "img": "sales-390-1-top.png", "cap": "<b>Today.</b> Dika's first screen shows the whole area: 263/598 visited, 335 shops left, 8 salesmen out. His own next shop is below the map, at the bottom of the Team box - he has to scroll for it." },
+      { "img": "sales-new-390-1-top.png", "cap": "<b>Proposed.</b> The same one line, but his: YOUR NEXT SHOP WARMED AFGANMART02 · 0,6 KM. An owner or a man with no round today sees salesmen out · overdue instead." } ] },
+    { "img": "sales-390-2-team.png", "cap": "<b>Today - where his next shop is now:</b> \"Heading to WARMED AFGANMART02\", far down the page under the map." }
+   ]
+  },
+  {
+   "h": "4. Owner on the PC (1280 px)",
+   "items": [
+    { "pair": [
+      { "img": "today-pc-1-top.png", "w": 540, "css": [1280, 800], "marks": [ { "x": 1100, "y": 362, "w": 140, "h": 20, "t": "shops" } ], "cap": "<b>Today.</b> Find a shop is already open on the PC, full names in the Team list. Only the Team header says \"228/588 shops\" next to \"264/600 visited\"." },
+      { "img": "new-pc-1-top.png", "w": 540, "css": [1280, 800], "marks": [ { "x": 1100, "y": 362, "w": 140, "h": 20, "t": "sold" } ], "cap": "<b>Proposed.</b> One word: \"228/588 sold\". Nothing else moves on the PC (the search key is phone-only)." } ] }
+   ]
+  },
+  {
+   "h": "5. Day Replay - the pressed shop is marked (BUILT, your \"q2 = sure\")",
+   "items": [
+    { "img": "q2-390.png", "cap": "<b>390 px.</b> You press a shop low on the map (it stood at 562 px). Its card opens over the bottom, so the map moves the shop up to 301 px, above the card - glowing gold with a gold ring under its flag." },
+    { "img": "q2-390-lite.png", "cap": "<b>Lite Mode.</b> The glow goes, the gold ring stays - you can still see which shop it is." },
+    { "img": "q2-412.png", "cap": "<b>412 px.</b> This shop was already above the card (348 px, card top 523 px), so the map does not move." }
+   ]
+  },
+  { "h": "6. Also proposed - no picture, nothing changes in the look", "items": [], "note": "(a) Journey Plan opens in 1.8-2.2 s on the big company; 0.32 s of it is the map re-making every shop's icon - reuse them. (b) Demo only: the capybara's \"WELCOME BACK, BOSS!\" bubble covers the full map's Exit corner on Android - move the bubble." }
+ ]
+}

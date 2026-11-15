@@ -93,3 +93,23 @@ COSTS: 1-4 are small JSX/CSS each with a check; 5 is a memo in the marker layer;
 DECISION: OPEN - board (today vs proposed, 390 + 1280) is the next chat's first job, with the Q2 mark on the same lab run; he strikes what he does not want, the rest gets built.
 REJECTED ON PURPOSE: a full re-layout of the page (he picked this layout - redesign B, 040faf91 - and the strip); hiding the stats.
 Models applied: Chesterton's Fence (his strip + fold picks stay), Inversion (what makes a user give up: not finding a shop, wrong man pressed, two numbers).
+
+## BOARD 2026-11-15 14:45 - today vs proposed, sent; the Q2 mark BUILT and LIVE (kpm 745d9cc7)
+Board: `Raw/2026-11-15-journey-review/board.png` (spec board.json, frames by shoot.mjs / q2.mjs on the lab dev server 5176, headless Chrome at 390 dpr 3 with touch media + 1280). The proposals ran in the working tree and are parked in kpm `git stash` "journey-review trial 2026-11-15" (JourneyView.jsx, Expedition.jsx, utils/expedition.js, expedition.css) - nothing proposed is live.
+
+| # | Proposal on the board | Measured |
+|---|---|---|
+| 1 | Chip = first name when two men share initials (owner: BS x2 -> BAGUS / BUDI, DS x3 -> DADANG / DEDE / DIKA; the salesman's team too) | pick arrays read off the DOM |
+| 2 | Team header "228/588 shops" -> "228/588 sold" (264 visited, 228 of them bought); PC: the only change | |
+| 3 | Search key beside "ALL" on the phone: one press opens the fold with the shop box focused | focus = "Find a shop", fold open |
+| 4 | Three tiles -> one line "20 salesmen out · 0 overdue" (shops left = 600 - 264, said twice) | map top 407 -> 367 px at 390 (40 higher); empty band 46 -> 34 px |
+| S | NEW, salesman (Dika, T6) checked for the first time: his first screen is the area's numbers (263/598, 335 left, 8 out); his own next shop sits at the bottom of the Team box, under the map. Proposed: the one line is his - "YOUR NEXT SHOP WARMED AFGANMART02 · 0,6 KM" | |
+| a | (no picture) open speed 1.8-2.2 s, 0.32 s = Leaflet re-making shop icons -> reuse | from the 13:45 review |
+| b | (no picture, demo) capybara bubble over the full map's Exit corner | |
+
+Q2 mark, BUILT (his "q2= sure", 2026-11-14): gold glow + gold ring (a border in literal #E4B04A - --gold is black in light mode). Found while building on the REAL app at 390: the pressed flag landed UNDER the full-map bottom bar (flag top 478, bar top 452) - the ponder-lab board never showed it because its card was shorter. So one pan per press (dayLog.js clearPan) moves the shop into the band between the top chips and the bar: 562 -> 301, bar top 428; at 412 the shop was clear (348 vs 523) and nothing moved. Lite Mode: glow off, ring stays (computed 3px rgb(228,176,74), filter none).
+
+Traps hit on the trial (not shipped): a component class `display:none` loses to theme.css `button:has(> svg:only-child)` (0,1,1) on an icon-only button - the search key showed on the PC until it was wrapped in a `lg:hidden` span. The first Team-box frames showed only the first 4 chips, which hid the duplicates - re-shot with the chip row scrolled to chip 4 (Anti-Recurrence: the TODAY frame must show the defect).
+
+DECISION: OPEN - waiting on Aldi to strike what he does not want; the rest gets built from the stash with a check each, then Fleet & Roster.
+Models applied: Chesterton's Fence (strip + fold kept), Inversion (the pressed shop hidden under its own card), Second-Order Thinking (the one line becomes the salesman's own).
