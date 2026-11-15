@@ -75,3 +75,21 @@ STILL OPEN: E (vault gate 23.5 s on a first visit, big company) - after his phon
 - Fixing anything in this session: findings first, he ranks them (his rule, "diagnose before changing").
 
 Models applied: Inversion (what would make a big customer give up on day one - keys he cannot read, a search that shows nothing), Second-Order Thinking (option B changes what pressing a salesman means), Reversibility Test (A, C and F are CSS).
+
+## REVIEW 2026-11-15 13:45 - "is Journey Plan now the most efficient and most effective UI?"
+His words: *"does u think journey plan now is the most efficient end most effective UI that we can do right now? if u have any suggestion as all the users for this app then tell me and show me the solution"*.
+Answer given: not yet - six things still cost a user time; none needs a new screen. Rulings it must respect (Aldi's Design Taste): the 160 px map strip is his pick (A, 2026-09-20, "shrink, not hide"); the fold is his default for what is not pressed every minute (2026-09-19); phone = one thing at a time, PC = everything (2026-10-03); a fullscreen map keeps one thin row (2026-10-05).
+
+| # | Who it costs | Now (measured 2026-11-15, big demo company) | Fix to show |
+|---|---|---|---|
+| 1 | owner, supervisor | BUDI SANTOSO and BAGUS SETIAWAN both read "BS 11/28" on the salesman chips (small map + full map) | chip carries the first name ("BAGUS 11/28") or enough letters to differ |
+| 2 | owner | top "264/600 VISITED" vs Team box "228/588 SHOPS" on one screen, nothing says why they differ (264 = 228 that bought + 36 visit-only) | name both: "264 visited · 228 bought" |
+| 3 | everyone | Find a shop opens only from the "TODAY'S ROUTE ALL ▾" header; closed, it leaves a 46 px empty band (finding F) | keep his fold; a search key on the day row opens it on Find; the band goes |
+| 4 | phone | "336 SHOPS LEFT" = 600 - 264, already in the bar; the map strip starts at y 407 of 717 at 390 | drop that tile (or make the tile row one line) -> map higher on the first screen |
+| 5 | big company | Journey opens 1.8-2.2 s on the production build; 0.32 s is Leaflet re-making every shop mark's icon (profile p412-open.cpuprofile) | reuse the icons; no look change |
+| 6 | demo visitors, Android | the capybara's "WELCOME BACK, BOSS!" covers the full map's Exit corner | move the bubble clear of the dock |
+Not checked: the salesman's own Journey Plan on the phone - goes on the same board.
+COSTS: 1-4 are small JSX/CSS each with a check; 5 is a memo in the marker layer; 6 demo only.
+DECISION: OPEN - board (today vs proposed, 390 + 1280) is the next chat's first job, with the Q2 mark on the same lab run; he strikes what he does not want, the rest gets built.
+REJECTED ON PURPOSE: a full re-layout of the page (he picked this layout - redesign B, 040faf91 - and the strip); hiding the stats.
+Models applied: Chesterton's Fence (his strip + fold picks stay), Inversion (what makes a user give up: not finding a shop, wrong man pressed, two numbers).
