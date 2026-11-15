@@ -1,0 +1,32 @@
+{
+ "title": "Fleet & Roster - a professional version (idea, drawn with the lab's real numbers)",
+ "sub": "A drawing, not the app. Numbers are the big demo company's HQ team and Gudang Pusat at 17:34. Built the way real van-sales software does it: plan the load from what sold, load it with one button, check it at the end of the day. Same family as your Sales Terminal \"price list\" pick: ruled lines, plain words, numbers in columns, one gold button. The drawings leave out the app's own top bar (the DEMO strip and the screen title, about 123 px on the phone in the demo). Measured on the drawing: with that bar added, the 6th product's row ends 2 px under the Load bar - the 6 still show, the last one just touching it.",
+ "width": 1240,
+ "frameW": 250,
+ "sections": [
+  {
+   "h": "1. PC - the roster and one salesman's load on the same screen",
+   "items": [
+    { "pair": [
+      { "img": "own-pc-pick-1.png", "w": 540, "cap": "<b>Today.</b> Cards on a stage, 7 per page. Pick one, then two chests (warehouse, van), a row of pixel chests, and a list under them. Loading = tap a box, tap a van square, type how many, then MUAT VAN." },
+      { "img": "pro-pc.png", "w": 540, "cap": "<b>Idea.</b> Left: the team as a table - leaders on top, salesmen A-Z, loaded / sold / left with a sold bar. Right: the picked man's load sheet - one line per product: warehouse, in van, last day sold, and a − n + box. <b>Fill suggested</b> = last day's sales minus what is still in the van. One gold button: <b>Load van · 220 Bks</b>." } ] }
+   ]
+  },
+  {
+   "h": "2. Phone - the roster, then one salesman",
+   "items": [
+    { "pair": [
+      { "img": "t4-390-0.png", "cap": "<b>Today.</b> 1.5 cards on screen, page keys and a sideways swipe, title cut." },
+      { "img": "pro-p1.png", "cap": "<b>Idea.</b> One line per person: left in the van (big), sold today and %. Leaders on top. Tap a line to open his sheet." } ] },
+    { "pair": [
+      { "img": "today-t4-390-tap1-0.png", "cap": "<b>Today.</b> Two chests stacked; the van square for tap 2 is under the screen, MUAT VAN further down." },
+      { "img": "pro-p2.png", "cap": "<b>Idea.</b> Suggested products first, the same − n + boxes as the Sales Terminal, and <b>Load van</b> pinned at the bottom - no scrolling to find it. Return, Damaged and Consignment are tabs on the same page." } ] }
+   ]
+  },
+  {
+   "h": "3. What moves (your rule: plain, but never a still screen)",
+   "note": "A − n + press ticks the number with the Sales Terminal's own click sound. After <b>Load van</b>: the In van numbers count up once, the man's line turns <b>Loaded</b>, and the Surat Jalan opens like today. Nothing loops. <b>What goes:</b> the stage cards, both chests, the pixel chests, the chest sounds and the 3D crate. <b>What stays, as plain buttons:</b> usual load, copy a teammate, return to warehouse, damaged goods, consignment, geofence requests, the Surat Jalan, Reconcile & clear. The regional admins are listed on top here, which also fixes the crown bug from the last board.",
+   "items": []
+  }
+ ]
+}

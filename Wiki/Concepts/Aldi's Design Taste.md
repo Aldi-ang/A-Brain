@@ -3745,3 +3745,13 @@ Picked ~08:50: *"we need both C and B one to see all and one to see each person,
 - "Best on phone" = its own frame drawn for the phone, not the PC picture shrunk.
 
 - 2026-11-14 - Day Replay, a pressed shop on the phone map: shown NOW (the card names the shop, no pin is marked) beside an example gold glow + ring on the pressed pin, he said *"q2= sure"*. Taste: what you pressed must show on the map too, not only in the card. Board: `Raw/2026-11-14-day-replay-mark/board.png`.
+
+## 2026-11-15 — Fleet & Roster: four polish fixes refused, "it's all gamified", a professional one wanted
+
+Shown a TODAY vs PROPOSED board of four measured fixes inside the game look (leaders crowned, phone title + swipe row, a glide + gold bar for van loading, one number said once):
+
+> *"well i dont want all because its all gamified tbh we need to create e new professional one, research and give me an idea to do that"*
+
+- Polish on a game-look screen is not what he wants any more: the 2026-11-13 turn (plain words, professional shapes, motion stays) now reaches Fleet & Roster, chests included. Do not offer fixes INSIDE a look he is leaving; offer the professional version.
+- His September asks (Minecraft chests with sound, the 3D crate, the stage) were picks for the game look; like the stamp on 2026-11-12, they do not carry into the professional edition. The game look stays showable in tag `game-edition-v1`.
+- Answered with a direction drawn on the lab's real numbers: the roster as a ruled table (leaders on top), the load as a sheet (warehouse / in van / last day sold / − n +), "Fill suggested" = last day's sales minus what is still in the van, one gold Load button. Board: Raw/2026-11-15-fleet-review/pro-board.png. [[../../Brainstorm/2026-11-15_fleet-roster-review]]
