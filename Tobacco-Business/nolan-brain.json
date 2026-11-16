@@ -2,7 +2,7 @@
   "agentName": "Nolan",
   "version": "1.0.0",
   "accountEmail": "adikaryasukses99@gmail.com",
-  "lastUpdated": "2026-11-16T02:26:33.950Z",
+  "lastUpdated": "2026-11-16T02:27:07.645Z",
   "githubRepo": "Aldi-ang/A-Brain",
   "githubBranch": "main",
   "githubFilePath": "Tobacco-Business/nolan-brain.json",
@@ -17,6 +17,13 @@
     "Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan."
   ],
   "decisionEpisodes": [
+    {
+      "id": "ep-1794796027645",
+      "timestamp": "2026-11-16T02:27:07.645Z",
+      "type": "FACTORY_ACCEPTED",
+      "summary": "DITERIMA PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) di CELLO MUNTILAN [Grade E]",
+      "learnedTakeaway": "Racikan 50:50 Temanggung Srintil (Grade E) dan Muntilan Garangan Wangi diterima CELLO MUNTILAN dengan margin profit 33.3%."
+    },
     {
       "id": "ep-1794795993950",
       "timestamp": "2026-11-16T02:26:33.950Z",
@@ -155,14 +162,14 @@
     {
       "factoryName": "CELLO MUNTILAN",
       "acceptedCount": 0,
-      "rejectedCount": 0,
+      "rejectedCount": 1,
       "preferredGrades": [
         "E"
       ],
       "avgAcceptedHppPerKg": 90000,
       "avgTargetPricePerKg": 135000,
       "sensorySweetSpot": "Power 4.3/5 • Sugar 4.1/5 • Aroma 4.2/5",
-      "notes": "Siap menerima pengiriman gulungan sampel baru."
+      "notes": "Perhatian: 1 seri pernah di-reject di pabrik ini."
     },
     {
       "factoryName": "PT Gudang Garam Tbk - Kediri",
@@ -178,7 +185,7 @@
       "notes": "Siap menerima pengiriman gulungan sampel baru."
     }
   ],
-  "lastSyncedToGithub": "2026-11-16T02:26:37.549Z",
+  "lastSyncedToGithub": "2026-11-16T02:27:11.237Z",
   "latestWarehouseSnapshot": {
     "rawCount": 3,
     "totalRawNetKg": 139,
@@ -187,7 +194,7 @@
     "totalWeightProfitKg": 16,
     "finishedCount": 1,
     "acceptedCount": 0,
-    "rejectedCount": 0,
+    "rejectedCount": 1,
     "acceptedProfitRp": 0,
     "rollCount": 1
   }
