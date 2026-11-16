@@ -3780,3 +3780,10 @@ Options named to him in chat: A focus (his), B tall panel no blur, C wide (names
 - He decides better from a page he can press (cards that swap the real-app frame, a "show today" toggle) than from one board image. A design pick goes out as an artifact first.
 - He picked the option that hides the most (the day numbers) for the most work in view (8 products vs 3): on a work screen he trades context for capacity, as long as the way back is one press (the dimmed part closes it, the name list stays usable).
 - "well animated and smooth" is part of every visual order now, not polish: the veil and the panel move as one, the entrance waits 40 ms so it starts after the slow first frame (it skipped a third of itself without that), the exit is faster than the entry. Sampled per frame before the push.
+
+## 2026-11-16 — "fine" is not a yes to build: the Surat Jalan
+
+> *"A is fine but not really special tbh"*
+
+- Asked to pick a minimal Surat Jalan, he accepted the calm option and in the same breath said it lacked character. Minimal for him is not plain: he wants one memorable move (a big title, a band, a stamp box) on top of the calm. Next time a "minimal" board goes out, every option carries one distinctive element, and the plainest one is the baseline, not the pick.
+- Same message, on the load sheet: *"1 press is 1 slop and 1 slop is 10 bks but i think u should add button where i can increase the add button by 1 or by 10"* - he keeps the trade's unit (Slop) and wants a finer control beside it, not a replacement. Built as "Each press: 1 Bks | 1 Slop" (kpm 54ff882f).

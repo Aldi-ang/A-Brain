@@ -26,8 +26,14 @@ The paper keeps the KPM company print look (white + navy) - the receipt rule (me
 
 Models applied: Second-Order Thinking (who reads it: a warehouse admin and a driver signing on a clipboard, often a B/W printer - hence B and the "navy prints grey" cost on A), Chesterton's Fence (the statement text is legal wording he approved - kept word for word).
 
+## ROUND 2 (2026-11-16 21:4x)
+His answer to the first board: *"A is fine but not really special tbh"*. Two more distinctive takes on A were added to the same artifact (v3):
+- A2 Navy band: company header in white on a full navy band, total line tinted navy. Cost: most ink; some printers drop the band unless "background graphics" is on.
+- A3 Title & stamp: big navy SURAT JALAN title, a navy spine down the left edge, bigger quantities, a round box for the warehouse stamp (cap) between the signatures. Cost: the company name gets smaller.
+
 ## DECISION
-OPEN — waiting on Aldi (artifact sent 2026-11-16 ~21:35). My pick: A; B if the warehouses print only in black and white.
+OPEN — waiting on Aldi (v3 sent 2026-11-16 21:45). My pick: A3 (character at almost no ink; the stamp box is how Indonesian delivery papers are actually signed off). Strongest other: A2.
+Build note (Antigravity Task 10): one shared layout for the Fleet Surat Jalan (FleetCanvasManager ~L1049), the LoadSheet SURAT JALAN / BUKTI KEMBALI card and AcceptanceReceipt; the notas stay as they are. The Fleet Surat Jalan modal is also AT RISK of opening cut under the demo bars (Task 8) - portal it in the same build.
 
 ## REJECTED ON PURPOSE
 - Dropping the statement text to look minimal: it is the receiver's liability clause.
