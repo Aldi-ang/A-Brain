@@ -3,7 +3,7 @@ title: Demo Guide on the Phone
 description: The demo's step-by-step guide must ring a button the visitor can see and press; how it failed on the phone and how to walk it so it cannot pass by accident.
 type: concept
 confidence: high
-checked: 2026-11-15
+checked: 2026-11-17
 created: 2026-11-15
 tags: [demo, guide, phone, testing, incident]
 ---
@@ -49,5 +49,29 @@ A-Brain `Raw/2026-11-14-big-demo-walk/`:
   opened ~9.5 s after a fresh visit on the small company; on the big company 18-22 s after a SWITCH and 33 s+ on a
   first visit; PROSES RETUR stayed busy 16 s. Cause not proven. The big-company switch waits on his answer -
   [[2026-11-14_professional-demo-company]].
+
+## The PC, and the menu tour (2026-11-17, kpm 04a6bed2)
+
+- **The PC had the same bug in another form.** The shut menu keeps its items in the page at opacity 0, and the guide
+  rang the first match: step 1's ring sat round an empty spot (frame
+  `Raw/2026-11-15-journey-review/pc-f16-s1-02-buka-restock-vault.jpg`, 2026-11-16). Rule now: the ring takes only a
+  copy that is DRAWN (a size, not visibility hidden, no opacity 0 on it or a parent). A drawn copy below the screen
+  still counts, because the guide scrolls it in. Antigravity Task 7 had asked to drop that fallback entirely - that
+  would also have stopped the scroll to a key under the fold.
+- **Every menu beat names the PC's corner circle before the phone's edge key**, each with its own line. Hovering the
+  circle opens the menu and the ring moves to the item.
+- **The menu tour.** His 2026-11-16: *"he should give step by step tutorial starting from the sidebar first and what it
+  use then to the next"*. Before the step: one beat per item this login's menu carries, in menu order, the item named
+  as the menu shows it. LANJUT / LEWATI, once a day per browser. PC: the tour holds the menu open (`html.kpm-tour`),
+  because the pointer leaves it for LANJUT. Phone: the ring sits on the edge key until a finger opens the menu - the
+  pattern every step already uses. That closed the 🔴 DECIDE NEXT-SESSION had planned (open the drawer by itself, or a
+  line with no ring) without asking him: a third way that needed neither.
+- **Rejected on purpose:** pasting Antigravity Task 13's "ready to paste" block. Its beats had no `done` and no way
+  forward (the guide would sit on item 1 forever), a tier list copied from the nav config (it drifts), and hover-only
+  selectors on the PC (the menu shuts the moment the pointer goes to the box). A partner's ready block is a draft
+  until it is run against the code that consumes it.
+- Lab: `Raw/2026-11-17-menu-tour/` - g.mjs drives the lab Chrome (eval / shot / move / click / tapring / size); a
+  size override lives only as long as the run that set it. Frames: pc-t1, pc-t9, pc-s1-totem, pc-s1-open, ph-t1-shut,
+  ph-t1-open, ph-t9.
 
 Links: [[Ponder Tutorial System]] · [[Anti-Recurrence Check]]
