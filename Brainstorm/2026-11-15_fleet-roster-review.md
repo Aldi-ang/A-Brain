@@ -90,3 +90,13 @@ Round 3b (18:0x): his "its hard to see when i scroll up and down" - the choices 
 
 ## DECISION (2026-11-15 18:4x)
 PICKED: Team list A Ledger table · Loading 1 Load sheet · PC Y Slide-over panel; "smooth and elegant and not flickering". Suggested load = last day sold − in van (stated in the option he picked). Build brief = kpm .claude/NEXT-SESSION.md. Artifact v3 fixed the panel replay he saw.
+
+## DECISION BUILT - LIVE 2026-11-16 14:51 WIB (kpm 62f5615d)
+His pick A Ledger table · 1 Load sheet · Y Slide-over panel, plus *"make sure the animation is smooth and elegant and not flickering"*.
+- Built in kpm 48c5081e: src/components/LoadSheet.jsx (new), FleetCanvasManager.jsx rosterRow + person panel, vanBay soldBks / lastDaySold / suggestBks, theme.css THE ROSTER LEDGER block, guide step 3 re-pointed.
+- Fill suggested = his last working day's sales - what the van holds now, never below 0, cut to the warehouse (the rule his option stated).
+- Motion measured on the live dev page: one entrance per opening (x 24 -> 0, opacity 0 -> 1, 260 ms), zero replays and 0 px movement over five + presses.
+- Antigravity rewrote the 39 self-checks that pinned the stage (kpm ca4921ca); Claude reviewed it.
+- Dropped on purpose: the panel's shadow (audit G30), the permission chips in the panel head (Details shows them), the van layout squares. The game look stays in tag game-edition-v1.
+- Not shot before the push: the owner's area chips, the dark panel without its shadow.
+Frames and scripts: Raw/2026-11-16-fleet-build/.

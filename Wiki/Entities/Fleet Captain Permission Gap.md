@@ -135,3 +135,5 @@ Shipped as kpm `4f44e3d`; the behaviour check "T1-T4 in, T5-T6 out" runs the rea
 the tier set from his own sentence and the label table before using it.
 
 See also: [[Tier System]] · [[The Place Registry]] · [[../Concepts/Anti-Recurrence Check]]
+
+- 2026-11-16: UI side closed on Fleet & Roster - the new ledger's rank map and isLeader include FLEET_CAPTAIN, so a regional admin stands with the leaders (kpm 48c5081e, live 62f5615d). The rules side is unchanged by this.
