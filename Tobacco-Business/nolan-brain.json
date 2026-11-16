@@ -2,7 +2,7 @@
   "agentName": "Nolan",
   "version": "1.0.0",
   "accountEmail": "adikaryasukses99@gmail.com",
-  "lastUpdated": "2026-11-16T07:25:29.537Z",
+  "lastUpdated": "2026-11-16T07:29:31.528Z",
   "githubRepo": "Aldi-ang/A-Brain",
   "githubBranch": "main",
   "githubFilePath": "Tobacco-Business/nolan-brain.json",
@@ -17,6 +17,13 @@
     "Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan."
   ],
   "decisionEpisodes": [
+    {
+      "id": "ep-1794814171528",
+      "timestamp": "2026-11-16T07:29:31.528Z",
+      "type": "FACTORY_ACCEPTED",
+      "summary": "DITERIMA PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) di CELLO MUNTILAN [Grade E]",
+      "learnedTakeaway": "Pola keputusan pengguna berhasil direkam ke histori pembelajaran Nolan."
+    },
     {
       "id": "ep-1794813929537",
       "timestamp": "2026-11-16T07:25:29.537Z",
@@ -168,16 +175,15 @@
   "factoryProfiles": [
     {
       "factoryName": "CELLO MUNTILAN",
-      "acceptedCount": 4,
-      "rejectedCount": 1,
+      "acceptedCount": 1,
+      "rejectedCount": 0,
       "preferredGrades": [
-        "E",
-        "D"
+        "E"
       ],
-      "avgAcceptedHppPerKg": 82750,
-      "avgTargetPricePerKg": 115000,
-      "sensorySweetSpot": "Power 3.9/5 • Sugar 4.0/5 • Aroma 4.3/5",
-      "notes": "4 seri Diterima/Accepted, rata-rata margin positif."
+      "avgAcceptedHppPerKg": 90000,
+      "avgTargetPricePerKg": 135000,
+      "sensorySweetSpot": "Power 4.3/5 • Sugar 4.1/5 • Aroma 4.2/5",
+      "notes": "1 seri Diterima/Accepted, rata-rata margin positif."
     },
     {
       "factoryName": "PT Gudang Garam Tbk - Kediri",
@@ -191,44 +197,19 @@
       "avgTargetPricePerKg": 0,
       "sensorySweetSpot": "Belum ada histori seri",
       "notes": "Siap menerima pengiriman gulungan sampel baru."
-    },
-    {
-      "factoryName": "PT Djarum Kudus (Divisi Pembelian Daun)",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "preferredGrades": [
-        "E"
-      ],
-      "avgAcceptedHppPerKg": 90000,
-      "avgTargetPricePerKg": 135000,
-      "sensorySweetSpot": "Power 4.3/5 • Sugar 4.1/5 • Aroma 4.6/5",
-      "notes": "Siap menerima pengiriman gulungan sampel baru."
-    },
-    {
-      "factoryName": "PR Sukun Kudus",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "preferredGrades": [
-        "D",
-        "E"
-      ],
-      "avgAcceptedHppPerKg": 0,
-      "avgTargetPricePerKg": 0,
-      "sensorySweetSpot": "Belum ada histori seri",
-      "notes": "Siap menerima pengiriman gulungan sampel baru."
     }
   ],
-  "lastSyncedToGithub": "2026-11-16T07:25:29.551Z",
+  "lastSyncedToGithub": "2026-11-16T07:29:37.251Z",
   "latestWarehouseSnapshot": {
-    "rawCount": 4,
-    "totalRawNetKg": 560,
-    "totalModalRp": 14857000,
-    "totalWeightProfitRp": 984000,
-    "totalWeightProfitKg": 12,
-    "finishedCount": 7,
-    "acceptedCount": 4,
-    "rejectedCount": 1,
-    "acceptedProfitRp": 6562485,
-    "rollCount": 2
+    "rawCount": 3,
+    "totalRawNetKg": 139,
+    "totalModalRp": 9854000,
+    "totalWeightProfitRp": 1100000,
+    "totalWeightProfitKg": 16,
+    "finishedCount": 1,
+    "acceptedCount": 1,
+    "rejectedCount": 0,
+    "acceptedProfitRp": 2250000,
+    "rollCount": 1
   }
 }
