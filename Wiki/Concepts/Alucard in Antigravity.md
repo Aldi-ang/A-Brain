@@ -97,6 +97,16 @@ ai studio to work faster"*.
   himself and drops the files in a folder. Faster for him, no quota for either agent.
 - Same rule lives in the app's `CLAUDE.md` (Antigravity section).
 
+### The queue is never empty (his call, 2026-11-16)
+
+Aldi, 15:30: *"u should give another jobs for antigravity until all the usage runout from it so that we can save some quota here"*.
+Aldi, 20:15: *"keep giving antigravity jobs without i need to ask everytime if its running out of quota i'll tell u"*.
+
+- `.claude/ANTIGRAVITY-TASK.md` keeps at least 2 OPEN thinking tasks. When one goes DONE, Claude reviews it and writes
+  the next one in the same session, without asking him.
+- It is never set to NONE. Refilling stops only when HE says Antigravity is out of quota.
+- Why: its usage is Google's, not his Claude 5-hour window; an empty queue wastes free capacity and costs him a message.
+
 ## How to check it fired
 
 1. Fully close Antigravity, reopen (skills.json was fixed after it started), open any new chat.
