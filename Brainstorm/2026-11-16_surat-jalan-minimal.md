@@ -4,7 +4,7 @@ type: brainstorm
 created: 2026-11-16
 confidence: high
 checked: 2026-11-16
-tags: [kpm, fleet, print, design, decision-open]
+tags: [kpm, fleet, print, design, decided]
 ---
 
 # Surat Jalan - more professional, minimalistic
@@ -32,7 +32,7 @@ His answer to the first board: *"A is fine but not really special tbh"*. Two mor
 - A3 Title & stamp: big navy SURAT JALAN title, a navy spine down the left edge, bigger quantities, a round box for the warehouse stamp (cap) between the signatures. Cost: the company name gets smaller.
 
 ## DECISION
-OPEN — waiting on Aldi (v3 sent 2026-11-16 21:45). My pick: A3 (character at almost no ink; the stamp box is how Indonesian delivery papers are actually signed off). Strongest other: A2.
+B — Aldi, 2026-11-16 ~21:50: *"i'll choose B black and white it is more netral i guess"* (over my A3). Built and LIVE kpm b10ce952. Two print traps found in the lab before the push and pinned by logicFixes ROUND 4: the shell's print rule hides every <header>/<nav>; a portaled fixed inset-0 + overflow-y-auto wrapper prints 89 px tall.
 Build note (Antigravity Task 10): one shared layout for the Fleet Surat Jalan (FleetCanvasManager ~L1049), the LoadSheet SURAT JALAN / BUKTI KEMBALI card and AcceptanceReceipt; the notas stay as they are. The Fleet Surat Jalan modal is also AT RISK of opening cut under the demo bars (Task 8) - portal it in the same build.
 
 ## REJECTED ON PURPOSE

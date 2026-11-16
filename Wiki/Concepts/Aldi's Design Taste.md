@@ -3787,3 +3787,9 @@ Options named to him in chat: A focus (his), B tall panel no blur, C wide (names
 
 - Asked to pick a minimal Surat Jalan, he accepted the calm option and in the same breath said it lacked character. Minimal for him is not plain: he wants one memorable move (a big title, a band, a stamp box) on top of the calm. Next time a "minimal" board goes out, every option carries one distinctive element, and the plainest one is the baseline, not the pick.
 - Same message, on the load sheet: *"1 press is 1 slop and 1 slop is 10 bks but i think u should add button where i can increase the add button by 1 or by 10"* - he keeps the trade's unit (Slop) and wants a finer control beside it, not a replacement. Built as "Each press: 1 Bks | 1 Slop" (kpm 54ff882f).
+
+## 2026-11-16 — for a paper, neutral beats character: he took B over the "special" A3 (kpm b10ce952)
+
+> *"i'll choose B black and white it is more netral i guess"*
+
+- Twenty minutes after asking for something more special than A, he picked the plainest board option for the printed Surat Jalan. Read together: on app screens he wants character; on a business paper that leaves the company, he wants it neutral. Do not carry "make it special" from a screen over to a print document.
