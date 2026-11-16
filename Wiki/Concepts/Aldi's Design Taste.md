@@ -3760,3 +3760,15 @@ Shown a TODAY vs PROPOSED board of four measured fixes inside the game look (lea
 
 - 2026-11-15 18:4x, his pick from the options artifact: *"this is my personal favorite My Fleet & Roster picks: Team list A Ledger table · Loading 1 Load sheet · PC Y Slide-over panel"* - the densest table again (same as the Sales Terminal "price list"), the typed sheet over the two-list transfer and the slip, and on the PC a panel over the list rather than a split or a new page.
 - Same minute: *"but make sure the animation is smooth and elegant and not flickering"*. The artifact had given him a flicker: the slide-over replayed its entrance on every − + press. Motion rule for the professional edition: an entrance plays once per opening, transform + opacity only, nothing re-mounts on a press; prove it by sampling, not by a frame.
+
+## 2026-11-16 — Fleet & Roster live: the panel must close the way it opens, edges must be clear, and the sheet is too small
+
+On the live demo, the day the professional Fleet & Roster went out (kpm 62f5615d):
+
+> *"i want border between name panel and goods panel to have some kejelasan that these panel are different. and also i want when u press the name again it will close the screen again so there is 2 way to close the right panel screen, by pressing the name and the X button make sure closing and opening close for the appearing panel to be smooth and high quality but professional ... i want clearer border between tier 4 and lower tiers, i also feels like the product options screen on the right is too small and it can only show 2 products at a time, i want u to redesign it so that it looks bigger ... u can just blur all the screen and only name and the right panel is the only panel that is not blurred ... but u must think how this method could work in the phone as well tho, or maybe u have another option u can tell me"*
+
+- A 1px rule between two panels is not enough for him when both sit on the same surface: he wants the difference SEEN (kejelasan), and the same between the leaders and the salesmen. Quiet ruled lines are right INSIDE a table, not between two different things.
+- Whatever opens must also close, and the way back must be where the way in was (press the name again), plus the X. The close is part of "smooth and high quality but professional" - a panel that slides in and then vanishes reads as cheap.
+- Two products in view is too few for a work screen: he measures a panel by how much work fits in it, and he offered his own fix (focus mode: blur everything but the name and the panel) while asking for alternatives and for the phone to be thought through.
+- The demo is held to the live app's standard: a panel whose top is cut under the demo bars is a bug "since this a demo".
+Options named to him in chat: A focus (his), B tall panel no blur, C wide (names column + big panel). Board owed.
