@@ -2,13 +2,12 @@
   "agentName": "Nolan",
   "version": "1.0.0",
   "accountEmail": "adikaryasukses99@gmail.com",
-  "lastUpdated": "2026-11-16T02:27:13.786Z",
+  "lastUpdated": "2026-11-16T02:27:17.166Z",
   "githubRepo": "Aldi-ang/A-Brain",
   "githubBranch": "main",
   "githubFilePath": "Tobacco-Business/nolan-brain.json",
   "autoSyncGithub": true,
   "learnedRules": [
-    "Kombinasikan komposisi 50:50 antara tembakau Temanggung dan Muntilan untuk pabrik Cello Muntilan guna menjamin profitabilitas di atas 20 persen.",
     "Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.",
     "Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.",
     "Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.",
@@ -19,11 +18,11 @@
   ],
   "decisionEpisodes": [
     {
-      "id": "ep-1794796033786",
-      "timestamp": "2026-11-16T02:27:13.786Z",
-      "type": "FACTORY_ACCEPTED",
-      "summary": "DITERIMA PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) di CELLO MUNTILAN [Grade E]",
-      "learnedTakeaway": "Kombinasi 50:50 tembakau Temanggung dan Muntilan pada pabrik Cello Muntilan terbukti menghasilkan margin profit optimal di atas 20 persen."
+      "id": "ep-1794796037166",
+      "timestamp": "2026-11-16T02:27:17.166Z",
+      "type": "FACTORY_REJECTED",
+      "summary": "REJECT PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) direject oleh CELLO MUNTILAN [Grade E]",
+      "learnedTakeaway": "Pola keputusan pengguna berhasil direkam ke histori pembelajaran Nolan."
     },
     {
       "id": "ep-1794795993950",
@@ -186,7 +185,7 @@
       "notes": "Siap menerima pengiriman gulungan sampel baru."
     }
   ],
-  "lastSyncedToGithub": "2026-11-16T02:27:17.379Z",
+  "lastSyncedToGithub": "2026-11-16T02:27:20.756Z",
   "latestWarehouseSnapshot": {
     "rawCount": 3,
     "totalRawNetKg": 139,
