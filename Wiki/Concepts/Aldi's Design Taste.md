@@ -3772,3 +3772,11 @@ On the live demo, the day the professional Fleet & Roster went out (kpm 62f5615d
 - Two products in view is too few for a work screen: he measures a panel by how much work fits in it, and he offered his own fix (focus mode: blur everything but the name and the panel) while asking for alternatives and for the phone to be thought through.
 - The demo is held to the live app's standard: a panel whose top is cut under the demo bars is a bug "since this a demo".
 Options named to him in chat: A focus (his), B tall panel no blur, C wide (names column + big panel). Board sent 2026-11-16 17:47 (Raw/2026-11-16-fleet-build/board.png): products in view on PC today 3, A 8, B 4, C 5; phone 3 -> 5. "name" in his blur idea = the NAME PANEL (his own word for the list in the same message), so A keeps the whole list sharp and pressable. [[../../Brainstorm/2026-11-16_fleet-bigger-load-panel]]
+
+## 2026-11-16 — the bigger load panel: he took his own idea (A, focus) and named the motion in the same breath (kpm c497b4c1)
+
+> *"can u show me through artifact instead so that i can decide better"* - then: *"A is good make sure it well animated and smooth with the design skills u have"*
+
+- He decides better from a page he can press (cards that swap the real-app frame, a "show today" toggle) than from one board image. A design pick goes out as an artifact first.
+- He picked the option that hides the most (the day numbers) for the most work in view (8 products vs 3): on a work screen he trades context for capacity, as long as the way back is one press (the dimmed part closes it, the name list stays usable).
+- "well animated and smooth" is part of every visual order now, not polish: the veil and the panel move as one, the entrance waits 40 ms so it starts after the slow first frame (it skipped a third of itself without that), the exit is faster than the entry. Sampled per frame before the push.

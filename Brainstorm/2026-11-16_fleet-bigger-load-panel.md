@@ -4,7 +4,7 @@ type: brainstorm
 created: 2026-11-16
 confidence: high
 checked: 2026-11-16
-tags: [kpm, fleet, design, decision-open]
+tags: [kpm, fleet, design, decided]
 ---
 
 # Fleet & Roster - a bigger load panel
@@ -30,7 +30,7 @@ Board: `Raw/2026-11-16-fleet-build/board.png` (lab overrides in `opt-lib.js`, `m
 Models applied: Opportunity Cost (the head stack, not the panel's place, was the thief - every option carries the compaction), Pre-mortem on A (a manager loading 9 vans in a row: a veil over the list would cost two presses per person and unreadable names - fixed by keeping the name panel sharp, which is also his words), Second-Order (B hides the Offers / Add keys a leader uses beside the sheet).
 
 ## DECISION
-OPEN — waiting on Aldi (board sent 2026-11-16 17:47). My pick: A - 8 products and the list still works; C if he wants nothing hidden.
+A — Aldi, 2026-11-16 ~21:00, after the board went out again as an artifact (https://claude.ai/artifact/Bow3FxZoZmXjwSxBZEZiF7; his ask: *"can u show me through artifact instead so that i can decide better"*). His answer: *"A is good make sure it well animated and smooth with the design skills u have"*. Built and LIVE kpm c497b4c1: PC 8 products in view, phone 5 (counted in the lab after the build, not copied from the board).
 
 ## REJECTED ON PURPOSE
 - A veil over the whole list with only the picked row sharp (first draft): blocks one-press switching between salesmen.
