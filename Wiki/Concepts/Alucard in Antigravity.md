@@ -106,6 +106,10 @@ Aldi, 20:15: *"keep giving antigravity jobs without i need to ask everytime if i
   the next one in the same session, without asking him.
 - It is never set to NONE. Refilling stops only when HE says Antigravity is out of quota.
 - Why: its usage is Google's, not his Claude 5-hour window; an empty queue wastes free capacity and costs him a message.
+- He starts it by pasting a prompt. Aldi, same evening: *"always give me prompt to antigravity without me asking"*. Every
+  reply that writes or refills a task, and every reply that closes a job while tasks are OPEN, ends with that prompt in a
+  code block: the OPEN task numbers, read `.claude/ANTIGRAVITY-TASK.md`, top to bottom by its rules, commit only that
+  file, never push.
 
 ## How to check it fired
 
