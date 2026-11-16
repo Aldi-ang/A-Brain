@@ -2,7 +2,7 @@
 
 - **Agent Name:** Nolan
 - **Account:** `adikaryasukses99@gmail.com`
-- **Last Updated:** 2026-11-16T02:27:07.645Z
+- **Last Updated:** 2026-11-16T02:27:11.754Z
 - **Repository:** `Aldi-ang/A-Brain` (`main`)
 
 ## 📊 Live Warehouse & Profit Snapshot
@@ -10,8 +10,8 @@
 - **Total Modal / Inventory Value:** Rp 9.854.000
 - **Weight Profit (Rp):** Rp 1.100.000
 - **Weight Profit (KG):** 16 kg
-- **Total Finished Serials:** 1 seri (Accepted: 0, Rejected: 1)
-- **Projected Factory Profit (Accepted):** Rp 0
+- **Total Finished Serials:** 1 seri (Accepted: 1, Rejected: 0)
+- **Projected Factory Profit (Accepted):** Rp 2.250.000
 
 ## 🎯 Learned Blending Rules & Heuristics (7)
 1. Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.
@@ -24,11 +24,11 @@
 
 ## 🏭 Factory Profiles & Preferences
 ### CELLO MUNTILAN
-- **Accepted / Rejected:** 0 Diterima / 1 Reject
+- **Accepted / Rejected:** 1 Diterima / 0 Reject
 - **Preferred Grades:** E
 - **Avg HPP / Target Price:** Rp 90.000/kg → Rp 135.000/kg
 - **Sensory Profile:** Power 4.3/5 • Sugar 4.1/5 • Aroma 4.2/5
-- **Notes:** Perhatian: 1 seri pernah di-reject di pabrik ini.
+- **Notes:** 1 seri Diterima/Accepted, rata-rata margin positif.
 
 ### PT Gudang Garam Tbk - Kediri
 - **Accepted / Rejected:** 0 Diterima / 0 Reject
@@ -39,7 +39,7 @@
 
 ## 📜 Recent Decision & Learning Episodes
 - **[2026-11-16] (FACTORY_ACCEPTED)** DITERIMA PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) di CELLO MUNTILAN [Grade E]
-  - *Takeaway:* Racikan 50:50 Temanggung Srintil (Grade E) dan Muntilan Garangan Wangi diterima CELLO MUNTILAN dengan margin profit 33.3%.
+  - *Takeaway:* Pola keputusan pengguna berhasil direkam ke histori pembelajaran Nolan.
 - **[2026-11-16] (FACTORY_ACCEPTED)** DITERIMA PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) di CELLO MUNTILAN [Grade E]
   - *Takeaway:* Pabrik CELLO MUNTILAN menerima racikan Grade E 50:50 Temanggung Srintil dan Muntilan Garangan Wangi dengan margin 33,3%.
 - **[2026-11-14] (RAW_PURCHASE)** Stok Mentah Baru: MTL Srinthil Radial (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
