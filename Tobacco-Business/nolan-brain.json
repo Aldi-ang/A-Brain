@@ -2,13 +2,12 @@
   "agentName": "Nolan",
   "version": "1.0.0",
   "accountEmail": "adikaryasukses99@gmail.com",
-  "lastUpdated": "2026-11-16T06:11:33.291Z",
+  "lastUpdated": "2026-11-16T07:23:59.350Z",
   "githubRepo": "Aldi-ang/A-Brain",
   "githubBranch": "main",
   "githubFilePath": "Tobacco-Business/nolan-brain.json",
   "autoSyncGithub": true,
   "learnedRules": [
-    "Pertahankan rasio komposisi 1:1 antara tembakau lokal berkarakter kuat untuk menjaga target margin profit pabrik minimal 22 persen.",
     "Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.",
     "Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.",
     "Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.",
@@ -19,18 +18,11 @@
   ],
   "decisionEpisodes": [
     {
-      "id": "ep-1794809493291",
-      "timestamp": "2026-11-16T06:11:33.291Z",
+      "id": "ep-1794813839349",
+      "timestamp": "2026-11-16T07:23:59.349Z",
       "type": "FACTORY_ACCEPTED",
-      "summary": "DITERIMA PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) di CELLO MUNTILAN [Grade E]",
+      "summary": "DITERIMA PABRIK: Seri 68 (CELLO MUNTILAN - Seri 68) di CELLO MUNTILAN [Grade D+]",
       "learnedTakeaway": "Pola keputusan pengguna berhasil direkam ke histori pembelajaran Nolan."
-    },
-    {
-      "id": "ep-1794809356564",
-      "timestamp": "2026-11-16T06:09:16.564Z",
-      "type": "FACTORY_ACCEPTED",
-      "summary": "DITERIMA PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) di CELLO MUNTILAN [Grade E]",
-      "learnedTakeaway": "Kombinasi 50:50 tembakau Temanggung dan Muntilan mampu mempertahankan margin keuntungan stabil di atas 20 persen bagi pabrik."
     },
     {
       "id": "ep-1794797592955",
@@ -169,15 +161,16 @@
   "factoryProfiles": [
     {
       "factoryName": "CELLO MUNTILAN",
-      "acceptedCount": 1,
-      "rejectedCount": 0,
+      "acceptedCount": 4,
+      "rejectedCount": 1,
       "preferredGrades": [
-        "E"
+        "E",
+        "D"
       ],
-      "avgAcceptedHppPerKg": 90000,
-      "avgTargetPricePerKg": 135000,
-      "sensorySweetSpot": "Power 4.3/5 • Sugar 4.1/5 • Aroma 4.2/5",
-      "notes": "1 seri Diterima/Accepted, rata-rata margin positif."
+      "avgAcceptedHppPerKg": 82750,
+      "avgTargetPricePerKg": 115000,
+      "sensorySweetSpot": "Power 3.9/5 • Sugar 4.0/5 • Aroma 4.3/5",
+      "notes": "4 seri Diterima/Accepted, rata-rata margin positif."
     },
     {
       "factoryName": "PT Gudang Garam Tbk - Kediri",
@@ -191,19 +184,44 @@
       "avgTargetPricePerKg": 0,
       "sensorySweetSpot": "Belum ada histori seri",
       "notes": "Siap menerima pengiriman gulungan sampel baru."
+    },
+    {
+      "factoryName": "PT Djarum Kudus (Divisi Pembelian Daun)",
+      "acceptedCount": 0,
+      "rejectedCount": 0,
+      "preferredGrades": [
+        "E"
+      ],
+      "avgAcceptedHppPerKg": 90000,
+      "avgTargetPricePerKg": 135000,
+      "sensorySweetSpot": "Power 4.3/5 • Sugar 4.1/5 • Aroma 4.6/5",
+      "notes": "Siap menerima pengiriman gulungan sampel baru."
+    },
+    {
+      "factoryName": "PR Sukun Kudus",
+      "acceptedCount": 0,
+      "rejectedCount": 0,
+      "preferredGrades": [
+        "D",
+        "E"
+      ],
+      "avgAcceptedHppPerKg": 0,
+      "avgTargetPricePerKg": 0,
+      "sensorySweetSpot": "Belum ada histori seri",
+      "notes": "Siap menerima pengiriman gulungan sampel baru."
     }
   ],
-  "lastSyncedToGithub": "2026-11-16T06:11:39.156Z",
+  "lastSyncedToGithub": "2026-11-16T07:23:59.374Z",
   "latestWarehouseSnapshot": {
-    "rawCount": 3,
-    "totalRawNetKg": 139,
-    "totalModalRp": 9854000,
-    "totalWeightProfitRp": 1100000,
-    "totalWeightProfitKg": 16,
-    "finishedCount": 1,
-    "acceptedCount": 1,
-    "rejectedCount": 0,
-    "acceptedProfitRp": 2250000,
-    "rollCount": 1
+    "rawCount": 4,
+    "totalRawNetKg": 560,
+    "totalModalRp": 14857000,
+    "totalWeightProfitRp": 984000,
+    "totalWeightProfitKg": 12,
+    "finishedCount": 7,
+    "acceptedCount": 4,
+    "rejectedCount": 1,
+    "acceptedProfitRp": 6562485,
+    "rollCount": 2
   }
 }
