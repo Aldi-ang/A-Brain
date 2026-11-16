@@ -2,7 +2,7 @@
 
 - **Agent Name:** Nolan
 - **Account:** `adikaryasukses99@gmail.com`
-- **Last Updated:** 2026-11-16T02:27:13.786Z
+- **Last Updated:** 2026-11-16T02:27:17.166Z
 - **Repository:** `Aldi-ang/A-Brain` (`main`)
 
 ## 📊 Live Warehouse & Profit Snapshot
@@ -13,15 +13,14 @@
 - **Total Finished Serials:** 1 seri (Accepted: 1, Rejected: 0)
 - **Projected Factory Profit (Accepted):** Rp 2.250.000
 
-## 🎯 Learned Blending Rules & Heuristics (8)
-1. Kombinasikan komposisi 50:50 antara tembakau Temanggung dan Muntilan untuk pabrik Cello Muntilan guna menjamin profitabilitas di atas 20 persen.
-2. Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.
-3. Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.
-4. Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.
-5. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
-6. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
-7. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
-8. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
+## 🎯 Learned Blending Rules & Heuristics (7)
+1. Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.
+2. Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.
+3. Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.
+4. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
+5. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
+6. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
+7. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
 
 ## 🏭 Factory Profiles & Preferences
 ### CELLO MUNTILAN
@@ -39,8 +38,8 @@
 - **Notes:** Siap menerima pengiriman gulungan sampel baru.
 
 ## 📜 Recent Decision & Learning Episodes
-- **[2026-11-16] (FACTORY_ACCEPTED)** DITERIMA PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) di CELLO MUNTILAN [Grade E]
-  - *Takeaway:* Kombinasi 50:50 tembakau Temanggung dan Muntilan pada pabrik Cello Muntilan terbukti menghasilkan margin profit optimal di atas 20 persen.
+- **[2026-11-16] (FACTORY_REJECTED)** REJECT PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) direject oleh CELLO MUNTILAN [Grade E]
+  - *Takeaway:* Pola keputusan pengguna berhasil direkam ke histori pembelajaran Nolan.
 - **[2026-11-16] (FACTORY_ACCEPTED)** DITERIMA PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) di CELLO MUNTILAN [Grade E]
   - *Takeaway:* Pabrik CELLO MUNTILAN menerima racikan Grade E 50:50 Temanggung Srintil dan Muntilan Garangan Wangi dengan margin 33,3%.
 - **[2026-11-14] (RAW_PURCHASE)** Stok Mentah Baru: MTL Srinthil Radial (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
