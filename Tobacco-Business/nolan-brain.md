@@ -2,16 +2,16 @@
 
 - **Agent Name:** Nolan
 - **Account:** `adikaryasukses99@gmail.com`
-- **Last Updated:** 2026-11-16T02:27:17.166Z
+- **Last Updated:** 2026-11-16T02:53:12.955Z
 - **Repository:** `Aldi-ang/A-Brain` (`main`)
 
 ## 📊 Live Warehouse & Profit Snapshot
-- **Total Raw Tobacco Types:** 3 jenis (139 kg sisa stok)
-- **Total Modal / Inventory Value:** Rp 9.854.000
-- **Weight Profit (Rp):** Rp 1.100.000
-- **Weight Profit (KG):** 16 kg
-- **Total Finished Serials:** 1 seri (Accepted: 1, Rejected: 0)
-- **Projected Factory Profit (Accepted):** Rp 2.250.000
+- **Total Raw Tobacco Types:** 4 jenis (560 kg sisa stok)
+- **Total Modal / Inventory Value:** Rp 14.857.000
+- **Weight Profit (Rp):** Rp 984.000
+- **Weight Profit (KG):** 12 kg
+- **Total Finished Serials:** 7 seri (Accepted: 4, Rejected: 1)
+- **Projected Factory Profit (Accepted):** Rp 6.562.485
 
 ## 🎯 Learned Blending Rules & Heuristics (7)
 1. Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.
@@ -24,11 +24,11 @@
 
 ## 🏭 Factory Profiles & Preferences
 ### CELLO MUNTILAN
-- **Accepted / Rejected:** 1 Diterima / 0 Reject
-- **Preferred Grades:** E
-- **Avg HPP / Target Price:** Rp 90.000/kg → Rp 135.000/kg
-- **Sensory Profile:** Power 4.3/5 • Sugar 4.1/5 • Aroma 4.2/5
-- **Notes:** 1 seri Diterima/Accepted, rata-rata margin positif.
+- **Accepted / Rejected:** 4 Diterima / 1 Reject
+- **Preferred Grades:** E, D
+- **Avg HPP / Target Price:** Rp 82.750/kg → Rp 115.000/kg
+- **Sensory Profile:** Power 3.9/5 • Sugar 4.0/5 • Aroma 4.3/5
+- **Notes:** 4 seri Diterima/Accepted, rata-rata margin positif.
 
 ### PT Gudang Garam Tbk - Kediri
 - **Accepted / Rejected:** 0 Diterima / 0 Reject
@@ -37,11 +37,23 @@
 - **Sensory Profile:** Belum ada histori seri
 - **Notes:** Siap menerima pengiriman gulungan sampel baru.
 
+### PT Djarum Kudus (Divisi Pembelian Daun)
+- **Accepted / Rejected:** 0 Diterima / 0 Reject
+- **Preferred Grades:** E
+- **Avg HPP / Target Price:** Rp 90.000/kg → Rp 135.000/kg
+- **Sensory Profile:** Power 4.3/5 • Sugar 4.1/5 • Aroma 4.6/5
+- **Notes:** Siap menerima pengiriman gulungan sampel baru.
+
+### PR Sukun Kudus
+- **Accepted / Rejected:** 0 Diterima / 0 Reject
+- **Preferred Grades:** D, E
+- **Avg HPP / Target Price:** Rp 0/kg → Rp 0/kg
+- **Sensory Profile:** Belum ada histori seri
+- **Notes:** Siap menerima pengiriman gulungan sampel baru.
+
 ## 📜 Recent Decision & Learning Episodes
-- **[2026-11-16] (FACTORY_REJECTED)** REJECT PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) direject oleh CELLO MUNTILAN [Grade E]
+- **[2026-11-16] (FACTORY_ACCEPTED)** DITERIMA PABRIK: Seri 68 (CELLO MUNTILAN - Seri 68) di CELLO MUNTILAN [Grade D+]
   - *Takeaway:* Pola keputusan pengguna berhasil direkam ke histori pembelajaran Nolan.
-- **[2026-11-16] (FACTORY_ACCEPTED)** DITERIMA PABRIK: Seri 72 (CELLO MUNTILAN - Seri 72) di CELLO MUNTILAN [Grade E]
-  - *Takeaway:* Pabrik CELLO MUNTILAN menerima racikan Grade E 50:50 Temanggung Srintil dan Muntilan Garangan Wangi dengan margin 33,3%.
 - **[2026-11-14] (RAW_PURCHASE)** Stok Mentah Baru: MTL Srinthil Radial (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
   - *Takeaway:* Pola keputusan pengguna berhasil direkam ke histori pembelajaran Nolan.
 - **[2026-11-14] (RAW_PURCHASE)** Stok Mentah Baru: MTL Srinthil Radial (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
