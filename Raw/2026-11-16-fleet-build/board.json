@@ -1,0 +1,28 @@
+{
+  "title": "Fleet & Roster: a bigger load panel - pick A, B or C",
+  "sub": "Real app, real demo data (Hendra, Regional Admin, opening Bagus Setiawan). Numbers = products you see without scrolling, counted on the page.",
+  "width": 1300,
+  "frameW": 600,
+  "sections": [
+    {
+      "h": "On the PC (1280 x 800)",
+      "note": "All three also get: the panel on its own lighter surface with a 2 px gold edge (clear split from the name panel), and a heavier line + space above SALESMEN (clear split from the leaders).",
+      "items": [
+        { "img": "today-0.png", "cap": "<b>TODAY - 3 products.</b> Name, keys, tabs and tools stack up and take half the panel." },
+        { "img": "opt-a-0.png", "cap": "<b>A - your focus idea - 8 products.</b> The name panel stays sharp: you can still press another name. The top bar and the day numbers dim + blur, and the panel grows into that space. Lite Mode: darker dim, no blur." },
+        { "img": "opt-b-0.png", "cap": "<b>B - tall - 4 products.</b> Same width, covers the day strip. While open it hides Sold today, Override requests, Offers and Add personnel." },
+        { "img": "opt-c-0.png", "cap": "<b>C - wide - 5 products.</b> Nothing hidden: the day numbers and the names stay. The panel takes the width, each product on one line." }
+      ]
+    },
+    {
+      "h": "On the phone (390 x 844) - the same for A, B and C",
+      "note": "On the phone a person is already their own page, so there is nothing to blur. The room comes from folding the head.",
+      "items": [
+        { "pair": [
+          { "img": "ph-today-0.png", "w": 300, "cap": "<b>TODAY - 3 products.</b>" },
+          { "img": "opt-ph-0.png", "w": 300, "cap": "<b>PROPOSED - 5 products.</b> Back key + name on one line, the 3 numbers on one line; Surat Jalan / Details / Edit / Delete behind More; the 3 tools on one row; sold today joins the numbers line." }
+        ] }
+      ]
+    }
+  ]
+}
