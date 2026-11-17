@@ -20,6 +20,6 @@ COSTS: the leather background picture and its upload button go from the default 
 
 Models applied: Chesterton's Fence (background picture, sliders), Opportunity Cost (12 screens by 20 Nov -> no options board).
 
-DECISION: OPEN — waiting on Aldi (ok / what to change).
+DECISION (2026-11-17 07:28): *"actually its look solid, 3D slider is important we need to keep it somewhere, and the background yea we also need it but since we are on new theme, make sure it is professional and not kaku and looks minimalistic but cool"*. Built: sliders = one fold under the prices on every width; background = blurred (3px), 30% opacity, desaturated, behind the box only, faded into the page. LIVE kpm ad0b7d5a.
 
 REJECTED ON PURPOSE: an A/B/C board (his "your plan go" = one picture).

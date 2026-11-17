@@ -3793,3 +3793,12 @@ Options named to him in chat: A focus (his), B tall panel no blur, C wide (names
 > *"i'll choose B black and white it is more netral i guess"*
 
 - Twenty minutes after asking for something more special than A, he picked the plainest board option for the printed Surat Jalan. Read together: on app screens he wants character; on a business paper that leaves the company, he wants it neutral. Do not carry "make it special" from a screen over to a print document.
+
+## 2026-11-17 — Master Vault: "solid", but the professional look keeps what he built
+
+> *"actually its look solid, 3D slider is important we need to keep it somewhere, and the background yea we also need it but since we are on new theme, make sure it is professional and not kaku and looks minimalistic but cool"*
+
+- The ruled-table picture passed on the first look (one picture, no options board - the 12-screens-by-20-November pace works).
+- A professional look may MOVE his features, never drop them: both features the picture removed (3D size sliders, background picture) came back in the same message. Before showing the next screen's picture, list every feature it moves or hides and say where it went.
+- "Minimalistic but cool" for a picture behind content = blurred, faded, desaturated, behind one element only (the 3D box), fading into the page. The full-strength photo competed with the product (lab frame pc-1440-bg.jpg) - calm wins. "kaku" = stiff.
+- Built: kpm ad0b7d5a. Frames: Raw/2026-11-17-master-vault/.
