@@ -20,7 +20,7 @@ His words, 2026-10-19, after three pushes in one afternoon went through with no 
 ## The workflow (end of every finished job; also on "publish" / "push" / "fix the publish")
 1. Diagnose first and let him pick (his standing rule) - unless he already named the fix.
 2. Write the guard first and see it go RED on the old code (`src/config/logicFixes.selfcheck.mjs`), then edit until it is green.
-3. After the LAST edit: `node src/config/logicFixes.selfcheck.mjs`, `npm run build`, `node src/config/integration.audit.mjs` - all green. Anything visual: render it (see [[Looking at the App]]) - a measurement is not a look.
+3. After the LAST edit: `node src/config/undef.check.mjs` (ends `clean` - added 2026-11-17: Antigravity Task 57 called `isTitip`/`txTime` with no import, build + all gates passed, Receivables would have crashed on the first shop that owes; only this check saw it), `node src/config/logicFixes.selfcheck.mjs`, `npm run build`, `node src/config/integration.audit.mjs` - all green. Anything visual: render it (see [[Looking at the App]]) - a measurement is not a look.
 3b. If the job changes what people see, add one line (en + id, plain words, no names) to `src/config/patchNotes.js` BEFORE the checks in step 3. His 2026-11-05 patch notes button reads it.
 4. `git rev-list --count HEAD..origin/phase0-solid-ground` must be 0 (nothing newer on GitHub), then commit with the full story in the message (his "tell it once" rule).
 5. `git push origin phase0-solid-ground`, then `git fetch` and confirm `origin/phase0-solid-ground` is the new commit - that, not the push output, is the proof.
