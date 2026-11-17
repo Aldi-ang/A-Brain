@@ -1,0 +1,104 @@
+<title>Demo bar, one line</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* layout: TODAY (two bars + hazard tape, 71 px) above NEW (one 40 px line), on PC then phone; KPM dark tokens */
+:root{--ground:#0A0908;--panel:#121110;--inset:#0E0D0C;--line:#26231F;--line-2:#3E3A35;--ink:#E8E4DE;--ink-muted:#A39B90;--ink-dim:#928B81;
+  --gold:#D08A2E;--accent-ink:#D08A2E;--page:#050504;--f:'Inter',system-ui,sans-serif;--m:'JetBrains Mono',ui-monospace,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:14px/1.45 var(--f);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.wrap{max-width:1200px;margin:0 auto}
+.cap{color:var(--ink-muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin:28px 0 8px}
+.cap b{color:var(--accent-ink)}
+.note{color:var(--ink-muted);font-size:13px;margin:0 0 10px;max-width:72ch}
+.screen{border:1px solid var(--line-2);background:var(--ground);overflow:hidden}
+.scroll{overflow-x:auto}
+.pc{min-width:1100px}
+.app{height:150px;display:flex;gap:16px;padding:16px}
+.rail{width:56px;height:56px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--accent-ink);flex:none}
+.head{flex:1;height:64px;border:1px solid var(--line-2);border-radius:12px;display:flex;align-items:center;padding:0 18px;font:700 18px var(--m);letter-spacing:.12em}
+.measure{font:600 11px var(--m);color:var(--accent-ink);padding:4px 10px;border-top:1px dashed var(--line-2)}
+/* TODAY */
+.old1{height:34px;display:flex;align-items:center;gap:10px;padding:0 12px;background:var(--inset);font:600 12px var(--m);letter-spacing:.1em}
+.stamp{border:1px solid var(--gold);padding:3px 6px;font:700 10px var(--m);letter-spacing:.22em;color:var(--accent-ink);flex:none}
+.old1 .dim{color:var(--ink-dim)}
+.oldkey{margin-left:auto;border:1.5px solid var(--gold);padding:5px 10px;font:700 11px var(--m);letter-spacing:.16em}
+.tape{height:3px;background:repeating-linear-gradient(135deg,var(--gold) 0 6px,transparent 6px 12px)}
+.old2{height:34px;display:flex;align-items:center;background:var(--inset);border-bottom:1px solid #6A645C;font:700 13px var(--m)}
+.old2 span{padding:0 18px;height:100%;display:flex;align-items:center;border-right:1px solid var(--line-2)}
+.old2 .tag{font-size:10px;letter-spacing:.22em;color:var(--ink-dim)}
+.old2 .on{border-bottom:2px solid var(--gold)}
+.old2 .k{margin-left:auto;margin-right:8px;border:1.5px solid var(--gold);padding:5px 8px;font-size:10px;letter-spacing:.14em;height:auto}
+/* NEW */
+.bar{height:40px;display:flex;align-items:center;gap:12px;padding:0 10px 0 12px;background:var(--panel);border-bottom:1px solid var(--line-2)}
+.who{font:500 13px var(--f);color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.who i{font-style:normal;color:var(--ink-dim)}
+.sep{width:1px;height:20px;background:var(--line-2);flex:none}
+.steps{display:flex;align-items:center;gap:2px;min-width:0;flex:1}
+.st{min-width:26px;height:26px;display:grid;place-items:center;border-radius:5px;font:600 12px var(--f);color:var(--ink-dim);flex:none}
+.st.done{color:var(--accent-ink)}
+.st.now{padding:0 10px;color:var(--ink);background:color-mix(in srgb,var(--gold) 11%,transparent);box-shadow:inset 0 -2px 0 var(--gold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto;display:block;line-height:26px}
+.st.now b{color:var(--accent-ink);font-weight:700;margin-right:6px}
+.btn{flex:none;height:28px;padding:0 10px;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--gold);border-radius:6px;background:transparent;color:var(--ink);font:600 12px var(--f);cursor:pointer;transition:background-color 160ms ease-out,scale 140ms ease-out}
+.btn:hover{background:color-mix(in srgb,var(--gold) 11%,transparent)}
+.btn:active{scale:.97}
+.btn.q{border-color:var(--line-2)}
+.btn .car{border:4px solid transparent;border-top-color:var(--accent-ink);margin-top:4px}
+.phones{display:flex;gap:24px;flex-wrap:wrap}
+.ph{width:390px;max-width:100%}
+.ph .app{height:120px;padding:12px}
+.ph .head{height:52px;font-size:15px}
+.ph .rail{width:44px;height:44px}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px 24px;margin-top:22px;font-size:13px;color:var(--ink-muted)}
+.legend b{color:var(--ink);font-weight:600}
+</style>
+
+<div class="wrap">
+<p class="cap">Demo bar · PC · <b>today</b> (2 bars + hazard tape = 71 px)</p>
+<div class="screen scroll"><div class="pc">
+  <div class="old1"><span class="stamp">DEMO</span><span>You are adikarya… <span class="dim">· T1 · resets every night at 00:05 WIB</span></span><span class="oldkey">SWITCH ▾</span></div>
+  <div class="tape"></div>
+  <div class="old2"><span class="tag">MISI 3/8</span><span style="color:var(--accent-ink)">✓</span><span style="color:var(--accent-ink)">✓</span><span class="on"><span style="padding:0;border:0;color:var(--accent-ink);margin-right:8px">3</span>Muat barang ke tas Dika</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span class="k">PETUNJUK</span></div>
+  <div class="app"><span class="rail">⬡</span><span class="head">GUDANG PUSAT</span></div>
+</div></div>
+
+<p class="cap">Demo bar · PC · <b>new</b> (one line = 40 px)</p>
+<div class="screen scroll"><div class="pc">
+  <div class="bar">
+    <span class="stamp">DEMO</span>
+    <span class="who">Hartono Susilo <i>· T2 Owner</i></span>
+    <span class="sep"></span>
+    <div class="steps"><span class="st done">✓</span><span class="st done">✓</span><span class="st now"><b>3</b>Muat barang ke tas Dika</span><span class="st">4</span><span class="st">5</span><span class="st">6</span><span class="st">7</span><span class="st">8</span></div>
+    <button class="btn q" type="button">? Petunjuk</button>
+    <button class="btn" type="button">Switch <span class="car"></span></button>
+  </div>
+  <div class="app"><span class="rail">⬡</span><span class="head">GUDANG PUSAT</span></div>
+</div></div>
+<p class="measure">31 px more for the app on every screen · no hazard tape · one hairline under the bar</p>
+
+<p class="cap">Phone · today vs new</p>
+<div class="phones">
+  <div class="screen ph">
+    <div class="old1" style="font-size:11px"><span class="stamp">DEMO</span><span>T1 <span class="dim">· Owner</span></span><span class="oldkey">SWITCH ▾</span></div>
+    <div class="tape"></div>
+    <div class="old2" style="font-size:12px"><span class="tag">3/8</span><span style="border:0;flex:1;min-width:0;overflow:hidden;white-space:nowrap">Muat barang ke tas Dika</span><span class="k">?</span></div>
+    <div class="app"><span class="rail">⬡</span><span class="head">GUDANG PUSAT</span></div>
+  </div>
+  <div class="screen ph">
+    <div class="bar">
+      <span class="stamp">DEMO</span>
+      <div class="steps"><span class="st now"><b>3/8</b>Muat barang ke tas Dika</span></div>
+      <button class="btn q" type="button" aria-label="Petunjuk">?</button>
+      <button class="btn" type="button">Switch <span class="car"></span></button>
+    </div>
+    <div class="app"><span class="rail">⬡</span><span class="head">GUDANG PUSAT</span></div>
+  </div>
+</div>
+
+<div class="legend">
+  <div><b>One line, not two.</b> The mission steps sit inside the demo bar. The hazard tape and the second border go.</div>
+  <div><b>Who you are</b> stays on the PC line. "Resets every night at 00:05" moves into the Switch list, where it already shows.</div>
+  <div><b>Buttons</b> are the new gold edge (no fill), the same as Master Vault. Press a step number to jump to that step, as today.</div>
+  <div><b>Phone:</b> the step you are on, a ? key for the hint, Switch. Your name is in the Switch list.</div>
+</div>
+</div>
