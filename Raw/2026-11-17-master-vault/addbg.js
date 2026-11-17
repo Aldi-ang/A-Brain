@@ -1,0 +1,1 @@
+const b = [...document.querySelectorAll('button')].find(x => /Add product/.test(x.innerText)); const r = b.getBoundingClientRect(); const c = getComputedStyle(b); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2), bg: c.backgroundColor, border: c.borderColor, tr: c.transitionDuration };

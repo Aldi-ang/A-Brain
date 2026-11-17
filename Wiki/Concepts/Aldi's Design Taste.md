@@ -3802,3 +3802,11 @@ Options named to him in chat: A focus (his), B tall panel no blur, C wide (names
 - A professional look may MOVE his features, never drop them: both features the picture removed (3D size sliders, background picture) came back in the same message. Before showing the next screen's picture, list every feature it moves or hides and say where it went.
 - "Minimalistic but cool" for a picture behind content = blurred, faded, desaturated, behind one element only (the 3D box), fading into the page. The full-strength photo competed with the product (lab frame pc-1440-bg.jpg) - calm wins. "kaku" = stiff.
 - Built: kpm ad0b7d5a. Frames: Raw/2026-11-17-master-vault/.
+
+## 2026-11-17 08:0x — "i really hate the simple amber fill button dont make it again"
+
+> *"just edit this panel so that it look professional as well and please i really hate the simple amber fill button dont make it again change it and make sure all the button animation are nice and clean"*
+
+- Third time the same answer: 2026-11-08 "1 better" (no fill, a gold edge around a plain word), 2026-11-08 "2 all" (a plain word with a gold line), now said in anger after the first professional Master Vault shipped a gold-FILLED Add product. The rule is settled: **no amber/gold fill on a button, ever** - the gold is an edge or a line, the word stays plain.
+- Built as `.kpm-edge-btn` (kpm theme.css, 37a93664): gold edge, see-through, hover = an 11% gold wash fading in over 160 ms, press = sinks 3%, keyboard = gold outline. `.quiet` and `.danger` for the others. Guarded by a logicFixes check on Master Vault; every next screen joins that check.
+- "nice and clean" motion = colour and a small scale only, short (140-160 ms), nothing bouncing or rotating.
