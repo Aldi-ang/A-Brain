@@ -3827,3 +3827,5 @@ filter on top; cigarettes (Bks) and promo (pcs) as two groups. **Rule for every 
 types into all day): judge the format by "can the eye and the hand go straight down", separately from the look.**
 
 **v2 -> v3, same day, 13:38:** *"almost good, why is there so many information and writing, simplify those and make it aesthetic and not confusing"*. Tidy (one table) was not enough: every extra column and every explaining word counted against it. v3 kept 4 columns, put the expected figure as a dim "/ n" beside its box, cut each state to one or two words and each question to its chips. **On a work screen, words are cost: a label he must read every row is clutter even when it is true.**
+
+**v3 -> v4, 13:44:** *"i dont like it here i feels like there is no effort at making those can u make it clearer and make it looks better, should try researching"*. Cutting words (v3) read to him as cutting EFFORT. Simple must still look made: v4 = master-detail (list + the product in hand), drawn icons, a real summary line, the Bal/Slop/Bks helper and the Rupiah of a gap - more craft, not more text. **"Simplify" from him means fewer words on the surface, never a plainer build.**
