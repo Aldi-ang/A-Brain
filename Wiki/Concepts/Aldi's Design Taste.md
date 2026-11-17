@@ -3810,3 +3810,18 @@ Options named to him in chat: A focus (his), B tall panel no blur, C wide (names
 - Third time the same answer: 2026-11-08 "1 better" (no fill, a gold edge around a plain word), 2026-11-08 "2 all" (a plain word with a gold line), now said in anger after the first professional Master Vault shipped a gold-FILLED Add product. The rule is settled: **no amber/gold fill on a button, ever** - the gold is an edge or a line, the word stays plain.
 - Built as `.kpm-edge-btn` (kpm theme.css, 37a93664): gold edge, see-through, hover = an 11% gold wash fading in over 160 ms, press = sinks 3%, keyboard = gold outline. `.quiet` and `.danger` for the others. Guarded by a logicFixes check on Master Vault; every next screen joins that check.
 - "nice and clean" motion = colour and a small scale only, short (140-160 ms), nothing bouncing or rotating.
+
+
+## A look he likes can still be a layout he can't work in (2026-11-17, Stock Opname picture)
+
+> *"design is fine but format for the stock opname is confusing i want u to make it more tidy and easier to work at"*
+
+He split the two on his own: the LOOK (tokens, edge buttons, underline tabs) passed; the FORMAT failed. The first picture
+made every product a tall card with its own mix of boxes, a four-cell verdict strip, chips and panels, so no two rows had
+the same shape and the boxes moved from row to row. His word for that is "confusing"; his ask is "easier to work at".
+
+What answered it (picture v2, https://claude.ai/artifact/RgwzugPr456zKvjasEYRT1): ONE ruled table, the same columns on every
+row (Expected good · Good · Expected damaged · Damaged · Difference · Status), so the hand types straight down; a row that
+needs an answer opens ONE question directly under itself and every other row stays one line; a progress bar + "Needs you"
+filter on top; cigarettes (Bks) and promo (pcs) as two groups. **Rule for every work screen (a count, a cart, a form he
+types into all day): judge the format by "can the eye and the hand go straight down", separately from the look.**
