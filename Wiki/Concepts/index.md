@@ -98,3 +98,4 @@ Same three-place rule as [[../Entities/index|Entities]]: frontmatter, link here,
 - [[A Resize Mid-Unlock Wiped the Name]] - the keyboard closing after Enter resized the gate canvas and wiped the dots' name targets; S.relayout (2026-10-01)
 - [[Web Research When the Search Tools Die]] — DuckDuckGo HTML fallback in the built-in browser
 - [[Alucard in Antigravity]] — the a-brain plugin: every Antigravity chat starts as Alucard with his skills and A-Brain memory; the Windows `~/` path trap (2026-11-10)
+- [[Openverse Audio API]] — free CC sound search for the SFX button-press redesign; keyless 200/day, tested.

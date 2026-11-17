@@ -211,3 +211,4 @@ deployed/fixed right now," check the real `kpm-inventory` git repo, not this pag
 - [[2026-09-10_pricing-revisi-50-100-user]] — Aldi named the real user count, 50-100. That supersedes the Rp 2,5 juta figure, which was computed for 10-30. New bands (Rp 4/7/12 juta), perpetual licence at Rp 600 juta, and the arithmetic showing perpetual costs the BUYER more over five years.
 - [[KPM Price Sheet]] — **the canonical numbers.** Rp 5 juta/bulan at 25-30 users, Rp 2,5 juta pilot, floor Rp 2 juta, perpetual Rp 250 juta, copyright Rp 5 miliar, final PPh Rp 0. Read this for a price; read the Brainstorm notes only for the reasoning, they carry superseded figures.
 - [[2026-09-10_draft-13-pasal-kontrak-kpm]] — the 13 clauses written as real pasal, ready for a notaris to mark up. DRAF — not reviewed, do not sign.
+- [[Openverse Audio API]] — free CC sound search for the SFX button-press redesign; keyless 200/day, tested.
