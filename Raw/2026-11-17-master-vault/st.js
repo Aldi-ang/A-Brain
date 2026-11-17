@@ -1,0 +1,1 @@
+return { url: location.href, h1: [...document.querySelectorAll('h1')].map(h => h.innerText).join('|'), stageImg: !!document.querySelector('img[aria-hidden="true"].opacity-45'), vault: !!document.querySelector('[data-vault="open"]') };
