@@ -1038,3 +1038,19 @@ Seen: 2026-10-25
 Seen: 2026-10-25
 
 *Archived 2026-11-15 (retired 2026-11-14, ARCHIVE DUE at session start).*
+
+
+<!-- archived 2026-11-17 from lessons.md (retired before today) -->
+### 2026-11-02 — a list of "what is left" built from probes covers only the states the probes shot
+**Status:** RETIRED (2026-11-16) — never fired in 14+ days with real work between (§8b)
+**Trigger:** before titling, captioning or sending any list as complete ("everything still in English", "all the labels", "every pop-up") that was built from headless probes or frames.
+**Lesson:** a probe reads only the DOM of the state it shot (no shop chosen, van mode, phone width). Before calling the list complete, also grep the file for literal JSX text and ternary label strings (`'MAKE DEAL'`, `"SIGN MANIFEST >"`, `{l.qty} pcs in {giveFrom}`) and list the states the probes did NOT reach (boss on the Master Vault, cart full, retur, PC rail). No grep run -> the title says "found so far", not "everything".
+**Would have prevented:** 2026-11-02, round 1b words board: sent at 17:06 titled "everything still in English" with 84 lines; his screenshots one message later showed "1000 pcs in the Master Vault", and the frames showed MAKE DEAL / SIGN MANIFEST / Awaiting GPS and two warnings - 8 more lines, a re-render and a second send of the same question.
+Seen: 2026-11-02
+
+### 2026-11-02 — a `git stash pop` in kpm writes CRLF; strip it before the next check
+**Status:** RETIRED (2026-11-16) — never fired in 14+ days with real work between (§8b)
+**Trigger:** before a mutating action - `git stash push` / `git stash pop` on a kpm source file (the run-the-old-code-for-RED proof).
+**Lesson:** core.autocrlf rewrites the popped file with CRLF endings, so any check that measures a source slice by length goes red on bytes, not logic. Right after the pop: `sed -i 's/\r$//' <files>`, then `file <files>` must not say CRLF, then re-run the check.
+**Would have prevented:** 2026-11-02 22:00, the Master Vault exchange fix: after the RED lab run the pop left useTransactionEngine.js CRLF and "the slice stops at the first write" went 12677 > 12600 - one false red and a diagnosis turn. The second stash (povPreview.js + App.jsx) was cleaned at once and stayed green.
+Seen: 2026-11-02
