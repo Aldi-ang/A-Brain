@@ -2,7 +2,7 @@
   "agentName": "Nolan",
   "version": "1.0.0",
   "accountEmail": "adikaryasukses99@gmail.com",
-  "lastUpdated": "2026-11-17T01:13:59.082Z",
+  "lastUpdated": "2026-11-17T01:16:30.606Z",
   "githubRepo": "Aldi-ang/A-Brain",
   "githubBranch": "main",
   "githubFilePath": "Tobacco-Business/nolan-brain.json",
@@ -17,6 +17,13 @@
     "Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan."
   ],
   "decisionEpisodes": [
+    {
+      "id": "ep-1794878190606",
+      "timestamp": "2026-11-17T01:16:30.606Z",
+      "type": "RAW_PURCHASE",
+      "summary": "Stok Mentah Baru: Muntilan (Muntilan) [Grade D] • Netto 0 kg • HPP Rp 0/kg",
+      "learnedTakeaway": "Pola keputusan pengguna berhasil direkam ke histori pembelajaran Nolan."
+    },
     {
       "id": "ep-1794878039082",
       "timestamp": "2026-11-17T01:13:59.082Z",
@@ -225,7 +232,7 @@
       "notes": "Siap menerima pengiriman gulungan sampel baru."
     }
   ],
-  "lastSyncedToGithub": "2026-11-17T01:13:59.092Z",
+  "lastSyncedToGithub": "2026-11-17T01:16:30.615Z",
   "latestWarehouseSnapshot": {
     "rawCount": 4,
     "totalRawNetKg": 560,
