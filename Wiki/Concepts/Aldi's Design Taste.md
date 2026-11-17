@@ -3832,3 +3832,6 @@ types into all day): judge the format by "can the eye and the hand go straight d
 
 ## 2026-11-17 - from five Framer motions he picked the two plain ones
 Shown 5 Framer marketplace components (rolling digits, sliding tab marker, spring accordion, toast + self-drawing checkmark, count-up row). His words: *"1 and 4 is simple and look good"*. He picked rolling digits and the toast checkmark, the two that carry a STATE change (a number changed, a save landed), and passed over the decorative ones. Same taste as "simple" in the panel outro story above. Board: Brainstorm/2026-11-17_framer-motion-picks.md.
+
+## 2026-11-17 15:18 - he played the motion board and approved it
+*"animation is good i like it"* - rolling digits + self-drawing check went live (KPM f6152ec5). He judges motion by playing it; the board with a Lite Mode switch was enough to decide.

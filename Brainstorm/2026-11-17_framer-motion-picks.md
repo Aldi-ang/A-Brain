@@ -18,7 +18,7 @@ checked: 2026-11-17
 
 **COSTS:** Framer components are not React-liftable (Design Inspiration Sources.md), so every pick is a CSS rebuild. #1 is nearly free: the app already has the reel (theme.css "THE DIGITS SLIDE", BiohazardTheme.jsx SlidingDigit, 260 ms). #4 is half there: Toast.jsx already slides in (kpm-toast-in .26s); new part = SVG check drawn by stroke-dashoffset, success only.
 
-**DECISION:** his words 15:0x: *"1 and 4 is simple and look good"*. Playable board https://claude.ai/artifact/2T7JgokaVn7pms3dqGcRN7 (repo `.claude/drafts/motion-picks.html`). Build waits on his ok of the board.
+**DECISION:** LIVE KPM f6152ec5 after *"animation is good i like it"*. His words 15:0x: *"1 and 4 is simple and look good"*. Playable board https://claude.ai/artifact/2T7JgokaVn7pms3dqGcRN7 (repo `.claude/drafts/motion-picks.html`). Build waits on his ok of the board.
 
 **REJECTED ON PURPOSE:** 2, 3, 5 (not picked). Using the `motion` library or the Framer code itself - JS animation escapes `html.lite-mode *` (taste file, the SlidingNumber clock story). A checkmark on a failed save - failure must never look like success; failed toast keeps the red edge + X.
 
