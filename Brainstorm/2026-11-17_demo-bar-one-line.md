@@ -18,6 +18,6 @@ Picture: Raw/2026-11-17-master-vault/demo-bar.html, artifact WEBH4YHN5V3E8mpH2gS
 
 Models applied: Inversion (what would make it worse: hiding the steps), Second-Order (every screen's top padding reads --kpm-safe-top - one number moves them all).
 
-DECISION: OPEN — waiting on Aldi (ok / what to change).
+DECISION (2026-11-17 09:05): *"demo bar oke"* - the one 40 px line, built by Antigravity Task 29, reviewed by Claude.
 
 REJECTED ON PURPOSE: the hide-until-hover bar (the mission must stay visible); an A/B/C board (his one-picture rule).
