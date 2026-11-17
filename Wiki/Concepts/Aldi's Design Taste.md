@@ -3845,3 +3845,10 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 - "the animation of course" - motion is expected in every picture now, not asked for: rolling digits on money, bars that grow once, the detail fading in on a new pick.
 - He wants the demo to SHOW a feature, so a screen whose feature needs data (debt) gets that data in the demo in the same job.
 - Picture v5: https://claude.ai/artifact/PuX2thEyaC84BjjoPCAR1t
+
+## 2026-11-17 18:03 - Receivables: shown A (late line) and B (salesman cards), he kept C
+
+> *"show me dont tell me and ask me i cant imagine what u mean"* (after options described in words) -> *"i feels like C is still the best but dont forget to add the agent who responsible in there as well"*
+
+- Options in words do not reach him; drawn and playable they do - and then he often keeps the plainer one (same as the Surat Jalan pick).
+- On a debt screen WHO is responsible is a first-class fact: a Salesman column in the list and a "Responsible: <name>" chip on the shop, not a grey word in a sub-line.
