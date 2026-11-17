@@ -74,4 +74,18 @@ A-Brain `Raw/2026-11-14-big-demo-walk/`:
   size override lives only as long as the run that set it. Frames: pc-t1, pc-t9, pc-s1-totem, pc-s1-open, ph-t1-shut,
   ph-t1-open, ph-t9.
 
+## Step 3: "Pilih DIKA SAPUTRA" with Dika not on the list (2026-11-17, OPEN — waiting on Aldi)
+
+- His report, with a frame of the box: *"dika syahputra is not even there"*.
+- Root cause (lab, big company, console clean): Fleet & Roster shows ONE area at a time when the viewer can see
+  several (`FleetCanvasManager.jsx` ~L1449: `place = rosterPlace || the selected person's area || keys[0]`, areas
+  A-Z). The owner, and so his own T1 account, opens on BANDUNG (13); Dika is under HEADQUARTERS (11). Hendra (T4, the
+  step's real doer) sees one area, 11 people, Dika among them - so a visitor playing Hendra never meets it. Frames:
+  `Raw/2026-11-17-menu-tour/fleet-owner.jpg`, `fleet-hendra.jpg`. Came with the Fleet ledger (kpm 48c5081e,
+  2026-11-16), not with the menu tour.
+- Options put to him: A - the guide first rings the HEADQUARTERS area button ("Pilih area HEADQUARTERS dulu."), then
+  Dika (one mark on the area button + one more target in the beat; my pick: one press, and it teaches the area
+  buttons); C - the guide rings the search box ("Ketik DIKA di kotak cari."). Rejected on purpose: making the list
+  open on another area for everyone - that changes the real app for a demo-only path.
+
 Links: [[Ponder Tutorial System]] · [[Anti-Recurrence Check]]
