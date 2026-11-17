@@ -3825,3 +3825,5 @@ row (Expected good · Good · Expected damaged · Damaged · Difference · Statu
 needs an answer opens ONE question directly under itself and every other row stays one line; a progress bar + "Needs you"
 filter on top; cigarettes (Bks) and promo (pcs) as two groups. **Rule for every work screen (a count, a cart, a form he
 types into all day): judge the format by "can the eye and the hand go straight down", separately from the look.**
+
+**v2 -> v3, same day, 13:38:** *"almost good, why is there so many information and writing, simplify those and make it aesthetic and not confusing"*. Tidy (one table) was not enough: every extra column and every explaining word counted against it. v3 kept 4 columns, put the expected figure as a dim "/ n" beside its box, cut each state to one or two words and each question to its chips. **On a work screen, words are cost: a label he must read every row is clutter even when it is true.**
