@@ -3835,3 +3835,13 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 
 ## 2026-11-17 15:18 - he played the motion board and approved it
 *"animation is good i like it"* - rolling digits + self-drawing check went live (KPM f6152ec5). He judges motion by playing it; the board with a Lite Mode switch was enough to decide.
+
+## 2026-11-17 17:49 - Receivables: the quiet v4 list was "too simple"
+
+> *"well it is too simple i want it to look more professional and business like with the professional theme color and the animation of course, make the debt on the demo as well of course to show its features"*
+
+- The v4 rule (master-detail, one summary line) is a FORMAT, not a ceiling. On a money screen "professional and business like" means the tools a finance person expects: an aging bar (Safe / Due soon / Overdue in Rupiah), a tempo-used bar per row, the notes and their history in the shop in hand. Same lesson as Stock Opname v3 -> v4: fewer words is fine, a thin build is not.
+- "the professional theme color" = the app theme tokens (stock-opname-pro.html, light and dark), not a draft's own browns.
+- "the animation of course" - motion is expected in every picture now, not asked for: rolling digits on money, bars that grow once, the detail fading in on a new pick.
+- He wants the demo to SHOW a feature, so a screen whose feature needs data (debt) gets that data in the demo in the same job.
+- Picture v5: https://claude.ai/artifact/PuX2thEyaC84BjjoPCAR1t
