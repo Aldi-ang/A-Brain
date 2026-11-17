@@ -1649,3 +1649,7 @@ Five fixes, each with a guard trialled red; logicFixes 2299/2299, audit 722/722.
 - 2026-11-15 08:41 - Journey Plan tested on the big demo company (Android phone 412 + 390, iPhone notch simulated; production build on the emulator data): 8 findings, board Raw/2026-11-15-journey-big/board.png, fixes A-F waiting on his pick - [[2026-11-15_journey-plan-big-company-test]]. Lab traps: dev-server speed lies (React dev timers ~60%); demo-build (4195) is the LIVE demo project - [[Looking at the App]].
 
 - 2026-11-16 - KPM: professional Fleet & Roster live (62f5615d); Antigravity runs a task QUEUE now (his "until all the usage runout"): Fleet code review, Retur audit, PC guide ring. [[../Brainstorm/2026-11-15_fleet-roster-review]]
+
+## 2026-11-17 14:20 - skills added, and the library now mirrors Claude
+- Installed in ~/.claude/skills after a safety read: ink-wash-painting (23ag1), anatomy (wheresryan22, can publish to its gallery only with --submit + his gh login), six animation reel skills (artemnovitckii; pack in ~/.claude/skill-packs, junctions + ~/.claude/kit; first use runs kit/setup.sh = npm/pip installs + ~1 GB models, built for Mac/Linux). Teardown: not at its link, not added. RunComfy: a connector he connects himself.
+- His ask "all the skills that we have inside claude also available on A-Brain": Skills-Library/claude-installed (122) + claude-plugins/<plugin> (130, 24 plugins), index rebuilt, commit 58b7482c. Re-run the mirror after installing more.
