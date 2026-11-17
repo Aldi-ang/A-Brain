@@ -1,0 +1,205 @@
+<title>Master Vault, professional</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* layout: the picture = PC frame on top, two phone frames under it; inside, KPM's own professional tokens (theme.css) */
+:root{
+  --ground:#D2C9B4;--panel:#E1DAC8;--inset:#D9D1BD;--line:#6E6A64;--line-2:#5E5A55;--hair:rgba(19,18,17,.14);
+  --ink:#131211;--ink-muted:#3A3733;--ink-dim:#3F3B36;--gold:#1B1917;--gold-ink:#F7F3E9;--accent-ink:#4F3603;--danger-ink:#611A14;
+  --page:#C9C0AA;--sel:rgba(79,54,3,.10);
+  --f:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0A0908;--panel:#121110;--inset:#0E0D0C;--line:#26231F;--line-2:#3E3A35;--hair:rgba(232,228,222,.08);
+  --ink:#E8E4DE;--ink-muted:#A39B90;--ink-dim:#928B81;--gold:#D08A2E;--gold-ink:#0A0908;--accent-ink:#D08A2E;--danger-ink:#E08C82;
+  --page:#050504;--sel:rgba(208,138,46,.09);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0A0908;--panel:#121110;--inset:#0E0D0C;--line:#26231F;--line-2:#3E3A35;--hair:rgba(232,228,222,.08);
+  --ink:#E8E4DE;--ink-muted:#A39B90;--ink-dim:#928B81;--gold:#D08A2E;--gold-ink:#0A0908;--accent-ink:#D08A2E;--danger-ink:#E08C82;
+  --page:#050504;--sel:rgba(208,138,46,.09);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:14px/1.45 var(--f);font-variant-numeric:tabular-nums;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.cap{max-width:1180px;margin:0 auto 10px;color:var(--ink-muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.note{max-width:1180px;margin:0 auto 28px;color:var(--ink-muted);font-size:13px}
+.note b{color:var(--ink)}
+.frame{background:var(--ground);border:1px solid var(--line-2);margin:0 auto}
+.pc{max-width:1180px;height:640px;display:flex;flex-direction:column;overflow:hidden}
+.phones{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;max-width:1180px;margin:0 auto}
+.phone{width:390px;max-width:100%;height:780px;overflow:hidden;display:flex;flex-direction:column;border-radius:18px}
+
+/* header */
+.hd{display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--line-2)}
+.hd h1{margin:0;font-size:16px;font-weight:700}
+.hd .sum{color:var(--ink-dim);font-size:12px}
+.hd .sum em{font-style:normal;color:var(--danger-ink);font-weight:600}
+.sp{flex:1}
+.search{display:flex;align-items:center;gap:8px;height:34px;width:260px;max-width:100%;padding:0 10px;border:1px solid var(--line-2);background:var(--inset);color:var(--ink-dim);font-size:13px}
+.btn{height:34px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;font:600 13px var(--f);border:1px solid var(--line-2);background:transparent;color:var(--ink);cursor:pointer}
+.btn.gold{background:var(--gold);color:var(--gold-ink);border-color:var(--gold)}
+.btn.del{color:var(--danger-ink)}
+/* tabs: underline, like Agent Inventory's */
+.tabs{display:flex;flex-wrap:wrap;gap:0 18px;padding:0 20px;border-bottom:1px solid var(--line-2)}
+.tab{padding:10px 0 9px;margin-bottom:-1px;border-bottom:2px solid transparent;font-size:13px;font-weight:600;color:var(--ink-dim);white-space:nowrap}
+.tab b{font-weight:600;color:var(--ink-dim);margin-left:4px}
+.tab.on{color:var(--ink);border-color:var(--gold)}
+.tab.q{color:var(--danger-ink)}
+.body{flex:1;display:flex;min-height:0}
+/* the list: ruled lines, no cards (his "most professional" = the price list) */
+.list{width:58%;border-right:1px solid var(--line-2);overflow:auto}
+table{width:100%;border-collapse:collapse}
+th{position:sticky;top:0;background:var(--ground);text-align:right;font-size:11px;font-weight:600;color:var(--ink-dim);letter-spacing:.04em;padding:9px 14px;border-bottom:1px solid var(--line-2)}
+th:first-child{text-align:left;padding-left:20px}
+td{padding:10px 14px;border-bottom:1px solid var(--hair);text-align:right;white-space:nowrap}
+td:first-child{text-align:left;padding-left:20px;white-space:normal}
+tr.sel td{background:var(--sel)}
+tr.sel td:first-child{box-shadow:inset 2px 0 0 var(--gold)}
+.pn{display:flex;align-items:center;gap:10px}
+.th{width:30px;height:38px;flex:none;border:1px solid var(--line-2);background:linear-gradient(160deg,var(--panel),var(--inset))}
+.nm{font-weight:600;font-size:13px}
+.ty{font-size:11px;color:var(--ink-dim)}
+.big{font-weight:700}
+.unit{font-size:11px;color:var(--ink-dim);margin-left:3px}
+.dim{color:var(--ink-dim)}
+.low{color:var(--danger-ink);font-size:11px;font-weight:700;margin-left:6px}
+/* the product */
+.det{flex:1;overflow:auto;padding:20px 24px;display:flex;flex-direction:column;gap:18px}
+.dh{display:flex;gap:20px;align-items:flex-start}
+.stage{width:150px;height:170px;flex:none;border:1px solid var(--line-2);background:var(--inset);display:grid;place-items:center;perspective:700px;position:relative}
+.stage small{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-size:11px;color:var(--ink-dim)}
+.box{width:46px;height:76px;position:relative;transform-style:preserve-3d;transform:rotateX(-14deg) rotateY(35deg);animation:spin 20s linear infinite}
+.box i{position:absolute;inset:0;border:1px solid var(--line-2)}
+.box .f{background:#e8dfc8;transform:translateZ(9px)} .box .b{background:#bdb39b;transform:rotateY(180deg) translateZ(9px)}
+.box .r{width:18px;left:14px;background:#cfc5ad;transform:rotateY(90deg) translateZ(23px)} .box .l{width:18px;left:14px;background:#cfc5ad;transform:rotateY(-90deg) translateZ(23px)}
+.box .f:after{content:'CELLO';position:absolute;top:30px;left:0;right:0;text-align:center;font:800 9px var(--f);color:#6b2f1a;letter-spacing:.08em}
+@keyframes spin{to{transform:rotateX(-14deg) rotateY(395deg)}}
+@media (prefers-reduced-motion:reduce){.box{animation:none}}
+.dh h2{margin:0 0 2px;font-size:20px;font-weight:700}
+.dh .ty{font-size:12px}
+.stock{margin-top:12px;font-size:26px;font-weight:800;line-height:1}
+.stock .unit{font-size:13px}
+.conv{margin-top:6px;font-size:12px;color:var(--ink-dim)}
+.flag{margin-top:8px;font-size:12px;color:var(--danger-ink);font-weight:600}
+.acts{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+h3{margin:0 0 6px;font-size:11px;font-weight:700;color:var(--ink-dim);letter-spacing:.06em;text-transform:uppercase}
+.rl{border-top:1px solid var(--line-2)}
+.rl div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--hair);font-size:13px}
+.rl div span:first-child{color:var(--ink-muted)}
+.rl div span:last-child{font-weight:600}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.lnk{font-size:12px;color:var(--accent-ink);font-weight:600}
+
+/* phone */
+.st{height:26px;display:flex;justify-content:space-between;align-items:center;padding:0 18px;font-size:11px;color:var(--ink-dim)}
+.phone .hd{flex-wrap:wrap;gap:10px;padding:10px 16px}
+.phone .search{width:100%;height:44px}
+.phone .btn{height:44px}
+.phone .tabs{padding:0 16px;gap:0 16px}
+.phone .tab{padding:12px 0 11px}
+.rows{flex:1;overflow:auto}
+.row{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--hair);min-height:64px}
+.row .mid{flex:1;min-width:0}
+.row .sub{font-size:11px;color:var(--ink-dim);margin-top:2px}
+.row .r{text-align:right}
+.row .chev{color:var(--ink-dim);font-size:16px}
+.back{height:44px;display:flex;align-items:center;padding:0 16px;font-size:13px;font-weight:600;color:var(--ink-muted);border-bottom:1px solid var(--line-2)}
+.phone .det{padding:16px}
+.phone .stage{width:120px;height:140px}
+.phone .two{grid-template-columns:1fr;gap:18px}
+.phone .acts .btn{flex:1;justify-content:center}
+@media (max-width:700px){.pc{display:none}.pcnote{display:block!important}}
+</style>
+
+<p class="cap">Master Vault · new look · PC</p>
+<p class="note">Real lab products and stock (the 6 products of the demo company). <b>Field</b> and <b>Sold today</b> are example figures here; the built screen reads them live, as today.</p>
+<p class="note pcnote" style="display:none">Open this on the PC to see the PC frame.</p>
+
+<div class="frame pc">
+  <div class="hd">
+    <h1>Master Vault</h1><span class="sum">6 products · <em>1 low</em> · 5 Bks in quarantine</span>
+    <span class="sp"></span>
+    <span class="search">⌕ Search products</span>
+    <button class="btn gold">+ Add product</button>
+  </div>
+  <div class="tabs">
+    <span class="tab on">All<b>6</b></span><span class="tab">Natural<b>1</b></span><span class="tab">SKT<b>5</b></span><span class="tab q">Quarantine<b>1</b></span>
+  </div>
+  <div class="body">
+    <div class="list">
+      <table>
+        <thead><tr><th>Product</th><th>Vault</th><th>Field</th><th>Sold today</th><th>Start of day</th></tr></thead>
+        <tbody>
+          <tr><td><div class="pn"><span class="th"></span><div><div class="nm">American Spirit - Turquoise</div><div class="ty">Natural</div></div></div></td><td><span class="big">1.000</span><span class="unit">Bks</span></td><td>300</td><td>12</td><td class="dim">1.312</td></tr>
+          <tr class="sel"><td><div class="pn"><span class="th"></span><div><div class="nm">Cello Coffee &amp; Caramel kretek <span class="low">Low</span></div><div class="ty">SKT</div></div></div></td><td><span class="big">593</span><span class="unit">Bks</span></td><td>300</td><td>48</td><td class="dim">941</td></tr>
+          <tr><td><div class="pn"><span class="th"></span><div><div class="nm">Cello Chocolate</div><div class="ty">SKT</div></div></div></td><td><span class="big">10.161</span><span class="unit">Bks</span></td><td>300</td><td>64</td><td class="dim">10.525</td></tr>
+          <tr><td><div class="pn"><span class="th"></span><div><div class="nm">Cello Mmrapi</div><div class="ty">SKT</div></div></div></td><td><span class="big">9.845</span><span class="unit">Bks</span></td><td>0</td><td>0</td><td class="dim">9.845</td></tr>
+          <tr><td><div class="pn"><span class="th"></span><div><div class="nm">Cello Green</div><div class="ty">SKT</div></div></div></td><td><span class="big">9.948</span><span class="unit">Bks</span></td><td>0</td><td>0</td><td class="dim">9.948</td></tr>
+          <tr><td><div class="pn"><span class="th"></span><div><div class="nm">Cello Teh Manis</div><div class="ty">SKT</div></div></div></td><td><span class="big">7.981</span><span class="unit">Bks</span></td><td>0</td><td>0</td><td class="dim">7.981</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="det">
+      <div class="dh">
+        <div class="stage"><div class="box"><i class="f"></i><i class="b"></i><i class="r"></i><i class="l"></i></div><small>Tap for fullscreen</small></div>
+        <div>
+          <h2>Cello Coffee &amp; Caramel kretek</h2><div class="ty">SKT · 16 sticks per Bks</div>
+          <div class="stock">593<span class="unit">Bks in vault</span></div>
+          <div class="conv">59,3 Slop · 2,97 Bal</div>
+          <div class="flag">Below the alert line of 10 Bal · 5 Bks damaged, in quarantine</div>
+          <div class="acts"><button class="btn">Edit product</button><button class="btn del">Delete</button></div>
+        </div>
+      </div>
+      <div class="two">
+        <div><h3>Prices per Bks</h3><div class="rl">
+          <div><span>Distributor (cost)</span><span>Rp 8.500</span></div>
+          <div><span>Retail</span><span>Rp 9.500</span></div>
+          <div><span>Grosir</span><span>Rp 9.000</span></div>
+          <div><span>Ecer</span><span>Rp 10.500</span></div></div></div>
+        <div><h3>Packing</h3><div class="rl">
+          <div><span>Bks per Slop</span><span>10</span></div>
+          <div><span>Slop per Bal</span><span>20</span></div>
+          <div><span>Alert line</span><span>10 Bal</span></div>
+          <div><span>3D box size</span><span>55 × 90 × 22 mm</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="cap" style="margin-top:36px">Master Vault · new look · phone (list, then the product)</p>
+<div class="phones">
+  <div class="frame phone">
+    <div class="st"><span>07:40</span><span>KPM</span></div>
+    <div class="hd"><h1>Master Vault</h1><span class="sum">6 · <em>1 low</em></span><span class="sp"></span><button class="btn gold">+ Add</button><span class="search">⌕ Search products</span></div>
+    <div class="tabs"><span class="tab on">All<b>6</b></span><span class="tab">Natural<b>1</b></span><span class="tab">SKT<b>5</b></span><span class="tab q">Quarantine<b>1</b></span></div>
+    <div class="rows">
+      <div class="row"><span class="th"></span><div class="mid"><div class="nm">American Spirit - Turquoise</div><div class="sub">Natural · Field 300 · Sold 12</div></div><div class="r"><span class="big">1.000</span><span class="unit">Bks</span></div><span class="chev">›</span></div>
+      <div class="row"><span class="th"></span><div class="mid"><div class="nm">Cello Coffee &amp; Caramel kretek <span class="low">Low</span></div><div class="sub">SKT · Field 300 · Sold 48</div></div><div class="r"><span class="big">593</span><span class="unit">Bks</span></div><span class="chev">›</span></div>
+      <div class="row"><span class="th"></span><div class="mid"><div class="nm">Cello Chocolate</div><div class="sub">SKT · Field 300 · Sold 64</div></div><div class="r"><span class="big">10.161</span><span class="unit">Bks</span></div><span class="chev">›</span></div>
+      <div class="row"><span class="th"></span><div class="mid"><div class="nm">Cello Mmrapi</div><div class="sub">SKT</div></div><div class="r"><span class="big">9.845</span><span class="unit">Bks</span></div><span class="chev">›</span></div>
+      <div class="row"><span class="th"></span><div class="mid"><div class="nm">Cello Green</div><div class="sub">SKT</div></div><div class="r"><span class="big">9.948</span><span class="unit">Bks</span></div><span class="chev">›</span></div>
+      <div class="row"><span class="th"></span><div class="mid"><div class="nm">Cello Teh Manis</div><div class="sub">SKT</div></div><div class="r"><span class="big">7.981</span><span class="unit">Bks</span></div><span class="chev">›</span></div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="st"><span>07:40</span><span>KPM</span></div>
+    <div class="back">‹ Back to the list</div>
+    <div class="det">
+      <div class="dh">
+        <div class="stage"><div class="box"><i class="f"></i><i class="b"></i><i class="r"></i><i class="l"></i></div><small>Tap for fullscreen</small></div>
+        <div style="min-width:0"><h2 style="font-size:17px">Cello Coffee &amp; Caramel kretek</h2><div class="ty">SKT</div>
+          <div class="stock">593<span class="unit">Bks</span></div><div class="conv">59,3 Slop · 2,97 Bal</div></div>
+      </div>
+      <div class="flag" style="margin:0">Below the alert line of 10 Bal · 5 Bks damaged, in quarantine</div>
+      <div class="acts" style="margin:0"><button class="btn">Edit product</button><button class="btn del">Delete</button></div>
+      <div class="two">
+        <div><h3>Prices per Bks</h3><div class="rl">
+          <div><span>Distributor (cost)</span><span>Rp 8.500</span></div><div><span>Retail</span><span>Rp 9.500</span></div>
+          <div><span>Grosir</span><span>Rp 9.000</span></div><div><span>Ecer</span><span>Rp 10.500</span></div></div></div>
+        <div><h3>Packing</h3><div class="rl">
+          <div><span>Bks per Slop</span><span>10</span></div><div><span>Slop per Bal</span><span>20</span></div>
+          <div><span>Alert line</span><span>10 Bal</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
