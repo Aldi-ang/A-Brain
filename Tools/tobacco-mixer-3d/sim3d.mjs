@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { MACHINE } from "./physics.mjs";
 
 const TOBACCO_COLORS = [
@@ -185,108 +186,218 @@ function makeFloorGridTexture() {
   return tex;
 }
 
-/**
- * Procedural fibrous shredded tobacco ("tembakau rajangan") texture.
- * Returns canvas + updater so mixProgress smoothly blends 3 origin bands -> mottled blend!
- */
-function createTobaccoBedTexture() {
-  const c = document.createElement("canvas");
-  c.width = 512;
-  c.height = 512;
-  const ctx = c.getContext("2d");
-  const tex = new THREE.CanvasTexture(c);
-  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
-  tex.anisotropy = 4;
+function hash01(seed) {
+  let s = seed | 0;
+  s = Math.imul(s ^ (s >>> 16), 0x85ebca6b);
+  s = Math.imul(s ^ (s >>> 13), 0xc2b2ae35);
+  return ((s ^ (s >>> 16)) >>> 0) / 4294967296;
+}
 
-  // Deterministic pseudo-random shred table
-  const shreds = Array.from({ length: 3400 }, (_, i) => ({
-    u: ((i * 7919) % 512),
-    v: ((i * 3571) % 512),
-    len: 10 + (i % 18),
-    wid: 1.5 + (i % 3) * 0.8,
-    ang: ((i * 137) % 314) / 100,
+/**
+ * High-res (1536x1536) organic fibrous shredded tobacco ("tembakau rajangan")
+ * color + bump texture pair using SplitMix32 hash PRNG (zero lattice stripes).
+ */
+function createTobaccoBedTexture(anisotropy = 8) {
+  const SIZE = 1536;
+  const c = document.createElement("canvas");
+  c.width = SIZE;
+  c.height = SIZE;
+  const ctx = c.getContext("2d");
+
+  const bumpCanvas = document.createElement("canvas");
+  bumpCanvas.width = SIZE;
+  bumpCanvas.height = SIZE;
+  const bctx = bumpCanvas.getContext("2d");
+
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  tex.anisotropy = anisotropy;
+
+  const bumpTex = new THREE.CanvasTexture(bumpCanvas);
+  bumpTex.wrapS = bumpTex.wrapT = THREE.RepeatWrapping;
+  bumpTex.anisotropy = anisotropy;
+
+  const shreds = Array.from({ length: 18000 }, (_, i) => ({
+    u: hash01(i * 11 + 1) * SIZE,
+    v: hash01(i * 11 + 2) * SIZE,
+    bandSpread: (hash01(i * 11 + 3) - 0.12) * (SIZE * 0.44),
+    len: 10 + hash01(i * 11 + 4) * 20,
+    wid: 1.6 + hash01(i * 11 + 5) * 2.4,
+    ang: hash01(i * 11 + 6) * Math.PI * 2,
     orig: i % 3,
-    jitter: ((i * 29) % 100) / 100,
+    jitter: hash01(i * 11 + 7),
   }));
 
-  const palette = ["#4a2814", "#c58434", "#8a6d36"];
+  const palette = ["#472512", "#c48131", "#856a33"];
+  const darkPalette = ["#2d170a", "#945e1e", "#5b4822"];
   let lastMixBucket = -1;
+
+  function drawStrand(targetCtx, x, y, len, wid, ang, fill, alpha) {
+    targetCtx.save();
+    targetCtx.translate(x, y);
+    targetCtx.rotate(ang);
+    targetCtx.fillStyle = fill;
+    targetCtx.globalAlpha = alpha;
+    targetCtx.fillRect(-len / 2, -wid / 2, len, wid);
+    targetCtx.restore();
+  }
 
   function update(mixFrac) {
     const bucket = Math.round(mixFrac * 20);
     if (bucket === lastMixBucket) return;
     lastMixBucket = bucket;
 
-    // Base bed gradient: 3 bands when unmixed -> uniform warm dark-amber tobacco when mixed
-    const grad = ctx.createLinearGradient(0, 0, 512, 0);
+    const grad = ctx.createLinearGradient(0, 0, SIZE, 0);
     if (mixFrac < 0.75) {
       const m = mixFrac / 0.75;
-      grad.addColorStop(0, m < 0.4 ? "#3f2211" : "#6c4824");
-      grad.addColorStop(0.5, m < 0.4 ? "#9e6927" : "#7b5429");
-      grad.addColorStop(1, m < 0.4 ? "#735a2b" : "#744d26");
+      grad.addColorStop(0, m < 0.4 ? "#3a1e0e" : "#5e3e1e");
+      grad.addColorStop(0.5, m < 0.4 ? "#8a5a20" : "#6c4823");
+      grad.addColorStop(1, m < 0.4 ? "#644d23" : "#664220");
     } else {
-      grad.addColorStop(0, "#754e27");
-      grad.addColorStop(1, "#795228");
+      grad.addColorStop(0, "#63401e");
+      grad.addColorStop(1, "#6a4622");
     }
     ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 512, 512);
+    ctx.fillRect(0, 0, SIZE, SIZE);
 
-    for (const s of shreds) {
-      // As mixFrac rises, strands migrate smoothly from their origin third across full u width
-      const bandBase = (s.orig / 3) * 512 + (s.u / 3);
-      const u = bandBase * (1 - mixFrac) + s.u * mixFrac;
-      ctx.save();
-      ctx.translate(u % 512, s.v);
-      ctx.rotate(s.ang);
-      ctx.fillStyle = palette[s.orig];
-      ctx.globalAlpha = 0.72 + s.jitter * 0.25;
-      ctx.fillRect(-s.len / 2, -s.wid / 2, s.len, s.wid);
-      ctx.restore();
+    bctx.fillStyle = "#565656";
+    bctx.fillRect(0, 0, SIZE, SIZE);
+
+    for (let i = 0; i < shreds.length; i++) {
+      const s = shreds[i];
+      const zoneU = (((s.orig / 3) * SIZE + s.bandSpread) % SIZE + SIZE) % SIZE;
+      const u = (zoneU * (1 - mixFrac) + s.u * mixFrac) % SIZE;
+      const fill = i % 3 === 0 ? darkPalette[s.orig] : palette[s.orig];
+      const alpha = 0.7 + s.jitter * 0.28;
+      drawStrand(ctx, u, s.v, s.len, s.wid, s.ang, fill, alpha);
+      if (i % 2 === 0) {
+        drawStrand(bctx, u, s.v, s.len, s.wid, s.ang, i % 4 === 0 ? "#dedede" : "#969696", 1);
+      }
     }
     ctx.globalAlpha = 1;
     tex.needsUpdate = true;
+    bumpTex.needsUpdate = true;
   }
 
   update(0.12);
-  return { tex, update };
+  return { tex, bumpTex, update };
+}
+
+function makeBrushedMetalMaps(anisotropy = 8) {
+  const S = 512;
+  const c = document.createElement("canvas");
+  c.width = S;
+  c.height = S;
+  const ctx = c.getContext("2d");
+  ctx.fillStyle = "#b4b4b4";
+  ctx.fillRect(0, 0, S, S);
+  for (let y = 0; y < S; y++) {
+    const shade = Math.round(172 + (hash01(y * 97 + 13) - 0.5) * 18);
+    ctx.fillStyle = `rgb(${shade},${shade},${shade})`;
+    ctx.fillRect(0, y, S, 1);
+  }
+  for (let i = 0; i < 650; i++) {
+    const x = hash01(i * 5 + 1) * S;
+    const y = hash01(i * 5 + 2) * S;
+    const w = 18 + hash01(i * 5 + 3) * 70;
+    const v = Math.round(162 + hash01(i * 5 + 4) * 32);
+    ctx.fillStyle = `rgba(${v},${v},${v},0.35)`;
+    ctx.fillRect(x, y, w, 1);
+  }
+  const tex = new THREE.CanvasTexture(c);
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  tex.repeat.set(3, 3);
+  tex.anisotropy = anisotropy;
+  return tex;
+}
+
+function makeBambooWeaveMaps(anisotropy = 8) {
+  const S = 512;
+  const c = document.createElement("canvas");
+  c.width = S;
+  c.height = S;
+  const ctx = c.getContext("2d");
+  const b = document.createElement("canvas");
+  b.width = S;
+  b.height = S;
+  const bctx = b.getContext("2d");
+
+  ctx.fillStyle = "#8a6635";
+  ctx.fillRect(0, 0, S, S);
+  bctx.fillStyle = "#666666";
+  bctx.fillRect(0, 0, S, S);
+
+  const step = 16;
+  for (let y = 0; y < S; y += step) {
+    for (let x = 0; x < S; x += step) {
+      const even = ((x / step) + (y / step)) % 2 === 0;
+      ctx.fillStyle = even ? "#a98249" : "#78582b";
+      ctx.fillRect(x + 1, y + 1, step - 2, step - 2);
+      bctx.fillStyle = even ? "#dcdcdc" : "#8e8e8e";
+      bctx.fillRect(x + 1, y + 1, step - 2, step - 2);
+    }
+  }
+  const map = new THREE.CanvasTexture(c);
+  map.colorSpace = THREE.SRGBColorSpace;
+  map.wrapS = map.wrapT = THREE.RepeatWrapping;
+  map.repeat.set(6, 2);
+  map.anisotropy = anisotropy;
+
+  const bumpMap = new THREE.CanvasTexture(b);
+  bumpMap.wrapS = bumpMap.wrapT = THREE.RepeatWrapping;
+  bumpMap.repeat.set(6, 2);
+  bumpMap.anisotropy = anisotropy;
+  return { map, bumpMap };
 }
 
 function makeScaleRulerSprite(label, color = "#d99b38") {
   const c = document.createElement("canvas");
-  c.width = 512;
-  c.height = 128;
+  c.width = 1024;
+  c.height = 256;
   const ctx = c.getContext("2d");
-  ctx.fillStyle = "rgba(15,17,21,0.9)";
+  ctx.fillStyle = "rgba(15,17,21,0.94)";
   ctx.beginPath();
-  ctx.roundRect(8, 16, 496, 96, 18);
+  ctx.roundRect(16, 32, 992, 192, 34);
   ctx.fill();
   ctx.strokeStyle = color;
-  ctx.lineWidth = 4;
+  ctx.lineWidth = 9;
   ctx.stroke();
   ctx.fillStyle = "#f4efe6";
-  ctx.font = "600 40px ui-monospace, SFMono-Regular, Menlo, monospace";
+  ctx.font = "700 84px ui-monospace, SFMono-Regular, Menlo, monospace";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText(label, 256, 65);
+  ctx.fillText(label, 512, 130);
   const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.generateMipmaps = true;
+  tex.minFilter = THREE.LinearMipmapLinearFilter;
+  tex.anisotropy = 8;
   const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false });
   const sprite = new THREE.Sprite(mat);
   sprite.scale.set(0.95, 0.24, 1);
   return sprite;
 }
 
-export function createMixerSimulation(container, { onPartSelect, onPartAction, onMetrics } = {}) {
+export function createMixerSimulation(container, { onPartSelect, onPartAction, onPartHover, onMetrics } = {}) {
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x0f1115);
-  scene.fog = new THREE.FogExp2(0x0f1115, 0.042);
+  scene.fog = new THREE.FogExp2(0x0f1115, 0.036);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2.5));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.15;
+  renderer.toneMappingExposure = 1.18;
   container.appendChild(renderer.domElement);
+
+  const maxAniso = Math.min(8, renderer.capabilities.getMaxAnisotropy() || 4);
+
+  // Physically based workshop reflections (stainless steel, brass gears, tire bands)
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  scene.environment = envTex;
 
   const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 45);
   camera.position.set(-3.95, 2.52, 4.45);
@@ -305,31 +416,34 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     camAnim.active = false;
   });
 
-  // Lighting
-  const hemi = new THREE.HemisphereLight(0xf6eedb, 0x222630, 0.88);
+  // Lighting (sharp shadow frustum dCam=2.7 around machine)
+  const hemi = new THREE.HemisphereLight(0xf8f1e5, 0x262b36, 0.65);
   scene.add(hemi);
 
-  const keyLight = new THREE.DirectionalLight(0xfff4e0, 2.15);
-  keyLight.position.set(-4.5, 6.5, 5.2);
+  const keyLight = new THREE.DirectionalLight(0xfff5e4, 1.85);
+  keyLight.position.set(-4.2, 6.2, 4.8);
   keyLight.castShadow = true;
   keyLight.shadow.mapSize.set(2048, 2048);
   keyLight.shadow.camera.near = 1;
-  keyLight.shadow.camera.far = 18;
-  const dCam = 4.2;
+  keyLight.shadow.camera.far = 16;
+  const dCam = 2.75;
   keyLight.shadow.camera.left = -dCam;
   keyLight.shadow.camera.right = dCam;
   keyLight.shadow.camera.top = dCam;
   keyLight.shadow.camera.bottom = -dCam;
-  keyLight.shadow.bias = -0.0005;
+  keyLight.shadow.bias = -0.0004;
+  keyLight.shadow.normalBias = 0.035;
   scene.add(keyLight);
 
-  const rimLight = new THREE.DirectionalLight(0xd99b38, 1.0);
+  const rimLight = new THREE.DirectionalLight(0xe6ac4c, 0.75);
   rimLight.position.set(4.5, 3.2, -3.5);
   scene.add(rimLight);
 
   // Workshop Floor
+  const floorTex = makeFloorGridTexture();
+  floorTex.anisotropy = maxAniso;
   const floorMat = new THREE.MeshStandardMaterial({
-    map: makeFloorGridTexture(),
+    map: floorTex,
     roughness: 0.88,
     metalness: 0.05,
   });
@@ -338,31 +452,48 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   floor.receiveShadow = true;
   scene.add(floor);
 
-  // Base Materials (stored for highlight/dimming in Anatomy Tour!)
+  // High-quality PBR Materials with Brushed Metal + Bamboo Maps
+  const brushedMap = makeBrushedMetalMaps(maxAniso);
+  const bambooMaps = makeBambooWeaveMaps(maxAniso);
   const matDefs = {
-    steelFrame: new THREE.MeshStandardMaterial({ color: 0x2a303a, roughness: 0.55, metalness: 0.7 }),
-    darkIron: new THREE.MeshStandardMaterial({ color: 0x1b1f26, roughness: 0.65, metalness: 0.75 }),
-    steamer: new THREE.MeshStandardMaterial({ color: 0xaab2bd, roughness: 0.36, metalness: 0.84, side: THREE.DoubleSide }),
+    steelFrame: new THREE.MeshStandardMaterial({ color: 0x3b4454, roughness: 0.48, metalness: 0.72 }),
+    darkIron: new THREE.MeshStandardMaterial({ color: 0x242a34, roughness: 0.56, metalness: 0.78 }),
+    steamer: new THREE.MeshStandardMaterial({
+      color: 0xbac2cd,
+      roughness: 0.34,
+      metalness: 0.86,
+      roughnessMap: brushedMap,
+      bumpMap: brushedMap,
+      bumpScale: 0.0014,
+      side: THREE.DoubleSide,
+    }),
     steamerCutaway: new THREE.MeshPhysicalMaterial({
       color: 0xc2cbd6,
-      roughness: 0.25,
-      metalness: 0.2,
+      roughness: 0.22,
+      metalness: 0.18,
       transparent: true,
-      opacity: 0.07,
+      opacity: 0.08,
       depthWrite: false,
       side: THREE.DoubleSide,
     }),
-    flight: new THREE.MeshStandardMaterial({ color: 0xd99b38, roughness: 0.42, metalness: 0.65, side: THREE.DoubleSide }),
-    tire: new THREE.MeshStandardMaterial({ color: 0x767f8d, roughness: 0.3, metalness: 0.9 }),
-    poly: new THREE.MeshStandardMaterial({ color: 0xc77d24, roughness: 0.55, metalness: 0.1 }),
-    brass: new THREE.MeshStandardMaterial({ color: 0xd99b38, roughness: 0.34, metalness: 0.82 }),
-    epdm: new THREE.MeshStandardMaterial({ color: 0x17181b, roughness: 0.88, metalness: 0.04 }),
-    clampRed: new THREE.MeshStandardMaterial({ color: 0xc63c2c, roughness: 0.42, metalness: 0.35 }),
-    motor: new THREE.MeshStandardMaterial({ color: 0x3b4859, roughness: 0.48, metalness: 0.65 }),
-    humanBody: new THREE.MeshStandardMaterial({ color: 0x39414f, roughness: 0.75, metalness: 0.08 }),
-    humanSkin: new THREE.MeshStandardMaterial({ color: 0xc99c74, roughness: 0.72, metalness: 0.02 }),
-    humanApron: new THREE.MeshStandardMaterial({ color: 0x8b6232, roughness: 0.82, metalness: 0.05 }),
-    bamboo: new THREE.MeshStandardMaterial({ color: 0x9f7b44, roughness: 0.88, metalness: 0.02, side: THREE.DoubleSide }),
+    flight: new THREE.MeshStandardMaterial({ color: 0xd99b38, roughness: 0.36, metalness: 0.72, side: THREE.DoubleSide }),
+    tire: new THREE.MeshStandardMaterial({ color: 0x8791a0, roughness: 0.28, metalness: 0.90 }),
+    poly: new THREE.MeshStandardMaterial({ color: 0xc77d24, roughness: 0.48, metalness: 0.12 }),
+    brass: new THREE.MeshStandardMaterial({ color: 0xdfa23e, roughness: 0.30, metalness: 0.86 }),
+    epdm: new THREE.MeshStandardMaterial({ color: 0x1c1e22, roughness: 0.85, metalness: 0.05 }),
+    clampRed: new THREE.MeshStandardMaterial({ color: 0xcf4130, roughness: 0.38, metalness: 0.32 }),
+    motor: new THREE.MeshStandardMaterial({ color: 0x435368, roughness: 0.44, metalness: 0.68 }),
+    humanBody: new THREE.MeshStandardMaterial({ color: 0x414b5c, roughness: 0.72, metalness: 0.08 }),
+    humanSkin: new THREE.MeshStandardMaterial({ color: 0xcfa27b, roughness: 0.68, metalness: 0.02 }),
+    humanApron: new THREE.MeshStandardMaterial({ color: 0x946a37, roughness: 0.78, metalness: 0.04 }),
+    bamboo: new THREE.MeshStandardMaterial({
+      map: bambooMaps.map,
+      bumpMap: bambooMaps.bumpMap,
+      bumpScale: 0.012,
+      roughness: 0.86,
+      metalness: 0.02,
+      side: THREE.DoubleSide,
+    }),
   };
 
   // Clone material per partId for independent Anatomy Focus highlighting & ghosting
@@ -548,7 +679,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   // 05: 179 x 179 cm BAGLOG STEAMER CYLINDER (with Cutaway window!)
   // =========================================================================
   const g05 = new THREE.Group();
-  const shellFull = new THREE.Mesh(new THREE.CylinderGeometry(R, R, L, 64, 1, true), matDefs.steamer);
+  const shellFull = new THREE.Mesh(new THREE.CylinderGeometry(R, R, L, 96, 1, true), matDefs.steamer);
   shellFull.rotation.x = Math.PI / 2;
   g05.add(shellFull);
 
@@ -557,7 +688,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   cutawayShellHolder.position.set(0, 0, DRUM_Z_OFF);
 
   const cutawaySolid = new THREE.Mesh(
-    new THREE.CylinderGeometry(R, R, L, 48, 1, true, Math.PI * 1.92, Math.PI * 0.80),
+    new THREE.CylinderGeometry(R, R, L, 80, 1, true, Math.PI * 1.92, Math.PI * 0.80),
     matDefs.steamer
   );
   cutawaySolid.rotation.x = Math.PI / 2;
@@ -565,7 +696,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   cutawayShellHolder.add(cutawaySolid);
 
   const cutawayGlass = new THREE.Mesh(
-    new THREE.CylinderGeometry(R, R, L, 32, 1, true, Math.PI * 0.72, Math.PI * 1.20),
+    new THREE.CylinderGeometry(R, R, L, 48, 1, true, Math.PI * 0.72, Math.PI * 1.20),
     matDefs.steamerCutaway
   );
   cutawayGlass.rotation.x = Math.PI / 2;
@@ -573,21 +704,21 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   cutawayShellHolder.add(cutawayGlass);
   cradlePivot.add(registerPart(cutawayShellHolder, "05"));
 
-  const bottomPlate = new THREE.Mesh(new THREE.CylinderGeometry(R, R, 0.02, 56), matDefs.steamer);
+  const bottomPlate = new THREE.Mesh(new THREE.CylinderGeometry(R, R, 0.02, 96), matDefs.steamer);
   bottomPlate.rotation.x = Math.PI / 2;
   bottomPlate.position.z = -L / 2;
   g05.add(bottomPlate);
 
-  const mouthFlange = new THREE.Mesh(new THREE.TorusGeometry(R + 0.015, 0.032, 12, 64), matDefs.tire);
+  const mouthFlange = new THREE.Mesh(new THREE.TorusGeometry(R + 0.015, 0.032, 18, 96), matDefs.tire);
   mouthFlange.position.z = L / 2;
   g05.add(mouthFlange);
 
   for (const zBand of [-0.52, 0.42]) {
-    const tire = new THREE.Mesh(new THREE.CylinderGeometry(R + 0.028, R + 0.028, 0.09, 64, 1, true), matDefs.tire);
+    const tire = new THREE.Mesh(new THREE.CylinderGeometry(R + 0.028, R + 0.028, 0.09, 96, 1, true), matDefs.tire);
     tire.rotation.x = Math.PI / 2;
     tire.position.z = zBand;
     g05.add(tire);
-    const tireRingA = new THREE.Mesh(new THREE.TorusGeometry(R + 0.014, 0.016, 8, 64), matDefs.tire);
+    const tireRingA = new THREE.Mesh(new THREE.TorusGeometry(R + 0.014, 0.016, 12, 96), matDefs.tire);
     tireRingA.position.z = zBand - 0.045;
     g05.add(tireRingA);
     const tireRingB = tireRingA.clone();
@@ -595,9 +726,17 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     g05.add(tireRingB);
   }
   for (const zRib of [-0.15, 0.16, 0.72]) {
-    const rib = new THREE.Mesh(new THREE.TorusGeometry(R + 0.01, 0.012, 8, 64), matDefs.tire);
+    const rib = new THREE.Mesh(new THREE.TorusGeometry(R + 0.01, 0.012, 12, 96), matDefs.tire);
     rib.position.z = zRib;
     g05.add(rib);
+  }
+  // 16 perimeter flange hex bolts on mouth collar
+  for (let b = 0; b < 16; b++) {
+    const a = (b / 16) * Math.PI * 2;
+    const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.035, 6), matDefs.brass);
+    bolt.rotation.x = Math.PI / 2;
+    bolt.position.set(Math.cos(a) * (R + 0.015), Math.sin(a) * (R + 0.015), L / 2 + 0.02);
+    g05.add(bolt);
   }
   drumSpinGroup.add(registerPart(g05, "05"));
 
@@ -982,13 +1121,15 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   basketRim.position.y = 0.42;
   keranjang.add(basketRim);
 
-  const tobTexObj = createTobaccoBedTexture();
+  const tobTexObj = createTobaccoBedTexture(maxAniso);
   const basketPileMat = new THREE.MeshStandardMaterial({
     map: tobTexObj.tex,
+    bumpMap: tobTexObj.bumpTex,
+    bumpScale: 0.018,
     roughness: 0.94,
     metalness: 0.01,
   });
-  const basketPile = new THREE.Mesh(new THREE.ConeGeometry(0.37, 0.32, 24), basketPileMat);
+  const basketPile = new THREE.Mesh(new THREE.ConeGeometry(0.37, 0.32, 32), basketPileMat);
   basketPile.position.y = 0.15;
   basketPile.scale.set(1, 0.02, 1);
   basketPile.visible = false;
@@ -997,7 +1138,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
 
   // =========================================================================
   // DUAL-LAYER REALISTIC RAJANGAN TOBACCO INSIDE DRUM:
-  // 1) Cohesive Sloped Bulk Bed Mesh (scales with batchKg, tilts to 36° repose)
+  // 1) Cohesive Sloped Bulk Bed Mesh (Tri-planar UV, 1536x1536 fiber + bump)
   // 2) 2,200 Cascading Shredded Tobacco Strands
   // =========================================================================
   const tobaccoHolder = new THREE.Group();
@@ -1011,7 +1152,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     const startA = -Math.PI / 2 - halfSpan;
     const endA = -Math.PI / 2 + halfSpan;
     const shape = new THREE.Shape();
-    const steps = 28;
+    const steps = 36;
     for (let i = 0; i <= steps; i++) {
       const a = startA + (i / steps) * (endA - startA);
       const px = Math.cos(a) * rb;
@@ -1022,12 +1163,20 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     shape.closePath();
     const geo = new THREE.ExtrudeGeometry(shape, { depth: L * 0.88, bevelEnabled: false, curveSegments: 1 });
     geo.translate(0, 0, -L * 0.44);
-    // Normalize UVs smoothly across bed width/length for shredded tobacco texture
+    geo.computeVertexNormals();
+    // Tri-planar UV mapping so front cut face never stretches vertical stripes!
     const pos = geo.attributes.position;
+    const norm = geo.attributes.normal;
     const uvs = new Float32Array(pos.count * 2);
     for (let i = 0; i < pos.count; i++) {
-      uvs[i * 2] = (pos.getZ(i) + L * 0.44) / (L * 0.88);
-      uvs[i * 2 + 1] = (pos.getX(i) + rb) / (2 * rb);
+      const nz = Math.abs(norm.getZ(i));
+      if (nz > 0.6) {
+        uvs[i * 2] = (pos.getX(i) + rb) / (2 * rb);
+        uvs[i * 2 + 1] = (pos.getY(i) + rb) / (2 * rb);
+      } else {
+        uvs[i * 2] = (pos.getZ(i) + L * 0.44) / (L * 0.88);
+        uvs[i * 2 + 1] = (pos.getX(i) + rb) / (2 * rb);
+      }
     }
     geo.setAttribute("uv", new THREE.BufferAttribute(uvs, 2));
     return geo;
@@ -1036,7 +1185,9 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   let currentBedBucket = -1;
   const bedMat = new THREE.MeshStandardMaterial({
     map: tobTexObj.tex,
-    roughness: 0.95,
+    bumpMap: tobTexObj.bumpTex,
+    bumpScale: 0.022,
+    roughness: 0.94,
     metalness: 0.01,
     side: THREE.DoubleSide,
   });
@@ -1068,23 +1219,23 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
       pType[i] = variety;
       strandMesh.setColorAt(i, TOBACCO_COLORS[variety]);
 
-      const theta = -Math.PI / 2 + (((i * 73) % 100) / 100 - 0.5) * maxAngle;
-      const radFrac = 0.62 + 0.34 * (((i * 37) % 100) / 100);
+      const theta = -Math.PI / 2 + (hash01(i * 9 + 1) - 0.5) * maxAngle;
+      const radFrac = 0.62 + 0.34 * hash01(i * 9 + 2);
       const r = R * radFrac;
       const zBand =
         variety === 0
-          ? -L * 0.35 + (((i * 19) % 100) / 100) * (L * 0.25)
+          ? -L * 0.35 + hash01(i * 9 + 3) * (L * 0.25)
           : variety === 1
-          ? -L * 0.08 + (((i * 23) % 100) / 100) * (L * 0.24)
-          : L * 0.16 + (((i * 29) % 100) / 100) * (L * 0.26);
+          ? -L * 0.08 + hash01(i * 9 + 3) * (L * 0.24)
+          : L * 0.16 + hash01(i * 9 + 3) * (L * 0.26);
 
       pPos[i * 3] = Math.cos(theta) * r;
       pPos[i * 3 + 1] = Math.sin(theta) * r;
       pPos[i * 3 + 2] = zBand;
       pVel[i * 3] = pVel[i * 3 + 1] = pVel[i * 3 + 2] = 0;
-      pRot[i * 2] = ((i * 13) % 314) / 50;
-      pRot[i * 2 + 1] = ((i * 29) % 314) / 50;
-      pScale[i] = 0.7 + ((i * 17) % 60) / 100;
+      pRot[i * 2] = hash01(i * 9 + 4) * Math.PI * 2;
+      pRot[i * 2 + 1] = hash01(i * 9 + 5) * Math.PI * 2;
+      pScale[i] = 0.7 + hash01(i * 9 + 6) * 0.6;
       pState[i] = 0;
     }
     if (strandMesh.instanceColor) strandMesh.instanceColor.needsUpdate = true;
@@ -1148,7 +1299,9 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     pouredCount: 0,
     frameCounter: 0,
     stalled: false,
+    hoveredPart: null,
     selectedPart: null,
+    pressPulse: 0,
     anatomyIsolate: false,
   };
 
@@ -1159,7 +1312,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     shellFull.visible = !enabled;
     cutawaySolid.visible = enabled;
     cutawayGlass.visible = enabled;
-    interiorLight.intensity = enabled ? 2.6 : 0.8;
+    interiorLight.intensity = enabled ? 1.85 : 0.7;
   }
   setCutaway(true);
 
@@ -1181,20 +1334,31 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
 
   function updatePartFocusVisuals() {
     const sel = state.selectedPart;
+    const hov = state.hoveredPart;
     const isolate = state.anatomyIsolate && !!sel;
+    const flash = state.pressPulse;
     for (const [pid, mats] of Object.entries(partMaterials)) {
       const isSelected = sel === pid;
+      const isHovered = hov === pid;
       for (const m of mats) {
         if (isSelected) {
-          m.emissive?.setHex(0x6b4712);
+          m.emissive?.setHex(flash > 0.1 ? 0xd99b38 : 0x8f5b12);
+          m.emissiveIntensity = 1.0 + flash * 0.85;
+          m.opacity = m.userData.baseOpacity;
+          m.transparent = m.userData.baseTransparent;
+        } else if (isHovered) {
+          m.emissive?.setHex(0x6e4710);
+          m.emissiveIntensity = 1.15;
           m.opacity = m.userData.baseOpacity;
           m.transparent = m.userData.baseTransparent;
         } else if (isolate) {
           m.emissive?.setHex(0x000000);
+          m.emissiveIntensity = 1.0;
           m.transparent = true;
           m.opacity = Math.min(m.userData.baseOpacity, 0.22);
         } else {
           m.emissive?.setHex(0x000000);
+          m.emissiveIntensity = 1.0;
           m.opacity = m.userData.baseOpacity;
           m.transparent = m.userData.baseTransparent;
         }
@@ -1205,6 +1369,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
 
   function focusPart(partId, { glideCamera = true, isolate = true } = {}) {
     state.selectedPart = partId;
+    state.pressPulse = 1.0;
     state.anatomyIsolate = isolate;
     updatePartFocusVisuals();
     const info = PIECE_INFO[partId];
@@ -1283,14 +1448,43 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   const pointer = new THREE.Vector2();
   let downPos = null;
 
-  renderer.domElement.addEventListener("pointermove", (e) => {
+  function isAncestryVisible(obj) {
+    for (let cur = obj; cur; cur = cur.parent) {
+      if (!cur.visible) return false;
+    }
+    return true;
+  }
+
+  function pickPart(e) {
     const rect = renderer.domElement.getBoundingClientRect();
-    pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    pointer.x = (x / rect.width) * 2 - 1;
+    pointer.y = -(y / rect.height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
     const hits = raycaster.intersectObjects(scene.children, true);
-    const hit = hits.find((h) => h.object?.visible && h.object?.userData?.partId);
-    renderer.domElement.style.cursor = hit ? "pointer" : "grab";
+    const hit = hits.find((h) => h.object?.userData?.partId && isAncestryVisible(h.object));
+    return { id: hit ? hit.object.userData.partId : null, x, y };
+  }
+
+  renderer.domElement.addEventListener("pointermove", (e) => {
+    const { id: nextHover, x, y } = pickPart(e);
+    renderer.domElement.style.cursor = nextHover ? "pointer" : "grab";
+    if (nextHover !== state.hoveredPart) {
+      state.hoveredPart = nextHover;
+      updatePartFocusVisuals();
+    }
+    if (onPartHover) {
+      onPartHover(nextHover ? { id: nextHover, info: PIECE_INFO[nextHover], x, y } : null);
+    }
+  });
+
+  renderer.domElement.addEventListener("pointerleave", () => {
+    if (state.hoveredPart !== null) {
+      state.hoveredPart = null;
+      updatePartFocusVisuals();
+    }
+    if (onPartHover) onPartHover(null);
   });
 
   renderer.domElement.addEventListener("pointerdown", (e) => {
@@ -1301,14 +1495,8 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     const dist = Math.hypot(e.clientX - downPos[0], e.clientY - downPos[1]);
     downPos = null;
     if (dist > 6) return;
-    const rect = renderer.domElement.getBoundingClientRect();
-    pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-    raycaster.setFromCamera(pointer, camera);
-    const hits = raycaster.intersectObjects(scene.children, true);
-    const hit = hits.find((h) => h.object?.visible && h.object?.userData?.partId);
-    if (hit) {
-      const id = hit.object.userData.partId;
+    const { id } = pickPart(e);
+    if (id) {
       focusPart(id, { glideCamera: false, isolate: state.anatomyIsolate });
       if (onPartAction) onPartAction(id);
     }
@@ -1466,6 +1654,11 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     const dt = Math.min(0.05, (now - lastT) / 1000);
     lastT = now;
 
+    if (state.pressPulse > 0) {
+      state.pressPulse = Math.max(0, state.pressPulse - dt * 3.5);
+      updatePartFocusVisuals();
+    }
+
     // Smooth camera glide when POV preset or Anatomy part changes
     if (camAnim.active) {
       const kLerp = Math.min(1, dt * 6.5);
@@ -1592,6 +1785,8 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
       cancelAnimationFrame(rafId);
       ro.disconnect();
       controls.dispose();
+      pmrem.dispose();
+      envTex.dispose();
       renderer.dispose();
       if (renderer.domElement.parentNode === container) container.removeChild(renderer.domElement);
     },

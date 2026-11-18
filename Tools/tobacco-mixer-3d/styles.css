@@ -242,18 +242,56 @@ html, body {
   color: var(--text);
   font: 500 12px/1 var(--sans);
   cursor: pointer;
+  transition: border-color 120ms ease, color 120ms ease, background 120ms ease, transform 90ms ease;
 }
-.cam-btn:hover { border-color: var(--border-strong); color: var(--gold); }
-.cam-btn:active { transform: scale(0.96); }
+.cam-btn:hover { border-color: var(--border-strong); color: var(--gold); background: rgba(217, 155, 56, 0.10); }
+.cam-btn:active { transform: scale(0.95); background: rgba(217, 155, 56, 0.28); border-color: var(--gold); }
 .cam-btn.is-active, .cam-btn-accent.is-active {
-  background: rgba(217, 155, 56, 0.22);
-  border-color: var(--border-strong);
-  color: var(--gold);
+  background: rgba(36, 28, 16, 0.94);
+  border-color: var(--gold);
+  color: #f4be5f;
   font-weight: 600;
+  box-shadow: 0 0 0 1px rgba(217, 155, 56, 0.32);
 }
 .cam-btn-accent {
   border-color: rgba(217, 155, 56, 0.45);
   color: var(--gold);
+}
+
+.hover-tip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 248px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: rgba(15, 17, 21, 0.94);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.48);
+  pointer-events: none;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hover-tip-id {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+}
+.hover-tip-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+}
+.hover-tip-hint {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
 }
 
 .piece-card {
@@ -298,7 +336,10 @@ html, body {
   color: var(--text);
   font: 500 11px/1 var(--sans);
   cursor: pointer;
+  transition: border-color 120ms ease, color 120ms ease, background 120ms ease, transform 90ms ease;
 }
+.mini-btn:hover { border-color: var(--border-strong); color: var(--gold); }
+.mini-btn:active { transform: scale(0.95); background: var(--gold-soft); }
 .mini-btn.is-active {
   border-color: var(--border-strong);
   color: var(--gold);
@@ -370,9 +411,10 @@ html, body {
   font: 500 12px/1.2 var(--sans);
   cursor: pointer;
   text-align: center;
-  transition: border-color 120ms ease, color 120ms ease, background 120ms ease;
+  transition: border-color 120ms ease, color 120ms ease, background 120ms ease, transform 90ms ease;
 }
-.seg-btn:hover { color: var(--text); }
+.seg-btn:hover { color: var(--text); border-color: var(--border-strong); background: rgba(217, 155, 56, 0.08); }
+.seg-btn:active { transform: scale(0.96); background: rgba(217, 155, 56, 0.24); border-color: var(--gold); color: var(--gold); }
 .seg-btn.is-active {
   background: var(--gold-soft);
   border-color: var(--border-strong);
@@ -447,6 +489,8 @@ input[type="range"] {
 }
 
 .anatomy-stage {
+  position: sticky;
+  top: 14px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -480,8 +524,17 @@ input[type="range"] {
   text-align: left;
   cursor: pointer;
   min-height: 44px;
+  transition: border-color 120ms ease, background 120ms ease, transform 90ms ease;
 }
-.part-row:hover { border-color: var(--border-strong); }
+.part-row:hover, .part-row.is-hover {
+  border-color: var(--border-strong);
+  background: rgba(217, 155, 56, 0.09);
+}
+.part-row:active {
+  transform: scale(0.985);
+  background: rgba(217, 155, 56, 0.24);
+  border-color: var(--gold);
+}
 .part-row.is-active {
   background: var(--gold-soft);
   border-color: var(--border-strong);
@@ -567,6 +620,9 @@ table.spec-table {
   }
   .anatomy-grid {
     grid-template-columns: 1fr;
+  }
+  .anatomy-stage {
+    position: static;
   }
   .hud-top { top: 8px; left: 8px; right: 8px; gap: 4px; }
   .telemetry-strip { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; padding-bottom: 2px; }

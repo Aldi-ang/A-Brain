@@ -328,9 +328,11 @@ export const ANATOMY_CSS =
   --anatomy-hi:#1f242c;--anatomy-mid:#5b6472;--anatomy-lo:#949ca8;--anatomy-faint:#d4d8df;
   --anatomy-halo:#cbd0d8;
 }
-.anat-part{cursor:pointer;transition:opacity 200ms ease,transform 420ms cubic-bezier(.32,.72,0,1)}
-.anat-part.is-dim{opacity:.25}
-.anat-part.is-selected .iso-edge{stroke:#e5a93c!important;stroke-width:1.4px!important}
+.anat-part{cursor:pointer;transition:opacity 180ms ease,transform 420ms cubic-bezier(.32,.72,0,1)}
+.anat-part.is-dim{opacity:.35}
+.anat-part:hover,.anat-part.is-hover{opacity:1!important}
+.anat-part:hover .iso-edge,.anat-part.is-hover .iso-edge{stroke:var(--anatomy-lit,#e5a93c)!important;stroke-width:1.4px!important}
+.anat-part.is-selected .iso-edge{stroke:#e5a93c!important;stroke-width:1.5px!important}
 @keyframes anatBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes anatCap{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .anat-bob{animation:anatBob 2.8s ease-in-out infinite}

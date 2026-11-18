@@ -32,6 +32,21 @@ const anatStyle = document.createElement("style");
 anatStyle.textContent = ANATOMY_CSS;
 document.head.appendChild(anatStyle);
 
+const hoverTip = document.getElementById("hover-tip");
+const INTERACTIVE_HINT = {
+  "08": "Click to twist open/close sample cap",
+  "07": "Click to unlatch & swing vault lid",
+  "03": "Click to cycle drum tilt (+25° / +32° / -12°)",
+};
+let hoverTipId = null;
+const tipIdEl = document.createElement("span");
+tipIdEl.className = "hover-tip-id";
+const tipNameEl = document.createElement("span");
+tipNameEl.className = "hover-tip-name";
+const tipHintEl = document.createElement("span");
+tipHintEl.className = "hover-tip-hint";
+hoverTip.append(tipIdEl, tipNameEl, tipHintEl);
+
 // Tab switching
 const tabBtns = document.querySelectorAll("[data-tab]");
 const tabPanels = document.querySelectorAll("[data-panel]");
@@ -39,6 +54,8 @@ tabBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     const target = btn.dataset.tab;
     appState.tab = target;
+    hoverTip.hidden = true;
+    window.scrollTo(0, 0);
     tabBtns.forEach((b) => b.classList.toggle("is-active", b.dataset.tab === target));
     tabPanels.forEach((p) => p.classList.toggle("is-active", p.dataset.panel === target));
     if (target === "anatomy") renderAnatomy();
@@ -66,6 +83,25 @@ function showPieceCard(id) {
 const canvasHost = document.getElementById("canvas-host");
 const sim = createMixerSimulation(canvasHost, {
   onPartSelect: (id) => showPieceCard(id),
+  onPartHover: (hit) => {
+    if (!hit || !hit.info) {
+      hoverTipId = null;
+      hoverTip.hidden = true;
+      return;
+    }
+    if (hoverTipId !== hit.id) {
+      hoverTipId = hit.id;
+      tipIdEl.textContent = hit.id === "human" ? "SCALE 171 CM" : `PART ${hit.id}`;
+      tipNameEl.textContent = hit.info.name;
+      tipHintEl.textContent = INTERACTIVE_HINT[hit.id] || "Click to inspect specs";
+    }
+    const w = canvasHost.clientWidth || 640;
+    const h = canvasHost.clientHeight || 440;
+    const tx = Math.max(12, Math.min(w - 256, hit.x + 16));
+    const ty = Math.max(64, Math.min(h - 78, hit.y - 52));
+    hoverTip.style.transform = `translate(${Math.round(tx)}px, ${Math.round(ty)}px)`;
+    hoverTip.hidden = false;
+  },
   onPartAction: (id) => {
     // Real interactive 3D clicking on parts!
     if (id === "08") {
@@ -393,14 +429,6 @@ function renderAnatomy() {
     </figure>
   `;
 
-  stage.querySelectorAll(".anat-part").forEach((g) => {
-    g.addEventListener("click", () => {
-      const id = g.dataset.part;
-      appState.selectedPartId = appState.selectedPartId === id ? null : id;
-      renderAnatomy();
-    });
-  });
-
   const listWrap = document.getElementById("anatomy-part-list");
   listWrap.innerHTML = ANATOMY_PARTS.map(
     (p) => `
@@ -415,13 +443,20 @@ function renderAnatomy() {
     </button>`
   ).join("");
 
-  listWrap.querySelectorAll("[data-anat-row]").forEach((row) => {
-    row.addEventListener("click", () => {
-      const id = row.dataset.anatRow;
+  const setAnatomyHover = (id, on) => {
+    stage.querySelectorAll(`[data-part="${id}"]`).forEach((el) => el.classList.toggle("is-hover", on));
+    listWrap.querySelectorAll(`[data-anat-row="${id}"]`).forEach((el) => el.classList.toggle("is-hover", on));
+  };
+  const bindPartEl = (el, id) => {
+    el.addEventListener("mouseenter", () => setAnatomyHover(id, true));
+    el.addEventListener("mouseleave", () => setAnatomyHover(id, false));
+    el.addEventListener("click", () => {
       appState.selectedPartId = appState.selectedPartId === id ? null : id;
       renderAnatomy();
     });
-  });
+  };
+  stage.querySelectorAll(".anat-part").forEach((g) => bindPartEl(g, g.dataset.part));
+  listWrap.querySelectorAll("[data-anat-row]").forEach((row) => bindPartEl(row, row.dataset.anatRow));
 }
 
 function stepAnatomyPart(delta) {

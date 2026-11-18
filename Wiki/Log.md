@@ -12,6 +12,9 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-11-18 13:45 — tobacco-mixer-3d v3: HD PBR reflections, non-striped rajangan & brushed metal, 3D + Anatomy hover/press highlights
+Eliminated LCG lattice stripes and `(y * 53) % 52` sawtooth metal banding with SplitMix32 hash PRNG brushed steel/organic tobacco maps (`1536×1536` tri-planar UV bed + bump), added `RoomEnvironment` PBR reflections, `2048×2048` tight shadows with `normalBias = 0.035`, `96`-segment smooth drum rings + 16 flange bolts, mipmapped scale sprites (`LinearMipmapLinearFilter`), sticky Anatomy blueprint, and high-contrast opaque dark-amber active POV buttons. Added live hover tooltip (`#hover-tip`) + 3D warm gold emissive hover/press pulse (`onPartHover`, `pressPulse`) and bidirectional Anatomy hover/press states (`setAnatomyHover`, `:active` feedback). Verified all 7 `physics.test.mjs` checks, 0 Chrome console errors (including real pointer hover/click & mobile 390px + `file://` standalone), and inspected rendered JPEGs.
+
 ## 2026-11-18 13:07 — tobacco-mixer-3d v2: working center cap, 3D Anatomy tour, pedal drive & fibrous tobacco bed
 Added center twist-lock Sample Inspection Cap (`08`) with animated 8-clamp vault door interlock, deformable circular-segment *tembakau rajangan* bulk bed + 2,200 strands + rising *keranjang* dump pile, seated 180 W foot-pedal drive (`human-pedal`), `Box3`-centered 3D Anatomy Tour (`01`–`11` + 171 cm scale), fixed stationary cutaway shell + all 5 POV cameras, and interactive tilt-wheel jog controls. Verified 0 console errors at 1440×900, 390×844, and `file://` standalone.
 

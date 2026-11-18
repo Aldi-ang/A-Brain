@@ -128,8 +128,47 @@ try {
   await send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
   await sleep(1600);
 
-  // 1. Overview POV
+  // 1. Overview POV + real 3D hover & press test
   await shot("shot-pc-overview");
+
+  let hoverHit = null;
+  for (const [hx, hy] of [
+    [545, 450],
+    [520, 460],
+    [580, 440],
+    [490, 490],
+  ]) {
+    await send("Input.dispatchMouseEvent", { type: "mouseMoved", x: hx, y: hy });
+    await sleep(150);
+    const tip = await evalJs(`(() => {
+      const el = document.getElementById('hover-tip');
+      return { visible: !!el && !el.hidden, text: el?.textContent?.trim() || '' };
+    })()`);
+    if (tip?.visible) {
+      hoverHit = { x: hx, y: hy, ...tip };
+      break;
+    }
+  }
+  console.log("3D Hover test:", hoverHit);
+  if (!hoverHit?.visible) errors.push("3D hover tooltip failed to appear over machine");
+  await shot("shot-pc-hover-highlight");
+
+  if (hoverHit) {
+    await send("Input.dispatchMouseEvent", { type: "mousePressed", x: hoverHit.x, y: hoverHit.y, button: "left", clickCount: 1 });
+    await send("Input.dispatchMouseEvent", { type: "mouseReleased", x: hoverHit.x, y: hoverHit.y, button: "left", clickCount: 1 });
+    await sleep(160);
+    const pressCheck = await evalJs(`({
+      cardVisible: !document.getElementById('piece-card')?.hidden,
+      title: document.getElementById('pc-title')?.textContent
+    })`);
+    console.log("3D Click/Press highlight test:", pressCheck);
+    if (!pressCheck?.cardVisible) errors.push("3D click failed to open piece card");
+    await evalJs(`(() => {
+      document.getElementById('pc-close').click();
+      if (document.getElementById('btn-lid')?.textContent.includes('Close')) document.getElementById('btn-lid').click();
+    })()`);
+    await send("Input.dispatchMouseEvent", { type: "mouseMoved", x: 10, y: 10 });
+  }
 
   // 2. Inside Flights POV (realistic fibrous rajangan bed + glowing helical flights)
   await evalJs(`document.querySelector('[data-cam="cutaway"]').click()`);
@@ -199,6 +238,22 @@ try {
     document.getElementById('btn-anat-theme').click();
   })()`);
   await sleep(500);
+  const anatRowRect = await evalJs(`(() => {
+    const el = document.querySelector('[data-anat-row="08"]');
+    el?.scrollIntoView({ block: 'center', behavior: 'instant' });
+    const r = el?.getBoundingClientRect();
+    return r ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : null;
+  })()`);
+  if (anatRowRect) {
+    await send("Input.dispatchMouseEvent", { type: "mouseMoved", x: anatRowRect.x, y: anatRowRect.y });
+    await sleep(120);
+  }
+  const anatHoverOk = await evalJs(`({
+    rowHover: document.querySelector('[data-anat-row="08"]')?.classList.contains('is-hover'),
+    svgHover: document.querySelector('[data-part="08"]')?.classList.contains('is-hover')
+  })`);
+  console.log("Anatomy bidirectional hover test:", anatHoverOk);
+  if (!anatHoverOk?.rowHover || !anatHoverOk?.svgHover) errors.push("Anatomy bidirectional hover failed");
   await shot("shot-pc-anatomy-light");
 
   await evalJs(`document.querySelector('[data-tab="bom"]').click()`);
