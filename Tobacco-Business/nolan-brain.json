@@ -2,12 +2,13 @@
   "agentName": "Nolan",
   "version": "1.0.0",
   "accountEmail": "adikaryasukses99@gmail.com",
-  "lastUpdated": "2026-11-17T01:17:38.353Z",
+  "lastUpdated": "2026-11-18T03:06:17.845Z",
   "githubRepo": "Aldi-ang/A-Brain",
   "githubBranch": "main",
   "githubFilePath": "Tobacco-Business/nolan-brain.json",
   "autoSyncGithub": true,
   "learnedRules": [
+    "Setiap input pembelian wajib menyertakan berat bersih dan HPP riil guna memastikan validasi margin profit pabrik.",
     "Setiap entri pembelian harus menyertakan berat bersih dan HPP riil untuk memastikan validasi margin profit yang akurat.",
     "Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.",
     "Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.",
@@ -18,6 +19,13 @@
     "Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan."
   ],
   "decisionEpisodes": [
+    {
+      "id": "ep-1794971177845",
+      "timestamp": "2026-11-18T03:06:17.845Z",
+      "type": "RAW_PURCHASE",
+      "summary": "Stok Mentah Baru: Tembakau Temanggung Srintil (Grade E Super) (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg",
+      "learnedTakeaway": "Data pembelian mentah tanpa berat bersih dan HPP akurat mengakibatkan kegagalan kalkulasi margin profit yang krusial."
+    },
     {
       "id": "ep-1794878258352",
       "timestamp": "2026-11-17T01:17:38.352Z",
@@ -240,7 +248,7 @@
       "notes": "Siap menerima pengiriman gulungan sampel baru."
     }
   ],
-  "lastSyncedToGithub": "2026-11-17T01:17:38.363Z",
+  "lastSyncedToGithub": "2026-11-18T03:06:17.864Z",
   "latestWarehouseSnapshot": {
     "rawCount": 4,
     "totalRawNetKg": 560,
