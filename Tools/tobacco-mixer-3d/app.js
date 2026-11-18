@@ -79,50 +79,65 @@ function showPieceCard(id) {
   document.getElementById("pc-isolate").classList.toggle("is-active", appState.isolateMode);
 }
 
-// Mount 3D Simulator
+// Mount 3D Simulator with defensive WebGL guard
 const canvasHost = document.getElementById("canvas-host");
-const sim = createMixerSimulation(canvasHost, {
-  onPartSelect: (id) => showPieceCard(id),
-  onPartHover: (hit) => {
-    if (!hit || !hit.info) {
-      hoverTipId = null;
-      hoverTip.hidden = true;
-      return;
-    }
-    if (hoverTipId !== hit.id) {
-      hoverTipId = hit.id;
-      tipIdEl.textContent = hit.id === "human" ? "SCALE 171 CM" : `PART ${hit.id}`;
-      tipNameEl.textContent = hit.info.name;
-      tipHintEl.textContent = INTERACTIVE_HINT[hit.id] || "Click to inspect specs";
-    }
-    const w = canvasHost.clientWidth || 640;
-    const h = canvasHost.clientHeight || 440;
-    const tx = Math.max(12, Math.min(w - 256, hit.x + 16));
-    const ty = Math.max(64, Math.min(h - 78, hit.y - 52));
-    hoverTip.style.transform = `translate(${Math.round(tx)}px, ${Math.round(ty)}px)`;
-    hoverTip.hidden = false;
-  },
-  onPartAction: (id) => {
-    // Real interactive 3D clicking on parts!
-    if (id === "08") {
-      appState.sampleCapOpen = !appState.sampleCapOpen;
-      updateControlButtons();
-      syncSimulation();
-    } else if (id === "07") {
-      appState.lidOpen = !appState.lidOpen;
-      updateControlButtons();
-      syncSimulation();
-    } else if (id === "03" && !appState.tourActive) {
-      const nextTilt = appState.tiltDeg < 10 ? 25 : appState.tiltDeg < 30 ? 32 : -12;
-      setTilt(nextTilt);
-    }
-  },
-  onMetrics: ({ mixPct }) => {
-    appState.mixPct = mixPct;
-    const el = document.getElementById("m-mix");
-    if (el) el.textContent = `${mixPct}%`;
-  },
-});
+const stageStatus = document.getElementById("stage-status");
+let sim = null;
+try {
+  sim = createMixerSimulation(canvasHost, {
+    onPartSelect: (id) => showPieceCard(id),
+    onPartHover: (hit) => {
+      if (!hit || !hit.info) {
+        hoverTipId = null;
+        hoverTip.hidden = true;
+        return;
+      }
+      if (hoverTipId !== hit.id) {
+        hoverTipId = hit.id;
+        tipIdEl.textContent = hit.id === "human" ? "SCALE 171 CM" : `PART ${hit.id}`;
+        tipNameEl.textContent = hit.info.name;
+        tipHintEl.textContent = INTERACTIVE_HINT[hit.id] || "Click to inspect specs";
+      }
+      const w = canvasHost.clientWidth || 640;
+      const h = canvasHost.clientHeight || 440;
+      const tx = Math.max(12, Math.min(w - 256, hit.x + 16));
+      const ty = Math.max(64, Math.min(h - 78, hit.y - 52));
+      hoverTip.style.transform = `translate(${Math.round(tx)}px, ${Math.round(ty)}px)`;
+      hoverTip.hidden = false;
+    },
+    onPartAction: (id) => {
+      if (id === "08") {
+        appState.sampleCapOpen = !appState.sampleCapOpen;
+        updateControlButtons();
+        syncSimulation();
+      } else if (id === "07") {
+        appState.lidOpen = !appState.lidOpen;
+        updateControlButtons();
+        syncSimulation();
+      } else if (id === "03" && !appState.tourActive) {
+        const nextTilt = appState.tiltDeg < 10 ? 25 : appState.tiltDeg < 30 ? 32 : -12;
+        setTilt(nextTilt);
+      }
+    },
+    onMetrics: ({ mixPct }) => {
+      appState.mixPct = mixPct;
+      const el = document.getElementById("m-mix");
+      if (el) el.textContent = `${mixPct}%`;
+    },
+    onContextLost: () => {
+      if (stageStatus) {
+        stageStatus.textContent = "3D WebGL context paused by browser — reload tab to restore.";
+        stageStatus.hidden = false;
+      }
+    },
+  });
+  if (stageStatus) stageStatus.hidden = true;
+} catch (err) {
+  if (stageStatus) {
+    stageStatus.textContent = `3D unavailable (${err?.message || "WebGL error"}). Anatomy & Physics tabs active.`;
+    stageStatus.hidden = false;
+  }
+}
 
 function setTilt(deg) {
   appState.tiltDeg = Math.max(-15, Math.min(35, deg));
@@ -146,7 +161,7 @@ function syncSimulation() {
     throttle: appState.throttle,
   });
 
-  sim.applyState({
+  sim?.applyState({
     driveId: appState.driveId,
     gearId: appState.gearId,
     drumRpm: simOut.drumRpm,
@@ -259,7 +274,7 @@ document.querySelectorAll("[data-batch]").forEach((btn) => {
     appState.batchKg = Number(btn.dataset.batch);
     document.getElementById("sl-batch").value = String(appState.batchKg);
     document.getElementById("val-batch").textContent = `${appState.batchKg} kg`;
-    sim.resetTobaccoBatch(appState.batchKg);
+    sim?.resetTobaccoBatch(appState.batchKg);
     updateControlButtons();
     syncSimulation();
   });
@@ -323,7 +338,7 @@ document.getElementById("btn-run").addEventListener("click", () => {
   syncSimulation();
 });
 document.getElementById("btn-reset-batch").addEventListener("click", () => {
-  sim.resetTobaccoBatch(appState.batchKg);
+  sim?.resetTobaccoBatch(appState.batchKg);
 });
 
 // Camera POV presets (smooth animated glide + smart defaults)
@@ -331,7 +346,7 @@ document.querySelectorAll("[data-cam]").forEach((btn) => {
   btn.addEventListener("click", () => {
     appState.tourActive = false;
     appState.activeCam = btn.dataset.cam;
-    sim.clearPartFocus();
+    sim?.clearPartFocus();
     pieceCard.hidden = true;
     if (appState.activeCam === "cutaway" && !appState.cutaway) {
       appState.cutaway = true;
@@ -340,7 +355,7 @@ document.querySelectorAll("[data-cam]").forEach((btn) => {
       setTilt(-12);
     }
     appState.showRuler = appState.activeCam === "overview";
-    sim.setCameraPreset(appState.activeCam);
+    sim?.setCameraPreset(appState.activeCam);
     updateControlButtons();
     syncSimulation();
   });
@@ -356,15 +371,15 @@ function startOrToggle3DTour() {
     document.getElementById("sl-explode").value = String(Math.round(appState.explode * 100));
     document.getElementById("val-explode").textContent = `${Math.round(appState.explode * 100)}%`;
     syncSimulation();
-    sim.focusPart(startId, { glideCamera: true, isolate: appState.isolateMode });
+    sim?.focusPart(startId, { glideCamera: true, isolate: appState.isolateMode });
   } else {
     appState.explode = 0;
     appState.showRuler = appState.activeCam === "overview";
     document.getElementById("sl-explode").value = "0";
     document.getElementById("val-explode").textContent = "0%";
-    sim.clearPartFocus();
+    sim?.clearPartFocus();
     pieceCard.hidden = true;
-    sim.setCameraPreset(appState.activeCam);
+    sim?.setCameraPreset(appState.activeCam);
     syncSimulation();
   }
   updateControlButtons();
@@ -376,18 +391,18 @@ document.getElementById("btn-tour-rail").addEventListener("click", startOrToggle
 function stepPiece(delta) {
   const idx = Math.max(0, PIECE_ORDER.indexOf(appState.selectedPartId || "01"));
   const nextId = PIECE_ORDER[(idx + delta + PIECE_ORDER.length) % PIECE_ORDER.length];
-  sim.focusPart(nextId, { glideCamera: true, isolate: appState.isolateMode });
+  sim?.focusPart(nextId, { glideCamera: true, isolate: appState.isolateMode });
 }
 document.getElementById("pc-prev").addEventListener("click", () => stepPiece(-1));
 document.getElementById("pc-next").addEventListener("click", () => stepPiece(1));
 document.getElementById("pc-isolate").addEventListener("click", () => {
   appState.isolateMode = !appState.isolateMode;
-  if (appState.selectedPartId) sim.focusPart(appState.selectedPartId, { glideCamera: false, isolate: appState.isolateMode });
+  if (appState.selectedPartId) sim?.focusPart(appState.selectedPartId, { glideCamera: false, isolate: appState.isolateMode });
   document.getElementById("pc-isolate").classList.toggle("is-active", appState.isolateMode);
 });
 document.getElementById("pc-close").addEventListener("click", () => {
   appState.tourActive = false;
-  sim.clearPartFocus();
+  sim?.clearPartFocus();
   pieceCard.hidden = true;
   updateControlButtons();
 });

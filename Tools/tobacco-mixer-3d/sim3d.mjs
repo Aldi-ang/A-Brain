@@ -291,11 +291,11 @@ function hash01(seed) {
 }
 
 /**
- * High-res (1536x1536) organic fibrous shredded tobacco ("tembakau rajangan")
+ * High-res (1024x1024) organic fibrous shredded tobacco ("tembakau rajangan")
  * color + bump texture pair using SplitMix32 hash PRNG (zero lattice stripes).
  */
 function createTobaccoBedTexture(anisotropy = 8) {
-  const SIZE = 1536;
+  const SIZE = 1024;
   const c = document.createElement("canvas");
   c.width = SIZE;
   c.height = SIZE;
@@ -315,12 +315,12 @@ function createTobaccoBedTexture(anisotropy = 8) {
   bumpTex.wrapS = bumpTex.wrapT = THREE.RepeatWrapping;
   bumpTex.anisotropy = anisotropy;
 
-  const shreds = Array.from({ length: 18000 }, (_, i) => ({
+  const shreds = Array.from({ length: 10000 }, (_, i) => ({
     u: hash01(i * 11 + 1) * SIZE,
     v: hash01(i * 11 + 2) * SIZE,
     bandSpread: (hash01(i * 11 + 3) - 0.12) * (SIZE * 0.44),
-    len: 10 + hash01(i * 11 + 4) * 20,
-    wid: 1.6 + hash01(i * 11 + 5) * 2.4,
+    len: 8 + hash01(i * 11 + 4) * 16,
+    wid: 1.4 + hash01(i * 11 + 5) * 2.0,
     ang: hash01(i * 11 + 6) * Math.PI * 2,
     orig: i % 3,
     jitter: hash01(i * 11 + 7),
@@ -455,7 +455,8 @@ function makeScaleRulerSprite(label, color = "#d99b38") {
   const ctx = c.getContext("2d");
   ctx.fillStyle = "rgba(15,17,21,0.94)";
   ctx.beginPath();
-  ctx.roundRect(16, 32, 992, 192, 34);
+  if (typeof ctx.roundRect === "function") ctx.roundRect(16, 32, 992, 192, 34);
+  else ctx.rect(16, 32, 992, 192);
   ctx.fill();
   ctx.strokeStyle = color;
   ctx.lineWidth = 9;
@@ -476,25 +477,54 @@ function makeScaleRulerSprite(label, color = "#d99b38") {
   return sprite;
 }
 
-export function createMixerSimulation(container, { onPartSelect, onPartAction, onPartHover, onMetrics } = {}) {
+function createSafeRenderer() {
+  for (const opts of [
+    { antialias: true, powerPreference: "high-performance" },
+    { antialias: false, powerPreference: "default" },
+  ]) {
+    try {
+      return new THREE.WebGLRenderer(opts);
+    } catch {
+      // Retry with conservative context options for embedded webviews
+    }
+  }
+  throw new Error("WebGL context could not be initialized in this browser.");
+}
+
+export function createMixerSimulation(
+  container,
+  { onPartSelect, onPartAction, onPartHover, onMetrics, onContextLost } = {}
+) {
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x0f1115);
   scene.fog = new THREE.FogExp2(0x0f1115, 0.036);
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2.5));
+  const renderer = createSafeRenderer();
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.18;
   container.appendChild(renderer.domElement);
+  renderer.domElement.addEventListener("webglcontextlost", (e) => {
+    e.preventDefault();
+    if (onContextLost) onContextLost();
+  });
 
   const maxAniso = Math.min(8, renderer.capabilities.getMaxAnisotropy() || 4);
 
-  // Physically based workshop reflections (stainless steel, brass gears, tire bands)
-  const pmrem = new THREE.PMREMGenerator(renderer);
-  const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-  scene.environment = envTex;
+  // Physically based workshop reflections (guarded if float PMREM fails on older GPUs)
+  let pmrem = null;
+  let envTex = null;
+  try {
+    pmrem = new THREE.PMREMGenerator(renderer);
+    envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environment = envTex;
+  } catch {
+    pmrem?.dispose();
+    pmrem = null;
+    envTex = null;
+  }
 
   const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 45);
   camera.position.set(-3.95, 2.52, 4.45);
@@ -2089,8 +2119,8 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
       cancelAnimationFrame(rafId);
       ro.disconnect();
       controls.dispose();
-      pmrem.dispose();
-      envTex.dispose();
+      pmrem?.dispose();
+      envTex?.dispose();
       renderer.dispose();
       if (renderer.domElement.parentNode === container) container.removeChild(renderer.domElement);
     },

@@ -12,6 +12,9 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-11-18 15:05 — tobacco-mixer-3d v4.1: cache-busted IIFE bundle, WebGL fallback & loading guard live
+Fixed blank canvas / stuck placeholder telemetry (`10.56` + `Optimal Cascading · Safe`) caused by stale un-hashed `bundle.js` caching / `type="module"` or embedded-webview WebGL failure. Switched `build.mjs` to content-hashed IIFE assets (`bundle.0c5f5b81.js`, `styles.4fee8e1c.css`) + `dist/_headers` (`must-revalidate` HTML, immutable hashed assets), added visible `#stage-status` loading/error overlay, `createSafeRenderer()` conservative WebGL fallback + guarded `PMREMGenerator` / `ctx.roundRect`, and dropped bed canvas texture to `1024×1024` for fast startup. Deployed live to Netlify (`6afd5c12f1f3f09cd0adb1e5`, 5 header rules + 4 files verified live).
+
 ## 2026-11-18 14:33 — tobacco-mixer-3d v4: hollow exterior 144T roller-chain ring, connected drivetrain, helical flight cascade & Netlify deploy
 Replaced the solid interior ring gear bug (`curveSegments: 1` flat disc) with a 100% hollow exterior welded RS-60 roller-chain band (`144` external chain pins around barrel skin), bolted twin-bearing `12T` pinion + `30T` sprocket + animated `#50` drive chain (`makeChainDriveLoop`) + `90°` bevel hand crank + vertical cycling-plane pedal frame with live tilt-tracking chain + inline coupled 3 HP/GX160 drive. Upgraded `stepTobaccoParticles` (`2,600` clusters) for helical blade capture/11-o'clock waterfall release, `-12°` mouth pour surge, and moved *keranjang* to `z = 1.54` clearing skid bar. Deployed live to Netlify (`https://tobacco-mixer-3d-by-aldi.netlify.app`, deploy `6afd553fb883c0ba46f08b2f`); verified `physics.test.mjs` 7/7 + 0 console errors in Chrome.
 
