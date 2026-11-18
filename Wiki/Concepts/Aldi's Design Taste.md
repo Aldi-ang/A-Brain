@@ -3883,3 +3883,12 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 - He wants the USER to decide what is compared, not the app. The old list paired each rival with "our nearest Cello" automatically; the new card has two pickers (ours left, rival right) and nothing is locked.
 - Read as: our product always sits on the left (our side) and holds the gold edge; the rival is on the right in rust. "All control is on our side" may also mean something else - asked him, waiting.
 - A picker must show the FULL name: on the phone a native select cut "Cello Coffee & Cara". Fixed by showing the name as wrapping text with an invisible select over it (tap the name to change it).
+
+## 2026-11-19 (later) - Comparisons are paired BY US, and rivals get categories
+
+> *"i feels like this comparison also need to be added by us because we are the only one who knows which of our product that is can be compared with what product this way our comparison can be apple to apple"*
+> *"since this app is not only for cigarettes then we should be more general on this, my recommendations is that u need to make features to add category for the competitor product"*
+
+- Correction to the morning reading: "the user decides" meant the COMPANY decides the pairs, not each salesman on the spot. Free pairing was too loose for him.
+- Like-with-like is the rule: a rival is compared only with a Cello product in the same category. The picture makes a cross-category pair impossible, not just discouraged.
+- Keep it general: categories are data he adds, never a fixed cigarette list (the app is not only for cigarettes). Category names stay his (see the law on naming his trade's categories).
