@@ -1,7 +1,7 @@
 ---
 title: "Customers screen - three concepts (A sheet, B visit board, C area tree)"
 created: 2026-11-18
-status: OPEN — waiting on Aldi
+status: DECIDED 2026-11-18 - C (area tree)
 ---
 # Customers screen - three concepts
 
@@ -17,7 +17,7 @@ status: OPEN — waiting on Aldi
 
 **COSTS:** A = most data per screen, least "visual"; closest to a spreadsheet. B = action-first, but finding one shop by name needs search; 527 "Fine" shops hide in one column. C = matches the folders he already uses, but two clicks to a shop.
 
-**DECISION:** OPEN — waiting on Aldi. Mixing is possible (e.g. C's tree on the left of A's sheet).
+**DECISION (2026-11-18):** C, the area tree - his words *"c looks the best"*, after board v2 showed every feature in all three (https://claude.ai/artifact/LMBj8wJEqRe5ryrpqe5F3N).
 
 **REJECTED ON PURPOSE:** the same master-detail as Receivables/Reports (his "standardised"); a map as the directory (Map System is its own segment).
 
