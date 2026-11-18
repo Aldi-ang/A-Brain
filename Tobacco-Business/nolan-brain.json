@@ -2,12 +2,13 @@
   "agentName": "Nolan",
   "version": "1.0.0",
   "accountEmail": "adikaryasukses99@gmail.com",
-  "lastUpdated": "2026-11-18T03:27:43.898Z",
+  "lastUpdated": "2026-11-18T03:28:41.391Z",
   "githubRepo": "Aldi-ang/A-Brain",
   "githubBranch": "main",
   "githubFilePath": "Tobacco-Business/nolan-brain.json",
   "autoSyncGithub": true,
   "learnedRules": [
+    "Input pembelian wajib menyertakan berat bersih dan HPP riil guna memastikan validasi margin profit pabrik.",
     "Setiap entri pembelian wajib menyertakan berat bersih dan HPP riil untuk validasi profitabilitas yang akurat.",
     "Input pembelian mentah wajib mencantumkan berat bersih dan HPP riil sebelum divalidasi ke dalam stok.",
     "Setiap entri pembelian mentah wajib mencantumkan berat bersih dan HPP riil untuk validasi profitabilitas.",
@@ -22,6 +23,13 @@
     "Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan."
   ],
   "decisionEpisodes": [
+    {
+      "id": "ep-1794972521391",
+      "timestamp": "2026-11-18T03:28:41.391Z",
+      "type": "RAW_PURCHASE",
+      "summary": "Stok Mentah Baru: MTL Tes Merah (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg",
+      "learnedTakeaway": "Data pembelian mentah tanpa berat bersih dan HPP tidak dapat divalidasi dan merusak kalkulasi margin keuntungan pabrik."
+    },
     {
       "id": "ep-1794972463897",
       "timestamp": "2026-11-18T03:27:43.897Z",
@@ -272,7 +280,7 @@
       "notes": "Siap menerima pengiriman gulungan sampel baru."
     }
   ],
-  "lastSyncedToGithub": "2026-11-18T03:27:43.910Z",
+  "lastSyncedToGithub": "2026-11-18T03:28:41.398Z",
   "latestWarehouseSnapshot": {
     "rawCount": 4,
     "totalRawNetKg": 560,
