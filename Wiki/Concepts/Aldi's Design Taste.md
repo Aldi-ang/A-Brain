@@ -3875,3 +3875,11 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 
 - A feature he calls "very important" gets its own section with its own UI, not a card next to the facts. In Customers C the shop now has three tabs: Shop info / Location (big GPS map + Street View, copy GPS, directions) / Competitor intelligence (summary, rival vs our nearest Cello price bars, shelf + promo + selling speed, dated history).
 - Shop info keeps a one-line glance of the other two (tap to jump), so nothing is hidden.
+
+## 2026-11-19 - Customers: side-by-side compare, the user picks both sides
+
+> *"add some comparison features maybe side by side, we can choose one of our competitor products and it shows comparison of our choosen product so the one who decide what compare of what is the users and make it ergoomics and easy to use and see and make sure that all control is on our side"*
+
+- He wants the USER to decide what is compared, not the app. The old list paired each rival with "our nearest Cello" automatically; the new card has two pickers (ours left, rival right) and nothing is locked.
+- Read as: our product always sits on the left (our side) and holds the gold edge; the rival is on the right in rust. "All control is on our side" may also mean something else - asked him, waiting.
+- A picker must show the FULL name: on the phone a native select cut "Cello Coffee & Cara". Fixed by showing the name as wrapping text with an invisible select over it (tap the name to change it).
