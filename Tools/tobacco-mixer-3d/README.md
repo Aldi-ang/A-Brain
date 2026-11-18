@@ -21,3 +21,6 @@ node Tools/tobacco-mixer-3d/physics.test.mjs
 node Tools/tobacco-mixer-3d/build.mjs
 node Tools/tobacco-mixer-3d/verify-render.mjs
 ```
+
+- **Offline / double-click:** open `Tools/tobacco-mixer-3d/dist/tobacco-mixer-3d-standalone.html` directly in any browser (`file://`).
+- **Shareable public link:** run `vercel login` then `vercel deploy Tools/tobacco-mixer-3d/dist --prod --yes` (or drop `dist/` onto `app.netlify.com/drop`).

@@ -90,7 +90,8 @@ const errors = [];
 ws.addEventListener("message", (ev) => {
   const msg = JSON.parse(ev.data);
   if (msg.method === "Runtime.exceptionThrown") {
-    errors.push(msg.params.exceptionDetails.text || JSON.stringify(msg.params));
+    const d = msg.params.exceptionDetails;
+    errors.push(d.exception?.description || d.text || JSON.stringify(d));
   }
   if (msg.method === "Console.messageAdded" && msg.params.message.level === "error") {
     errors.push(msg.params.message.text);
@@ -185,6 +186,7 @@ try {
   // 7. Mobile 390x844 check
   await send("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
   await send("Emulation.setTouchEmulationEnabled", { enabled: true, maxTouchPoints: 5 });
+  await sleep(250);
   await evalJs(`(() => {
     const exp = document.getElementById('sl-explode');
     exp.value = '0';
@@ -203,6 +205,17 @@ try {
   })`);
   console.log("Mobile 390 check:", mobileMetrics);
   await shot("shot-phone-sim");
+
+  // 8. Standalone single-file HTML via file:// (works offline without any server)
+  const standaloneUrl = "file:///" + join(DIST, "tobacco-mixer-3d-standalone.html").replace(/\\/g, "/");
+  await send("Page.navigate", { url: standaloneUrl });
+  await sleep(1000);
+  const fileCheck = await evalJs(`(() => ({
+    hasCanvas: !!document.querySelector('#canvas-host canvas'),
+    rpm: document.getElementById('m-rpm')?.textContent
+  }))()`);
+  console.log("Standalone file:// check:", fileCheck);
+  if (!fileCheck?.hasCanvas) errors.push("Standalone file:// failed to mount WebGL canvas");
 
   console.log("Console/Runtime errors:", errors.length, errors);
   if (errors.length > 0) process.exitCode = 1;
