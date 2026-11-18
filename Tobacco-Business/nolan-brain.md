@@ -2,7 +2,7 @@
 
 - **Agent Name:** Nolan
 - **Account:** `adikaryasukses99@gmail.com`
-- **Last Updated:** 2026-11-18T03:06:17.845Z
+- **Last Updated:** 2026-11-18T03:25:27.555Z
 - **Repository:** `Aldi-ang/A-Brain` (`main`)
 
 ## 📊 Live Warehouse & Profit Snapshot
@@ -13,16 +13,17 @@
 - **Total Finished Serials:** 7 seri (Accepted: 4, Rejected: 1)
 - **Projected Factory Profit (Accepted):** Rp 6.562.485
 
-## 🎯 Learned Blending Rules & Heuristics (9)
-1. Setiap input pembelian wajib menyertakan berat bersih dan HPP riil guna memastikan validasi margin profit pabrik.
-2. Setiap entri pembelian harus menyertakan berat bersih dan HPP riil untuk memastikan validasi margin profit yang akurat.
-3. Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.
-4. Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.
-5. Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.
-6. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
-7. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
-8. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
-9. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
+## 🎯 Learned Blending Rules & Heuristics (10)
+1. Setiap entri pembelian mentah wajib mencantumkan berat bersih dan HPP riil untuk validasi profitabilitas.
+2. Setiap input pembelian wajib menyertakan berat bersih dan HPP riil guna memastikan validasi margin profit pabrik.
+3. Setiap entri pembelian harus menyertakan berat bersih dan HPP riil untuk memastikan validasi margin profit yang akurat.
+4. Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.
+5. Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.
+6. Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.
+7. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
+8. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
+9. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
+10. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
 
 ## 🏭 Factory Profiles & Preferences
 ### CELLO MUNTILAN
@@ -54,6 +55,8 @@
 - **Notes:** Siap menerima pengiriman gulungan sampel baru.
 
 ## 📜 Recent Decision & Learning Episodes
+- **[2026-11-18] (RAW_PURCHASE)** Stok Mentah Baru: MTL Tes Merah (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
+  - *Takeaway:* Input pembelian tanpa berat bersih dan HPP riil membuat perhitungan margin profit pabrik tidak dapat divalidasi.
 - **[2026-11-18] (RAW_PURCHASE)** Stok Mentah Baru: Tembakau Temanggung Srintil (Grade E Super) (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
   - *Takeaway:* Data pembelian mentah tanpa berat bersih dan HPP akurat mengakibatkan kegagalan kalkulasi margin profit yang krusial.
 - **[2026-11-17] (RAW_PURCHASE)** Stok Mentah Baru: Muntilan (Muntilan) [Grade D] • Netto 0 kg • HPP Rp 0/kg
