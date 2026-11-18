@@ -3852,3 +3852,11 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 
 - Options in words do not reach him; drawn and playable they do - and then he often keeps the plainer one (same as the Surat Jalan pick).
 - On a debt screen WHO is responsible is a first-class fact: a Salesman column in the list and a "Responsible: <name>" chip on the shop, not a grey word in a sub-line.
+
+## 2026-11-18 - Reports: "keep this UI", and no profit figure
+
+> *"we have no information on calculating profit here only omset which is revenue but overall it looks great tho, make sure u keep this UI and make sure that all the previous information available on game version also available here"*
+
+- The playable Reports picture (https://claude.ai/artifact/S11MofDxEps7oMtX6GRoJq, kpm `.claude/drafts/reports-live.html`) is APPROVED as the look: one dense KPI strip, ledger by day, receipt in hand, rolling digits, self-drawing check, built-in confirm boxes, owner/regional/salesman views. "More professional and minimalistic but contained a lot of information" = many facts, few words, each fact in its own small cell.
+- **Never show profit / cuan / margin anywhere.** The app keeps no real cost price, so a profit number is invented. The money word on report screens is **Omset** (his word). The old screen's "Net Profit (Cuan)" tile goes.
+- A redesign is not allowed to lose anything: every element of the old ("game version") screen must still be reachable - checked against Antigravity's element map (Task 24) before showing him.
