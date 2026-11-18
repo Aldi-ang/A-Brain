@@ -3,9 +3,9 @@ title: "Alucard in Antigravity"
 description: How Alucard, his Claude Code skills and A-Brain memory are loaded into every Google Antigravity chat - the a-brain plugin, what ports, what does not, and how to check it fired.
 type: concept
 created: 2026-11-10
-updated: 2026-11-10
+updated: 2026-11-18
 confidence: certain
-checked: 2026-11-10
+checked: 2026-11-18
 tags: [antigravity, alucard, skills, memory, setup]
 ---
 
@@ -32,6 +32,15 @@ Fixed in the plugin rule: **a workspace's own role file outranks Alucard**, with
 
 **Decided 2026-11-10 07:00 WIB.** Asked "partner or full Alucard lead in kpm?", his answer: *"Keep partner"*. Do not
 re-propose Antigravity as kpm lead (REJECTED ON PURPOSE: two writers on PROGRESS.md / NEXT-SESSION.md).
+
+**Changed by HIM, 2026-11-18 09:23 WIB, for a fixed time:** *"i think we should start using alucard inside the
+antigravity until saturday because the weekly quota in here is almost depleted"*. New fact: Claude's weekly quota.
+Antigravity is the kpm LEAD until Saturday 2026-11-21 23:59 WIB - terms in kpm `GEMINI.md` (OVERRIDE block, 5b05f994)
+and one exception line in `plugins/a-brain/rules/AGENTS.md` (test.mjs still all pass). The two-writer risk is handled
+by time, not by sharing: Claude does no kpm work until then unless he starts it. Kept on purpose: it pushes ONLY when
+he says "push" for that change (Task 57's crash passed every gate and only a second reviewer caught it; his word is
+the second look while Claude is away). After the date the block is void and Claude reads Antigravity's PROGRESS
+entries first.
 
 ## What was built
 
