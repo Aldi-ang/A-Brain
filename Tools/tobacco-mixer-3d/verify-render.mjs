@@ -246,10 +246,16 @@ try {
   if (!tourInfo.visible) errors.push("3D Anatomy piece card failed to open");
   await shot("shot-3d-anatomy-tour");
 
-  // 7. Test 1P Pedal Drive mode + Anatomy Tab + Light Theme + BOM Matrix
+  // 7. Test 1P Pedal Drive mode + capture sejajar pedal drive 3D shot + Anatomy Tab + Light Theme + BOM Matrix
   await evalJs(`(() => {
     document.getElementById('pc-close').click();
     document.querySelector('[data-drive="human-pedal"]').click();
+    document.querySelector('[data-cam="gearbox"]').click();
+  })()`);
+  await sleep(950);
+  await shot("shot-pc-pedal-drive");
+
+  await evalJs(`(() => {
     document.querySelector('[data-tab="anatomy"]').click();
     document.getElementById('btn-anat-next').click();
     document.getElementById('btn-anat-theme').click();

@@ -1137,10 +1137,9 @@ export function createMixerSimulation(
   couplingHub.position.set(0, 0, -0.19);
   g10.add(couplingHub);
 
-  // Pedal Input Sprocket coaxial on bevel cross-shaft
-  const bevelPedalSprocket = makeGearMesh(18, 0.065, 0.018, matDefs.brass, 0.022);
-  bevelPedalSprocket.rotation.y = Math.PI / 2;
-  bevelPedalSprocket.position.set(-0.25, 0.0, 0.08);
+  // Coplanar ("Sejajar") Gearbox Pedal Input Sprocket on Z-shaft (parallel to all mixer gears!)
+  const bevelPedalSprocket = makeGearMesh(18, 0.068, 0.022, matDefs.brass, 0.022);
+  bevelPedalSprocket.position.set(0, 0, 0.14);
   g10.add(bevelPedalSprocket);
   cradlePivot.add(registerPart(g10, "10"));
 
@@ -1211,43 +1210,155 @@ export function createMixerSimulation(
   crankTwin.visible = false;
   crankPivot.add(crankTwin);
 
-  // Seated Bicycle Pedal Frame anchored to floor + vertical cycling plane + live taut drive chain!
+  // =========================================================================
+  // SEJAJAR (COPLANAR) BICYCLE PEDAL ERGONOMIC FRAME + JACKSHAFT + CHAIN LOOP
+  // All sprockets (pedalWheel, jackSprocket, gearbox, pinion, 144T ring) have
+  // parallel Z-axes and coplanar X-Y roller chains; bolted to mixer skid g01!
+  // =========================================================================
+  const BIKE_Z = -0.16;
+  const PEDAL_R = 0.165;
   const pedalModule = new THREE.Group();
-  pedalModule.position.set(-1.62, 0, -0.18);
-  const seatPost = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.03, 0.86, 12), matDefs.steelFrame);
-  seatPost.position.set(-0.28, 0.43, 0);
-  seatPost.rotation.z = -0.16;
-  pedalModule.add(seatPost);
-  const baseBar = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.05, 0.24), matDefs.steelFrame);
-  baseBar.position.set(-0.08, 0.025, 0);
-  pedalModule.add(baseBar);
-  const seatBase = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.06, 0.24), matDefs.epdm);
-  seatBase.position.set(-0.36, 0.86, 0);
-  pedalModule.add(seatBase);
-  const bbStrut = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.54, 0.045), matDefs.steelFrame);
-  bbStrut.position.set(0.06, 0.28, 0);
-  bbStrut.rotation.z = -0.18;
-  pedalModule.add(bbStrut);
+  pedalModule.position.set(-1.62, 0, BIKE_Z);
 
+  // Twin horizontal UNP steel base rails bolted flush into mixer's left Base Skid (x = -1.18 -> +0.44 local)
+  for (const zRail of [-0.12, 0.12]) {
+    const rail = new THREE.Mesh(new THREE.BoxGeometry(0.92, 0.055, 0.055), matDefs.steelFrame);
+    rail.position.set(0.0, 0.055, zRail);
+    pedalModule.add(rail);
+    const gusset = new THREE.Mesh(new THREE.BoxGeometry(0.10, 0.11, 0.065), matDefs.darkIron);
+    gusset.position.set(0.42, 0.08, zRail);
+    pedalModule.add(gusset);
+  }
+  const rearCrossBar = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.055, 0.30), matDefs.steelFrame);
+  rearCrossBar.position.set(-0.43, 0.055, 0);
+  pedalModule.add(rearCrossBar);
+
+  // Triangulated tubular bicycle frame (seat tube, down tube, chainstays, head tube & handlebars)
+  const addBikeTube = (p0, p1, rad, mat) => {
+    const v0 = new THREE.Vector3(...p0);
+    const v1 = new THREE.Vector3(...p1);
+    const d = v1.clone().sub(v0);
+    const mesh = new THREE.Mesh(new THREE.CylinderGeometry(rad, rad, d.length(), 14), mat);
+    mesh.position.copy(v0).addScaledVector(d, 0.5);
+    mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.normalize());
+    pedalModule.add(mesh);
+    return mesh;
+  };
+
+  // Bottom bracket bearing shell (parallel to Z axis) at local (-0.04, 0.48, 0) -> world (-1.66, 0.48, -0.16)
+  const BB_LOCAL_X = -0.04;
+  const BB_LOCAL_Y = 0.48;
+  const bbShell = new THREE.Mesh(new THREE.CylinderGeometry(0.046, 0.046, 0.17, 20), matDefs.darkIron);
+  bbShell.rotation.x = Math.PI / 2;
+  bbShell.position.set(BB_LOCAL_X, BB_LOCAL_Y, 0);
+  pedalModule.add(bbShell);
+
+  // Frame triangle tubes bracing BB to base rails, saddle, handlebars, and mixer A-frame stanchion
+  addBikeTube([BB_LOCAL_X, 0.06, 0], [BB_LOCAL_X, BB_LOCAL_Y, 0], 0.026, matDefs.steelFrame);
+  addBikeTube([-0.40, 0.06, -0.09], [BB_LOCAL_X, BB_LOCAL_Y, -0.06], 0.018, matDefs.steelFrame);
+  addBikeTube([-0.40, 0.06, 0.09], [BB_LOCAL_X, BB_LOCAL_Y, 0.06], 0.018, matDefs.steelFrame);
+  addBikeTube([BB_LOCAL_X, BB_LOCAL_Y, 0], [-0.32, 0.84, 0], 0.025, matDefs.steelFrame); // Seat tube
+  addBikeTube([-0.40, 0.06, -0.09], [-0.28, 0.76, -0.04], 0.016, matDefs.steelFrame); // Left seatstay
+  addBikeTube([-0.40, 0.06, 0.09], [-0.28, 0.76, 0.04], 0.016, matDefs.steelFrame); // Right seatstay
+  addBikeTube([BB_LOCAL_X, BB_LOCAL_Y, 0], [0.22, 0.94, 0], 0.026, matDefs.steelFrame); // Down tube to head tube
+  addBikeTube([-0.26, 0.74, 0], [0.20, 0.90, 0], 0.022, matDefs.steelFrame); // Top tube
+  // Horizontal brace locking bike head-tube & BB directly to Mixer A-Frame Stanchion (x = +0.44 local = -1.18 world)
+  addBikeTube([BB_LOCAL_X, BB_LOCAL_Y, -0.06], [0.44, 0.78, -0.06], 0.022, matDefs.steelFrame);
+  addBikeTube([0.20, 0.90, 0], [0.44, 0.78, -0.06], 0.020, matDefs.steelFrame);
+
+  // Contoured Saddle at local (-0.34, 0.86, 0) -> world (-1.96, 0.86, -0.16)
+  const seatPostChrome = addBikeTube([-0.32, 0.82, 0], [-0.34, 0.88, 0], 0.018, matDefs.tire);
+  void seatPostChrome;
+  const seatBase = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.055, 0.22), matDefs.epdm);
+  seatBase.position.set(-0.34, 0.88, 0);
+  pedalModule.add(seatBase);
+
+  // Handlebar Stem + Swept Crossbar + Dual Rubber Hand Grips at local (+0.27, 1.05, ±0.23) -> world (-1.35, 1.05)
+  addBikeTube([0.22, 0.92, 0], [0.27, 1.05, 0], 0.020, matDefs.tire);
+  const handlebarBar = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.50, 14), matDefs.tire);
+  handlebarBar.rotation.x = Math.PI / 2;
+  handlebarBar.position.set(0.27, 1.05, 0);
+  pedalModule.add(handlebarBar);
+  for (const zGrip of [-0.23, 0.23]) {
+    const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.020, 0.020, 0.13, 14), matDefs.clampRed);
+    grip.rotation.x = Math.PI / 2;
+    grip.position.set(0.27, 1.05, zGrip);
+    pedalModule.add(grip);
+  }
+
+  // Coplanar ("Sejajar") A-Frame Stanchion Countershaft (local x = +0.44 -> world x = -1.18, y = 0.78)
+  const JACK_LOCAL_X = 0.44;
+  const JACK_LOCAL_Y = 0.78;
+  const CHAIN_PLANE_Z = -0.06; // local z = -0.06 -> world z = -0.22 (100% coplanar with pedalWheel!)
+  const jackMountBeam = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.08, 0.36), matDefs.darkIron);
+  jackMountBeam.position.set(JACK_LOCAL_X, JACK_LOCAL_Y - 0.08, -0.08);
+  pedalModule.add(jackMountBeam);
+
+  const pedalJackGroup = new THREE.Group();
+  pedalJackGroup.position.set(JACK_LOCAL_X, JACK_LOCAL_Y, 0);
+  const jackShaftMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.28, 16), matDefs.tire);
+  jackShaftMesh.rotation.x = Math.PI / 2;
+  jackShaftMesh.position.z = -0.08;
+  pedalJackGroup.add(jackShaftMesh);
+  // 18T Driven Sprocket in exact CHAIN_PLANE_Z (-0.06) coplanar with 32T Bicycle Chainring!
+  const jackSprocketIn = makeGearMesh(18, 0.068, 0.020, matDefs.brass, 0.020);
+  jackSprocketIn.position.z = CHAIN_PLANE_Z;
+  pedalJackGroup.add(jackSprocketIn);
+  // 18T Transfer Sprocket at z = -0.14 driving Gearbox input shaft!
+  const jackSprocketOut = makeGearMesh(18, 0.068, 0.020, matDefs.brass, 0.020);
+  jackSprocketOut.position.z = -0.14;
+  pedalJackGroup.add(jackSprocketOut);
+  pedalModule.add(pedalJackGroup);
+
+  // Stage-1 Animated Coplanar Bicycle Roller Chain Loop (pedalWheel 32T -> jackSprocketIn 18T)
+  const pedalChainStage1 = makeChainDriveLoop(
+    [BB_LOCAL_X, BB_LOCAL_Y],
+    0.115,
+    [JACK_LOCAL_X, JACK_LOCAL_Y],
+    0.068,
+    CHAIN_PLANE_Z,
+    matDefs.darkIron,
+    matDefs.brass
+  );
+  pedalModule.add(pedalChainStage1.group);
+
+  // Telescoping Cardan Universal-Joint Drive Shaft + Transfer Chain linking Countershaft -> Gearbox Input
+  const pedalTransferRod = new THREE.Mesh(new THREE.CylinderGeometry(0.020, 0.020, 1, 14), matDefs.brass);
+  const pedalTransferGuard = new THREE.Mesh(new THREE.BoxGeometry(1, 0.036, 0.036), matDefs.darkIron);
+  pedalModule.add(pedalTransferRod, pedalTransferGuard);
+
+  // Bottom Bracket Crankset + 32T Chainring + Counter-Rotating Horizontal Pedal Platforms
   const pedalBB = new THREE.Group();
-  pedalBB.position.set(0.08, 0.52, 0);
-  const pedalWheel = makeGearMesh(24, 0.11, 0.02, matDefs.brass, 0.022);
-  pedalWheel.position.z = -0.02;
+  pedalBB.position.set(BB_LOCAL_X, BB_LOCAL_Y, 0);
+  const pedalWheel = makeGearMesh(32, 0.115, 0.020, matDefs.brass, 0.024);
+  pedalWheel.position.z = CHAIN_PLANE_Z;
   pedalBB.add(pedalWheel);
+  const bbAxle = new THREE.Mesh(new THREE.CylinderGeometry(0.020, 0.020, 0.24, 14), matDefs.tire);
+  bbAxle.rotation.x = Math.PI / 2;
+  pedalBB.add(bbAxle);
+
+  // idx=0: Left Pedal (s = -1, z = -0.11 local -> -0.27 world, matching legs[0] zSide = -0.11!)
+  // idx=1: Right Pedal (s = +1, z = +0.11 local -> -0.05 world, matching legs[1] zSide = +0.11!)
+  const pedalPads = [];
   for (const s of [-1, 1]) {
-    const pArm = new THREE.Mesh(new THREE.BoxGeometry(0.175, 0.024, 0.018), matDefs.tire);
-    pArm.position.set(s * 0.0875, 0, s * 0.085);
+    const pArm = new THREE.Mesh(new THREE.BoxGeometry(PEDAL_R + 0.03, 0.028, 0.018), matDefs.tire);
+    pArm.position.set(s * (PEDAL_R / 2), 0, s * 0.082);
     pedalBB.add(pArm);
-    const pad = new THREE.Mesh(new THREE.BoxGeometry(0.085, 0.022, 0.08), matDefs.epdm);
-    pad.position.set(s * 0.17, 0, s * 0.115);
-    pedalBB.add(pad);
+    const spindle = new THREE.Mesh(new THREE.CylinderGeometry(0.010, 0.010, 0.065, 10), matDefs.tire);
+    spindle.rotation.x = Math.PI / 2;
+    spindle.position.set(s * PEDAL_R, 0, s * 0.105);
+    pedalBB.add(spindle);
+    const padPivot = new THREE.Group();
+    padPivot.position.set(s * PEDAL_R, 0, s * 0.11);
+    const padMesh = new THREE.Mesh(new THREE.BoxGeometry(0.11, 0.024, 0.095), matDefs.epdm);
+    padPivot.add(padMesh);
+    const reflector = new THREE.Mesh(new THREE.BoxGeometry(0.112, 0.010, 0.016), matDefs.brass);
+    reflector.position.z = s * 0.042;
+    padPivot.add(reflector);
+    pedalBB.add(padPivot);
+    pedalPads.push(padPivot);
   }
   pedalModule.add(pedalBB);
-
-  // Two taut upper/lower bicycle chain spans updated dynamically to gearbox bevel sprocket!
-  const pedalChainTop = new THREE.Mesh(new THREE.BoxGeometry(1, 0.012, 0.016), matDefs.darkIron);
-  const pedalChainBot = new THREE.Mesh(new THREE.BoxGeometry(1, 0.012, 0.016), matDefs.darkIron);
-  pedalModule.add(pedalChainTop, pedalChainBot);
   pedalModule.visible = false;
 
   cradlePivot.add(registerPart(g11, "11"));
@@ -1275,10 +1386,13 @@ export function createMixerSimulation(
     kneePivot.position.set(0, -0.42, 0);
     hipPivot.add(kneePivot);
     addHumanLimb(kneePivot, 0.054, 0.046, 0.42, matDefs.humanBody);
+    const anklePivot = new THREE.Group();
+    anklePivot.position.set(0, -0.42, 0);
+    kneePivot.add(anklePivot);
     const boot = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.08, 0.10), matDefs.epdm);
-    boot.position.set(0.04, -0.44, 0);
-    kneePivot.add(boot);
-    legs.push({ hipPivot, kneePivot, thigh });
+    boot.position.set(0.035, -0.025, 0);
+    anklePivot.add(boot);
+    legs.push({ hipPivot, kneePivot, anklePivot, boot, thigh });
   }
 
   const torsoPivot = new THREE.Group();
@@ -1674,8 +1788,15 @@ export function createMixerSimulation(
     const isPedal = state.driveId === "human-pedal";
     motorUnit.visible = !isPetrol;
     petrolUnit.visible = isPetrol;
+    crankPivot.visible = !isPedal;
+    bevelBox.visible = !isPedal;
+    bevelSleeve.visible = !isPedal;
+    bevelPedalSprocket.visible = isPedal;
     crankTwin.visible = state.driveId === "human-2";
     pedalModule.visible = isPedal;
+    if (isPedal) {
+      humanGroup.position.set(-1.94, 0.02, BIKE_Z);
+    }
 
     // Shift selector dog-clutch lever visibly between 3 positions!
     const leverAngle = isHuman ? (state.gearId === "72:1" ? -0.38 : -0.18) : 0.34;
@@ -1684,10 +1805,15 @@ export function createMixerSimulation(
   }
 
   function setCameraPreset(preset) {
+    const isPedal = state.driveId === "human-pedal";
     const presets = {
-      overview: { pos: [-3.95, 2.52, 4.45], target: [-0.22, 1.42, 0.12] },
+      overview: isPedal
+        ? { pos: [-4.15, 2.35, 4.35], target: [-0.48, 1.28, 0.05] }
+        : { pos: [-3.95, 2.52, 4.45], target: [-0.22, 1.42, 0.12] },
       cutaway: { pos: [-2.85, 2.58, -0.25], target: [0.0, 1.32, 0.10] },
-      gearbox: { pos: [-2.45, 1.32, 1.95], target: [-1.05, 1.05, -0.05] },
+      gearbox: isPedal
+        ? { pos: [-2.65, 1.38, 2.25], target: [-1.42, 0.78, -0.16] }
+        : { pos: [-2.45, 1.32, 1.95], target: [-1.05, 1.05, -0.05] },
       lid: { pos: [1.75, 2.15, 3.35], target: [0.10, 1.65, 1.05] },
       unload: { pos: [-2.25, 1.35, 3.05], target: [0.0, 0.65, 1.18] },
     };
@@ -2004,50 +2130,66 @@ export function createMixerSimulation(
     const gbAngle = -state.drumAngle * (12 * (0.112 / 0.068));
     interGear.rotation.z = gbAngle;
     couplingHub.rotation.z = gbAngle;
-    bevelPedalSprocket.rotation.x = state.crankAngle;
+    bevelPedalSprocket.rotation.z = gbAngle;
     chainLoop50.advance(state.drumAngle * 12 * 0.112);
     crankPivot.rotation.x = state.crankAngle;
     pedalBB.rotation.z = -state.crankAngle;
+    pedalPads[0].rotation.z = state.crankAngle;
+    pedalPads[1].rotation.z = state.crankAngle;
+    pedalJackGroup.rotation.z = -state.crankAngle * (0.115 / 0.068);
+    pedalChainStage1.advance(-state.crankAngle * 0.115);
     for (const rMesh of rollerMeshes) rMesh.rotation.y = state.drumAngle * (R / 0.085);
 
-    // Update dynamic bicycle drive chain straight from pedal chainring to gearbox bevel sprocket!
+    // Update Stage-2 transfer drive linking A-Frame Countershaft straight into Gearbox Pedal Sprocket!
     if (pedalModule.visible) {
       cradlePivot.updateMatrixWorld(true);
       bevelPedalSprocket.getWorldPosition(tmpBevelW);
       pedalModule.worldToLocal(tmpBevelW);
-      const dxC = tmpBevelW.x - pedalBB.position.x;
-      const dyC = tmpBevelW.y - pedalBB.position.y;
-      const dLen = Math.max(0.05, Math.hypot(dxC, dyC));
-      const cAng = Math.atan2(dyC, dxC);
-      const nx = -Math.sin(cAng);
-      const ny = Math.cos(cAng);
-      const mx = (pedalBB.position.x + tmpBevelW.x) / 2;
-      const my = (pedalBB.position.y + tmpBevelW.y) / 2;
-      const zC = tmpBevelW.z;
-      pedalChainTop.scale.set(dLen, 1, 1);
-      pedalChainTop.position.set(mx + nx * 0.082, my + ny * 0.082, zC);
-      pedalChainTop.rotation.z = cAng;
-      pedalChainBot.scale.set(dLen, 1, 1);
-      pedalChainBot.position.set(mx - nx * 0.082, my - ny * 0.082, zC);
-      pedalChainBot.rotation.z = cAng;
+      const p0 = new THREE.Vector3(JACK_LOCAL_X, JACK_LOCAL_Y, -0.14);
+      const dVec = tmpBevelW.clone().sub(p0);
+      const dLen = Math.max(0.05, dVec.length());
+      const mid = p0.clone().addScaledVector(dVec, 0.5);
+      const dir = dVec.clone().normalize();
+      pedalTransferRod.scale.set(1, dLen, 1);
+      pedalTransferRod.position.copy(mid);
+      pedalTransferRod.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir);
+      pedalTransferGuard.scale.set(dLen, 1, 1);
+      pedalTransferGuard.position.set(mid.x, mid.y + 0.028, mid.z);
+      pedalTransferGuard.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), dir);
     }
 
-    // Human Pose: Standing (Engine), Hand Cranking, or Seated Cycling in X-Y plane!
+    // Human Pose: Standing (Engine), Hand Cranking, or Seated Cycling with Exact 2-Bone Foot-to-Pedal IK!
     const isPedal = state.driveId === "human-pedal";
     const isHandCrank = state.driveId === "human-1" || state.driveId === "human-2";
     if (isPedal) {
-      humanGroup.position.x += (-1.98 - humanGroup.position.x) * Math.min(1, dt * 5);
-      humanGroup.position.y += (-0.12 - humanGroup.position.y) * Math.min(1, dt * 5);
-      humanGroup.position.z += (-0.18 - humanGroup.position.z) * Math.min(1, dt * 5);
-      torsoPivot.rotation.z += (-0.28 - torsoPivot.rotation.z) * Math.min(1, dt * 5);
-      rShoulder.rotation.z = 0.65;
-      rElbow.rotation.z = 0.25;
-      lShoulder.rotation.z = 0.65;
-      lElbow.rotation.z = 0.25;
+      humanGroup.position.set(-1.94, 0.02, BIKE_Z);
+      torsoPivot.rotation.z = -0.36;
+      rShoulder.rotation.set(0, 0, 1.12);
+      rElbow.rotation.z = 0.36;
+      lShoulder.rotation.set(0, 0, 1.12);
+      lElbow.rotation.z = 0.36;
+      pedalModule.updateMatrixWorld(true);
+      const hx = humanGroup.position.x;
+      const hy = humanGroup.position.y + 0.88;
+      const L1 = 0.42;
+      const L2 = 0.42;
       legs.forEach((leg, idx) => {
-        const phase = state.crankAngle + idx * Math.PI;
-        leg.hipPivot.rotation.z = 1.05 + Math.sin(phase) * 0.30;
-        leg.kneePivot.rotation.z = -1.25 - Math.cos(phase) * 0.36;
+        pedalPads[idx].getWorldPosition(tmpBevelW);
+        const ax = tmpBevelW.x - 0.035;
+        const ay = tmpBevelW.y + 0.067;
+        const dx = ax - hx;
+        const dy = ay - hy;
+        const d = Math.min(L1 + L2 - 0.002, Math.max(0.10, Math.hypot(dx, dy)));
+        const alpha = Math.atan2(dx, -dy);
+        const cosB = (L1 * L1 + d * d - L2 * L2) / (2 * L1 * d);
+        const beta = Math.acos(Math.max(-1, Math.min(1, cosB)));
+        const theta1 = alpha + beta;
+        const cosG = (L1 * L1 + L2 * L2 - d * d) / (2 * L1 * L2);
+        const gamma = Math.acos(Math.max(-1, Math.min(1, cosG)));
+        const theta2 = -(Math.PI - gamma);
+        leg.hipPivot.rotation.z = theta1;
+        leg.kneePivot.rotation.z = theta2;
+        leg.anklePivot.rotation.z = -(theta1 + theta2);
       });
     } else if (isHandCrank) {
       humanGroup.position.x += (-1.78 - humanGroup.position.x) * Math.min(1, dt * 5);
@@ -2056,6 +2198,7 @@ export function createMixerSimulation(
       legs.forEach((leg) => {
         leg.hipPivot.rotation.z += (0 - leg.hipPivot.rotation.z) * Math.min(1, dt * 5);
         leg.kneePivot.rotation.z += (0 - leg.kneePivot.rotation.z) * Math.min(1, dt * 5);
+        leg.anklePivot.rotation.z += (0 - leg.anklePivot.rotation.z) * Math.min(1, dt * 5);
       });
       const th = cradlePivot.rotation.x;
       const crankWorldY =
@@ -2083,6 +2226,7 @@ export function createMixerSimulation(
       legs.forEach((leg) => {
         leg.hipPivot.rotation.z += (0 - leg.hipPivot.rotation.z) * Math.min(1, dt * 5);
         leg.kneePivot.rotation.z += (0 - leg.kneePivot.rotation.z) * Math.min(1, dt * 5);
+        leg.anklePivot.rotation.z += (0 - leg.anklePivot.rotation.z) * Math.min(1, dt * 5);
       });
       torsoPivot.rotation.z += (0 - torsoPivot.rotation.z) * Math.min(1, dt * 5);
       rShoulder.rotation.z += (0.08 - rShoulder.rotation.z) * Math.min(1, dt * 5);
