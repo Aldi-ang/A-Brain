@@ -12,6 +12,9 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-11-18 12:29 — 179×179 cm Baglog Steamer → Tobacco Mixer 3D & Anatomy built
+Aldi's ask: convert his 179×179 cm hollow-top baglog steamer (Tupperware vault lid) into a dry tobacco mixer with 171 cm scale figure, realistic engine/human gearing, Anatomy breakdown, and shareable 3D simulation. Built `Tools/tobacco-mixer-3d/` (Three.js 1,650-strand tumbler simulator + 4-tone isometric `anatomy` cutaway + `physics.mjs` verified by 7 Node checks and 7 headless PC/phone renders in `Raw/2026-11-18-tobacco-mixer-3d/`). Key finding: 12:1 direct human crank stalls at 23.8 kgf on 300 kg, whereas 72:1 compound manual turns 300 kg at 4.6 kgf (0.75 RPM) and 24:1 turns 50 kg at 3.9 kgf (2.25 RPM).
+
 ## 2026-11-10 06:51 — Alucard + skills + A-Brain memory wired into Antigravity (a-brain plugin)
 His ask: every Antigravity chat uses his skills, A-Brain memory and Alucard. Built a global plugin (rule + SessionStart hook injecting SKILL.md) and skills.json -> ~/.claude/skills; caught the Windows `~/` path rejection in the LS log. Live load waits on one new chat. New technique: [[Alucard in Antigravity]].
 

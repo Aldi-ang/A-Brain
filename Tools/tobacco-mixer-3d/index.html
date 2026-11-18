@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>179×179 cm Baglog Steamer → Tobacco Mixer 3D & Anatomy</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">3D</div>
+          <div>
+            <div class="brand-title">Steamer-Drum Tobacco Mixer (179 × 179 cm)</div>
+            <div class="brand-sub">4,505 L Tilting Tumbler · Dual Drive (3 HP / Human 72:1) · 171 cm Scale</div>
+          </div>
+        </div>
+        <nav class="tabs" role="tablist">
+          <button type="button" class="tab-btn is-active" data-tab="sim3d">3D Simulator</button>
+          <button type="button" class="tab-btn" data-tab="anatomy">Anatomy</button>
+          <button type="button" class="tab-btn" data-tab="bom">Physics & BOM</button>
+        </nav>
+      </header>
+
+      <!-- TAB 1: 3D INTERACTIVE SIMULATOR -->
+      <section class="tab-panel is-active" data-panel="sim3d">
+        <div class="sim-layout">
+          <div class="stage-col">
+            <div id="canvas-host"></div>
+
+            <div class="hud-top">
+              <div class="telemetry-strip">
+                <div class="metric-chip is-accent">
+                  <span class="metric-k">Drum RPM</span>
+                  <span class="metric-v" id="m-rpm">10.56</span>
+                </div>
+                <div class="metric-chip">
+                  <span class="metric-k">Torque</span>
+                  <span class="metric-v" id="m-torque">590 Nm</span>
+                </div>
+                <div class="metric-chip" id="chip-force" hidden>
+                  <span class="metric-k">Hand Force</span>
+                  <span class="metric-v" id="m-force">4.6 kgf</span>
+                </div>
+                <div class="metric-chip">
+                  <span class="metric-k">Power</span>
+                  <span class="metric-v" id="m-power">810 W</span>
+                </div>
+                <div class="metric-chip">
+                  <span class="metric-k">Drum Fill</span>
+                  <span class="metric-v" id="m-fill">18.0%</span>
+                </div>
+                <div class="metric-chip is-accent">
+                  <span class="metric-k">Mix Even</span>
+                  <span class="metric-v" id="m-mix">14%</span>
+                </div>
+              </div>
+              <div class="status-pill" id="status-pill">Optimal Cascading · Safe</div>
+            </div>
+
+            <div class="hud-bottom">
+              <div class="cam-bar">
+                <button type="button" class="cam-btn" data-cam="overview">171 vs 179 cm Scale</button>
+                <button type="button" class="cam-btn" data-cam="cutaway">Inside Flights</button>
+                <button type="button" class="cam-btn" data-cam="gearbox">Gearbox & Crank</button>
+                <button type="button" class="cam-btn" data-cam="lid">Tupperware Lid</button>
+                <button type="button" class="cam-btn" data-cam="unload">Keranjang Dump</button>
+              </div>
+              <div class="part-toast" id="part-toast" hidden></div>
+            </div>
+          </div>
+
+          <aside class="control-rail">
+            <div class="ctrl-card">
+              <div class="ctrl-title"><span>Power Source</span><span>Dual Input</span></div>
+              <div class="seg-grid">
+                <button type="button" class="seg-btn is-active" data-drive="engine-electric">Electric 3 HP</button>
+                <button type="button" class="seg-btn" data-drive="engine-petrol">Petrol GX160</button>
+                <button type="button" class="seg-btn" data-drive="human-1">1P Hand Crank</button>
+                <button type="button" class="seg-btn" data-drive="human-2">2P Twin Crank</button>
+              </div>
+              <button type="button" class="seg-btn" data-drive="human-pedal">1P Foot Pedal Drive (180 W)</button>
+            </div>
+
+            <div class="ctrl-card">
+              <div class="ctrl-title"><span>Transmission Gear</span><span>144T : 12T + Stage</span></div>
+              <div class="seg-grid cols-3">
+                <button type="button" class="seg-btn is-active" data-gear="12:1">12:1 Direct</button>
+                <button type="button" class="seg-btn" data-gear="24:1">24:1 Fast</button>
+                <button type="button" class="seg-btn" data-gear="72:1">72:1 Low</button>
+              </div>
+              <div class="range-row">
+                <div class="range-head">
+                  <span id="lbl-throttle">Engine Throttle</span>
+                  <span class="range-val" id="val-throttle">92%</span>
+                </div>
+                <input id="sl-throttle" type="range" min="25" max="140" value="92" />
+              </div>
+            </div>
+
+            <div class="ctrl-card">
+              <div class="ctrl-title"><span>Tobacco Batch & Drum Tilt</span><span>Dry Rajangan</span></div>
+              <div class="seg-grid cols-3">
+                <button type="button" class="seg-btn" data-batch="50">50 kg (Seri)</button>
+                <button type="button" class="seg-btn" data-batch="150">150 kg</button>
+                <button type="button" class="seg-btn" data-batch="300">300 kg</button>
+              </div>
+              <div class="range-row">
+                <div class="range-head">
+                  <span>Batch Weight (max 400 kg @ 48% fill)</span>
+                  <span class="range-val" id="val-batch">150 kg</span>
+                </div>
+                <input id="sl-batch" type="range" min="25" max="380" step="5" value="150" />
+              </div>
+              <div class="seg-grid cols-3">
+                <button type="button" class="seg-btn" data-tilt="-12">-12° Dump</button>
+                <button type="button" class="seg-btn" data-tilt="25">+25° Mix</button>
+                <button type="button" class="seg-btn" data-tilt="32">+32° Deep</button>
+              </div>
+              <div class="range-row">
+                <div class="range-head">
+                  <span>Cradle Tilt Angle</span>
+                  <span class="range-val" id="val-tilt">25°</span>
+                </div>
+                <input id="sl-tilt" type="range" min="-15" max="35" step="1" value="25" />
+              </div>
+            </div>
+
+            <div class="ctrl-card">
+              <div class="ctrl-title"><span>Inspection & Explode</span><span>Click 3D Parts</span></div>
+              <div class="toggle-row">
+                <button type="button" class="seg-btn is-active" id="btn-cutaway">Cutaway Drum</button>
+                <button type="button" class="seg-btn" id="btn-lid">Open Vault Lid</button>
+                <button type="button" class="seg-btn is-active" id="btn-ruler">171/179 Ruler</button>
+                <button type="button" class="seg-btn" id="btn-run">Pause Spin</button>
+              </div>
+              <div class="range-row">
+                <div class="range-head">
+                  <span>Explode Machine Parts</span>
+                  <span class="range-val" id="val-explode">0%</span>
+                </div>
+                <input id="sl-explode" type="range" min="0" max="100" value="0" />
+              </div>
+              <button type="button" class="action-btn" id="btn-reset-batch">Reload Stratified 3-Origin Batch</button>
+              <div style="font-size:11px;color:var(--muted);font-family:var(--mono)" id="physics-note"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- TAB 2: ANATOMY TECHNICAL CUTAWAY & PARTS LIST -->
+      <section class="tab-panel" data-panel="anatomy">
+        <div class="anatomy-wrap">
+          <div class="anatomy-toolbar">
+            <div>
+              <h2 style="margin:0;font-size:18px;">Mechanical Anatomy — 10 Sub-Assemblies</h2>
+              <div style="font-size:12px;color:var(--muted)">
+                Click any assembly on the isometric figure or list to inspect how parts carry load, lock, and reduce torque.
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+              <label style="display:flex;align-items:center;gap:8px;font-size:12px;font-family:var(--mono)">
+                Explode <span id="val-anat-explode" style="color:var(--gold)">0%</span>
+                <input id="sl-anat-explode" type="range" min="0" max="100" value="0" style="width:130px" />
+              </label>
+              <button type="button" class="action-btn secondary" id="btn-anat-theme">Switch Light Paper</button>
+            </div>
+          </div>
+
+          <div class="anatomy-grid">
+            <div class="anatomy-stage">
+              <div id="anatomy-plate-wrap" class="iso" data-theme="dark"></div>
+            </div>
+            <div class="part-list" id="anatomy-part-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: PHYSICS VERIFICATION & WORKSHOP BOM -->
+      <section class="tab-panel" data-panel="bom">
+        <div class="bom-wrap">
+          <div class="panel-box">
+            <h3>Real-Life Torque, Human Strength & Engine Matrix (Calculated @ 25° Tilt)</h3>
+            <table class="spec-table">
+              <thead>
+                <tr>
+                  <th>Load & Drive Case</th>
+                  <th>Drum Torque</th>
+                  <th>Force / Power</th>
+                  <th>Drum RPM</th>
+                  <th>Mix Time</th>
+                  <th>Verdict</th>
+                </tr>
+              </thead>
+              <tbody id="matrix-body"></tbody>
+            </table>
+          </div>
+
+          <div class="bom-cards">
+            <div class="panel-box">
+              <h3>Why 4 Modifications Make the Steamer Actually Work</h3>
+              <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--muted);display:grid;gap:8px;">
+                <li><strong style="color:var(--text)">Tilted Trunnion Cradle (+25° / -12°):</strong> Standing 179 cm upright is taller than your 171 cm height. Tilting on CoG trunnions puts loading at chest height and pours blended tobacco straight into a keranjang at -12°.</li>
+                <li><strong style="color:var(--text)">External Tire Bands + 4 Rollers:</strong> Supports 650 kg loaded drum externally so the thin ~2.5 mm steamer bottom does not tear off under bending load.</li>
+                <li><strong style="color:var(--text)">4 Curved Helical Scoops (Zero Blades):</strong> Gentle waterfall cascade blends Temanggung / Madura / Boyolali evenly without breaking dry rajangan strands into bubuk dust.</li>
+                <li><strong style="color:var(--text)">Swing-Davit + 8 Toggle Clamps on Tupperware Lid:</strong> Keeps the EPDM U-gasket aroma/dust seal tight under tumbling load, while one worker opens the 48 kg lid cleanly.</li>
+              </ul>
+            </div>
+
+            <div class="panel-box">
+              <h3>Workshop Fabrication BOM (Bengkel Las & Bubut)</h3>
+              <table class="spec-table">
+                <tbody>
+                  <tr><td>Base & Cradle Frame</td><td>UNP 100 + Hollow 80×80×3 mm + 4 rubber pads</td></tr>
+                  <tr><td>Pivot & Support Bearings</td><td>2× UCP-210 (50 mm) + 4× 150 mm PU rollers + rear 51112 thrust</td></tr>
+                  <tr><td>Final Drive (12:1)</td><td>144T #60 sprocket ring welded/bolted to drum + 12T hardened pinion</td></tr>
+                  <tr><td>Dual Gearbox (24:1 / 72:1)</td><td>Dog-clutch lockout + #50 chain stage + ratchet backstop pawl + 35 cm crank</td></tr>
+                  <tr><td>Power Unit (Choose 1)</td><td>Electric 2.2 kW (3 HP) + WPWDX-100 1:10 OR Petrol GX160 + 1:6 wet clutch</td></tr>
+                  <tr><td>Vault Lid Hardware</td><td>EPDM U-channel edge seal + 8× GH-40341 toggle latches + 350N gas strut</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="panel-box">
+              <h3>Check Before Cutting Steel (Your Steamer Cylinder)</h3>
+              <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--muted);display:grid;gap:8px;">
+                <li><strong style="color:var(--gold)">1. Wall & Bottom Thickness:</strong> If cylinder wall is &lt;2 mm thin galvanized sheet, bolt two external flat-bar rings (50×8 mm) first so trunnion rollers don't dent the shell.</li>
+                <li><strong style="color:var(--gold)">2. Steamer Doorway Clearance:</strong> Verify workshop doorway width &ge; 225 cm or make the twin A-frame stanchions bolted instead of welded solid to the skid so it fits through doors.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="./bundle.js"></script>
+  </body>
+</html>
