@@ -67,18 +67,18 @@ export const ANATOMY_PARTS = [
   },
   {
     id: "09",
-    name: "144T Bolt-On Ring Gear & 12T Pinion",
-    indonesian: "Roda Gigi Cincin 144T + Pinion 12T (12:1)",
-    role: "12:1 final reduction around the 179 cm barrel cuts gearbox torque by 12x and keeps mesh aligned at any tilt angle.",
-    spec: "#60 roller-chain sprocket ring or segmented steel spur gear (PCD 184 cm, 144T : 12T).",
+    name: "144T Welded Roller-Chain Ring & 12T Pinion",
+    indonesian: "Rantai Rol Las 144T (Keliling Luar) + Pinion 12T (12:1)",
+    role: "Hollow exterior #60 roller-chain band welded outside the 179 cm barrel keeps interior 100% open while slashing gearbox torque 12x.",
+    spec: "Open collar + welded 144T #60 roller-chain ring (PCD 185 cm) + twin-bearing 12T pinion.",
     explode: [26, 0, 12],
   },
   {
     id: "10",
-    name: "Dual-Drive Compound Gearbox & Ratchet",
-    indonesian: "Gearbox 2-Kecepatan + Kopling Pemilih + Ratchet",
-    role: "Dog-clutch locks out crank when engine runs; offers 24:1 Fast Manual (50 kg) and 72:1 Heavy Low (300 kg) with anti-kickback ratchet.",
-    spec: "Selector dog-clutch + 2:1 / 6:1 #50 roller chain stage + one-way ratchet pawl.",
+    name: "Dual-Drive Gearbox, #50 Chain & 90° Bevel",
+    indonesian: "Gearbox 2-Kecepatan + Rantai #50 + Bevel Engkol 90°",
+    role: "Bolted to cradle mount; couples inline motor shaft + #50 roller chain directly to pinion shaft while 90° bevel feeds manual crank & pedal.",
+    spec: "Selector dog-clutch + #50 roller-chain loop (18T:30T) + 90° bevel box + ratchet pawl.",
     explode: [40, 14, 10],
   },
   {
@@ -238,13 +238,15 @@ export function buildAnatomySvg({ explode = 0, selectedPartId = null, animated =
     return wrap(ANATOMY_PARTS[7], `<g class="${animated ? "anat-cap-pulse" : ""}">${out.join("")}</g>`);
   })();
 
-  // 09: Ring Gear & Pinion
+  // 09: Hollow Exterior Welded Roller-Chain Ring & Twin-Bearing 12T Pinion
   const p09Gear = (() => {
     const out = [];
-    out.push(S(k.cylinder(0, 0, 47.4, 49, 4.2, P, 64), { tone: "hi" }));
-    out.push(L(k.knurl(0, 0, 47.4, 49, 53.2, 72, P, 0.2), { tone: "mid" }));
-    out.push(S(k.cylinder(52.5, 0, 6.2, 48.5, 5.2, P, 24), { tone: "lit", lit: true }));
-    out.push(L(k.knurl(52.5, 0, 6.2, 48.5, 53.7, 16, P, 0.2), { tone: "hi" }));
+    out.push(L(k.ring(0, 0, 47.6, 49, P, 64), { tone: "mid" }));
+    out.push(L(k.ring(0, 0, 47.6, 53.2, P, 64), { tone: "hi" }));
+    out.push(L(k.knurl(0, 0, 47.6, 49, 53.2, 72, P, 0.25), { tone: "lit" }));
+    out.push(S(k.cylinder(53.4, 0, 6.0, 48.5, 5.2, P, 24), { tone: "lit", lit: true }));
+    out.push(L(k.knurl(53.4, 0, 6.0, 48.5, 53.7, 16, P, 0.2), { tone: "hi" }));
+    out.push(k.wireSvg(at([53.4, 0, 47.5]), at([66, 0, 47.5]), { tone: "lit", size: 1.4, flow: animated }));
     return wrap(ANATOMY_PARTS[8], out.join(""));
   })();
 

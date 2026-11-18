@@ -67,31 +67,31 @@ export const PIECE_INFO = {
     cam: { pos: [1.35, 2.15, 3.55], target: [0.0, 1.75, 1.25] },
   },
   "09": {
-    name: "144T Bolt-On Ring Gear & 12T Pinion",
-    indo: "Roda Gigi Cincin 144T + Pinion 12T (12:1)",
-    fn: "12:1 final barrel reduction slashes gearbox torque 12× and stays meshed at every tilt angle on the cradle.",
-    spec: "#60 roller-chain sprocket ring (PCD 184 cm, 144T) + hardened 12T steel pinion.",
+    name: "144T Welded Roller-Chain Ring & 12T Pinion",
+    indo: "Rantai Rol Las 144T (Keliling Luar) + Pinion 12T (12:1)",
+    fn: "Hollow exterior #60 roller-chain band welded around barrel skin leaves drum 100% hollow inside while meshing with twin-bearing 12T pinion.",
+    spec: "Open collar + 144T #60 exterior roller-chain ring (PCD 185 cm) + meshed 12T pinion & #50 jackshaft chain.",
     cam: { pos: [-2.65, 1.55, 2.25], target: [-0.85, 1.12, -0.05] },
   },
   "10": {
-    name: "Dual-Drive 2-Speed Gearbox & Ratchet",
-    indo: "Gearbox 2-Kecepatan + Kopling Pemilih + Ratchet",
-    fn: "Dog-clutch physically locks out crank during engine run; shifts between 24:1 Fast (50 kg) and 72:1 Heavy Low (300 kg) with backstop ratchet.",
-    spec: "Sliding dog-clutch + #50 roller-chain 2:1 / 6:1 stages + anti-kickback ratchet pawl.",
+    name: "Dual-Drive 2-Speed Gearbox, Chain & 90° Bevel",
+    indo: "Gearbox 2-Kecepatan + Rantai #50 + Bevel Engkol 90°",
+    fn: "Bolted cradle gearbox connects inline motor coupling + #50 drive chain directly to pinion shaft; 90° miter box feeds hand crank & dog-clutch.",
+    spec: "Bolted outrigger gearbox + #50 18T:36T chain loop + 90° crank bevel + ratchet pawl.",
     cam: { pos: [-2.75, 1.45, 2.15], target: [-1.15, 1.05, -0.05] },
   },
   "11": {
-    name: "3 HP Motor / GX160 & 35 cm Crank / Pedal",
-    indo: "Mesin 3 HP / GX160 + Engkol Manual & Pedal",
-    fn: "Swappable 2.2 kW motor (10.6 RPM cascade) or GX160 petrol engine, plus waist-high 35 cm hand crank (<5 kgf @ 72:1) or 180 W seated pedal drive.",
-    spec: "2.2 kW 4-pole + WPWDX-100 1:10 OR GX160 + 1:6 clutch; 35 cm hand crank / pedal seat.",
+    name: "3 HP Motor / GX160 & Coupled Crank / Pedal",
+    indo: "Mesin 3 HP / GX160 + Engkol 35 cm & Rantai Sepeda",
+    fn: "2.2 kW motor or GX160 coupled solidly to gearbox rear shaft; right-angle 35 cm hand crank or chained bicycle pedal drive.",
+    spec: "2.2 kW 4-pole + WPWDX-100 inline OR GX160; 90° crank / vertical chained pedal frame.",
     cam: { pos: [-3.05, 1.48, 2.35], target: [-1.35, 1.02, -0.05] },
   },
   human: {
     name: "171 cm Operator Scale Reference (Aldi)",
     indo: "Referensi Tinggi Manusia 171 cm",
     fn: "Exact 171 cm figure beside 179 cm cylinder shows why upright drum (179 cm tall) is over-head and why tilting cradle ergonomics matter.",
-    spec: "171.0 cm height · Waist crank shaft at 101 cm · Chest loading lip at 114 cm.",
+    spec: "171.0 cm height · Waist crank shaft at 98 cm · Chest loading lip at 114 cm.",
     cam: { pos: [-3.95, 2.52, 4.45], target: [-0.22, 1.42, 0.12] },
   },
 };
@@ -101,7 +101,7 @@ function makeGearMesh(teeth, pitchRadius, thickness, mat, holeRadius = 0.03) {
   const addendum = (2 * Math.PI * pitchRadius) / (teeth * 3.4);
   const dedendum = addendum * 1.15;
   const rOut = pitchRadius + addendum;
-  const rRoot = Math.max(holeRadius + 0.02, pitchRadius - dedendum);
+  const rRoot = Math.max(holeRadius + 0.015, pitchRadius - dedendum);
 
   for (let i = 0; i < teeth; i++) {
     const a0 = (i / teeth) * Math.PI * 2;
@@ -121,23 +121,120 @@ function makeGearMesh(teeth, pitchRadius, thickness, mat, holeRadius = 0.03) {
 
   if (holeRadius > 0.005) {
     const hole = new THREE.Path();
-    hole.absarc(0, 0, holeRadius, 0, Math.PI * 2, true);
+    const holeSegs = 64;
+    for (let s = holeSegs; s >= 0; s--) {
+      const a = (s / holeSegs) * Math.PI * 2;
+      const hx = Math.cos(a) * holeRadius;
+      const hy = Math.sin(a) * holeRadius;
+      if (s === holeSegs) hole.moveTo(hx, hy);
+      else hole.lineTo(hx, hy);
+    }
+    hole.closePath();
     shape.holes.push(hole);
   }
 
   const geo = new THREE.ExtrudeGeometry(shape, {
     depth: thickness,
     bevelEnabled: true,
-    bevelThickness: 0.004,
-    bevelSize: 0.003,
+    bevelThickness: 0.003,
+    bevelSize: 0.002,
     bevelSegments: 1,
-    curveSegments: 1,
+    curveSegments: 16,
   });
   geo.translate(0, 0, -thickness / 2);
   const mesh = new THREE.Mesh(geo, mat);
   mesh.castShadow = true;
   mesh.receiveShadow = true;
   return mesh;
+}
+
+/**
+ * Closed roller-chain drive loop connecting sprocket A (pA, rA) to sprocket B (pB, rB)
+ * at local axial plane `zPos`, with movable roller pins along perimeter.
+ */
+function makeChainDriveLoop(pA, rA, pB, rB, zPos, matPlate, matRoller) {
+  const group = new THREE.Group();
+  const dx = pB[0] - pA[0];
+  const dy = pB[1] - pA[1];
+  const d = Math.hypot(dx, dy);
+  const baseAng = Math.atan2(dy, dx);
+  const alpha = Math.acos(Math.max(-0.98, Math.min(0.98, (rA - rB) / Math.max(0.001, d))));
+
+  const waypoints = [];
+  const tTopA = baseAng + alpha;
+  const tTopB = baseAng + alpha;
+  const tBotB = baseAng - alpha + Math.PI * 2;
+  const tBotA = baseAng - alpha + Math.PI * 2;
+
+  for (let i = 0; i <= 8; i++) {
+    const a = tTopB - ((tTopB - (tBotB - Math.PI * 2)) * i) / 8;
+    waypoints.push([pB[0] + Math.cos(a) * rB, pB[1] + Math.sin(a) * rB]);
+  }
+  for (let i = 0; i <= 8; i++) {
+    const a = baseAng - alpha - ((2 * (Math.PI - alpha)) * i) / 8;
+    waypoints.push([pA[0] + Math.cos(a) * rA, pA[1] + Math.sin(a) * rA]);
+  }
+
+  // Tangent straight plate runs on both sides
+  for (const sign of [-1, 1]) {
+    const a = baseAng + sign * alpha;
+    const x1 = pA[0] + Math.cos(a) * rA;
+    const y1 = pA[1] + Math.sin(a) * rA;
+    const x2 = pB[0] + Math.cos(a) * rB;
+    const y2 = pB[1] + Math.sin(a) * rB;
+    const len = Math.hypot(x2 - x1, y2 - y1);
+    const seg = new THREE.Mesh(new THREE.BoxGeometry(len, 0.012, 0.022), matPlate);
+    seg.position.set((x1 + x2) / 2, (y1 + y2) / 2, zPos);
+    seg.rotation.z = Math.atan2(y2 - y1, x2 - x1);
+    group.add(seg);
+  }
+
+  // Arc wrap bands around both sprockets
+  for (const [cp, rp] of [
+    [pA, rA],
+    [pB, rB],
+  ]) {
+    const wrap = new THREE.Mesh(new THREE.CylinderGeometry(rp + 0.004, rp + 0.004, 0.022, 28, 1, true), matPlate);
+    wrap.rotation.x = Math.PI / 2;
+    wrap.position.set(cp[0], cp[1], zPos);
+    group.add(wrap);
+  }
+
+  // Closed path sampler for animated #50 chain link pins
+  const cumLen = [0];
+  for (let i = 1; i <= waypoints.length; i++) {
+    const prev = waypoints[i - 1];
+    const curr = waypoints[i % waypoints.length];
+    cumLen.push(cumLen[i - 1] + Math.hypot(curr[0] - prev[0], curr[1] - prev[1]));
+  }
+  const totalLen = cumLen[cumLen.length - 1];
+  const pinCount = 26;
+  const pins = [];
+  const pinGeo = new THREE.CylinderGeometry(0.007, 0.007, 0.028, 8);
+  pinGeo.rotateX(Math.PI / 2);
+  for (let i = 0; i < pinCount; i++) {
+    const pin = new THREE.Mesh(pinGeo, matRoller);
+    pin.position.z = zPos;
+    group.add(pin);
+    pins.push(pin);
+  }
+
+  function advance(distM) {
+    for (let i = 0; i < pinCount; i++) {
+      let s = ((distM + (i / pinCount) * totalLen) % totalLen + totalLen) % totalLen;
+      let segIdx = 0;
+      while (segIdx < cumLen.length - 2 && cumLen[segIdx + 1] < s) segIdx++;
+      const l0 = cumLen[segIdx];
+      const l1 = cumLen[segIdx + 1];
+      const f = l1 > l0 ? (s - l0) / (l1 - l0) : 0;
+      const a = waypoints[segIdx];
+      const b = waypoints[(segIdx + 1) % waypoints.length];
+      pins[i].position.x = a[0] + (b[0] - a[0]) * f;
+      pins[i].position.y = a[1] + (b[1] - a[1]) * f;
+    }
+  }
+  advance(0);
+  return { group, advance };
 }
 
 function makeFloorGridTexture() {
@@ -784,24 +881,79 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   drumSpinGroup.add(registerPart(g06, "06"));
 
   // =========================================================================
-  // 09: 144T RING GEAR & 12T PINION
+  // 09: 144T HOLLOW WELDED ROLLER-CHAIN RING & TWIN-BEARING 12T PINION
   // =========================================================================
   const g09Drum = new THREE.Group();
   const ringPitchR = 0.925;
-  const ringGear = makeGearMesh(144, ringPitchR, 0.055, matDefs.brass, R + 0.005);
-  ringGear.position.z = -0.15;
-  g09Drum.add(ringGear);
+  // Open cylindrical steel band welded outside the 179cm barrel (ZERO blocking inner disc!)
+  const ringCollar = new THREE.Mesh(
+    new THREE.CylinderGeometry(R + 0.018, R + 0.018, 0.056, 96, 1, true),
+    matDefs.tire
+  );
+  ringCollar.rotation.x = Math.PI / 2;
+  ringCollar.position.z = -0.15;
+  g09Drum.add(ringCollar);
+  for (const zs of [-0.025, 0.025]) {
+    const flangeRim = new THREE.Mesh(new THREE.TorusGeometry(R + 0.016, 0.009, 10, 96), matDefs.tire);
+    flangeRim.position.z = -0.15 + zs;
+    g09Drum.add(flangeRim);
+  }
+  // 144 welded RS-60 roller-chain link pins & tooth barrels around exterior skin (100% hollow center!)
+  const chainPinGeo = new THREE.CylinderGeometry(0.011, 0.011, 0.038, 10);
+  chainPinGeo.rotateX(Math.PI / 2);
+  const ringChainLinks = new THREE.InstancedMesh(chainPinGeo, matDefs.brass, 144);
+  const linkDummy = new THREE.Object3D();
+  for (let t = 0; t < 144; t++) {
+    const a = (t / 144) * Math.PI * 2;
+    linkDummy.position.set(Math.cos(a) * ringPitchR, Math.sin(a) * ringPitchR, -0.15);
+    linkDummy.rotation.set(0, 0, a);
+    linkDummy.updateMatrix();
+    ringChainLinks.setMatrixAt(t, linkDummy.matrix);
+  }
+  ringChainLinks.instanceMatrix.needsUpdate = true;
+  g09Drum.add(ringChainLinks);
   drumSpinGroup.add(registerPart(g09Drum, "09"));
 
-  const pinionPos = new THREE.Vector3(-0.856, -0.521, -0.15 + DRUM_Z_OFF);
+  // Outrigger Steel Mount Plate welded to Cradle left rail (-X) supporting Pinion + Gearbox + Motor
+  const cradleDriveMount = new THREE.Group();
+  const mountPlate = new THREE.Mesh(new THREE.BoxGeometry(0.56, 0.045, 0.72), matDefs.steelFrame);
+  mountPlate.position.set(-1.06, -0.71, -0.28);
+  cradleDriveMount.add(mountPlate);
+  const mountGussetF = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.36, 0.08), matDefs.steelFrame);
+  mountGussetF.position.set(-1.04, -0.51, 0.02);
+  cradleDriveMount.add(mountGussetF);
+  const mountGussetR = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.36, 0.08), matDefs.steelFrame);
+  mountGussetR.position.set(-1.04, -0.51, -0.52);
+  cradleDriveMount.add(mountGussetR);
+  cradlePivot.add(registerPart(cradleDriveMount, "03"));
+
+  // 12T Pinion + Twin Bolted Pillow Blocks + 36T #50 Driven Sprocket on SAME Z-shaft
+  const PINION_X = -0.857;
+  const PINION_Y = -0.520;
+  const Z_RING = -0.15 + DRUM_Z_OFF; // -0.07
+  const Z_CHAIN = -0.28;
   const pinionGroup = new THREE.Group();
-  pinionGroup.position.copy(pinionPos);
-  pinionGroup.add(makeGearMesh(12, ringPitchR / 12, 0.065, matDefs.brass, 0.022));
-  const pinionShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.024, 0.38, 16), matDefs.tire);
+  pinionGroup.position.set(PINION_X, PINION_Y, 0);
+  const pinion12T = makeGearMesh(12, ringPitchR / 12, 0.055, matDefs.brass, 0.024);
+  pinion12T.position.z = Z_RING;
+  pinionGroup.add(pinion12T);
+  const pinionShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.024, 0.42, 16), matDefs.tire);
   pinionShaft.rotation.x = Math.PI / 2;
-  pinionShaft.position.z = -0.05;
+  pinionShaft.position.z = -0.13;
   pinionGroup.add(pinionShaft);
+  const pinionSprocket36 = makeGearMesh(30, 0.112, 0.022, matDefs.brass, 0.024);
+  pinionSprocket36.position.z = Z_CHAIN;
+  pinionGroup.add(pinionSprocket36);
   cradlePivot.add(registerPart(pinionGroup, "09"));
+
+  // Twin Stationary Pillow-Block Bearings bolting Pinion Shaft down onto Mount Plate
+  const pinionBearings = new THREE.Group();
+  for (const zb of [0.03, -0.19]) {
+    const ucp = new THREE.Mesh(new THREE.BoxGeometry(0.11, 0.21, 0.055), matDefs.darkIron);
+    ucp.position.set(PINION_X, PINION_Y - 0.08, zb);
+    pinionBearings.add(ucp);
+  }
+  cradlePivot.add(registerPart(pinionBearings, "09"));
 
   // =========================================================================
   // 07 & 08: 181 cm TUPPERWARE VAULT LID + ANIMATED 8 CLAMPS + WORKING SAMPLE CAP
@@ -910,38 +1062,91 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   capHinge.add(registerPart(g08Cap, "08"));
 
   // =========================================================================
-  // 10 & 11: DUAL-DRIVE GEARBOX, MOTORS, HAND CRANK & PEDAL MODULE
+  // 10 & 11: CONNECTED COMPOUND GEARBOX, #50 CHAIN, 90° BEVEL CRANK & PEDAL
   // =========================================================================
+  const GB_X = -1.18;
+  const GB_Y = -0.56;
+  const GB_Z = -0.28;
+
   const g10 = new THREE.Group();
-  g10.position.set(-1.12, -0.52, -0.08 + DRUM_Z_OFF);
-  g10.add(new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.34, 0.44), matDefs.darkIron));
+  g10.position.set(GB_X, GB_Y, GB_Z);
+  // Main gearbox housing bolted onto cradle mount plate
+  const gbHousing = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.28, 0.28), matDefs.darkIron);
+  g10.add(gbHousing);
+  const gbFoot = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.04, 0.32), matDefs.steelFrame);
+  gbFoot.position.set(0, -0.13, 0);
+  g10.add(gbFoot);
+  // 90° Miter Bevel Housing bolted flush to left (-X) side of Gearbox for Hand Crank & Pedal Input
+  const bevelBox = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.16, 0.16), matDefs.darkIron);
+  bevelBox.position.set(-0.14, 0.0, 0.08);
+  g10.add(bevelBox);
+  const bevelSleeve = new THREE.Mesh(new THREE.CylinderGeometry(0.036, 0.036, 0.10, 14), matDefs.tire);
+  bevelSleeve.rotation.z = Math.PI / 2;
+  bevelSleeve.position.set(-0.22, 0.0, 0.08);
+  g10.add(bevelSleeve);
+
+  // Slotted Clutch Selector Gate + Lever
   const clutchLever = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.24, 12), matDefs.tire);
-  clutchLever.position.set(0, 0.24, 0.08);
+  clutchLever.position.set(0, 0.22, 0.04);
   g10.add(clutchLever);
-  const clutchKnob = new THREE.Mesh(new THREE.SphereGeometry(0.035, 16, 12), matDefs.clampRed);
-  clutchKnob.position.set(0, 0.35, 0.08);
+  const clutchKnob = new THREE.Mesh(new THREE.SphereGeometry(0.034, 16, 12), matDefs.clampRed);
+  clutchKnob.position.set(0, 0.33, 0.04);
   g10.add(clutchKnob);
-  const interGear = makeGearMesh(28, 0.14, 0.03, matDefs.tire, 0.02);
-  interGear.rotation.y = Math.PI / 2;
-  interGear.position.set(-0.13, 0, -0.06);
+
+  // Coaxial Output Sprocket (18T) in front of Z-box aligned directly to Z_CHAIN!
+  const gbOutShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.18, 14), matDefs.tire);
+  gbOutShaft.rotation.x = Math.PI / 2;
+  gbOutShaft.position.set(0, 0, -0.05);
+  g10.add(gbOutShaft);
+  const interGear = makeGearMesh(18, 0.068, 0.024, matDefs.brass, 0.022);
   g10.add(interGear);
+
+  // Bolted Flexible Shaft Coupling bridging rear of Gearbox directly into Motor/Engine input!
+  const couplingHub = new THREE.Mesh(new THREE.CylinderGeometry(0.052, 0.052, 0.16, 16), matDefs.tire);
+  couplingHub.rotation.x = Math.PI / 2;
+  couplingHub.position.set(0, 0, -0.19);
+  g10.add(couplingHub);
+
+  // Pedal Input Sprocket coaxial on bevel cross-shaft
+  const bevelPedalSprocket = makeGearMesh(18, 0.065, 0.018, matDefs.brass, 0.022);
+  bevelPedalSprocket.rotation.y = Math.PI / 2;
+  bevelPedalSprocket.position.set(-0.25, 0.0, 0.08);
+  g10.add(bevelPedalSprocket);
   cradlePivot.add(registerPart(g10, "10"));
 
+  // Visible Animated #50 Roller Chain connecting Gearbox (GB_X, GB_Y) -> Pinion Jackshaft (PINION_X, PINION_Y)!
+  const chainLoop50 = makeChainDriveLoop(
+    [GB_X, GB_Y],
+    0.068,
+    [PINION_X, PINION_Y],
+    0.112,
+    Z_CHAIN,
+    matDefs.darkIron,
+    matDefs.brass
+  );
+  cradlePivot.add(registerPart(chainLoop50.group, "10"));
+
+  // 3 HP Electric + WPWDX Worm Reducer / GX160 Engine mounted inline right behind Gearbox coupling
   const g11 = new THREE.Group();
-  g11.position.set(-1.12, -0.52, -0.45 + DRUM_Z_OFF);
+  g11.position.set(GB_X, GB_Y, -0.58);
   const motorUnit = new THREE.Group();
-  const motorBody = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.32, 24), matDefs.motor);
+  const wormHousing = new THREE.Mesh(new THREE.BoxGeometry(0.20, 0.22, 0.16), matDefs.darkIron);
+  wormHousing.position.set(0, 0, 0.10);
+  motorUnit.add(wormHousing);
+  const motorBody = new THREE.Mesh(new THREE.CylinderGeometry(0.135, 0.135, 0.28, 24), matDefs.motor);
   motorBody.rotation.x = Math.PI / 2;
+  motorBody.position.set(0, 0.02, -0.12);
   motorUnit.add(motorBody);
   for (let f = 0; f < 10; f++) {
-    const fin = new THREE.Mesh(new THREE.BoxGeometry(0.31, 0.012, 0.24), matDefs.motor);
+    const fin = new THREE.Mesh(new THREE.BoxGeometry(0.29, 0.011, 0.22), matDefs.motor);
     fin.rotation.z = (f / 10) * Math.PI;
+    fin.position.set(0, 0.02, -0.12);
     motorUnit.add(fin);
   }
   g11.add(motorUnit);
 
   const petrolUnit = new THREE.Group();
-  petrolUnit.add(new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.24, 0.26), matDefs.darkIron));
+  petrolUnit.add(new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.24, 0.28), matDefs.darkIron));
   const tankMesh = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.11, 0.22), matDefs.clampRed);
   tankMesh.position.set(0, 0.16, 0);
   petrolUnit.add(tankMesh);
@@ -952,17 +1157,18 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   petrolUnit.visible = false;
   g11.add(petrolUnit);
 
+  // Hand Crank mounted directly onto the 90° bevel sleeve output shaft!
   const crankPivot = new THREE.Group();
-  crankPivot.position.set(-1.28, -0.52, 0.06 + DRUM_Z_OFF);
-  const crankBoss = new THREE.Mesh(new THREE.CylinderGeometry(0.036, 0.036, 0.08, 16), matDefs.tire);
+  crankPivot.position.set(GB_X - 0.26, GB_Y, GB_Z + 0.08);
+  const crankBoss = new THREE.Mesh(new THREE.CylinderGeometry(0.036, 0.036, 0.09, 16), matDefs.tire);
   crankBoss.rotation.z = Math.PI / 2;
   crankPivot.add(crankBoss);
   const crankArm = new THREE.Mesh(new THREE.BoxGeometry(0.025, 0.38, 0.045), matDefs.brass);
-  crankArm.position.set(-0.04, MACHINE.crankRadiusM / 2, 0);
+  crankArm.position.set(-0.045, MACHINE.crankRadiusM / 2, 0);
   crankPivot.add(crankArm);
   const crankHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.16, 16), matDefs.humanApron);
   crankHandle.rotation.z = Math.PI / 2;
-  crankHandle.position.set(-0.12, MACHINE.crankRadiusM, 0);
+  crankHandle.position.set(-0.125, MACHINE.crankRadiusM, 0);
   crankPivot.add(crankHandle);
 
   const crankTwin = new THREE.Group();
@@ -975,34 +1181,43 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   crankTwin.visible = false;
   crankPivot.add(crankTwin);
 
-  // Seated Pedal Drive Frame (appears when human-pedal is active!)
+  // Seated Bicycle Pedal Frame anchored to floor + vertical cycling plane + live taut drive chain!
   const pedalModule = new THREE.Group();
-  pedalModule.position.set(-1.62, 0, 0.14);
-  const seatPost = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.03, 0.84, 12), matDefs.steelFrame);
-  seatPost.position.set(-0.26, 0.42, 0);
-  seatPost.rotation.z = -0.18;
+  pedalModule.position.set(-1.62, 0, -0.18);
+  const seatPost = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.03, 0.86, 12), matDefs.steelFrame);
+  seatPost.position.set(-0.28, 0.43, 0);
+  seatPost.rotation.z = -0.16;
   pedalModule.add(seatPost);
+  const baseBar = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.05, 0.24), matDefs.steelFrame);
+  baseBar.position.set(-0.08, 0.025, 0);
+  pedalModule.add(baseBar);
   const seatBase = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.06, 0.24), matDefs.epdm);
-  seatBase.position.set(-0.34, 0.84, 0);
+  seatBase.position.set(-0.36, 0.86, 0);
   pedalModule.add(seatBase);
+  const bbStrut = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.54, 0.045), matDefs.steelFrame);
+  bbStrut.position.set(0.06, 0.28, 0);
+  bbStrut.rotation.z = -0.18;
+  pedalModule.add(bbStrut);
+
   const pedalBB = new THREE.Group();
-  pedalBB.position.set(0.18, 0.56, 0);
-  const pedalWheel = makeGearMesh(20, 0.10, 0.02, matDefs.brass, 0.02);
-  pedalWheel.rotation.y = Math.PI / 2;
+  pedalBB.position.set(0.08, 0.52, 0);
+  const pedalWheel = makeGearMesh(24, 0.11, 0.02, matDefs.brass, 0.022);
+  pedalWheel.position.z = -0.02;
   pedalBB.add(pedalWheel);
   for (const s of [-1, 1]) {
-    const pArm = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.175, 0.028), matDefs.tire);
-    pArm.position.set(s * 0.09, s * 0.0875, 0);
+    const pArm = new THREE.Mesh(new THREE.BoxGeometry(0.175, 0.024, 0.018), matDefs.tire);
+    pArm.position.set(s * 0.0875, 0, s * 0.085);
     pedalBB.add(pArm);
-    const pad = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.02, 0.08), matDefs.epdm);
-    pad.position.set(s * 0.14, s * 0.175, 0);
+    const pad = new THREE.Mesh(new THREE.BoxGeometry(0.085, 0.022, 0.08), matDefs.epdm);
+    pad.position.set(s * 0.17, 0, s * 0.115);
     pedalBB.add(pad);
   }
   pedalModule.add(pedalBB);
-  const chainStrut = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.52, 0.04), matDefs.steelFrame);
-  chainStrut.position.set(0.26, 0.78, 0);
-  chainStrut.rotation.z = -0.25;
-  pedalModule.add(chainStrut);
+
+  // Two taut upper/lower bicycle chain spans updated dynamically to gearbox bevel sprocket!
+  const pedalChainTop = new THREE.Mesh(new THREE.BoxGeometry(1, 0.012, 0.016), matDefs.darkIron);
+  const pedalChainBot = new THREE.Mesh(new THREE.BoxGeometry(1, 0.012, 0.016), matDefs.darkIron);
+  pedalModule.add(pedalChainTop, pedalChainBot);
   pedalModule.visible = false;
 
   cradlePivot.add(registerPart(g11, "11"));
@@ -1108,7 +1323,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   // WOVEN BAMBOO KERANJANG + RISING BLENDED TOBACCO PILE INSIDE BASKET
   // =========================================================================
   const keranjang = new THREE.Group();
-  keranjang.position.set(0, 0, 1.38);
+  keranjang.position.set(0, 0, 1.54);
   const basketWall = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.30, 0.42, 24, 1, true), matDefs.bamboo);
   basketWall.position.y = 0.21;
   keranjang.add(basketWall);
@@ -1145,10 +1360,10 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   tobaccoHolder.position.set(0, 0, DRUM_Z_OFF);
   cradlePivot.add(tobaccoHolder);
 
-  // True circular-segment bulk bed strictly bounded inside r = R - 0.05 (never pokes outside shell!)
+  // Curved-top circular-segment bulk bed strictly bounded inside r = R - 0.065
   function buildBedGeo(fillFrac) {
-    const rb = R - 0.055;
-    const halfSpan = Math.max(0.45, Math.min(Math.PI * 0.48, 0.52 + fillFrac * 1.75));
+    const rb = R - 0.065;
+    const halfSpan = Math.max(0.45, Math.min(Math.PI * 0.48, 0.52 + fillFrac * 1.72));
     const startA = -Math.PI / 2 - halfSpan;
     const endA = -Math.PI / 2 + halfSpan;
     const shape = new THREE.Shape();
@@ -1160,11 +1375,19 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
       if (i === 0) shape.moveTo(px, py);
       else shape.lineTo(px, py);
     }
+    const xEnd = Math.cos(endA) * rb;
+    const yTop = Math.sin(endA) * rb;
+    const xStart = Math.cos(startA) * rb;
+    for (let j = 1; j < 10; j++) {
+      const f = j / 10;
+      const px = xEnd + (xStart - xEnd) * f;
+      const py = yTop + 0.042 * Math.sin(Math.PI * f);
+      shape.lineTo(px, py);
+    }
     shape.closePath();
-    const geo = new THREE.ExtrudeGeometry(shape, { depth: L * 0.88, bevelEnabled: false, curveSegments: 1 });
-    geo.translate(0, 0, -L * 0.44);
+    const geo = new THREE.ExtrudeGeometry(shape, { depth: L * 0.80, bevelEnabled: false, curveSegments: 1 });
+    geo.translate(0, 0, -L * 0.40);
     geo.computeVertexNormals();
-    // Tri-planar UV mapping so front cut face never stretches vertical stripes!
     const pos = geo.attributes.position;
     const norm = geo.attributes.normal;
     const uvs = new Float32Array(pos.count * 2);
@@ -1174,7 +1397,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
         uvs[i * 2] = (pos.getX(i) + rb) / (2 * rb);
         uvs[i * 2 + 1] = (pos.getY(i) + rb) / (2 * rb);
       } else {
-        uvs[i * 2] = (pos.getZ(i) + L * 0.44) / (L * 0.88);
+        uvs[i * 2] = (pos.getZ(i) + L * 0.40) / (L * 0.80);
         uvs[i * 2 + 1] = (pos.getX(i) + rb) / (2 * rb);
       }
     }
@@ -1195,9 +1418,9 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
   bulkBedMesh.receiveShadow = true;
   tobaccoHolder.add(bulkBedMesh);
 
-  const PARTICLE_COUNT = 2200;
-  // Fine fibrous tobacco shred ribbon geometry
-  const strandGeo = new THREE.BoxGeometry(0.048, 0.004, 0.009);
+  const PARTICLE_COUNT = 2600;
+  // Shredded tembakau rajangan cluster + ribbon geometry
+  const strandGeo = new THREE.BoxGeometry(0.056, 0.0085, 0.016);
   const strandMat = new THREE.MeshStandardMaterial({ roughness: 0.92, metalness: 0.01 });
   const strandMesh = new THREE.InstancedMesh(strandGeo, strandMat, PARTICLE_COUNT);
   strandMesh.receiveShadow = true;
@@ -1213,14 +1436,14 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
 
   function resetTobaccoBatch(batchKg = 150) {
     const fillFrac = Math.min(0.65, Math.max(0.08, batchKg / 720));
-    const maxAngle = 0.75 + fillFrac * 1.35;
+    const maxAngle = 0.85 + fillFrac * 1.45;
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       const variety = i < PARTICLE_COUNT / 3 ? 0 : i < (PARTICLE_COUNT * 2) / 3 ? 1 : 2;
       pType[i] = variety;
       strandMesh.setColorAt(i, TOBACCO_COLORS[variety]);
 
-      const theta = -Math.PI / 2 + (hash01(i * 9 + 1) - 0.5) * maxAngle;
-      const radFrac = 0.62 + 0.34 * hash01(i * 9 + 2);
+      const theta = -Math.PI / 2 + (hash01(i * 9 + 1) - 0.42) * maxAngle;
+      const radFrac = i % 4 === 0 ? 0.86 + 0.10 * hash01(i * 9 + 2) : 0.70 + 0.24 * hash01(i * 9 + 2);
       const r = R * radFrac;
       const zBand =
         variety === 0
@@ -1325,10 +1548,12 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     g06.position.z = e * 0.92;
     davitHinge.position.z = L / 2 + DRUM_Z_OFF + 0.03 + e * 1.15;
     g09Drum.position.z = -e * 0.42;
-    pinionGroup.position.x = -0.856 - e * 0.35;
-    g10.position.x = -1.12 - e * 0.52;
-    g11.position.x = -1.12 - e * 0.72;
-    crankPivot.position.x = -1.28 - e * 0.78;
+    pinionGroup.position.x = PINION_X - e * 0.35;
+    pinionBearings.position.x = -e * 0.35;
+    chainLoop50.group.position.x = -e * 0.46;
+    g10.position.x = GB_X - e * 0.52;
+    g11.position.x = GB_X - e * 0.72;
+    crankPivot.position.x = GB_X - 0.26 - e * 0.78;
     capHinge.position.z = 0.065 + e * 0.45;
   }
 
@@ -1502,6 +1727,9 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     }
   });
 
+  const tmpBasketW = new THREE.Vector3();
+  const tmpBevelW = new THREE.Vector3();
+
   function stepTobaccoParticles(dt, omegaDrum, tiltRad) {
     const sinT = Math.sin(tiltRad);
     const cosT = Math.cos(tiltRad);
@@ -1512,9 +1740,9 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     const activeCutoffY = -effR + fillLimit * 1.8 * effR;
     const isPouring = state.lidOpen && state.tiltDeg < -4;
 
-    // Update circular-segment bed geometry when fill or pour level changes (stays 100% inside drum wall!)
+    // Update circular-segment core bed slightly recessed so loose 3D strands stay visible above it!
     const pourRatio = Math.min(1, state.pouredCount / Math.max(1, state.activeCount * 0.72));
-    const effectiveFill = Math.max(0.03, Math.min(0.55, (state.batchKg / 720) * (1 - pourRatio * 0.92)));
+    const effectiveFill = Math.max(0.03, Math.min(0.46, (state.batchKg / 880) * (1 - pourRatio * 0.92)));
     const bedBucket = Math.round(effectiveFill * 40);
     if (bedBucket !== currentBedBucket) {
       currentBedBucket = bedBucket;
@@ -1522,12 +1750,23 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
       bulkBedMesh.geometry = buildBedGeo(effectiveFill);
     }
     bulkBedMesh.visible = pourRatio < 0.94;
-    const targetSlopeZ = Math.sign(omegaDrum || 1) * Math.min(0.45, Math.abs(omegaDrum) * 0.36);
+    const targetSlopeZ = Math.sign(omegaDrum || 1) * Math.min(0.58, Math.abs(omegaDrum) * 0.46);
     bulkBedMesh.rotation.z += (targetSlopeZ - bulkBedMesh.rotation.z) * Math.min(1, dt * 4);
+    const targetBedZ = Math.max(-0.08, Math.min(0.14, -sinT * 0.16 + (isPouring ? 0.12 : 0)));
+    bulkBedMesh.position.z += (targetBedZ - bulkBedMesh.position.z) * Math.min(1, dt * 2.5);
     tobTexObj.update(Math.min(1, (state.mixPct - 10) / 86));
+    const bedCoreTopY = -effR + effectiveFill * 1.45 * effR;
+
+    // Transform woven basket center into tobaccoHolder coordinates for realistic dump trajectories
+    tmpBasketW.set(0, 0.24, 1.54);
+    tobaccoHolder.worldToLocal(tmpBasketW);
+    const floorBasketY = tmpBasketW.y - 0.10;
 
     let pouredNow = 0;
     const activeMax = state.activeCount;
+    const spinSign = Math.sign(omegaDrum || 1);
+    const absOmega = Math.abs(omegaDrum);
+
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       if (i >= activeMax) {
         dummy.position.set(0, -100, 0);
@@ -1540,18 +1779,19 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
       const ix = i * 3;
       if (pState[i] === 1) {
         pouredNow++;
+        pVel[ix] += (tmpBasketW.x - pPos[ix]) * 1.4 * dt;
         pVel[ix + 1] += gravY * dt;
-        pVel[ix + 2] += gravZ * dt + 0.95 * dt;
+        pVel[ix + 2] += gravZ * dt + (tmpBasketW.z - pPos[ix + 2]) * 1.1 * dt;
         pPos[ix] += pVel[ix] * dt;
         pPos[ix + 1] += pVel[ix + 1] * dt;
         pPos[ix + 2] += pVel[ix + 2] * dt;
 
-        // Land inside woven keranjang
-        if (pPos[ix + 1] < -1.08) {
-          pPos[ix + 1] = -1.08 + (i % 9) * 0.02;
-          pVel[ix] *= 0.18;
+        // Rest cleanly inside woven keranjang mound
+        if (pPos[ix + 1] < floorBasketY) {
+          pPos[ix + 1] = floorBasketY + (i % 9) * 0.014;
+          pVel[ix] *= 0.12;
           pVel[ix + 1] = 0;
-          pVel[ix + 2] *= 0.18;
+          pVel[ix + 2] *= 0.12;
         }
       } else {
         let x = pPos[ix];
@@ -1563,21 +1803,47 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
 
         const r = Math.hypot(x, y);
         const ang = Math.atan2(y, x);
-        const nearWall = r > effR - 0.22;
-        const inLiftingQuad = y < 0.55 && x * omegaDrum > -0.25;
+        const tZ = Math.max(0, Math.min(1, (z + L * 0.45) / (L * 0.88)));
 
-        if (nearWall && inLiftingQuad && Math.abs(omegaDrum) > 0.005) {
+        // True angular capture by any of the 4 helical steel lifting scoops!
+        let bestDAng = Math.PI;
+        let bestPitchDir = 1;
+        for (let f = 0; f < 4; f++) {
+          const pitchTwist = (f % 2 === 0 ? 1 : -1) * 0.45;
+          const flightAng = state.drumAngle + (f * Math.PI) / 2 + tZ * pitchTwist;
+          const dA = Math.atan2(Math.sin(ang - flightAng), Math.cos(ang - flightAng));
+          if (Math.abs(dA) < Math.abs(bestDAng)) {
+            bestDAng = dA;
+            bestPitchDir = f % 2 === 0 ? 1 : -1;
+          }
+        }
+
+        const nearWall = r > effR - 0.24;
+        const onRisingSide = x * spinSign > -0.34 * effR;
+        const belowRelease = y < 0.48;
+        const caughtInFlight = absOmega > 0.005 && nearWall && onRisingSide && belowRelease && Math.abs(bestDAng) < 0.34;
+
+        if (caughtInFlight) {
           const tangentX = -Math.sin(ang);
           const tangentY = Math.cos(ang);
           const carrySpeed = omegaDrum * r;
-          vx += (tangentX * carrySpeed - vx) * Math.min(1, dt * 11);
-          vy += (tangentY * carrySpeed - vy) * Math.min(1, dt * 11);
-          const sector = Math.floor((((ang + Math.PI * 2) % (Math.PI * 2)) / (Math.PI / 2))) % 2;
-          vz += (sector === 0 ? 1 : -1) * Math.abs(omegaDrum) * 0.50 * dt;
+          vx += (tangentX * carrySpeed - vx) * Math.min(1, dt * 15);
+          vy += (tangentY * carrySpeed - vy) * Math.min(1, dt * 15);
+          // Slight radial tuck onto the scoop shelf & real helical axial transfer
+          const rPull = (effR - 0.085 - r) * 3.8;
+          vx += Math.cos(ang) * rPull * dt;
+          vy += Math.sin(ang) * rPull * dt;
+          vz += (bestPitchDir * absOmega * 0.78 + (isPouring ? 3.2 : 0)) * dt;
         } else {
-          vx += (Math.sin(i * 1.7 + state.drumAngle) * 0.4 - vx * 1.4) * dt;
+          // Real free-fall waterfall curtain & buoyant top-bed tumble above core
+          vx += (gravY * 0.025 * Math.sin(i * 1.9 + state.drumAngle) - vx * 0.45) * dt;
           vy += gravY * dt;
-          vz += (gravZ * 0.65 - vz * 1.8) * dt;
+          vz += (gravZ + (isPouring ? 3.6 : 0) - vz * (isPouring ? 0.35 : 1.0)) * dt;
+          if (y < bedCoreTopY + 0.04 && vy < 0 && !caughtInFlight) {
+            y = bedCoreTopY + 0.04 + (i % 7) * 0.008;
+            vy *= -0.15;
+            vx += spinSign * absOmega * 0.18 * (i % 3 === 0 ? 1 : 0.4);
+          }
         }
 
         x += vx * dt;
@@ -1586,21 +1852,30 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
 
         const nr = Math.hypot(x, y);
         if (nr > effR) {
-          const s = effR / nr;
-          x *= s;
-          y *= s;
-          vx *= 0.4;
-          vy *= 0.4;
+          const nx = x / nr;
+          const ny = y / nr;
+          x = nx * effR;
+          y = ny * effR;
+          const vRad = vx * nx + vy * ny;
+          if (vRad > 0) {
+            vx -= 1.25 * vRad * nx;
+            vy -= 1.25 * vRad * ny;
+          }
+          if (absOmega <= 0.005) {
+            vx *= 0.82;
+            vy *= 0.82;
+            vz *= 0.82;
+          }
         }
-        if (Math.abs(omegaDrum) < 0.005 && y > activeCutoffY) vy -= 4.5 * dt;
+        if (absOmega < 0.005 && y > activeCutoffY + 0.04) vy += gravY * 0.4 * dt;
         if (z < -L / 2 + 0.05) {
           z = -L / 2 + 0.05;
           vz = Math.abs(vz) * 0.3;
         }
-        if (z > L / 2 - 0.05) {
-          if (isPouring && y < 0.12) {
+        if (z > L / 2 - 0.08) {
+          if (isPouring && y < 0.25) {
             pState[i] = 1;
-            vz = 0.65;
+            vz = Math.max(0.85, vz);
           } else {
             z = L / 2 - 0.05;
             vz = -Math.abs(vz) * 0.3;
@@ -1615,7 +1890,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
       }
 
       dummy.position.set(pPos[ix], pPos[ix + 1], pPos[ix + 2]);
-      dummy.rotation.set(pRot[i * 2] + state.drumAngle * 0.3, pRot[i * 2 + 1], 0);
+      dummy.rotation.set(pRot[i * 2] + state.drumAngle * 0.35, pRot[i * 2 + 1], 0);
       const sc = pScale[i];
       dummy.scale.set(sc, sc, sc);
       dummy.updateMatrix();
@@ -1696,17 +1971,44 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
 
     drumSpinGroup.rotation.z = state.drumAngle;
     pinionGroup.rotation.z = -state.drumAngle * 12;
-    interGear.rotation.x = state.drumAngle * Math.min(24, state.gearRatio);
+    const gbAngle = -state.drumAngle * (12 * (0.112 / 0.068));
+    interGear.rotation.z = gbAngle;
+    couplingHub.rotation.z = gbAngle;
+    bevelPedalSprocket.rotation.x = state.crankAngle;
+    chainLoop50.advance(state.drumAngle * 12 * 0.112);
     crankPivot.rotation.x = state.crankAngle;
-    pedalBB.rotation.x = state.crankAngle;
-    for (const rMesh of rollerMeshes) rMesh.rotation.y = -state.drumAngle * (R / 0.085);
+    pedalBB.rotation.z = -state.crankAngle;
+    for (const rMesh of rollerMeshes) rMesh.rotation.y = state.drumAngle * (R / 0.085);
 
-    // Human Pose: Standing (Engine), Hand Cranking, or Seated Pedaling!
+    // Update dynamic bicycle drive chain straight from pedal chainring to gearbox bevel sprocket!
+    if (pedalModule.visible) {
+      cradlePivot.updateMatrixWorld(true);
+      bevelPedalSprocket.getWorldPosition(tmpBevelW);
+      pedalModule.worldToLocal(tmpBevelW);
+      const dxC = tmpBevelW.x - pedalBB.position.x;
+      const dyC = tmpBevelW.y - pedalBB.position.y;
+      const dLen = Math.max(0.05, Math.hypot(dxC, dyC));
+      const cAng = Math.atan2(dyC, dxC);
+      const nx = -Math.sin(cAng);
+      const ny = Math.cos(cAng);
+      const mx = (pedalBB.position.x + tmpBevelW.x) / 2;
+      const my = (pedalBB.position.y + tmpBevelW.y) / 2;
+      const zC = tmpBevelW.z;
+      pedalChainTop.scale.set(dLen, 1, 1);
+      pedalChainTop.position.set(mx + nx * 0.082, my + ny * 0.082, zC);
+      pedalChainTop.rotation.z = cAng;
+      pedalChainBot.scale.set(dLen, 1, 1);
+      pedalChainBot.position.set(mx - nx * 0.082, my - ny * 0.082, zC);
+      pedalChainBot.rotation.z = cAng;
+    }
+
+    // Human Pose: Standing (Engine), Hand Cranking, or Seated Cycling in X-Y plane!
     const isPedal = state.driveId === "human-pedal";
     const isHandCrank = state.driveId === "human-1" || state.driveId === "human-2";
     if (isPedal) {
-      humanGroup.position.x += (-1.94 - humanGroup.position.x) * Math.min(1, dt * 5);
+      humanGroup.position.x += (-1.98 - humanGroup.position.x) * Math.min(1, dt * 5);
       humanGroup.position.y += (-0.12 - humanGroup.position.y) * Math.min(1, dt * 5);
+      humanGroup.position.z += (-0.18 - humanGroup.position.z) * Math.min(1, dt * 5);
       torsoPivot.rotation.z += (-0.28 - torsoPivot.rotation.z) * Math.min(1, dt * 5);
       rShoulder.rotation.z = 0.65;
       rElbow.rotation.z = 0.25;
@@ -1714,12 +2016,13 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
       lElbow.rotation.z = 0.25;
       legs.forEach((leg, idx) => {
         const phase = state.crankAngle + idx * Math.PI;
-        leg.hipPivot.rotation.z = 1.05 + Math.sin(phase) * 0.28;
-        leg.kneePivot.rotation.z = -1.25 - Math.cos(phase) * 0.35;
+        leg.hipPivot.rotation.z = 1.05 + Math.sin(phase) * 0.30;
+        leg.kneePivot.rotation.z = -1.25 - Math.cos(phase) * 0.36;
       });
     } else if (isHandCrank) {
-      humanGroup.position.x += (-1.70 - humanGroup.position.x) * Math.min(1, dt * 5);
+      humanGroup.position.x += (-1.78 - humanGroup.position.x) * Math.min(1, dt * 5);
       humanGroup.position.y += (0 - humanGroup.position.y) * Math.min(1, dt * 5);
+      humanGroup.position.z += ((GB_Z + 0.08) - humanGroup.position.z) * Math.min(1, dt * 5);
       legs.forEach((leg) => {
         leg.hipPivot.rotation.z += (0 - leg.hipPivot.rotation.z) * Math.min(1, dt * 5);
         leg.kneePivot.rotation.z += (0 - leg.kneePivot.rotation.z) * Math.min(1, dt * 5);
@@ -1727,17 +2030,17 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
       const th = cradlePivot.rotation.x;
       const crankWorldY =
         PIVOT_Y +
-        (-0.52) * Math.cos(th) -
-        (0.06 + DRUM_Z_OFF) * Math.sin(th) +
+        GB_Y * Math.cos(th) -
+        (GB_Z + 0.08) * Math.sin(th) +
         Math.cos(state.crankAngle) * MACHINE.crankRadiusM;
       const crankWorldZ =
-        (-0.52) * Math.sin(th) +
-        (0.06 + DRUM_Z_OFF) * Math.cos(th) +
+        GB_Y * Math.sin(th) +
+        (GB_Z + 0.08) * Math.cos(th) +
         Math.sin(state.crankAngle) * MACHINE.crankRadiusM;
 
       torsoPivot.rotation.z = -0.14 - Math.sin(state.crankAngle) * 0.06;
       const dy = crankWorldY - 1.32;
-      const dz = crankWorldZ - 0.14;
+      const dz = crankWorldZ - (GB_Z + 0.08);
       rShoulder.rotation.z = 1.05 + dy * 1.1;
       rShoulder.rotation.y = -dz * 0.7;
       rElbow.rotation.z = 0.45 - Math.cos(state.crankAngle) * 0.28;
@@ -1746,6 +2049,7 @@ export function createMixerSimulation(container, { onPartSelect, onPartAction, o
     } else {
       humanGroup.position.x += (-1.92 - humanGroup.position.x) * Math.min(1, dt * 5);
       humanGroup.position.y += (0 - humanGroup.position.y) * Math.min(1, dt * 5);
+      humanGroup.position.z += (0.14 - humanGroup.position.z) * Math.min(1, dt * 5);
       legs.forEach((leg) => {
         leg.hipPivot.rotation.z += (0 - leg.hipPivot.rotation.z) * Math.min(1, dt * 5);
         leg.kneePivot.rotation.z += (0 - leg.kneePivot.rotation.z) * Math.min(1, dt * 5);

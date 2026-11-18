@@ -12,6 +12,9 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-11-18 14:33 — tobacco-mixer-3d v4: hollow exterior 144T roller-chain ring, connected drivetrain, helical flight cascade & Netlify deploy
+Replaced the solid interior ring gear bug (`curveSegments: 1` flat disc) with a 100% hollow exterior welded RS-60 roller-chain band (`144` external chain pins around barrel skin), bolted twin-bearing `12T` pinion + `30T` sprocket + animated `#50` drive chain (`makeChainDriveLoop`) + `90°` bevel hand crank + vertical cycling-plane pedal frame with live tilt-tracking chain + inline coupled 3 HP/GX160 drive. Upgraded `stepTobaccoParticles` (`2,600` clusters) for helical blade capture/11-o'clock waterfall release, `-12°` mouth pour surge, and moved *keranjang* to `z = 1.54` clearing skid bar. Deployed live to Netlify (`https://tobacco-mixer-3d-by-aldi.netlify.app`, deploy `6afd553fb883c0ba46f08b2f`); verified `physics.test.mjs` 7/7 + 0 console errors in Chrome.
+
 ## 2026-11-18 13:58 — tobacco-mixer-3d v3 deployed live to Netlify (`tobacco-mixer-3d-by-aldi`)
 Deployed `Tools/tobacco-mixer-3d/dist/` via Netlify MCP to project `dfba3112-b9b2-4739-af7c-c3ec6f1513af` (`https://tobacco-mixer-3d-by-aldi.netlify.app`, deploy `6afd4c65cf643fbfb40208df`, 4 files live, verified HTTP 200 with v3 `hover-tip`). Added `.netlify/` to `.gitignore`.
 
