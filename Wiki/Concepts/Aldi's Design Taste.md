@@ -3868,3 +3868,10 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 - Layout options must be drawn FULL: every feature of the current screen visible in each option (GPS, Street View, competitor prices, approvals, admin tools, edit form). A thin sketch is judged as a thin design, not as a layout idea.
 - "Untidy" (his word for the first Customers picture) is about too much in one view at once, not about too much information. He wants the information kept, arranged better.
 - Board v2 with a feature checklist per option: https://claude.ai/artifact/LMBj8wJEqRe5ryrpqe5F3N
+
+## 2026-11-18 - Customers: competitor intelligence and location get their own place
+
+> *"u need to make competitor intelligence for each of the stores in each own segment because it is a very important features to be have here i want to make a special place and UI for it so that it doesnt combined with the store information, as well as the streetview and the gps map"*
+
+- A feature he calls "very important" gets its own section with its own UI, not a card next to the facts. In Customers C the shop now has three tabs: Shop info / Location (big GPS map + Street View, copy GPS, directions) / Competitor intelligence (summary, rival vs our nearest Cello price bars, shelf + promo + selling speed, dated history).
+- Shop info keeps a one-line glance of the other two (tap to jump), so nothing is hidden.
