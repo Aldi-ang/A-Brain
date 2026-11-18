@@ -12,6 +12,9 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-11-18 13:07 — tobacco-mixer-3d v2: working center cap, 3D Anatomy tour, pedal drive & fibrous tobacco bed
+Added center twist-lock Sample Inspection Cap (`08`) with animated 8-clamp vault door interlock, deformable circular-segment *tembakau rajangan* bulk bed + 2,200 strands + rising *keranjang* dump pile, seated 180 W foot-pedal drive (`human-pedal`), `Box3`-centered 3D Anatomy Tour (`01`–`11` + 171 cm scale), fixed stationary cutaway shell + all 5 POV cameras, and interactive tilt-wheel jog controls. Verified 0 console errors at 1440×900, 390×844, and `file://` standalone.
+
 ## 2026-11-18 12:29 — 179×179 cm Baglog Steamer → Tobacco Mixer 3D & Anatomy built
 Aldi's ask: convert his 179×179 cm hollow-top baglog steamer (Tupperware vault lid) into a dry tobacco mixer with 171 cm scale figure, realistic engine/human gearing, Anatomy breakdown, and shareable 3D simulation. Built `Tools/tobacco-mixer-3d/` (Three.js 1,650-strand tumbler simulator + 4-tone isometric `anatomy` cutaway + `physics.mjs` verified by 7 Node checks and 7 headless PC/phone renders in `Raw/2026-11-18-tobacco-mixer-3d/`). Key finding: 12:1 direct human crank stalls at 23.8 kgf on 300 kg, whereas 72:1 compound manual turns 300 kg at 4.6 kgf (0.75 RPM) and 24:1 turns 50 kg at 3.9 kgf (2.25 RPM).
 

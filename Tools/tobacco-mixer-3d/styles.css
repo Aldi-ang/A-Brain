@@ -122,7 +122,8 @@ html, body {
   display: flex;
   flex: 1;
   width: 100%;
-  min-height: calc(100dvh - 58px);
+  height: calc(100dvh - 58px);
+  overflow: hidden;
 }
 
 .stage-col {
@@ -244,17 +245,79 @@ html, body {
 }
 .cam-btn:hover { border-color: var(--border-strong); color: var(--gold); }
 .cam-btn:active { transform: scale(0.96); }
-
-.part-toast {
-  pointer-events: auto;
-  max-width: 340px;
-  background: rgba(21, 24, 30, 0.94);
-  border: 1px solid var(--border-strong);
-  border-radius: 9px;
-  padding: 9px 12px;
-  font-size: 12px;
+.cam-btn.is-active, .cam-btn-accent.is-active {
+  background: rgba(217, 155, 56, 0.22);
+  border-color: var(--border-strong);
+  color: var(--gold);
+  font-weight: 600;
 }
-.part-toast strong { color: var(--gold); display: block; margin-bottom: 2px; }
+.cam-btn-accent {
+  border-color: rgba(217, 155, 56, 0.45);
+  color: var(--gold);
+}
+
+.piece-card {
+  position: absolute;
+  bottom: 58px;
+  right: 12px;
+  width: min(360px, calc(100% - 24px));
+  background: rgba(21, 24, 30, 0.94);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 11px 13px;
+  z-index: 15;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+.piece-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.piece-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  background: var(--gold-soft);
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+.piece-nav {
+  display: flex;
+  gap: 4px;
+}
+.mini-btn {
+  min-height: 28px;
+  padding: 0 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font: 500 11px/1 var(--sans);
+  cursor: pointer;
+}
+.mini-btn.is-active {
+  border-color: var(--border-strong);
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+.piece-card h4 { margin: 0 0 2px; font-size: 14px; color: var(--text); }
+.piece-indo { font-family: var(--mono); font-size: 11px; color: var(--gold); margin-bottom: 5px; }
+.piece-card p { margin: 0 0 5px; font-size: 12px; color: var(--muted); }
+.piece-spec { font-family: var(--mono); font-size: 11px; color: var(--text); border-top: 1px solid var(--border); padding-top: 5px; }
+
+.wheel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--gold);
+}
+#wheel-icon {
+  transition: transform 200ms ease;
+}
 
 /* Control Rail */
 .control-rail {
@@ -489,7 +552,9 @@ table.spec-table {
   .brand-sub { display: none; }
   .sim-layout {
     flex-direction: column;
+    height: auto;
     min-height: auto;
+    overflow: visible;
   }
   .stage-col {
     height: 56vh;
@@ -512,5 +577,5 @@ table.spec-table {
   .hud-bottom { bottom: 8px; left: 8px; right: 8px; }
   .cam-bar { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; }
   .cam-btn { min-height: 32px; padding: 0 9px; font-size: 11px; flex: none; }
-  .part-toast { display: none; }
+  .piece-card { bottom: 48px; left: 8px; right: 8px; width: auto; padding: 9px 11px; }
 }

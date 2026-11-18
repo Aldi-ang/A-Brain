@@ -37,7 +37,7 @@
                 </div>
                 <div class="metric-chip">
                   <span class="metric-k">Torque</span>
-                  <span class="metric-v" id="m-torque">590 Nm</span>
+                  <span class="metric-v" id="m-torque">569 Nm</span>
                 </div>
                 <div class="metric-chip" id="chip-force" hidden>
                   <span class="metric-k">Hand Force</span>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="metric-chip">
                   <span class="metric-k">Power</span>
-                  <span class="metric-v" id="m-power">810 W</span>
+                  <span class="metric-v" id="m-power">821 W</span>
                 </div>
                 <div class="metric-chip">
                   <span class="metric-k">Drum Fill</span>
@@ -59,15 +59,32 @@
               <div class="status-pill" id="status-pill">Optimal Cascading · Safe</div>
             </div>
 
+            <!-- Piece-by-Piece 3D Anatomy Inspector Card -->
+            <div class="piece-card" id="piece-card" hidden>
+              <div class="piece-card-head">
+                <span class="piece-badge" id="pc-badge">PART 07</span>
+                <div class="piece-nav">
+                  <button type="button" class="mini-btn" id="pc-prev" title="Previous Piece">‹ Prev</button>
+                  <button type="button" class="mini-btn" id="pc-next" title="Next Piece">Next ›</button>
+                  <button type="button" class="mini-btn is-active" id="pc-isolate">Isolate</button>
+                  <button type="button" class="mini-btn" id="pc-close" title="Close Inspector">✕</button>
+                </div>
+              </div>
+              <h4 id="pc-title">181 cm Tupperware Vault Lid</h4>
+              <div class="piece-indo" id="pc-indo">Tutup Vault Model Tupperware</div>
+              <p id="pc-fn"></p>
+              <div class="piece-spec" id="pc-spec"></div>
+            </div>
+
             <div class="hud-bottom">
               <div class="cam-bar">
-                <button type="button" class="cam-btn" data-cam="overview">171 vs 179 cm Scale</button>
+                <button type="button" class="cam-btn is-active" data-cam="overview">171 vs 179 cm Scale</button>
                 <button type="button" class="cam-btn" data-cam="cutaway">Inside Flights</button>
                 <button type="button" class="cam-btn" data-cam="gearbox">Gearbox & Crank</button>
-                <button type="button" class="cam-btn" data-cam="lid">Tupperware Lid</button>
+                <button type="button" class="cam-btn" data-cam="lid">Tupperware Lid & Cap</button>
                 <button type="button" class="cam-btn" data-cam="unload">Keranjang Dump</button>
+                <button type="button" class="cam-btn cam-btn-accent" id="btn-tour-3d">3D Anatomy Tour</button>
               </div>
-              <div class="part-toast" id="part-toast" hidden></div>
             </div>
           </div>
 
@@ -100,27 +117,30 @@
             </div>
 
             <div class="ctrl-card">
-              <div class="ctrl-title"><span>Tobacco Batch & Drum Tilt</span><span>Dry Rajangan</span></div>
-              <div class="seg-grid cols-3">
-                <button type="button" class="seg-btn" data-batch="50">50 kg (Seri)</button>
-                <button type="button" class="seg-btn" data-batch="150">150 kg</button>
-                <button type="button" class="seg-btn" data-batch="300">300 kg</button>
+              <div class="ctrl-title">
+                <span>Vault Door & Tilt Wheel</span>
+                <span class="wheel-badge" id="wheel-badge">
+                  <svg viewBox="0 0 24 24" width="16" height="16" id="wheel-icon"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5L4.2 16.5" stroke="currentColor" stroke-width="1.6"/></svg>
+                  <span id="val-tilt-inline">+25°</span>
+                </span>
               </div>
-              <div class="range-row">
-                <div class="range-head">
-                  <span>Batch Weight (max 400 kg @ 48% fill)</span>
-                  <span class="range-val" id="val-batch">150 kg</span>
-                </div>
-                <input id="sl-batch" type="range" min="25" max="380" step="5" value="150" />
+              <div class="toggle-row">
+                <button type="button" class="seg-btn" id="btn-cap">Open Sample Cap</button>
+                <button type="button" class="seg-btn" id="btn-lid">Open Vault Lid</button>
               </div>
               <div class="seg-grid cols-3">
                 <button type="button" class="seg-btn" data-tilt="-12">-12° Dump</button>
-                <button type="button" class="seg-btn" data-tilt="25">+25° Mix</button>
+                <button type="button" class="seg-btn is-active" data-tilt="25">+25° Mix</button>
                 <button type="button" class="seg-btn" data-tilt="32">+32° Deep</button>
+              </div>
+              <div class="seg-grid cols-3">
+                <button type="button" class="seg-btn" id="btn-tilt-down">Wheel -5°</button>
+                <button type="button" class="seg-btn" id="btn-tilt-zero">0° Level</button>
+                <button type="button" class="seg-btn" id="btn-tilt-up">Wheel +5°</button>
               </div>
               <div class="range-row">
                 <div class="range-head">
-                  <span>Cradle Tilt Angle</span>
+                  <span>Worm Wheel Tilt Angle</span>
                   <span class="range-val" id="val-tilt">25°</span>
                 </div>
                 <input id="sl-tilt" type="range" min="-15" max="35" step="1" value="25" />
@@ -128,12 +148,29 @@
             </div>
 
             <div class="ctrl-card">
-              <div class="ctrl-title"><span>Inspection & Explode</span><span>Click 3D Parts</span></div>
+              <div class="ctrl-title"><span>Tobacco Batch (Rajangan)</span><span>Max 380 kg</span></div>
+              <div class="seg-grid cols-3">
+                <button type="button" class="seg-btn" data-batch="50">50 kg (Seri)</button>
+                <button type="button" class="seg-btn is-active" data-batch="150">150 kg</button>
+                <button type="button" class="seg-btn" data-batch="300">300 kg</button>
+              </div>
+              <div class="range-row">
+                <div class="range-head">
+                  <span>Batch Weight (Temanggung + Madura + Boyolali)</span>
+                  <span class="range-val" id="val-batch">150 kg</span>
+                </div>
+                <input id="sl-batch" type="range" min="25" max="380" step="5" value="150" />
+              </div>
+              <button type="button" class="action-btn" id="btn-reset-batch">Reload Stratified 3-Origin Batch</button>
+            </div>
+
+            <div class="ctrl-card">
+              <div class="ctrl-title"><span>3D Inspection & Explode</span><span>Click Any Part</span></div>
               <div class="toggle-row">
                 <button type="button" class="seg-btn is-active" id="btn-cutaway">Cutaway Drum</button>
-                <button type="button" class="seg-btn" id="btn-lid">Open Vault Lid</button>
                 <button type="button" class="seg-btn is-active" id="btn-ruler">171/179 Ruler</button>
                 <button type="button" class="seg-btn" id="btn-run">Pause Spin</button>
+                <button type="button" class="seg-btn" id="btn-tour-rail">Anatomy Tour</button>
               </div>
               <div class="range-row">
                 <div class="range-head">
@@ -142,7 +179,6 @@
                 </div>
                 <input id="sl-explode" type="range" min="0" max="100" value="0" />
               </div>
-              <button type="button" class="action-btn" id="btn-reset-batch">Reload Stratified 3-Origin Batch</button>
               <div style="font-size:11px;color:var(--muted);font-family:var(--mono)" id="physics-note"></div>
             </div>
           </aside>
@@ -154,17 +190,20 @@
         <div class="anatomy-wrap">
           <div class="anatomy-toolbar">
             <div>
-              <h2 style="margin:0;font-size:18px;">Mechanical Anatomy — 10 Sub-Assemblies</h2>
+              <h2 style="margin:0;font-size:18px;">Mechanical Anatomy — 11 Sub-Assemblies</h2>
               <div style="font-size:12px;color:var(--muted)">
-                Click any assembly on the isometric figure or list to inspect how parts carry load, lock, and reduce torque.
+                Click any assembly or step Next/Prev to inspect how parts carry load, lock, and reduce torque.
               </div>
             </div>
-            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+              <button type="button" class="action-btn secondary" id="btn-anat-prev">‹ Prev</button>
+              <button type="button" class="action-btn secondary" id="btn-anat-next">Next ›</button>
               <label style="display:flex;align-items:center;gap:8px;font-size:12px;font-family:var(--mono)">
                 Explode <span id="val-anat-explode" style="color:var(--gold)">0%</span>
-                <input id="sl-anat-explode" type="range" min="0" max="100" value="0" style="width:130px" />
+                <input id="sl-anat-explode" type="range" min="0" max="100" value="0" style="width:120px" />
               </label>
-              <button type="button" class="action-btn secondary" id="btn-anat-theme">Switch Light Paper</button>
+              <button type="button" class="action-btn secondary" id="btn-anat-anim">Pause Motion</button>
+              <button type="button" class="action-btn secondary" id="btn-anat-theme">Light Paper</button>
             </div>
           </div>
 
@@ -204,7 +243,7 @@
                 <li><strong style="color:var(--text)">Tilted Trunnion Cradle (+25° / -12°):</strong> Standing 179 cm upright is taller than your 171 cm height. Tilting on CoG trunnions puts loading at chest height and pours blended tobacco straight into a keranjang at -12°.</li>
                 <li><strong style="color:var(--text)">External Tire Bands + 4 Rollers:</strong> Supports 650 kg loaded drum externally so the thin ~2.5 mm steamer bottom does not tear off under bending load.</li>
                 <li><strong style="color:var(--text)">4 Curved Helical Scoops (Zero Blades):</strong> Gentle waterfall cascade blends Temanggung / Madura / Boyolali evenly without breaking dry rajangan strands into bubuk dust.</li>
-                <li><strong style="color:var(--text)">Swing-Davit + 8 Toggle Clamps on Tupperware Lid:</strong> Keeps the EPDM U-gasket aroma/dust seal tight under tumbling load, while one worker opens the 48 kg lid cleanly.</li>
+                <li><strong style="color:var(--text)">Vault Lid + Twist Sample Cap + 8 Clamps:</strong> Keeps the EPDM U-gasket seal tight under tumbling load, lets you sniff/check mid-mix via the 28 cm center cap, and opens effortlessly on a gas-strut davit.</li>
               </ul>
             </div>
 
@@ -217,7 +256,7 @@
                   <tr><td>Final Drive (12:1)</td><td>144T #60 sprocket ring welded/bolted to drum + 12T hardened pinion</td></tr>
                   <tr><td>Dual Gearbox (24:1 / 72:1)</td><td>Dog-clutch lockout + #50 chain stage + ratchet backstop pawl + 35 cm crank</td></tr>
                   <tr><td>Power Unit (Choose 1)</td><td>Electric 2.2 kW (3 HP) + WPWDX-100 1:10 OR Petrol GX160 + 1:6 wet clutch</td></tr>
-                  <tr><td>Vault Lid Hardware</td><td>EPDM U-channel edge seal + 8× GH-40341 toggle latches + 350N gas strut</td></tr>
+                  <tr><td>Vault Lid & Sample Cap</td><td>EPDM U-channel seal + 8× GH-40341 latches + 28 cm center twist cap + 350N strut</td></tr>
                 </tbody>
               </table>
             </div>

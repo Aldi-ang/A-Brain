@@ -1,7 +1,6 @@
 import { createServer } from "node:http";
 import { spawn } from "node:child_process";
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -113,7 +112,7 @@ const send = (method, params = {}) =>
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const evalJs = async (expr) => {
   const r = await send("Runtime.evaluate", { expression: expr, returnByValue: true, awaitPromise: true });
-  if (r.exceptionDetails) errors.push(r.exceptionDetails.text || "eval error");
+  if (r.exceptionDetails) errors.push(r.exceptionDetails.exception?.description || "eval error");
   return r.result?.value;
 };
 const shot = async (name) => {
@@ -127,77 +126,97 @@ try {
   await send("Runtime.enable");
   await send("Console.enable");
   await send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
-  await sleep(1800); // Let WebGL render & tobacco particles tumble
+  await sleep(1600);
 
-  const checkCanvas = await evalJs(`(() => {
-    const c = document.querySelector('#canvas-host canvas');
-    return c ? { w: c.width, h: c.height, rpm: document.getElementById('m-rpm')?.textContent, mix: document.getElementById('m-mix')?.textContent } : null;
-  })()`);
-  console.log("PC overview check:", checkCanvas);
+  // 1. Overview POV
   await shot("shot-pc-overview");
 
-  // 2. Switch to Human 1P Hand Crank + 72:1 Low + 300 kg batch
+  // 2. Inside Flights POV (realistic fibrous rajangan bed + glowing helical flights)
+  await evalJs(`document.querySelector('[data-cam="cutaway"]').click()`);
+  await sleep(1000);
+  await shot("shot-pov-flights");
+
+  // 3. Gearbox & Crank POV + 1P Hand Crank + 300kg + Tilt Wheel Jog buttons
   await evalJs(`(() => {
     document.querySelector('[data-batch="300"]').click();
     document.querySelector('[data-drive="human-1"]').click();
     document.querySelector('[data-cam="gearbox"]').click();
   })()`);
-  await sleep(1200);
-  const humanCheck = await evalJs(`({
-    rpm: document.getElementById('m-rpm')?.textContent,
-    force: document.getElementById('m-force')?.textContent,
-    status: document.getElementById('status-pill')?.textContent
-  })`);
-  console.log("Human 72:1 check:", humanCheck);
+  await sleep(1000);
+  const wheelTest = await evalJs(`(() => {
+    document.getElementById('btn-tilt-up').click();
+    const afterUp = document.getElementById('val-tilt')?.textContent;
+    document.getElementById('btn-tilt-down').click();
+    const afterDown = document.getElementById('val-tilt')?.textContent;
+    return { afterUp, afterDown, rpm: document.getElementById('m-rpm')?.textContent, force: document.getElementById('m-force')?.textContent };
+  })()`);
+  console.log("Gearbox + Tilt Wheel test:", wheelTest);
+  if (wheelTest.afterUp !== "30°" || wheelTest.afterDown !== "25°") errors.push("Tilt wheel jog failed");
   await shot("shot-pc-human-low");
 
-  // 3. Exploded + Open Lid + Dump -12 deg
+  // 4. Tupperware Lid & Sample Cap POV + Open Sample Cap!
   await evalJs(`(() => {
-    document.querySelector('[data-cam="unload"]').click();
-    document.querySelector('[data-tilt="-12"]').click();
-    const exp = document.getElementById('sl-explode');
-    exp.value = '65';
-    exp.dispatchEvent(new Event('input'));
+    document.querySelector('[data-cam="lid"]').click();
+    document.getElementById('btn-cap').click();
   })()`);
   await sleep(1000);
+  const capStatus = await evalJs(`document.getElementById('status-pill')?.textContent`);
+  console.log("Sample Cap status:", capStatus);
+  await shot("shot-pov-lid-cap");
+
+  // 5. Open Vault Lid + Keranjang Dump POV (-12° pouring into basket)
+  await evalJs(`(() => {
+    document.getElementById('btn-cap').click(); // close cap
+    document.querySelector('[data-drive="engine-electric"]').click();
+    document.querySelector('[data-cam="unload"]').click();
+  })()`);
+  await sleep(1400);
   await shot("shot-pc-exploded-dump");
 
-  // 4. Anatomy Dark + Explode 40%
+  // 6. 3D Anatomy Tour + Piece-by-Piece Card + Next/Isolate
   await evalJs(`(() => {
+    document.querySelector('[data-tilt="25"]').click();
+    document.getElementById('btn-lid').click();
+    document.getElementById('btn-tour-3d').click();
+    document.getElementById('pc-next').click(); // steps to 08 Sample Cap or next piece
+  })()`);
+  await sleep(1000);
+  const tourInfo = await evalJs(`({
+    visible: !document.getElementById('piece-card')?.hidden,
+    title: document.getElementById('pc-title')?.textContent,
+    explode: document.getElementById('val-explode')?.textContent
+  })`);
+  console.log("3D Anatomy Tour test:", tourInfo);
+  if (!tourInfo.visible) errors.push("3D Anatomy piece card failed to open");
+  await shot("shot-3d-anatomy-tour");
+
+  // 7. Test 1P Pedal Drive mode + Anatomy Tab + Light Theme + BOM Matrix
+  await evalJs(`(() => {
+    document.getElementById('pc-close').click();
+    document.querySelector('[data-drive="human-pedal"]').click();
     document.querySelector('[data-tab="anatomy"]').click();
-    const ae = document.getElementById('sl-anat-explode');
-    ae.value = '40';
-    ae.dispatchEvent(new Event('input'));
-    document.querySelector('[data-anat-row="06"]').click();
+    document.getElementById('btn-anat-next').click();
+    document.getElementById('btn-anat-theme').click();
   })()`);
   await sleep(500);
-  await shot("shot-pc-anatomy-dark");
-
-  // 5. Anatomy Light
-  await evalJs(`document.getElementById('btn-anat-theme').click()`);
-  await sleep(400);
   await shot("shot-pc-anatomy-light");
 
-  // 6. BOM & Physics Matrix
   await evalJs(`document.querySelector('[data-tab="bom"]').click()`);
-  await sleep(400);
-  await shot("shot-pc-bom");
+  await sleep(300);
+  const bomRows = await evalJs(`document.querySelectorAll('#matrix-body tr').length`);
+  console.log("BOM rows:", bomRows);
+  if (bomRows < 8) errors.push("BOM rows missing");
 
-  // 7. Mobile 390x844 check
+  // 8. Mobile 390x844 check
   await send("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
   await send("Emulation.setTouchEmulationEnabled", { enabled: true, maxTouchPoints: 5 });
   await sleep(250);
   await evalJs(`(() => {
-    const exp = document.getElementById('sl-explode');
-    exp.value = '0';
-    exp.dispatchEvent(new Event('input'));
-    document.querySelector('[data-tilt="25"]').click();
-    document.getElementById('btn-lid').click();
     document.querySelector('[data-drive="engine-electric"]').click();
     document.querySelector('[data-tab="sim3d"]').click();
     document.querySelector('[data-cam="overview"]').click();
   })()`);
-  await sleep(1200);
+  await sleep(1100);
   const mobileMetrics = await evalJs(`({
     innerW: window.innerWidth,
     scrollW: document.documentElement.scrollWidth,
@@ -206,7 +225,7 @@ try {
   console.log("Mobile 390 check:", mobileMetrics);
   await shot("shot-phone-sim");
 
-  // 8. Standalone single-file HTML via file:// (works offline without any server)
+  // 9. Standalone single-file HTML via file://
   const standaloneUrl = "file:///" + join(DIST, "tobacco-mixer-3d-standalone.html").replace(/\\/g, "/");
   await send("Page.navigate", { url: standaloneUrl });
   await sleep(1000);

@@ -1,6 +1,8 @@
 import { ANATOMY_CSS, ANATOMY_PARTS, buildAnatomySvg } from "./anatomy-builder.mjs";
-import { computeSimulationState, DRIVE_MODES, GEARS, MACHINE } from "./physics.mjs";
-import { createMixerSimulation } from "./sim3d.mjs";
+import { computeSimulationState, DRIVE_MODES } from "./physics.mjs";
+import { createMixerSimulation, PIECE_INFO } from "./sim3d.mjs";
+
+const PIECE_ORDER = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "human"];
 
 const appState = {
   tab: "sim3d",
@@ -12,11 +14,16 @@ const appState = {
   explode: 0,
   cutaway: true,
   lidOpen: false,
+  sampleCapOpen: false,
   showRuler: true,
   running: true,
   mixPct: 14,
+  activeCam: "overview",
+  tourActive: false,
+  isolateMode: true,
   anatomyTheme: "dark",
   anatomyExplode: 0,
+  anatomyAnimated: true,
   selectedPartId: null,
 };
 
@@ -39,15 +46,39 @@ tabBtns.forEach((btn) => {
   });
 });
 
+// Piece-by-Piece 3D Card Helpers
+const pieceCard = document.getElementById("piece-card");
+function showPieceCard(id) {
+  const info = PIECE_INFO[id];
+  if (!info) return;
+  appState.selectedPartId = id;
+  pieceCard.hidden = false;
+  document.getElementById("pc-badge").textContent =
+    id === "human" ? "SCALE 171 CM" : `PART ${id} / ${PIECE_ORDER.length - 1}`;
+  document.getElementById("pc-title").textContent = info.name;
+  document.getElementById("pc-indo").textContent = info.indo;
+  document.getElementById("pc-fn").textContent = info.fn;
+  document.getElementById("pc-spec").textContent = info.spec;
+  document.getElementById("pc-isolate").classList.toggle("is-active", appState.isolateMode);
+}
+
 // Mount 3D Simulator
 const canvasHost = document.getElementById("canvas-host");
-const partToast = document.getElementById("part-toast");
 const sim = createMixerSimulation(canvasHost, {
-  onPartSelect: (id, meta) => {
-    appState.selectedPartId = id;
-    if (meta && partToast) {
-      partToast.hidden = false;
-      partToast.innerHTML = `<strong>${id === "human" ? "171 cm" : "#" + id} · ${meta.name}</strong><span>${meta.desc}</span>`;
+  onPartSelect: (id) => showPieceCard(id),
+  onPartAction: (id) => {
+    // Real interactive 3D clicking on parts!
+    if (id === "08") {
+      appState.sampleCapOpen = !appState.sampleCapOpen;
+      updateControlButtons();
+      syncSimulation();
+    } else if (id === "07") {
+      appState.lidOpen = !appState.lidOpen;
+      updateControlButtons();
+      syncSimulation();
+    } else if (id === "03" && !appState.tourActive) {
+      const nextTilt = appState.tiltDeg < 10 ? 25 : appState.tiltDeg < 30 ? 32 : -12;
+      setTilt(nextTilt);
     }
   },
   onMetrics: ({ mixPct }) => {
@@ -56,6 +87,19 @@ const sim = createMixerSimulation(canvasHost, {
     if (el) el.textContent = `${mixPct}%`;
   },
 });
+
+function setTilt(deg) {
+  appState.tiltDeg = Math.max(-15, Math.min(35, deg));
+  document.getElementById("sl-tilt").value = String(appState.tiltDeg);
+  document.getElementById("val-tilt").textContent = `${appState.tiltDeg}°`;
+  document.getElementById("val-tilt-inline").textContent = `${appState.tiltDeg > 0 ? "+" : ""}${appState.tiltDeg}°`;
+  document.getElementById("wheel-icon").style.transform = `rotate(${appState.tiltDeg * 10}deg)`;
+  if (appState.tiltDeg < -5 && !appState.lidOpen) {
+    appState.lidOpen = true;
+  }
+  updateControlButtons();
+  syncSimulation();
+}
 
 function syncSimulation() {
   const simOut = computeSimulationState({
@@ -68,6 +112,7 @@ function syncSimulation() {
 
   sim.applyState({
     driveId: appState.driveId,
+    gearId: appState.gearId,
     drumRpm: simOut.drumRpm,
     gearRatio: simOut.gearRatio,
     tiltDeg: appState.tiltDeg,
@@ -75,13 +120,14 @@ function syncSimulation() {
     explode: appState.explode,
     cutaway: appState.cutaway,
     lidOpen: appState.lidOpen,
+    sampleCapOpen: appState.sampleCapOpen,
     showRuler: appState.showRuler,
     running: appState.running,
     stalled: simOut.stalled,
   });
 
-  // Update HUD metrics (tabular-nums)
-  document.getElementById("m-rpm").textContent = simOut.stalled ? "0.00" : simOut.drumRpm.toFixed(2);
+  const shownRpm = appState.lidOpen && !simOut.stalled ? Math.min(1.8, simOut.drumRpm) : simOut.drumRpm;
+  document.getElementById("m-rpm").textContent = simOut.stalled ? "0.00" : shownRpm.toFixed(2);
   document.getElementById("m-torque").textContent = `${Math.round(simOut.torqueTotalNm)} Nm`;
   document.getElementById("m-power").textContent = `${Math.round(simOut.inputPowerW)} W`;
   document.getElementById("m-fill").textContent = `${simOut.fillPct.toFixed(1)}%`;
@@ -98,14 +144,52 @@ function syncSimulation() {
   }
 
   const statusPill = document.getElementById("status-pill");
-  statusPill.textContent = simOut.stalled
-    ? simOut.statusText
-    : `${simOut.regime} · ${simOut.bubukRisk}`;
+  if (simOut.stalled) {
+    statusPill.textContent = simOut.statusText;
+  } else if (appState.lidOpen && appState.running && appState.tiltDeg >= -4) {
+    statusPill.textContent = "Door Interlock · Jog Capped @ 1.8 RPM";
+  } else if (appState.sampleCapOpen) {
+    statusPill.textContent = "Sample Cap Open · Aroma / Blend Check Ready";
+  } else {
+    statusPill.textContent = `${simOut.regime} · ${simOut.bubukRisk}`;
+  }
   statusPill.classList.toggle("is-stall", simOut.stalled);
 
   const etaText = simOut.estMixMinutes ? `~${simOut.estMixMinutes.toFixed(1)} min/batch` : "Stalled / Too Fast";
   document.getElementById("physics-note").textContent =
     `Critical Nc ${simOut.criticalRpm.toFixed(1)} RPM (${simOut.pctCritical.toFixed(0)}%) · Tip ${simOut.tipSpeedMs.toFixed(2)} m/s · Est. ${etaText}`;
+}
+
+function updateControlButtons() {
+  document.querySelectorAll("[data-drive]").forEach((b) =>
+    b.classList.toggle("is-active", b.dataset.drive === appState.driveId)
+  );
+  document.querySelectorAll("[data-gear]").forEach((b) =>
+    b.classList.toggle("is-active", b.dataset.gear === appState.gearId)
+  );
+  document.querySelectorAll("[data-batch]").forEach((b) =>
+    b.classList.toggle("is-active", Number(b.dataset.batch) === appState.batchKg)
+  );
+  document.querySelectorAll("[data-tilt]").forEach((b) =>
+    b.classList.toggle("is-active", Number(b.dataset.tilt) === appState.tiltDeg)
+  );
+  document.querySelectorAll("[data-cam]").forEach((b) =>
+    b.classList.toggle("is-active", !appState.tourActive && b.dataset.cam === appState.activeCam)
+  );
+
+  const btnCap = document.getElementById("btn-cap");
+  btnCap.classList.toggle("is-active", appState.sampleCapOpen);
+  btnCap.textContent = appState.sampleCapOpen ? "Close Sample Cap" : "Open Sample Cap";
+
+  const btnLid = document.getElementById("btn-lid");
+  btnLid.classList.toggle("is-active", appState.lidOpen);
+  btnLid.textContent = appState.lidOpen ? "Close & Latch Lid" : "Open Vault Lid";
+
+  document.getElementById("btn-cutaway").classList.toggle("is-active", appState.cutaway);
+  document.getElementById("btn-ruler").classList.toggle("is-active", appState.showRuler);
+  document.getElementById("btn-run").textContent = appState.running ? "Pause Spin" : "Run Spin";
+  document.getElementById("btn-tour-3d").classList.toggle("is-active", appState.tourActive);
+  document.getElementById("btn-tour-rail").classList.toggle("is-active", appState.tourActive);
 }
 
 // Drive mode buttons
@@ -133,76 +217,62 @@ document.querySelectorAll("[data-gear]").forEach((btn) => {
   });
 });
 
-// Batch presets
+// Batch presets & slider
 document.querySelectorAll("[data-batch]").forEach((btn) => {
   btn.addEventListener("click", () => {
     appState.batchKg = Number(btn.dataset.batch);
     document.getElementById("sl-batch").value = String(appState.batchKg);
     document.getElementById("val-batch").textContent = `${appState.batchKg} kg`;
     sim.resetTobaccoBatch(appState.batchKg);
+    updateControlButtons();
     syncSimulation();
   });
 });
 
-// Tilt presets
+document.getElementById("sl-batch").addEventListener("input", (e) => {
+  appState.batchKg = Number(e.target.value);
+  document.getElementById("val-batch").textContent = `${appState.batchKg} kg`;
+  updateControlButtons();
+  syncSimulation();
+});
+
+// Tilt wheel controls & presets
 document.querySelectorAll("[data-tilt]").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    appState.tiltDeg = Number(btn.dataset.tilt);
-    document.getElementById("sl-tilt").value = String(appState.tiltDeg);
-    document.getElementById("val-tilt").textContent = `${appState.tiltDeg}°`;
-    if (appState.tiltDeg < -5) {
-      appState.lidOpen = true;
-      updateControlButtons();
-    }
-    syncSimulation();
-  });
+  btn.addEventListener("click", () => setTilt(Number(btn.dataset.tilt)));
 });
+document.getElementById("btn-tilt-down").addEventListener("click", () => setTilt(appState.tiltDeg - 5));
+document.getElementById("btn-tilt-zero").addEventListener("click", () => setTilt(0));
+document.getElementById("btn-tilt-up").addEventListener("click", () => setTilt(appState.tiltDeg + 5));
+document.getElementById("sl-tilt").addEventListener("input", (e) => setTilt(Number(e.target.value)));
 
-function updateControlButtons() {
-  document.querySelectorAll("[data-drive]").forEach((b) =>
-    b.classList.toggle("is-active", b.dataset.drive === appState.driveId)
-  );
-  document.querySelectorAll("[data-gear]").forEach((b) =>
-    b.classList.toggle("is-active", b.dataset.gear === appState.gearId)
-  );
-  document.getElementById("btn-cutaway").classList.toggle("is-active", appState.cutaway);
-  document.getElementById("btn-lid").classList.toggle("is-active", appState.lidOpen);
-  document.getElementById("btn-ruler").classList.toggle("is-active", appState.showRuler);
-  document.getElementById("btn-run").textContent = appState.running ? "Pause Spin" : "Run Spin";
-}
-
-// Sliders
-const bindRange = (id, valId, suffix, onChange) => {
-  const el = document.getElementById(id);
-  el.addEventListener("input", () => {
-    const v = Number(el.value);
-    document.getElementById(valId).textContent = `${v}${suffix}`;
-    onChange(v);
-    syncSimulation();
-  });
-};
-
-bindRange("sl-batch", "val-batch", " kg", (v) => {
-  appState.batchKg = v;
-});
-bindRange("sl-tilt", "val-tilt", "°", (v) => {
-  appState.tiltDeg = v;
-});
-bindRange("sl-throttle", "val-throttle", "%", (v) => {
+// Throttle & Explode sliders
+document.getElementById("sl-throttle").addEventListener("input", (e) => {
+  const v = Number(e.target.value);
   appState.throttle = v / 100;
-});
-bindRange("sl-explode", "val-explode", "%", (v) => {
-  appState.explode = v / 100;
+  document.getElementById("val-throttle").textContent = `${v}%`;
+  syncSimulation();
 });
 
-// Toggles
-document.getElementById("btn-cutaway").addEventListener("click", () => {
-  appState.cutaway = !appState.cutaway;
+document.getElementById("sl-explode").addEventListener("input", (e) => {
+  const v = Number(e.target.value);
+  appState.explode = v / 100;
+  document.getElementById("val-explode").textContent = `${v}%`;
+  syncSimulation();
+});
+
+// Vault Door, Sample Cap, Cutaway, Ruler, Run, Reset
+document.getElementById("btn-cap").addEventListener("click", () => {
+  appState.sampleCapOpen = !appState.sampleCapOpen;
   updateControlButtons();
   syncSimulation();
 });
 document.getElementById("btn-lid").addEventListener("click", () => {
   appState.lidOpen = !appState.lidOpen;
+  updateControlButtons();
+  syncSimulation();
+});
+document.getElementById("btn-cutaway").addEventListener("click", () => {
+  appState.cutaway = !appState.cutaway;
   updateControlButtons();
   syncSimulation();
 });
@@ -220,13 +290,74 @@ document.getElementById("btn-reset-batch").addEventListener("click", () => {
   sim.resetTobaccoBatch(appState.batchKg);
 });
 
-// Camera presets
+// Camera POV presets (smooth animated glide + smart defaults)
 document.querySelectorAll("[data-cam]").forEach((btn) => {
-  btn.addEventListener("click", () => sim.setCameraPreset(btn.dataset.cam));
+  btn.addEventListener("click", () => {
+    appState.tourActive = false;
+    appState.activeCam = btn.dataset.cam;
+    sim.clearPartFocus();
+    pieceCard.hidden = true;
+    if (appState.activeCam === "cutaway" && !appState.cutaway) {
+      appState.cutaway = true;
+    }
+    if (appState.activeCam === "unload" && appState.tiltDeg > -5) {
+      setTilt(-12);
+    }
+    appState.showRuler = appState.activeCam === "overview";
+    sim.setCameraPreset(appState.activeCam);
+    updateControlButtons();
+    syncSimulation();
+  });
+});
+
+// 3D Anatomy Tour & Piece-by-Piece Stepper
+function startOrToggle3DTour() {
+  appState.tourActive = !appState.tourActive;
+  if (appState.tourActive) {
+    const startId = appState.selectedPartId || "07";
+    appState.explode = Math.max(0.45, appState.explode);
+    appState.showRuler = false;
+    document.getElementById("sl-explode").value = String(Math.round(appState.explode * 100));
+    document.getElementById("val-explode").textContent = `${Math.round(appState.explode * 100)}%`;
+    syncSimulation();
+    sim.focusPart(startId, { glideCamera: true, isolate: appState.isolateMode });
+  } else {
+    appState.explode = 0;
+    appState.showRuler = appState.activeCam === "overview";
+    document.getElementById("sl-explode").value = "0";
+    document.getElementById("val-explode").textContent = "0%";
+    sim.clearPartFocus();
+    pieceCard.hidden = true;
+    sim.setCameraPreset(appState.activeCam);
+    syncSimulation();
+  }
+  updateControlButtons();
+}
+
+document.getElementById("btn-tour-3d").addEventListener("click", startOrToggle3DTour);
+document.getElementById("btn-tour-rail").addEventListener("click", startOrToggle3DTour);
+
+function stepPiece(delta) {
+  const idx = Math.max(0, PIECE_ORDER.indexOf(appState.selectedPartId || "01"));
+  const nextId = PIECE_ORDER[(idx + delta + PIECE_ORDER.length) % PIECE_ORDER.length];
+  sim.focusPart(nextId, { glideCamera: true, isolate: appState.isolateMode });
+}
+document.getElementById("pc-prev").addEventListener("click", () => stepPiece(-1));
+document.getElementById("pc-next").addEventListener("click", () => stepPiece(1));
+document.getElementById("pc-isolate").addEventListener("click", () => {
+  appState.isolateMode = !appState.isolateMode;
+  if (appState.selectedPartId) sim.focusPart(appState.selectedPartId, { glideCamera: false, isolate: appState.isolateMode });
+  document.getElementById("pc-isolate").classList.toggle("is-active", appState.isolateMode);
+});
+document.getElementById("pc-close").addEventListener("click", () => {
+  appState.tourActive = false;
+  sim.clearPartFocus();
+  pieceCard.hidden = true;
+  updateControlButtons();
 });
 
 // =========================================================================
-// ANATOMY TAB RENDERER
+// ANATOMY TAB RENDERER (ANIMATED + PIECE-BY-PIECE)
 // =========================================================================
 function renderAnatomy() {
   const stage = document.getElementById("anatomy-plate-wrap");
@@ -234,6 +365,7 @@ function renderAnatomy() {
   const svgHtml = buildAnatomySvg({
     explode: appState.anatomyExplode,
     selectedPartId: appState.selectedPartId,
+    animated: appState.anatomyAnimated,
   });
   const simOut = computeSimulationState({
     driveId: appState.driveId,
@@ -292,16 +424,28 @@ function renderAnatomy() {
   });
 }
 
+function stepAnatomyPart(delta) {
+  const idx = ANATOMY_PARTS.findIndex((p) => p.id === appState.selectedPartId);
+  const next = idx < 0 ? 0 : (idx + delta + ANATOMY_PARTS.length) % ANATOMY_PARTS.length;
+  appState.selectedPartId = ANATOMY_PARTS[next].id;
+  renderAnatomy();
+}
+document.getElementById("btn-anat-prev").addEventListener("click", () => stepAnatomyPart(-1));
+document.getElementById("btn-anat-next").addEventListener("click", () => stepAnatomyPart(1));
+document.getElementById("btn-anat-anim").addEventListener("click", () => {
+  appState.anatomyAnimated = !appState.anatomyAnimated;
+  document.getElementById("btn-anat-anim").textContent = appState.anatomyAnimated ? "Pause Motion" : "Play Motion";
+  renderAnatomy();
+});
 document.getElementById("sl-anat-explode").addEventListener("input", (e) => {
   appState.anatomyExplode = Number(e.target.value) / 100;
   document.getElementById("val-anat-explode").textContent = `${e.target.value}%`;
   renderAnatomy();
 });
-
 document.getElementById("btn-anat-theme").addEventListener("click", () => {
   appState.anatomyTheme = appState.anatomyTheme === "dark" ? "light" : "dark";
   document.getElementById("btn-anat-theme").textContent =
-    appState.anatomyTheme === "dark" ? "Switch Light Paper" : "Switch Dark Blueprint";
+    appState.anatomyTheme === "dark" ? "Light Paper" : "Dark Blueprint";
   renderAnatomy();
 });
 

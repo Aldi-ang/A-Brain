@@ -13,7 +13,7 @@ export const ANATOMY_PARTS = [
     id: "02",
     name: "Twin A-Frame Trunnion Stanchions",
     indonesian: "Tiang Penyangga A-Frame + Pillow Block",
-    role: "Carries pivoting U-cradle at 135 cm pivot height (CoG height) so tilting requires minimal force.",
+    role: "Carries pivoting U-cradle at 154 cm pivot height (CoG height) so tilting requires minimal force.",
     spec: "Hollow 80x80x3 mm A-legs, 2x UCP-210 50 mm trunnion pillow-block bearings.",
     explode: [0, 14, -8],
   },
@@ -21,8 +21,8 @@ export const ANATOMY_PARTS = [
     id: "03",
     name: "Tilting U-Cradle & Worm Tilt Wheel",
     indonesian: "Rangka Ayun (Cradle) + Roda Kemiringan",
-    role: "Holds drum, rollers, and gearbox together at all angles (-18 deg unload to +35 deg deep mix).",
-    spec: "Curved I-beam / channel cradle ring + self-locking worm quadrant handwheel.",
+    role: "Holds drum, rollers, and gearbox together at all angles (-12 deg unload to +32 deg deep mix). Self-locking worm prevents sudden drops.",
+    spec: "Curved channel cradle ring + self-locking worm quadrant handwheel (click in 3D to tilt).",
     explode: [0, 18, 8],
   },
   {
@@ -52,13 +52,21 @@ export const ANATOMY_PARTS = [
   {
     id: "07",
     name: "181 cm Tupperware Vault Lid & Davit Hinge",
-    indonesian: "Tutup Vault Model Tupperware + Engsel Ayun",
-    role: "Full-area sealing lid with EPDM U-gasket locks out dust and preserves aroma; gas-strut davit lets 1 worker swing 48 kg lid effortlessly.",
+    indonesian: "Tutup Vault Model Tupperware + 8 Pengunci + Engsel Ayun",
+    role: "Full-area sealing lid with EPDM U-gasket locks out dust and aroma; 8 toggle latches pop open before the gas-strut davit swings the 48 kg door aside.",
     spec: "181 cm flanged lid + EPDM U-channel gasket + 8 over-center toggle clamps + swing-davit arm.",
     explode: [-26, -16, 32],
   },
   {
     id: "08",
+    name: "Center Twist-Lock Sample Inspection Cap",
+    indonesian: "Tutup Kecil Cek Sampel & Aroma (Tengah Pintu)",
+    role: "28 cm Tupperware-style twist cap right in the center of the main vault door. Lets grader check blend evenness & aroma without opening the 48 kg door.",
+    spec: "28 cm quick-twist quarter-turn collar + silicone O-ring + knurled T-handle + safety chain.",
+    explode: [-36, -24, 52],
+  },
+  {
+    id: "09",
     name: "144T Bolt-On Ring Gear & 12T Pinion",
     indonesian: "Roda Gigi Cincin 144T + Pinion 12T (12:1)",
     role: "12:1 final reduction around the 179 cm barrel cuts gearbox torque by 12x and keeps mesh aligned at any tilt angle.",
@@ -66,7 +74,7 @@ export const ANATOMY_PARTS = [
     explode: [26, 0, 12],
   },
   {
-    id: "09",
+    id: "10",
     name: "Dual-Drive Compound Gearbox & Ratchet",
     indonesian: "Gearbox 2-Kecepatan + Kopling Pemilih + Ratchet",
     role: "Dog-clutch locks out crank when engine runs; offers 24:1 Fast Manual (50 kg) and 72:1 Heavy Low (300 kg) with anti-kickback ratchet.",
@@ -74,30 +82,21 @@ export const ANATOMY_PARTS = [
     explode: [40, 14, 10],
   },
   {
-    id: "10",
-    name: "3 HP Engine Mount & 35 cm Human Crank",
-    indonesian: "Dudukan Mesin 3HP / GX160 + Engkol Manual",
-    role: "Swappable 2.2 kW electric motor (1:10 reducer) or GX160 5.5 HP petrol engine, plus 35 cm crank arm sized to Aldi's 171 cm reach.",
-    spec: "2.2 kW 4-pole motor (10.6 RPM drum) OR 35 cm ergonomic hand crank (4.6 kgf force in 72:1).",
+    id: "11",
+    name: "3 HP Engine / GX160 & 35 cm Crank / Pedal",
+    indonesian: "Dudukan Mesin 3HP / GX160 + Engkol & Pedal",
+    role: "Swappable 2.2 kW electric motor (1:10 reducer) or GX160 petrol engine, plus 35 cm hand crank or 180 W seated pedal module.",
+    spec: "2.2 kW 4-pole motor (10.6 RPM drum), 35 cm crank (4.6 kgf @ 72:1), or seated foot pedal.",
     explode: [54, 24, 6],
   },
 ];
 
-/**
- * Generates an audited 4-tone isometric Anatomy SVG (with dark/light CSS tokens)
- * showing the complete modified steamer-drum tobacco mixer + 171 cm scale post.
- * Painter order strictly back-to-front (+x = down-right near, +y = down-left near).
- */
-export function buildAnatomySvg({ explode = 0, selectedPartId = null } = {}) {
+export function buildAnatomySvg({ explode = 0, selectedPartId = null, animated = true } = {}) {
   const W = 700;
-  const H = 445;
+  const H = 450;
   const BASE = { x: -72, y: -56, w: 168, d: 132, r: 4 };
   const P = k.fitProjection(
-    [
-      ...k.boxCorners(BASE, -10, 134),
-      [-92, -62, 0],
-      [112, 92, 136],
-    ],
+    [...k.boxCorners(BASE, -10, 140), [-92, -62, 0], [112, 92, 142]],
     W,
     H,
     { pad: 22, azimuth: 42, elevation: 30 }
@@ -114,10 +113,10 @@ export function buildAnatomySvg({ explode = 0, selectedPartId = null } = {}) {
     const p = k.iso([ex, ey, ez], P);
     return `transform="translate(${(p[0] - o[0]).toFixed(2)} ${(p[1] - o[1]).toFixed(2)})"`;
   };
-  const wrap = (part, innerSvg) => {
+  const wrap = (part, innerSvg, extraClass = "") => {
     const isSel = selectedPartId === part.id;
     const isDim = selectedPartId && !isSel;
-    return `<g class="anat-part${isSel ? " is-selected" : ""}${isDim ? " is-dim" : ""}" data-part="${part.id}" ${shiftFor(part)}>${innerSvg}</g>`;
+    return `<g class="anat-part ${extraClass}${isSel ? " is-selected" : ""}${isDim ? " is-dim" : ""}" data-part="${part.id}" ${shiftFor(part)}>${innerSvg}</g>`;
   };
 
   // 01: Base skid & rubber feet
@@ -139,7 +138,6 @@ export function buildAnatomySvg({ explode = 0, selectedPartId = null } = {}) {
     return wrap(ANATOMY_PARTS[0], out.join(""));
   })();
 
-  // Back stanchion + rear thrust/rollers (behind drum at y = -48, x = -46)
   const p02Back = (() => {
     const out = [];
     out.push(S(k.slabOf({ x: -24, y: -51, w: 8, d: 8, r: 1 }, 6, 62, P, 4, 0.5), { tone: "mid" }));
@@ -160,7 +158,6 @@ export function buildAnatomySvg({ explode = 0, selectedPartId = null } = {}) {
     return wrap(ANATOMY_PARTS[3], out.join(""));
   })();
 
-  // 05: 179x179 cm Steamer Cylinder
   const DR = 44.75;
   const p05 = (() => {
     const out = [];
@@ -189,7 +186,7 @@ export function buildAnatomySvg({ explode = 0, selectedPartId = null } = {}) {
     return wrap(ANATOMY_PARTS[4], out.join(""));
   })();
 
-  // 06: Internal 4 Helical Lifting Flights (LIT!)
+  const [drumCx, drumCy] = at([0, 0, 104]);
   const p06 = (() => {
     const out = [];
     out.push(S(k.cylinder(0, 0, 5.5, 92, 22, P, 24), { tone: "lit", lit: true }));
@@ -207,17 +204,16 @@ export function buildAnatomySvg({ explode = 0, selectedPartId = null } = {}) {
       ];
       out.push(S(k.extrude(ring, 96, 17, P, { convex: true, bevel: 0.6 }), { tone: "lit", lit: true }));
     }
-    return wrap(ANATOMY_PARTS[5], out.join(""));
+    return wrap(ANATOMY_PARTS[5], `<g class="${animated ? "anat-bob" : ""}" style="--cx:${drumCx.toFixed(1)}px;--cy:${drumCy.toFixed(1)}px">${out.join("")}</g>`);
   })();
 
-  // 07: 181cm Tupperware Vault Lid + EPDM Gasket + 8 Toggle Clamps + Davit Arm
+  // 07: Vault Lid (hollow collar center for Sample Cap!)
   const p07 = (() => {
     const out = [];
     const LR = 46.2;
     out.push(S(k.cylinder(0, 0, LR + 0.6, 115.5, 2.2, P, 56), { tone: "lo" }));
     out.push(S(k.cylinder(0, 0, LR, 117.7, 3.8, P, 56, 0.9), { tone: "hi" }));
     out.push(S(k.cylinder(0, 0, LR * 0.72, 121.5, 3.2, P, 48, 0.8), { tone: "hi" }));
-    out.push(S(k.cylinder(0, 0, 10, 124.7, 2.6, P, 28, 0.5), { tone: "mid" }));
     for (let i = 0; i < 8; i++) {
       const a = (i / 8) * Math.PI * 2 + 0.2;
       const cx = (LR + 1.5) * Math.cos(a);
@@ -232,17 +228,27 @@ export function buildAnatomySvg({ explode = 0, selectedPartId = null } = {}) {
     return wrap(ANATOMY_PARTS[6], out.join(""));
   })();
 
-  // 08: 144T Bolt-On Ring Gear around barrel + 12T Pinion at +x (+53, 0)
-  const p08 = (() => {
+  // 08: Center Twist-Lock Sample Inspection Cap (LIT!)
+  const p08Cap = (() => {
+    const out = [];
+    out.push(S(k.cylinder(0, 0, 11.5, 124.7, 2.0, P, 32), { tone: "lo" })); // Silicone gasket collar
+    out.push(S(k.cylinder(0, 0, 10.2, 126.7, 3.2, P, 32, 0.7), { tone: "lit", lit: true }));
+    out.push(L(k.knurl(0, 0, 10.2, 126.7, 129.9, 24, P, 0.2), { tone: "hi" }));
+    out.push(S(k.slabOf({ x: -8, y: -2, w: 16, d: 4, r: 1.2 }, 129.9, 2.8, P, 3, 0.4), { tone: "lit", lit: true })); // T-handle
+    return wrap(ANATOMY_PARTS[7], `<g class="${animated ? "anat-cap-pulse" : ""}">${out.join("")}</g>`);
+  })();
+
+  // 09: Ring Gear & Pinion
+  const p09Gear = (() => {
     const out = [];
     out.push(S(k.cylinder(0, 0, 47.4, 49, 4.2, P, 64), { tone: "hi" }));
     out.push(L(k.knurl(0, 0, 47.4, 49, 53.2, 72, P, 0.2), { tone: "mid" }));
     out.push(S(k.cylinder(52.5, 0, 6.2, 48.5, 5.2, P, 24), { tone: "lit", lit: true }));
     out.push(L(k.knurl(52.5, 0, 6.2, 48.5, 53.7, 16, P, 0.2), { tone: "hi" }));
-    return wrap(ANATOMY_PARTS[7], out.join(""));
+    return wrap(ANATOMY_PARTS[8], out.join(""));
   })();
 
-  // 03: Front Cradle Beam + Tilt Handwheel at +y
+  // 03: Front Cradle + Tilt Wheel
   const p03 = (() => {
     const out = [];
     out.push(S(k.slabOf({ x: -50, y: 40, w: 102, d: 6, r: 1.5 }, 28, 8, P, 4, 0.6), { tone: "mid" }));
@@ -253,7 +259,7 @@ export function buildAnatomySvg({ explode = 0, selectedPartId = null } = {}) {
     return wrap(ANATOMY_PARTS[2], out.join(""));
   })();
 
-  // 02 Front: Front stanchion (+y = +48) + 171cm Aldi Scale Post (+y = +66)
+  // 02 Front + 171cm Aldi Pole
   const p02Front = (() => {
     const out = [];
     out.push(S(k.slabOf({ x: -24, y: 45, w: 8, d: 8, r: 1 }, 6, 62, P, 4, 0.5), { tone: "mid" }));
@@ -261,16 +267,15 @@ export function buildAnatomySvg({ explode = 0, selectedPartId = null } = {}) {
     out.push(S(k.slabOf({ x: -26, y: 44, w: 52, d: 10, r: 2 }, 66, 8, P, 4, 0.7), { tone: "mid" }));
     out.push(S(k.cylinder(0, 49, 6, 74, 4, P, 24), { tone: "hi" }));
     out.push(D([at([-16, 49, 74]), at([16, 49, 74])], { size: 0.55, tone: "hi" }));
-    // 171cm Aldi Human Scale Marker Post (front-left)
     out.push(S(k.cylinder(-32, 74, 7, 0, 2.5, P, 24), { tone: "lo" }));
-    out.push(S(k.cylinder(-32, 74, 1.8, 2.5, 83, P, 20), { tone: "mid", crease: "none" })); // 85.5 = 171cm
+    out.push(S(k.cylinder(-32, 74, 1.8, 2.5, 83, P, 20), { tone: "mid", crease: "none" }));
     out.push(S(k.cylinder(-32, 74, 4.8, 84.5, 1.6, P, 24), { tone: "lit", lit: true }));
     out.push(D([at([-32, 74, 86.1])], { size: 0.75, tone: "hi" }));
     return wrap(ANATOMY_PARTS[1], out.join(""));
   })();
 
-  // 09: Selector Dog-Clutch & 2-Speed Compound Chain Gearbox (front-right +x = 54..84)
-  const p09 = (() => {
+  // 10: Dual-Drive Gearbox
+  const p10Box = (() => {
     const out = [];
     const BOX = { x: 54, y: -16, w: 28, d: 32, r: 2.5 };
     out.push(
@@ -284,35 +289,35 @@ export function buildAnatomySvg({ explode = 0, selectedPartId = null } = {}) {
     out.push(S(k.cylinder(68, 0, 4.2, 70, 4.5, P, 24), { tone: "lit", lit: true }));
     out.push(L(k.knurl(68, 0, 4.2, 70, 74.5, 22, P), { tone: "lo" }));
     out.push(D(k.corners(BOX, 3).map(([x, y]) => at([x, y, 58])), { size: 0.45, tone: "hi" }));
-    return wrap(ANATOMY_PARTS[8], out.join(""));
+    return wrap(ANATOMY_PARTS[9], out.join(""));
   })();
 
-  // 10: 3HP Electric Motor (-y side of gearbox) + 35cm Human Hand Crank (+y side of gearbox)
-  const p10 = (() => {
+  // 11: Motor & Crank
+  const p11Drive = (() => {
     const out = [];
-    // Motor at (82, -26)
     out.push(S(k.cylinder(82, -24, 9, 34, 18, P, 28, 0.5), { tone: "hi" }));
     out.push(L(k.knurl(82, -24, 9, 36, 50, 28, P), { tone: "mid" }));
     out.push(S(k.cylinder(82, -24, 5.5, 52, 4, P, 24), { tone: "mid" }));
-    out.push(k.wireSvg(at([82, -15, 42]), at([76, -10, 42]), { tone: "mid", size: 1.3 }));
-    // Ergonomic 35cm Human Hand Crank at (78, +22..+40)
+    out.push(k.wireSvg(at([82, -15, 42]), at([76, -10, 42]), { tone: "mid", size: 1.3, flow: animated }));
     out.push(S(k.cylinder(78, 18, 2.2, 42, 4, P, 18), { tone: "hi" }));
     out.push(S(k.slabOf({ x: 76, y: 18, w: 4, d: 20, r: 1.5 }, 42, 3.2, P, 3), { tone: "lit", lit: true }));
     out.push(S(k.cylinder(78, 36, 2.4, 45.2, 10, P, 20), { tone: "lit", lit: true }));
     out.push(L(k.knurl(78, 36, 2.4, 46, 54, 16, P), { tone: "lo" }));
-    return wrap(ANATOMY_PARTS[9], out.join(""));
+    return wrap(ANATOMY_PARTS[10], out.join(""));
   })();
 
-  const body = [p01, p02Back, p04, p05, p06, p08, p03, p02Front, p09, p10, p07];
+  const body = [p01, p02Back, p04, p05, p06, p09Gear, p03, p02Front, p10Box, p11Drive, p07, p08Cap];
   return k.figureSvg({
     width: W,
     height: H,
-    label: "Isometric Anatomy cutaway of the 179x179cm Baglog Steamer Tobacco Mixer with dual-drive gearbox and 171cm scale gauge",
+    label: "Animated Isometric Anatomy cutaway of the 179x179cm Baglog Steamer Tobacco Mixer",
     body,
   });
 }
 
-export const ANATOMY_CSS = k.ISO_CSS + `
+export const ANATOMY_CSS =
+  k.ISO_CSS +
+  `
 .iso{
   --anatomy-card:#15181e;--anatomy-page:#0f1115;--anatomy-lit:#d99b38;
   --anatomy-lit-top:#3a2c18;--anatomy-lit-shade:#292014;
@@ -323,7 +328,12 @@ export const ANATOMY_CSS = k.ISO_CSS + `
   --anatomy-hi:#1f242c;--anatomy-mid:#5b6472;--anatomy-lo:#949ca8;--anatomy-faint:#d4d8df;
   --anatomy-halo:#cbd0d8;
 }
-.anat-part{cursor:pointer;transition:opacity 180ms ease,transform 380ms cubic-bezier(.32,.72,0,1)}
-.anat-part.is-dim{opacity:.28}
+.anat-part{cursor:pointer;transition:opacity 200ms ease,transform 420ms cubic-bezier(.32,.72,0,1)}
+.anat-part.is-dim{opacity:.25}
 .anat-part.is-selected .iso-edge{stroke:#e5a93c!important;stroke-width:1.4px!important}
+@keyframes anatBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes anatCap{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.anat-bob{animation:anatBob 2.8s ease-in-out infinite}
+.anat-cap-pulse{animation:anatCap 3.2s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.anat-bob,.anat-cap-pulse{animation:none}}
 `;
