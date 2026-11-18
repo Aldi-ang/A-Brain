@@ -2,7 +2,7 @@
 
 - **Agent Name:** Nolan
 - **Account:** `adikaryasukses99@gmail.com`
-- **Last Updated:** 2026-11-18T03:26:34.875Z
+- **Last Updated:** 2026-11-18T03:27:43.898Z
 - **Repository:** `Aldi-ang/A-Brain` (`main`)
 
 ## 📊 Live Warehouse & Profit Snapshot
@@ -13,18 +13,19 @@
 - **Total Finished Serials:** 7 seri (Accepted: 4, Rejected: 1)
 - **Projected Factory Profit (Accepted):** Rp 6.562.485
 
-## 🎯 Learned Blending Rules & Heuristics (11)
-1. Input pembelian mentah wajib mencantumkan berat bersih dan HPP riil sebelum divalidasi ke dalam stok.
-2. Setiap entri pembelian mentah wajib mencantumkan berat bersih dan HPP riil untuk validasi profitabilitas.
-3. Setiap input pembelian wajib menyertakan berat bersih dan HPP riil guna memastikan validasi margin profit pabrik.
-4. Setiap entri pembelian harus menyertakan berat bersih dan HPP riil untuk memastikan validasi margin profit yang akurat.
-5. Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.
-6. Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.
-7. Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.
-8. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
-9. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
-10. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
-11. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
+## 🎯 Learned Blending Rules & Heuristics (12)
+1. Setiap entri pembelian wajib menyertakan berat bersih dan HPP riil untuk validasi profitabilitas yang akurat.
+2. Input pembelian mentah wajib mencantumkan berat bersih dan HPP riil sebelum divalidasi ke dalam stok.
+3. Setiap entri pembelian mentah wajib mencantumkan berat bersih dan HPP riil untuk validasi profitabilitas.
+4. Setiap input pembelian wajib menyertakan berat bersih dan HPP riil guna memastikan validasi margin profit pabrik.
+5. Setiap entri pembelian harus menyertakan berat bersih dan HPP riil untuk memastikan validasi margin profit yang akurat.
+6. Setiap entri pembelian mentah wajib menyertakan berat bersih dan HPP riil untuk akurasi kalkulasi margin keuntungan.
+7. Data pembelian mentah wajib dilengkapi berat bersih dan HPP akurat sebelum validasi stok.
+8. Setiap pembelian wajib mencatat berat bersih aktual dan HPP per kg untuk validasi margin profit.
+9. Utamakan bahan dengan Sisa Stok Gudang (currentStockNetKg) yang cukup dan HPP Bersih/kg (realCostPerNetKg) efisien agar margin profit pabrik > 22%.
+10. Perhitungkan selalu Fee Perantara (Netto × Fee/KG) sebagai tambahan modal dalam HPP dasar setiap bahan mentah.
+11. Seimbangkan tembakau berkarakter Power/Impact kuat (Temanggung/Muntilan) dengan tembakau ber-Sugar/Burn halus (Garut/Madura/Paiton) sesuai selera pabrik tujuan.
+12. Prioritaskan pemanfaatan stok yang memberi Weight Profit (selisih Netto Riil vs Netto Nota) tinggi untuk mendongkrak keuntungan timbangan.
 
 ## 🏭 Factory Profiles & Preferences
 ### CELLO MUNTILAN
@@ -56,6 +57,8 @@
 - **Notes:** Siap menerima pengiriman gulungan sampel baru.
 
 ## 📜 Recent Decision & Learning Episodes
+- **[2026-11-18] (RAW_PURCHASE)** Stok Mentah Baru: MTL Tes Merah (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
+  - *Takeaway:* Data pembelian mentah yang tidak lengkap (berat/HPP nol) menghambat validasi margin profit dan akurasi stok pabrik.
 - **[2026-11-18] (RAW_PURCHASE)** Stok Mentah Baru: MTL Tes Merah (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
   - *Takeaway:* Input pembelian mentah tanpa berat bersih dan HPP akurat merusak validitas kalkulasi profitabilitas pabrik.
 - **[2026-11-18] (RAW_PURCHASE)** Stok Mentah Baru: MTL Tes Merah (Belum Diisi) [Grade D] • Netto 0 kg • HPP Rp 0/kg
