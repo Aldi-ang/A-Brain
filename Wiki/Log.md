@@ -12,6 +12,9 @@ tags: [log, meta]
 Append-only. A long gap here is an honest signal the wiki may be going stale — see
 `PLAN-second-brain-integration.md`'s Trade-offs section.
 
+## 2026-11-18 15:18 — tobacco-mixer-3d v4.2: fixed HiDPI canvas overflow covering right control-rail panel
+Root cause of right panel disappearing only when 3D model rendered: `renderer.setSize(w, h, false)` on Windows `125%–200%` display scaling set `<canvas>` pixel attributes (`w * DPR`) without setting CSS `style.width`/`height`, so the `<canvas>` expanded `1.25x–2x` wider than `.stage-col` and covered `.control-rail`. Fixed with `renderer.setSize(w, h, true)`, `#canvas-host canvas { width: 100% !important; height: 100% !important; }`, `overflow: hidden` on `.stage-col`, `.control-rail { z-index: 25; width: clamp(275px, 31vw, 350px); }`, and `@media (max-width: 680px)` breakpoint. Added automated `1.5x` HiDPI overlap check in `verify-render.mjs` (`canvasRight: 1090 == railLeft: 1090`).
+
 ## 2026-11-18 15:05 — tobacco-mixer-3d v4.1: cache-busted IIFE bundle, WebGL fallback & loading guard live
 Fixed blank canvas / stuck placeholder telemetry (`10.56` + `Optimal Cascading · Safe`) caused by stale un-hashed `bundle.js` caching / `type="module"` or embedded-webview WebGL failure. Switched `build.mjs` to content-hashed IIFE assets (`bundle.0c5f5b81.js`, `styles.4fee8e1c.css`) + `dist/_headers` (`must-revalidate` HTML, immutable hashed assets), added visible `#stage-status` loading/error overlay, `createSafeRenderer()` conservative WebGL fallback + guarded `PMREMGenerator` / `ctx.roundRect`, and dropped bed canvas texture to `1024×1024` for fast startup. Deployed live to Netlify (`6afd5c12f1f3f09cd0adb1e5`, 5 header rules + 4 files verified live).
 

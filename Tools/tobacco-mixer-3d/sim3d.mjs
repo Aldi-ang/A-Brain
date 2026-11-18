@@ -1945,7 +1945,7 @@ export function createMixerSimulation(
     camera.aspect = aspect;
     camera.fov = aspect < 1 ? Math.min(62, 42 / Math.max(0.68, aspect)) : 42;
     camera.updateProjectionMatrix();
-    renderer.setSize(w, h, false);
+    renderer.setSize(w, h, true);
   }
   const ro = new ResizeObserver(resize);
   ro.observe(container);

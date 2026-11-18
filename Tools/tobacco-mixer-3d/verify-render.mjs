@@ -125,8 +125,25 @@ const shot = async (name) => {
 try {
   await send("Runtime.enable");
   await send("Console.enable");
-  await send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  await send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1.5, mobile: false });
   await sleep(1600);
+
+  // Verify HiDPI (150% Windows scale) canvas NEVER overflows over right control rail!
+  const layoutCheck = await evalJs(`(() => {
+    const c = document.querySelector('#canvas-host canvas')?.getBoundingClientRect();
+    const r = document.querySelector('.control-rail')?.getBoundingClientRect();
+    return {
+      canvasRight: Math.round(c?.right || 0),
+      railLeft: Math.round(r?.left || 0),
+      railRight: Math.round(r?.right || 0),
+      railWidth: Math.round(r?.width || 0),
+      innerW: window.innerWidth
+    };
+  })()`);
+  console.log("HiDPI 1.5x Layout & Right Panel check:", layoutCheck);
+  if (!layoutCheck || layoutCheck.canvasRight > layoutCheck.railLeft + 1 || layoutCheck.railWidth < 260) {
+    errors.push("Canvas overflowed or hid the right control-rail panel on HiDPI!");
+  }
 
   // 1. Overview POV + real 3D hover & press test
   await shot("shot-pc-overview");
