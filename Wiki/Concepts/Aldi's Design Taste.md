@@ -3860,3 +3860,11 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 - The playable Reports picture (https://claude.ai/artifact/S11MofDxEps7oMtX6GRoJq, kpm `.claude/drafts/reports-live.html`) is APPROVED as the look: one dense KPI strip, ledger by day, receipt in hand, rolling digits, self-drawing check, built-in confirm boxes, owner/regional/salesman views. "More professional and minimalistic but contained a lot of information" = many facts, few words, each fact in its own small cell.
 - **Never show profit / cuan / margin anywhere.** The app keeps no real cost price, so a profit number is invented. The money word on report screens is **Omset** (his word). The old screen's "Net Profit (Cuan)" tile goes.
 - A redesign is not allowed to lose anything: every element of the old ("game version") screen must still be reachable - checked against Antigravity's element map (Task 24) before showing him.
+
+## 2026-11-18 - Customers: a concept that hides features reads as "lacking"
+
+> *"well its not that i dont like the first design u bring but it is just untidy, in this one all 3 options looks like all are lacking of information unlike the first one, well i want u to show all the features on that UI so that u can show me each of the option are not lacking of that information for example even the GPS or Google strettview and competitor intelligence not even shown there"*
+
+- Layout options must be drawn FULL: every feature of the current screen visible in each option (GPS, Street View, competitor prices, approvals, admin tools, edit form). A thin sketch is judged as a thin design, not as a layout idea.
+- "Untidy" (his word for the first Customers picture) is about too much in one view at once, not about too much information. He wants the information kept, arranged better.
+- Board v2 with a feature checklist per option: https://claude.ai/artifact/LMBj8wJEqRe5ryrpqe5F3N
