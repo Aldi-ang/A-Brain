@@ -150,6 +150,13 @@ database, visible whenever anyone pulls the archive.
 **Downgraded from HIGH** because the receivables screen is fed the same 7-day list, so the old
 debt is not sitting visibly on Budi's screen — it is wrong in the data, not on the page.
 
+**2026-11-18, seen on screen (lab frames `Raw/2026-11-18-receivables/`):** that "mitigation" is itself the
+bigger bug. Receivables (`debtData`) is built from the same 7-day feed (`src/hooks/useDatabaseSync.js:88`),
+so every Titip note older than 7 days is MISSING from the screen: the demo's 8 shops / Rp 9.120.000 show
+as 6 / Rp 4.880.000, and a 7-day-tempo note can never reach Overdue (to be overdue it must be 8+ days
+old, and then it is not loaded). Owners never see the debts they most need to chase. Antigravity Task 60
+maps every reader + 3 fix options; decision goes to Aldi.
+
 **Smallest fix:** query the collection directly inside the handler. The unbounded fetch helper
 already exists (`useDatabaseSync.js:147`).
 
