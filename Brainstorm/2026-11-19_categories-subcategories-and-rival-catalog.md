@@ -1,6 +1,6 @@
 ---
 date: 2026-11-19
-status: OPEN — waiting on Aldi
+status: DECIDED 2026-11-19 08:25 (pictures next)
 confidence: medium
 checked: 2026-11-19 (permissions.js tiers, MerchantSalesView.jsx:1690 category list, StockOpnameView.jsx:950 product fields)
 ---
@@ -72,3 +72,4 @@ Models applied (this section): Second-Order Thinking (an unapproved report must 
 - Approval: T4 approves salesman reports for his own region; T3 and above can approve any region.
 - A report with a different price: the approver chooses "Update the region price" or "Keep as a note only".
 - Still OPEN: two fixed levels (Category › Sub) + one list shared by our products and rivals.
+- 08:25 DECIDED: *"well just add features to have 2 options add to the existing category or add new category for that competitor products"* -> one list shared by our products and rivals; adding a rival product (or approving a salesman's "new product" report) offers "Add to an existing category" or "Add a new category". A category made from the competitor side shows in Master Vault tagged "competitors only · 0 of ours". Two levels (Category › Sub) kept. Status: DECIDED - pictures with Antigravity (Tasks 76-78).
