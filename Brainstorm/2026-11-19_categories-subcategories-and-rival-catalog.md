@@ -49,3 +49,17 @@ OPEN — waiting on Aldi. Claude recommends A + shared list + cross-category all
 - B (unlimited tree): nobody needs level 3; flips if a tenant shows one.
 
 Models applied: Second-Order Thinking (who stops logging prices), Reversibility Test (keep writing `type` during the change-over), Opportunity Cost (Master Vault first, Customers after).
+
+## 2026-11-19 07:11 - his new direction: Competitors becomes its own screen
+
+> *"i dont think that our competitor will give different price for each of their retailer, they may also set their price according to the customer type so this way i think that we make the competitor segment as its own segment and the competitor inside each of the stores is just some comparison, data taken from the competitor own segment just to see if that product is perform the best in that stores compare to other, all the option to see competitor as a whole, adding or seeing all the competitors just available inside the competitor segment this should be outside of each stores for the main global competitor one, but there should be some different what tier 3 and tier 4 can see, tier 4 can only see the price difference within his own region because some region might have different price for the competitor price while the tier 3 and above as default can see all of the prices between region for our competitors, yea wel salesman should give us information towards the product to the admin through the app and admin approve and add it to global competitor screen"*
+
+Design that follows (pictures = Antigravity Tasks 78 + 76):
+- **Competitors screen (global, outside the shops)**: rival products by Category › Sub; a price per REGION x CUSTOMER TYPE; compare any of ours with any rival; manage the list; the approval queue.
+- **Shop tab**: read-only comparison using the region price for that shop's customer type, plus "how it sells here vs other shops in the region", plus "Report a rival" (goes to approval).
+- **Flow**: salesman reports -> admin (T4 for his region, T3+ anywhere) approves -> region price updated or kept as a note.
+- **Visibility**: T4 sees only his region's prices; T3 and above all regions (matrix default, changeable).
+- This replaces the earlier "admin current price per product" (one price) and the per-shop price log as the source of truth.
+
+Open questions: is "customer type" Retail / Grosir / Ecer? Who approves? Does approving overwrite the region price?
+Models applied (this section): Second-Order Thinking (an unapproved report must not move the comparison), Inversion (what if a T4 edits another region's price -> rules must stop it).
