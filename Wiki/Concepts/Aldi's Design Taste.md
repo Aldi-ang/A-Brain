@@ -3919,3 +3919,11 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 - A pending admin job must be visible from the LIST, not only inside the record: new (NOO) shops get their own mark so old and new shops never look alike.
 - He wants a second safety after confirm boxes: an Undo right after a delete.
 - On a product card he wants the stock as the main number and every price level, never a single price standing for all.
+
+## 2026-11-19 (11:53) - Pictures approved; every queue must explain itself
+
+> *"all good but what is this for tho?"* / *"make a better description for these so that the users now what is this confirmation not just no pic and also reword the Grosir? doesnt sounds professional there make sure all the features is available on phone as well"*
+
+- He approved Competitors, Customers C v7 and Master Vault v3 ("all good").
+- A queue or confirmation needs a one-line WHY under its title ("Nobody is in charge of these shops, so they get no visits..."). A short code like "no PIC" or a question-mark badge like "Grosir?" reads as unprofessional to him.
+- Feature parity on the phone is a standing ask: every PC action must be reachable on the phone too.
