@@ -3892,3 +3892,19 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 - Correction to the morning reading: "the user decides" meant the COMPANY decides the pairs, not each salesman on the spot. Free pairing was too loose for him.
 - Like-with-like is the rule: a rival is compared only with a Cello product in the same category. The picture makes a cross-category pair impossible, not just discouraged.
 - Keep it general: categories are data he adds, never a fixed cigarette list (the app is not only for cigarettes). Category names stay his (see the law on naming his trade's categories).
+
+## 2026-11-19 (09:55) - Review of the Competitors / Customers v5 / Master Vault pictures
+
+> *"make sure the segment button is clear because looks like it is similar with other button and too blend inside the UI that its hard to see those button if not pressed"*
+> *"i rather u add button and the panel of adding customer shows up infront of u and blur other"*
+> *"make the spacing better here because looks like all the panel just combined into one u can make some border or anything"*
+> *"make sure buttons little bit bigger especially for phone and outline it for easier and faster navigation"*
+> *"make sure its category can be expanded and retract, but retract on default because there will be so many products out there"*
+
+- Tabs drawn as plain text with an underline read as "not a button" to him. Segment controls need a visible outline on EVERY option, not only the selected one.
+- A form that is not the main job of a tab (Report a rival inside the shop tab) goes behind a button and opens as a front panel with the background blurred.
+- Panels must not touch: each block is its own bordered card with clear gaps. "Combined into one" = missing card edges and gaps.
+- Buttons: bigger (phone tap size) and always outlined.
+- Long lists that will grow (rival products by category) start collapsed.
+- He also caught that a picture tab named "Sales terminal" looks like a SECOND sales terminal - never reuse a real screen's name for a preview.
+- Native `<select>` dropdowns show the browser's blue highlight - breaks the palette law; use a searchable in-page picker.
