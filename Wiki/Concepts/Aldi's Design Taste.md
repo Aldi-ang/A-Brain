@@ -3908,3 +3908,14 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 - Long lists that will grow (rival products by category) start collapsed.
 - He also caught that a picture tab named "Sales terminal" looks like a SECOND sales terminal - never reuse a real screen's name for a preview.
 - Native `<select>` dropdowns show the browser's blue highlight - breaks the palette law; use a searchable in-page picker.
+
+## 2026-11-19 (11:00) - Competitors screen approved; NOO must shout; Undo; prices in full
+
+> *"competitor screen is good"*
+> *"make verify noo have better button visibility as i want the admin to realise if there is NOO verification to do, its hard to see and realise which of the new stores are NOO stores and old stores"*
+> *"other thing that we need on this app is undo button especially when doing accidental fatal pressing like deleting data"*
+> *"for master vault i just want the stock number to be visible and also show all the price level for that product not just the grosir one"*
+
+- A pending admin job must be visible from the LIST, not only inside the record: new (NOO) shops get their own mark so old and new shops never look alike.
+- He wants a second safety after confirm boxes: an Undo right after a delete.
+- On a product card he wants the stock as the main number and every price level, never a single price standing for all.
