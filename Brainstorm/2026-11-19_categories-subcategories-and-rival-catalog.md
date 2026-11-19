@@ -63,3 +63,12 @@ Design that follows (pictures = Antigravity Tasks 78 + 76):
 
 Open questions: is "customer type" Retail / Grosir / Ecer? Who approves? Does approving overwrite the region price?
 Models applied (this section): Second-Order Thinking (an unapproved report must not move the comparison), Inversion (what if a T4 edits another region's price -> rules must stop it).
+
+## DECISION (partial), 2026-11-19 08:03
+
+> *"answer 1 yes correct that is the customer type that i mean, salesman report approval is tier 4 job to do and tier 3 and above can approve any region, q3 choice B"*
+
+- Customer type = Retail / Grosir / Ecer (the price types the app already has).
+- Approval: T4 approves salesman reports for his own region; T3 and above can approve any region.
+- A report with a different price: the approver chooses "Update the region price" or "Keep as a note only".
+- Still OPEN: two fixed levels (Category › Sub) + one list shared by our products and rivals.
