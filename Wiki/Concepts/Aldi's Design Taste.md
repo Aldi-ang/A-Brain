@@ -3927,3 +3927,4 @@ Shown 5 Framer marketplace components (rolling digits, sliding tab marker, sprin
 - He approved Competitors, Customers C v7 and Master Vault v3 ("all good").
 - A queue or confirmation needs a one-line WHY under its title ("Nobody is in charge of these shops, so they get no visits..."). A short code like "no PIC" or a question-mark badge like "Grosir?" reads as unprofessional to him.
 - Feature parity on the phone is a standing ask: every PC action must be reachable on the phone too.
+- 2026-11-20: Quarantine picture (no chest, artifact Bn1mQv8w7KBroWVUcg2NQV) APPROVED - his words: *"this looks professional and its look fine make sure the animation is on point and u can use framer or 21dev to find the best animation for that"*. Motion polish is the next ask for approved pictures; must still survive Lite mode.
