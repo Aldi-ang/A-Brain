@@ -43,3 +43,13 @@ Proposal (Claude): per product = BASE UNIT (stock stored as whole base units) + 
 Trap: cigarettes keep Bks as the base so every stored stock number stays the same (Batang sits BELOW the base, samples only). Choosing Batang as base would multiply every old stock number by 16 = a data rewrite.
 Visual: two diagrams shown in chat (mind map + 4 example ladders: Cereal Box>Dus x12; Paper Lembar>Rim x500>Box x5; Pens Pcs>Lusin x12>Dus x10; Rokok Batang>Bks x16 (base)>Slop x10>Bal x20>Karton x4).
 OPEN question to Aldi: is a bigger unit's price set by itself (1 Lusin can be cheaper than 12 Pcs) or always the small price times the count?
+
+## ROUND 3 - 2026-11-21 (own price per packaging + company feature switches)
+His words: *"i want they to have their own pricing for each of their packaging. we are here to make everything customizable for the company, and for sampling do all products have sampling? is the sampling inside this app really necessary tho? what if there is some company that want to use our app but doesnt want sampling ... what if they also dont want hutang or consignment within their company all want cash how do we deal with those demands tho"*.
+DECIDED: every sellable packaging step has its OWN price per tier (Retail/Grosir/Ecer).
+Proposal (Claude): COMPANY FEATURE SWITCHES in company settings - Sampling, Hutang (credit), Consignment (titip), on/off per company. Off = menu hidden + saves refused by the rules (not only hidden - UI-Says-Yes-Server-Says-No) + reports skip it. KPM keeps all ON (nothing changes for him). Reuse the permission-matrix settings pattern, no new system.
+Sampling becomes optional and general: on a product, 'can be sampled' + which step is given (Batang for rokok, Pcs for others).
+Trap: switching OFF while money is open (unpaid hutang, unsold titip) would hide money owed. Claude: refuse the switch until settled.
+Order (Claude): feature switches BEFORE the packing ladder - a cash-only company with sampling off needs far less packing logic, so switches shrink the packing job.
+OPEN question to Aldi: open hutang when switching off - block until settled, or allow and keep a collect-only list?
+Models applied: Chesterton's Fence (sampling exists for the tobacco trade - keep it, make it optional), Second-Order Thinking (setoran/EOD read consignment), Opportunity Cost (order of the two jobs).
