@@ -36,3 +36,10 @@ OPEN — waiting on Aldi. Nothing built, nothing queued to Antigravity.
 Nothing yet. Claude leans A (same maths, new names); B only if a product truly needs 5+ levels or a different base unit per place.
 
 Models applied: Reversibility Test (data model), Second-Order Thinking (setoran / reports read the same numbers), Inversion (what breaks money if we change the ladder).
+
+## ROUND 2 - 2026-11-21 (his answer: fully customizable)
+His words: *"well no as default but i want the users or company to have their own steps ... cereal might only have packaging box and put it on bigger dus ... paper company might also sell their product on 1 rim = 500 papers or maybe some of them sell at per pieces or per lusin ... i want this to be fully customizable"*.
+Proposal (Claude): per product = BASE UNIT (stock stored as whole base units) + LADDER of any length (each step = name + how many of the step below) + SELLING UNITS (any step ticked 'can sell', own price per tier) + COMPANY TEMPLATES (Rokok / Kertas / Sereal; pick then edit).
+Trap: cigarettes keep Bks as the base so every stored stock number stays the same (Batang sits BELOW the base, samples only). Choosing Batang as base would multiply every old stock number by 16 = a data rewrite.
+Visual: two diagrams shown in chat (mind map + 4 example ladders: Cereal Box>Dus x12; Paper Lembar>Rim x500>Box x5; Pens Pcs>Lusin x12>Dus x10; Rokok Batang>Bks x16 (base)>Slop x10>Bal x20>Karton x4).
+OPEN question to Aldi: is a bigger unit's price set by itself (1 Lusin can be cheaper than 12 Pcs) or always the small price times the count?
