@@ -62,3 +62,9 @@ Options: (1) one shared Firebase project, companies split by bossUid (today's de
 Caveat: separate projects stop company A reading company B; they do NOT stop a rule bug exposing each company to strangers - the same rules file runs everywhere.
 Claude leans (2) for a few paying companies, ONLY with: one command that publishes rules to all projects, and the app choosing the Firebase config per company domain (generalise IS_DEMO in src/config/firebase.js).
 OPEN question to Aldi: how many companies in the next 12 months - under ~5 or many small ones?
+
+## ROUND 5 - 2026-11-21 (is one project per company a good idea?)
+His words: *"well i hope there is a lot of company that subscribe to me but i dont know how will this going bro so my idea for each company projects is good one?"*.
+Claude: YES for the first paying companies (trust + each pays its own bill + a leak cannot cross companies). Do NOT build anything for it until the 2nd company actually signs (no customer yet = no need). Build the 2 enablers when company #2 signs: one-command rules publish to every project, and the app choosing the Firebase project from its web address. Re-decide at ~10 companies (manual work per project grows; Google also limits how many projects one account can create - an increase can be requested).
+DECISION: one Firebase project per company - LEANING YES, nothing built until company #2 signs.
+Models applied: Reversibility Test, Preserving Optionality, Opportunity Cost (no second company yet).
