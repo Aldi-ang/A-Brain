@@ -53,3 +53,12 @@ Trap: switching OFF while money is open (unpaid hutang, unsold titip) would hide
 Order (Claude): feature switches BEFORE the packing ladder - a cash-only company with sampling off needs far less packing logic, so switches shrink the packing job.
 OPEN question to Aldi: open hutang when switching off - block until settled, or allow and keep a collect-only list?
 Models applied: Chesterton's Fence (sampling exists for the tobacco trade - keep it, make it optional), Second-Order Thinking (setoran/EOD read consignment), Opportunity Cost (order of the two jobs).
+
+## ROUND 4 - 2026-11-21 (switch-off rule decided; one project per company?)
+His words: *"well easier when all debt is paid right but more flexibility when the option to deactivate the consignment doesnt allow new consignment transaction happening but can edit and collect the old one that one also fine i think, btw if there is another company want to use this app should i just copy and paste this app data and make a new firebase project just for that company so that each company doesnt share data or maybe just make another firebase account exclusive for each company if one security broken then other company will be save this way right"*.
+DECIDED (leaning flexible): switching a money module OFF blocks NEW transactions; old hutang/titip stay editable and collectable until settled.
+New company: NEVER copy KPM's data - a new company starts empty; only the CODE and the RULES are copied.
+Options: (1) one shared Firebase project, companies split by bossUid (today's design) - 1 publish, but a rules bug can cross companies, one bill; (2) one Firebase project per company (like the demo kpm-demo-f4d74 already is) - a leak stays inside one company, each company can pay its own bill, but every rules change must be published in EVERY project (Aldi pastes by hand today - Change 29 already needed 2 pastes) and each needs its own Vercel deploy/config.
+Caveat: separate projects stop company A reading company B; they do NOT stop a rule bug exposing each company to strangers - the same rules file runs everywhere.
+Claude leans (2) for a few paying companies, ONLY with: one command that publishes rules to all projects, and the app choosing the Firebase config per company domain (generalise IS_DEMO in src/config/firebase.js).
+OPEN question to Aldi: how many companies in the next 12 months - under ~5 or many small ones?
